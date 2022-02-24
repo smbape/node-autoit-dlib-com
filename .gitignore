@@ -1,0 +1,7 @@
+/autoit-dlib-*-com-v*.7z
+/node_modules
+/dlib-*
+/*.sublime-workspace
+BackUp
+generated
+*build_x64

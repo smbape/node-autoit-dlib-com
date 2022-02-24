@@ -1,0 +1,26 @@
+{
+    "dlib": {
+        "iid": "6da340df-3340-4528-9541-e8b2d01c51e2",
+        "clsid": "78e9bdb4-c82a-40d5-8786-55c1ead737b1"
+    },
+    "VectorOfVariant": {
+        "iid": "a4dd8496-bd68-43fb-9e5c-d62b74aa6523",
+        "clsid": "02edcce5-cb64-4dfe-99e6-2d0b3db82034"
+    },
+    "dlib::Matrix": {
+        "iid": "f1dfa1a2-5bc4-4b41-b4bc-19c6a1f88fa0",
+        "clsid": "6a87105e-277e-4a70-9003-9cf74c499530"
+    },
+    "VectorOfDouble": {
+        "iid": "5894cb47-bfaf-4c06-98d0-87b0495d23e1",
+        "clsid": "908eabab-d1d6-4c9e-8e29-8352743f092b"
+    },
+    "dlib::_row": {
+        "iid": "b08f3c94-fe77-4e28-bb48-e32a506d9b55",
+        "clsid": "2d34e789-f381-406d-883e-b8e3a971e61f"
+    },
+    "VectorOfVectorOfDouble": {
+        "iid": "a5abd90f-2d79-4b92-80e0-b3b7e5f61607",
+        "clsid": "390ea4a3-326a-407f-a532-c3c6171721f9"
+    }
+}
