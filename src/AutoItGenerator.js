@@ -16,7 +16,7 @@ const LF = "\n";
 
 const knwon_ids = require("./ids");
 const conversion = require("./conversion");
-const cusmt_conversions = require("./custom_conversions");
+const custom_conversions = require("./custom_conversions");
 
 const {
     SIMPLE_ARGTYPE_DEFAULTS,
@@ -50,6 +50,8 @@ class AutoItGenerator {
         this.namespaces = new Set();
 
         this.namespace = options.namespace;
+
+        this.options = options;
 
         for (const namespace of namespaces) {
             this.namespaces.add(namespace.split(".").join("::"));
@@ -199,13 +201,19 @@ class AutoItGenerator {
                 const is_external = modifiers.includes("/External");
 
                 let propname = idlname;
+                let rname, wname;
+
                 for (const modifier of modifiers) {
                     if (modifier[0] === "=") {
                         propname = modifier.slice(1);
+                    } else if (modifier.startsWith("/R=")) {
+                        rname = modifier.slice("/R=".length) + "()";
+                    } else if (modifier.startsWith("/W=")) {
+                        wname = modifier.slice("/W=".length);
                     }
                 }
 
-                const propval = `${ is_static ? `${ fqn }::` : "this->__self->get()->" }${ propname }`;
+                const obj = `${ is_static ? `${ fqn }::` : "this->__self->get()->" }`;
 
                 if (is_static || is_enum || modifiers.includes("/R") || modifiers.includes("/RW")) {
                     iidl.push(`[propget, id(${ id })] HRESULT ${ idlname }([out, retval] ${ propidltype }* pVal);`);
@@ -219,11 +227,7 @@ class AutoItGenerator {
                             }`.replace(/^ {28}/mg, "")
                         );
                     } else {
-                        const cvt = this.convertToIdl(
-                            type, propval,
-                            propidltype, "pVal",
-                            modifiers
-                        );
+                        const cvt = this.convertToIdl(type, `${ obj }${ rname ? rname : propname }`, propidltype, "pVal",modifiers);
 
                         impl.push(`
                             STDMETHODIMP C${ cotype }::get_${ idlname }(${ propidltype }* pVal) {
@@ -245,7 +249,7 @@ class AutoItGenerator {
                     iidl.push(`[propput, id(${ id })] HRESULT ${ idlname }([in] ${ idltype } newVal);`);
                     ipublic.push(`STDMETHOD(put_${ idlname })(${ idltype } newVal);`);
 
-                    const cvt = this.convertFromIdl(idltype, "newVal", type, propval);
+                    const cvt = this.convertFromIdl(idltype, "newVal", type, obj, propname, wname);
                     impl.push(`
                         STDMETHODIMP C${ cotype }::put_${ idlname }(${ idltype } newVal) {
                             ${ is_prop_test ? "// " : "" }${ is_static ? "" : `${ options.assert }(this->__self->get() != NULL)` };
@@ -420,6 +424,8 @@ class AutoItGenerator {
                         for (const modifier of arg_modifiers) {
                             if (modifier.startsWith("/Cast=")) {
                                 callarg = `${ modifier.slice("/Cast=".length) }(${ callarg })`;
+                            } else if (modifier.startsWith("/Expr=")) {
+                                callarg = modifier.slice("/Expr=".length).replace(/\$(?:0\b|\{0\})/g, callarg);
                             }
                         }
 
@@ -427,7 +433,7 @@ class AutoItGenerator {
                             callarg = `std::move(${ callarg })`;
                         }
 
-                        callargs[j] = this.callCast(argtype, callarg, coclass);
+                        callargs[j] = this.castAsEnumIfNeeded(argtype, callarg, coclass);
 
                         const is_vector = argtype.startsWith("vector_") || argtype.startsWith("VectorOf");
                         const has_ptr = is_ptr || cpptype.startsWith(`${ shared_ptr }<`);
@@ -572,7 +578,7 @@ class AutoItGenerator {
                             conditions[j] = `is_assignable_from(${ placeholder_name }, ${ in_val }, ${ is_optional })`;
                         }
 
-                        declarations[j] = `${ indent }${ cpptype } ${ placeholder_name }${ defval === "" ? "" : ` = ${ this.valueCast(argtype, defval, coclass) }` };`;
+                        declarations[j] = `${ indent }${ cpptype } ${ placeholder_name }${ defval === "" ? "" : ` = ${ this.castFromEnumIfNeeded(argtype, defval, coclass) }` };`;
                         conversions[j] = `\n${ cindent }${ is_method_test ? "// " : "" }${ cvt.join(`\n${ cindent }${ is_method_test ? "// " : "" }`) }`;
 
                         if (is_out) {
@@ -680,21 +686,32 @@ class AutoItGenerator {
                             }
                         }
 
-                        callee = `${ callee }->${ path[path.length - 1] }`;
-                    }
-
-                    let expr = `(${ callargs.concat(is_external ? ["hr"] : []).join(", ") })`;
-
-                    for (const modifier of func_modifiers) {
-                        if (modifier.startsWith("/Expr=")) {
-                            expr = modifier.slice("/Expr=".length);
+                        if (!is_external && callargs.length === 1 && /^operator[/*+-]$/.test(path[path.length - 1])) {
+                            const operator = path[path.length - 1].slice("operator".length);
+                            callee = `(*${ callee }) ${ operator } `;
+                        } else {
+                            callee = `${ callee }->${ path[path.length - 1] }`;
                         }
                     }
 
-                    callee = `${ callee }${ expr }`;
+                    let expr = `${ callargs.concat(is_external ? ["hr"] : []).join(", ") }`;
+
+                    for (const modifier of func_modifiers) {
+                        if (modifier.startsWith("/Expr=")) {
+                            expr = modifier.slice("/Expr=".length).replace(/\$(?:0\b|\{0\})/g, expr);
+                        }
+                    }
+
+                    callee = `${ callee }(${ expr })`;
 
                     if (is_constructor && !is_external) {
                         callee = `${ shared_ptr }<${ fqn }>(new ${ callee })`;
+                    }
+
+                    for (const modifier of func_modifiers) {
+                        if (modifier.startsWith("/WrapAs=")) {
+                            callee = `${ modifier.slice("/WrapAs=".length) }(${ callee })`;
+                        }
                     }
 
                     if (is_external) {
@@ -896,7 +913,7 @@ class AutoItGenerator {
                     impl.push(`
                         STDMETHODIMP C${ cotype }::${ fname }(${ implargs.join(", ") }) {
                             ${ body.join("\n").replace(/argument (\d+)/g, (match, j) => `argument ${ j }`).trim().split("\n").join(`\n${ " ".repeat(28) }`) }
-                            ${ maxargc !== 0 ? "printf(\"Overload resolution failed\\n\");" : "" }
+                            ${ maxargc !== 0 ? "fprintf(stderr, \"Overload resolution failed: in %s, file %s, line %d\\n\", AutoIt_Func, __FILE__, __LINE__); fflush(stdout); fflush(stderr);" : "" }
                             return hr;
                         }`.replace(/^ {24}/mg, "")
                     );
@@ -1196,7 +1213,7 @@ class AutoItGenerator {
             }
         }
 
-        const _conversions = cusmt_conversions.map(fn => fn([], [], options));
+        const _conversions = custom_conversions.map(fn => fn([], [], options));
 
         if (options.hdr !== false) {
             files.set(sysPath.join(options.output, "generated_include.h"), generated_include.join("\n").trim().replace(/[^\S\n]+$/mg, "") + LF);
@@ -1718,9 +1735,11 @@ class AutoItGenerator {
 
         const fqn = cpptype
             .replace(/std::vector/g, "VectorOf")
+            .replace(/std::pair/g, "PairOf")
             .replace(/\w+::/g, "")
             .replace("_variant_t", "Variant")
             .replace(/\b[a-z]/g, m => m.toUpperCase())
+            .replace(/, /g, "And")
             .replace(/[<>]/g, "");
 
         if (this.classes.has(fqn)) {
@@ -1831,6 +1850,13 @@ class AutoItGenerator {
             if (!this.classes.has(prefix)) {
                 this.classes.set(prefix, new CoClass(prefix));
 
+                if (typeof this.options.progid === "function") {
+                    const progid = this.options.progid(this.classes.get(prefix).progid);
+                    if (progid) {
+                        this.classes.get(prefix).progid = progid;
+                    }
+                }
+
                 for (let j = i; j >= 0; j--) {
                     const namespace = path.slice(0, j + 1).join("::");
                     if (this.namespaces.has(namespace)) {
@@ -1852,6 +1878,8 @@ class AutoItGenerator {
 
     isNativeType(type) {
         switch (type) {
+            case "bool":
+            case "BOOL":
             case "char":
             case "uchar":
             case "BYTE":
@@ -1906,16 +1934,23 @@ class AutoItGenerator {
         return set_hr ? `hr = ${ cvt }` : `return ${ cvt }`;
     }
 
-    convertFromIdl(in_type, in_val, out_type, out_val) {
+    convertFromIdl(in_type, in_val, out_type, obj, propname, setter) {
         if (in_type.toLowerCase() === out_type.toLowerCase()) {
-            return `${ out_val } = ${ in_val };\nreturn S_OK;`;
+            const assignation = setter ? `${ obj }${ setter }(${ in_val })` : `${ obj }${ propname } = ${ in_val }`;
+            return `${ assignation };\nreturn S_OK;`
         }
 
         if (this.isNativeType(in_type) && this.isNativeType(out_type)) {
-            return `${ out_val } = static_cast<${ out_type }>(${ in_val });\nreturn S_OK;`;
+            in_val = `static_cast<${ out_type }>(${ in_val })`;
+            const assignation = setter ? `${ obj }${ setter }(${ in_val })` : `${ obj }${ propname } = ${ in_val }`;
+            return `${ assignation };\nreturn S_OK;`
         }
 
-        return `return autoit_to(${ in_val }, ${ out_val });`;
+        if (setter) {
+            return `${ out_type } out_val;\nHRESULT hr = autoit_to(${ in_val }, out_val);\n${ obj }${ setter }(out_val);\nreturn hr;`;
+        }
+
+        return `return autoit_to(${ in_val }, ${ obj }${ propname });`;
     }
 
     getIDLType(type, coclass, options) {
@@ -1955,6 +1990,15 @@ class AutoItGenerator {
             return "VARIANT";
         }
 
+        if (type.startsWith("pair_")) {
+            const types = type.slice("pair_".length).split("_and_");
+            // Add dependency
+            for (const itype of types) {
+                this.getIDLType(itype, coclass, options);
+            }
+            return "VARIANT";
+        }
+
         for (const fqn of this.getTypes(type, coclass)) {
             if (this.enums.has(fqn)) {
                 const pos = fqn.lastIndexOf("::");
@@ -1962,7 +2006,7 @@ class AutoItGenerator {
                 return "LONG";
             }
 
-            if (PTR.has(fqn) || /^cv::(?:Point|Rect|Scalar|Size|Vec)(?:\d[bdfisw])?$/.test(fqn)) {
+            if (PTR.has(fqn) || options.variantTypeReg && options.variantTypeReg.test(fqn)) {
                 return "VARIANT";
             }
 
@@ -2003,6 +2047,11 @@ class AutoItGenerator {
             return `std::tuple<${ types.map(itype => this.getCppType(itype, coclass, options)).join(", ") }>`;
         }
 
+        if (type.startsWith("pair_")) {
+            const types = type.slice("pair_".length).split("_and_");
+            return `std::pair<${ types.map(itype => this.getCppType(itype, coclass, options)).join(", ") }>`;
+        }
+
         if (type.startsWith("GArray_") || type.startsWith("GOpaque_")) {
             const pos = type.indexOf("_");
             return `cv::${ type.slice(0, pos) }<${ this.getCppType(type.slice(pos + 1), coclass, options) }>`;
@@ -2026,10 +2075,10 @@ class AutoItGenerator {
             }
         }
 
-        return /^(?:Point|Rect|Scalar|Size|Vec)(?:\d[bdfisw])?$/.test(type) ? `${ this.namespace }::${ type }` : type;
+        return options.implicitNamespaceType && options.implicitNamespaceType.test(type) ? `${ this.namespace }::${ type }` : type;
     }
 
-    callCast(type, value, coclass) {
+    castAsEnumIfNeeded(type, value, coclass) {
         for (const fqn of this.getTypes(type, coclass)) {
             if (this.enums.has(fqn)) {
                 return `static_cast<${ fqn }>(${ value })`;
@@ -2039,7 +2088,7 @@ class AutoItGenerator {
         return value;
     }
 
-    valueCast(type, value, coclass) {
+    castFromEnumIfNeeded(type, value, coclass) {
         if (this.getTypes(type, coclass).some(fqn => this.enums.has(fqn))) {
             return `static_cast<int>(${ value })`;
         }

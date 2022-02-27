@@ -1,10 +1,6 @@
 #pragma once
 
-#include <dlib/matrix.h>
-#include <dlib/string.h>
-#include <vector>
-
-#include "./cvdef.h"
+#include "./basic.h"
 
 namespace dlib {
 #define mat_row _row
@@ -19,6 +15,4 @@ namespace dlib {
 		double* data;
 		long size;
 	};
-
-	typedef matrix<double> Matrix;
 }

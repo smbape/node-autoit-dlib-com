@@ -1,8 +1,61 @@
 #pragma once
 #pragma comment(lib, "comsuppw.lib")
 
+#ifdef AutoIt_Func
+// keep current value (through OpenCV port file)
+#elif defined __GNUC__ || (defined (__cpluscplus) && (__cpluscplus >= 201103))
+#define AutoIt_Func __func__
+#elif defined __clang__ && (__clang_minor__ * 100 + __clang_major__ >= 305)
+#define AutoIt_Func __func__
+#elif defined(__STDC_VERSION__) && (__STDC_VERSION >= 199901)
+#define AutoIt_Func __func__
+#elif defined _MSC_VER
+#define AutoIt_Func __FUNCTION__
+#elif defined(__INTEL_COMPILER) && (_INTEL_COMPILER >= 600)
+#define AutoIt_Func __FUNCTION__
+#elif defined __IBMCPP__ && __IBMCPP__ >=500
+#define AutoIt_Func __FUNCTION__
+#elif defined __BORLAND__ && (__BORLANDC__ >= 0x550)
+#define AutoIt_Func __FUNC__
+#else
+#define AutoIt_Func "<unknown>"
+#endif
+
+#ifndef AUTOIT_QUOTE_STRING2
+#define AUTOIT_QUOTE_STRING2(x) #x
+#endif
+#ifndef AUTOIT_QUOTE_STRING
+#define AUTOIT_QUOTE_STRING(x) AUTOIT_QUOTE_STRING2(x)
+#endif
+
+#ifndef AUTOIT_ASSERT_THROW
+#define AUTOIT_ASSERT_THROW( expr, msg ) do { if(!!(expr)) ; else { \
+fflush(stdout); fflush(stderr); \
+fprintf(stderr, "dlib(%s) Error: %s (%s) in %s, file %s, line %d\n", AUTOIT_QUOTE_STRING(DLIB_VERSION), msg, #expr, AutoIt_Func, __FILE__, __LINE__); \
+fflush(stdout); fflush(stderr); \
+throw std::exception(msg); } \
+} while(0)
+#endif
+
+#ifndef AUTOIT_ASSERT_SET_HR
+#define AUTOIT_ASSERT_SET_HR( expr ) do { if(!!(expr)) { hr = S_OK; } else { \
+fprintf(stderr, "dlib(%s) Error: (%s) in %s, file %s, line %d\n", AUTOIT_QUOTE_STRING(DLIB_VERSION), #expr, AutoIt_Func, __FILE__, __LINE__); \
+hr = E_FAIL; } \
+} while(0)
+#endif
+
+#ifndef AUTOIT_ASSERT
+#define AUTOIT_ASSERT( expr ) do { if(!!(expr)) ; else { \
+fflush(stdout); fflush(stderr); \
+fprintf(stderr, "dlib(%s) Error: (%s) in %s, file %s, line %d\n", AUTOIT_QUOTE_STRING(DLIB_VERSION), #expr, AutoIt_Func, __FILE__, __LINE__); \
+fflush(stdout); fflush(stderr); \
+return E_FAIL; } \
+} while(0)
+#endif
+
 #include <algorithm>
 #include <tuple>
+#include <type_traits>
 #include <utility>
 #include <vector>
 
@@ -11,16 +64,6 @@
 #define PARAMETER_NOT_FOUND(in_val) (V_VT(in_val) == VT_ERROR && V_ERROR(in_val) == DISP_E_PARAMNOTFOUND)
 #define PARAMETER_MISSING(in_val) (V_VT(in_val) == VT_EMPTY || PARAMETER_NOT_FOUND(in_val))
 #define PARAMETER_IN(in_val) variant_t variant_##in_val = get_variant_in(in_val); if (V_ISBYREF(in_val)) in_val = &variant_##in_val
-
-#define DLIB_QUOTE_STRING(x) DLIB_QUOTE_STRING2(x)
-#define DLIB_QUOTE_STRING2(x) #x
-
-#ifndef AUTOIT_ASSERT
-#define AUTOIT_ASSERT( expr ) do { if(!!(expr)) ; else { \
-printf("dlib(%s) Error: (%s) in %s, file %s, line %d\n", DLIB_QUOTE_STRING(DLIB_VERSION), #expr, CV_Func, __FILE__, __LINE__); \
-return E_FAIL; } \
-} while(0)
-#endif
 
 template<typename _Tp>
 struct TypeToImplType;
@@ -222,39 +265,17 @@ const bool is_assignable_from(std::tuple <_Rest...>& out_val, VARIANT const* con
 }
 
 template<std::size_t I = 0, typename... _Ts>
-typename std::enable_if<I == sizeof...(_Ts), const HRESULT>::type
-autoit_to(VARIANT const* const& in_val, std::tuple<_Ts...>& out_val) {
-	if (V_VT(in_val) == VT_ERROR) {
-		return V_ERROR(in_val) == DISP_E_PARAMNOTFOUND ? S_OK : E_INVALIDARG;
-	}
-
-	if (V_VT(in_val) == VT_EMPTY) {
-		return S_OK;
-	}
-
-	if ((V_VT(in_val) & VT_ARRAY) != VT_ARRAY || (V_VT(in_val) ^ VT_ARRAY) != VT_VARIANT) {
-		return E_INVALIDARG;
-	}
-
-	return S_OK;
-}
-
-template<std::size_t I = 0, typename _This, typename... _Rest>
-typename std::enable_if < I < 1 + sizeof...(_Rest), const HRESULT>::type
-	autoit_to(VARIANT const* const& in_val, std::tuple<_This, _Rest...>& out_val) {
-	HRESULT hr = autoit_to<I + 1, _This, _Rest...>(in_val, out_val);
-	if (FAILED(hr)) {
-		return hr;
-	}
-
+const HRESULT _autoit_to(VARIANT const* const& in_val, std::tuple<_Ts...>& out_val) {
 	typename ATL::template CComSafeArray<VARIANT> vArray;
 	vArray.Attach(V_ARRAY(in_val));
 	auto& v = vArray.GetAt(I);
 	auto* pv = &v;
 
-	_This value;
+	using _Tuple = std::tuple<_Ts...>;
+	using _Type = std::tuple_element<I, _Tuple>::type;
+	_Type value;
 
-	hr = is_assignable_from(value, pv, false);
+	HRESULT hr = is_assignable_from(value, pv, false);
 
 	if (SUCCEEDED(hr)) {
 		hr = autoit_to(pv, value);
@@ -269,6 +290,45 @@ typename std::enable_if < I < 1 + sizeof...(_Rest), const HRESULT>::type
 }
 
 template<std::size_t I = 0, typename... _Ts>
+typename std::enable_if<I == sizeof...(_Ts) - 1, const HRESULT>::type
+autoit_to(VARIANT const* const& in_val, std::tuple<_Ts...>& out_val) {
+	if (V_VT(in_val) == VT_ERROR) {
+		return V_ERROR(in_val) == DISP_E_PARAMNOTFOUND ? S_OK : E_INVALIDARG;
+	}
+
+	if (V_VT(in_val) == VT_EMPTY) {
+		return S_OK;
+	}
+
+	if ((V_VT(in_val) & VT_ARRAY) != VT_ARRAY || (V_VT(in_val) ^ VT_ARRAY) != VT_VARIANT) {
+		return E_INVALIDARG;
+	}
+
+	typename ATL::template CComSafeArray<VARIANT> vArray;
+	vArray.Attach(V_ARRAY(in_val));
+	LONG lLower = vArray.GetLowerBound();
+	LONG lUpper = vArray.GetUpperBound();
+	vArray.Detach();
+
+	if (lUpper - lLower < I) {
+		return E_INVALIDARG;
+	}
+
+	return _autoit_to<I, _Ts...>(in_val, out_val);
+}
+
+template<std::size_t I = 0, typename... _Ts>
+typename std::enable_if<I != sizeof...(_Ts) - 1, const HRESULT>::type
+autoit_to(VARIANT const* const& in_val, std::tuple<_Ts...>& out_val) {
+	HRESULT hr = autoit_to<I + 1, _Ts...>(in_val, out_val);
+	if (FAILED(hr)) {
+		return hr;
+	}
+
+	return _autoit_to<I, _Ts...>(in_val, out_val);
+}
+
+template<std::size_t I = 0, typename... _Ts>
 typename std::enable_if<I == sizeof...(_Ts), const HRESULT>::type
 autoit_from(const std::tuple<_Ts...>& in_val, VARIANT*& out_val) {
 	V_VT(out_val) = VT_ARRAY | VT_VARIANT;
@@ -278,8 +338,8 @@ autoit_from(const std::tuple<_Ts...>& in_val, VARIANT*& out_val) {
 }
 
 template<std::size_t I = 0, typename... _Ts>
-typename std::enable_if < I < sizeof...(_Ts), const HRESULT>::type
-	autoit_from(const std::tuple<_Ts...>& in_val, VARIANT*& out_val) {
+typename std::enable_if<I != sizeof...(_Ts), const HRESULT>::type
+autoit_from(const std::tuple<_Ts...>& in_val, VARIANT*& out_val) {
 	HRESULT hr = autoit_from<I + 1, _Ts...>(in_val, out_val);
 	if (FAILED(hr)) {
 		return hr;

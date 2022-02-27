@@ -95,7 +95,7 @@ EndFunc   ;==>_Dlib_Open
 Func _Dlib_Close()
 	_Dlib_get(0)
 	_Dlib_ObjCreate("dlib", "")
-	Return _Dlib_Install(Default, Default, True, False)
+	Return _Dlib_Install(Default, Default, False, True)
 EndFunc   ;==>_Dlib_Close
 
 Func _Dlib_Register($bUser = Default)

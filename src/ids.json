@@ -22,5 +22,161 @@
     "VectorOfVectorOfDouble": {
         "iid": "a5abd90f-2d79-4b92-80e0-b3b7e5f61607",
         "clsid": "390ea4a3-326a-407f-a532-c3c6171721f9"
+    },
+    "VectorOfLong": {
+        "iid": "c4ecf965-2552-4d10-baf0-455aa3ef4a19",
+        "clsid": "ce96240f-8698-4556-a3ae-1232681bc0b0"
+    },
+    "VectorOfPairOfULONGAndDouble": {
+        "iid": "6c4d593f-e582-4c36-9c5b-2d3b7e6b5e14",
+        "clsid": "78bc52f1-2ea1-4343-a872-68f78702d98d"
+    },
+    "VectorOfVectorOfPairOfULONGAndDouble": {
+        "iid": "057630ad-84dd-4369-b11b-36331ed177d3",
+        "clsid": "6e9b7531-05d3-44f0-a5d6-479f195eabeb"
+    },
+    "dlib::SpaceVector": {
+        "iid": "c02733f5-4a55-4cf5-94a3-49f019ab7213",
+        "clsid": "4429485c-00be-48f6-bb60-e5497f7ddb39"
+    },
+    "dlib::point_transform_projective": {
+        "iid": "120e8f42-782f-422e-befa-0cd2495b4c19",
+        "clsid": "f9acfe53-6b27-4ded-b26f-66cc0aba3b4d"
+    },
+    "VectorOfDpoint": {
+        "iid": "f1fb30fe-8573-4ae1-8ed6-ddf0fab2599e",
+        "clsid": "de4d901c-66a9-4018-86f1-d5ddebb33f72"
+    },
+    "dlib::line": {
+        "iid": "cd971489-2500-4bf6-9222-14244090c1dc",
+        "clsid": "5c001285-c1b2-4104-ae64-d59ad09b32fc"
+    },
+    "dlib::vec_ranking_pair": {
+        "iid": "0d608171-bd35-4a01-a4ce-28f956af9be4",
+        "clsid": "e54b9879-63e9-4228-8885-a0218302d4e2"
+    },
+    "dlib::sparse_ranking_pair": {
+        "iid": "0caeafe3-f023-44b6-b5f9-8101772d8fb5",
+        "clsid": "cbd1ff86-4a5d-4f70-bcb4-724a1396c7f4"
+    },
+    "dlib::vec_svm_rank_trainer": {
+        "iid": "7b484756-af0a-49f6-9a6c-c2e559b10031",
+        "clsid": "405ab35c-486e-476d-b6c0-5ffffb81495e"
+    },
+    "VectorOfSpaceVector": {
+        "iid": "34ebd6ef-3989-4cdb-9fb1-19a6ea2c88d9",
+        "clsid": "32104474-4ec1-4356-89e1-b869b28eb553"
+    },
+    "dlib::_decision_function_linear": {
+        "iid": "34cf092e-8e3e-42f4-9ad6-5cb9dcde0bd8",
+        "clsid": "0e3a7766-4497-4aa6-bb36-fa59157751fd"
+    },
+    "VectorOfVec_ranking_pair": {
+        "iid": "dc28f086-2453-478c-b576-8b1a9b1b7853",
+        "clsid": "2b07dbb9-0724-496f-90f6-6fc4862d4bed"
+    },
+    "dlib::_decision_function_sparse_linear": {
+        "iid": "48f598e4-c309-40c5-b8c1-bb090e711988",
+        "clsid": "d29733e3-7f74-462d-bf82-18738207060f"
+    },
+    "dlib::svm_rank_trainer_sparse": {
+        "iid": "6e47c368-97e6-41fc-8427-3aabdfa1ddce",
+        "clsid": "ac543caf-1edc-43d5-a63a-eb93c53dcd0a"
+    },
+    "VectorOfSparse_ranking_pair": {
+        "iid": "5fd72d47-7207-4aa8-9091-d48b8f014299",
+        "clsid": "81778ac8-00ef-4d57-a3ff-6a5e6ea0be43"
+    },
+    "dlib::binary_test": {
+        "iid": "76368373-dc40-4667-bac5-1c860a5f66ce",
+        "clsid": "3d620878-fad1-47ca-8c85-f86a7c0051f1"
+    },
+    "dlib::regression_test": {
+        "iid": "3343792d-8a6a-4d6a-a90c-efdf0d52b927",
+        "clsid": "31686a73-c44c-440f-93ec-b87ef7dd0786"
+    },
+    "dlib::ranking_test": {
+        "iid": "7a22f3f4-5650-4c47-9166-f9bdb04e8473",
+        "clsid": "2e1ec9cb-6767-4fba-bdf9-3377e5068bb3"
+    },
+    "dlib::_decision_function_histogram_intersection": {
+        "iid": "365d99e3-06aa-4aec-9fa6-515dff55f94c",
+        "clsid": "9e996c8c-cd0c-4c15-85e7-b3471d706eaf"
+    },
+    "dlib::_decision_function_sparse_histogram_intersection": {
+        "iid": "d9dedafe-20cb-42b7-996f-e02281a8747e",
+        "clsid": "f19b7acf-557d-4145-a617-99c839dba83b"
+    },
+    "dlib::_decision_function_polynomial": {
+        "iid": "26d98a0c-c5e5-486e-b4e4-c41ab48a7e7e",
+        "clsid": "348420e3-e67c-430c-ab62-dd9a630070f8"
+    },
+    "dlib::_decision_function_sparse_polynomial": {
+        "iid": "ed61ad59-e2cb-48f3-9759-9a873d9b5d0d",
+        "clsid": "8ae0af00-d4da-4c9c-9482-b4275189a37d"
+    },
+    "dlib::_decision_function_radial_basis": {
+        "iid": "7e53b056-e3d8-4649-85f6-7634d30b32d1",
+        "clsid": "a79b8f78-c15e-4fa2-b75d-a0fe719966be"
+    },
+    "dlib::_decision_function_sparse_radial_basis": {
+        "iid": "3364bb7b-6956-490e-a2a8-533376c3d1d2",
+        "clsid": "4e649249-0efb-473a-a3c9-0aae4f32fec1"
+    },
+    "dlib::_decision_function_sigmoid": {
+        "iid": "3e6ea4bb-884f-4dde-b6ce-5b3ffb6e127c",
+        "clsid": "ce5ac6bb-6b89-4499-800a-dd0579bcc802"
+    },
+    "dlib::_decision_function_sparse_sigmoid": {
+        "iid": "5835a438-6444-4c09-9c46-ab2e10d04c27",
+        "clsid": "baa978d5-5cc6-4de1-a0c3-e8f5ec157a81"
+    },
+    "dlib::_radial_basis_kernel": {
+        "iid": "7b04f016-de65-4153-a554-df2639c504aa",
+        "clsid": "774ce9b1-c755-474b-84e1-57d599bf966b"
+    },
+    "dlib::_linear_kernel": {
+        "iid": "996849fa-4fda-4b16-863c-a724393fea76",
+        "clsid": "b868739c-081d-450e-bbe5-f3b444681c61"
+    },
+    "dlib::_normalized_decision_function_radial_basis": {
+        "iid": "444cd8aa-b2d2-44ae-9f3d-30e12ce281dc",
+        "clsid": "1a0dd5ac-e363-4c64-8539-8a12af6fc339"
+    },
+    "dlib::cca_outputs": {
+        "iid": "6f459dcc-c6ae-40e2-87e3-e588608bda11",
+        "clsid": "03e705bd-7d67-474a-87e3-df15b5fa8277"
+    },
+    "dlib::segmenter_type": {
+        "iid": "cadc11c8-0a81-46a3-8a53-d8f131ee2567",
+        "clsid": "06a6b004-dfc9-4a36-853e-fe2c623ab4ba"
+    },
+    "dlib::segmenter_params": {
+        "iid": "5283ea4f-40a3-416b-a1b9-2baa29f406c9",
+        "clsid": "bedbca31-f583-48f6-a30c-58e5811444b0"
+    },
+    "dlib::segmenter_test": {
+        "iid": "87ce2b7f-a941-468a-bc78-7cfa832a10b2",
+        "clsid": "544341d7-5ba4-46c9-b797-aa5fc887db08"
+    },
+    "VectorOfPairOfULONGAndULONG": {
+        "iid": "50f4e792-8f38-4dd7-8b31-def05aabe9b4",
+        "clsid": "0744201f-37b3-4298-b75f-dfbebacb2796"
+    },
+    "VectorOfVectorOfSpaceVector": {
+        "iid": "578f528e-eb13-4dfa-8aad-ac610594e821",
+        "clsid": "16bb05fc-55e2-403d-a0dc-c2bbb547be6b"
+    },
+    "VectorOfVectorOfPairOfULONGAndULONG": {
+        "iid": "b79652ed-8a40-4cb0-9094-6f3751d4e82c",
+        "clsid": "5ffe46f0-4065-4a6e-8327-32c1c427c44d"
+    },
+    "VectorOfVectorOfVectorOfPairOfULONGAndDouble": {
+        "iid": "257c68d4-b965-4001-bd2b-2ef1d91af493",
+        "clsid": "2ca27a44-70ec-4c1b-9d76-442835e11372"
+    },
+    "dlib::simple_structural_svm_problem": {
+        "iid": "11be4089-ebfe-49cf-bf5d-d1dadcdcb4c4",
+        "clsid": "10c06029-805a-461c-8aa2-6ee4ed37e58e"
     }
 }

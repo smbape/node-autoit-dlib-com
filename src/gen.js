@@ -9,6 +9,13 @@ const mkdirp = require("mkdirp");
 const waterfall = require("async/waterfall");
 const {explore} = require("fs-explorer");
 
+const progids = new Map([
+    ["dlib.simple_structural_svm_problem", "structural_svm_problem"],
+    ["dlib.SpaceVector", "vector"],
+    ["vec_ranking_pair", "ranking_pair"],
+    ["vec_svm_rank_trainer", "svm_rank_trainer"],
+]);
+
 const parseArguments = PROJECT_DIR => {
     const options = {
         APP_NAME: "Dlib",
@@ -17,6 +24,14 @@ const parseArguments = PROJECT_DIR => {
         namespace: "dlib",
         shared_ptr: "std::shared_ptr",
         assert: "AUTOIT_ASSERT",
+        variantTypeReg: /^d?point$/,
+        progid: progid => {
+            if (progids.has(progid)) {
+                return progids.get(progid);
+            }
+
+            return progid;
+        },
         build: new Set(),
         notest: new Set(),
         skip: new Set(),
@@ -82,7 +97,7 @@ waterfall([
     },
 
     next => {
-        const srcfiles = [];
+        let srcfiles = [sysPath.join(SRC_DIR, "dlib/basic.h")];
 
         explore(SRC_DIR, async (path, stats, next) => {
             if (path.endsWith(".h") || path.endsWith(".hpp")) {
@@ -93,6 +108,7 @@ waterfall([
             }
             next();
         }, {followSymlink: true}, err => {
+            srcfiles = [...(new Set(srcfiles))];
             const generated_include = srcfiles.map(path => `#include "${ path.slice(SRC_DIR.length + 1).replace("\\", "/") }"`);
             next(err, srcfiles, generated_include);
         });

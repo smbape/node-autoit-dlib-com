@@ -27,6 +27,12 @@ exports.CPP_TYPES = new Map([
 ]);
 
 exports.ALIASES = new Map([
+    ["dense_vect", "SpaceVector"],
+    ["sample_type", "SpaceVector"],
+    ["matrix_double_0_1", "SpaceVector"],
+    ["matrix_double", "Matrix"],
+    ["sparse_vect", "vector_pair_ULONG_and_double"],
+    ["ranges", "vector_pair_ULONG_and_ULONG"],
 ]);
 
 exports.CLASS_PTR = new Set([
@@ -36,6 +42,8 @@ exports.PTR = new Set([
     "void*",
     "uchar*",
     "HWND",
+    "get_truth_joint_feature_vector_function",
+    "separation_oracle_function",
 ]);
 
 exports.CUSTOM_CLASSES = [

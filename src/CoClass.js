@@ -55,6 +55,12 @@ class CoClass {
     }
 
     addProperty([argtype, argname, defval /* or "" if none */, list_of_modifiers]) {
+        const pos = argname.indexOf("=");
+        if (pos !== -1) {
+            defval = argname.slice(pos + 1).trim();
+            argname = argname.slice(0, pos).trim();
+        }
+
         if (this.properties.has(argname)) {
             console.log(`duplicate property '${ argname }' of '${ this.fqn }'`);
         }

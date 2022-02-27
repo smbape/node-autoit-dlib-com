@@ -1,5 +1,7 @@
-const declarations = [
-    ["class dlib.Matrix", "", ["/Simple"], [], "", ""],
+module.exports = [
+    ["class dlib.Matrix", "", ["/Simple"], [
+        ["tuple_long_and_long", "shape", "", ["/R", "/External"]],
+    ], "", ""],
 
     ["dlib.Matrix.Matrix", "", [], [], "", ""],
 
@@ -35,9 +37,10 @@ const declarations = [
         ["long", "row", "", []],
     ], "", ""],
 
-    ["dlib.Matrix.shape", "tuple_long_and_long", ["/External"], [], "", ""],
-
     ["dlib.Matrix.ToString", "string", ["/External"], [], "", ""],
-];
 
-module.exports = declarations;
+    ["dlib.dot", "double", [], [
+        ["Matrix", "a", "", ["/Ref"]],
+        ["Matrix", "b", "", ["/Ref"]],
+    ], "", ""],
+];

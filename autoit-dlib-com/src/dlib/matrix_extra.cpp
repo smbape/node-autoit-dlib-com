@@ -3,12 +3,14 @@
 using namespace dlib;
 using std::ostringstream;
 
-#ifndef AUTOIT_ASSERT_SET_HR
-#define AUTOIT_ASSERT_SET_HR( expr ) do { if(!!(expr)) { hr = S_OK; } else { \
-printf("dlib(%s) Error: (%s) in %s, file %s, line %d\n", DLIB_QUOTE_STRING(DLIB_VERSION), #expr, CV_Func, __FILE__, __LINE__); \
-hr = E_FAIL; } \
-} while(0)
-#endif
+STDMETHODIMP CDlib_Matrix_Object::get_shape(VARIANT* pVal) {
+	if (this->__self) {
+		auto& m = *this->__self->get();
+		autoit_from(std::make_tuple(m.nr(), m.nc()), pVal);
+		return S_OK;
+	}
+	return E_FAIL;
+}
 
 string mat_row::ToString() {
 	auto& c = *this;
@@ -22,7 +24,7 @@ double mat_row::get(long r) {
 	if (r < 0) {
 		r = m.size + r; // negative index
 	}
-	DLIB_ASSERT(r >= 0 && r <= m.size - 1, "1 index out of range");
+	AUTOIT_ASSERT_THROW(r >= 0 && r <= m.size - 1, "1 index out of range");
 	return m.data[r];
 }
 
@@ -31,7 +33,7 @@ void mat_row::set(long r, double val) {
 	if (r < 0) {
 		r = m.size + r; // negative index
 	}
-	DLIB_ASSERT(r >= 0 && r <= m.size - 1, "3 index out of range");
+	AUTOIT_ASSERT_THROW(r >= 0 && r <= m.size - 1, "3 index out of range");
 	m.data[r] = val;
 }
 
@@ -75,7 +77,9 @@ const Ptr<Matrix> CDlib_Matrix_Object::create(std::vector<std::vector<double>>& 
 
 const Ptr<Matrix> CDlib_Matrix_Object::create(long rows, long cols, HRESULT& hr) {
 	AUTOIT_ASSERT_SET_HR(rows >= 0 && cols >= 0);
-	return std::make_shared<Matrix>(rows, cols);
+	auto temp = std::make_shared<Matrix>(rows, cols);
+	*temp = 0;
+	return temp;
 }
 
 void CDlib_Matrix_Object::set_size(long rows, long cols, HRESULT& hr) {
@@ -109,12 +113,6 @@ const mat_row CDlib_Matrix_Object::get(long r, HRESULT& hr) {
 	}
 
 	return mat_row(&m(r, 0), m.nc());
-}
-
-const std::tuple<long, long> CDlib_Matrix_Object::shape(HRESULT& hr) {
-	hr = S_OK;
-	auto& m = *this->__self->get();
-	return std::make_tuple(m.nr(), m.nc());
 }
 
 const string CDlib_Matrix_Object::ToString(HRESULT& hr) {
