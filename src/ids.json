@@ -178,5 +178,17 @@
     "dlib::simple_structural_svm_problem": {
         "iid": "11be4089-ebfe-49cf-bf5d-d1dadcdcb4c4",
         "clsid": "10c06029-805a-461c-8aa2-6ee4ed37e58e"
+    },
+    "VectorOfPoint": {
+        "iid": "df2bd8ca-acc9-47b8-90ce-e8ce103a6274",
+        "clsid": "6a6726a5-5bfb-44c8-8ee7-4d8ec39d80bf"
+    },
+    "dlib::dpoint": {
+        "iid": "4c3dac7c-4ce2-4fed-aa46-7d577ed60022",
+        "clsid": "bd5ebf71-ef94-47ee-b607-6ec9c06397f5"
+    },
+    "dlib::point": {
+        "iid": "8cf1f174-ccdf-45fd-a462-19329e0b843e",
+        "clsid": "cbf825ad-da59-4539-9d6d-79776bdbd79e"
     }
 }

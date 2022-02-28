@@ -24,7 +24,7 @@ const parseArguments = PROJECT_DIR => {
         namespace: "dlib",
         shared_ptr: "std::shared_ptr",
         assert: "AUTOIT_ASSERT",
-        variantTypeReg: /^d?point$/,
+        // variantTypeReg: /^d?point$/,
         progid: progid => {
             if (progids.has(progid)) {
                 return progids.get(progid);

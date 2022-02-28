@@ -1,7 +1,5 @@
 /* eslint-disable no-magic-numbers */
 
-const optional = require("../optional_conversion");
-
 const add_linear_df = (impl, name, sample_type, idltype, scalar_type = "double") => {
     impl.push(`
         #include "Dlib_${ name }_Object.h"
@@ -127,7 +125,6 @@ const setup_auto_train_rbf_classifier = impl => {
             return reduce(df, x, num_bv, eps, hr);
         }
     `.trim().replace(/^ {8}/mg, ""));
-
 };
 
 module.exports = (header = [], impl = [], options = {}) => {

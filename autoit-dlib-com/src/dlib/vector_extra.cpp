@@ -1,4 +1,6 @@
+#include "Dlib_Dpoint_Object.h"
 #include "Dlib_Object.h"
+#include "Dlib_Point_Object.h"
 #include "Dlib_point_transform_projective_Object.h"
 #include "Dlib_SpaceVector_Object.h"
 
@@ -67,22 +69,25 @@ const double CDlib_SpaceVector_Object::get(long row, HRESULT& hr) {
 	return m(row);
 }
 
-const SpaceVector CDlib_SpaceVector_Object::slice(size_t start, size_t stop, size_t step, HRESULT& hr) {
+const SpaceVector CDlib_SpaceVector_Object::slice(long start, long stop, long step, HRESULT& hr) {
 	auto& m = *this->__self->get();
 
 	AUTOIT_ASSERT_THROW(step != 0, "step must not be 0");
 
-	if (start < 0) {
-		start = m.size() + start;
-	}
-
 	if (stop < 0) {
-		stop = m.size() + stop;
+		stop += m.size();
+	}
+	else if (step < 0 && stop == m.size()) {
+		stop = -1;
 	}
 
-	AUTOIT_ASSERT_THROW((step > 0 ? start < stop : start > stop), "index out of range");
-	AUTOIT_ASSERT_THROW(start >= 0 && start <= m.size() - 1, "index out of range");
-	AUTOIT_ASSERT_THROW(stop > 0 && stop <= m.size(), "index out of range");
+	if (start < 0) {
+		start += m.size();
+	}
+
+	AUTOIT_ASSERT_THROW((step > 0 ? start < stop : start > stop), "start connot reach stop with step");
+	AUTOIT_ASSERT_THROW(start >= 0 && start < m.size(), "start is out of range");
+	AUTOIT_ASSERT_THROW(stop >= -1 && stop <= m.size(), "stop is out of range");
 
 	hr = S_OK;
 
@@ -146,4 +151,20 @@ const point_transform_projective CDlib_Object::find_projective_transform(std::ve
 		"You need at least 4 points to find a projective transform.");
 	hr = S_OK;
 	return dlib::find_projective_transform(from_points, to_points);
+}
+
+const string CDlib_Dpoint_Object::ToString(HRESULT& hr) {
+	hr = S_OK;
+	auto& p = *this->__self->get();
+	std::ostringstream sout;
+	sout << "(" << p.x() << ", " << p.y() << ")";
+	return sout.str();
+}
+
+const string CDlib_Point_Object::ToString(HRESULT& hr) {
+	hr = S_OK;
+	auto& p = *this->__self->get();
+	std::ostringstream sout;
+	sout << "(" << p.x() << ", " << p.y() << ")";
+	return sout.str();
 }
