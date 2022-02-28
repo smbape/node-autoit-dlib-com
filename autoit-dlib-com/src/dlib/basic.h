@@ -1,5 +1,6 @@
 #pragma once
 
+#include <dlib/filtering.h>
 #include <dlib/matrix.h>
 #include <dlib/string.h>
 #include <dlib/svm.h>
@@ -10,7 +11,13 @@
 using std::string;
 
 namespace dlib {
-	CV_EXPORTS_W std::string version();
+	extern std::string version;
+	extern std::string time_compiled;
+	extern bool DLIB_USE_CUDA;
+	extern bool DLIB_USE_BLAS;
+	extern bool DLIB_USE_LAPACK;
+	extern bool USE_AVX_INSTRUCTIONS;
+	extern bool USE_NEON_INSTRUCTIONS;
 
 	typedef matrix<double, 0, 1> dense_vect;
 	typedef matrix<double, 0, 1> sample_type;

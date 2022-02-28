@@ -706,6 +706,8 @@ class AutoItGenerator {
                     for (const modifier of func_modifiers) {
                         if (modifier.startsWith("/Expr=")) {
                             expr = modifier.slice("/Expr=".length).replace(/\$(?:0\b|\{0\})/g, expr);
+                        } else if (modifier.startsWith("/Call=")) {
+                            callee = modifier.slice("/Call=".length).replace(/\$(?:0\b|\{0\})/g, callee);
                         }
                     }
 

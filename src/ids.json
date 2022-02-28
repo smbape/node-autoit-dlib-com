@@ -190,5 +190,21 @@
     "dlib::point": {
         "iid": "8cf1f174-ccdf-45fd-a462-19329e0b843e",
         "clsid": "cbf825ad-da59-4539-9d6d-79776bdbd79e"
+    },
+    "dlib::rectangle": {
+        "iid": "41925197-aac7-4bb7-afe0-f14de51e8f9a",
+        "clsid": "071d44d6-bf1f-4db3-b36b-8518268bb758"
+    },
+    "dlib::drectangle": {
+        "iid": "c4b952c9-8cb7-4bdd-ac22-faf88bed0814",
+        "clsid": "0cd1750f-b1a0-4cd8-80ee-dd9fba70909a"
+    },
+    "dlib::rect_filter": {
+        "iid": "9779915e-acbd-482f-a458-f5ce04bd79b6",
+        "clsid": "742917b8-592b-4c81-b595-85b950c8d2de"
+    },
+    "VectorOfRectangle": {
+        "iid": "a88222b7-f250-4d89-acc6-b1972cc2c349",
+        "clsid": "66684103-d1c2-4857-b45b-39493af368da"
     }
 }
