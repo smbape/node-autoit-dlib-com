@@ -1,5 +1,7 @@
 #pragma once
 
+#include <opencv2/core/core.hpp>
+
 #ifdef AutoIt_Func
 // keep current value (through OpenCV port file)
 #elif defined __GNUC__ || (defined (__cpluscplus) && (__cpluscplus >= 201103))
@@ -19,84 +21,6 @@
 #else
 #define AutoIt_Func "<unknown>"
 #endif
-
-#ifdef __cplusplus
-#include <cstddef>
-#else
-#include <stddef.h>
-#include <stdbool.h>
-#endif
-
-//! @name Data types
-//! primitive types
-//! - schar  - signed 1 byte integer
-//! - uchar  - unsigned 1 byte integer
-//! - short  - signed 2 byte integer
-//! - ushort - unsigned 2 byte integer
-//! - int    - signed 4 byte integer
-//! - uint   - unsigned 4 byte integer
-//! - int64  - signed 8 byte integer
-//! - uint64 - unsigned 8 byte integer
-//! @{
-#if !defined _MSC_VER && !defined __BORLANDC__
-#  if defined __cplusplus && __cplusplus >= 201103L && !defined __APPLE__
-#    include <cstdint>
-#    ifdef __NEWLIB__
-typedef unsigned int uint;
-#    else
-typedef std::uint32_t uint;
-#    endif
-#  else
-#    include <stdint.h>
-typedef uint32_t uint;
-#  endif
-#else
-typedef unsigned uint;
-#endif
-
-typedef signed char schar;
-
-#ifndef __IPL_H__
-typedef unsigned char uchar;
-typedef unsigned short ushort;
-#endif
-
-#if defined _MSC_VER || defined __BORLANDC__
-typedef __int64 int64;
-typedef unsigned __int64 uint64;
-#else
-typedef int64_t int64;
-typedef uint64_t uint64;
-#endif
-
-#ifndef CV_EXPORTS
-# if (defined _WIN32 || defined WINCE || defined __CYGWIN__) && defined(CVAPI_EXPORTS)
-#   define CV_EXPORTS __declspec(dllexport)
-# elif defined __GNUC__ && __GNUC__ >= 4 && (defined(CVAPI_EXPORTS) || defined(__APPLE__))
-#   define CV_EXPORTS __attribute__ ((visibility ("default")))
-# endif
-#endif
-
-#ifndef CV_EXPORTS
-# define CV_EXPORTS
-#endif
-
-/* special informative macros for wrapper generators */
-#define CV_EXPORTS_W CV_EXPORTS
-#define CV_EXPORTS_W_SIMPLE CV_EXPORTS
-#define CV_EXPORTS_AS(synonym) CV_EXPORTS
-#define CV_EXPORTS_W_MAP CV_EXPORTS
-#define CV_IN_OUT
-#define CV_OUT
-#define CV_PROP
-#define CV_PROP_RW
-#define CV_WRAP
-#define CV_WRAP_AS(synonym)
-#define CV_WRAP_MAPPABLE(mappable)
-#define CV_WRAP_PHANTOM(phantom_header)
-#define CV_WRAP_DEFAULT(val)
-
-#define Ptr std::shared_ptr
 
 #ifndef AUTOIT_QUOTE_STRING2
 #define AUTOIT_QUOTE_STRING2(x) #x

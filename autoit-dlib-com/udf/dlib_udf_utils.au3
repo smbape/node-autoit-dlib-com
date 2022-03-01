@@ -11,8 +11,6 @@
 
 Global Const $DLIB_UDF_SORT_ASC = 1
 Global Const $DLIB_UDF_SORT_DESC = -1
-Global $_dlib_gdi_resize = 0
-Global Const $CV_TM_EXACT = -1
 
 Func _Dlib_FindFiles($aParts, $sDir = Default, $iFlag = Default, $bReturnPath = Default, $bReverse = Default)
 	If $sDir == Default Then $sDir = @ScriptDir

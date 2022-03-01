@@ -1,4 +1,4 @@
-#include "./basic.h"
+#include "basic.h"
 
 std::string dlib::version(AUTOIT_QUOTE_STRING(DLIB_VERSION));
 std::string dlib::time_compiled = std::string(__DATE__) + " " + std::string(__TIME__);

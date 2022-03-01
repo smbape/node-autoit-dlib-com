@@ -33,6 +33,7 @@ exports.ALIASES = new Map([
     ["matrix_double", "Matrix"],
     ["sparse_vect", "vector_pair_ULONG_and_double"],
     ["ranges", "vector_pair_ULONG_and_ULONG"],
+    // ["simple_object_detector_com", "simple_object_detector"],
 ]);
 
 exports.CLASS_PTR = new Set([
@@ -49,7 +50,9 @@ exports.PTR = new Set([
 exports.CUSTOM_CLASSES = [
 ];
 
-exports.CUSTOM_NAMESPACES = new Set();
+exports.CUSTOM_NAMESPACES = new Set([
+    "cv"
+]);
 
 exports.ARRAY_CLASSES = new Set([
 ]);

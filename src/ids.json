@@ -206,5 +206,37 @@
     "VectorOfRectangle": {
         "iid": "a88222b7-f250-4d89-acc6-b1972cc2c349",
         "clsid": "66684103-d1c2-4857-b45b-39493af368da"
+    },
+    "dlib::simple_object_detector_training_options": {
+        "iid": "cb50cbe1-331c-4db8-9d26-82ad1fb9dbf8",
+        "clsid": "dd3aed2e-17b7-496d-88a4-97c95e6db5bb"
+    },
+    "dlib::simple_test_results": {
+        "iid": "232650e2-317e-40e1-988b-ccd6c0f1eff9",
+        "clsid": "f629e699-42ce-4573-9a95-a104fcf4d77a"
+    },
+    "cv": {
+        "iid": "0b819f3b-3b35-463d-a5c0-b6775efd06a1",
+        "clsid": "9cea8efe-eb52-4a5a-a113-ab24bbdb2c37"
+    },
+    "cv::Mat": {
+        "iid": "a13967b1-fc83-4d52-b438-9781c40fe7e1",
+        "clsid": "176510ad-0df5-42f9-870b-842a293807c2"
+    },
+    "dlib::fhog_object_detector": {
+        "iid": "3b462e7e-12c2-406d-8001-d11b081eab63",
+        "clsid": "c6faf6a8-a747-48ef-9030-dd2f270b3d07"
+    },
+    "VectorOfMat": {
+        "iid": "c9c96fe3-58fb-4b69-81f8-7978387cdcc6",
+        "clsid": "12bf8c40-ac19-42df-8770-2ba32d0a36d8"
+    },
+    "VectorOfVectorOfRectangle": {
+        "iid": "56962bb4-e018-4e95-a828-c99e1e7423b2",
+        "clsid": "7afe98de-09d1-4cd9-b336-5393c440e0ca"
+    },
+    "dlib::simple_object_detector_com": {
+        "iid": "8617bc57-52eb-4c7d-bf47-92058a68ff94",
+        "clsid": "2bfa9ab0-e068-4201-8c88-973eb2aff354"
     }
 }

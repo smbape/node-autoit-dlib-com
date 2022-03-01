@@ -90,7 +90,7 @@ const HRESULT autoit_to(VARIANT const* const& in_val, matrix<_Tp, nr, 1>& out_va
 }
 
 template<typename _Tp, long nr>
-const HRESULT autoit_from(const std::shared_ptr<matrix<_Tp, nr, 1>>& in_val, VARIANT*& out_val) {
+const HRESULT autoit_from(const cv::Ptr<matrix<_Tp, nr, 1>>& in_val, VARIANT*& out_val) {
 	return autoit_from(*in_val.get(), out_val);
 }
 
@@ -265,7 +265,7 @@ const HRESULT autoit_to(VARIANT const* const& in_val, matrix<_Tp, nr, nc>& out_v
 }
 
 template<typename _Tp, long nr, long nc>
-const HRESULT autoit_from(const std::shared_ptr<matrix<_Tp, nr, nc>>& in_val, VARIANT*& out_val) {
+const HRESULT autoit_from(const cv::Ptr<matrix<_Tp, nr, nc>>& in_val, VARIANT*& out_val) {
     return autoit_from(*in_val.get(), out_val);
 }
 

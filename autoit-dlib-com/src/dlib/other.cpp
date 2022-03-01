@@ -1,4 +1,4 @@
-#include "./other.h"
+#include "other.h"
 
 using namespace dlib;
 using namespace std;

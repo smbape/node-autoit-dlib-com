@@ -5,6 +5,7 @@
 Global $_dlib_build_type = "Release"
 Global $_dlib_debug = 0
 
+Global $h_dlib_world_dll = -1
 Global $h_autoit_dlib_com_dll = -1
 
 Func _Dlib_ObjCreate($sClassname, $sFilename = Default)
@@ -44,8 +45,8 @@ Func _Dlib_get($vVal = Default)
 	Return $dlib
 EndFunc   ;==>_Dlib_get
 
-Func _Dlib_Open_And_Register($s_autoit_dlib_com_dll = Default, $bUser = Default)
-	If Not _Dlib_Open($s_autoit_dlib_com_dll) Then Return False
+Func _Dlib_Open_And_Register($s_dlib_wolrd_dll = Default, $s_autoit_dlib_com_dll = Default, $bUser = Default)
+	If Not _Dlib_Open($s_dlib_wolrd_dll, $s_autoit_dlib_com_dll) Then Return False
 	If Not _Dlib_Register($bUser) Then Return False
 	Return True
 EndFunc   ;==>_Dlib_Open_And_Register
@@ -56,9 +57,16 @@ Func _Dlib_Unregister_And_Close($bUser = Default)
 	Return True
 EndFunc   ;==>_Dlib_Unregister_And_Close
 
-Func _Dlib_Install($s_autoit_dlib_com_dll = Default, $bUser = Default, $bOpen = True, $bClose = True, $bInstall = False, $bUninstall = False)
-	If $s_autoit_dlib_com_dll == Default Then $s_autoit_dlib_com_dll = "autoit_dlib_com-19.23.0.dll"
+Func _Dlib_Install($s_dlib_wolrd_dll = Default, $s_autoit_dlib_com_dll = Default, $bUser = Default, $bOpen = True, $bClose = True, $bInstall = False, $bUninstall = False)
+	If $s_dlib_wolrd_dll == Default Then $s_dlib_wolrd_dll = "opencv_world455.dll"
+	If $s_autoit_dlib_com_dll == Default Then $s_autoit_dlib_com_dll = "autoit_dlib_com-19.23.0-455.dll"
 	If $bUser == Default Then $bUser = Not IsAdmin()
+
+	If $bClose And $h_dlib_world_dll <> -1 Then DllClose($h_dlib_world_dll)
+	If $bOpen Then
+		$h_dlib_world_dll = _Dlib_LoadDLL($s_dlib_wolrd_dll)
+		If $h_dlib_world_dll == -1 Then Return False
+	EndIf
 
 	If $bClose And $h_autoit_dlib_com_dll <> -1 Then DllClose($h_autoit_dlib_com_dll)
 	If $bOpen Then
@@ -88,22 +96,22 @@ Func _Dlib_Install($s_autoit_dlib_com_dll = Default, $bUser = Default, $bOpen = 
 	Return True
 EndFunc   ;==>_Dlib_Install
 
-Func _Dlib_Open($s_autoit_dlib_com_dll = Default)
-	Return _Dlib_Install($s_autoit_dlib_com_dll)
+Func _Dlib_Open($s_dlib_wolrd_dll = Default, $s_autoit_dlib_com_dll = Default)
+	Return _Dlib_Install($s_dlib_wolrd_dll, $s_autoit_dlib_com_dll)
 EndFunc   ;==>_Dlib_Open
 
 Func _Dlib_Close()
 	_Dlib_get(0)
 	_Dlib_ObjCreate("dlib", "")
-	Return _Dlib_Install(Default, Default, False, True)
+	Return _Dlib_Install(Default, Default, Default, False)
 EndFunc   ;==>_Dlib_Close
 
 Func _Dlib_Register($bUser = Default)
-	Return _Dlib_Install(Default, $bUser, False, False, True, False)
+	Return _Dlib_Install(Default, Default, $bUser, False, False, True, False)
 EndFunc   ;==>_Dlib_Register
 
 Func _Dlib_Unregister($bUser = Default)
-	Return _Dlib_Install(Default, $bUser, False, False, False, True)
+	Return _Dlib_Install(Default, Default, $bUser, False, False, False, True)
 EndFunc   ;==>_Dlib_Unregister
 
 Func _Dlib_DebugMsg($msg)

@@ -1,12 +1,14 @@
 #pragma once
 
+#include <chrono>
+#include <vector>
 #include <dlib/filtering.h>
 #include <dlib/matrix.h>
 #include <dlib/string.h>
 #include <dlib/svm.h>
-#include <chrono>
-#include <vector>
-#include "./cvdef.h"
+#include <dlib/image_processing/frontal_face_detector.h>
+#include "cv_image.h"
+#include "cvdef.h"
 
 using std::string;
 
@@ -92,4 +94,18 @@ namespace dlib {
 		CV_PROP_RW double mean_ap;
 	};
 
+	typedef frontal_face_detector fhog_object_detector;
+	typedef frontal_face_detector simple_object_detector;
+
+	template <typename image_type>
+	void cvimages_to_dlib(
+		const std::vector<cv::Mat>& cvimages,
+		dlib::array<cv_image<image_type>>& images
+	)
+	{
+		unsigned long image_idx = 0;
+		for (const auto& image : cvimages) {
+			images[image_idx++] = cv_image<image_type>(image);
+		}
+	}
 }

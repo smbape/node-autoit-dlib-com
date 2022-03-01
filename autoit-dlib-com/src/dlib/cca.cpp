@@ -1,4 +1,4 @@
-#include "./cca.h"
+#include "cca.h"
 
 using namespace dlib;
 

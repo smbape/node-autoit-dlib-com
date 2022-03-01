@@ -19,7 +19,7 @@ STDMETHODIMP CDlib_SpaceVector_Object::get_shape(VARIANT* pVal) {
 	return E_FAIL;
 }
 
-const Ptr<SpaceVector> CDlib_SpaceVector_Object::create(std::vector<double>& list, HRESULT& hr) {
+const std::shared_ptr<SpaceVector> CDlib_SpaceVector_Object::create(std::vector<double>& list, HRESULT& hr) {
 	auto nr = list.size();
 	auto temp = std::make_shared<SpaceVector>(nr);
 
@@ -31,7 +31,7 @@ const Ptr<SpaceVector> CDlib_SpaceVector_Object::create(std::vector<double>& lis
 	return temp;
 }
 
-const Ptr<SpaceVector> CDlib_SpaceVector_Object::create(long rows, HRESULT& hr) {
+const std::shared_ptr<SpaceVector> CDlib_SpaceVector_Object::create(long rows, HRESULT& hr) {
 	AUTOIT_ASSERT_SET_HR(rows >= 0);
 	auto temp = std::make_shared<SpaceVector>(rows);
 	*temp = 0;
@@ -118,7 +118,7 @@ const string CDlib_SpaceVector_Object::ToString(HRESULT& hr) {
 
 // point_transform_projective
 
-const Ptr<point_transform_projective> CDlib_Point_transform_projective_Object::create(Matrix& m, HRESULT& hr) {
+const std::shared_ptr<point_transform_projective> CDlib_Point_transform_projective_Object::create(Matrix& m, HRESULT& hr) {
 	AUTOIT_ASSERT_THROW(m.nr() == 3 && m.nc() == 3, "The matrix used to construct a point_transform_projective object must be 3x3.");
 	hr = S_OK;
 	return std::make_shared<point_transform_projective>(m);

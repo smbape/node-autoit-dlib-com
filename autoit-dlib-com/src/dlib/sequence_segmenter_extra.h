@@ -1,7 +1,7 @@
 #pragma once
 
 #include <dlib/svm_threaded.h>
-#include "./basic.h"
+#include "basic.h"
 
 using namespace std;
 

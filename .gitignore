@@ -1,6 +1,7 @@
 /autoit-dlib-*-com-v*.7z
 /node_modules
 /dlib-*
+/opencv-*
 /*.sublime-workspace
 BackUp
 generated

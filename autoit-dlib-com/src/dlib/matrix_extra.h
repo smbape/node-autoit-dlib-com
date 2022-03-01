@@ -1,6 +1,6 @@
 #pragma once
 
-#include "./basic.h"
+#include "basic.h"
 
 namespace dlib {
 #define mat_row _row

@@ -29,6 +29,7 @@ const {
 } = require("./constants");
 
 const CoClass = require("./CoClass");
+const {orderDependencies} = require("./dependencies");
 
 class AutoItGenerator {
     constructor() {
@@ -274,6 +275,10 @@ class AutoItGenerator {
 
             // methods
             for (const fname of coclass.methods.keys()) {
+                if (fname === "tl_corner") {
+                    debugger;
+                }
+
                 if (idnames.has(fname.toLowerCase())) {
                     throw new Error(`duplicated idl name ${ fqn }::${ fname }`);
                 }
@@ -1329,45 +1334,7 @@ class AutoItGenerator {
         }
         files.set(sysPath.join(__dirname, "ids.json"), JSON.stringify(knwon_ids, null, 4));
 
-        const ifaces = [];
-        const stack = [];
-
-        for (const fqn of this.classes.keys()) {
-            if (!this.dependencies.has(fqn)) {
-                stack.push(fqn);
-            }
-        }
-
-        while (stack.length !== 0) {
-            const fqn = stack.shift();
-
-            if (!this.classes.get(fqn).noidl) {
-                ifaces.push(this.classes.get(fqn).iface);
-            }
-
-            if (!this.dependents.has(fqn)) {
-                continue;
-            }
-
-            for (const dependent of this.dependents.get(fqn)) {
-                const dependencies = this.dependencies.get(dependent);
-                dependencies.delete(fqn);
-
-                if (dependencies.size === 0) {
-                    stack.push(dependent);
-                    this.dependencies.delete(dependent);
-                }
-            }
-
-            this.dependents.delete(fqn);
-        }
-
-        // Circular dependencies
-        for (const fqn of this.dependencies.keys()) {
-            if (!this.classes.get(fqn).noidl) {
-                ifaces.push(this.classes.get(fqn).iface);
-            }
-        }
+        const ifaces = this.getDependencyPriorities();
 
         if (options.idl !== false) {
             const idl = `
@@ -1969,10 +1936,16 @@ class AutoItGenerator {
             return "VARIANT";
         }
 
+        if (type.startsWith("Ptr<") && type.endsWith(">")) {
+            // Add dependency
+            this.getIDLType(type.slice("Ptr<".length, -">".length), coclass, options);
+            return "VARIANT";
+        }
+
         if (type.startsWith("vector_")) {
             // Add dependency
             this.getIDLType(type.slice("vector_".length), coclass, options);
-            this.addDepency(coclass.fqn, this.add_vector(type, coclass, options));
+            this.addDependency(coclass.fqn, this.add_vector(type, coclass, options));
             return "VARIANT";
         }
 
@@ -1982,7 +1955,7 @@ class AutoItGenerator {
 
         if (type.startsWith("GArray_") || type.startsWith("GOpaque_")) {
             const custom_type = this.add_custom_type(type, coclass, options);
-            this.addDepency(coclass.fqn, custom_type.fqn);
+            this.addDependency(coclass.fqn, custom_type.fqn);
             const pos = type.indexOf("_");
 
             // Add dependency
@@ -2011,7 +1984,7 @@ class AutoItGenerator {
         for (const fqn of this.getTypes(type, coclass)) {
             if (this.enums.has(fqn)) {
                 const pos = fqn.lastIndexOf("::");
-                this.addDepency(coclass.fqn, fqn.slice(0, pos));
+                this.addDependency(coclass.fqn, fqn.slice(0, pos));
                 return "LONG";
             }
 
@@ -2024,7 +1997,7 @@ class AutoItGenerator {
             }
 
             if (this.classes.has(fqn)) {
-                this.addDepency(coclass.fqn, fqn);
+                this.addDependency(coclass.fqn, fqn);
                 return this.classes.get(fqn).getIDLType();
             }
         }
@@ -2045,6 +2018,10 @@ class AutoItGenerator {
 
         if (type.startsWith("Ptr_")) {
             return `${ shared_ptr }<${ this.getCppType(type.slice("Ptr_".length), coclass, options) }>`;
+        }
+
+        if (type.startsWith("Ptr<") && type.endsWith(">")) {
+            return `${ shared_ptr }<${ this.getCppType(type.slice("Ptr<".length, -">".length), coclass, options) }>`;
         }
 
         if (type.startsWith("vector_")) {
@@ -2123,7 +2100,7 @@ class AutoItGenerator {
         returns[0] = "VARIANT";
     }
 
-    addDepency(dependent, dependency) {
+    addDependency(dependent, dependency) {
         if (dependent === dependency) {
             return;
         }
@@ -2184,7 +2161,35 @@ class AutoItGenerator {
             types.add(`${ coclass.namespace }::${ type }`);
         }
 
+        for (const namespace of this.namespaces) {
+            const itype = `${ namespace }::${ type }`;
+            if (this.classes.has(itype)) {
+                types.add(itype);
+            }
+        }
+
         return Array.from(types);
+    }
+
+    getDependencyPriorities() {
+        const _dependencies = new Map(this.dependencies);
+        const _dependents = new Map(this.dependents);
+
+        for (const fqn of this.classes.keys()) {
+            if (!_dependencies.has(fqn)) {
+                _dependencies.set(fqn, new Set());
+            }
+        }
+
+        const ifaces = [];
+        const ordered = orderDependencies(_dependencies, _dependents);
+        for (const fqn of ordered) {
+            if (!this.classes.get(fqn).noidl) {
+                ifaces.push(this.classes.get(fqn).iface);
+            }
+        }
+
+        return ifaces;
     }
 }
 

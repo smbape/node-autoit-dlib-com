@@ -1,7 +1,7 @@
 #pragma once
 
 #include <dlib/statistics.h>
-#include "./basic.h"
+#include "basic.h"
 
 namespace dlib {
 	struct CV_EXPORTS_W_SIMPLE cca_outputs

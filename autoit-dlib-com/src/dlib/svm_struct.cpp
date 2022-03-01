@@ -1,7 +1,7 @@
 #include "Dlib_Simple_structural_svm_problem_Object.h"
 #include "Dlib_SpaceVector_Object.h"
 #include "VectorOfPairOfULONGAndDouble_Object.h"
-#include "./svm_struct.h"
+#include "svm_struct.h"
 
 using namespace dlib;
 

@@ -37,7 +37,7 @@ void mat_row::set(long r, double val) {
 	m.data[r] = val;
 }
 
-const Ptr<Matrix> CDlib_Matrix_Object::create(std::vector<double>& list, HRESULT& hr) {
+const std::shared_ptr<Matrix> CDlib_Matrix_Object::create(std::vector<double>& list, HRESULT& hr) {
 	auto nr = list.size();
 	auto temp = std::make_shared<Matrix>(nr, 1);
 
@@ -49,7 +49,7 @@ const Ptr<Matrix> CDlib_Matrix_Object::create(std::vector<double>& list, HRESULT
 	return temp;
 }
 
-const Ptr<Matrix> CDlib_Matrix_Object::create(std::vector<std::vector<double>>& list, HRESULT& hr) {
+const std::shared_ptr<Matrix> CDlib_Matrix_Object::create(std::vector<std::vector<double>>& list, HRESULT& hr) {
 	auto nr = list.size();
 	if (nr == 0) {
 		hr = S_OK;
@@ -61,7 +61,7 @@ const Ptr<Matrix> CDlib_Matrix_Object::create(std::vector<std::vector<double>>& 
 	for (int r = 1; r < nr; r++) {
 		AUTOIT_ASSERT_SET_HR(list[r].size() == nc);
 		if (FAILED(hr)) {
-			return Ptr<Matrix>();
+			return std::shared_ptr<Matrix>();
 		}
 	}
 
@@ -75,7 +75,7 @@ const Ptr<Matrix> CDlib_Matrix_Object::create(std::vector<std::vector<double>>& 
 	return temp;
 }
 
-const Ptr<Matrix> CDlib_Matrix_Object::create(long rows, long cols, HRESULT& hr) {
+const std::shared_ptr<Matrix> CDlib_Matrix_Object::create(long rows, long cols, HRESULT& hr) {
 	AUTOIT_ASSERT_SET_HR(rows >= 0 && cols >= 0);
 	auto temp = std::make_shared<Matrix>(rows, cols);
 	*temp = 0;
