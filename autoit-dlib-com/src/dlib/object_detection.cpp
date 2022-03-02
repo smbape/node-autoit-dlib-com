@@ -1,3 +1,4 @@
+#include "Dlib_Fhog_object_detector_Object.h"
 #include "object_detection.h"
 
 using namespace cv;
@@ -75,7 +76,10 @@ template<typename image_type>
 inline std::vector<dlib::rectangle> run_detector_with_upscale_impl(
 	dlib::simple_object_detector& detector,
 	cv::Mat& image,
-	const unsigned int upsampling_amount
+	const unsigned int upsampling_amount,
+	const double adjust_threshold,
+	std::vector<double>& detection_confidences,
+	std::vector<unsigned long>& weight_indices
 
 )
 {
@@ -90,10 +94,6 @@ inline std::vector<dlib::rectangle> run_detector_with_upscale_impl(
 
 	detector_evaluator<image_type, image_view_type> _detector(lambda, lambda);
 
-	const double adjust_threshold = 0.0;
-	std::vector<double> detection_confidences;
-	std::vector<unsigned long> weight_indices;
-
 	auto img = cv_image<image_type>(image);
 	auto img_view = make_image_view(img);
 
@@ -105,6 +105,41 @@ inline std::vector<dlib::rectangle> run_detector_with_upscale_impl(
 		detection_confidences,
 		weight_indices
 	);
+}
+
+inline std::vector<dlib::rectangle> run_detector_with_upscale(
+	dlib::simple_object_detector& detector,
+	cv::Mat& image,
+	const unsigned int upsampling_amount,
+	const double adjust_threshold,
+	std::vector<double>& detection_confidences,
+	std::vector<unsigned long>& weight_indices
+)
+{
+	AUTOIT_ASSERT_THROW(image.depth() == CV_8U, "Unsupported image type, must be 8bit gray or RGB image.");
+	AUTOIT_ASSERT_THROW(image.channels() == 1 || image.channels() == 3, "Unsupported image type, must be 8bit gray or RGB image.");
+
+	if (image.channels() == 1) {
+		typedef unsigned char image_type;
+		return run_detector_with_upscale_impl<image_type>(
+			detector,
+			image,
+			upsampling_amount,
+			adjust_threshold,
+			detection_confidences,
+			weight_indices
+			);
+	}
+
+	typedef rgb_pixel image_type;
+	return run_detector_with_upscale_impl<image_type>(
+		detector,
+		image,
+		upsampling_amount,
+		adjust_threshold,
+		detection_confidences,
+		weight_indices
+		);
 }
 
 void dlib::find_candidate_object_locations(
@@ -146,8 +181,8 @@ void dlib::train_simple_object_detector(
 	const simple_object_detector_training_options& options
 )
 {
-	dlib::array<array2d<rgb_pixel> > images;
-	std::vector<std::vector<rectangle> > boxes, ignore;
+	dlib::array<array2d<rgb_pixel>> images;
+	std::vector<std::vector<rectangle>> boxes, ignore;
 	ignore = load_image_dataset(images, boxes, dataset_filename);
 
 	simple_object_detector_com detector = train_simple_object_detector_on_images(dataset_filename, images, boxes, ignore, options);
@@ -165,7 +200,6 @@ simple_object_detector_com dlib::train_simple_object_detector(
 )
 {
 	const auto num_images = cvimages.size();
-
 	AUTOIT_ASSERT_THROW(num_images == boxes.size(), "The length of the boxes list must match the length of the images list.");
 
 	// We never have any ignore boxes for this version of the API.
@@ -179,13 +213,13 @@ simple_object_detector_com dlib::train_simple_object_detector(
 const simple_test_results dlib::test_simple_object_detector(
 	const std::string& dataset_filename,
 	const std::string& detector_filename,
-	const int upsample_amount
+	const int upsampling_amount
 )
 {
 
 	// Load all the testing images
-	dlib::array<array2d<rgb_pixel> > images;
-	std::vector<std::vector<rectangle> > boxes, ignore;
+	dlib::array<array2d<rgb_pixel>> images;
+	std::vector<std::vector<rectangle>> boxes, ignore;
 	ignore = load_image_dataset(images, boxes, dataset_filename);
 
 	// Load the detector off disk (We have to use the explicit serialization here
@@ -214,38 +248,138 @@ const simple_test_results dlib::test_simple_object_detector(
 	{
 		int version = 0;
 		deserialize(version, fin);
-		if (version != 1)
-			throw error("Unknown simple_object_detector format.");
+		AUTOIT_ASSERT_THROW(version == 1, "Unknown simple_object_detector format.");
 		deserialize(final_upsampling_amount, fin);
 	}
-	if (upsample_amount >= 0)
-		final_upsampling_amount = upsample_amount;
+	if (upsampling_amount >= 0)
+		final_upsampling_amount = upsampling_amount;
 
 	return test_simple_object_detector_with_images(images, final_upsampling_amount, boxes, ignore, detector);
 }
 
-inline std::vector<dlib::rectangle> run_detector_with_upscale(
-	dlib::simple_object_detector& detector,
-	cv::Mat& image,
+const simple_test_results dlib::test_simple_object_detector(
+	const std::string& dataset_filename,
+	simple_object_detector_com& detector,
+	const int upsampling_amount
+)
+{
+	// Load all the testing images
+	dlib::array<array2d<rgb_pixel>> images;
+	std::vector<std::vector<rectangle>> boxes, ignore;
+	ignore = load_image_dataset(images, boxes, dataset_filename);
+	unsigned int final_upsampling_amount = 0;
+	if (upsampling_amount < 0)
+		final_upsampling_amount = detector.upsampling_amount;
+
+	return test_simple_object_detector_with_images(images, final_upsampling_amount, boxes, ignore, detector.detector);
+}
+
+simple_test_results dlib::test_simple_object_detector(
+	const std::vector<cv::Mat>& cvimages,
+	std::vector<std::vector<rectangle>>& boxes,
+	simple_object_detector& detector,
 	const unsigned int upsampling_amount
 )
 {
-	AUTOIT_ASSERT_THROW(image.depth() == CV_8U, "Unsupported image type, must be 8bit gray or RGB image.");
-	AUTOIT_ASSERT_THROW(image.channels() == 1 || image.channels() == 3, "Unsupported image type, must be 8bit gray or RGB image.");
+	const auto num_images = cvimages.size();
+	AUTOIT_ASSERT_THROW(num_images == boxes.size(), "The length of the boxes list must match the length of the images list.");
 
-	if (image.channels() == 1) {
-		typedef unsigned char image_type;
-		return run_detector_with_upscale_impl<image_type>(detector, image, upsampling_amount);
-	}
+	// We never have any ignore boxes for this version of the API.
+	std::vector<std::vector<rectangle>> ignore(num_images);
+	dlib::array<cv_image<rgb_pixel>> images(num_images);
+	cvimages_to_dlib(cvimages, images);
 
-	typedef rgb_pixel image_type;
-	return run_detector_with_upscale_impl<image_type>(detector, image, upsampling_amount);
+	return test_simple_object_detector_with_images(images, upsampling_amount, boxes, ignore, detector);
 }
 
-std::vector<dlib::rectangle> dlib::simple_object_detector_com::run_detector1(cv::Mat& img, const uint upsampling_amount_) {
-	return run_detector_with_upscale(detector, img, upsampling_amount_);
+simple_test_results dlib::test_simple_object_detector(
+	const std::vector<cv::Mat>& cvimages,
+	std::vector<std::vector<rectangle>>& boxes,
+	simple_object_detector_com& detector,
+	const int upsampling_amount
+)
+{
+	// Allow users to pass an upsampling amount ELSE use the one cached on the object
+	// Anything less than 0 is ignored and the cached value is used.
+	unsigned int final_upsampling_amount = 0;
+	if (upsampling_amount >= 0)
+		final_upsampling_amount = upsampling_amount;
+	else
+		final_upsampling_amount = detector.upsampling_amount;
+
+	return test_simple_object_detector(cvimages, boxes, detector.detector, final_upsampling_amount);
 }
 
-std::vector<dlib::rectangle> dlib::simple_object_detector_com::run_detector2(cv::Mat& img) {
-	return run_detector_with_upscale(detector, img, upsampling_amount);
+void CDlib_Fhog_object_detector_Object::run(
+	cv::Mat& img,
+	std::vector<dlib::rectangle>&
+	rectangles, std::vector<double>& detection_confidences,
+	std::vector<unsigned long>& weight_indices,
+	unsigned int upsampling_amount,
+	double adjust_threshold,
+	HRESULT& hr
+) {
+	hr = S_OK;
+	auto& detector = *this->__self->get();
+
+	rectangles = run_detector_with_upscale(
+		detector,
+		img,
+		upsampling_amount,
+		adjust_threshold,
+		detection_confidences,
+		weight_indices
+	);
+}
+
+const std::shared_ptr<dlib::fhog_object_detector> CDlib_Fhog_object_detector_Object::create(string filename, HRESULT& hr) {
+	hr = S_OK;
+	return load_object_from_file<dlib::fhog_object_detector>(filename);
+}
+
+dlib::simple_object_detector_com::simple_object_detector_com(std::vector<simple_object_detector_com>& detectors) {
+	AUTOIT_ASSERT_THROW(detectors.size() > 0, "there should be detectors");
+
+	std::vector<simple_object_detector> temp;
+	temp.reserve(detectors.size());
+
+	for (const auto& d : detectors)
+		temp.push_back(d.detector);
+
+	detector = fhog_object_detector(temp);
+	upsampling_amount = detectors[0].upsampling_amount;
+}
+
+std::shared_ptr<simple_object_detector_com> dlib::simple_object_detector_com::create(const std::string& filename) {
+	return load_object_from_file<simple_object_detector_com>(filename);
+}
+
+std::vector<dlib::rectangle> dlib::simple_object_detector_com::call(cv::Mat& img, const unsigned int upsampling_amount_) {
+	const double adjust_threshold = 0.0;
+	std::vector<double> detection_confidences;
+	std::vector<unsigned long> weight_indices;
+
+	return run_detector_with_upscale(
+		detector,
+		img,
+		upsampling_amount_,
+		adjust_threshold,
+		detection_confidences,
+		weight_indices
+	);
+}
+
+std::vector<dlib::rectangle> dlib::simple_object_detector_com::call(cv::Mat& img) {
+	const double adjust_threshold = 0.0;
+	std::vector<double> detection_confidences;
+	std::vector<unsigned long> weight_indices;
+
+	return run_detector_with_upscale(
+		detector,
+		img,
+		upsampling_amount,
+		adjust_threshold,
+		detection_confidences,
+		weight_indices
+	);
 }

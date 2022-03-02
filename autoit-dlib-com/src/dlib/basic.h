@@ -13,6 +13,8 @@
 using std::string;
 
 namespace dlib {
+// ----------------------------------------------------------------------------------------
+
 	extern std::string version;
 	extern std::string time_compiled;
 	extern bool DLIB_USE_CUDA;
@@ -20,6 +22,8 @@ namespace dlib {
 	extern bool DLIB_USE_LAPACK;
 	extern bool USE_AVX_INSTRUCTIONS;
 	extern bool USE_NEON_INSTRUCTIONS;
+
+// ----------------------------------------------------------------------------------------
 
 	typedef matrix<double, 0, 1> dense_vect;
 	typedef matrix<double, 0, 1> sample_type;
@@ -53,6 +57,11 @@ namespace dlib {
 
 	typedef normalized_function<decision_function<radial_basis_kernel<sample_type>>> _normalized_decision_function_radial_basis;
 
+	typedef frontal_face_detector fhog_object_detector;
+	typedef frontal_face_detector simple_object_detector;
+
+// ----------------------------------------------------------------------------------------
+
 	struct CV_EXPORTS_W_SIMPLE binary_test
 	{
 		CV_WRAP binary_test() : class1_accuracy(0), class2_accuracy(0) {}
@@ -64,6 +73,8 @@ namespace dlib {
 		CV_PROP_RW double class1_accuracy;
 		CV_PROP_RW double class2_accuracy;
 	};
+
+// ----------------------------------------------------------------------------------------
 
 	struct CV_EXPORTS_W_SIMPLE regression_test
 	{
@@ -94,8 +105,7 @@ namespace dlib {
 		CV_PROP_RW double mean_ap;
 	};
 
-	typedef frontal_face_detector fhog_object_detector;
-	typedef frontal_face_detector simple_object_detector;
+// ----------------------------------------------------------------------------------------
 
 	template <typename image_type>
 	void cvimages_to_dlib(
@@ -107,5 +117,26 @@ namespace dlib {
 		for (const auto& image : cvimages) {
 			images[image_idx++] = cv_image<image_type>(image);
 		}
+	}
+
+// ----------------------------------------------------------------------------------------
+
+	template <typename T>
+	std::shared_ptr<T> load_object_from_file(
+		const std::string& filename
+	)
+	/*!
+		ensures
+			- deserializes an object of type T from the given file and returns it.
+	!*/
+	{
+		std::ifstream fin(filename.c_str(), std::ios::binary);
+		if (!fin) {
+			auto msg = "Unable to open " + filename;
+			AUTOIT_ASSERT_THROW(fin, msg.c_str());
+		}
+		auto obj = std::make_shared<T>();
+		deserialize(*obj, fin);
+		return obj;
 	}
 }

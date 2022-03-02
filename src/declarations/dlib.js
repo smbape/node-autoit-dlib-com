@@ -1,7 +1,7 @@
 module.exports = [
-    // ["dlib.", "", ["/Properties"], [
-    //     ["_variant_t", "extended", "", ["/R", "/External"]],
-    // ], "", ""],
+    ["dlib.", "", ["/Properties"], [
+        ["_variant_t", "extended", "", ["/R", "/External"]],
+    ], "", ""],
 
     ["dlib.", "", ["/Properties"], [
         ["string", "version", "", ["/R"]],

@@ -34,8 +34,13 @@ class CoClass {
         this.cpp_quotes = [];
 
         if (hasProp.call(knwon_ids, fqn)) {
-            this.iid = knwon_ids[fqn].iid;
-            this.clsid = knwon_ids[fqn].clsid;
+            // keep order of appearance
+            const id = knwon_ids[fqn];
+            delete knwon_ids[fqn];
+            knwon_ids[fqn] = id;
+
+            this.iid = id.iid;
+            this.clsid = id.clsid;
         } else {
             this.iid = uuidv4();
             this.clsid = uuidv4();

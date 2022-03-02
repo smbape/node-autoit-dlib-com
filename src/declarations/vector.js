@@ -6,11 +6,11 @@ const declarations = [
 
     ["dlib.SpaceVector.SpaceVector", "", [], [], "", ""],
 
-    ["dlib.SpaceVector.create", "Ptr_SpaceVector", ["/External"], [
+    ["dlib.SpaceVector.create", "shared_ptr_SpaceVector", ["/External"], [
         ["vector_double", "list", "", []]
     ], "", ""],
 
-    ["dlib.SpaceVector.create", "Ptr_SpaceVector", ["/External"], [
+    ["dlib.SpaceVector.create", "shared_ptr_SpaceVector", ["/External"], [
         ["long", "rows", "", []],
     ], "", ""],
 
@@ -54,7 +54,7 @@ const declarations = [
 
     ["dlib.point_transform_projective.point_transform_projective", "", [], [], "", ""],
 
-    ["dlib.point_transform_projective.create", "Ptr_point_transform_projective", ["/External"], [
+    ["dlib.point_transform_projective.create", "shared_ptr_point_transform_projective", ["/External"], [
         ["Matrix", "m", "", []]
     ], "", ""],
 

@@ -10,6 +10,8 @@ const waterfall = require("async/waterfall");
 const {explore} = require("fs-explorer");
 
 const progids = new Map([
+    ["dlib.simple_object_detector", "fhog_object_detector"],
+    ["dlib.simple_object_detector_com", "simple_object_detector"],
     ["dlib.simple_structural_svm_problem", "structural_svm_problem"],
     ["dlib.SpaceVector", "vector"],
     ["vec_ranking_pair", "ranking_pair"],
@@ -32,6 +34,11 @@ const parseArguments = PROJECT_DIR => {
 
             return progid;
         },
+        namespaces: new Set([
+            "cv",
+            "dlib",
+            "std",
+        ]),
         build: new Set(),
         notest: new Set(),
         skip: new Set(),
@@ -72,10 +79,10 @@ const parseArguments = PROJECT_DIR => {
 };
 
 const {
-    ALIASES,
     CUSTOM_CLASSES,
-    CUSTOM_NAMESPACES,
 } = require("./constants");
+
+const {replaceAliases} = require("./alias");
 
 const custom_declarations = require("./custom_declarations");
 const AutoItGenerator = require("./AutoItGenerator");
@@ -83,7 +90,22 @@ const AutoItGenerator = require("./AutoItGenerator");
 const PROJECT_DIR = sysPath.resolve(__dirname, "../autoit-dlib-com");
 const SRC_DIR = sysPath.join(PROJECT_DIR, "src");
 
-const hdr_parser = fs.readFileSync(sysPath.join(PROJECT_DIR, "hdr_parser.py")).toString();
+const candidates = fs.readdirSync(sysPath.join(__dirname, "..")).filter(path => {
+    if (!path.startsWith("opencv-4.")) {
+        return false;
+    }
+
+    try {
+        fs.accessSync(sysPath.join(__dirname, "..", path, "opencv"), fs.constants.R_OK);
+        return true;
+    } catch (err) {
+        return false;
+    }
+});
+
+const src2 = sysPath.resolve(__dirname, "..", candidates[0], "opencv/sources/modules/python/src2");
+
+const hdr_parser = fs.readFileSync(sysPath.join(src2, "hdr_parser.py")).toString();
 const hdr_parser_start = hdr_parser.indexOf("class CppHeaderParser");
 const hdr_parser_end = hdr_parser.indexOf("if __name__ == '__main__':");
 
@@ -97,7 +119,7 @@ waterfall([
     },
 
     next => {
-        let srcfiles = [sysPath.join(SRC_DIR, "dlib/basic.h")];
+        const srcfiles = [];
 
         explore(SRC_DIR, async (path, stats, next) => {
             if (path.endsWith(".h") || path.endsWith(".hpp")) {
@@ -108,7 +130,6 @@ waterfall([
             }
             next();
         }, {followSymlink: true}, err => {
-            srcfiles = [...(new Set(srcfiles))];
             const generated_include = srcfiles.map(path => `#include "${ path.slice(SRC_DIR.length + 1).replace("\\", "/") }"`);
             next(err, srcfiles, generated_include);
         });
@@ -130,20 +151,7 @@ waterfall([
             }
 
             const buffer = Buffer.concat(buffers, nlen);
-            const aliases = new RegExp(Array.from(ALIASES.keys()).join("|"), "g");
-            const replacer = (match, offset, string) => {
-                return offset === 0
-                    || /\W/.test(string[offset - 1])
-                    || string.endsWith("vector_", offset)
-                    || string.endsWith("Ptr_", offset) ? ALIASES.get(match) : match;
-            };
-
-            let result = buffer.toString();
-            if (ALIASES.size !== 0) {
-                result = result.replace(aliases, replacer);
-            }
-
-            const configuration = JSON.parse(result);
+            const configuration = JSON.parse(replaceAliases(buffer.toString(), options));
             configuration.generated_include = generated_include;
 
             configuration.decls.push(...custom_declarations);
@@ -152,7 +160,7 @@ waterfall([
                 configuration.decls.push([`class ${ name }`, "", modifiers, [], "", ""]);
             }
 
-            configuration.namespaces.push(...CUSTOM_NAMESPACES);
+            configuration.namespaces.push(...options.namespaces);
 
             const generator = new AutoItGenerator();
             generator.generate(configuration, options, next);
@@ -173,6 +181,7 @@ waterfall([
             ${ hdr_parser
                 .slice(hdr_parser_start, hdr_parser_end)
                 .replace(`${ " ".repeat(20) }if self.wrap_mode:`, `${ " ".repeat(20) }if False:`)
+                .replace(/\("std::", ""\), \("cv::", ""\)/g, Array.from(options.namespaces).map(namespace => `("${ namespace }::", "")`).join(", "))
                 .split("\n")
                 .join(`\n${ " ".repeat(12) }`) }
 

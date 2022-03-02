@@ -29,7 +29,7 @@ const orderDependencies = (_dependencies, _dependents, result = []) => {
         _dependents.delete(fqn);
     }
 
-    processCircular(_dependencies, _dependents, result);
+    processCircular(_dependencies, _dependents, result); // eslint-disable-line no-use-before-define
 
     result.push(..._dependencies.keys());
 
@@ -41,14 +41,14 @@ const processCircular = (_dependencies, _dependents, result) => {
     while (_dependencies.size !== size) {
         size = _dependencies.size;
         for (const fqn of _dependencies.keys()) {
-            disjoin(_dependencies, _dependents, result, fqn);
+            disjoin(_dependencies, _dependents, result, fqn); // eslint-disable-line no-use-before-define
         }
     }
 };
 
 const disjoin = (_dependencies, _dependents, result, node) => {
     const nodes = new Set();
-    walk(_dependencies, _dependents, nodes, node);
+    walk(_dependencies, _dependents, nodes, node); // eslint-disable-line no-use-before-define
     if (nodes.size === _dependencies.size) {
         return;
     }

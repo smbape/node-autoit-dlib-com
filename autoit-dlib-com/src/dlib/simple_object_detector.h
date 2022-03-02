@@ -70,15 +70,20 @@ namespace dlib {
 
 	struct CV_EXPORTS_AS(simple_object_detector) simple_object_detector_com
 	{
-		simple_object_detector detector;
-		uint upsampling_amount;
+		CV_PROP_RW fhog_object_detector detector;
+		CV_PROP_RW uint upsampling_amount;
 
-		simple_object_detector_com() {}
-		simple_object_detector_com(simple_object_detector & _detector, uint _upsampling_amount) :
+		CV_WRAP simple_object_detector_com() {}
+
+		CV_WRAP simple_object_detector_com(fhog_object_detector& _detector, uint _upsampling_amount) :
 			detector(_detector), upsampling_amount(_upsampling_amount) {}
 
-		std::vector<dlib::rectangle> run_detector1(cv::Mat & img, const uint upsampling_amount_);
-		std::vector<dlib::rectangle> run_detector2(cv::Mat & img);
+		CV_WRAP simple_object_detector_com(std::vector<simple_object_detector_com>& detectors);
+
+		CV_WRAP static std::shared_ptr<simple_object_detector_com> create(const std::string& filename);
+
+		CV_WRAP std::vector<rectangle> call(cv::Mat & img, const uint upsampling_amount_);
+		CV_WRAP std::vector<rectangle> call(cv::Mat & img);
 	};
 
 	// ----------------------------------------------------------------------------------------
@@ -90,7 +95,7 @@ namespace dlib {
 	);
 
 	CV_EXPORTS_W simple_object_detector_com train_simple_object_detector(
-		const std::vector<cv::Mat>& cvimages,
+		const std::vector<cv::Mat>& images,
 		std::vector<std::vector<rectangle>>& boxes,
 		const simple_object_detector_training_options& options
 	);
@@ -98,7 +103,27 @@ namespace dlib {
 	CV_EXPORTS_W const simple_test_results test_simple_object_detector(
 		const std::string& dataset_filename,
 		const std::string& detector_filename,
-		const int upsample_amount = -1
+		const int upsampling_amount = -1
+	);
+
+	CV_EXPORTS_W const simple_test_results test_simple_object_detector(
+		const std::string& dataset_filename,
+		simple_object_detector_com& detector,
+		const int upsampling_amount = -1
+	);
+
+	CV_EXPORTS_W simple_test_results test_simple_object_detector (
+		const std::vector<cv::Mat>& images,
+		std::vector<std::vector<rectangle>>& boxes,
+		fhog_object_detector& detector,
+		const uint upsampling_amount = 0
+	);
+
+	CV_EXPORTS_W simple_test_results test_simple_object_detector (
+		const std::vector<cv::Mat>& images,
+		std::vector<std::vector<rectangle>>& boxes,
+		simple_object_detector_com& detector,
+		const int upsampling_amount = -1
 	);
 
 	// ----------------------------------------------------------------------------------------

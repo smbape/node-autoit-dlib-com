@@ -5,15 +5,15 @@ module.exports = [
 
     ["dlib.Matrix.Matrix", "", [], [], "", ""],
 
-    ["dlib.Matrix.create", "Ptr<Matrix>", ["/External"], [
+    ["dlib.Matrix.create", "shared_ptr<Matrix>", ["/External"], [
         ["vector_double", "list", "", []]
     ], "", ""],
 
-    ["dlib.Matrix.create", "Ptr<Matrix>", ["/External"], [
+    ["dlib.Matrix.create", "shared_ptr<Matrix>", ["/External"], [
         ["vector_vector_double", "list", "", []]
     ], "", ""],
 
-    ["dlib.Matrix.create", "Ptr<Matrix>", ["/External"], [
+    ["dlib.Matrix.create", "shared_ptr<Matrix>", ["/External"], [
         ["long", "rows", "", []],
         ["long", "cols", "", []],
     ], "", ""],

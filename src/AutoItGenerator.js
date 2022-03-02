@@ -14,6 +14,7 @@ const [VERSION_MAJOR, VERSION_MINOR] = version.split(".");
 
 const LF = "\n";
 
+const {removeNamespaces} = require("./alias");
 const knwon_ids = require("./ids");
 const conversion = require("./conversion");
 const custom_conversions = require("./custom_conversions");
@@ -275,10 +276,6 @@ class AutoItGenerator {
 
             // methods
             for (const fname of coclass.methods.keys()) {
-                if (fname === "tl_corner") {
-                    debugger;
-                }
-
                 if (idnames.has(fname.toLowerCase())) {
                     throw new Error(`duplicated idl name ${ fqn }::${ fname }`);
                 }
@@ -1864,6 +1861,9 @@ class AutoItGenerator {
             case "ushort":
             case "USHORT":
             case "int":
+            case "INT":
+            case "uint":
+            case "UINT":
             case "long":
             case "LONG":
             case "ULONG":
@@ -1929,16 +1929,19 @@ class AutoItGenerator {
         return `return autoit_to(${ in_val }, ${ obj }${ propname });`;
     }
 
-    getIDLType(type, coclass, options) {
-        if (type.startsWith("Ptr_")) {
+    getIDLType(type, coclass, options = {}) {
+        const {shared_ptr} = options;
+        const shared_ptr_ = removeNamespaces(shared_ptr, options);
+
+        if (type.startsWith(`${ shared_ptr_ }_`)) {
             // Add dependency
-            this.getIDLType(type.slice("Ptr_".length), coclass, options);
+            this.getIDLType(type.slice(`${ shared_ptr_ }_`.length), coclass, options);
             return "VARIANT";
         }
 
-        if (type.startsWith("Ptr<") && type.endsWith(">")) {
+        if (type.startsWith(`${ shared_ptr_ }<`) && type.endsWith(">")) {
             // Add dependency
-            this.getIDLType(type.slice("Ptr<".length, -">".length), coclass, options);
+            this.getIDLType(type.slice((shared_ptr_ + "<".length), -">".length), coclass, options);
             return "VARIANT";
         }
 
@@ -2011,17 +2014,18 @@ class AutoItGenerator {
 
     getCppType(type, coclass, options = {}) {
         const {shared_ptr} = options;
+        const shared_ptr_ = removeNamespaces(shared_ptr, options);
 
         if (type === "_variant_t") {
             return type;
         }
 
-        if (type.startsWith("Ptr_")) {
-            return `${ shared_ptr }<${ this.getCppType(type.slice("Ptr_".length), coclass, options) }>`;
+        if (type.startsWith(`${ shared_ptr_ }_`)) {
+            return `${ shared_ptr }<${ this.getCppType(type.slice(`${ shared_ptr_ }_`.length), coclass, options) }>`;
         }
 
-        if (type.startsWith("Ptr<") && type.endsWith(">")) {
-            return `${ shared_ptr }<${ this.getCppType(type.slice("Ptr<".length, -">".length), coclass, options) }>`;
+        if (type.startsWith(`${ shared_ptr_ }<`) && type.endsWith(">")) {
+            return `${ shared_ptr }<${ this.getCppType(type.slice(`${ shared_ptr_ }<`.length, -">".length), coclass, options) }>`;
         }
 
         if (type.startsWith("vector_")) {
@@ -2052,8 +2056,12 @@ class AutoItGenerator {
                 return "int";
             }
 
-            if (CPP_TYPES.has(type)) {
-                return CPP_TYPES.get(type);
+            if (options.variantTypeReg && options.variantTypeReg.test(fqn)) {
+                return fqn;
+            }
+
+            if (CPP_TYPES.has(fqn)) {
+                return CPP_TYPES.get(fqn);
             }
 
             if (this.classes.has(fqn)) {
