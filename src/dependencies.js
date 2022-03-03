@@ -4,6 +4,7 @@ const orderDependencies = (_dependencies, _dependents, result = []) => {
     for (const fqn of _dependencies.keys()) {
         if (_dependencies.get(fqn).size === 0) {
             stack.push(fqn);
+            _dependencies.delete(fqn);
         }
     }
 
@@ -31,7 +32,11 @@ const orderDependencies = (_dependencies, _dependents, result = []) => {
 
     processCircular(_dependencies, _dependents, result); // eslint-disable-line no-use-before-define
 
-    result.push(..._dependencies.keys());
+    for (const fqn of _dependencies.keys()) {
+        result.push(fqn);
+        _dependencies.delete(fqn);
+        _dependents.delete(fqn);
+    }
 
     return result;
 };

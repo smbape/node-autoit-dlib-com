@@ -1143,15 +1143,15 @@ class AutoItGenerator {
                 `.replace(/^ {20}/mg, "").trim().replace(/[^\S\n]+$/mg, "") + LF);
             }
 
-            const dependencies = this.dependencies.has(fqn) ? Array.from(this.dependencies.get(fqn).values()) : [];
+            const dependencies = this.dependencies.has(fqn) ?
+                this.getOrderedDependencies(new Set(this.dependencies.get(fqn).values()))
+                : [];
 
-            const idl_deps = dependencies.filter(dependency => {
-                return !this.classes.get(dependency).noidl;
-            }).map((dependency, i) => `import "${ this.classes.get(dependency).iface.filename }";`);
+            const idl_deps = dependencies.filter(dependency => !dependency.noidl).map(dependency => `import "${ dependency.iface.filename }";`);
 
             if (dependencies.length !== 0) {
                 idl_deps.unshift("");
-                idl_deps.unshift(...dependencies.map((dependency, i) => `interface I${ this.classes.get(dependency).iface.cotype };`));
+                idl_deps.unshift(...dependencies.map(dependency => `interface I${ dependency.iface.cotype };`));
             }
 
             const content = `
@@ -1175,7 +1175,7 @@ class AutoItGenerator {
                 files.set(sysPath.join(options.output, `${ iface.filename }`), content.trim().replace(/[^\S\n]+$/mg, "") + LF);
             }
 
-            const includes = dependencies.map((dependency, i) => `#include "${ this.classes.get(dependency).getClassName() }.h"`);
+            const includes = dependencies.map(dependency => `#include "${ dependency.getClassName() }.h"`);
 
             if (options.hdr !== false) {
                 const using = new Set([
@@ -1323,7 +1323,7 @@ class AutoItGenerator {
         }
         files.set(sysPath.join(__dirname, "ids.json"), JSON.stringify(knwon_ids, null, 4));
 
-        const ifaces = this.getDependencyPriorities();
+        const ifaces = this.getOrderedDependencies();
 
         if (options.idl !== false) {
             const idl = `
@@ -2171,25 +2171,71 @@ class AutoItGenerator {
         return Array.from(types);
     }
 
-    getDependencyPriorities() {
+    getOrderedDependencies(dependencies = null) {
         const _dependencies = new Map(this.dependencies);
         const _dependents = new Map(this.dependents);
 
-        for (const fqn of this.classes.keys()) {
-            if (!_dependencies.has(fqn)) {
-                _dependencies.set(fqn, new Set());
+        if (dependencies !== null) {
+            for (const fqn of _dependencies.keys()) {
+                if (!dependencies.has(fqn)) {
+                    _dependencies.delete(fqn);
+                    continue;
+                }
+
+                const oldvalues = _dependencies.get(fqn);
+                const newvalues = new Set();
+                _dependencies.set(fqn, newvalues);
+
+                for (const dep of _dependencies.get(fqn)) {
+                    if (dependencies.has(dep)) {
+                        newvalues.add(dep);
+                    }
+                }
+            }
+
+            for (const fqn of _dependents.keys()) {
+                if (!dependencies.has(fqn)) {
+                    _dependents.delete(fqn);
+                    continue;
+                }
+
+                const oldvalues = _dependents.get(fqn);
+                const newvalues = new Set();
+                _dependents.set(fqn, newvalues);
+
+                for (const dep of _dependents.get(fqn)) {
+                    if (dependencies.has(dep)) {
+                        newvalues.add(dep);
+                    }
+                }
+            }
+
+            for (const fqn of dependencies) {
+                if (!_dependencies.has(fqn)) {
+                    _dependencies.set(fqn, new Set());
+                }
+            }
+        } else {
+            for (const fqn of this.classes.keys()) {
+                if (!_dependencies.has(fqn)) {
+                    _dependencies.set(fqn, new Set());
+                }
             }
         }
 
-        const ifaces = [];
         const ordered = orderDependencies(_dependencies, _dependents);
+
+        const result = [];
+
         for (const fqn of ordered) {
-            if (!this.classes.get(fqn).noidl) {
-                ifaces.push(this.classes.get(fqn).iface);
+            if (dependencies !== null) {
+                result.push(this.classes.get(fqn));
+            } else if (!this.classes.get(fqn).noidl) {
+                result.push(this.classes.get(fqn).iface);
             }
         }
 
-        return ifaces;
+        return result;
     }
 }
 

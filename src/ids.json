@@ -239,12 +239,16 @@
         "iid": "c0a315f1-0834-45c8-8174-f6704099dbdf",
         "clsid": "d3989f52-ce4c-48c0-8022-5a30e288263f"
     },
-    "VectorOfVectorOfDouble": {
-        "iid": "a5abd90f-2d79-4b92-80e0-b3b7e5f61607",
-        "clsid": "390ea4a3-326a-407f-a532-c3c6171721f9"
+    "VectorOfFhog_object_detector": {
+        "iid": "64c28de0-0cd3-4824-bece-a495cd853e5e",
+        "clsid": "12e600e1-e004-4e2f-8530-c60cfeebbac9"
     },
     "VectorOfULONG": {
         "iid": "f2a6c01c-53a3-4af5-8b09-1ffeb02d841c",
         "clsid": "0e8b2098-fe36-490d-a6e5-37209adda4d9"
+    },
+    "VectorOfVectorOfDouble": {
+        "iid": "a5abd90f-2d79-4b92-80e0-b3b7e5f61607",
+        "clsid": "390ea4a3-326a-407f-a532-c3c6171721f9"
     }
 }
