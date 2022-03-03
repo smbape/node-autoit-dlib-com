@@ -1,6 +1,23 @@
 #pragma once
 #pragma comment(lib, "comsuppw.lib")
 
+#include <algorithm>
+#include <atlbase.h>
+#include <atlcom.h>
+#include <atlctl.h>
+#include <atlsafe.h>
+#include <comutil.h>
+#include <iostream>
+#include <memory>
+#include <OleAuto.h>
+#include <string>
+#include <tuple>
+#include <type_traits>
+#include <utility>
+#include <vector>
+
+#include "autoit_def.h"
+
 #ifdef AutoIt_Func
 // keep current value (through OpenCV port file)
 #elif defined __GNUC__ || (defined (__cpluscplus) && (__cpluscplus >= 201103))
@@ -29,17 +46,18 @@
 #endif
 
 #ifndef AUTOIT_ASSERT_THROW
-#define AUTOIT_ASSERT_THROW( expr, msg ) do { if(!!(expr)) ; else { \
-fflush(stdout); fflush(stderr); \
-fprintf(stderr, "dlib(%s) Error: %s (%s) in %s, file %s, line %d\n", AUTOIT_QUOTE_STRING(DLIB_VERSION), msg, #expr, AutoIt_Func, __FILE__, __LINE__); \
-fflush(stdout); fflush(stderr); \
-throw std::exception(msg); } \
-} while(0)
+#define AUTOIT_ASSERT_THROW( expr, _message ) do { if(!!(expr)) ; else { \
+    std::ostringstream _out; _out << _message;	\
+    fflush(stdout); fflush(stderr);         \
+    fprintf(stderr, AUTOIT_QUOTE_STRING(AUTOIT_LIB_NAME) "(%s) Error: %s (%s) in %s, file %s, line %d\n", AUTOIT_QUOTE_STRING(AUTOIT_LIB_VERSION), _out.str().c_str(), #expr, AutoIt_Func, __FILE__, __LINE__); \
+    fflush(stdout); fflush(stderr);         \
+    throw std::exception(_out.str().c_str());    \
+}} while(0)
 #endif
 
 #ifndef AUTOIT_ASSERT_SET_HR
 #define AUTOIT_ASSERT_SET_HR( expr ) do { if(!!(expr)) { hr = S_OK; } else { \
-fprintf(stderr, "dlib(%s) Error: (%s) in %s, file %s, line %d\n", AUTOIT_QUOTE_STRING(DLIB_VERSION), #expr, AutoIt_Func, __FILE__, __LINE__); \
+fprintf(stderr, AUTOIT_QUOTE_STRING(AUTOIT_LIB_NAME) "(%s) Error: (%s) in %s, file %s, line %d\n", AUTOIT_QUOTE_STRING(AUTOIT_LIB_VERSION), #expr, AutoIt_Func, __FILE__, __LINE__); \
 hr = E_FAIL; } \
 } while(0)
 #endif
@@ -47,19 +65,11 @@ hr = E_FAIL; } \
 #ifndef AUTOIT_ASSERT
 #define AUTOIT_ASSERT( expr ) do { if(!!(expr)) ; else { \
 fflush(stdout); fflush(stderr); \
-fprintf(stderr, "dlib(%s) Error: (%s) in %s, file %s, line %d\n", AUTOIT_QUOTE_STRING(DLIB_VERSION), #expr, AutoIt_Func, __FILE__, __LINE__); \
+fprintf(stderr, AUTOIT_QUOTE_STRING(AUTOIT_LIB_NAME) "(%s) Error: (%s) in %s, file %s, line %d\n", AUTOIT_QUOTE_STRING(AUTOIT_LIB_VERSION), #expr, AutoIt_Func, __FILE__, __LINE__); \
 fflush(stdout); fflush(stderr); \
 return E_FAIL; } \
 } while(0)
 #endif
-
-#include <algorithm>
-#include <tuple>
-#include <type_traits>
-#include <utility>
-#include <vector>
-
-#include "autoit_bridge_generated.h"
 
 #define PARAMETER_NOT_FOUND(in_val) (V_VT(in_val) == VT_ERROR && V_ERROR(in_val) == DISP_E_PARAMNOTFOUND)
 #define PARAMETER_MISSING(in_val) (V_VT(in_val) == VT_EMPTY || PARAMETER_NOT_FOUND(in_val))
@@ -71,7 +81,7 @@ struct TypeToImplType;
 template<typename _Tp>
 class AutoItObject {
 public:
-	std::shared_ptr<_Tp>* __self = nullptr;
+	AUTOIT_PTR<_Tp>* __self = nullptr;
 };
 
 class ExtendedHolder {
@@ -108,7 +118,7 @@ extern const HRESULT autoit_to(VARIANT const* const& in_val, T& out_val); \
 extern const HRESULT autoit_from(T const& in_val, VARIANT*& out_val);
 
 PTR_BRIDGE_DECL(void*)
-PTR_BRIDGE_DECL(uchar*)
+PTR_BRIDGE_DECL(unsigned char*)
 PTR_BRIDGE_DECL(HWND)
 
 extern const HRESULT autoit_from(VARIANT const& in_val, VARIANT*& out_val);
@@ -205,7 +215,7 @@ const HRESULT autoit_to(VARIANT const* const& in_val, std::vector<_Tp>& out_val)
 }
 
 template<typename _Tp>
-const HRESULT autoit_from(const std::shared_ptr<std::vector<_Tp>>& in_val, VARIANT*& out_val) {
+const HRESULT autoit_from(const AUTOIT_PTR<std::vector<_Tp>>& in_val, VARIANT*& out_val) {
 	return autoit_from(*in_val.get(), out_val);
 }
 

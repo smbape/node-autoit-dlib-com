@@ -124,24 +124,12 @@ const std::shared_ptr<point_transform_projective> CDlib_Point_transform_projecti
 	return std::make_shared<point_transform_projective>(m);
 }
 
-const point_transform_projective CDlib_Object::find_projective_transform(Matrix& from_points, Matrix& to_points, HRESULT& hr) {
-	AUTOIT_ASSERT_THROW(from_points.nc() == 2 && to_points.nc() == 2,
-		"Both from_points and to_points must be arrays with 2 columns.");
-	AUTOIT_ASSERT_THROW(from_points.nr() == to_points.nr(),
-		"from_points and to_points must have the same number of rows.");
-	AUTOIT_ASSERT_THROW(from_points.nr() >= 4,
-		"You need at least 4 rows in the input matrices to find a projective transform.");
-
+const std::shared_ptr<point_transform_projective> CDlib_Point_transform_projective_Object::create(cv::Mat& img, HRESULT& hr) {
+	const cv_image<double> m_(img);
+	const_image_view<cv_image<double>> m(m_);
+	AUTOIT_ASSERT_THROW(m.nr() == 3 && m.nc() == 3, "The matrix used to construct a point_transform_projective object must be 3x3.");
 	hr = S_OK;
-
-	std::vector<dpoint> from, to;
-	for (long r = 0; r < from_points.nr(); ++r)
-	{
-		from.push_back(dpoint(from_points(r, 0), from_points(r, 1)));
-		to.push_back(dpoint(to_points(r, 0), to_points(r, 1)));
-	}
-
-	return dlib::find_projective_transform(from, to);
+	return std::make_shared<point_transform_projective>(mat(m));
 }
 
 const point_transform_projective CDlib_Object::find_projective_transform(std::vector<dpoint>& from_points, std::vector<dpoint>& to_points, HRESULT& hr) {
@@ -167,4 +155,70 @@ const string CDlib_Point_Object::ToString(HRESULT& hr) {
 	std::ostringstream sout;
 	sout << "(" << p.x() << ", " << p.y() << ")";
 	return sout.str();
+}
+
+const point_transform_projective CDlib_Object::find_projective_transform(Matrix& from_points, Matrix& to_points, HRESULT& hr) {
+	AUTOIT_ASSERT_THROW(from_points.nc() == 2 && to_points.nc() == 2,
+		"Both from_points and to_points must be arrays with 2 columns.");
+	AUTOIT_ASSERT_THROW(from_points.nr() == to_points.nr(),
+		"from_points and to_points must have the same number of rows.");
+	AUTOIT_ASSERT_THROW(from_points.nr() >= 4,
+		"You need at least 4 rows in the input matrices to find a projective transform.");
+
+	hr = S_OK;
+
+	std::vector<dpoint> from, to;
+	for (long r = 0; r < from_points.nr(); ++r)
+	{
+		from.push_back(dpoint(from_points(r, 0), from_points(r, 1)));
+		to.push_back(dpoint(to_points(r, 0), to_points(r, 1)));
+	}
+
+	return dlib::find_projective_transform(from, to);
+}
+
+template<typename T>
+point_transform_projective find_projective_transform_impl(
+	const cv_image<T>& from_points_,
+	const cv_image<T>& to_points_
+)
+{
+	const_image_view<cv_image<T>> from_points(from_points_);
+	const_image_view<cv_image<T>> to_points(to_points_);
+
+	DLIB_CASSERT(from_points.nc() == 2 && to_points.nc() == 2,
+		"Both from_points and to_points must be arrays with 2 columns.");
+	DLIB_CASSERT(from_points.nr() == to_points.nr(),
+		"from_points and to_points must have the same number of rows.");
+	DLIB_CASSERT(from_points.nr() >= 4,
+		"You need at least 4 rows in the input matrices to find a projective transform.");
+
+	std::vector<dpoint> from, to;
+	for (long r = 0; r < from_points.nr(); ++r)
+	{
+		from.push_back(dpoint(from_points[r][0], from_points[r][1]));
+		to.push_back(dpoint(to_points[r][0], to_points[r][1]));
+	}
+
+	return find_projective_transform(from, to);
+}
+
+const point_transform_projective CDlib_Object::find_projective_transform(cv::Mat& from_points, cv::Mat& to_points, HRESULT& hr) {
+	hr = S_OK;
+
+	AUTOIT_ASSERT_THROW(from_points.depth() == to_points.depth(),
+		"from_points and to_points must be of the same type");
+
+	AUTOIT_ASSERT_THROW(from_points.depth() == CV_32F || from_points.depth() == CV_64F,
+		"Both from_points  must be of type CV_32F or CV_64F");
+
+	if (from_points.depth() == CV_32F && to_points.depth() == CV_32F) {
+		cv_image<float> _from_points(from_points);
+		cv_image<float> _to_points(to_points);
+		return find_projective_transform_impl(_from_points, _to_points);
+	}
+
+	cv_image<double> _from_points(from_points);
+	cv_image<double> _to_points(to_points);
+	return find_projective_transform_impl(_from_points, _to_points);
 }

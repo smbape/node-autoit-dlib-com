@@ -1256,14 +1256,6 @@ class AutoItGenerator {
 
                 #include "resource.h"
                 #include "${ LIBRARY }.h"
-                #include <atlbase.h>
-                #include <atlcom.h>
-                #include <atlctl.h>
-                #include <atlsafe.h>
-                #include <iostream>
-                #include <OleAuto.h>
-                #include <string>
-                #include <comutil.h>
                 #include "generated_include.h"
 
                 using namespace ${ this.namespace };

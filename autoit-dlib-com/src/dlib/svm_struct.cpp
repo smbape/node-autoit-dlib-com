@@ -69,11 +69,7 @@ public:
 			hr = autoit_to(result, psi);
 		}
 
-		if (FAILED(hr)) {
-			std::ostringstream sout;
-			sout << "Input should be a " << TInfo<feature_vector_type>::getName() << ".";
-			AUTOIT_ASSERT_THROW(false, sout.str().c_str());
-		}
+		AUTOIT_ASSERT_THROW(SUCCEEDED(hr), "Input should be a " << TInfo<feature_vector_type>::getName() << ".");
 	}
 
 	virtual void separation_oracle(
@@ -110,14 +106,10 @@ public:
 			}
 		}
 
-		if (FAILED(hr)) {
-			std::ostringstream sout;
-			sout << "Input should be a "
-				<< "tuple<" << TInfo<feature_vector_type>::getName() << ", " << TInfo<scalar_type>::getName() << "> "
-				<< "or a tuple<" << TInfo<scalar_type>::getName() << ", " << TInfo<feature_vector_type>::getName() << ">"
-				<< ".";
-			AUTOIT_ASSERT_THROW(false, sout.str().c_str());
-		}
+		AUTOIT_ASSERT_THROW(SUCCEEDED(hr), "Input should be a "
+			<< "tuple<" << TInfo<feature_vector_type>::getName() << ", " << TInfo<scalar_type>::getName() << "> "
+			<< "or a tuple<" << TInfo<scalar_type>::getName() << ", " << TInfo<feature_vector_type>::getName() << ">"
+			<< ".");
 	}
 
 private:

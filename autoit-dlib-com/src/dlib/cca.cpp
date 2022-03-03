@@ -14,7 +14,7 @@ cca_outputs dlib::_cca1(
 		"Invalid inputs");
 
 	cca_outputs temp;
-	temp.correlations = cca(L,R,temp.Ltrans,temp.Rtrans,num_correlations,extra_rank,q,regularization); 
+	temp.correlations = cca(L, R, temp.Ltrans, temp.Rtrans, num_correlations, extra_rank, q, regularization);
 	return temp;
 }
 
@@ -23,6 +23,6 @@ sample_type dlib::apply_cca_transform(
 	const sparse_vect& v
 )
 {
-    AUTOIT_ASSERT_THROW((long)max_index_plus_one(v) <= m.nr(), "Invalid Inputs");
-    return sparse_matrix_vector_multiply(trans(m), v);
+	AUTOIT_ASSERT_THROW((long)max_index_plus_one(v) <= m.nr(), "Invalid Inputs");
+	return sparse_matrix_vector_multiply(trans(m), v);
 }

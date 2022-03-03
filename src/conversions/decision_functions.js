@@ -81,16 +81,16 @@ const add_normalized_df = (impl, name, sample_type) => {
             return normalized_predict<${ name }>(df, sample);
         }
 
-        const std::vector<double> CDlib_${ name }_Object::batch_predict(matrix<double>& samples, HRESULT& hr) {
-            hr = S_OK;
-            auto& df = *this->__self->get();
-            return normalized_predict_matrix_vec<${ name }>(df, samples);
-        }
-
         const std::vector<double> CDlib_${ name }_Object::batch_predict(std::vector<${ sample_type }>& samples, HRESULT& hr) {
             hr = S_OK;
             auto& df = *this->__self->get();
             return normalized_predict_vec<${ name }>(df, samples);
+        }
+
+        const std::vector<double> CDlib_${ name }_Object::batch_predict(cv::Mat& samples, HRESULT& hr) {
+            hr = S_OK;
+            auto& df = *this->__self->get();
+            return normalized_predict_vec<${ name }>(df, Mat_to_vector_sample_type(samples));
         }
     `.trim().replace(/^ {8}/mg, ""));
 };
@@ -116,12 +116,12 @@ const setup_auto_train_rbf_classifier = impl => {
 
         const _normalized_decision_function_radial_basis CDlib_Object::reduce(
             _normalized_decision_function_radial_basis& df,
-            matrix<double>& x_,
+            cv::Mat& x_,
             long num_bv,
             double eps,
             HRESULT& hr
         ) {
-            auto x = matrix_to_vector_sample_type(x_);
+            auto x = Mat_to_vector_sample_type(x_);
             return reduce(df, x, num_bv, eps, hr);
         }
     `.trim().replace(/^ {8}/mg, ""));
@@ -130,7 +130,10 @@ const setup_auto_train_rbf_classifier = impl => {
 module.exports = (header = [], impl = [], options = {}) => {
     header.push(`
         namespace dlib {
-            inline const std::vector<sample_type> matrix_to_vector_sample_type (const matrix<double>& x) {
+            inline const std::vector<sample_type> Mat_to_vector_sample_type(const cv::Mat& img)
+            {
+                auto const x_ = cv_image<double>(img);
+                auto x = make_image_view(x_);
                 AUTOIT_ASSERT_THROW(x.nc() > 0 && x.nr() > 0, "matrix must not be empty");
                 std::vector<sample_type> samples(x.nr());
                 for (long r = 0; r < x.nr(); ++r)
@@ -138,7 +141,7 @@ module.exports = (header = [], impl = [], options = {}) => {
                     samples[r].set_size(x.nc());
                     for (long c = 0; c < x.nc(); ++c)
                     {
-                        samples[r](c) = x(r, c);
+                        samples[r](c) = x[r][c];
                     }
                 }
                 return samples;
@@ -230,22 +233,24 @@ module.exports = (header = [], impl = [], options = {}) => {
             std::vector<double> out;
             out.reserve(samps.size());
             for (const auto& x : samps)
-                out.push_back(normalized_predict(df,x));
+                out.push_back(normalized_predict(df, x));
             return out;
         }
 
         template <typename normalized_function>
-        std::vector<double> normalized_predict_matrix_vec (
+        std::vector<double> normalized_predict_cv_vec (
             const normalized_function& df,
-            const matrix<double>& samps
+            const cv_image<double>& samps_
         )
         {
+            auto samps = make_image_view(samps_);
+
             if (df.function.basis_vectors(0).size() != samps.nc())
             {
                 std::ostringstream sout;
                 sout << "Input vector should have " << df.function.basis_vectors(0).size() 
                      << " dimensions, not " << samps.nc() << ".";
-                AUTOIT_ASSERT_THROW(false, sout.str().c_str());
+                AUTOIT_ASSERT_THROW(df.function.basis_vectors(0).size() == samps.nc(), sout.str().c_str());
             }
 
             std::vector<double> out;

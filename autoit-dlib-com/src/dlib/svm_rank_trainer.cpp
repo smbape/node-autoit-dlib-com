@@ -33,18 +33,18 @@ const _decision_function_sparse_linear CDlib_Svm_rank_trainer_sparse_Object::tra
 }
 
 template <
-    typename trainer_type,
-    typename T
-    >
-const ranking_test _cross_ranking_validate_trainer (
-    const trainer_type& trainer,
-    const std::vector<T>& samples,
-    const unsigned long folds
+	typename trainer_type,
+	typename T
+>
+const ranking_test _cross_ranking_validate_trainer(
+	const trainer_type& trainer,
+	const std::vector<T>& samples,
+	const unsigned long folds
 )
 {
-    AUTOIT_ASSERT_THROW(is_ranking_problem(samples), "Training data does not make a valid training set.");
-    AUTOIT_ASSERT_THROW(1 < folds && folds <= samples.size(), "Invalid number of folds given.");
-    return cross_validate_ranking_trainer(trainer, samples, folds);
+	AUTOIT_ASSERT_THROW(is_ranking_problem(samples), "Training data does not make a valid training set.");
+	AUTOIT_ASSERT_THROW(1 < folds && folds <= samples.size(), "Invalid number of folds given.");
+	return cross_validate_ranking_trainer(trainer, samples, folds);
 }
 
 const ranking_test CDlib_Object::cross_validate_ranking_trainer(vec_svm_rank_trainer& trainer, std::vector<vec_ranking_pair>& samples, ULONG folds, HRESULT& hr) {

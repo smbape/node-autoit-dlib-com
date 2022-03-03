@@ -151,10 +151,12 @@ waterfall([
             }
 
             const buffer = Buffer.concat(buffers, nlen);
-            const configuration = JSON.parse(replaceAliases(buffer.toString(), options));
-            configuration.generated_include = generated_include;
 
-            configuration.decls.push(...custom_declarations);
+            const json = JSON.parse(replaceAliases(buffer.toString(), options));
+            json.decls.push(...custom_declarations);
+
+            const configuration = JSON.parse(replaceAliases(JSON.stringify(json), options));
+            configuration.generated_include = generated_include;
 
             for (const [name, modifiers] of CUSTOM_CLASSES) {
                 configuration.decls.push([`class ${ name }`, "", modifiers, [], "", ""]);

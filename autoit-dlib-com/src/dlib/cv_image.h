@@ -24,7 +24,7 @@ namespace dlib
 
 		cv_image (const cv::Mat& img) 
 		{
-			DLIB_CASSERT(img.depth() == cv::DataType<typename pixel_traits<pixel_type>::basic_pixel_type>::depth &&
+			AUTOIT_ASSERT_THROW(img.depth() == cv::DataType<typename pixel_traits<pixel_type>::basic_pixel_type>::depth &&
 						 img.channels() == pixel_traits<pixel_type>::num, 
 						 "The pixel type you gave doesn't match pixel used by the open cv Mat object."
 						 << "\n\t img.depth():    " << img.depth() 
@@ -42,7 +42,7 @@ namespace dlib
 		inline pixel_type* operator[](const long row ) 
 		{ 
 			// make sure requires clause is not broken
-			DLIB_ASSERT(0 <= row && row < nr(),
+			AUTOIT_ASSERT_THROW(0 <= row && row < nr(),
 				"\tpixel_type* cv_image::operator[](row)"
 				<< "\n\t you have asked for an out of bounds row " 
 				<< "\n\t row:  " << row
@@ -56,7 +56,7 @@ namespace dlib
 		inline const pixel_type* operator[](const long row ) const
 		{ 
 			// make sure requires clause is not broken
-			DLIB_ASSERT(0 <= row && row < nr(),
+			AUTOIT_ASSERT_THROW(0 <= row && row < nr(),
 				"\tconst pixel_type* cv_image::operator[](row)"
 				<< "\n\t you have asked for an out of bounds row " 
 				<< "\n\t row:  " << row
@@ -69,7 +69,7 @@ namespace dlib
 
 		inline const pixel_type& operator()(const long row, const long column) const
 		{
-		  DLIB_ASSERT(0<= column && column < nc(),
+		  AUTOIT_ASSERT_THROW(0<= column && column < nc(),
 			  "\tcont pixel_type& cv_image::operator()(const long rown const long column)"
 			  << "\n\t you have asked for an out of bounds column "
 			  << "\n\t column: " << column
@@ -82,7 +82,7 @@ namespace dlib
 
 		inline pixel_type& operator()(const long row, const long column)
 		{
-		  DLIB_ASSERT(0<= column && column < nc(),
+		  AUTOIT_ASSERT_THROW(0<= column && column < nc(),
 			  "\tcont pixel_type& cv_image::operator()(const long rown const long column)"
 			  << "\n\t you have asked for an out of bounds column "
 			  << "\n\t column: " << column

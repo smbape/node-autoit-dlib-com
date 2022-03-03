@@ -7,13 +7,13 @@
 #include <dlib/string.h>
 #include <dlib/svm.h>
 #include <dlib/image_processing/frontal_face_detector.h>
+#include "autoit_bridge_common.h"
 #include "cv_image.h"
-#include "cvdef.h"
 
 using std::string;
 
 namespace dlib {
-// ----------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------
 
 	extern std::string version;
 	extern std::string time_compiled;
@@ -23,7 +23,7 @@ namespace dlib {
 	extern bool USE_AVX_INSTRUCTIONS;
 	extern bool USE_NEON_INSTRUCTIONS;
 
-// ----------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------
 
 	typedef matrix<double, 0, 1> dense_vect;
 	typedef matrix<double, 0, 1> sample_type;
@@ -60,7 +60,7 @@ namespace dlib {
 	typedef frontal_face_detector fhog_object_detector;
 	typedef frontal_face_detector simple_object_detector;
 
-// ----------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------
 
 	struct CV_EXPORTS_W_SIMPLE binary_test
 	{
@@ -74,7 +74,7 @@ namespace dlib {
 		CV_PROP_RW double class2_accuracy;
 	};
 
-// ----------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------
 
 	struct CV_EXPORTS_W_SIMPLE regression_test
 	{
@@ -105,7 +105,7 @@ namespace dlib {
 		CV_PROP_RW double mean_ap;
 	};
 
-// ----------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------
 
 	template <typename image_type>
 	void cvimages_to_dlib(
@@ -119,21 +119,20 @@ namespace dlib {
 		}
 	}
 
-// ----------------------------------------------------------------------------------------
+	// ----------------------------------------------------------------------------------------
 
 	template <typename T>
 	std::shared_ptr<T> load_object_from_file(
 		const std::string& filename
 	)
-	/*!
-		ensures
-			- deserializes an object of type T from the given file and returns it.
-	!*/
+		/*!
+			ensures
+				- deserializes an object of type T from the given file and returns it.
+		!*/
 	{
 		std::ifstream fin(filename.c_str(), std::ios::binary);
 		if (!fin) {
-			auto msg = "Unable to open " + filename;
-			AUTOIT_ASSERT_THROW(fin, msg.c_str());
+			AUTOIT_ASSERT_THROW(fin, "Unable to open " << filename);
 		}
 		auto obj = std::make_shared<T>();
 		deserialize(*obj, fin);

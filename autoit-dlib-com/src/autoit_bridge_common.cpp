@@ -209,7 +209,7 @@ const HRESULT autoit_to(VARIANT const* const& in_val, char*& out_val) {
 }
 
 PTR_BRIDGE_IMPL(void*)
-PTR_BRIDGE_IMPL(uchar*)
+PTR_BRIDGE_IMPL(unsigned char*)
 PTR_BRIDGE_IMPL(HWND)
 
 const HRESULT autoit_from(VARIANT const& in_val, VARIANT*& out_val) {

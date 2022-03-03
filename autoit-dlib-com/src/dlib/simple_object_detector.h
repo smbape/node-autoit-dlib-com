@@ -75,12 +75,12 @@ namespace dlib {
 
 		CV_WRAP simple_object_detector_com() {}
 
-		CV_WRAP simple_object_detector_com(fhog_object_detector& _detector, uint _upsampling_amount) :
+		CV_WRAP simple_object_detector_com(fhog_object_detector & _detector, uint _upsampling_amount) :
 			detector(_detector), upsampling_amount(_upsampling_amount) {}
 
-		CV_WRAP simple_object_detector_com(std::vector<simple_object_detector_com>& detectors);
+		CV_WRAP simple_object_detector_com(std::vector<simple_object_detector_com>&detectors);
 
-		CV_WRAP static std::shared_ptr<simple_object_detector_com> create(const std::string& filename);
+		CV_WRAP static std::shared_ptr<simple_object_detector_com> create(const std::string & filename);
 
 		CV_WRAP std::vector<rectangle> call(cv::Mat & img, const uint upsampling_amount_);
 		CV_WRAP std::vector<rectangle> call(cv::Mat & img);
@@ -112,14 +112,14 @@ namespace dlib {
 		const int upsampling_amount = -1
 	);
 
-	CV_EXPORTS_W simple_test_results test_simple_object_detector (
+	CV_EXPORTS_W simple_test_results test_simple_object_detector(
 		const std::vector<cv::Mat>& images,
 		std::vector<std::vector<rectangle>>& boxes,
 		fhog_object_detector& detector,
 		const uint upsampling_amount = 0
 	);
 
-	CV_EXPORTS_W simple_test_results test_simple_object_detector (
+	CV_EXPORTS_W simple_test_results test_simple_object_detector(
 		const std::vector<cv::Mat>& images,
 		std::vector<std::vector<rectangle>>& boxes,
 		simple_object_detector_com& detector,
@@ -226,8 +226,7 @@ namespace dlib {
 				}
 			}
 
-			auto msg = wrap_string(sout.str()) + "\n" + sout2.str();
-			AUTOIT_ASSERT_THROW(false, msg.c_str());
+			AUTOIT_ASSERT_THROW(false, wrap_string(sout.str()) << "\n" << sout2.str());
 		}
 	}
 

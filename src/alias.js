@@ -13,54 +13,36 @@ exports.replaceAliases = (str, options = {}) => {
     const replacer = (match, offset, string) => {
         const end = offset + match.length;
 
-        // if a start of a word, then it must be a word
-        if (offset === 0 || /\W/.test(string[offset - 1])) {
-            return end === string.length || /\W/.test(string[end]) ? ALIASES.get(match) : match;
+        if (offset !== 0 && string[offset - 1] === "_") {
+            while (offset > 0 && /\w/.test(string[offset - 1])) {
+                offset--;
+            }
         }
 
-        // if an end of a word, the it must be a pointer, a vector, or a type in a tuple or a pair
-        if (end === string.length || /\W/.test(string[end])) {
-            // pointer, vector, or the first sole type of a tuple
-            if ([shared_ptr, "vector", "tuple"].some(prefix => string.endsWith(`${ prefix }_`, offset))) {
-                return ALIASES.get(match);
-            }
-
-            // type in a tuple or a pair
-            if (string.endsWith("_and_", offset)) {
-                let pos = offset - "_and_".length;
-                while (pos > 0 && /\w/.test(string[pos - 1])) {
-                    pos--;
-                }
-
-                return string.startsWith("pair_", pos) || string.startsWith("tuple_", pos) ? ALIASES.get(match) : match;
-            }
-
+        // must be at the begining of a word
+        if (offset !== 0 && /\w/.test(string[offset - 1])) {
             return match;
         }
 
-        // otherwise, it must be a pointer, vector, or a type in a tuple or a pair
+        const end_word = end === string.length || /\W/.test(string[end]);
+
+        // if it is a word
+        if (end_word && (end - offset) === match.length) {
+            return ALIASES.get(match);
+        }
 
         // pointer or vector
-        if ([shared_ptr, "vector"].some(prefix => string.endsWith(`${ prefix }_`, offset))) {
-            return /\W/.test(string[end]) ? ALIASES.get(match) : match;
+        for (const prefix of [shared_ptr, "vector"]) {
+            if (string.startsWith(`${ prefix }_`, offset)) {
+                return end_word ? ALIASES.get(match) : match;
+            }
         }
 
         // type in a tuple or a pair
-        if (string.endsWith("pair_", offset) || string.endsWith("tuple_", offset)) {
-            return string.startsWith("_and_", end) ? ALIASES.get(match) : match;
-        }
-
-        if (string.endsWith("_and_", offset)) {
-            let pos = offset - "_and_".length;
-            while (pos > 0 && /\w/.test(string[pos - 1])) {
-                pos--;
+        for (const prefix of ["tuple", "pair"]) {
+            if (string.startsWith(`${ prefix }_`, offset)) {
+                return end_word || string.startsWith("_and_", end) ? ALIASES.get(match) : match;
             }
-
-            if (!string.startsWith("pair_", pos) && !string.startsWith("tuple_", pos)) {
-                return match;
-            }
-
-            return ALIASES.get(match);
         }
 
         return match;
@@ -104,6 +86,7 @@ exports.removeNamespaces = (str, options = {}) => {
 // console.log(exports.replaceAliases(" sparse_vect", options));
 // console.log(exports.replaceAliases(" sparse_vector", options));
 // console.log(exports.replaceAliases(" sparse_vect_and_", options));
+// console.log(exports.replaceAliases("Mat_to_vector_sparse_vect_and_", options));
 // console.log(exports.replaceAliases("vector_sparse_vect_and_", options));
 // console.log(exports.replaceAliases("vector_sparse_vect", options));
 // console.log(exports.replaceAliases("tuple_sparse_vect", options));

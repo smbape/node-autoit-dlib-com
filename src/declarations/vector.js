@@ -58,6 +58,10 @@ const declarations = [
         ["Matrix", "m", "", []]
     ], "", ""],
 
+    ["dlib.point_transform_projective.create", "shared_ptr_point_transform_projective", ["/External"], [
+        ["cv::Mat", "m", "", []]
+    ], "", ""],
+
     ["dlib.inv", "point_transform_projective", [], [
         ["point_transform_projective", "trans", "", ["/Ref"]],
     ], "", ""],
@@ -70,6 +74,11 @@ const declarations = [
     ["dlib.find_projective_transform", "point_transform_projective", ["/External"], [
         ["Matrix", "from_points", "", ["/Ref"]],
         ["Matrix", "to_points", "", ["/Ref"]],
+    ], "", ""],
+
+    ["dlib.find_projective_transform", "point_transform_projective", ["/External"], [
+        ["cv::Mat", "from_points", "", ["/Ref"]],
+        ["cv::Mat", "to_points", "", ["/Ref"]],
     ], "", ""],
 
     // dlib methods
