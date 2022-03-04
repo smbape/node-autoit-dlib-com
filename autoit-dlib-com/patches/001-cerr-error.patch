@@ -1,0 +1,18 @@
+diff --git a/dlib/error.h b/dlib/error.h
+index ce9b95b1..c873079e 100644
+--- a/dlib/error.h
++++ b/dlib/error.h
+@@ -254,6 +254,13 @@ namespace dlib
+ 
+         void check_for_previous_fatal_errors()
+         {
++            std::cerr << "\n**************************** FATAL ERROR DETECTED ****************************";
++            for (unsigned int i = 0; i < this->info.size(); ++i) {
++               std::cerr << info[i];
++            }
++            std::cerr << std::endl;
++            std::cerr << "******************************************************************************\n" << std::endl;
++
+             // If dlib is being use to create plugins for some other application, like
+             // MATLAB, then don't do these checks since it terminates the over arching
+             // system.  Just let the errors go to the plugin handler and it will deal with

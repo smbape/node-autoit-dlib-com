@@ -16,6 +16,9 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(PROJECT_BUILD_STEPS_FILE "${CMAKE_CURRENT_SOURCE_DIR}/project_build_steps.cmake")
+set(DLIB_PATCH_FILE "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-cerr-error.patch")
+
 add_compile_options(/MP)
 
 # Tell cmake we will need dlib. These command will pull in dlib.
@@ -23,6 +26,7 @@ include(FetchContent)
 FetchContent_Declare(dlib
    GIT_REPOSITORY https://github.com/davisking/dlib.git
    GIT_TAG        v19.23
+   PATCH_COMMAND  "${CMAKE_COMMAND}" -DBUILD_STEP=patch "-DPATCH_FILE=${DLIB_PATCH_FILE}" -P "${PROJECT_BUILD_STEPS_FILE}"
 )
 FetchContent_Populate(dlib)
 
