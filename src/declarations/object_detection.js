@@ -7,7 +7,7 @@ const declarations = [
 
     ["dlib.fhog_object_detector.fhog_object_detector", "", [], [], "", ""],
 
-    ["dlib.fhog_object_detector.create", "shared_ptr_fhog_object_detector", ["/External"], [
+    ["dlib.fhog_object_detector.create", "shared_ptr_fhog_object_detector", ["/Call=dlib::load_object_from_file<fhog_object_detector>"], [
         ["string", "filename", "", []],
     ], "", ""],
 
@@ -20,7 +20,7 @@ const declarations = [
         ["double", "adjust_threshold", "0.0", []],
     ], "", ""],
 
-    ["dlib.fhog_object_detector.save", "void", ["/Call=dlib::save_simple_object_detector", "/Expr=*this->__self->get(), $0"], [
+    ["dlib.fhog_object_detector.save", "void", ["/Call=dlib::save_object_to_file<fhog_object_detector>", "/Expr=*this->__self->get(), $0"], [
         ["string", "detector_output_filename", "", []],
     ], "", ""],
 

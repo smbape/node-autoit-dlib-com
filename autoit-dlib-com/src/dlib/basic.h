@@ -8,7 +8,7 @@
 #include <dlib/svm.h>
 #include <dlib/image_processing/frontal_face_detector.h>
 #include "autoit_bridge_common.h"
-#include "cv_image.h"
+#include "conversion.h"
 
 using std::string;
 
@@ -22,43 +22,6 @@ namespace dlib {
 	extern bool DLIB_USE_LAPACK;
 	extern bool USE_AVX_INSTRUCTIONS;
 	extern bool USE_NEON_INSTRUCTIONS;
-
-	// ----------------------------------------------------------------------------------------
-
-	typedef matrix<double, 0, 1> dense_vect;
-	typedef matrix<double, 0, 1> sample_type;
-	typedef matrix<double, 0, 1> SpaceVector;
-	typedef matrix<double> Matrix;
-
-	typedef std::vector<std::pair<unsigned long, double>> sparse_vect;
-	typedef std::vector<std::pair<unsigned long, unsigned long>> ranges;
-
-	typedef ranking_pair<sample_type> vec_ranking_pair;
-	typedef std::vector<vec_ranking_pair> ranking_pairs;
-	typedef svm_rank_trainer<linear_kernel<sample_type>> vec_svm_rank_trainer;
-	typedef decision_function<linear_kernel<sample_type>> _decision_function_linear;
-
-	typedef ranking_pair<sparse_vect> sparse_ranking_pair;
-	typedef std::vector<sparse_ranking_pair> sparse_ranking_pairs;
-	typedef svm_rank_trainer<sparse_linear_kernel<sparse_vect>> svm_rank_trainer_sparse;
-	typedef decision_function<sparse_linear_kernel<sparse_vect>> _decision_function_sparse_linear;
-
-	typedef decision_function<histogram_intersection_kernel<sample_type>> _decision_function_histogram_intersection;
-	typedef decision_function<sparse_histogram_intersection_kernel<sparse_vect>> _decision_function_sparse_histogram_intersection;
-	typedef decision_function<polynomial_kernel<sample_type>> _decision_function_polynomial;
-	typedef decision_function<sparse_polynomial_kernel<sparse_vect>> _decision_function_sparse_polynomial;
-	typedef decision_function<radial_basis_kernel<sample_type>> _decision_function_radial_basis;
-	typedef decision_function<sparse_radial_basis_kernel<sparse_vect>> _decision_function_sparse_radial_basis;
-	typedef decision_function<sigmoid_kernel<sample_type>> _decision_function_sigmoid;
-	typedef decision_function<sparse_sigmoid_kernel<sparse_vect>> _decision_function_sparse_sigmoid;
-
-	typedef radial_basis_kernel<sample_type> _radial_basis_kernel;
-	typedef linear_kernel<sample_type> _linear_kernel;
-
-	typedef normalized_function<decision_function<radial_basis_kernel<sample_type>>> _normalized_decision_function_radial_basis;
-
-	typedef frontal_face_detector fhog_object_detector;
-	typedef frontal_face_detector simple_object_detector;
 
 	// ----------------------------------------------------------------------------------------
 
@@ -107,22 +70,8 @@ namespace dlib {
 
 	// ----------------------------------------------------------------------------------------
 
-	template <typename image_type>
-	void cvimages_to_dlib(
-		const std::vector<cv::Mat>& cvimages,
-		dlib::array<cv_image<image_type>>& images
-	)
-	{
-		unsigned long image_idx = 0;
-		for (const auto& image : cvimages) {
-			images[image_idx++] = cv_image<image_type>(image);
-		}
-	}
-
-	// ----------------------------------------------------------------------------------------
-
 	template <typename T>
-	std::shared_ptr<T> load_object_from_file(
+	inline std::shared_ptr<T> load_object_from_file(
 		const std::string& filename
 	)
 		/*!
@@ -137,5 +86,12 @@ namespace dlib {
 		auto obj = std::make_shared<T>();
 		deserialize(*obj, fin);
 		return obj;
+	}
+
+	template <typename T>
+	inline void save_object_to_file(const T& obj, const std::string& filename)
+	{
+		std::ofstream fout(filename.c_str(), std::ios::binary);
+		serialize(obj, fout);
 	}
 }

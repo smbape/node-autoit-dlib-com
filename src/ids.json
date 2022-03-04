@@ -35,6 +35,10 @@
         "iid": "87ce2b7f-a941-468a-bc78-7cfa832a10b2",
         "clsid": "544341d7-5ba4-46c9-b797-aa5fc887db08"
     },
+    "dlib::shape_predictor_training_options": {
+        "iid": "e14413ef-c05c-43f3-bfcb-240e06faabab",
+        "clsid": "963a3bc4-a6be-4270-a5e2-538d4f62e0b3"
+    },
     "dlib::simple_object_detector_training_options": {
         "iid": "5c7fa387-32e0-404f-8dd0-d385c2033f5d",
         "clsid": "c709588d-629a-4bd5-a509-5a27f6ea5feb"
@@ -134,6 +138,14 @@
     "dlib::drectangle": {
         "iid": "c4b952c9-8cb7-4bdd-ac22-faf88bed0814",
         "clsid": "0cd1750f-b1a0-4cd8-80ee-dd9fba70909a"
+    },
+    "dlib::full_object_detection": {
+        "iid": "cfa818bf-7576-4b5f-9d8e-d34c0292136b",
+        "clsid": "b775e798-a2b7-4e2e-bc83-68f27eeaad4d"
+    },
+    "dlib::shape_predictor": {
+        "iid": "7e30c4eb-7ee8-4120-9db2-73c619c9bda6",
+        "clsid": "f13b75e6-dc1b-43e8-adeb-d209a5186cad"
     },
     "dlib::vec_ranking_pair": {
         "iid": "0d608171-bd35-4a01-a4ce-28f956af9be4",
@@ -235,6 +247,18 @@
         "iid": "df2bd8ca-acc9-47b8-90ce-e8ce103a6274",
         "clsid": "6a6726a5-5bfb-44c8-8ee7-4d8ec39d80bf"
     },
+    "VectorOfFull_object_detection": {
+        "iid": "285ef966-00e7-4353-9927-735d2197988f",
+        "clsid": "b6b4d91e-042b-463b-a90c-12a744011c99"
+    },
+    "VectorOfVectorOfFull_object_detection": {
+        "iid": "16457709-0137-4155-ba07-ee30a8211e51",
+        "clsid": "718c57d8-4134-4a6b-97d6-a0331dab8c63"
+    },
+    "VectorOfVectorOfDouble": {
+        "iid": "a5abd90f-2d79-4b92-80e0-b3b7e5f61607",
+        "clsid": "390ea4a3-326a-407f-a532-c3c6171721f9"
+    },
     "VectorOfSimple_object_detector_com": {
         "iid": "c0a315f1-0834-45c8-8174-f6704099dbdf",
         "clsid": "d3989f52-ce4c-48c0-8022-5a30e288263f"
@@ -246,9 +270,5 @@
     "VectorOfULONG": {
         "iid": "f2a6c01c-53a3-4af5-8b09-1ffeb02d841c",
         "clsid": "0e8b2098-fe36-490d-a6e5-37209adda4d9"
-    },
-    "VectorOfVectorOfDouble": {
-        "iid": "a5abd90f-2d79-4b92-80e0-b3b7e5f61607",
-        "clsid": "390ea4a3-326a-407f-a532-c3c6171721f9"
     }
 }

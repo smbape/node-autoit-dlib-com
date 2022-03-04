@@ -32,17 +32,6 @@ namespace dlib
 		serialize(version, fout);
 		serialize(detector.upsampling_amount, fout);
 	}
-
-	// ----------------------------------------------------------------------------------------
-
-	inline void save_simple_object_detector(const simple_object_detector& detector, const std::string& detector_output_filename)
-	{
-		std::ofstream fout(detector_output_filename.c_str(), std::ios::binary);
-		serialize(detector, fout);
-		// Don't need to save version of upsampling amount because want to write out the
-		// object detector just like the C++ code that serializes an object_detector would.
-		// We also don't know the upsampling amount in this case anyway.
-	}
 }
 
 #endif // DLIB_SERIALIZE_OBJECT_DETECTOR_H__

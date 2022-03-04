@@ -12,7 +12,7 @@ STDMETHODIMP CDlib_Matrix_Object::get_shape(VARIANT* pVal) {
 	return E_FAIL;
 }
 
-string mat_row::ToString() {
+const string mat_row::ToString() {
 	auto& c = *this;
 	ostringstream sout;
 	sout << mat(c.data, 1, c.size);

@@ -128,27 +128,6 @@ const setup_auto_train_rbf_classifier = impl => {
 };
 
 module.exports = (header = [], impl = [], options = {}) => {
-    header.push(`
-        namespace dlib {
-            inline const std::vector<sample_type> Mat_to_vector_sample_type(const cv::Mat& img)
-            {
-                auto const x_ = cv_image<double>(img);
-                auto x = make_image_view(x_);
-                AUTOIT_ASSERT_THROW(x.nc() > 0 && x.nr() > 0, "matrix must not be empty");
-                std::vector<sample_type> samples(x.nr());
-                for (long r = 0; r < x.nr(); ++r)
-                {
-                    samples[r].set_size(x.nc());
-                    for (long c = 0; c < x.nc(); ++c)
-                    {
-                        samples[r](c) = x[r][c];
-                    }
-                }
-                return samples;
-            }
-        }
-    `.trim().replace(/^ {8}/mg, ""));
-
     impl.push(`
         using namespace dlib;
 

@@ -488,7 +488,7 @@ simple_object_detector_com dlib::train_simple_object_detector(
 	// We never have any ignore boxes for this version of the API.
 	std::vector<std::vector<dlib::rectangle>> ignore(num_images);
 	dlib::array<cv_image<rgb_pixel>> images(num_images);
-	cvimages_to_dlib(_images, images);
+	vector_Mat_to_dlib(_images, images);
 
 	return train_simple_object_detector_on_images("", images, boxes, ignore, options);
 }
@@ -584,7 +584,7 @@ simple_test_results dlib::test_simple_object_detector(
 	// We never have any ignore boxes for this version of the API.
 	std::vector<std::vector<dlib::rectangle>> ignore(num_images);
 	dlib::array<cv_image<rgb_pixel>> images(num_images);
-	cvimages_to_dlib(_images, images);
+	vector_Mat_to_dlib(_images, images);
 
 	return test_simple_object_detector_with_images(images, upsampling_amount, boxes, ignore, detector);
 }
@@ -692,11 +692,6 @@ void CDlib_Simple_object_detector_com_Object::run_multiple(
 	}
 
 	rectangles = run_detector_with_upscale(detectors, img, upsampling_amount, adjust_threshold, detection_confidences, weight_indices);
-}
-
-const shared_ptr<fhog_object_detector> CDlib_Fhog_object_detector_Object::create(string filename, HRESULT& hr) {
-	hr = S_OK;
-	return load_object_from_file<fhog_object_detector>(filename);
 }
 
 dlib::simple_object_detector_com::simple_object_detector_com(std::vector<simple_object_detector_com>& detectors) {

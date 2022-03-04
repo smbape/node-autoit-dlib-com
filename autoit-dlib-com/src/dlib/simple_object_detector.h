@@ -39,7 +39,7 @@ namespace dlib {
 		CV_PROP_RW double max_runtime_seconds;
 
 
-		CV_WRAP std::string ToString()
+		CV_WRAP const std::string ToString()
 		{
 			const auto& o = *this;
 
