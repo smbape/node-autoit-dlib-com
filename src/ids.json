@@ -55,6 +55,10 @@
         "iid": "11be4089-ebfe-49cf-bf5d-d1dadcdcb4c4",
         "clsid": "10c06029-805a-461c-8aa2-6ee4ed37e58e"
     },
+    "dlib::correlation_tracker": {
+        "iid": "35f976bc-be73-4e1d-ae45-66c123bf1cb6",
+        "clsid": "f3764c92-fd55-42c2-993a-9bad0dbc82b3"
+    },
     "dlib::_radial_basis_kernel": {
         "iid": "7b04f016-de65-4153-a554-df2639c504aa",
         "clsid": "774ce9b1-c755-474b-84e1-57d599bf966b"

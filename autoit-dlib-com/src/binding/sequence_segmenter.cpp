@@ -1,4 +1,4 @@
-#include "sequence_segmenter_extra.h"
+#include "sequence_segmenter.h"
 
 using namespace dlib;
 using namespace std;
