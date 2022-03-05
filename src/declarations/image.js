@@ -1,7 +1,7 @@
 module.exports = [
     // cv::Mat Class Reference
 
-    ["class cv.Mat", "", ["/Simple", "/DC"], [
+    ["class cv.Mat", "", ["/Simple"], [
         ["int", "flags", "", ["/RW"]],
         ["int", "dims", "", ["/RW"]],
         ["int", "rows", "", ["/RW"]],

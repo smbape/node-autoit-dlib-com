@@ -16,6 +16,7 @@ const progids = new Map([
     ["dlib.SpaceVector", "vector"],
     ["vec_ranking_pair", "ranking_pair"],
     ["vec_svm_rank_trainer", "svm_rank_trainer"],
+    ["mmod_rect", "mmod_rectangle"],
 ]);
 
 const parseArguments = PROJECT_DIR => {

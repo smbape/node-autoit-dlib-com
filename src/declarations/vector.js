@@ -96,8 +96,8 @@ for (const [class_type, scalar_type, other_type] of [["dpoint", "double", "point
         ], "", ""],
 
         [`dlib.${ class_type }.${ class_type }`, "", [], [
-            [scalar_type, "x", "", ["/Ref"]],
-            [scalar_type, "y", "", ["/Ref"]],
+            [scalar_type, "x", "0", ["/Ref"]],
+            [scalar_type, "y", "0", ["/Ref"]],
         ], "", ""],
 
         [`dlib.${ class_type }.${ class_type }`, "", [], [

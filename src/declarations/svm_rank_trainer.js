@@ -34,6 +34,8 @@ module.exports = [
         ["bool", "has_prior", "", ["=has_prior()"]],
     ], "", ""],
 
+    ["dlib.vec_svm_rank_trainer.vec_svm_rank_trainer", "", [], [], "", ""],
+
     ["dlib.vec_svm_rank_trainer.train", "_decision_function_linear", ["/External"], [
         ["vec_ranking_pair", "sample", "", []],
     ], "", ""],
@@ -57,6 +59,8 @@ module.exports = [
         ["bool", "learns_nonnegative_weights", "", ["/RW", "/R=learns_nonnegative_weights", "/W=set_learns_nonnegative_weights"]],
         ["bool", "has_prior", "", ["=has_prior()"]],
     ], "", ""],
+
+    ["dlib.svm_rank_trainer_sparse.svm_rank_trainer_sparse", "", [], [], "", ""],
 
     ["dlib.svm_rank_trainer_sparse.train", "_decision_function_sparse_linear", ["/External"], [
         ["sparse_ranking_pair", "sample", "", []],

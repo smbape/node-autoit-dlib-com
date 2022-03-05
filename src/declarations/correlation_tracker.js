@@ -1,5 +1,7 @@
 module.exports = [
-	["class dlib.correlation_tracker", "", ["/Simple", "/DC"], [], "", ""],
+	["class dlib.correlation_tracker", "", ["/Simple"], [], "", ""],
+
+	["dlib.correlation_tracker.correlation_tracker", "", [], [], "", ""],
 
 	["dlib.correlation_tracker.start_track", "void", ["/Call=dlib::start_track", "/Expr=*this->__self->get(), $0"], [
 		["cv::Mat", "image", "", []],
