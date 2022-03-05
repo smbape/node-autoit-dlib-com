@@ -42,7 +42,7 @@ namespace dlib {
 
 	// ----------------------------------------------------------------------------------------
 
-	inline const std::vector<sample_type> Mat_to_vector_sample_type(const cv::Mat& img, std::vector<sample_type>& samples)
+	inline void Mat_to_vector_sample_type(const cv::Mat& img, std::vector<sample_type>& samples)
 	{
 		auto const x_ = cv_image<double>(img);
 		auto x = make_image_view(x_);
@@ -58,17 +58,17 @@ namespace dlib {
 				samples[r](c) = x[r][c];
 			}
 		}
-		return samples;
 	}
 
 	inline const std::vector<sample_type> Mat_to_vector_sample_type(const cv::Mat& img)
 	{
 		std::vector<sample_type> samples;
-		return Mat_to_vector_sample_type(img, samples);
+		Mat_to_vector_sample_type(img, samples);
+		return samples;
 	}
 
 	template <typename image_type>
-	inline array<cv_image<image_type>> vector_Mat_to_dlib(
+	inline const array<cv_image<image_type>> vector_Mat_to_dlib(
 		const std::vector<cv::Mat>& _images
 	)
 	{
@@ -78,7 +78,7 @@ namespace dlib {
 	}
 
 	template <typename image_type>
-	void vector_Mat_to_dlib(
+	inline void vector_Mat_to_dlib(
 		const std::vector<cv::Mat>& _images,
 		array<cv_image<image_type>>& images
 	)

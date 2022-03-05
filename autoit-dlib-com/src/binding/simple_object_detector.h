@@ -7,7 +7,7 @@
 #include <dlib/data_io/load_image_dataset.h>
 #include <dlib/image_processing/remove_unobtainable_rectangles.h>
 #include <sstream>
-#include "basic.h"
+#include "base.h"
 
 namespace dlib {
 

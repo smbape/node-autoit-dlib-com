@@ -130,6 +130,7 @@ waterfall([
             next();
         }, {followSymlink: true}, err => {
             const generated_include = srcfiles.map(path => `#include "${ path.slice(SRC_DIR.length + 1).replace("\\", "/") }"`);
+            generated_include.push("#include <opencv2/imgcodecs.hpp>");
             next(err, srcfiles, generated_include);
         });
     },
@@ -176,7 +177,7 @@ waterfall([
             nlen += chunk.length;
         });
 
-        child.stdin.write(`
+        const code = `
             import io, json, os, re, string, sys
 
             ${ hdr_parser
@@ -200,7 +201,11 @@ waterfall([
                 all_decls += decls
 
             print(json.dumps({"decls": all_decls, "namespaces": sorted(parser.namespaces)}, indent=4))
-        `.trim().replace(/^ {12}/mg, ""));
+        `.trim().replace(/^ {12}/mg, "");
+
+        // fs.writeFileSync(sysPath.join(__dirname, "../gen.py"), code);
+
+        child.stdin.write(code);
         child.stdin.end();
     }
 ], err => {

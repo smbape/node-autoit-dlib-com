@@ -1383,7 +1383,8 @@ class AutoItGenerator {
         const globals = new Set(["$CV_MAT_DEPTH_MASK", "$CV_MAT_TYPE_MASK"]);
 
         const getPrefixVariableName = prefix => {
-            return prefix.split(".").join("_").replace(/[a-z][A-Z]/g, match => `${ match[0] }_${ match[1] }`).toUpperCase();
+            prefix = prefix.split(".").join("_").replace(/[a-z][A-Z]/g, match => `${ match[0] }_${ match[1] }`).toUpperCase();
+            return (options.global_prefix ? options.global_prefix : "") + prefix;
         };
 
         const etext = Array.from(this.enums.keys()).map(ename => {

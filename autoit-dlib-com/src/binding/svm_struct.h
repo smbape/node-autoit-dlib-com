@@ -1,7 +1,7 @@
 #pragma once
 
 #include <comutil.h>
-#include "basic.h"
+#include "base.h"
 
 namespace dlib {
 	struct CV_EXPORTS_W_SIMPLE simple_structural_svm_problem {

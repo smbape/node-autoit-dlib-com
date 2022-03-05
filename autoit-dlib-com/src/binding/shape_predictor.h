@@ -3,7 +3,7 @@
 #include <dlib/data_io/load_image_dataset.h>
 #include <dlib/geometry.h>
 #include <dlib/image_processing.h>
-#include "basic.h"
+#include "base.h"
 
 using namespace std;
 
