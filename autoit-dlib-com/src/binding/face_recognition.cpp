@@ -137,10 +137,9 @@ std::vector<dense_vect> face_recognition_model_v1::compute_face_descriptor(
 		}
 
 		// Check for the size of the image
-		if ((image.nr() != 150) || (image.nc() != 150)) {
-			throw dlib::error("Unsupported image size, it should be of size 150x150. Also cropping must be done as `dlib.get_face_chip` would do it. \
+		AUTOIT_ASSERT_THROW(image.nr() == 150 && image.nc() == 150,
+			"Unsupported image size, it should be of size 150x150. Also cropping must be done as `dlib.get_face_chip` would do it. \
                     That is, centered and scaled essentially the same way.");
-		}
 
 		face_chips.push_back(image);
 	}

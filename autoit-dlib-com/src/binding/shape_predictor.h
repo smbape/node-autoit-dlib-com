@@ -86,18 +86,18 @@ namespace dlib
 		const shape_predictor_training_options& options
 	)
 	{
-		if (options.lambda_param <= 0)
-			throw error("Invalid lambda_param value given to train_shape_predictor(), lambda_param must be > 0.");
-		if (!(0 < options.nu && options.nu <= 1))
-			throw error("Invalid nu value given to train_shape_predictor(). It is required that 0 < nu <= 1.");
-		if (options.feature_pool_region_padding <= -0.5)
-			throw error("Invalid feature_pool_region_padding value given to train_shape_predictor(), feature_pool_region_padding must be > -0.5.");
+		AUTOIT_ASSERT_THROW(options.lambda_param > 0,
+			"Invalid lambda_param value given to train_shape_predictor(), lambda_param must be > 0.");
+		AUTOIT_ASSERT_THROW(0 < options.nu && options.nu <= 1,
+			"Invalid nu value given to train_shape_predictor(). It is required that 0 < nu <= 1.");
+		AUTOIT_ASSERT_THROW(options.feature_pool_region_padding > -0.5,
+			"Invalid feature_pool_region_padding value given to train_shape_predictor(), feature_pool_region_padding must be > -0.5.");
 
-		if (images.size() != detections.size())
-			throw error("The list of images must have the same length as the list of detections.");
+		AUTOIT_ASSERT_THROW(images.size() == detections.size(),
+			"The list of images must have the same length as the list of detections.");
 
-		if (!impl::contains_any_detections(detections))
-			throw error("Error, the training dataset does not have any labeled object detections in it.");
+		AUTOIT_ASSERT_THROW(impl::contains_any_detections(detections),
+			"Error, the training dataset does not have any labeled object detections in it.");
 
 		shape_predictor_trainer trainer;
 
@@ -149,15 +149,17 @@ namespace dlib
 		const shape_predictor& predictor
 	)
 	{
-		if (images.size() != detections.size())
-			throw error("The list of images must have the same length as the list of detections.");
-		if (scales.size() > 0 && scales.size() != images.size())
-			throw error("The list of scales must have the same length as the list of detections.");
+		AUTOIT_ASSERT_THROW(images.size() == detections.size(),
+			"The list of images must have the same length as the list of detections."
+		);
+		AUTOIT_ASSERT_THROW(scales.size() == 0 || scales.size() == images.size(),
+			"The list of images must have the same length as the list of detections."
+		);
 
-		if (scales.size() > 0)
+		if (scales.size() > 0) {
 			return test_shape_predictor(predictor, images, detections, scales);
-		else
-			return test_shape_predictor(predictor, images, detections);
+		}
+		return test_shape_predictor(predictor, images, detections);
 	}
 
 	inline double test_shape_predictor_with_images(
