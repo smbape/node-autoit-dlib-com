@@ -1,47 +1,47 @@
 /* eslint-disable no-magic-numbers */
 
-const add_linear_df = (impl, name, sample_type, idltype, scalar_type = "double") => {
+const add_linear_df = (impl, function_type, sample_type, idltype) => {
     impl.push(`
-        #include "Dlib_${ name }_Object.h"
+        #include "Dlib_${ function_type }_Object.h"
 
-        STDMETHODIMP CDlib_${ name }_Object::get_weights(${ idltype }* pVal) {
+        STDMETHODIMP CDlib_${ function_type }_Object::get_weights(${ idltype }* pVal) {
             if (this->__self) {
                 auto& df = *this->__self->get();
-                return autoit_from(_get_weights<${ name }>(df), pVal);
+                return autoit_from(_get_weights<${ function_type }>(df), pVal);
             }
             return E_FAIL;
         }
 
-        STDMETHODIMP CDlib_${ name }_Object::get_bias(DOUBLE* pVal) {
+        STDMETHODIMP CDlib_${ function_type }_Object::get_bias(DOUBLE* pVal) {
             if (this->__self) {
                 auto& df = *this->__self->get();
-                return autoit_from(_get_bias<${ name }>(df), pVal);
+                return autoit_from(_get_bias<${ function_type }>(df), pVal);
             }
             return E_FAIL;
         }
 
-        STDMETHODIMP CDlib_${ name }_Object::put_bias(DOUBLE newVal) {
+        STDMETHODIMP CDlib_${ function_type }_Object::put_bias(DOUBLE newVal) {
             if (this->__self) {
                 auto& df = *this->__self->get();
-                _set_bias<${ name }>(df, newVal);
+                _set_bias<${ function_type }>(df, newVal);
                 return S_OK;
             }
             return E_FAIL;
         }
 
-        const double CDlib_${ name }_Object::call(${ sample_type }& sample, HRESULT& hr) {
+        const double CDlib_${ function_type }_Object::call(${ sample_type }& sample, HRESULT& hr) {
             hr = S_OK;
             auto& df = *this->__self->get();
-            return _predict<${ name }>(df, sample);
+            return _predict<${ function_type }>(df, sample);
         }
     `.trim().replace(/^ {8}/mg, ""));
 };
 
-const add_df = (impl, name, sample_type) => {
+const add_df = (impl, function_type, sample_type) => {
     impl.push(`
-        #include "Dlib_${ name }_Object.h"
+        #include "Dlib_${ function_type }_Object.h"
 
-        STDMETHODIMP CDlib_${ name }_Object::get_basis_vectors(VARIANT* pVal) {
+        STDMETHODIMP CDlib_${ function_type }_Object::get_basis_vectors(VARIANT* pVal) {
             if (this->__self) {
                 auto& df = *this->__self->get();
                 std::vector<sample_type> temp;
@@ -52,19 +52,19 @@ const add_df = (impl, name, sample_type) => {
             return E_FAIL;
         }
 
-        const double CDlib_${ name }_Object::call(${ sample_type }& sample, HRESULT& hr) {
+        const double CDlib_${ function_type }_Object::call(${ sample_type }& sample, HRESULT& hr) {
             hr = S_OK;
             auto& df = *this->__self->get();
-            return _predict<${ name }>(df, sample);
+            return _predict<${ function_type }>(df, sample);
         }
     `.trim().replace(/^ {8}/mg, ""));
 };
 
-const add_normalized_df = (impl, name, sample_type) => {
+const add_normalized_df = (impl, function_type, sample_type) => {
     impl.push(`
-        #include "Dlib_${ name }_Object.h"
+        #include "Dlib_${ function_type }_Object.h"
 
-        STDMETHODIMP CDlib_${ name }_Object::get_basis_vectors(VARIANT* pVal) {
+        STDMETHODIMP CDlib_${ function_type }_Object::get_basis_vectors(VARIANT* pVal) {
             if (this->__self) {
                 auto& df = this->__self->get()->function;
                 std::vector<sample_type> temp;
@@ -75,22 +75,22 @@ const add_normalized_df = (impl, name, sample_type) => {
             return E_FAIL;
         }
 
-        const double CDlib_${ name }_Object::call(${ sample_type }& sample, HRESULT& hr) {
+        const double CDlib_${ function_type }_Object::call(${ sample_type }& sample, HRESULT& hr) {
             hr = S_OK;
             auto& df = *this->__self->get();
-            return normalized_predict<${ name }>(df, sample);
+            return normalized_predict<${ function_type }>(df, sample);
         }
 
-        const std::vector<double> CDlib_${ name }_Object::batch_predict(std::vector<${ sample_type }>& samples, HRESULT& hr) {
+        const std::vector<double> CDlib_${ function_type }_Object::batch_predict(std::vector<${ sample_type }>& samples, HRESULT& hr) {
             hr = S_OK;
             auto& df = *this->__self->get();
-            return normalized_predict_vec<${ name }>(df, samples);
+            return normalized_predict_vec<${ function_type }>(df, samples);
         }
 
-        const std::vector<double> CDlib_${ name }_Object::batch_predict(cv::Mat& samples, HRESULT& hr) {
+        const std::vector<double> CDlib_${ function_type }_Object::batch_predict(cv::Mat& samples, HRESULT& hr) {
             hr = S_OK;
             auto& df = *this->__self->get();
-            return normalized_predict_vec<${ name }>(df, Mat_to_vector_sample_type(samples));
+            return normalized_predict_vec<${ function_type }>(df, Mat_to_vector_sample_type(samples));
         }
     `.trim().replace(/^ {8}/mg, ""));
 };

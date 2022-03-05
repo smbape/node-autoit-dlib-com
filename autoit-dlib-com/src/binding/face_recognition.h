@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include <dlib/matrix.h>
 #include <dlib/geometry/vector.h>
 #include <dlib/dnn.h>
 #include <dlib/image_transforms.h>

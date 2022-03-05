@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include <dlib/matrix.h>
 #include <dlib/dnn.h>
 #include <dlib/image_transforms.h>
+#include "base.h"
 
 using namespace std;
 

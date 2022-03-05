@@ -1,12 +1,6 @@
 #pragma once
 
 #include <chrono>
-#include <vector>
-#include <dlib/filtering.h>
-#include <dlib/matrix.h>
-#include <dlib/string.h>
-#include <dlib/svm.h>
-#include <dlib/image_processing/frontal_face_detector.h>
 #include "autoit_bridge_common.h"
 #include "conversion.h"
 

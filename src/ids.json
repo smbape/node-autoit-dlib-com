@@ -67,6 +67,10 @@
         "iid": "bd303f87-b6f6-4c87-bcc4-66028da60f00",
         "clsid": "f85b9f42-ce3d-4a4b-a1e4-6db0243ea272"
     },
+    "dlib::cuda": {
+        "iid": "1ece7228-d47d-4074-a002-60b8c36c48b1",
+        "clsid": "c91264ba-e781-4e09-8e73-f9f044f5b448"
+    },
     "dlib::correlation_tracker": {
         "iid": "35f976bc-be73-4e1d-ae45-66c123bf1cb6",
         "clsid": "f3764c92-fd55-42c2-993a-9bad0dbc82b3"
@@ -163,6 +167,54 @@
         "iid": "7e30c4eb-7ee8-4120-9db2-73c619c9bda6",
         "clsid": "f13b75e6-dc1b-43e8-adeb-d209a5186cad"
     },
+    "dlib::svm_c_trainer_radial_basis": {
+        "iid": "e707da4b-a2ad-42d9-a3a9-5c9362076d79",
+        "clsid": "ff0123ae-38b1-4234-b590-583a4798146a"
+    },
+    "dlib::svm_c_trainer_sparse_radial_basis": {
+        "iid": "ab225a1a-57a5-4cad-9a97-827d53f6d20f",
+        "clsid": "6c4dc437-99fc-4f56-ad28-52fe7a669082"
+    },
+    "dlib::svm_c_trainer_histogram_intersection": {
+        "iid": "78515be6-f6a7-4b1c-996e-96be6f124cff",
+        "clsid": "1553163c-8b6b-423f-a38a-d5954d439c17"
+    },
+    "dlib::svm_c_trainer_sparse_histogram_intersection": {
+        "iid": "eb43adfd-cecf-4c94-9bc5-d5e95074d83d",
+        "clsid": "0a1d18b9-8409-4cd8-a89d-ba0e0efc8abe"
+    },
+    "dlib::svm_c_trainer_linear": {
+        "iid": "74919567-e8c1-479c-a0fc-5442dedd76af",
+        "clsid": "f467a8fb-75ef-4607-905d-41c416fdf98d"
+    },
+    "dlib::svm_c_trainer_sparse_linear": {
+        "iid": "1da23931-cec6-4743-b2b1-7e7c86127693",
+        "clsid": "46acc088-ca87-47ae-b04e-b487c18a6ac5"
+    },
+    "dlib::rvm_trainer_radial_basis": {
+        "iid": "7e18d280-1cc4-484c-851f-1f229771d5bf",
+        "clsid": "8ec1d255-afab-4a83-8348-314ed2fdc3e6"
+    },
+    "dlib::rvm_trainer_sparse_radial_basis": {
+        "iid": "306cf9d1-dffa-437b-a628-e7a73dece0fe",
+        "clsid": "c221a114-b489-4190-8f73-9b1e8b7bfbce"
+    },
+    "dlib::rvm_trainer_histogram_intersection": {
+        "iid": "54bf3aeb-467d-4ae3-a7be-e85e55392b9d",
+        "clsid": "5c9f1748-7c32-4b5f-9dde-fe581fe2e45b"
+    },
+    "dlib::rvm_trainer_sparse_histogram_intersection": {
+        "iid": "7fdfde42-fa08-487e-a409-bcdcac04d002",
+        "clsid": "283b9edc-bdb4-4c39-ad1c-8e5b4ff6fcda"
+    },
+    "dlib::rvm_trainer_linear": {
+        "iid": "c5849dd8-87d0-47e2-945a-1e26966e6795",
+        "clsid": "5dead9f1-f2e6-4426-8296-a7c1454fbc31"
+    },
+    "dlib::rvm_trainer_sparse_linear": {
+        "iid": "2d088a86-3e5d-4a23-8b48-1970f238498f",
+        "clsid": "cb3688c5-15a0-4a3c-9ac9-889f57eb8c06"
+    },
     "dlib::vec_ranking_pair": {
         "iid": "0d608171-bd35-4a01-a4ce-28f956af9be4",
         "clsid": "e54b9879-63e9-4228-8885-a0218302d4e2"
@@ -207,6 +259,10 @@
         "iid": "057630ad-84dd-4369-b11b-36331ed177d3",
         "clsid": "6e9b7531-05d3-44f0-a5d6-479f195eabeb"
     },
+    "VectorOfMat": {
+        "iid": "c9c96fe3-58fb-4b69-81f8-7978387cdcc6",
+        "clsid": "12bf8c40-ac19-42df-8770-2ba32d0a36d8"
+    },
     "VectorOfFull_object_detection": {
         "iid": "285ef966-00e7-4353-9927-735d2197988f",
         "clsid": "b6b4d91e-042b-463b-a90c-12a744011c99"
@@ -242,10 +298,6 @@
     "VectorOfVectorOfVectorOfPairOfULONGAndDouble": {
         "iid": "5d43b777-ee10-4bae-8ab9-e5144bb3512c",
         "clsid": "0f315dca-619a-43a3-bad0-fcfacebd6a2f"
-    },
-    "VectorOfMat": {
-        "iid": "c9c96fe3-58fb-4b69-81f8-7978387cdcc6",
-        "clsid": "12bf8c40-ac19-42df-8770-2ba32d0a36d8"
     },
     "VectorOfVectorOfRectangle": {
         "iid": "56962bb4-e018-4e95-a828-c99e1e7423b2",

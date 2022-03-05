@@ -1,6 +1,15 @@
 #pragma once
 
+#include <vector>
+#include <dlib/filtering.h>
+#include <dlib/matrix.h>
+#include <dlib/string.h>
+#include <dlib/svm.h>
+#include <dlib/svm_threaded.h>
+#include <dlib/image_processing/frontal_face_detector.h>
 #include "cv_image.h"
+
+using namespace std;
 
 namespace dlib {
 	// ----------------------------------------------------------------------------------------
@@ -39,6 +48,20 @@ namespace dlib {
 
 	typedef frontal_face_detector fhog_object_detector;
 	typedef frontal_face_detector simple_object_detector;
+
+	typedef svm_c_trainer<radial_basis_kernel<sample_type>> svm_c_trainer_radial_basis;
+	typedef svm_c_trainer<sparse_radial_basis_kernel<sparse_vect>> svm_c_trainer_sparse_radial_basis;
+	typedef svm_c_trainer<histogram_intersection_kernel<sample_type>> svm_c_trainer_histogram_intersection;
+	typedef svm_c_trainer<sparse_histogram_intersection_kernel<sparse_vect>> svm_c_trainer_sparse_histogram_intersection;
+	typedef svm_c_linear_trainer<linear_kernel<sample_type>> svm_c_trainer_linear;
+	typedef svm_c_linear_trainer<sparse_linear_kernel<sparse_vect>> svm_c_trainer_sparse_linear;
+
+	typedef rvm_trainer<radial_basis_kernel<sample_type>> rvm_trainer_radial_basis;
+	typedef rvm_trainer<sparse_radial_basis_kernel<sparse_vect>> rvm_trainer_sparse_radial_basis;
+	typedef rvm_trainer<histogram_intersection_kernel<sample_type>> rvm_trainer_histogram_intersection;
+	typedef rvm_trainer<sparse_histogram_intersection_kernel<sparse_vect>> rvm_trainer_sparse_histogram_intersection;
+	typedef rvm_trainer<linear_kernel<sample_type>> rvm_trainer_linear;
+	typedef rvm_trainer<sparse_linear_kernel<sparse_vect>> rvm_trainer_sparse_linear;
 
 	// ----------------------------------------------------------------------------------------
 

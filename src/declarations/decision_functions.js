@@ -1,33 +1,33 @@
-const add_linear_df = (declarations, name, sample_type, scalar_type = "double") => {
+const add_linear_df = (declarations, function_type, sample_type, scalar_type = "double") => {
     declarations.push(...[
-        [`struct dlib.${ name }`, "", ["/Simple"], [
+        [`struct dlib.${ function_type }`, "", ["/Simple"], [
             [sample_type, "weights", "", ["/R", "/External"]],
             [scalar_type, "bias", "", ["/RW", "/External"]],
         ], "", ""],
 
-        [`dlib.${ name }.call`, "double", ["/External"], [
+        [`dlib.${ function_type }.call`, "double", ["/External"], [
             [sample_type, "sample", "", []],
         ], "", ""],
     ]);
 };
 
-const add_df = (declarations, name, sample_type, scalar_type = "double") => {
+const add_df = (declarations, function_type, sample_type, scalar_type = "double") => {
     declarations.push(...[
-        [`struct dlib.${ name }`, "", ["/Simple"], [
+        [`struct dlib.${ function_type }`, "", ["/Simple"], [
             ["sample_type", "alpha", "", ["/R"]],
             [scalar_type, "b", "", ["/R"]],
             ["vector_sample_type", "basis_vectors", "", ["/R", "/External"]],
         ], "", ""],
 
-        [`dlib.${ name }.call`, "double", ["/External"], [
+        [`dlib.${ function_type }.call`, "double", ["/External"], [
             [sample_type, "sample", "", []],
         ], "", ""],
     ]);
 };
 
-const add_normalized_df = (declarations, name, sample_type, scalar_type = "double") => {
+const add_normalized_df = (declarations, function_type, sample_type, scalar_type = "double") => {
     declarations.push(...[
-        [`struct dlib.${ name }`, "", ["/Simple"], [
+        [`struct dlib.${ function_type }`, "", ["/Simple"], [
             ["sample_type", "alpha", "", ["/R", "=function.alpha"]],
             [scalar_type, "b", "", ["/R", "=function.b"]],
             ["vector_sample_type", "basis_vectors", "", ["/R", "/External"]],
@@ -35,15 +35,15 @@ const add_normalized_df = (declarations, name, sample_type, scalar_type = "doubl
             [sample_type, "invstd_devs", "", ["/R", "=normalizer.std_devs()"]],
         ], "", ""],
 
-        [`dlib.${ name }.call`, "double", ["/External"], [
+        [`dlib.${ function_type }.call`, "double", ["/External"], [
             [sample_type, "sample", "", ["/Ref"]],
         ], "", ""],
 
-        [`dlib.${ name }.batch_predict`, "vector_double", ["/External"], [
+        [`dlib.${ function_type }.batch_predict`, "vector_double", ["/External"], [
             [`vector_${ sample_type }`, "samples", "", ["/Ref"]],
         ], "", ""],
 
-        [`dlib.${ name }.batch_predict`, "vector_double", ["/External"], [
+        [`dlib.${ function_type }.batch_predict`, "vector_double", ["/External"], [
             ["cv::Mat", "samples", "", ["/Ref"]],
         ], "", ""],
     ]);
@@ -166,10 +166,10 @@ setup_auto_train_rbf_classifier(declarations);
 
 add_test_binary(declarations, "_normalized_decision_function_radial_basis", "sample_type");
 
-for (const name of ["linear", "radial_basis", "polynomial", "histogram_intersection", "sigmoid"]) {
+for (const function_type of ["linear", "radial_basis", "polynomial", "histogram_intersection", "sigmoid"]) {
     for (const [prefix, sample_type] of [["", "sample_type"], ["sparse_", sparse_vect]]) {
-        add_test_binary(declarations, `_decision_function_${ prefix }${ name }`, sample_type);
-        add_test_regression(declarations, `_decision_function_${ prefix }${ name }`, sample_type);
+        add_test_binary(declarations, `_decision_function_${ prefix }${ function_type }`, sample_type);
+        add_test_regression(declarations, `_decision_function_${ prefix }${ function_type }`, sample_type);
     }
 }
 

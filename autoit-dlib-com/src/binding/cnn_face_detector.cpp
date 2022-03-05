@@ -75,8 +75,8 @@ std::vector<std::vector<mmod_rect>> cnn_face_detection_model_v1::detect_multi(
 		AUTOIT_ASSERT_THROW(tmp.depth() == CV_8U, "Unsupported image type, must be 8bit gray or RGB image.");
 		AUTOIT_ASSERT_THROW(tmp.channels() == 1 || tmp.channels() == 3, "Unsupported image type, must be 8bit gray or RGB image.");
 
-        // Copy the data into dlib based objects
-        matrix<rgb_pixel> image;
+		// Copy the data into dlib based objects
+		matrix<rgb_pixel> image;
 
 		if (tmp.channels() == 1) {
 			assign_image(image, cv_image<unsigned char>(tmp));
