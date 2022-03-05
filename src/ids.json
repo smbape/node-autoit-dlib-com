@@ -127,6 +127,14 @@
         "iid": "444cd8aa-b2d2-44ae-9f3d-30e12ce281dc",
         "clsid": "1a0dd5ac-e363-4c64-8539-8a12af6fc339"
     },
+    "dlib::image_window": {
+        "iid": "a328b636-f56b-4eba-ab98-8a30dfe517bd",
+        "clsid": "1ca65d46-f523-4386-897a-2cabedc72cc4"
+    },
+    "dlib::rgb_pixel": {
+        "iid": "b40ed55e-d0fe-4de4-90de-a30261cc0dda",
+        "clsid": "ecb85f62-4c30-486e-bdcf-1779c0b2db39"
+    },
     "cv": {
         "iid": "0b819f3b-3b35-463d-a5c0-b6775efd06a1",
         "clsid": "9cea8efe-eb52-4a5a-a113-ab24bbdb2c37"

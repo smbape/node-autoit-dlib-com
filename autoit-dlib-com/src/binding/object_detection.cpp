@@ -186,7 +186,7 @@ namespace dlib {
 				);
 		}
 
-		typedef rgb_pixel image_type;
+		typedef bgr_pixel image_type;
 		return run_detector_with_upscale_impl<image_type>(
 			detector,
 			image,
@@ -221,7 +221,7 @@ namespace dlib {
 				);
 		}
 
-		typedef rgb_pixel image_type;
+		typedef bgr_pixel image_type;
 		return run_detector_with_upscale_impl<image_type>(
 			detectors,
 			image,
@@ -449,7 +449,7 @@ void dlib::find_candidate_object_locations(
 		find_candidate_object_locations(cv_image<unsigned char>(image), rects, kvals, min_size, max_merging_iterations);
 	}
 	else {
-		find_candidate_object_locations(cv_image<rgb_pixel>(image), rects, kvals, min_size, max_merging_iterations);
+		find_candidate_object_locations(cv_image<bgr_pixel>(image), rects, kvals, min_size, max_merging_iterations);
 	}
 
 	// Collect boxes containing candidate objects
@@ -464,7 +464,7 @@ void dlib::train_simple_object_detector(
 	const simple_object_detector_training_options& options
 )
 {
-	dlib::array<array2d<rgb_pixel>> images;
+	dlib::array<array2d<bgr_pixel>> images;
 	std::vector<std::vector<dlib::rectangle>> boxes, ignore;
 	ignore = load_image_dataset(images, boxes, dataset_filename);
 
@@ -487,7 +487,7 @@ simple_object_detector_com dlib::train_simple_object_detector(
 
 	// We never have any ignore boxes for this version of the API.
 	std::vector<std::vector<dlib::rectangle>> ignore(num_images);
-	dlib::array<cv_image<rgb_pixel>> images(num_images);
+	dlib::array<cv_image<bgr_pixel>> images(num_images);
 	vector_Mat_to_dlib(_images, images);
 
 	return train_simple_object_detector_on_images("", images, boxes, ignore, options);
@@ -501,7 +501,7 @@ const simple_test_results dlib::test_simple_object_detector(
 {
 
 	// Load all the testing images
-	dlib::array<array2d<rgb_pixel>> images;
+	dlib::array<array2d<bgr_pixel>> images;
 	std::vector<std::vector<dlib::rectangle>> boxes, ignore;
 	ignore = load_image_dataset(images, boxes, dataset_filename);
 
@@ -547,7 +547,7 @@ const simple_test_results dlib::test_simple_object_detector(
 )
 {
 	// Load all the testing images
-	dlib::array<array2d<rgb_pixel>> images;
+	dlib::array<array2d<bgr_pixel>> images;
 	std::vector<std::vector<dlib::rectangle>> boxes, ignore;
 	ignore = load_image_dataset(images, boxes, dataset_filename);
 
@@ -583,7 +583,7 @@ simple_test_results dlib::test_simple_object_detector(
 
 	// We never have any ignore boxes for this version of the API.
 	std::vector<std::vector<dlib::rectangle>> ignore(num_images);
-	dlib::array<cv_image<rgb_pixel>> images(num_images);
+	dlib::array<cv_image<bgr_pixel>> images(num_images);
 	vector_Mat_to_dlib(_images, images);
 
 	return test_simple_object_detector_with_images(images, upsampling_amount, boxes, ignore, detector);

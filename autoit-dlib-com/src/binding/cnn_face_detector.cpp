@@ -28,7 +28,7 @@ std::vector<mmod_rect> cnn_face_detection_model_v1::detect(
 		assign_image(image, cv_image<unsigned char>(img));
 	}
 	else {
-		assign_image(image, cv_image<rgb_pixel>(img));
+		assign_image(image, cv_image<bgr_pixel>(img));
 	}
 
 	// Upsampling the image will allow us to detect smaller faces but will cause the
@@ -82,7 +82,7 @@ std::vector<std::vector<mmod_rect>> cnn_face_detection_model_v1::detect_multi(
 			assign_image(image, cv_image<unsigned char>(tmp));
 		}
 		else {
-			assign_image(image, cv_image<rgb_pixel>(tmp));
+			assign_image(image, cv_image<bgr_pixel>(tmp));
 		}
 
 		for (int i = 0; i < upsample_num_times; i++)

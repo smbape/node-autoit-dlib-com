@@ -47,7 +47,7 @@ std::vector<std::vector<dense_vect>> face_recognition_model_v1::compute_face_des
 	float padding
 )
 {
-	const auto& batch_imgs = vector_Mat_to_dlib<rgb_pixel>(images);
+	const auto& batch_imgs = vector_Mat_to_dlib<bgr_pixel>(images);
 
 	AUTOIT_ASSERT_THROW(
 		batch_imgs.size() == batch_faces.size(),
@@ -133,7 +133,7 @@ std::vector<dense_vect> face_recognition_model_v1::compute_face_descriptor(
 			assign_image(image, cv_image<unsigned char>(img));
 		}
 		else {
-			assign_image(image, cv_image<rgb_pixel>(img));
+			assign_image(image, cv_image<bgr_pixel>(img));
 		}
 
 		// Check for the size of the image
@@ -197,7 +197,7 @@ void dlib::save_face_chips(
 	float padding
 )
 {
-	cv_image<rgb_pixel> img(_img);
+	cv_image<bgr_pixel> img(_img);
 
 	int num_faces = faces.size();
 	std::vector<chip_details> dets;

@@ -39,7 +39,7 @@ void save_image_impl(cv_image<pixel_type> img, const std::string& path)
 }
 
 cv::Mat dlib::load_rgb_image(const std::string& path) {
-	cv_image<rgb_pixel> img;
+	cv_image<bgr_pixel> img;
 	load_image(img, path);
 	return img.image;
 }
@@ -58,20 +58,20 @@ void dlib::save_image(const cv::Mat& img, const std::string& path) {
 		save_image_impl(cv_image<unsigned char>(img), path);
 	}
 	else {
-		save_image_impl(cv_image<rgb_pixel>(img), path);
+		save_image_impl(cv_image<bgr_pixel>(img), path);
 	}
 }
 
 std::vector<cv::Mat> dlib::jitter_image(const cv::Mat& _img, size_t num_jitters, bool disturb_colors) {
 	static dlib::rand rnd_jitter;
 
-	cv_image<rgb_pixel> img(_img);
+	cv_image<bgr_pixel> img(_img);
 
 	std::vector<cv::Mat> jitter_list(num_jitters);
 
 	for (int i = 0; i < num_jitters; ++i) {
 		// Get a jittered crop
-		cv_image<rgb_pixel> crop = dlib::jitter_image(img, rnd_jitter);
+		cv_image<bgr_pixel> crop = dlib::jitter_image(img, rnd_jitter);
 
 		// If required disturb colors of the image
 		if (disturb_colors)
@@ -85,8 +85,8 @@ std::vector<cv::Mat> dlib::jitter_image(const cv::Mat& _img, size_t num_jitters,
 }
 
 cv::Mat dlib::get_face_chip(const cv::Mat& _img, const full_object_detection& face, size_t size, float padding) {
-	cv_image<rgb_pixel> img(_img);
-	cv_image<rgb_pixel> chip;
+	cv_image<bgr_pixel> img(_img);
+	cv_image<bgr_pixel> chip;
 	extract_image_chip(img, get_face_chip_details(face, size, padding), chip);
 	return chip.image;
 }
@@ -94,12 +94,12 @@ cv::Mat dlib::get_face_chip(const cv::Mat& _img, const full_object_detection& fa
 std::vector<cv::Mat> dlib::get_face_chips(const cv::Mat& _img, const std::vector<full_object_detection>& faces, size_t size, float padding) {
 	AUTOIT_ASSERT_THROW(faces.size() > 0, "No face were specified in the faces array.");
 
-	cv_image<rgb_pixel> img(_img);
+	cv_image<bgr_pixel> img(_img);
 
 	std::vector<chip_details> dets;
 	for (const auto& f : faces)
 		dets.push_back(get_face_chip_details(f, size, padding));
-	dlib::array<cv_image<rgb_pixel>> face_chips;
+	dlib::array<cv_image<bgr_pixel>> face_chips;
 	extract_image_chips(img, dets, face_chips);
 
 	std::vector<cv::Mat> chips_list;

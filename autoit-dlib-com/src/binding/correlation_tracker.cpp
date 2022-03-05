@@ -20,7 +20,7 @@ namespace dlib {
         }
         else
         {
-            tracker.start_track(cv_image<rgb_pixel>(img), bounding_box);
+            tracker.start_track(cv_image<bgr_pixel>(img), bounding_box);
         }
     }
 
@@ -37,7 +37,7 @@ namespace dlib {
             return tracker.update(cv_image<unsigned char>(img));
         }
 
-        return tracker.update(cv_image<rgb_pixel>(img));
+        return tracker.update(cv_image<bgr_pixel>(img));
     }
 
     double update(
@@ -54,7 +54,7 @@ namespace dlib {
             return tracker.update(cv_image<unsigned char>(img), bounding_box);
         }
 
-        return tracker.update(cv_image<rgb_pixel>(img), bounding_box);
+        return tracker.update(cv_image<bgr_pixel>(img), bounding_box);
     }
 
 }
