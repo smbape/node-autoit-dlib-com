@@ -21,8 +21,6 @@ exports.declare = (generator, type, parent, options = {}) => {
     const coclass = generator.getCoClass(fqn);
     generator.typedefs.set(fqn, cpptype);
 
-    coclass.className = `${ fqn }_Object`;
-    coclass.idl = `I${ coclass.className }*`;
     coclass.is_simple = true;
     coclass.is_class = true;
     coclass.is_stdmap = true;

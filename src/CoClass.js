@@ -15,7 +15,20 @@ let idr = 105;
 
 class CoClass {
     static getClassName(fqn) {
-        return `${ fqn.split("::").map(name => name[0].toUpperCase() + name.slice(1)).join("_") }_Object`;
+        return `${ this.getObjectName(fqn, true) }_Object`;
+    }
+
+    static getObjectName(fqn, upper = false) {
+        return fqn
+            .replace(/>+$/g, "")
+            .replace(/, /g, "_and_")
+            .replace(/>/g, "_end_")
+            .split("::")
+            .map(name => {
+                name = name.replace(/\W+/g, "_");
+                return upper ? name[0].toUpperCase() + name.slice(1) : name;
+            })
+            .join("_");
     }
 
     constructor(fqn) {
@@ -25,6 +38,7 @@ class CoClass {
         this.path = path;
         this.name = path[path.length - 1];
         this.className = CoClass.getClassName(this.fqn);
+        this.objectName = CoClass.getObjectName(this.fqn);
         this.idl = `I${ this.className }*`;
         this.parents = new Set();
         this.properties = new Map();
@@ -50,7 +64,7 @@ class CoClass {
             };
         }
 
-        this.progid = path.join(".");
+        this.progid = path.map(name => CoClass.getObjectName(name)).join(".");
 
         this.idr = ++idr;
     }
@@ -128,8 +142,8 @@ class CoClass {
         return this.className;
     }
 
-    getFilename() {
-        return this.fqn.replace(/::/g, "_");
+    getObjectName() {
+        return this.objectName;
     }
 }
 

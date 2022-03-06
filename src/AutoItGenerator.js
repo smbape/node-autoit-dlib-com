@@ -882,7 +882,7 @@ class AutoItGenerator {
             // converter
             conversion.convert(coclass, iglobal, impl, options);
 
-            const hdr_id = `_${ coclass.getFilename().toUpperCase() }_OBJECT_`;
+            const hdr_id = `_${ coclass.getObjectName().toUpperCase() }_OBJECT_`;
 
             const definition = `
                 [
@@ -902,7 +902,7 @@ class AutoItGenerator {
             coclass.iface = {
                 cotype,
                 hdr_id,
-                filename: `i${ coclass.getFilename() }.idl`,
+                filename: `i${ coclass.getObjectName() }.idl`,
                 definition
             };
 
@@ -1580,22 +1580,18 @@ class AutoItGenerator {
     }
 
     add_custom_type(fqn, parent, options = {}) {
-        if (fqn.endsWith("_end_")) {
-            fqn = fqn.slice(0, -"_end_".length);
+        const objectName = CoClass.getObjectName(fqn);
+
+        if (this.classes.has(objectName)) {
+            return this.classes.get(objectName);
         }
 
-        if (this.classes.has(fqn)) {
-            return this.classes.get(fqn);
-        }
-
-        const cpptype = this.getCppType(fqn, parent, options);
-        this.typedefs.set(fqn, cpptype);
-
-        const coclass = this.getCoClass(fqn);
-        coclass.className = `${ fqn }_Object`;
-        coclass.idl = `I${ coclass.className }*`;
+        const coclass = this.getCoClass(objectName);
         coclass.is_simple = true;
         coclass.is_class = true;
+
+        const cpptype = this.getCppType(fqn, parent, options);
+        this.typedefs.set(coclass.fqn, cpptype);
 
         return coclass;
     }
@@ -1712,13 +1708,13 @@ class AutoItGenerator {
             return "VARIANT";
         }
 
-        if (type.startsWith("GArray_") || type.startsWith("GOpaque_")) {
+        if (type.startsWith("GArray<") || type.startsWith("GOpaque<")) {
             const custom_type = this.add_custom_type(type, coclass, options);
             this.addDependency(coclass.fqn, custom_type.fqn);
-            const pos = type.indexOf("_");
+            const pos = type.indexOf("<");
 
             // Add dependency
-            this.getIDLType(type.slice(pos + 1), coclass, options);
+            this.getIDLType(type.slice(pos + 1, -">".length), coclass, options);
             return custom_type.getIDLType();
         }
 
@@ -1782,9 +1778,9 @@ class AutoItGenerator {
             return `std::pair<${ types.map(itype => this.getCppType(itype, coclass, options)).join(", ") }>`;
         }
 
-        if (type.startsWith("GArray_") || type.startsWith("GOpaque_")) {
-            const pos = type.indexOf("_");
-            return `cv::${ type.slice(0, pos) }<${ this.getCppType(type.slice(pos + 1), coclass, options) }>`;
+        if (type.startsWith("GArray<") || type.startsWith("GOpaque<")) {
+            const pos = type.indexOf("<");
+            return `cv::${ type.slice(0, pos) }<${ this.getCppType(type.slice(pos + 1, -">".length), coclass, options) }>`;
         }
 
         if (type.endsWith("*")) {

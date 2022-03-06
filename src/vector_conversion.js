@@ -15,16 +15,10 @@ exports.declare = (generator, type, parent, options = {}) => {
         return fqn;
     }
 
-    if (type.includes("box")) {
-        debugger;
-    }
-
     const vtype = type.slice("vector<".length, -">".length);
     const coclass = generator.getCoClass(fqn);
     generator.typedefs.set(fqn, cpptype);
 
-    coclass.className = `${ fqn }_Object`;
-    coclass.idl = `I${ coclass.className }*`;
     coclass.is_simple = true;
     coclass.is_class = true;
     coclass.is_vector = true;

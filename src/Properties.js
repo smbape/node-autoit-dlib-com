@@ -10,7 +10,7 @@ Object.assign(exports, {
         let match;
         let open = 0;
 
-        while (match = separators.exec(type)) {
+        while (match = separators.exec(type)) { // eslint-disable-line no-cond-assign
             if (match[0] === "<") {
                 open++;
             } else if (match[0] === ">") {
@@ -36,22 +36,47 @@ Object.assign(exports, {
             .replace(/_and_/g, ", ")
             .replace(/_end_/g, ">");
 
-        const testreg = new RegExp(`\\b(?:${ ["map", "pair", "tuple", "vector", shared_ptr].join("|") })_`);
-        const shared_ptr_reg = new RegExp(`\\b${ shared_ptr }_`, "g");
+        const replacer = new RegExp(`\\b(?:${ ["map", "pair", "tuple", "vector", "GArray", "GOpaque", shared_ptr].join("|") })_`, "g");
 
-        while (testreg.test(type)) {
-            type = type
-                .replace(/\bmap_/g, "map<")
-                .replace(/\bpair_/g, "pair<")
-                .replace(/\btuple_/g, "tuple<")
-                .replace(/\bvector_/g, "vector<")
-                .replace(shared_ptr_reg, `${ shared_ptr }<`);
+        while (replacer.test(type)) {
+            replacer.lastIndex = 0;
+            type = type.replace(replacer, match => `${ match.slice(0, -1) }<`);
+            replacer.lastIndex = 0;
         }
 
-        const open = type.split("<").length - 1;
-        const close = type.split(">").length - 1;
+        const tokenizer = new RegExp(`(?:[,>]|\\b(?:${ ["map", "pair", "tuple", "vector", "GArray", "GOpaque", shared_ptr].join("|") })<)`, "g");
 
-        return type + ">".repeat(open - close);
+        let match;
+        const path = [];
+        let lastIndex = 0;
+        let str = "";
+
+        while (match = tokenizer.exec(type)) { // eslint-disable-line no-cond-assign
+            str += type.slice(lastIndex, match.index);
+
+            if (match[0] === ",") {
+                while (path.length !== 0 && !["map", "pair", "tuple"].some(tmpl => path[path.length - 1] === tmpl)) {
+                    str += ">";
+                    path.pop();
+                }
+            } else if (match[0] === ">") {
+                path.pop();
+            } else {
+                path.push(match[0].slice(0, -1));
+            }
+
+            str += match[0];
+            lastIndex = tokenizer.lastIndex;
+        }
+
+        if (lastIndex !== type.length) {
+            str += type.slice(lastIndex);
+        }
+
+        const open = str.split("<").length - 1;
+        const close = str.split(">").length - 1;
+
+        return str + ">".repeat(open - close);
     },
 
     isNativeType: type => {
