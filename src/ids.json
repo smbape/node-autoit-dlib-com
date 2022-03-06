@@ -143,6 +143,22 @@
         "iid": "a13967b1-fc83-4d52-b438-9781c40fe7e1",
         "clsid": "176510ad-0df5-42f9-870b-842a293807c2"
     },
+    "dlib::image_dataset_metadata": {
+        "iid": "9ee62f96-9ad7-47bf-8dea-9f4900138da2",
+        "clsid": "7e6fe2fd-add9-44b8-9dc0-9064af33b4de"
+    },
+    "dlib::image_dataset_metadata::box": {
+        "iid": "d416c930-6d31-44ef-9b5c-424c6d987c52",
+        "clsid": "8dafa3ce-4b1e-49b4-9ab6-add7d5b7d9a5"
+    },
+    "dlib::image_dataset_metadata::image": {
+        "iid": "83d422cc-b8f1-4ba8-8b96-a51a56ffc144",
+        "clsid": "7fb63bf6-edf0-42e2-9615-e2ffc7d8d8f6"
+    },
+    "dlib::image_dataset_metadata::dataset": {
+        "iid": "f561524b-d873-4c27-8741-1a27e99efff4",
+        "clsid": "233ff7fc-2b9b-438a-9982-95663ff4f79c"
+    },
     "dlib::line": {
         "iid": "cd971489-2500-4bf6-9222-14244090c1dc",
         "clsid": "5c001285-c1b2-4104-ae64-d59ad09b32fc"
@@ -362,5 +378,21 @@
     "VectorOfUchar": {
         "iid": "5bf12b4e-8d0f-4f1c-91d5-ab1556e7d33d",
         "clsid": "be4e14b8-efab-4927-be9e-77acbadadcba"
+    },
+    "MapOfStringAndPoint": {
+        "iid": "b590dcd0-b6af-4fe9-828b-87df725edb10",
+        "clsid": "3eeb2ed7-186c-42fa-a3fe-92d402334680"
+    },
+    "VectorOfBox": {
+        "iid": "9e5591d8-58e3-488d-b64f-3c8791ba8f3e",
+        "clsid": "50e84e5f-1c58-47c5-a8e6-b5744751d939"
+    },
+    "VectorOfImage": {
+        "iid": "945ff88d-70e4-4169-a15c-f001fc222902",
+        "clsid": "82f4dbf5-6292-40e8-a59b-24ba0490a00b"
+    },
+    "VectorOfString": {
+        "iid": "3351f398-e483-436e-920c-4d3b320356e3",
+        "clsid": "7835f787-333a-428c-b5b1-d5a6b47d6f63"
     }
 }

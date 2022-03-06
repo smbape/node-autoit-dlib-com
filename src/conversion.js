@@ -1,6 +1,7 @@
 /* eslint-disable no-magic-numbers */
 
 const optional = require("./optional_conversion");
+const map_conversion = require("./map_conversion");
 const vector_conversion = require("./vector_conversion");
 
 // idl types
@@ -132,16 +133,16 @@ Object.assign(exports, {
     },
 
     convert: (coclass, header, impl, options = {}) => {
-        const {shared_ptr} = options;
-
         if (coclass.is_vector) {
-            vector_conversion(coclass, header, impl, options);
+            vector_conversion.generate(coclass, header, impl, options);
             return;
         }
 
         if (!coclass.is_class && !coclass.is_struct) {
             return;
         }
+
+        const {shared_ptr} = options;
 
         const cotype = coclass.getClassName();
 
@@ -375,6 +376,10 @@ Object.assign(exports, {
                 }
                 `.replace(/^ {16}/mg, "")
             );
+        }
+
+        if (coclass.is_stdmap) {
+            map_conversion.generate(coclass, header, impl, options);
         }
     },
 

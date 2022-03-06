@@ -237,7 +237,7 @@ void CDlib_Image_window_Object::wait_for_keypress(char wait_key, HRESULT& hr) {
 	bool is_printable;
 	while (win.get_next_keypress(key, is_printable))
 	{
-		if (is_printable && (char)key == wait_key)
+		if ((char) key == wait_key)
 			return;
 	}
 }

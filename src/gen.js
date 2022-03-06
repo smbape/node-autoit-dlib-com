@@ -17,6 +17,7 @@ const progids = new Map([
     ["vec_ranking_pair", "ranking_pair"],
     ["vec_svm_rank_trainer", "svm_rank_trainer"],
     ["mmod_rect", "mmod_rectangle"],
+    ["gender_t", "gender_type"],
 ]);
 
 const parseArguments = PROJECT_DIR => {
@@ -38,6 +39,9 @@ const parseArguments = PROJECT_DIR => {
             "cv",
             "dlib",
             "std",
+        ]),
+        other_namespaces: new Set([
+            "dlib::image_dataset_metadata"
         ]),
         build: new Set(),
         notest: new Set(),
@@ -164,6 +168,7 @@ waterfall([
             }
 
             configuration.namespaces.push(...options.namespaces);
+            configuration.namespaces.push(...options.other_namespaces);
 
             const generator = new AutoItGenerator();
             generator.generate(configuration, options, next);

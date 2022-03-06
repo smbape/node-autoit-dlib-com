@@ -18,6 +18,9 @@ const {removeNamespaces} = require("./alias");
 const knwon_ids = require("./ids");
 const conversion = require("./conversion");
 const custom_conversions = require("./custom_conversions");
+const map_conversion = require("./map_conversion");
+const vector_conversion = require("./vector_conversion");
+const Properties = require("./Properties");
 
 const {
     SIMPLE_ARGTYPE_DEFAULTS,
@@ -71,7 +74,7 @@ class AutoItGenerator {
             }
         }
 
-        this.add_vector("vector__variant_t", {}, options);
+        this.add_vector("vector<_variant_t>", {}, options);
 
         for (const fqn of IGNORED_CLASSES) {
             if (this.classes.has(fqn)) {
@@ -82,10 +85,6 @@ class AutoItGenerator {
         const files = new Map();
         const libs = [];
         const resources = [];
-        const manifest = {
-            files: [],
-            proxies: [],
-        };
 
         for (const fqn of this.classes.keys()) {
             const is_test = options.test && !options.notest.has(fqn);
@@ -186,90 +185,12 @@ class AutoItGenerator {
                 );
             }
 
-            const writeProperty = idlname => {
-                if (idnames.has(idlname.toLowerCase())) {
-                    throw new Error(`duplicated idl name ${ fqn }::${ idlname }`);
-                }
-                idnames.add(idlname.toLowerCase());
-
-                id++;
-
-                const is_prop_test = is_test && !options.notest.has(`${ fqn }::${ idlname }`);
-
-                const {type, modifiers} = coclass.properties.get(idlname);
-                const propidltype = this.getIDLType(type, coclass, options);
-                const is_static = !coclass.is_class && !coclass.is_struct || modifiers.includes("/S");
-                const is_enum = modifiers.includes("/Enum");
-                const is_external = modifiers.includes("/External");
-
-                let propname = idlname;
-                let rname, wname;
-
-                for (const modifier of modifiers) {
-                    if (modifier[0] === "=") {
-                        propname = modifier.slice(1);
-                    } else if (modifier.startsWith("/R=")) {
-                        rname = `${ modifier.slice("/R=".length) }()`;
-                    } else if (modifier.startsWith("/W=")) {
-                        wname = modifier.slice("/W=".length);
-                    }
-                }
-
-                const obj = `${ is_static ? `${ fqn }::` : "this->__self->get()->" }`;
-
-                if (is_static || is_enum || modifiers.includes("/R") || modifiers.includes("/RW")) {
-                    iidl.push(`[propget, id(${ id })] HRESULT ${ idlname }([out, retval] ${ propidltype }* pVal);`);
-                    ipublic.push(`STDMETHOD(get_${ idlname })(${ propidltype }* pVal);`);
-
-                    if (is_enum) {
-                        impl.push(`
-                            STDMETHODIMP C${ cotype }::get_${ idlname }(${ propidltype }* pVal) {
-                                *pVal = static_cast<LONG>(${ `${ fqn }::${ propname }` });
-                                return S_OK;
-                            }`.replace(/^ {28}/mg, "")
-                        );
-                    } else {
-                        const cvt = this.convertToIdl(type, `${ obj }${ rname ? rname : propname }`, propidltype, "pVal", modifiers);
-
-                        impl.push(`
-                            STDMETHODIMP C${ cotype }::get_${ idlname }(${ propidltype }* pVal) {
-                                ${ is_prop_test ? "// " : "" }${ is_static ? "" : `${ options.assert }(this->__self->get() != NULL)` };
-                                ${ is_prop_test ? "return S_OK; /* " : "" }${ cvt.split("\n").join(`\n${ " ".repeat(32) }`) }${ is_prop_test ? " */" : "" }
-                            }`.replace(/^ {28}/mg, "")
-                        );
-                    }
-
-                    // implementation of external is in another file
-                    if (is_external) {
-                        impl.pop();
-                    }
-                }
-
-                if (modifiers.includes("/W") || modifiers.includes("/RW")) {
-                    const idltype = propidltype === "VARIANT" ? "VARIANT*" : propidltype;
-
-                    iidl.push(`[propput, id(${ id })] HRESULT ${ idlname }([in] ${ idltype } newVal);`);
-                    ipublic.push(`STDMETHOD(put_${ idlname })(${ idltype } newVal);`);
-
-                    const cvt = this.convertFromIdl(idltype, "newVal", type, obj, propname, wname);
-                    impl.push(`
-                        STDMETHODIMP C${ cotype }::put_${ idlname }(${ idltype } newVal) {
-                            ${ is_prop_test ? "// " : "" }${ is_static ? "" : `${ options.assert }(this->__self->get() != NULL)` };
-                            ${ is_prop_test ? "return S_OK; /* " : "" }${ cvt.split("\n").join(`\n${ " ".repeat(28) }`) }${ is_prop_test ? " */" : "" }
-                        }`.replace(/^ {24}/mg, "")
-                    );
-
-                    // implementation of external is in another file
-                    if (is_external) {
-                        impl.pop();
-                    }
-                }
-            };
-
             Array.from(coclass.properties.keys()).filter(idlname => {
                 const {modifiers} = coclass.properties.get(idlname);
                 return !modifiers.includes("/Enum");
-            }).forEach(writeProperty);
+            }).forEach(idlname => {
+                Properties.writeProperty(this, iidl, impl, ipublic, idnames, fqn, idlname, ++id, is_test, options);
+            });
 
             const varprefix = "pVarArg";
             const include = coclass.include ? coclass.include : coclass;
@@ -440,7 +361,7 @@ class AutoItGenerator {
 
                         callargs[j] = this.castAsEnumIfNeeded(argtype, callarg, coclass);
 
-                        const is_vector = argtype.startsWith("vector_") || argtype.startsWith("VectorOf");
+                        const is_vector = argtype.startsWith("vector_") || argtype.startsWith("vector<") || argtype.startsWith("VectorOf");
                         const has_ptr = is_ptr || cpptype.startsWith(`${ shared_ptr }<`);
                         const is_by_ref = idltype[0] === "I" && idltype !== "IDispatch*" && !has_ptr;
                         const placeholder_name = is_array || is_by_ref || is_vector && !has_ptr ? `${ argname }_placeholder` : argname;
@@ -796,7 +717,7 @@ class AutoItGenerator {
                         body.push(cindent + retval.map(([idltype, argname, argtype, in_val], i) => {
                             const lines = [];
                             const is_array = argtype.endsWith("Array") || argtype.endsWith("ArrayOfArrays");
-                            const is_vector = argtype.startsWith("vector_") || argtype.endsWith("OfArrays");
+                            const is_vector = argtype.startsWith("vector_") || argtype.startsWith("vector<") || argtype.endsWith("OfArrays");
 
                             let value;
 
@@ -934,7 +855,9 @@ class AutoItGenerator {
             Array.from(coclass.properties.keys()).filter(idlname => {
                 const {modifiers} = coclass.properties.get(idlname);
                 return modifiers.includes("/Enum");
-            }).forEach(writeProperty);
+            }).forEach(idlname => {
+                Properties.writeProperty(this, iidl, impl, ipublic, idnames, fqn, idlname, ++id, is_test, options);
+            });
 
             if (is_idl_class) {
                 const cpptype = this.typedefs.has(fqn) ? this.typedefs.get(fqn) : this.getCppType(fqn, coclass, options);
@@ -958,25 +881,6 @@ class AutoItGenerator {
 
             // converter
             conversion.convert(coclass, iglobal, impl, options);
-
-            manifest.files.push(`
-                <comClass
-                    clsid="{${ coclass.clsid }}"
-                    threadingModel="Apartment"
-                    tlbid="{${ LIB_UID }}"
-                    progid="${ APP_NAME }.${ coclass.progid }"
-                    description="${ APP_NAME }.${ coclass.progid }" >
-                    <progid>${ APP_NAME }.${ coclass.progid }.${ VERSION_MAJOR }</progid>
-                </comClass>
-            `.replace(/^ {16}/mg, "").trim());
-
-            manifest.proxies.push(`
-                <comInterfaceExternalProxyStub
-                    name="I${ cotype }"
-                    iid="{${ coclass.iid }}"
-                    tlbid="{${ LIB_UID }}"
-                    proxyStubClsid32="{00020424-0000-0000-C000-000000000046}" />
-            `.replace(/^ {16}/mg, "").trim());
 
             const hdr_id = `_${ coclass.getFilename().toUpperCase() }_OBJECT_`;
 
@@ -1657,14 +1561,14 @@ class AutoItGenerator {
                 continue;
             }
 
-            // make enumerations available via a COM property
-            // because com properties and methods are case insensitive,
+            // Make enumerations available via a COM property.
+            // Because com properties and methods are case insensitive,
             // an enum name cannot be the same as a property or a method.
             // To workaround this limitation, an underscore is added a the end of the enum name.
             // More over, office vba does not allow names to start with an underscore.
             // Therefore, putting the underscore at the end is also to workaround this limitation
             // For exemple, cv::FileNode as a method 'real' and an enum 'REAL'
-            // The enum will be names REAL_
+            // The enum will be named REAL_
             //
             // Sources:
             // https://docs.microsoft.com/en-us/windows/win32/com/com-technical-overview
@@ -1696,97 +1600,12 @@ class AutoItGenerator {
         return coclass;
     }
 
+    add_map(type, parent, options = {}) {
+        return map_conversion.declare(this, type, parent, options);
+    }
+
     add_vector(type, parent, options = {}) {
-        const cpptype = this.getCppType(type, parent, options);
-
-        const fqn = cpptype
-            .replace(/std::vector/g, "VectorOf")
-            .replace(/std::pair/g, "PairOf")
-            .replace(/\w+::/g, "")
-            .replace("_variant_t", "Variant")
-            .replace(/\b[a-z]/g, m => m.toUpperCase())
-            .replace(/, /g, "And")
-            .replace(/[<>]/g, "");
-
-        if (this.classes.has(fqn)) {
-            return fqn;
-        }
-
-        const vtype = type.slice("vector_".length);
-        const coclass = this.getCoClass(fqn);
-        this.typedefs.set(fqn, cpptype);
-
-        coclass.className = `${ fqn }_Object`;
-        coclass.idl = `I${ coclass.className }*`;
-        coclass.is_simple = true;
-        coclass.is_class = true;
-        coclass.is_vector = true;
-        coclass.cpptype = cpptype.slice("std::vector<".length, -">".length);
-        coclass.vtype = vtype;
-        coclass.idltype = this.getIDLType(vtype, {
-            fqn,
-            namespace: parent.namespace,
-        }, options);
-        coclass.include = parent;
-
-        coclass.addMethod([`${ fqn }.${ coclass.name }`, "", [], [], "", ""]);
-
-        coclass.addMethod([`${ fqn }.${ coclass.name }`, "", [], [
-            ["size_t", "size", "", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.${ coclass.name }`, "", [], [
-            [fqn, "other", "", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.push_back`, "void", [], [
-            [vtype, "value", "", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.at`, vtype, [], [
-            ["size_t", "index", "", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.at`, "void", ["/External"], [
-            ["size_t", "index", "", []],
-            [vtype, "value", "", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.size`, "size_t", [], [], "", ""]);
-        coclass.addMethod([`${ fqn }.empty`, "bool", [], [], "", ""]);
-        coclass.addMethod([`${ fqn }.clear`, "void", [], [], "", ""]);
-
-        coclass.addMethod([`${ fqn }.push_vector`, "void", ["/External"], [
-            [fqn, "other", "", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.push_vector`, "void", ["/External"], [
-            [fqn, "other", "", []],
-            ["size_t", "count", "", []],
-            ["size_t", "start", "0", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.slice`, fqn, ["/External"], [
-            ["size_t", "start", "0", []],
-            ["size_t", "count", "this->__self->get()->size()", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.sort`, "void", ["/External"], [
-            ["void*", "comparator", "", []],
-            ["size_t", "start", "0", []],
-            ["size_t", "count", "this->__self->get()->size()", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.sort_variant`, "void", ["/External"], [
-            ["void*", "comparator", "", []],
-            ["size_t", "start", "0", []],
-            ["size_t", "count", "this->__self->get()->size()", []],
-        ], "", ""]);
-
-        coclass.addMethod([`${ fqn }.start`, "void*", ["/External"], [], "", ""]);
-        coclass.addMethod([`${ fqn }.end`, "void*", ["/External"], [], "", ""]);
-
-        return fqn;
+        return vector_conversion.declare(this, type, parent, options);
     }
 
     add_func(decl) {
@@ -1842,106 +1661,50 @@ class AutoItGenerator {
         return coclass;
     }
 
-    isNativeType(type) {
-        switch (type) {
-            case "bool":
-            case "BOOL":
-            case "char":
-            case "uchar":
-            case "BYTE":
-            case "short":
-            case "SHORT":
-            case "ushort":
-            case "USHORT":
-            case "int":
-            case "INT":
-            case "uint":
-            case "UINT":
-            case "long":
-            case "LONG":
-            case "ULONG":
-            case "float":
-            case "FLOAT":
-            case "double":
-            case "DOUBLE":
-            case "int64":
-            case "LONGLONG":
-            case "size_t":
-            case "ULONGLONG":
-                return true;
-            default:
-                return false;
-        }
-    }
-
-    convertToIdl(in_type, in_val, out_type, out_val, modifiers, set_hr = false) {
-        for (const modifier of modifiers) {
-            if (modifier.startsWith("/Cast=")) {
-                in_val = `${ modifier.slice("/Cast=".length) }(${ in_val })`;
-            }
-        }
-
-        if (in_type === out_type) {
-            const cvt = `*${ out_val } = ${ in_val };`;
-            return set_hr ? cvt : `${ cvt }\nreturn S_OK;`;
-        }
-
-        if (this.isNativeType(in_type) && this.isNativeType(out_type)) {
-            const cvt = `*${ out_val } = static_cast<${ out_type }>(${ in_val });`;
-            return set_hr ? cvt : `${ cvt }\nreturn S_OK;`;
-        }
-
-        if (PTR.has(in_type) && out_type === "VARIANT") {
-            const cvt = `
-                V_VT(${ out_val }) = VT_UI8;
-                V_UI8(${ out_val }) = reinterpret_cast<ULONGLONG>(${ in_val });
-            `.replace(/^ {16}/mg, "").trim();
-            return set_hr ? cvt : `${ cvt }\nreturn S_OK;`;
-        }
-
-        const cvt = `autoit_from(${ in_val }, ${ out_val });`;
-        return set_hr ? `hr = ${ cvt }` : `return ${ cvt }`;
-    }
-
-    convertFromIdl(in_type, in_val, out_type, obj, propname, setter) {
-        if (in_type.toLowerCase() === out_type.toLowerCase()) {
-            const assignation = setter ? `${ obj }${ setter }(${ in_val })` : `${ obj }${ propname } = ${ in_val }`;
-            return `${ assignation };\nreturn S_OK;`;
-        }
-
-        if (this.isNativeType(in_type) && this.isNativeType(out_type)) {
-            in_val = `static_cast<${ out_type }>(${ in_val })`;
-            const assignation = setter ? `${ obj }${ setter }(${ in_val })` : `${ obj }${ propname } = ${ in_val }`;
-            return `${ assignation };\nreturn S_OK;`;
-        }
-
-        if (setter) {
-            return `${ out_type } out_val;\nHRESULT hr = autoit_to(${ in_val }, out_val);\n${ obj }${ setter }(out_val);\nreturn hr;`;
-        }
-
-        return `return autoit_to(${ in_val }, ${ obj }${ propname });`;
-    }
-
     getIDLType(type, coclass, options = {}) {
-        const {shared_ptr} = options;
-        const shared_ptr_ = removeNamespaces(shared_ptr, options);
+        const shared_ptr = removeNamespaces(options.shared_ptr, options);
+        type = Properties.restoreOriginalType(type, options);
 
-        if (type.startsWith(`${ shared_ptr_ }_`)) {
+        if (type.startsWith(`${ shared_ptr }<`) && type.endsWith(">")) {
             // Add dependency
-            this.getIDLType(type.slice(`${ shared_ptr_ }_`.length), coclass, options);
+            this.getIDLType(type.slice(`${ shared_ptr }<`.length, -">".length), coclass, options);
             return "VARIANT";
         }
 
-        if (type.startsWith(`${ shared_ptr_ }<`) && type.endsWith(">")) {
+        if (type.startsWith("vector<")) {
             // Add dependency
-            this.getIDLType(type.slice((shared_ptr_ + "<".length), -">".length), coclass, options);
-            return "VARIANT";
-        }
-
-        if (type.startsWith("vector_")) {
-            // Add dependency
-            this.getIDLType(type.slice("vector_".length), coclass, options);
+            this.getIDLType(type.slice("vector<".length, -">".length), coclass, options);
             this.addDependency(coclass.fqn, this.add_vector(type, coclass, options));
+            return "VARIANT";
+        }
+
+        if (type.startsWith("tuple<")) {
+            const types = Properties.getTupleTypes(type.slice("tuple<".length, -">".length));
+            // Add dependency
+            for (const itype of types) {
+                this.getIDLType(itype, coclass, options);
+            }
+            return "VARIANT";
+        }
+
+        if (type.startsWith("map<")) {
+            const types = Properties.getTupleTypes(type.slice("map<".length, -">".length));
+
+            // Add dependency
+            for (const itype of types) {
+                this.getIDLType(itype, coclass, options);
+            }
+
+            this.addDependency(coclass.fqn, this.add_map(type, coclass, options));
+            return "VARIANT";
+        }
+
+        if (type.startsWith("pair<")) {
+            const types = Properties.getTupleTypes(type.slice("pair<".length, -">".length));
+            // Add dependency
+            for (const itype of types) {
+                this.getIDLType(itype, coclass, options);
+            }
             return "VARIANT";
         }
 
@@ -1957,24 +1720,6 @@ class AutoItGenerator {
             // Add dependency
             this.getIDLType(type.slice(pos + 1), coclass, options);
             return custom_type.getIDLType();
-        }
-
-        if (type.startsWith("tuple_")) {
-            const types = type.slice("tuple_".length).split("_and_");
-            // Add dependency
-            for (const itype of types) {
-                this.getIDLType(itype, coclass, options);
-            }
-            return "VARIANT";
-        }
-
-        if (type.startsWith("pair_")) {
-            const types = type.slice("pair_".length).split("_and_");
-            // Add dependency
-            for (const itype of types) {
-                this.getIDLType(itype, coclass, options);
-            }
-            return "VARIANT";
         }
 
         for (const fqn of this.getTypes(type, coclass)) {
@@ -2008,30 +1753,32 @@ class AutoItGenerator {
     getCppType(type, coclass, options = {}) {
         const {shared_ptr} = options;
         const shared_ptr_ = removeNamespaces(shared_ptr, options);
+        type = Properties.restoreOriginalType(type, options);
 
         if (type === "_variant_t") {
             return type;
-        }
-
-        if (type.startsWith(`${ shared_ptr_ }_`)) {
-            return `${ shared_ptr }<${ this.getCppType(type.slice(`${ shared_ptr_ }_`.length), coclass, options) }>`;
         }
 
         if (type.startsWith(`${ shared_ptr_ }<`) && type.endsWith(">")) {
             return `${ shared_ptr }<${ this.getCppType(type.slice(`${ shared_ptr_ }<`.length, -">".length), coclass, options) }>`;
         }
 
-        if (type.startsWith("vector_")) {
-            return `std::vector<${ this.getCppType(type.slice("vector_".length), coclass, options) }>`;
+        if (type.startsWith("vector<")) {
+            return `std::vector<${ this.getCppType(type.slice("vector<".length, -">".length), coclass, options) }>`;
         }
 
-        if (type.startsWith("tuple_")) {
-            const types = type.slice("tuple_".length).split("_and_");
+        if (type.startsWith("tuple<")) {
+            const types = Properties.getTupleTypes(type.slice("tuple<".length, -">".length));
             return `std::tuple<${ types.map(itype => this.getCppType(itype, coclass, options)).join(", ") }>`;
         }
 
-        if (type.startsWith("pair_")) {
-            const types = type.slice("pair_".length).split("_and_");
+        if (type.startsWith("map<")) {
+            const types = Properties.getTupleTypes(type.slice("map<".length, -">".length));
+            return `std::map<${ types.map(itype => this.getCppType(itype, coclass, options)).join(", ") }>`;
+        }
+
+        if (type.startsWith("pair<")) {
+            const types = Properties.getTupleTypes(type.slice("pair<".length, -">".length));
             return `std::pair<${ types.map(itype => this.getCppType(itype, coclass, options)).join(", ") }>`;
         }
 
@@ -2183,7 +1930,6 @@ class AutoItGenerator {
                     continue;
                 }
 
-                const oldvalues = _dependencies.get(fqn);
                 const newvalues = new Set();
                 _dependencies.set(fqn, newvalues);
 
@@ -2200,7 +1946,6 @@ class AutoItGenerator {
                     continue;
                 }
 
-                const oldvalues = _dependents.get(fqn);
                 const newvalues = new Set();
                 _dependents.set(fqn, newvalues);
 

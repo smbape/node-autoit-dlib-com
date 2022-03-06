@@ -175,14 +175,14 @@ module.exports = [
         ["const dlib.image_window.KEY_PAGE_DOWN", "\"PAGE_DOWN\"", []],
         ["const dlib.image_window.KEY_END", "\"END\"", []],
         ["const dlib.image_window.KEY_HOME", "\"HOME\"", []],
-        ["const dlib.image_window.KEY_LEFT", "\"LEFT\"", []],           // This is the left arrow key
-        ["const dlib.image_window.KEY_RIGHT", "\"RIGHT\"", []],          // This is the right arrow key
-        ["const dlib.image_window.KEY_UP", "\"UP\"", []],             // This is the up arrow key
-        ["const dlib.image_window.KEY_DOWN", "\"DOWN\"", []],           // This is the down arrow key
+        ["const dlib.image_window.KEY_LEFT", "\"LEFT\"", []], // This is the left arrow key
+        ["const dlib.image_window.KEY_RIGHT", "\"RIGHT\"", []], // This is the right arrow key
+        ["const dlib.image_window.KEY_UP", "\"UP\"", []], // This is the up arrow key
+        ["const dlib.image_window.KEY_DOWN", "\"DOWN\"", []], // This is the down arrow key
         ["const dlib.image_window.KEY_INSERT", "\"INSERT\"", []],
         ["const dlib.image_window.KEY_DELETE", "\"DELETE\"", []],
         ["const dlib.image_window.KEY_SCROLL_LOCK", "\"SCROLL_LOCK\"", []],
-  
+
             // Function Keys
         ["const dlib.image_window.KEY_F1", "\"F1\"", []],
         ["const dlib.image_window.KEY_F2", "\"F2\"", []],

@@ -1,13 +1,15 @@
 #pragma once
 
-#include <vector>
+#include <dlib/data_io.h>
 #include <dlib/filtering.h>
 #include <dlib/gui_widgets.h>
+#include <dlib/image_processing.h>
 #include <dlib/image_processing/frontal_face_detector.h>
 #include <dlib/matrix.h>
 #include <dlib/string.h>
 #include <dlib/svm.h>
 #include <dlib/svm_threaded.h>
+#include <vector>
 #include "cv_image.h"
 
 using namespace std;

@@ -1,4 +1,101 @@
-module.exports = (coclass, header, impl, {shared_ptr} = {}) => {
+exports.declare = (generator, type, parent, options = {}) => {
+    const cpptype = generator.getCppType(type, parent, options);
+
+    const fqn = cpptype
+        .replace(/std::map/g, "MapOf")
+        .replace(/std::pair/g, "PairOf")
+        .replace(/std::vector/g, "VectorOf")
+        .replace(/\b_variant_t\b/g, "Variant")
+        .replace(/\w+::/g, "")
+        .replace(/\b[a-z]/g, m => m.toUpperCase())
+        .replace(/, /g, "And")
+        .replace(/[<>]/g, "");
+
+    if (generator.classes.has(fqn)) {
+        return fqn;
+    }
+
+    if (type.includes("box")) {
+        debugger;
+    }
+
+    const vtype = type.slice("vector<".length, -">".length);
+    const coclass = generator.getCoClass(fqn);
+    generator.typedefs.set(fqn, cpptype);
+
+    coclass.className = `${ fqn }_Object`;
+    coclass.idl = `I${ coclass.className }*`;
+    coclass.is_simple = true;
+    coclass.is_class = true;
+    coclass.is_vector = true;
+    coclass.cpptype = cpptype.slice("std::vector<".length, -">".length);
+    coclass.idltype = generator.getIDLType(vtype, {
+        fqn,
+        namespace: parent.namespace,
+    }, options);
+    coclass.include = parent;
+
+    coclass.addMethod([`${ fqn }.${ coclass.name }`, "", [], [], "", ""]);
+
+    coclass.addMethod([`${ fqn }.${ coclass.name }`, "", [], [
+        ["size_t", "size", "", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.${ coclass.name }`, "", [], [
+        [fqn, "other", "", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.push_back`, "void", [], [
+        [vtype, "value", "", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.at`, vtype, [], [
+        ["size_t", "index", "", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.at`, "void", ["/External"], [
+        ["size_t", "index", "", []],
+        [vtype, "value", "", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.size`, "size_t", [], [], "", ""]);
+    coclass.addMethod([`${ fqn }.empty`, "bool", [], [], "", ""]);
+    coclass.addMethod([`${ fqn }.clear`, "void", [], [], "", ""]);
+
+    coclass.addMethod([`${ fqn }.push_vector`, "void", ["/External"], [
+        [fqn, "other", "", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.push_vector`, "void", ["/External"], [
+        [fqn, "other", "", []],
+        ["size_t", "count", "", []],
+        ["size_t", "start", "0", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.slice`, fqn, ["/External"], [
+        ["size_t", "start", "0", []],
+        ["size_t", "count", "this->__self->get()->size()", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.sort`, "void", ["/External"], [
+        ["void*", "comparator", "", []],
+        ["size_t", "start", "0", []],
+        ["size_t", "count", "this->__self->get()->size()", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.sort_variant`, "void", ["/External"], [
+        ["void*", "comparator", "", []],
+        ["size_t", "start", "0", []],
+        ["size_t", "count", "this->__self->get()->size()", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.start`, "void*", ["/External"], [], "", ""]);
+    coclass.addMethod([`${ fqn }.end`, "void*", ["/External"], [], "", ""]);
+
+    return fqn;
+};
+
+exports.generate = (coclass, header, impl, {shared_ptr} = {}) => {
     const cotype = coclass.getClassName();
     const comparator = `${ coclass.fqn }Comparator`;
     const ptr_comparator = `${ coclass.fqn }PtrComparator`;

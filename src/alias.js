@@ -1,13 +1,11 @@
 const {ALIASES} = require("./constants");
 
-exports.replaceAliases = (str, options = {}) => {
-    if (ALIASES.size === 0) {
+exports.replaceAliases = (str, options = {}, aliases = ALIASES) => {
+    if (aliases.size === 0) {
         return str;
     }
 
     const shared_ptr = exports.removeNamespaces(options.shared_ptr, options);
-
-    const aliases = new RegExp(Array.from(ALIASES.keys()).join("|"), "g");
 
     // Ptr, tuple, vector, pair
     const replacer = (match, offset, string) => {
@@ -28,27 +26,36 @@ exports.replaceAliases = (str, options = {}) => {
 
         // if it is a word
         if (end_word && (end - offset) === match.length) {
-            return ALIASES.get(match);
+            return aliases.get(match);
         }
 
         // pointer or vector
         for (const prefix of [shared_ptr, "vector"]) {
             if (string.startsWith(`${ prefix }_`, offset)) {
-                return end_word ? ALIASES.get(match) : match;
+                return end_word ? aliases.get(match) : match;
             }
         }
 
         // type in a tuple or a pair
         for (const prefix of ["tuple", "pair"]) {
             if (string.startsWith(`${ prefix }_`, offset)) {
-                return end_word || string.startsWith("_and_", end) ? ALIASES.get(match) : match;
+                if (!end_word && !string.startsWith("_and_", end) && !string.startsWith("_end_", end)) {
+                    return match;
+                }
+
+                const start = end - match.length;
+
+                return start === offset
+                    || string.endsWith("_and_", start)
+                    || string.endsWith("_end_", start)
+                    ? aliases.get(match) : match;
             }
         }
 
         return match;
     };
 
-    return str.replace(aliases, replacer);
+    return str.replace(new RegExp(Array.from(aliases.keys()).join("|"), "g"), replacer);
 };
 
 exports.removeNamespaces = (str, options = {}) => {
