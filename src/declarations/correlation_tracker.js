@@ -27,4 +27,6 @@ module.exports = [
 		["rectangle", "bounding_box", "", ["/Cast=rectangle"]],
 	], "", ""],
 
+	["dlib.correlation_tracker.get_position", "drectangle", [], [], "", ""],
+
 ];

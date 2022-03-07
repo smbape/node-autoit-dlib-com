@@ -1475,9 +1475,17 @@ class AutoItGenerator {
         if (list_of_modifiers.includes("/Ptr")) {
             coclass.is_ptr = true;
         }
-        if (list_of_modifiers.includes("/DC")) {
-            coclass.has_default_constructor = true;
+
+        if ((coclass.is_struct || list_of_modifiers.includes("/DC")) && !this.has_default_constructor) {
+            // Add a default constructor
+            coclass.addMethod([
+                `${ name.slice("class ".length) }.${ coclass.name }`,
+                "",
+                [],
+                []
+            ]);
         }
+
         coclass.noidl = list_of_modifiers.includes("/noidl");
 
         for (const modifier of list_of_modifiers) {

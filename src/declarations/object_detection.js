@@ -20,6 +20,15 @@ const declarations = [
         ["double", "adjust_threshold", "0.0", []],
     ], "", ""],
 
+    ["dlib.fhog_object_detector.call", "void", ["/External"], [
+        ["cv::Mat", "image", "", []],
+        ["vector_rectangle", "rectangles", "", ["/O"]],
+        ["vector_double", "detection_confidences", "", ["/O"]],
+        ["vector_ULONG", "weight_indices", "", ["/O"]],
+        ["uint", "upsample_num_times", "0", []],
+        ["double", "adjust_threshold", "0.0", []],
+    ], "", ""],
+
     ["dlib.fhog_object_detector.save", "void", ["/Call=dlib::save_object_to_file<fhog_object_detector>", "/Expr=*this->__self->get(), $0"], [
         ["string", "detector_output_filename", "", []],
     ], "", ""],

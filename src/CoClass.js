@@ -101,7 +101,7 @@ class CoClass {
 
         let fname = path[path.length - 1];
 
-        const is_constructor = return_value_type === "" && fname === this.name;
+        const is_constructor = fname === this.name;
 
         if (is_constructor) {
             fname = "create";
@@ -118,6 +118,9 @@ class CoClass {
 
             if (list_of_arguments.length === 0 || !list_of_arguments.some(([argtype, argname, defval]) => defval === "")) {
                 this.has_default_constructor = true;
+                if (return_value_type === "") {
+                    this.has_assign_operator = true;
+                }
             }
         }
 

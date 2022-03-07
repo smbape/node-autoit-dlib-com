@@ -114,4 +114,20 @@ namespace dlib {
 			images[image_idx++] = cv_image<image_type>(image);
 		}
 	}
+
+	inline void vector_drectangle_to_vector_rectangle(const std::vector<drectangle>& drectangles, std::vector<rectangle>& rectangles)
+	{
+		rectangles.clear();
+		for (const auto& drect : drectangles) {
+			rectangles.push_back(rectangle(drect));
+		}
+	}
+
+	inline const std::vector<rectangle> vector_drectangle_to_vector_rectangle(const std::vector<drectangle>& drectangles)
+	{
+		std::vector<rectangle> rectangles;
+		vector_drectangle_to_vector_rectangle(drectangles, rectangles);
+		return rectangles;
+	}
+
 }

@@ -290,8 +290,8 @@ Object.assign(exports, {
             `.replace(/^ {16}/mg, ""));
         }
 
-        if (coclass.is_simple || coclass.is_struct || coclass.is_map || coclass.has_copy_constructor || coclass.has_default_constructor) {
-            const assign = coclass.has_default_constructor ? "*(*obj->__self) = in_val" : `obj->__self->reset(new ${ coclass.fqn }(in_val))`;
+        if (coclass.is_simple || coclass.is_struct || coclass.is_map || coclass.has_copy_constructor || coclass.has_assign_operator) {
+            const assign = coclass.has_assign_operator ? "*(*obj->__self) = in_val" : `obj->__self->reset(new ${ coclass.fqn }(in_val))`;
 
             header.push(`
                 extern const bool is_assignable_from(${ coclass.fqn }& out_val, I${ cotype }*& in_val, bool is_optional);

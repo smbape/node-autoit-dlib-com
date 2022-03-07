@@ -3,9 +3,11 @@
 
 #import "dlibCOM.tlb"
 
+#include <opencv2/core/core.hpp>
+
 template<typename T>
 inline auto to_variant_t(const T& in_val) {
-	return std::shared_ptr<_variant_t>(new _variant_t(in_val));
+	return cv::Ptr<_variant_t>(new _variant_t(in_val));
 }
 
 /**
@@ -59,7 +61,7 @@ static void testMatrix() {
 	auto matrix = static_cast<dlibCOM::IDlib_Matrix_Object*>(V_DISPATCH(&_result));
 	std::wcout << matrix->ToString() << std::endl;
 
-	_result = MatrixPtr->create(to_variant_t(3).get(), to_variant_t(2).get());
+	_result = MatrixPtr->create(to_variant_t(3), to_variant_t(2));
 	assert(V_VT(&_result) == VT_DISPATCH);
 	matrix = static_cast<dlibCOM::IDlib_Matrix_Object*>(V_DISPATCH(&_result));
 	std::wcout << matrix->ToString() << std::endl;
@@ -69,6 +71,53 @@ static void testMatrix() {
 	assert(V_VT(&_result) == VT_DISPATCH);
 	matrix = static_cast<dlibCOM::IDlib_Matrix_Object*>(V_DISPATCH(&_result));
 	std::wcout << matrix->ToString() << std::endl;
+}
+
+static void test_cv_returns() {
+	dlibCOM::IDlib_ObjectPtr dlib;
+	auto hr = dlib.CreateInstance(__uuidof(dlibCOM::Dlib_Object));
+	assert(SUCCEEDED(hr));
+
+	_bstr_t image_path;
+	string_to_bstr("_deps\\dlib-src\\examples\\faces\\2007_007763.jpg", image_path);
+
+	auto img = dlib->load_rgb_image(to_variant_t(image_path));
+	assert(img->width == 500);
+	assert(img->height == 375);
+}
+
+static void test_cnn_face_detector() {
+	dlibCOM::IDlib_ObjectPtr dlib;
+	auto hr = dlib.CreateInstance(__uuidof(dlibCOM::Dlib_Object));
+	assert(SUCCEEDED(hr));
+
+	dlibCOM::IDlib_Cnn_face_detection_model_v1_ObjectPtr Cnn_face_detection_model_v1;
+	hr = Cnn_face_detection_model_v1.CreateInstance(__uuidof(dlibCOM::Dlib_Cnn_face_detection_model_v1_Object));
+	assert(SUCCEEDED(hr));
+
+	_bstr_t dat_path;
+	string_to_bstr("..\\..\\examples\\mmod_human_face_detector.dat", dat_path);
+	auto cnn_face_detector = Cnn_face_detection_model_v1->create(to_variant_t(dat_path));
+
+	dlibCOM::IDlib_Image_window_ObjectPtr win;
+	hr = win.CreateInstance(__uuidof(dlibCOM::Dlib_Image_window_Object));
+	assert(SUCCEEDED(hr));
+
+	_bstr_t image_path;
+	string_to_bstr("_deps\\dlib-src\\examples\\faces\\2007_007763.jpg", image_path);
+
+	auto img = dlib->load_rgb_image(to_variant_t(image_path));
+
+	auto dets = cnn_face_detector->call(to_variant_t(img.GetInterfacePtr()), to_variant_t(1));
+
+	assert((V_VT(&dets) & VT_ARRAY) == VT_ARRAY);
+	assert((V_VT(&dets) ^ VT_ARRAY) == VT_VARIANT);
+
+	CComSafeArray<VARIANT> vArray;
+	vArray.Attach(V_ARRAY(&dets));
+	assert(vArray.GetCount() == 7);
+	vArray.Detach();
+
 }
 
 static _variant_t vtDefault;
@@ -81,6 +130,8 @@ static int perform() {
 	VariantInit(&vtEmpty);
 
 	testMatrix();
+	test_cv_returns();
+	test_cnn_face_detector();
 
 	return 0;
 }

@@ -15,4 +15,5 @@ namespace dlib {
 	CV_EXPORTS_AS(make_sparse_vector) void _make_sparse_vector(CV_OUT sparse_vect& v);
 	CV_EXPORTS_AS(make_sparse_vector) void _make_sparse_vector(CV_OUT std::vector<sparse_vect>& v);
 	CV_EXPORTS_AS(save_libsvm_formatted_data) void _save_libsvm_formatted_data(const std::string& file_name, const std::vector<sparse_vect>& samples, const std::vector<double>& labels);
+	CV_EXPORTS_W void hit_enter_to_continue();
 }

@@ -30,3 +30,8 @@ void dlib::_save_libsvm_formatted_data(const std::string& file_name, const std::
 	AUTOIT_ASSERT_THROW(samples.size() == labels.size(), "Invalid inputs");
 	save_libsvm_formatted_data(file_name, samples, labels);
 }
+
+void dlib::hit_enter_to_continue() {
+    std::cout << "Hit enter to continue";
+    std::cin.get();
+}

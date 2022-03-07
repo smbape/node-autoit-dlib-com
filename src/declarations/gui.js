@@ -1,6 +1,8 @@
 module.exports = [
     ["class dlib.image_window", "", [], [], "", ""],
 
+    ["dlib.image_window.image_window", "shared_ptr_image_window", [], [], "", ""],
+
     ["dlib.image_window.create", "shared_ptr_image_window", ["/External"], [
         ["fhog_object_detector", "detector", "", ["/Ref"]],
     ], "", ""],
@@ -57,6 +59,26 @@ module.exports = [
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", [], [
+        ["vector_drectangle", "drectangles", "", ["/Cast=vector_drectangle_to_vector_rectangle"]],
+        ["rgb_pixel", "color", "rgb_pixel(255, 0, 0)", []],
+    ], "", ""],
+
+    ["dlib.image_window.add_overlay", "void", [], [
+        ["vector_drectangle", "drectangles", "", ["/Cast=vector_drectangle_to_vector_rectangle"]],
+        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
+    ], "", ""],
+
+    ["dlib.image_window.add_overlay", "void", ["/External"], [
+        ["vector__variant_t", "objs", "", []],
+        ["rgb_pixel", "color", "rgb_pixel(255, 0, 0)", []],
+    ], "", ""],
+
+    ["dlib.image_window.add_overlay", "void", ["/External"], [
+        ["vector__variant_t", "objs", "", []],
+        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", []],
+    ], "", ""],
+
+    ["dlib.image_window.add_overlay", "void", [], [
         ["rectangle", "rect", "", []],
         ["rgb_pixel", "color", "rgb_pixel(255, 0, 0)", []],
     ], "", ""],
@@ -118,16 +140,6 @@ module.exports = [
         ["dpoint", "center", "", []],
         ["double", "radius", "", []],
         ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
-    ], "", ""],
-
-    ["dlib.image_window.add_overlay", "void", ["/External"], [
-        ["vector__variant_t", "objs", "", []],
-        ["rgb_pixel", "color", "rgb_pixel(255, 0, 0)", []],
-    ], "", ""],
-
-    ["dlib.image_window.add_overlay", "void", ["/External"], [
-        ["vector__variant_t", "objs", "", []],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", []],
     ], "", ""],
 
     ["dlib.image_window.wait_until_closed", "void", [], [], "", ""],

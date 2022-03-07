@@ -6,6 +6,21 @@ using namespace cv;
 using namespace dlib;
 using namespace std;
 
+full_object_detection dlib::run_predictor(
+	shape_predictor& predictor,
+	const cv::Mat& img,
+	const rectangle& box
+)
+{
+	AUTOIT_ASSERT_THROW(img.depth() == CV_8U, "Unsupported image type, must be 8bit gray or RGB image.");
+	AUTOIT_ASSERT_THROW(img.channels() == 1 || img.channels() == 3, "Unsupported image type, must be 8bit gray or RGB image.");
+
+	if (img.channels() == 1) {
+		return predictor(cv_image<unsigned char>(img), box);
+	}
+	return predictor(cv_image<bgr_pixel>(img), box);
+}
+
 void dlib::serialize(const shape_predictor_training_options& item, std::ostream& out) {
 	try
 	{

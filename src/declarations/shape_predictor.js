@@ -25,6 +25,11 @@ module.exports = [
         ["string", "filename", "", []],
     ], "", ""],
 
+    ["dlib.shape_predictor.call", "full_object_detection", ["/Call=dlib::run_predictor", "/Expr=*this->__self->get(), $0"], [
+        ["Mat", "img", "", []],
+        ["rectangle", "box", "", []],
+    ], "", ""],
+
     ["dlib.shape_predictor.save", "void", ["/Call=dlib::save_object_to_file<shape_predictor>", "/Expr=*this->__self->get(), $0"], [
         ["string", "detector_output_filename", "", []],
     ], "", ""],

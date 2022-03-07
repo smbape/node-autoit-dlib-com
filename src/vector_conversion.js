@@ -1,3 +1,5 @@
+const optional = require("./optional_conversion");
+
 exports.declare = (generator, type, parent, options = {}) => {
     const cpptype = generator.getCppType(type, parent, options);
 
@@ -120,6 +122,8 @@ exports.generate = (coclass, header, impl, {shared_ptr} = {}) => {
         typedef bool (*${ ptr_comparator })(${ ptrtype }* a, ${ ptrtype }* b);
         typedef struct _${ comparator }Proxy  ${ comparator }Proxy;
 
+        extern const bool is_assignable_from(${ shared_ptr }<${ coclass.fqn }>& out_val, VARIANT const* const& in_val, bool is_optional);
+        extern const HRESULT autoit_to(VARIANT const* const& in_val, ${ shared_ptr }<${ coclass.fqn }>& out_val);
         extern const bool is_assignable_from(${ coclass.fqn }& out_val, I${ cotype }*& in_val, bool is_optional);
         extern const HRESULT autoit_to(I${ cotype }*& in_val, ${ coclass.fqn }& out_val);
         extern const HRESULT autoit_out(VARIANT const* const& in_val, I${ cotype }**& out_val);
@@ -137,6 +141,30 @@ exports.generate = (coclass, header, impl, {shared_ptr} = {}) => {
                 ${ cvt.join(`\n${ " ".repeat(16) }`) }
             }
         } ${ comparator }Proxy;
+
+        const bool is_assignable_from(${ shared_ptr }<${ coclass.fqn }>& out_val, VARIANT const* const& in_val, bool is_optional) {
+            switch (V_VT(in_val)) {
+                case VT_DISPATCH:
+                    // TODO : find a better way to check instanceof with V_DISPATH
+                    return dynamic_cast<C${ cotype }*>(getRealIDispatch(in_val)) ? true : false;
+                ${ optional.case.join(`\n${ " ".repeat(20) }`) }
+                default:
+                    return false;
+            }
+        }
+
+        const HRESULT autoit_to(VARIANT const* const& in_val, ${ shared_ptr }<${ coclass.fqn }>& out_val) {
+            ${ optional.assign.join(`\n${ " ".repeat(16) }`) }
+
+            if (V_VT(in_val) != VT_DISPATCH) {
+                return E_INVALIDARG;
+            }
+
+            auto obj = reinterpret_cast<C${ cotype }*>(getRealIDispatch(in_val));
+            out_val = ${ shared_ptr }<${ coclass.fqn }>(${ shared_ptr }<${ coclass.fqn }>{}, obj->__self->get());
+
+            return S_OK;
+        }
 
         const bool is_assignable_from(${ coclass.fqn }& out_val, I${ cotype }* in_val, bool is_optional) {
             return true;

@@ -12,6 +12,14 @@ namespace dlib
 
 	// ----------------------------------------------------------------------------------------
 
+	full_object_detection run_predictor (
+		shape_predictor& predictor,
+		const cv::Mat& img,
+		const rectangle& box
+	);
+
+	// ----------------------------------------------------------------------------------------
+
 	struct CV_EXPORTS_W_SIMPLE shape_predictor_training_options
 	{
 		CV_WRAP shape_predictor_training_options() = default;

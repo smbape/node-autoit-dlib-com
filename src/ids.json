@@ -371,6 +371,10 @@
         "iid": "f2a6c01c-53a3-4af5-8b09-1ffeb02d841c",
         "clsid": "0e8b2098-fe36-490d-a6e5-37209adda4d9"
     },
+    "VectorOfDrectangle": {
+        "iid": "eb5aecbe-6e0b-421c-896d-0ad60f0a00e9",
+        "clsid": "80858e5a-eb07-494c-b0cb-f37c22e56140"
+    },
     "VectorOfInt": {
         "iid": "558d6542-a68e-4199-9972-d1754f33db41",
         "clsid": "7b9d8766-9403-4200-a081-c39ac4823549"

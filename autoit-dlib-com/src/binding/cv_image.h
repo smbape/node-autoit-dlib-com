@@ -96,6 +96,13 @@ namespace dlib
 		long nr() const { return image.rows; }
 		long nc() const { return image.cols; }
 		void set_image_size(long rows, long cols) {
+			if (image.empty()) {
+				image = cv::Mat::zeros(rows, cols, CV_MAKETYPE(
+					cv::DataType<typename pixel_traits<pixel_type>::basic_pixel_type>::depth,
+					pixel_traits<pixel_type>::num
+				));
+				return;
+			}
 			cv::Mat dst;
 			cv::Size dsize(cols, rows);
 			cv::resize(image, dst, dsize);

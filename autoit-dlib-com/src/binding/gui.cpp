@@ -135,13 +135,10 @@ void add_overlay_vector_variant(
 	shared_ptr<drectangle> pdrect;
 	shared_ptr<line> pline;
 	shared_ptr<full_object_detection> pdetection;
+	shared_ptr<std::vector<line>> plines;
 
 	for (const auto& obj : objs) {
-		if (is_assignable_from(prect, &obj, false)) {
-			autoit_to(&obj, prect);
-			win.add_overlay(*prect.get(), color);
-		}
-		else if (is_assignable_from(pdrect, &obj, false)) {
+		if (is_assignable_from(pdrect, &obj, false)) {
 			autoit_to(&obj, pdrect);
 			win.add_overlay(rectangle(*pdrect.get()), color);
 		}
@@ -237,7 +234,7 @@ void CDlib_Image_window_Object::wait_for_keypress(char wait_key, HRESULT& hr) {
 	bool is_printable;
 	while (win.get_next_keypress(key, is_printable))
 	{
-		if ((char) key == wait_key)
+		if ((char)key == wait_key)
 			return;
 	}
 }

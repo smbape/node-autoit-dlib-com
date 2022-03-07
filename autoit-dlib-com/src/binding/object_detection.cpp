@@ -618,7 +618,20 @@ void CDlib_Fhog_object_detector_Object::run(
 ) {
 	hr = S_OK;
 	auto& detector = *this->__self->get();
+	rectangles = run_detector_with_upscale(detector, img, upsampling_amount, adjust_threshold, detection_confidences, weight_indices);
+}
 
+void CDlib_Fhog_object_detector_Object::call(
+	Mat& img,
+	std::vector<dlib::rectangle>& rectangles,
+	std::vector<double>& detection_confidences,
+	std::vector<unsigned long>& weight_indices,
+	unsigned int upsampling_amount,
+	double adjust_threshold,
+	HRESULT& hr
+) {
+	hr = S_OK;
+	auto& detector = *this->__self->get();
 	rectangles = run_detector_with_upscale(detector, img, upsampling_amount, adjust_threshold, detection_confidences, weight_indices);
 }
 
