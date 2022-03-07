@@ -139,7 +139,7 @@ std::vector<dense_vect> face_recognition_model_v1::compute_face_descriptor(
 		// Check for the size of the image
 		AUTOIT_ASSERT_THROW(image.nr() == 150 && image.nc() == 150,
 			"Unsupported image size, it should be of size 150x150. Also cropping must be done as `dlib.get_face_chip` would do it. \
-                    That is, centered and scaled essentially the same way.");
+					That is, centered and scaled essentially the same way.");
 
 		face_chips.push_back(image);
 	}
@@ -220,4 +220,55 @@ void dlib::save_face_chips(
 			save_jpeg(chip, file_name);
 		}
 	}
+}
+
+std::vector<unsigned long> dlib::chinese_whispers_clustering(
+	std::vector<dense_vect> descriptors,
+	float threshold
+)
+{
+	DLIB_CASSERT(threshold > 0);
+
+	auto num_descriptors = descriptors.size();
+
+	// This next bit of code creates a graph of connected objects and then uses the Chinese
+	// whispers graph clustering algorithm to identify how many objects there are and which
+	// objects belong to which cluster.
+	std::vector<sample_pair> edges;
+	std::vector<unsigned long> labels;
+	for (size_t i = 0; i < num_descriptors; ++i)
+	{
+		for (size_t j = i; j < num_descriptors; ++j)
+		{
+			dense_vect& first_descriptor = descriptors[i];
+			dense_vect& second_descriptor = descriptors[j];
+
+			if (length(first_descriptor - second_descriptor) < threshold)
+				edges.push_back(sample_pair(i, j));
+		}
+	}
+
+	chinese_whispers(edges, labels);
+
+	return labels;
+}
+
+std::vector<unsigned long> dlib::chinese_whispers_raw(
+	std::vector<dense_vect> edges
+)
+{
+	std::vector<sample_pair> edges_pairs;
+	std::vector<unsigned long> labels;
+	for (const auto& edge : edges)
+	{
+		DLIB_CASSERT(edge.nr() == 2 || edge.nc() == 3, "Input must be a list of tuples with 2 or 3 elements.");
+		size_t i = edge(0);
+		size_t j = edge(1);
+		double distance = edge.nc() == 3 ? edge(2) : 1;
+		edges_pairs.push_back(sample_pair(i, j, distance));
+	}
+
+	chinese_whispers(edges_pairs, labels);
+
+	return labels;
 }

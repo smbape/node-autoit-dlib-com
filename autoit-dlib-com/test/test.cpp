@@ -86,6 +86,20 @@ static void test_cv_returns() {
 	assert(img->height == 375);
 }
 
+static void test_face_recognition_model_v1() {
+	dlibCOM::IDlib_ObjectPtr dlib;
+	auto hr = dlib.CreateInstance(__uuidof(dlibCOM::Dlib_Object));
+	assert(SUCCEEDED(hr));
+
+	dlibCOM::IDlib_Face_recognition_model_v1_ObjectPtr Face_recognition_model_v1;
+	hr = Face_recognition_model_v1.CreateInstance(__uuidof(dlibCOM::Dlib_Face_recognition_model_v1_Object));
+	assert(SUCCEEDED(hr));
+
+	_bstr_t dat_path;
+	string_to_bstr("..\\..\\examples\\dlib_face_recognition_resnet_model_v1", dat_path);
+	auto facerec = Face_recognition_model_v1->create(to_variant_t(dat_path));
+}
+
 static void test_cnn_face_detector() {
 	dlibCOM::IDlib_ObjectPtr dlib;
 	auto hr = dlib.CreateInstance(__uuidof(dlibCOM::Dlib_Object));
@@ -117,7 +131,6 @@ static void test_cnn_face_detector() {
 	vArray.Attach(V_ARRAY(&dets));
 	assert(vArray.GetCount() == 7);
 	vArray.Detach();
-
 }
 
 static _variant_t vtDefault;
@@ -131,6 +144,7 @@ static int perform() {
 
 	testMatrix();
 	test_cv_returns();
+	test_face_recognition_model_v1();
 	test_cnn_face_detector();
 
 	return 0;

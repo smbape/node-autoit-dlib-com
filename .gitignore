@@ -1,8 +1,11 @@
 /autoit-dlib-*-com-v*.7z
-/node_modules
 /dlib-*
+/examples/output_folder
+/examples/*.dat
+/examples/*.dat.bz2
+/node_modules
 /opencv-*
-/*.sublime-workspace
 BackUp
 generated
 *build_x64
+/*.sublime-workspace
