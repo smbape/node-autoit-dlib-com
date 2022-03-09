@@ -121,17 +121,6 @@ exports.generate = (coclass, header, impl, {shared_ptr} = {}) => {
         typedef bool (*${ comparator })(${ cpptype } a, ${ cpptype } b);
         typedef bool (*${ ptr_comparator })(${ ptrtype }* a, ${ ptrtype }* b);
         typedef struct _${ comparator }Proxy  ${ comparator }Proxy;
-
-        extern const bool is_assignable_from(${ shared_ptr }<${ coclass.fqn }>& out_val, VARIANT const* const& in_val, bool is_optional);
-        extern const HRESULT autoit_to(VARIANT const* const& in_val, ${ shared_ptr }<${ coclass.fqn }>& out_val);
-        extern const bool is_assignable_from(${ coclass.fqn }& out_val, I${ cotype }*& in_val, bool is_optional);
-        extern const HRESULT autoit_to(I${ cotype }*& in_val, ${ coclass.fqn }& out_val);
-        extern const HRESULT autoit_out(VARIANT const* const& in_val, I${ cotype }**& out_val);
-
-        extern const HRESULT autoit_from(I${ cotype }*& in_val, I${ cotype }**& out_val);
-        extern const HRESULT autoit_from(I${ cotype }*& in_val, IDispatch**& out_val);
-        extern const HRESULT autoit_from(I${ cotype }*& in_val, VARIANT*& out_val);
-        extern const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, I${ cotype }**& out_val);
     `.replace(/^ {8}/mg, ""));
 
     impl.push(`
@@ -141,81 +130,6 @@ exports.generate = (coclass, header, impl, {shared_ptr} = {}) => {
                 ${ cvt.join(`\n${ " ".repeat(16) }`) }
             }
         } ${ comparator }Proxy;
-
-        const bool is_assignable_from(${ shared_ptr }<${ coclass.fqn }>& out_val, VARIANT const* const& in_val, bool is_optional) {
-            switch (V_VT(in_val)) {
-                case VT_DISPATCH:
-                    // TODO : find a better way to check instanceof with V_DISPATH
-                    return dynamic_cast<C${ cotype }*>(getRealIDispatch(in_val)) ? true : false;
-                ${ optional.case.join(`\n${ " ".repeat(20) }`) }
-                default:
-                    return false;
-            }
-        }
-
-        const HRESULT autoit_to(VARIANT const* const& in_val, ${ shared_ptr }<${ coclass.fqn }>& out_val) {
-            ${ optional.assign.join(`\n${ " ".repeat(16) }`) }
-
-            if (V_VT(in_val) != VT_DISPATCH) {
-                return E_INVALIDARG;
-            }
-
-            auto obj = reinterpret_cast<C${ cotype }*>(getRealIDispatch(in_val));
-            out_val = ${ shared_ptr }<${ coclass.fqn }>(${ shared_ptr }<${ coclass.fqn }>{}, obj->__self->get());
-
-            return S_OK;
-        }
-
-        const bool is_assignable_from(${ coclass.fqn }& out_val, I${ cotype }* in_val, bool is_optional) {
-            return true;
-        }
-
-        const HRESULT autoit_to(I${ cotype }*& in_val, ${ coclass.fqn }& out_val) {
-            auto obj = reinterpret_cast<C${ cotype }*>(in_val);
-            out_val = *obj->__self->get();
-            return S_OK;
-        }
-
-        const HRESULT autoit_out(VARIANT const* const& in_val, I${ cotype }**& out_val) {
-            if (V_VT(in_val) != VT_DISPATCH) {
-                return E_INVALIDARG;
-            }
-
-            auto obj = reinterpret_cast<I${ cotype }*>(getRealIDispatch(in_val));
-            *out_val = obj;
-            obj->AddRef();
-            return S_OK;
-        }
-
-        const HRESULT autoit_from(I${ cotype }*& in_val, I${ cotype }**& out_val) {
-            *out_val = in_val;
-            in_val->AddRef();
-            return S_OK;
-        }
-
-        const HRESULT autoit_from(I${ cotype }*& in_val, IDispatch**& out_val) {
-            *out_val = static_cast<IDispatch*>(in_val);
-            in_val->AddRef();
-            return S_OK;
-        }
-
-        const HRESULT autoit_from(I${ cotype }*& in_val, VARIANT*& out_val) {
-            VariantClear(out_val);
-            V_VT(out_val) = VT_DISPATCH;
-            V_DISPATCH(out_val) = static_cast<IDispatch*>(in_val);
-            in_val->AddRef();
-            return S_OK;
-        }
-
-        const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, I${ cotype }**& out_val) {
-            HRESULT hr = CoCreateInstance(CLSID_${ cotype }, NULL, CLSCTX_INPROC_SERVER, IID_I${ cotype }, reinterpret_cast<void**>(out_val));
-            if (SUCCEEDED(hr)) {
-                auto obj = static_cast<C${ cotype }*>(*out_val);
-                delete obj->__self;
-                obj->__self = new ${ shared_ptr }<${ coclass.fqn }>(in_val);
-            }
-            return hr;
-        }
 
         #include "vectors_c.h"
 

@@ -96,7 +96,7 @@ static void test_face_recognition_model_v1() {
 	assert(SUCCEEDED(hr));
 
 	_bstr_t dat_path;
-	string_to_bstr("..\\..\\examples\\dlib_face_recognition_resnet_model_v1", dat_path);
+	string_to_bstr("..\\..\\examples\\dlib_face_recognition_resnet_model_v1.dat", dat_path);
 	auto facerec = Face_recognition_model_v1->create(to_variant_t(dat_path));
 }
 

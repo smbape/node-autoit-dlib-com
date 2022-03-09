@@ -21,54 +21,48 @@ Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
 
-	_DownloadAndUnpackData("shape_predictor_5_face_landmarks.dat", "shape_predictor_5_face_landmarks.dat.bz2", "http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2")
+	_DownloadAndUnpackData("shape_predictor_68_face_landmarks.dat", "shape_predictor_68_face_landmarks.dat.bz2", "http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2")
 
-	Local $predictor_path = "shape_predictor_5_face_landmarks.dat"
-	Local $face_file_path = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces\bald_guys.jpg"
+	Local $predictor_path = "shape_predictor_68_face_landmarks.dat"
+	Local $faces_folder_path = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces"
 
-	; Load all the models we need: a detector to find the faces, a shape predictor
-	; to find face landmarks so we can precisely localize the face
 	Local $detector = $dlib.get_frontal_face_detector()
-	Local $sp = _Dlib_ObjCreate("shape_predictor").create($predictor_path)
+	Local $predictor = _Dlib_ObjCreate("shape_predictor").create($predictor_path)
+	Local $win = _Dlib_ObjCreate("image_window")
 
-	; Load the image using Dlib
-	Local $img = $dlib.load_rgb_image($face_file_path)
+	Local Const $aFiles = _Dlib_FindFiles($faces_folder_path & "\*.jpg")
 
-	; Ask the detector to find the bounding boxes of each face. The 1 in the
-	; second argument indicates that we should upsample the image 1 time. This
-	; will make everything bigger and allow us to detect more faces.
-	Local $dets = $detector.call($img, 1)
+	Local $f, $img, $dets, $d, $shape
 
-	Local $num_faces = UBound($dets)
-	If $num_faces == 0 Then
-		ConsoleWrite("Sorry, there were no faces found in '" & $face_file_path & "'")
-		Return
-	EndIf
+	For $j = 0 To UBound($aFiles) - 1
+		$f = $aFiles[$j]
+		ToolTip("Processing file: " & $f, 0, 0)
+		ConsoleWrite("Processing file: " & $f & @CRLF)
+		$img = $dlib.load_rgb_image($f)
 
-	; Find the 5 face landmarks we need to do the alignment.
-	Local $faces = _Dlib_ObjCreate("VectorOfFull_object_detection")
-	For $i = 0 To UBound($dets) - 1
-		Local $detection = $dets[$i]
-		$faces.push_back($sp.call($img, $detection))
-	Next
+		$win.clear_overlay()
+		$win.set_image($img)
 
-	Local $window = _Dlib_ObjCreate("image_window")
-	Local $image
+		; Ask the detector to find the bounding boxes of each face. The 1 in the
+		; second argument indicates that we should upsample the image 1 time. This
+		; will make everything bigger and allow us to detect more faces.
+		$dets = $detector.call($img, 1)
+		ConsoleWrite("Number of faces detected: " & UBound($dets) & @CRLF)
+		For $k = 0 To UBound($dets) - 1
+			$d = $dets[$k]
+			ConsoleWrite(StringFormat("Detection %d: Left: %d Top: %d Right: %d Bottom: %d", _
+					$k, $d.left(), $d.top(), $d.right(), $d.bottom()) & @CRLF)
+			; Get the landmarks/parts for the face in box d.
+			$shape = $predictor.call($img, $d)
+			ConsoleWrite(StringFormat("Part 0: %s, Part 1: %s ...", $shape.part(0).ToString(), _
+					$shape.part(1).ToString()) & @CRLF)
+			; Draw the face landmarks on the screen.
+			$win.add_overlay($shape)
+		Next
 
-	; Get the aligned face images
-	; Optionally:
-	; images = dlib.get_face_chips(img, faces, size=160, padding=0.25)
-	Local $images = $dlib.get_face_chips($img, $faces, 320)
-	For $i = 0 To UBound($images) - 1
-		$image = $images[$i]
-		$window.set_image($image)
+		$win.add_overlay($dets)
 		hit_to_continue()
 	Next
-
-	; It is also possible to get a single chip
-	$image = $dlib.get_face_chip($img, $faces.at(0))
-	$window.set_image($image)
-	hit_to_continue()
 
 EndFunc   ;==>Example
 

@@ -133,11 +133,6 @@ Object.assign(exports, {
     },
 
     convert: (coclass, header, impl, options = {}) => {
-        if (coclass.is_vector) {
-            vector_conversion.generate(coclass, header, impl, options);
-            return;
-        }
-
         if (!coclass.is_class && !coclass.is_struct) {
             return;
         }
@@ -161,7 +156,7 @@ Object.assign(exports, {
                     return E_INVALIDARG;
                 }
 
-                auto obj = reinterpret_cast<C${ cotype }*>(getRealIDispatch(in_val));
+                auto obj = dynamic_cast<C${ cotype }*>(getRealIDispatch(in_val));
                 out_val = obj->__self->get();
                 return S_OK;
             }
@@ -171,7 +166,7 @@ Object.assign(exports, {
                     return E_INVALIDARG;
                 }
 
-                auto obj = reinterpret_cast<I${ cotype }*>(getRealIDispatch(in_val));
+                auto obj = dynamic_cast<I${ cotype }*>(getRealIDispatch(in_val));
                 *out_val = obj;
                 obj->AddRef();
                 return S_OK;
@@ -204,12 +199,13 @@ Object.assign(exports, {
             extern const HRESULT autoit_to(VARIANT const* const& in_val, ${ shared_ptr }<${ coclass.fqn }>& out_val);
             extern const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, I${ cotype }**& out_val);
             extern const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, IDispatch**& out_val);
-            extern const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, VARIANT*& out_val);
         `.replace(/^ {12}/mg, ""));
 
         impl.push(`
             const bool is_assignable_from(${ shared_ptr }<${ coclass.fqn }>& out_val, VARIANT const* const& in_val, bool is_optional) {
                 switch (V_VT(in_val)) {
+                    case VT_UI8:
+                        return true;
                     case VT_DISPATCH:
                         // TODO : find a better way to check instanceof with V_DISPATH
                         return dynamic_cast<C${ cotype }*>(getRealIDispatch(in_val)) ? true : false;
@@ -222,14 +218,19 @@ Object.assign(exports, {
             const HRESULT autoit_to(VARIANT const* const& in_val, ${ shared_ptr }<${ coclass.fqn }>& out_val) {
                 ${ optional.assign.join(`\n${ " ".repeat(16) }`) }
 
-                if (V_VT(in_val) != VT_DISPATCH) {
-                    return E_INVALIDARG;
+                if (V_VT(in_val) == VT_UI8) {
+                    const auto& ptr = V_UI8(in_val);
+                    out_val = ${ shared_ptr }<${ coclass.fqn }>(${ shared_ptr }<${ coclass.fqn }>{}, reinterpret_cast<${ coclass.fqn }*>(ptr));
+                    return S_OK;
                 }
 
-                auto obj = reinterpret_cast<C${ cotype }*>(getRealIDispatch(in_val));
-                out_val = ${ shared_ptr }<${ coclass.fqn }>(${ shared_ptr }<${ coclass.fqn }>{}, obj->__self->get());
+                if (V_VT(in_val) == VT_DISPATCH) {
+                    auto obj = dynamic_cast<C${ cotype }*>(getRealIDispatch(in_val));
+                    out_val = ${ shared_ptr }<${ coclass.fqn }>(${ shared_ptr }<${ coclass.fqn }>{}, obj->__self->get());
+                    return S_OK;
+                }
 
-                return S_OK;
+                return E_INVALIDARG;
             }
 
             const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, I${ cotype }**& out_val) {
@@ -245,20 +246,27 @@ Object.assign(exports, {
             const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, IDispatch**& out_val) {
                 return autoit_from(in_val, reinterpret_cast<I${ cotype }**&>(out_val));
             }
-
-            const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, VARIANT*& out_val) {
-                I${ cotype }* pdispVal = nullptr;
-                I${ cotype }** ppdispVal = &pdispVal;
-                HRESULT hr = autoit_from(in_val, ppdispVal);
-                if (SUCCEEDED(hr)) {
-                    VariantClear(out_val);
-                    V_VT(out_val) = VT_DISPATCH;
-                    V_DISPATCH(out_val) = static_cast<IDispatch*>(*ppdispVal);
-                }
-                return hr;
-            }
             `.replace(/^ {12}/mg, "")
         );
+
+        if (!coclass.is_vector) {
+            header.push(`
+                extern const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, VARIANT*& out_val);
+            `.replace(/^ {16}/mg, ""));
+            impl.push(`
+                const HRESULT autoit_from(const ${ shared_ptr }<${ coclass.fqn }>& in_val, VARIANT*& out_val) {
+                    I${ cotype }* pdispVal = nullptr;
+                    I${ cotype }** ppdispVal = &pdispVal;
+                    HRESULT hr = autoit_from(in_val, ppdispVal);
+                    if (SUCCEEDED(hr)) {
+                        VariantClear(out_val);
+                        V_VT(out_val) = VT_DISPATCH;
+                        V_DISPATCH(out_val) = static_cast<IDispatch*>(*ppdispVal);
+                    }
+                    return hr;
+                }
+            `.replace(/^ {16}/mg, ""));
+        }
 
         if (coclass.is_ptr) {
             header.push(`extern const bool is_assignable_from(${ coclass.fqn }*& out_val, VARIANT const* const& in_val, bool is_optional);`);
@@ -282,7 +290,7 @@ Object.assign(exports, {
                         return E_INVALIDARG;
                     }
 
-                    auto obj = reinterpret_cast<C${ cotype }*>(getRealIDispatch(in_val));
+                    auto obj = dynamic_cast<C${ cotype }*>(getRealIDispatch(in_val));
                     out_val = obj->__self->get();
 
                     return S_OK;
@@ -293,18 +301,47 @@ Object.assign(exports, {
         if (coclass.is_simple || coclass.is_struct || coclass.is_map || coclass.has_copy_constructor || coclass.has_assign_operator) {
             const assign = coclass.has_assign_operator ? "*(*obj->__self) = in_val" : `obj->__self->reset(new ${ coclass.fqn }(in_val))`;
 
+            if (!coclass.is_vector) {
+                header.push(`
+                    extern const bool is_assignable_from(${ coclass.fqn }& out_val, VARIANT const* const& in_val, bool is_optional);
+                    extern const HRESULT autoit_to(VARIANT const* const& in_val, ${ coclass.fqn }& out_val);
+                `.replace(/^ {20}/mg, "").trim());
+
+                impl.push(`
+                    const bool is_assignable_from(${ coclass.fqn }& out_val, VARIANT const* const& in_val, bool is_optional) {
+                        switch (V_VT(in_val)) {
+                            case VT_DISPATCH:
+                                // TODO : find a better way to check instanceof with V_DISPATH
+                                return dynamic_cast<C${ cotype }*>(getRealIDispatch(in_val)) ? true : false;
+                            ${ optional.case.join(`\n${ " ".repeat(28) }`) }
+                            default:
+                                return false;
+                        }
+                    }
+
+                    const HRESULT autoit_to(VARIANT const* const& in_val, ${ coclass.fqn }& out_val) {
+                        ${ optional.assign.join(`\n${ " ".repeat(20) }`) }
+
+                        if (V_VT(in_val) != VT_DISPATCH) {
+                            return E_INVALIDARG;
+                        }
+
+                        auto obj = reinterpret_cast<C${ cotype }*>(getRealIDispatch(in_val));
+                        out_val = *obj->__self->get();
+                        return S_OK;
+                    }
+                `.replace(/^ {20}/mg, "").trim());
+            }
+
             header.push(`
                 extern const bool is_assignable_from(${ coclass.fqn }& out_val, I${ cotype }*& in_val, bool is_optional);
                 extern const bool is_assignable_from(${ coclass.fqn }& out_val, IDispatch*& in_val, bool is_optional);
-                extern const bool is_assignable_from(${ coclass.fqn }& out_val, VARIANT const* const& in_val, bool is_optional);
 
                 extern const HRESULT autoit_to(I${ cotype }*& in_val, ${ coclass.fqn }& out_val);
                 extern const HRESULT autoit_to(IDispatch*& in_val, ${ coclass.fqn }& out_val);
-                extern const HRESULT autoit_to(VARIANT const* const& in_val, ${ coclass.fqn }& out_val);
 
                 extern const HRESULT autoit_from(const ${ coclass.fqn }& in_val, I${ cotype }**& out_val);
                 extern const HRESULT autoit_from(const ${ coclass.fqn }& in_val, IDispatch**& out_val);
-                extern const HRESULT autoit_from(const ${ coclass.fqn }& in_val, VARIANT*& out_val);
             `.replace(/^ {16}/mg, "").trim());
             impl.push(`
                 const bool is_assignable_from(${ coclass.fqn }& out_val, I${ cotype }* in_val, bool is_optional) {
@@ -315,37 +352,14 @@ Object.assign(exports, {
                     return dynamic_cast<C${ cotype }*>(in_val) ? true : false;
                 }
 
-                const bool is_assignable_from(${ coclass.fqn }& out_val, VARIANT const* const& in_val, bool is_optional) {
-                    switch (V_VT(in_val)) {
-                        case VT_DISPATCH:
-                            // TODO : find a better way to check instanceof with V_DISPATH
-                            return dynamic_cast<C${ cotype }*>(getRealIDispatch(in_val)) ? true : false;
-                        ${ optional.case.join(`\n${ " ".repeat(24) }`) }
-                        default:
-                            return false;
-                    }
-                }
-
                 const HRESULT autoit_to(I${ cotype }*& in_val, ${ coclass.fqn }& out_val) {
-                    auto obj = reinterpret_cast<C${ cotype }*>(in_val);
+                    auto obj = dynamic_cast<C${ cotype }*>(in_val);
                     out_val = *obj->__self->get();
                     return S_OK;
                 }
 
                 const HRESULT autoit_to(IDispatch*& in_val, ${ coclass.fqn }& out_val) {
-                    auto obj = reinterpret_cast<C${ cotype }*>(in_val);
-                    out_val = *obj->__self->get();
-                    return S_OK;
-                }
-
-                const HRESULT autoit_to(VARIANT const* const& in_val, ${ coclass.fqn }& out_val) {
-                    ${ optional.assign.join(`\n${ " ".repeat(20) }`) }
-
-                    if (V_VT(in_val) != VT_DISPATCH) {
-                        return E_INVALIDARG;
-                    }
-
-                    auto obj = reinterpret_cast<C${ cotype }*>(getRealIDispatch(in_val));
+                    auto obj = dynamic_cast<C${ cotype }*>(in_val);
                     out_val = *obj->__self->get();
                     return S_OK;
                 }
@@ -362,20 +376,31 @@ Object.assign(exports, {
                 const HRESULT autoit_from(const ${ coclass.fqn }& in_val, IDispatch**& out_val) {
                     return autoit_from(in_val, reinterpret_cast<I${ cotype }**&>(out_val));
                 }
-
-                const HRESULT autoit_from(const ${ coclass.fqn }& in_val, VARIANT*& out_val) {
-                    I${ cotype }* pdispVal = nullptr;
-                    I${ cotype }** ppdispVal = &pdispVal;
-                    HRESULT hr = autoit_from(in_val, ppdispVal);
-                    if (SUCCEEDED(hr)) {
-                        VariantClear(out_val);
-                        V_VT(out_val) = VT_DISPATCH;
-                        V_DISPATCH(out_val) = static_cast<IDispatch*>(*ppdispVal);
-                    }
-                    return hr;
-                }
                 `.replace(/^ {16}/mg, "")
             );
+
+            if (!coclass.is_vector) {
+                header.push(`
+                    extern const HRESULT autoit_from(const ${ coclass.fqn }& in_val, VARIANT*& out_val);
+                `.replace(/^ {20}/mg, ""));
+                impl.push(`
+                    const HRESULT autoit_from(const ${ coclass.fqn }& in_val, VARIANT*& out_val) {
+                        I${ cotype }* pdispVal = nullptr;
+                        I${ cotype }** ppdispVal = &pdispVal;
+                        HRESULT hr = autoit_from(in_val, ppdispVal);
+                        if (SUCCEEDED(hr)) {
+                            VariantClear(out_val);
+                            V_VT(out_val) = VT_DISPATCH;
+                            V_DISPATCH(out_val) = static_cast<IDispatch*>(*ppdispVal);
+                        }
+                        return hr;
+                    }
+                `.replace(/^ {20}/mg, ""));
+            }
+        }
+
+        if (coclass.is_vector) {
+            vector_conversion.generate(coclass, header, impl, options);
         }
 
         if (coclass.is_stdmap) {

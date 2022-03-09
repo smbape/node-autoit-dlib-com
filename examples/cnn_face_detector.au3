@@ -88,7 +88,7 @@ Func _DownloadData($sFilePath, $sUrl)
 EndFunc   ;==>_DownloadData
 
 Func _UnpackData($sArchive)
-	ShellExecute("7z", "x -y " & $sArchive & " -o" & @ScriptDir)
+	ShellExecuteWait("7z", "x -y " & $sArchive & " -o" & @ScriptDir)
 EndFunc   ;==>_UnpackData
 
 Func _DownloadAndUnpackData($sFilePath, $sArchive, $sUrl)

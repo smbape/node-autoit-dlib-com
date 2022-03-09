@@ -179,6 +179,15 @@ const HRESULT autoit_to(VARIANT const* const& in_val, std::vector<_Tp>& out_val)
 		return S_OK;
 	}
 
+	if (V_VT(in_val) == VT_DISPATCH) {
+		const auto& obj = dynamic_cast<TypeToImplType<std::vector<_Tp>>::type*>(getRealIDispatch(in_val));
+        if (!obj) {
+            return E_INVALIDARG;
+        }
+		out_val = *obj->__self->get();
+		return S_OK;
+	}
+
 	if ((V_VT(in_val) & VT_ARRAY) != VT_ARRAY || (V_VT(in_val) ^ VT_ARRAY) != VT_VARIANT) {
 		return E_INVALIDARG;
 	}
