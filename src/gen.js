@@ -14,6 +14,7 @@ const progids = new Map([
     ["dlib.simple_object_detector_com", "simple_object_detector"],
     ["dlib.simple_structural_svm_problem", "structural_svm_problem"],
     ["dlib.SpaceVector", "vector"],
+    ["dlib.Matrix", "matrix"],
     ["vec_ranking_pair", "ranking_pair"],
     ["vec_svm_rank_trainer", "svm_rank_trainer"],
     ["mmod_rect", "mmod_rectangle"],

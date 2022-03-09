@@ -187,6 +187,41 @@ Func _Dlib_FindDLL($sFile, $sFilter = Default, $sDir = Default, $bReverse = Defa
 	Return _Dlib_FindFile($sFile & $sPostfix & ".dll", $sFilter, $sDir, $FLTA_FILES, $aSearchPaths, $bReverse)
 EndFunc   ;==>_Dlib_FindDLL
 
+Func _Dlib_vector($list = Default)
+	If IsArray($list) And UBound($list) <> 0 Then
+		Return _Dlib_ObjCreate("vector").create($list)
+	EndIf
+	Return _Dlib_ObjCreate("vector")
+EndFunc   ;==>_Dlib_vector
+
+Func _Dlib_vectors()
+	Return _Dlib_ObjCreate("VectorOfSpaceVector")
+EndFunc   ;==>_Dlib_vectors
+
+Func _Dlib_vectorss()
+	Return _Dlib_ObjCreate("VectorOfVectorOfSpaceVector")
+EndFunc   ;==>_Dlib_vectorss
+
+Func _Dlib_sparse_vector()
+	Return _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble")
+EndFunc   ;==>_Dlib_sparse_vector
+
+Func _Dlib_sparse_vectors()
+	Return _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble")
+EndFunc   ;==>_Dlib_sparse_vectors
+
+Func _Dlib_sparse_vectorss()
+	Return _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble")
+EndFunc   ;==>_Dlib_sparse_vectorss
+
+Func _Dlib_ranges()
+	Return _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG")
+EndFunc   ;==>_Dlib_ranges
+
+Func _Dlib_rangess()
+	Return _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG")
+EndFunc   ;==>_Dlib_rangess
+
 ; Array.from(Array(30).keys()).map(i => `$val${ i } = 0`).join(", ")
 Func _Dlib_Tuple($val0 = 0, $val1 = 0, $val2 = 0, $val3 = 0, $val4 = 0, $val5 = 0, $val6 = 0, $val7 = 0, $val8 = 0, $val9 = 0, $val10 = 0, $val11 = 0, $val12 = 0, $val13 = 0, $val14 = 0, $val15 = 0, $val16 = 0, $val17 = 0, $val18 = 0, $val19 = 0, $val20 = 0, $val21 = 0, $val22 = 0, $val23 = 0, $val24 = 0, $val25 = 0, $val26 = 0, $val27 = 0, $val28 = 0, $val29 = 0)
 	; console.log(Array.from(Array(30).keys()).map(j => `

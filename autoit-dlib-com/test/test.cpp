@@ -5,6 +5,9 @@
 
 #include <opencv2/core/core.hpp>
 
+static _variant_t vtDefault;
+static _variant_t vtEmpty;
+
 template<typename T>
 inline auto to_variant_t(const T& in_val) {
 	return cv::Ptr<_variant_t>(new _variant_t(in_val));
@@ -100,6 +103,19 @@ static void test_face_recognition_model_v1() {
 	auto facerec = Face_recognition_model_v1->create(to_variant_t(dat_path));
 }
 
+static void test_find_candidate_object_locations() {
+	dlibCOM::IDlib_ObjectPtr dlib;
+	auto hr = dlib.CreateInstance(__uuidof(dlibCOM::Dlib_Object));
+	assert(SUCCEEDED(hr));
+
+	_bstr_t image_path;
+	string_to_bstr("_deps\\dlib-src\\examples\\faces\\2009_004587.jpg", image_path);
+
+	auto img = dlib->load_rgb_image(to_variant_t(image_path));
+
+	dlib->find_candidate_object_locations(to_variant_t(img.GetInterfacePtr()), &vtDefault, to_variant_t(500));
+}
+
 static void test_cnn_face_detector() {
 	dlibCOM::IDlib_ObjectPtr dlib;
 	auto hr = dlib.CreateInstance(__uuidof(dlibCOM::Dlib_Object));
@@ -133,9 +149,6 @@ static void test_cnn_face_detector() {
 	vArray.Detach();
 }
 
-static _variant_t vtDefault;
-static _variant_t vtEmpty;
-
 static int perform() {
 	V_VT(&vtDefault) = VT_ERROR;
 	V_ERROR(&vtDefault) = DISP_E_PARAMNOTFOUND;
@@ -145,6 +158,7 @@ static int perform() {
 	testMatrix();
 	test_cv_returns();
 	test_face_recognition_model_v1();
+	test_find_candidate_object_locations();
 	test_cnn_face_detector();
 
 	return 0;

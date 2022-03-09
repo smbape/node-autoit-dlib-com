@@ -3,6 +3,46 @@
 using namespace dlib;
 using namespace std;
 
+const std::string segmenter_params::ToString()
+{
+	const auto& p = *this;
+
+	ostringstream sout;
+	if (p.use_BIO_model)
+		sout << "BIO,";
+	else
+		sout << "BILOU,";
+
+	if (p.use_high_order_features)
+		sout << "highFeats,";
+	else
+		sout << "lowFeats,";
+
+	if (p.allow_negative_weights)
+		sout << "signed,";
+	else
+		sout << "non-negative,";
+
+	sout << "win=" << p.window_size << ",";
+	sout << "threads=" << p.num_threads << ",";
+	sout << "eps=" << p.epsilon << ",";
+	sout << "cache=" << p.max_cache_size << ",";
+	if (p.be_verbose)
+		sout << "verbose,";
+	else
+		sout << "non-verbose,";
+	sout << "C=" << p.C;
+	return trim(sout.str());
+}
+
+const std::string segmenter_test::ToString()
+{
+	const auto& item = *this;
+	std::ostringstream sout;
+	sout << "precision: " << item.precision << "  recall: " << item.recall << "  f1-score: " << item.f1;
+	return sout.str();
+}
+
 void dlib::serialize(const segmenter_type& item, std::ostream& out) {
 	serialize(item.mode, out);
 	switch (item.mode)
@@ -97,7 +137,7 @@ void dlib::deserialize(segmenter_test& item, std::istream& in)
 
 template <typename T>
 void configure_trainer(
-	const std::vector<std::vector<dense_vect> >& samples,
+	const std::vector<std::vector<dense_vect>>& samples,
 	structural_sequence_segmentation_trainer<T>& trainer,
 	const segmenter_params& params
 )
@@ -122,7 +162,7 @@ void configure_trainer(
 
 template <typename T>
 void configure_trainer(
-	const std::vector<std::vector<sparse_vect> >& samples,
+	const std::vector<std::vector<sparse_vect>>& samples,
 	structural_sequence_segmentation_trainer<T>& trainer,
 	const segmenter_params& params
 )
@@ -148,7 +188,7 @@ void configure_trainer(
 // ----------------------------------------------------------------------------------------
 
 segmenter_type dlib::train_dense(
-	const std::vector<std::vector<dense_vect> >& samples,
+	const std::vector<std::vector<dense_vect>>& samples,
 	const std::vector<ranges>& segments,
 	segmenter_params params
 )
@@ -216,7 +256,7 @@ segmenter_type dlib::train_dense(
 // ----------------------------------------------------------------------------------------
 
 segmenter_type dlib::train_sparse(
-	const std::vector<std::vector<sparse_vect> >& samples,
+	const std::vector<std::vector<sparse_vect>>& samples,
 	const std::vector<ranges>& segments,
 	segmenter_params params
 )
@@ -286,7 +326,7 @@ segmenter_type dlib::train_sparse(
 
 const segmenter_test dlib::test_sequence_segmenter1(
 	const segmenter_type& segmenter,
-	const std::vector<std::vector<dense_vect> >& samples,
+	const std::vector<std::vector<dense_vect>>& samples,
 	const std::vector<ranges>& segments
 )
 {
@@ -316,7 +356,7 @@ const segmenter_test dlib::test_sequence_segmenter1(
 
 const segmenter_test dlib::test_sequence_segmenter2(
 	const segmenter_type& segmenter,
-	const std::vector<std::vector<sparse_vect> >& samples,
+	const std::vector<std::vector<sparse_vect>>& samples,
 	const std::vector<ranges>& segments
 )
 {
@@ -347,7 +387,7 @@ const segmenter_test dlib::test_sequence_segmenter2(
 // ----------------------------------------------------------------------------------------
 
 const segmenter_test dlib::cross_validate_sequence_segmenter1(
-	const std::vector<std::vector<dense_vect> >& samples,
+	const std::vector<std::vector<dense_vect>>& samples,
 	const std::vector<ranges>& segments,
 	long folds,
 	segmenter_params params
@@ -419,7 +459,7 @@ const segmenter_test dlib::cross_validate_sequence_segmenter1(
 }
 
 const segmenter_test dlib::cross_validate_sequence_segmenter2(
-	const std::vector<std::vector<sparse_vect> >& samples,
+	const std::vector<std::vector<sparse_vect>>& samples,
 	const std::vector<ranges>& segments,
 	long folds,
 	segmenter_params params

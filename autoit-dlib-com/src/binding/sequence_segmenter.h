@@ -212,6 +212,8 @@ namespace dlib {
 			C = 100;
 		}
 
+		CV_WRAP const std::string ToString();
+
 		friend void serialize(const segmenter_params& item, std::ostream& out);
 		friend void deserialize(segmenter_params& item, std::istream& in);
 
@@ -231,12 +233,14 @@ namespace dlib {
 
 	struct CV_EXPORTS_W_SIMPLE segmenter_test
 	{
-		CV_PROP_RW double precision;
-		CV_PROP_RW double recall;
-		CV_PROP_RW double f1;
+		CV_WRAP const std::string ToString();
 
 		friend void serialize(const segmenter_test& item, std::ostream& out);
 		friend void deserialize(segmenter_test& item, std::istream& in);
+
+		CV_PROP_RW double precision;
+		CV_PROP_RW double recall;
+		CV_PROP_RW double f1;
 	};
 
 	CV_EXPORTS_AS(train_sequence_segmenter) segmenter_type train_dense(

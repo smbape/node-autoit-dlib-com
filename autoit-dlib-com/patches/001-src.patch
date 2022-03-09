@@ -1,0 +1,91 @@
+diff --git a/dlib/error.h b/dlib/error.h
+index ce9b95b1..f2203cc9 100644
+--- a/dlib/error.h
++++ b/dlib/error.h
+@@ -71,7 +71,7 @@ namespace dlib
+         error(
+             error_type t,
+             const std::string& a
+-        ): info(a), type(t) {}
++        ): info(a), type(t) {dump_error();}
+         /*!
+             ensures
+                 - #type == t
+@@ -80,7 +80,7 @@ namespace dlib
+ 
+         error(
+             error_type t
+-        ): type(t) {}
++        ): type(t) {dump_error();}
+         /*!
+             ensures
+                 - #type == t
+@@ -89,7 +89,7 @@ namespace dlib
+ 
+         error(
+             const std::string& a
+-        ): info(a), type(EUNSPECIFIED) {}
++        ): info(a), type(EUNSPECIFIED) {dump_error();}
+         /*!
+             ensures
+                 - #type == EUNSPECIFIED
+@@ -97,7 +97,7 @@ namespace dlib
+         !*/
+ 
+         error(
+-        ): type(EUNSPECIFIED) {}
++        ): type(EUNSPECIFIED) {dump_error();}
+         /*!
+             ensures
+                 - #type == EUNSPECIFIED
+@@ -175,6 +175,15 @@ namespace dlib
+ 
+     private:
+         const error& operator=(const error&);
++
++        void dump_error()
++        {
++            std::cerr << "\n**************************** " << type_to_string() << " ERROR DETECTED ****************************\n";
++            for (unsigned int i = 0; i < this->info.size(); ++i) {
++               std::cerr << info[i];
++            }
++            std::cerr << "\n******************************************************************************\n\n";
++        }
+     };
+ 
+ // ----------------------------------------------------------------------------------------
+diff --git a/dlib/global_optimization/find_max_global.h b/dlib/global_optimization/find_max_global.h
+index 422a3410..bb9dd860 100644
+--- a/dlib/global_optimization/find_max_global.h
++++ b/dlib/global_optimization/find_max_global.h
+@@ -45,9 +45,6 @@ namespace dlib
+             return f(a(indices-1)...); 
+         }
+ 
+-        // Visual studio, as of November 2017, doesn't support C++11 and can't compile this code.  
+-        // So we write the terrible garbage in the #else for visual studio.  When Visual Studio supports C++11 I'll update this #ifdef to use the C++11 code.
+-#ifndef _MSC_VER 
+         template <size_t max_unpack>
+         struct call_function_and_expand_args
+         {
+@@ -73,20 +70,6 @@ namespace dlib
+                 return f(disable_decay_to_scalar(a));
+             }
+         };
+-#else
+-        template <size_t max_unpack>
+-        struct call_function_and_expand_args
+-        {         
+-template <typename T> static auto go(T&& f, const matrix<double, 0, 1>& a) -> decltype(f(disable_decay_to_scalar(a)))  {return f(disable_decay_to_scalar(a));   }
+-template <typename T> static auto go(T&& f, const matrix<double, 0, 1>& a) -> decltype(f(a(0))) { DLIB_CASSERT(a.size() == 1); return f(a(0)); }
+-template <typename T> static auto go(T&& f, const matrix<double, 0, 1>& a) -> decltype(f(a(0),a(1))) { DLIB_CASSERT(a.size() == 2); return f(a(0),a(1)); }
+-template <typename T> static auto go(T&& f, const matrix<double, 0, 1>& a) -> decltype(f(a(0), a(1), a(2))) { DLIB_CASSERT(a.size() == 3); return f(a(0), a(1),a(2)); }
+-template <typename T> static auto go(T&& f, const matrix<double, 0, 1>& a) -> decltype(f(a(0), a(1), a(2), a(3))) { DLIB_CASSERT(a.size() == 4); return f(a(0), a(1), a(2), a(3)); }
+-template <typename T> static auto go(T&& f, const matrix<double, 0, 1>& a) -> decltype(f(a(0), a(1), a(2), a(3), a(4))) { DLIB_CASSERT(a.size() == 5); return f(a(0), a(1), a(2), a(3), a(4)); }
+-template <typename T> static auto go(T&& f, const matrix<double, 0, 1>& a) -> decltype(f(a(0), a(1), a(2), a(3), a(4), a(5))) { DLIB_CASSERT(a.size() == 6); return f(a(0), a(1), a(2), a(3), a(4), a(5)); }
+-template <typename T> static auto go(T&& f, const matrix<double, 0, 1>& a) -> decltype(f(a(0), a(1), a(2), a(3), a(4), a(5), a(6))) { DLIB_CASSERT(a.size() == 7); return f(a(0), a(1), a(2), a(3), a(4), a(5), a(6)); }
+-        };
+-#endif
+     }
+ 
+ // ----------------------------------------------------------------------------------------

@@ -6,7 +6,7 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/master/python_examples/cnn_face_detector.py
+;~     https://github.com/davisking/dlib/blob/master/python_examples/face_landmark_detection.py
 
 #include <InetConstants.au3>
 #include <Misc.au3>

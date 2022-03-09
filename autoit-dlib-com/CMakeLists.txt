@@ -17,7 +17,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(PROJECT_BUILD_STEPS_FILE "${CMAKE_CURRENT_SOURCE_DIR}/project_build_steps.cmake")
-set(DLIB_PATCH_FILE "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-cerr-error.patch")
+set(DLIB_PATCH_FILE "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-src.patch")
 
 add_compile_options(/MP)
 
