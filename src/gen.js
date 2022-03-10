@@ -15,10 +15,10 @@ const progids = new Map([
     ["dlib.simple_structural_svm_problem", "structural_svm_problem"],
     ["dlib.SpaceVector", "vector"],
     ["dlib.Matrix", "matrix"],
-    ["vec_ranking_pair", "ranking_pair"],
-    ["vec_svm_rank_trainer", "svm_rank_trainer"],
-    ["mmod_rect", "mmod_rectangle"],
-    ["gender_t", "gender_type"],
+    ["dlib.vec_ranking_pair", "ranking_pair"],
+    ["dlib.vec_svm_rank_trainer", "svm_rank_trainer"],
+    ["dlib.mmod_rect", "mmod_rectangle"],
+    ["dlib.gender_t", "gender_type"],
 ]);
 
 const parseArguments = PROJECT_DIR => {

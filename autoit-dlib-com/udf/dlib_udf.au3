@@ -18,6 +18,8 @@ Func _Dlib_ObjCreate($sClassname, $sFilename = Default)
 
 	For $i = 0 To UBound($namespaces) -1
 		$siClassname = $namespaces[$i] & $sClassname
+		_Dlib_DebugMsg("Try ObjCreate " & $siClassname)
+
 		$oObj = ObjGet($s_autoit_dlib_com_dll, $siClassname)
 		If IsObj($oObj) Then
 			_Dlib_DebugMsg("ObjCreate " & $siClassname)

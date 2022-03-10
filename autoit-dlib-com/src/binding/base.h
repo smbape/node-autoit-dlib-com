@@ -27,6 +27,13 @@ namespace dlib {
 		) : class1_accuracy(m(0)),
 			class2_accuracy(m(1)) {}
 
+		CV_WRAP const std::string ToString() {
+			const auto& item = *this;
+			std::ostringstream sout;
+			sout << "class1_accuracy: "<< item.class1_accuracy << "  class2_accuracy: "<< item.class2_accuracy; 
+			return sout.str();
+		}
+
 		CV_PROP_RW double class1_accuracy;
 		CV_PROP_RW double class2_accuracy;
 	};
@@ -44,6 +51,14 @@ namespace dlib {
 			mean_error_stddev(m(3))
 		{}
 
+		CV_WRAP const std::string ToString() {
+			const auto& item = *this;
+			std::ostringstream sout;
+			sout << "mean_squared_error: "<< item.mean_squared_error << "  R_squared: "<< item.R_squared; 
+			sout << "  mean_average_error: "<< item.mean_average_error << "  mean_error_stddev: "<< item.mean_error_stddev; 
+			return sout.str();
+		}
+
 		CV_PROP_RW double mean_squared_error = 0;
 		CV_PROP_RW double R_squared = 0;
 		CV_PROP_RW double mean_average_error = 0;
@@ -57,6 +72,13 @@ namespace dlib {
 			const dlib::matrix<double, 1, 2>& m
 		) : ranking_accuracy(m(0)),
 			mean_ap(m(1)) {}
+
+		CV_WRAP const std::string ToString() {
+			const auto& item = *this;
+			std::ostringstream sout;
+			sout << "ranking_accuracy: "<< item.ranking_accuracy << "  mean_ap: "<< item.mean_ap; 
+			return sout.str();
+		}
 
 		CV_PROP_RW double ranking_accuracy;
 		CV_PROP_RW double mean_ap;

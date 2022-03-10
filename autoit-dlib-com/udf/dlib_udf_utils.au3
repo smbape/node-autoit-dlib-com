@@ -222,6 +222,38 @@ Func _Dlib_rangess()
 	Return _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG")
 EndFunc   ;==>_Dlib_rangess
 
+Func _Dlib_rectangle()
+	Return _Dlib_ObjCreate("rectangle")
+EndFunc   ;==>_Dlib_rectangle
+
+Func _Dlib_rectangles()
+	Return _Dlib_ObjCreate("VectorOfRectangle")
+EndFunc   ;==>_Dlib_rectangles
+
+Func _Dlib_drectangle()
+	Return _Dlib_ObjCreate("drectangle")
+EndFunc   ;==>_Dlib_drectangle
+
+Func _Dlib_drectangles()
+	Return _Dlib_ObjCreate("VectorOfDrectangle")
+EndFunc   ;==>_Dlib_drectangles
+
+Func _Dlib_ranking_pair()
+	Return _Dlib_ObjCreate("ranking_pair")
+EndFunc   ;==>_Dlib_ranking_pairs
+
+Func _Dlib_ranking_pairs()
+	Return _Dlib_ObjCreate("VectorOfVec_ranking_pair")
+EndFunc   ;==>_Dlib_ranking_pairs
+
+Func _Dlib_sparse_ranking_pair()
+	Return _Dlib_ObjCreate("sparse_ranking_pair")
+EndFunc   ;==>_Dlib_sparse_ranking_pairs
+
+Func _Dlib_sparse_ranking_pairs()
+	Return _Dlib_ObjCreate("VectorOfSparse_ranking_pair")
+EndFunc   ;==>_Dlib_sparse_ranking_pairs
+
 ; Array.from(Array(30).keys()).map(i => `$val${ i } = 0`).join(", ")
 Func _Dlib_Tuple($val0 = 0, $val1 = 0, $val2 = 0, $val3 = 0, $val4 = 0, $val5 = 0, $val6 = 0, $val7 = 0, $val8 = 0, $val9 = 0, $val10 = 0, $val11 = 0, $val12 = 0, $val13 = 0, $val14 = 0, $val15 = 0, $val16 = 0, $val17 = 0, $val18 = 0, $val19 = 0, $val20 = 0, $val21 = 0, $val22 = 0, $val23 = 0, $val24 = 0, $val25 = 0, $val26 = 0, $val27 = 0, $val28 = 0, $val29 = 0)
 	; console.log(Array.from(Array(30).keys()).map(j => `
