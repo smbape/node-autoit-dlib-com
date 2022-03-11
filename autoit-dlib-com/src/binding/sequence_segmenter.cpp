@@ -3,7 +3,7 @@
 using namespace dlib;
 using namespace std;
 
-const std::string segmenter_params::ToString()
+const std::string segmenter_params::ToString() const
 {
 	const auto& p = *this;
 
@@ -35,7 +35,7 @@ const std::string segmenter_params::ToString()
 	return trim(sout.str());
 }
 
-const std::string segmenter_test::ToString()
+const std::string segmenter_test::ToString() const
 {
 	const auto& item = *this;
 	std::ostringstream sout;

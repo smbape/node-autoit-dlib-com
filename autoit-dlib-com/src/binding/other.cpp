@@ -32,6 +32,6 @@ void dlib::_save_libsvm_formatted_data(const std::string& file_name, const std::
 }
 
 void dlib::hit_enter_to_continue() {
-    std::cout << "Hit enter to continue";
-    std::cin.get();
+	std::cout << "Hit enter to continue";
+	std::cin.get();
 }

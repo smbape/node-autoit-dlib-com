@@ -212,7 +212,7 @@ namespace dlib {
 			C = 100;
 		}
 
-		CV_WRAP const std::string ToString();
+		CV_WRAP const std::string ToString() const;
 
 		friend void serialize(const segmenter_params& item, std::ostream& out);
 		friend void deserialize(segmenter_params& item, std::istream& in);
@@ -233,7 +233,7 @@ namespace dlib {
 
 	struct CV_EXPORTS_W_SIMPLE segmenter_test
 	{
-		CV_WRAP const std::string ToString();
+		CV_WRAP const std::string ToString() const;
 
 		friend void serialize(const segmenter_test& item, std::ostream& out);
 		friend void deserialize(segmenter_test& item, std::istream& in);

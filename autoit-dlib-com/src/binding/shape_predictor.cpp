@@ -20,6 +20,23 @@ full_object_detection dlib::run_predictor(
 	}
 	return predictor(cv_image<bgr_pixel>(img), box);
 }
+void dlib::train_shape_predictor (
+	const std::string& dataset_filename,
+	const std::string& predictor_output_filename,
+	const shape_predictor_training_options& options
+)
+{
+	dlib::array<array2d<unsigned char>> images;
+	std::vector<std::vector<full_object_detection>> objects;
+	load_image_dataset(images, objects, dataset_filename);
+
+	shape_predictor predictor = train_shape_predictor_on_images(images, objects, options);
+
+	serialize(predictor_output_filename) << predictor;
+
+	if (options.be_verbose)
+		std::cout << "Training complete, saved predictor to file " << predictor_output_filename << std::endl;
+}
 
 void dlib::serialize(const shape_predictor_training_options& item, std::ostream& out) {
 	try

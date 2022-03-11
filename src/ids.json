@@ -327,6 +327,10 @@
         "iid": "5d43b777-ee10-4bae-8ab9-e5144bb3512c",
         "clsid": "0f315dca-619a-43a3-bad0-fcfacebd6a2f"
     },
+    "VectorOfVectorOfFull_object_detection": {
+        "iid": "16457709-0137-4155-ba07-ee30a8211e51",
+        "clsid": "718c57d8-4134-4a6b-97d6-a0331dab8c63"
+    },
     "VectorOfVectorOfRectangle": {
         "iid": "56962bb4-e018-4e95-a828-c99e1e7423b2",
         "clsid": "7afe98de-09d1-4cd9-b336-5393c440e0ca"
@@ -346,10 +350,6 @@
     "VectorOfPoint": {
         "iid": "df2bd8ca-acc9-47b8-90ce-e8ce103a6274",
         "clsid": "6a6726a5-5bfb-44c8-8ee7-4d8ec39d80bf"
-    },
-    "VectorOfVectorOfFull_object_detection": {
-        "iid": "16457709-0137-4155-ba07-ee30a8211e51",
-        "clsid": "718c57d8-4134-4a6b-97d6-a0331dab8c63"
     },
     "VectorOfVectorOfDouble": {
         "iid": "a5abd90f-2d79-4b92-80e0-b3b7e5f61607",

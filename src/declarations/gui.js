@@ -100,12 +100,12 @@ module.exports = [
 
     ["dlib.image_window.add_overlay", "void", ["/External"], [
         ["full_object_detection", "detection", "", ["/Ref"]],
-        ["rgb_pixel", "color", "rgb_pixel(255, 0, 0)", []],
+        ["rgb_pixel", "color", "rgb_pixel(0, 0, 255)", []],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", ["/External"], [
         ["full_object_detection", "detection", "", ["/Ref"]],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", []],
+        ["tuple_uchar_and_uchar_and_uchar", "color", "{0, 0, 255}", []],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", [], [

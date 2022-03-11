@@ -188,10 +188,11 @@ Func _Dlib_FindDLL($sFile, $sFilter = Default, $sDir = Default, $bReverse = Defa
 EndFunc   ;==>_Dlib_FindDLL
 
 Func _Dlib_vector($list = Default)
+	Local $vector = _Dlib_ObjCreate("vector")
 	If IsArray($list) And UBound($list) <> 0 Then
-		Return _Dlib_ObjCreate("vector").create($list)
+		Return $vector.create($list)
 	EndIf
-	Return _Dlib_ObjCreate("vector")
+	Return $vector
 EndFunc   ;==>_Dlib_vector
 
 Func _Dlib_vectors()
@@ -222,16 +223,32 @@ Func _Dlib_rangess()
 	Return _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG")
 EndFunc   ;==>_Dlib_rangess
 
-Func _Dlib_rectangle()
-	Return _Dlib_ObjCreate("rectangle")
+Func _Dlib_rectangle($left = 0, $top = 0, $right = 0, $bottom = 0)
+	Local $rectangle = _Dlib_ObjCreate("rectangle")
+
+	If @NumParams == 1 Then
+		$rectangle = $rectangle.create($left)
+	Else
+		$rectangle = $rectangle.create($left, $top, $right, $bottom)
+	EndIf
+
+	Return $rectangle;
 EndFunc   ;==>_Dlib_rectangle
 
 Func _Dlib_rectangles()
 	Return _Dlib_ObjCreate("VectorOfRectangle")
 EndFunc   ;==>_Dlib_rectangles
 
-Func _Dlib_drectangle()
-	Return _Dlib_ObjCreate("drectangle")
+Func _Dlib_drectangle($left = 0, $top = 0, $right = 0, $bottom = 0)
+	Local $drectangle = _Dlib_ObjCreate("drectangle")
+
+	If @NumParams == 1 Then
+		$drectangle = $drectangle.create($left)
+	Else
+		$drectangle = $drectangle.create($left, $top, $right, $bottom)
+	EndIf
+
+	Return $drectangle;
 EndFunc   ;==>_Dlib_drectangle
 
 Func _Dlib_drectangles()

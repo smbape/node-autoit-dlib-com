@@ -38,8 +38,7 @@ namespace dlib {
 		CV_PROP_RW double nuclear_norm_regularization_strength;
 		CV_PROP_RW double max_runtime_seconds;
 
-
-		CV_WRAP const std::string ToString()
+		CV_WRAP const std::string ToString() const
 		{
 			const auto& o = *this;
 
@@ -66,6 +65,15 @@ namespace dlib {
 		CV_PROP_RW double precision;
 		CV_PROP_RW double recall;
 		CV_PROP_RW double average_precision;
+
+		CV_WRAP const std::string ToString() const
+		{
+			const auto& r = *this;
+
+			std::ostringstream sout;
+			sout << "precision: " << r.precision << ", recall: " << r.recall << ", average precision: " << r.average_precision;
+			return sout.str();
+		}
 	};
 
 	struct CV_EXPORTS_AS(simple_object_detector) simple_object_detector_com
@@ -97,7 +105,7 @@ namespace dlib {
 		const simple_object_detector_training_options& options
 	);
 
-	CV_EXPORTS_W simple_object_detector_com train_simple_object_detector(
+	CV_EXPORTS_AS(train_simple_object_detector) simple_object_detector_com train_simple_object_detector_on_images(
 		const std::vector<cv::Mat>& images,
 		std::vector<std::vector<rectangle>>& boxes,
 		const simple_object_detector_training_options& options
@@ -109,26 +117,26 @@ namespace dlib {
 		const int upsampling_amount = -1
 	);
 
-	CV_EXPORTS_W const simple_test_results test_simple_object_detector(
+	CV_EXPORTS_AS(test_simple_object_detector) const simple_test_results test_simple_object_detector2(
 		const std::string& dataset_filename,
 		fhog_object_detector& detector,
-		const int upsampling_amount = 0
+		const int upsampling_amount = -1
 	);
 
-	CV_EXPORTS_W const simple_test_results test_simple_object_detector(
+	CV_EXPORTS_AS(test_simple_object_detector) const simple_test_results test_simple_object_detector3(
 		const std::string& dataset_filename,
 		simple_object_detector_com& detector,
 		const int upsampling_amount = -1
 	);
 
-	CV_EXPORTS_W simple_test_results test_simple_object_detector(
+	CV_EXPORTS_AS(test_simple_object_detector) simple_test_results test_simple_object_detector_with_images(
 		const std::vector<cv::Mat>& images,
 		std::vector<std::vector<rectangle>>& boxes,
 		fhog_object_detector& detector,
-		const uint upsampling_amount = 0
+		const int upsampling_amount = -1
 	);
 
-	CV_EXPORTS_W simple_test_results test_simple_object_detector(
+	CV_EXPORTS_AS(test_simple_object_detector) simple_test_results test_simple_object_detector_with_images2(
 		const std::vector<cv::Mat>& images,
 		std::vector<std::vector<rectangle>>& boxes,
 		simple_object_detector_com& detector,

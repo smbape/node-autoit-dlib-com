@@ -4,6 +4,8 @@
 #import "dlibCOM.tlb"
 
 #include <opencv2/core/core.hpp>
+#include <binding/simple_object_detector.h>
+// #include <tools/python/src/simple_object_detector.h>
 
 static _variant_t vtDefault;
 static _variant_t vtEmpty;
@@ -166,6 +168,23 @@ static int perform() {
 
 int main(int argc, char* argv[])
 {
+	using namespace dlib;
+
+	std::string dataset_filename = "E:\\development\\git\\node-autoit-dlib-com\\autoit-dlib-com\\build_x64\\_deps\\dlib-src\\examples\\faces\\training.xml";
+	std::string detector_output_filename = "E:\\development\\git\\node-autoit-dlib-com\\examples\\detector.svm";
+	simple_object_detector_training_options options;
+
+	options.add_left_right_image_flips = true;
+	options.C = 5;
+	options.num_threads = 4;
+	options.be_verbose = true;
+
+	train_simple_object_detector(
+		dataset_filename,
+		detector_output_filename,
+		options
+	);
+
 	HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
 	if (FAILED(hr)) {
 		std::wcout << L"could not initialize COM\n";

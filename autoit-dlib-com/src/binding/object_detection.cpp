@@ -464,7 +464,7 @@ void dlib::train_simple_object_detector(
 	const simple_object_detector_training_options& options
 )
 {
-	dlib::array<array2d<bgr_pixel>> images;
+	dlib::array<array2d<rgb_pixel>> images;
 	std::vector<std::vector<dlib::rectangle>> boxes, ignore;
 	ignore = load_image_dataset(images, boxes, dataset_filename);
 
@@ -476,7 +476,7 @@ void dlib::train_simple_object_detector(
 		std::cout << "Saved detector to file " << detector_output_filename << std::endl;
 }
 
-simple_object_detector_com dlib::train_simple_object_detector(
+simple_object_detector_com dlib::train_simple_object_detector_on_images(
 	const std::vector<Mat>& _images,
 	std::vector<std::vector<dlib::rectangle>>& boxes,
 	const simple_object_detector_training_options& options
@@ -501,7 +501,7 @@ const simple_test_results dlib::test_simple_object_detector(
 {
 
 	// Load all the testing images
-	dlib::array<array2d<bgr_pixel>> images;
+	dlib::array<array2d<rgb_pixel>> images;
 	std::vector<std::vector<dlib::rectangle>> boxes, ignore;
 	ignore = load_image_dataset(images, boxes, dataset_filename);
 
@@ -540,21 +540,22 @@ const simple_test_results dlib::test_simple_object_detector(
 	return test_simple_object_detector_with_images(images, final_upsampling_amount, boxes, ignore, detector);
 }
 
-const simple_test_results dlib::test_simple_object_detector(
+const simple_test_results dlib::test_simple_object_detector2(
 	const std::string& dataset_filename,
 	simple_object_detector& detector,
 	const int upsampling_amount
 )
 {
 	// Load all the testing images
-	dlib::array<array2d<bgr_pixel>> images;
+	dlib::array<array2d<rgb_pixel>> images;
 	std::vector<std::vector<dlib::rectangle>> boxes, ignore;
 	ignore = load_image_dataset(images, boxes, dataset_filename);
 
-	return test_simple_object_detector_with_images(images, upsampling_amount, boxes, ignore, detector);
+	unsigned int final_upsampling_amount = upsampling_amount < 0 ? 0 : upsampling_amount;
+	return test_simple_object_detector_with_images(images, final_upsampling_amount, boxes, ignore, detector);
 }
 
-const simple_test_results dlib::test_simple_object_detector(
+const simple_test_results dlib::test_simple_object_detector3(
 	const std::string& dataset_filename,
 	simple_object_detector_com& detector,
 	const int upsampling_amount
@@ -562,20 +563,16 @@ const simple_test_results dlib::test_simple_object_detector(
 {
 	// Allow users to pass an upsampling amount ELSE use the one cached on the object
 	// Anything less than 0 is ignored and the cached value is used.
-	unsigned int final_upsampling_amount = 0;
-	if (upsampling_amount >= 0)
-		final_upsampling_amount = upsampling_amount;
-	else
-		final_upsampling_amount = detector.upsampling_amount;
+	unsigned int final_upsampling_amount = upsampling_amount < 0 ? detector.upsampling_amount : upsampling_amount;
 
-	return test_simple_object_detector(dataset_filename, detector.detector, final_upsampling_amount);
+	return test_simple_object_detector2(dataset_filename, detector.detector, final_upsampling_amount);
 }
 
-simple_test_results dlib::test_simple_object_detector(
+simple_test_results dlib::test_simple_object_detector_with_images(
 	const std::vector<Mat>& _images,
 	std::vector<std::vector<dlib::rectangle>>& boxes,
 	simple_object_detector& detector,
-	const unsigned int upsampling_amount
+	const int upsampling_amount
 )
 {
 	const auto num_images = _images.size();
@@ -586,10 +583,12 @@ simple_test_results dlib::test_simple_object_detector(
 	dlib::array<cv_image<bgr_pixel>> images(num_images);
 	vector_Mat_to_dlib(_images, images);
 
-	return test_simple_object_detector_with_images(images, upsampling_amount, boxes, ignore, detector);
+	unsigned int final_upsampling_amount = upsampling_amount < 0 ? 0 : upsampling_amount;
+
+	return test_simple_object_detector_with_images(images, final_upsampling_amount, boxes, ignore, detector);
 }
 
-simple_test_results dlib::test_simple_object_detector(
+simple_test_results dlib::test_simple_object_detector_with_images2(
 	const std::vector<Mat>& _images,
 	std::vector<std::vector<dlib::rectangle>>& boxes,
 	simple_object_detector_com& detector,
@@ -598,13 +597,9 @@ simple_test_results dlib::test_simple_object_detector(
 {
 	// Allow users to pass an upsampling amount ELSE use the one cached on the object
 	// Anything less than 0 is ignored and the cached value is used.
-	unsigned int final_upsampling_amount = 0;
-	if (upsampling_amount >= 0)
-		final_upsampling_amount = upsampling_amount;
-	else
-		final_upsampling_amount = detector.upsampling_amount;
+	unsigned int final_upsampling_amount = upsampling_amount < 0 ? detector.upsampling_amount : upsampling_amount;
 
-	return test_simple_object_detector(_images, boxes, detector.detector, final_upsampling_amount);
+	return test_simple_object_detector_with_images(_images, boxes, detector.detector, final_upsampling_amount);
 }
 
 void CDlib_Fhog_object_detector_Object::run(

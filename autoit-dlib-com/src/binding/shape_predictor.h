@@ -12,7 +12,7 @@ namespace dlib
 
 	// ----------------------------------------------------------------------------------------
 
-	full_object_detection run_predictor (
+	full_object_detection run_predictor(
 		shape_predictor& predictor,
 		const cv::Mat& img,
 		const rectangle& box
@@ -24,7 +24,7 @@ namespace dlib
 	{
 		CV_WRAP shape_predictor_training_options() = default;
 
-		CV_WRAP const std::string ToString() {
+		CV_WRAP const std::string ToString() const {
 			const auto& o = *this;
 
 			std::ostringstream sout;
@@ -67,6 +67,12 @@ namespace dlib
 		// not serialized
 		CV_PROP_RW ULONG num_threads = 0;
 	};
+
+	CV_EXPORTS_W void train_shape_predictor (
+		const std::string& dataset_filename,
+		const std::string& predictor_output_filename,
+		const shape_predictor_training_options& options
+	);
 
 	// ----------------------------------------------------------------------------------------
 

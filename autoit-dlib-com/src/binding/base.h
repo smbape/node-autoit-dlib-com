@@ -27,10 +27,10 @@ namespace dlib {
 		) : class1_accuracy(m(0)),
 			class2_accuracy(m(1)) {}
 
-		CV_WRAP const std::string ToString() {
+		CV_WRAP const std::string ToString() const {
 			const auto& item = *this;
 			std::ostringstream sout;
-			sout << "class1_accuracy: "<< item.class1_accuracy << "  class2_accuracy: "<< item.class2_accuracy; 
+			sout << "class1_accuracy: " << item.class1_accuracy << "  class2_accuracy: " << item.class2_accuracy;
 			return sout.str();
 		}
 
@@ -51,11 +51,11 @@ namespace dlib {
 			mean_error_stddev(m(3))
 		{}
 
-		CV_WRAP const std::string ToString() {
+		CV_WRAP const std::string ToString() const {
 			const auto& item = *this;
 			std::ostringstream sout;
-			sout << "mean_squared_error: "<< item.mean_squared_error << "  R_squared: "<< item.R_squared; 
-			sout << "  mean_average_error: "<< item.mean_average_error << "  mean_error_stddev: "<< item.mean_error_stddev; 
+			sout << "mean_squared_error: " << item.mean_squared_error << "  R_squared: " << item.R_squared;
+			sout << "  mean_average_error: " << item.mean_average_error << "  mean_error_stddev: " << item.mean_error_stddev;
 			return sout.str();
 		}
 
@@ -73,10 +73,10 @@ namespace dlib {
 		) : ranking_accuracy(m(0)),
 			mean_ap(m(1)) {}
 
-		CV_WRAP const std::string ToString() {
+		CV_WRAP const std::string ToString() const {
 			const auto& item = *this;
 			std::ostringstream sout;
-			sout << "ranking_accuracy: "<< item.ranking_accuracy << "  mean_ap: "<< item.mean_ap; 
+			sout << "ranking_accuracy: " << item.ranking_accuracy << "  mean_ap: " << item.mean_ap;
 			return sout.str();
 		}
 

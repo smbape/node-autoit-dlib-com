@@ -32,6 +32,7 @@ FetchContent_Populate(dlib)
 
 add_subdirectory(${dlib_SOURCE_DIR}/dlib ${dlib_BINARY_DIR})
 add_definitions(-DDLIB_VERSION=${DLIB_VERSION})
+add_definitions(-DCVAPI_EXPORTS)
 
 # Tell cmake we will need opencv. These command will pull in opencv.
 include(ExternalProject)
@@ -98,7 +99,7 @@ target_precompile_headers(${PROJECT_NAME} PRIVATE
   "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_CURRENT_SOURCE_DIR}/src/autoit_bridge.h>"
 )
 
-target_link_libraries(${PROJECT_NAME} dlib::dlib ${OpenCV_LIBS})
+target_link_libraries(${PROJECT_NAME} PRIVATE dlib::dlib ${OpenCV_LIBS})
 
 set(OpenCV_DLLVERSION "${OpenCV_VERSION_MAJOR}${OpenCV_VERSION_MINOR}${OpenCV_VERSION_PATCH}")
 set(PROJECT_VERSION "${DLIB_VERSION}-${OpenCV_DLLVERSION}")
@@ -124,7 +125,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_BINARY_DIR}/$
 # CMake's ${MSVC_VERSION} is equivalent to _MSC_VER
 # (according to https://cmake.org/cmake/help/latest/variable/MSVC_VERSION.html#variable:MSVC_VERSION)
 if ((MSVC) AND (MSVC_VERSION GREATER_EQUAL 1914))
-  target_compile_options(${PROJECT_NAME} PUBLIC "/Zc:__cplusplus")
+  target_compile_options(${PROJECT_NAME} PRIVATE "/Zc:__cplusplus")
 endif()
 
 # ===============
@@ -139,9 +140,11 @@ target_precompile_headers(cpp_test PRIVATE
 )
 set_source_files_properties(./test/test.cpp PROPERTIES COMPILE_FLAGS "/MP1")
 
-target_link_libraries (cpp_test PRIVATE ${PROJECT_NAME})
+target_link_libraries(cpp_test PRIVATE ${PROJECT_NAME} dlib::dlib ${OpenCV_LIBS})
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT cpp_test)
 set_property(TARGET cpp_test PROPERTY VS_DEBUGGER_ENVIRONMENT "PATH=${OpenCV_BINARY_DIR};%PATH%")
+
+target_include_directories(cpp_test PRIVATE ${dlib_SOURCE_DIR}/tools)
 
 # /Zc:__cplusplus is required to make __cplusplus accurate
 # /Zc:__cplusplus is available starting with Visual Studio 2017 version 15.7
@@ -151,5 +154,5 @@ set_property(TARGET cpp_test PROPERTY VS_DEBUGGER_ENVIRONMENT "PATH=${OpenCV_BIN
 # CMake's ${MSVC_VERSION} is equivalent to _MSC_VER
 # (according to https://cmake.org/cmake/help/latest/variable/MSVC_VERSION.html#variable:MSVC_VERSION)
 if ((MSVC) AND (MSVC_VERSION GREATER_EQUAL 1914))
-  target_compile_options(cpp_test PUBLIC "/Zc:__cplusplus")
+  target_compile_options(cpp_test PRIVATE "/Zc:__cplusplus")
 endif()

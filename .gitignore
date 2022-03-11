@@ -4,6 +4,7 @@
 /examples/output_folder
 /examples/*.dat
 /examples/*.dat.bz2
+/examples/*.svm
 /node_modules
 /opencv-*
 BackUp
