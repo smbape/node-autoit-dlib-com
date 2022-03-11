@@ -13,8 +13,6 @@ const files = [
     [sysPath.join(project, "generated"), "dlibCOM.tlb"],
     [sysPath.join(project, "build_x64", "Debug"), "autoit*"],
     [sysPath.join(project, "build_x64", "Release"), "autoit*"],
-    [sysPath.join(sources, "autoit-addon", "build_x64", "Debug"), "autoit*"],
-    [sysPath.join(sources, "autoit-addon", "build_x64", "Release"), "autoit*"],
 ];
 
 eachOfLimit(files, 1, ([cwd, file], i, next) => {
