@@ -50,6 +50,22 @@ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15/opencv/sour
   execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15.exe -o${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15 -y)
 endif()
 
+# Tell cmake we will need autoit-opencv-com. These command will pull in opencv.
+include(ExternalProject)
+ExternalProject_Add(opencv
+  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v1.3.0-rc.0/autoit-opencv-4.5.5-com-v1.3.0-rc.0.7z
+  URL_HASH          SHA256=0da691868939ae26a09f39b7ced1e8b0da1dc3c9bea1783c8bcadfef34957897
+  DOWNLOAD_NO_EXTRACT TRUE
+  DOWNLOAD_DIR      ${CMAKE_CURRENT_SOURCE_DIR}/..
+  CONFIGURE_COMMAND ""
+  BUILD_COMMAND     ""
+  INSTALL_COMMAND   ""
+)
+
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com/autoit_opencv_com455d.pdb")
+  execute_process(COMMAND 7z x ${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-4.5.5-com-v1.3.0-rc.0.7z -aoa -o${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com -y)
+endif()
+
 # Library directories
 set(OpenCV_DIR "")
 file(GLOB __OpenCV_ROOT_DIR "../opencv-4.*")

@@ -9,7 +9,7 @@
 ;~     https://github.com/davisking/dlib/blob/master/python_examples/face_detector.py
 
 #include <Misc.au3>
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")
@@ -19,19 +19,23 @@ Example()
 Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
+	Local Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
 
 	Local $detector = $dlib.get_frontal_face_detector()
 	Local $win = _Dlib_ObjCreate("image_window")
 
-	Local Const $aFiles = _Dlib_FindFiles("..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces\*.jpg")
+	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $DLIB_SAMPLES_FACES_PATH)
 
 	Local $f, $img, $dets, $d, $scores, $idx
 
 	For $j = 0 To UBound($aFiles) - 1
-		$f = $aFiles[$j]
+		$f = $DLIB_SAMPLES_FACES_PATH & "\" & $aFiles[$j]
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)
+
+		$win.clear_overlay()
+		$win.set_image($img)
 
 		; The 1 in the second argument indicates that we should upsample the image
 		; 1 time.  This will make everything bigger and allow us to detect more
@@ -44,8 +48,6 @@ Func Example()
 					$i, $d.left(), $d.top(), $d.right(), $d.bottom()) & @CRLF)
 		Next
 
-		$win.clear_overlay()
-		$win.set_image($img)
 		$win.add_overlay($dets)
 		hit_to_continue()
 	Next
@@ -57,7 +59,7 @@ Func Example()
 	; Also, the idx tells you which of the face sub-detectors matched.  This can be
 	; used to broadly identify faces in different orientations.
 	If UBound($aFiles) > 0 Then
-		$img = $dlib.load_rgb_image($aFiles[0])
+		$img = $dlib.load_rgb_image($DLIB_SAMPLES_FACES_PATH & "\" & $aFiles[0])
 		$detector.run($img, 1, -1)
 		$dets = $dlib.extended[0]
 		$scores = $dlib.extended[1]

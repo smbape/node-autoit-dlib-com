@@ -8,7 +8,7 @@
 ;~ Sources:
 ;~     https://github.com/davisking/dlib/blob/master/python_examples/max_cost_assignment.py
 
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")

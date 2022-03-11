@@ -9,7 +9,7 @@
 ;~     https://github.com/davisking/dlib/blob/master/python_examples/train_object_detector.py
 
 #include <Misc.au3>
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")
@@ -19,8 +19,11 @@ Example()
 Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
+	Local Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
 
-	Local $faces_folder = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces"
+	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
+
+	Local $faces_folder = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
 
 	; Now let's do the training.  The train_simple_object_detector() function has a
 	; bunch of options, all of which come with reasonable default values.  The next
@@ -52,7 +55,7 @@ Func Example()
 	; images with boxes.  To see how to use it read the tools/imglab/README.txt
 	; file.  But for this example, we just use the training.xml file included with
 	; dlib.
-	$dlib.train_simple_object_detector($training_xml_path, "detector.svm", $options)
+	$dlib.train_simple_object_detector($training_xml_path, $AUTOIT_SAMPLES_DATA_PATH & "\detector.svm", $options)
 
 
 	; Now that we have a face detector we can test it.  The first statement tests
@@ -60,17 +63,17 @@ Func Example()
 	; average precision.
 	ConsoleWrite(@CRLF)  ; Print blank line to create gap from previous output
 	ConsoleWrite("Training accuracy: " & _
-			$dlib.test_simple_object_detector($training_xml_path, "detector.svm").ToString() & @CRLF)
+			$dlib.test_simple_object_detector($training_xml_path, $AUTOIT_SAMPLES_DATA_PATH & "\detector.svm").ToString() & @CRLF)
 	; However, to get an idea if it really worked without overfitting we need to
 	; run it on images it wasn't trained on.  The next line does this.  Happily, we
 	; see that the object detector works perfectly on the testing images.
 	ConsoleWrite("Testing accuracy: " & _
-			$dlib.test_simple_object_detector($testing_xml_path, "detector.svm").ToString() & @CRLF)
+			$dlib.test_simple_object_detector($testing_xml_path, $AUTOIT_SAMPLES_DATA_PATH & "\detector.svm").ToString() & @CRLF)
 
 
 	; Now let's use the detector as you would in a normal application.  First we
 	; will load it from disk.
-	Local $detector = _Dlib_ObjCreate("simple_object_detector").create("detector.svm")
+	Local $detector = _Dlib_ObjCreate("simple_object_detector").create($AUTOIT_SAMPLES_DATA_PATH & "\detector.svm")
 
 	; We can look at the HOG filter we learned.  It should look like a face.  Neat!
 	Local $win_det = _Dlib_ObjCreate("image_window")
@@ -81,15 +84,18 @@ Func Example()
 	ConsoleWrite("Showing detections on the images in the faces folder..." & @CRLF)
 	Local $win = _Dlib_ObjCreate("image_window")
 
-	Local Const $aFiles = _Dlib_FindFiles($faces_folder & "\*.jpg")
+	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $faces_folder)
 
 	Local $f, $img, $dets, $d
 
 	For $j = 0 To UBound($aFiles) - 1
-		$f = $aFiles[$j]
+		$f = $faces_folder & "\" & $aFiles[$j]
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)
+
+		$win.clear_overlay()
+		$win.set_image($img)
 
 		$dets = $detector.call($img)
 		ConsoleWrite("Number of faces detected: " & UBound($dets) & @CRLF)
@@ -100,8 +106,6 @@ Func Example()
 					$k, $d.left(), $d.top(), $d.right(), $d.bottom()) & @CRLF)
 		Next
 
-		$win.clear_overlay()
-		$win.set_image($img)
 		$win.add_overlay($dets)
 		hit_to_continue()
 	Next
@@ -110,10 +114,10 @@ Func Example()
 
 	; Next, suppose you have trained multiple detectors and you want to run them
 	; efficiently as a group.  You can do this as follows:
-	Local $detector1 = $fhog_object_detector.create("detector.svm")
+	Local $detector1 = $fhog_object_detector.create($AUTOIT_SAMPLES_DATA_PATH & "\detector.svm")
 	; In this example we load detector.svm again since it's the only one we have on
 	; hand. But in general it would be a different detector.
-	Local $detector2 = $fhog_object_detector.create("detector.svm")
+	Local $detector2 = $fhog_object_detector.create($AUTOIT_SAMPLES_DATA_PATH & "\detector.svm")
 	; make a list of all the detectors you want to run.  Here we have 2, but you
 	; could have any number.
 	Local $detectors = _Dlib_Tuple($detector1, $detector2)

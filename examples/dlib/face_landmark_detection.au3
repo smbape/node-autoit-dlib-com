@@ -10,7 +10,7 @@
 
 #include <InetConstants.au3>
 #include <Misc.au3>
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")
@@ -20,22 +20,27 @@ Example()
 Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
+	Local Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
 
-	_DownloadAndUnpackData("shape_predictor_68_face_landmarks.dat", "shape_predictor_68_face_landmarks.dat.bz2", "http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2")
+	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
 
-	Local $predictor_path = "shape_predictor_68_face_landmarks.dat"
-	Local $faces_folder_path = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces"
+	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_68_face_landmarks.dat", _
+			$AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_68_face_landmarks.dat.bz2", _
+			"http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2")
+
+	Local $predictor_path = $AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_68_face_landmarks.dat"
+	Local $faces_folder_path = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
 
 	Local $detector = $dlib.get_frontal_face_detector()
 	Local $predictor = _Dlib_ObjCreate("shape_predictor").create($predictor_path)
 	Local $win = _Dlib_ObjCreate("image_window")
 
-	Local Const $aFiles = _Dlib_FindFiles($faces_folder_path & "\*.jpg")
+	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $faces_folder_path)
 
 	Local $f, $img, $dets, $d, $shape
 
 	For $j = 0 To UBound($aFiles) - 1
-		$f = $aFiles[$j]
+		$f = $faces_folder_path & "\" & $aFiles[$j]
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)
@@ -48,14 +53,17 @@ Func Example()
 		; will make everything bigger and allow us to detect more faces.
 		$dets = $detector.call($img, 1)
 		ConsoleWrite("Number of faces detected: " & UBound($dets) & @CRLF)
+
 		For $k = 0 To UBound($dets) - 1
 			$d = $dets[$k]
 			ConsoleWrite(StringFormat("Detection %d: Left: %d Top: %d Right: %d Bottom: %d", _
 					$k, $d.left(), $d.top(), $d.right(), $d.bottom()) & @CRLF)
+
 			; Get the landmarks/parts for the face in box d.
 			$shape = $predictor.call($img, $d)
 			ConsoleWrite(StringFormat("Part 0: %s, Part 1: %s ...", $shape.part(0).ToString(), _
 					$shape.part(1).ToString()) & @CRLF)
+
 			; Draw the face landmarks on the screen.
 			$win.add_overlay($shape)
 		Next
@@ -72,6 +80,7 @@ Func _DownloadData($sFilePath, $sUrl)
 
 	If @error Or $iExpectedSize <= 0 Or (FileExists($sFilePath) And $iActualSize == $iExpectedSize) Then Return
 
+	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : File        ' & $sFilePath & @CRLF) ;### Debug Console
 	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : FileGetSize ' & $iActualSize & @CRLF) ;### Debug Console
 	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : InetGetSize ' & $iExpectedSize & @CRLF) ;### Debug Console
 	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : Downloading ' & $sUrl & @CRLF) ;### Debug Console

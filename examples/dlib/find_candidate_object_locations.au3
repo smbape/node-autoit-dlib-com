@@ -8,7 +8,7 @@
 ;~ Sources:
 ;~     https://github.com/davisking/dlib/blob/master/python_examples/find_candidate_object_locations.py
 
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")
@@ -19,7 +19,7 @@ Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
 
-	Local $image_file = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces\2009_004587.jpg"
+	Local $image_file = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces\2009_004587.jpg")
 	Local $img = $dlib.load_rgb_image($image_file)
 
 	; Locations of candidate objects will be saved into rects

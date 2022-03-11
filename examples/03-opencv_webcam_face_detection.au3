@@ -34,7 +34,7 @@ Func Example()
 	While True
 		If $cam.read() Then
 			$img = $cv.extended[1]
-			$dets = $detector.call(Ptr($img.self))
+			$dets = $detector.call($img)
 
 			For $i = 0 To UBound($dets) - 1
 				$det = $dets[$i]

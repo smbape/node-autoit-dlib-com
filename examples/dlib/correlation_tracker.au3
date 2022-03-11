@@ -9,7 +9,7 @@
 ;~     https://github.com/davisking/dlib/blob/master/python_examples/correlation_tracker.py
 
 #include <Misc.au3>
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")
@@ -21,7 +21,7 @@ Func Example()
 	If Not IsObj($dlib) Then Return
 
 	; Path to the video frames
-	Local $video_folder = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\video_frames"
+	Local $video_folder = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\video_frames")
 
 	; Create the correlation tracker - the object needs to be initialized
 	; before it can be used
@@ -30,7 +30,7 @@ Func Example()
 	Local $win = _Dlib_ObjCreate("image_window")
 
 	; We will track the frames as we load them off of disk
-	Local Const $aFiles = _Dlib_FindFiles($video_folder & "\*.jpg")
+	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $video_folder)
 	Local Const $Rectangle = _Dlib_ObjCreate("rectangle")
 	Local $f, $img
 
@@ -41,7 +41,7 @@ Func Example()
 		$win.set_title("correlation tracker")
 
 		For $k = 0 To UBound($aFiles) - 1
-			$f = $aFiles[$k]
+			$f = $video_folder & "\" & $aFiles[$k]
 			; ToolTip("Processing file: " & $f, 0, 0)
 			; ConsoleWrite("Processing file: " & $f & @CRLF)
 			$img = $dlib.load_rgb_image($f)
@@ -65,6 +65,8 @@ Func Example()
 			Sleep(50)
 			If _IsPressed("1B") Then ExitLoop 2
 		Next
+
+		If _IsPressed("1B") Then ExitLoop
 	WEnd
 
 EndFunc   ;==>Example

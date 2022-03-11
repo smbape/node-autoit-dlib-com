@@ -10,7 +10,7 @@
 
 #include <InetConstants.au3>
 #include <Misc.au3>
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")
@@ -20,14 +20,22 @@ Example()
 Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
+	Local Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
 
-	_DownloadAndUnpackData("shape_predictor_5_face_landmarks.dat", "shape_predictor_5_face_landmarks.dat.bz2", "http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2")
-	_DownloadAndUnpackData("dlib_face_recognition_resnet_model_v1.dat", "dlib_face_recognition_resnet_model_v1.dat.bz2", "http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2")
+	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
+
+	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat", _
+			$AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat.bz2", _
+			"http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2")
+
+	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat", _
+			$AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat.bz2", _
+			"http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2")
 
 	; _Dlib_FindFiles
-	Local $predictor_path = "shape_predictor_5_face_landmarks.dat"
-	Local $face_rec_model_path = "dlib_face_recognition_resnet_model_v1.dat"
-	Local $faces_folder_path = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces"
+	Local $predictor_path = $AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat"
+	Local $face_rec_model_path = $AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat"
+	Local $faces_folder_path = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
 
 	; Load all the models we need: a detector to find the faces, a shape predictor
 	; to find face landmarks so we can precisely localize the face, and finally the
@@ -38,13 +46,13 @@ Func Example()
 
 	Local $win = _Dlib_ObjCreate("image_window").create()
 
-	Local Const $aFiles = _Dlib_FindFiles($faces_folder_path & "\*.jpg")
+	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $faces_folder_path)
 
 	Local $f, $img, $dets, $d, $shape, $face_descriptor, $face_chip, $face_descriptor_from_prealigned_image
 
 	; Now process all the images
 	For $j = 0 To UBound($aFiles) - 1
-		$f = $aFiles[$j]
+		$f = $faces_folder_path & "\" & $aFiles[$j]
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)

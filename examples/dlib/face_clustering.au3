@@ -10,7 +10,7 @@
 
 #include <InetConstants.au3>
 #include <Misc.au3>
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")
@@ -20,14 +20,23 @@ Example()
 Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
+	Local Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
+	Local Const $DLIB_SAMPLES_DATA_PATH = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples")
 
-	_DownloadAndUnpackData("shape_predictor_5_face_landmarks.dat", "shape_predictor_5_face_landmarks.dat.bz2", "http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2")
-	_DownloadAndUnpackData("dlib_face_recognition_resnet_model_v1.dat", "dlib_face_recognition_resnet_model_v1.dat.bz2", "http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2")
+	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
 
-	Local $predictor_path = "shape_predictor_5_face_landmarks.dat"
-	Local $face_rec_model_path = "dlib_face_recognition_resnet_model_v1.dat"
-	Local $faces_folder_path = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces"
-	Local $output_folder_path = "output_folder"
+	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat", _
+			$AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat.bz2", _
+			"http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2")
+
+	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat", _
+			$AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat.bz2", _
+			"http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2")
+
+	Local $predictor_path = $AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat"
+	Local $face_rec_model_path = $AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat"
+	Local $faces_folder_path = $DLIB_SAMPLES_DATA_PATH & "\faces"
+	Local $output_folder_path = $AUTOIT_SAMPLES_DATA_PATH & "\output_folder"
 
 	; Load all the models we need: a detector to find the faces, a shape predictor
 	; to find face landmarks so we can precisely localize the face, and finally the
@@ -40,12 +49,12 @@ Func Example()
 	Local $images = _Dlib_ObjCreate("VectorOfVariant")
 
 	; Now find all the faces and compute 128D face descriptors for each face.
-	Local Const $aFiles = _Dlib_FindFiles($faces_folder_path & "\*.jpg")
+	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $faces_folder_path)
 
 	Local $f, $img, $dets, $d, $shape, $face_descriptor
 
 	For $k = 0 To UBound($aFiles) - 1
-		$f = $aFiles[$k]
+		$f = $faces_folder_path & "\" & $aFiles[$k]
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)
@@ -104,7 +113,7 @@ Func Example()
 	If Not FileExists($output_folder_path) Then DirCreate($output_folder_path)
 
 	; Save the extracted faces
-	ConsoleWrite("Saving faces in largest cluster to output folder..." & @CRLF)
+	ConsoleWrite("Saving faces in largest cluster to output folder " & $output_folder_path & "..." & @CRLF)
 	Local $index, $tuple, $file_path
 	For $i = 0 To UBound($indices) - 1
 		$index = $indices[$i]
@@ -125,6 +134,7 @@ Func _DownloadData($sFilePath, $sUrl)
 
 	If @error Or $iExpectedSize <= 0 Or (FileExists($sFilePath) And $iActualSize == $iExpectedSize) Then Return
 
+	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : File        ' & $sFilePath & @CRLF) ;### Debug Console
 	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : FileGetSize ' & $iActualSize & @CRLF) ;### Debug Console
 	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : InetGetSize ' & $iExpectedSize & @CRLF) ;### Debug Console
 	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : Downloading ' & $sUrl & @CRLF) ;### Debug Console

@@ -9,7 +9,7 @@
 ;~     https://github.com/davisking/dlib/blob/master/python_examples/train_shape_predictor.py
 
 #include <Misc.au3>
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")
@@ -19,8 +19,11 @@ Example()
 Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
+	Local Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
 
-	Local $faces_folder = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces"
+	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
+
+	Local $faces_folder = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
 
 	Local $options = _Dlib_ObjCreate("shape_predictor_training_options")
 	; Now make the object responsible for training the model.
@@ -45,13 +48,13 @@ Func Example()
 	; images in the training dataset and also contains the positions of the face
 	; parts.
 	Local $training_xml_path = $faces_folder & "\training_with_face_landmarks.xml"
-	$dlib.train_shape_predictor($training_xml_path, "predictor.dat", $options)
+	$dlib.train_shape_predictor($training_xml_path, $AUTOIT_SAMPLES_DATA_PATH & "\predictor.dat", $options)
 
 	; Now that we have a model we can test it.  dlib.test_shape_predictor()
 	; measures the average distance between a face landmark output by the
 	; shape_predictor and where it should be according to the truth data.
 	ConsoleWrite(@CRLF & "Training accuracy: " & _
-			$dlib.test_shape_predictor($training_xml_path, "predictor.dat") & @CRLF)
+			$dlib.test_shape_predictor($training_xml_path, $AUTOIT_SAMPLES_DATA_PATH & "\predictor.dat") & @CRLF)
 	; The real test is to see how well it does on data it wasn't trained on.  We
 	; trained it on a very small dataset so the accuracy is not extremely high, but
 	; it's still doing quite good.  Moreover, if you train it on one of the large
@@ -59,12 +62,12 @@ Func Example()
 	; in the Kazemi paper.
 	Local $testing_xml_path = $faces_folder & "\testing_with_face_landmarks.xml"
 	ConsoleWrite("Testing accuracy: " & _
-			$dlib.test_shape_predictor($testing_xml_path, "predictor.dat") & @CRLF)
+			$dlib.test_shape_predictor($testing_xml_path, $AUTOIT_SAMPLES_DATA_PATH & "\predictor.dat") & @CRLF)
 
 	; Now let's use it as you would in a normal application.  First we will load it
 	; from disk. We also need to load a face detector to provide the initial
 	; estimate of the facial location.
-	Local $predictor = _Dlib_ObjCreate("shape_predictor").create("predictor.dat")
+	Local $predictor = _Dlib_ObjCreate("shape_predictor").create($AUTOIT_SAMPLES_DATA_PATH & "\predictor.dat")
 	Local $detector = $dlib.get_frontal_face_detector()
 
 	; Now let's run the detector and shape_predictor over the images in the faces
@@ -72,12 +75,12 @@ Func Example()
 	ConsoleWrite("Showing detections and predictions on the images in the faces folder..." & @CRLF)
 	Local $win = _Dlib_ObjCreate("image_window")
 
-	Local Const $aFiles = _Dlib_FindFiles($faces_folder & "\*.jpg")
+	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $faces_folder)
 
 	Local $f, $img, $dets, $d, $shape
 
 	For $j = 0 To UBound($aFiles) - 1
-		$f = $aFiles[$j]
+		$f = $faces_folder & "\" & $aFiles[$j]
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)

@@ -10,7 +10,7 @@
 
 #include <InetConstants.au3>
 #include <Misc.au3>
-#include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
+#include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
 _Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
 OnAutoItExitRegister("_OnAutoItExit")
@@ -20,18 +20,24 @@ Example()
 Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
+	Local Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
+	Local Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
 
-	_DownloadAndUnpackData("mmod_human_face_detector.dat", "mmod_human_face_detector.dat.bz2", "http://dlib.net/files/mmod_human_face_detector.dat.bz2")
+	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
 
-	Local $cnn_face_detector = _Dlib_ObjCreate("cnn_face_detection_model_v1").create("mmod_human_face_detector.dat")
+	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\mmod_human_face_detector.dat", _
+			$AUTOIT_SAMPLES_DATA_PATH & "\mmod_human_face_detector.dat.bz2", _
+			"http://dlib.net/files/mmod_human_face_detector.dat.bz2")
+
+	Local $cnn_face_detector = _Dlib_ObjCreate("cnn_face_detection_model_v1").create($AUTOIT_SAMPLES_DATA_PATH & "\mmod_human_face_detector.dat")
 	Local $win = _Dlib_ObjCreate("image_window")
 
-	Local Const $aFiles = _Dlib_FindFiles("..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces\*.jpg")
+	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $DLIB_SAMPLES_FACES_PATH)
 
 	Local $f, $img, $dets, $d, $rects
 
 	For $j = 0 To UBound($aFiles) - 1
-		$f = $aFiles[$j]
+		$f = $DLIB_SAMPLES_FACES_PATH & "\" & $aFiles[$j]
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)
@@ -81,6 +87,7 @@ Func _DownloadData($sFilePath, $sUrl)
 
 	If @error Or $iExpectedSize <= 0 Or (FileExists($sFilePath) And $iActualSize == $iExpectedSize) Then Return
 
+	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : File        ' & $sFilePath & @CRLF) ;### Debug Console
 	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : FileGetSize ' & $iActualSize & @CRLF) ;### Debug Console
 	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : InetGetSize ' & $iExpectedSize & @CRLF) ;### Debug Console
 	ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : Downloading ' & $sUrl & @CRLF) ;### Debug Console
