@@ -122,7 +122,7 @@ Func Example()
 	; This statement prints the precision, recall, and F1-score of the model
 	; relative to the data in training_sequences/segments.
 	ConsoleWrite("Test on training data: " & _
-        $dlib.test_sequence_segmenter($model, $training_sequences, $segments).ToString() & @CRLF)
+			$dlib.test_sequence_segmenter($model, $training_sequences, $segments).ToString() & @CRLF)
 
 	; We can also do 5-fold cross-validation and print the resulting precision,
 	; recall, and F1-score.

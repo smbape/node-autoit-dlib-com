@@ -173,17 +173,17 @@ Func _Dlib_FindDLL($sFile, $sFilter = Default, $sDir = Default, $bReverse = Defa
 	Local $sPostfix = $_dlib_build_type == "Debug" ? "d" : ""
 
 	Local $aSearchPaths[10] = [ _
-		9, _
-		".", _
-		"build_x64", _
-		"build_x64\" & $sBuildType, _
-		"build", _
-		"build\x64", _
-		"build\x64\vc15\bin", _
-		"autoit-dlib-com", _
-		"autoit-dlib-com\build_x64", _
-		"autoit-dlib-com\build_x64\" & $sBuildType _
-	]
+			9, _
+			".", _
+			"build_x64", _
+			"build_x64\" & $sBuildType, _
+			"build", _
+			"build\x64", _
+			"build\x64\vc15\bin", _
+			"autoit-dlib-com", _
+			"autoit-dlib-com\build_x64", _
+			"autoit-dlib-com\build_x64\" & $sBuildType _
+			]
 	Return _Dlib_FindFile($sFile & $sPostfix & ".dll", $sFilter, $sDir, $FLTA_FILES, $aSearchPaths, $bReverse)
 EndFunc   ;==>_Dlib_FindDLL
 
@@ -232,7 +232,7 @@ Func _Dlib_rectangle($left = 0, $top = 0, $right = 0, $bottom = 0)
 		$rectangle = $rectangle.create($left, $top, $right, $bottom)
 	EndIf
 
-	Return $rectangle;
+	Return $rectangle ;
 EndFunc   ;==>_Dlib_rectangle
 
 Func _Dlib_rectangles()
@@ -248,7 +248,7 @@ Func _Dlib_drectangle($left = 0, $top = 0, $right = 0, $bottom = 0)
 		$drectangle = $drectangle.create($left, $top, $right, $bottom)
 	EndIf
 
-	Return $drectangle;
+	Return $drectangle ;
 EndFunc   ;==>_Dlib_drectangle
 
 Func _Dlib_drectangles()
@@ -257,7 +257,7 @@ EndFunc   ;==>_Dlib_drectangles
 
 Func _Dlib_ranking_pair()
 	Return _Dlib_ObjCreate("ranking_pair")
-EndFunc   ;==>_Dlib_ranking_pairs
+EndFunc   ;==>_Dlib_ranking_pair
 
 Func _Dlib_ranking_pairs()
 	Return _Dlib_ObjCreate("VectorOfVec_ranking_pair")
@@ -265,7 +265,7 @@ EndFunc   ;==>_Dlib_ranking_pairs
 
 Func _Dlib_sparse_ranking_pair()
 	Return _Dlib_ObjCreate("sparse_ranking_pair")
-EndFunc   ;==>_Dlib_sparse_ranking_pairs
+EndFunc   ;==>_Dlib_sparse_ranking_pair
 
 Func _Dlib_sparse_ranking_pairs()
 	Return _Dlib_ObjCreate("VectorOfSparse_ranking_pair")

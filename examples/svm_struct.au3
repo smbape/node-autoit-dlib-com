@@ -17,16 +17,16 @@ Global Const $h_get_truth_joint_feature_vector = DllCallbackRegister('get_truth_
 Global Const $h_separation_oracle = DllCallbackRegister('separation_oracle', 'none', 'ptr;long;ptr')
 
 Global Const $samples = _Dlib_Tuple( _
-	_Dlib_Tuple(0, 2, 0), _
-	_Dlib_Tuple(1, 0, 0), _
-	_Dlib_Tuple(0, 4, 0), _
-	_Dlib_Tuple(0, 0, 3) _
-)
+		_Dlib_Tuple(0, 2, 0), _
+		_Dlib_Tuple(1, 0, 0), _
+		_Dlib_Tuple(0, 4, 0), _
+		_Dlib_Tuple(0, 0, 3) _
+		)
 
 Global Const $labels = _Dlib_Tuple(1, 0, 1, 2)
 
 Global Const $dlib = _Dlib_get()
-Global Const $vector = _Dlib_ObjCreate("vector");
+Global Const $vector = _Dlib_ObjCreate("vector") ;
 
 Example()
 

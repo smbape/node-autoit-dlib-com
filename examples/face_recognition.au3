@@ -75,7 +75,7 @@ Func Example()
 			; distance between them less than 0.6 then they are from the same
 			; person, otherwise they are from different people. Here we just print
 			; the vector to the screen.
-            ToolTip("Compute the 128D vector ..", 0, 0)
+			ToolTip("Compute the 128D vector ..", 0, 0)
 			$face_descriptor = $facerec.compute_face_descriptor($img, $shape)
 			ConsoleWrite($face_descriptor.ToString() & @CRLF)
 			; It should also be noted that you can also call this function like this:
@@ -104,7 +104,7 @@ Func Example()
 			; Here is a sample usage of that
 
 			ToolTip("Computing descriptor on aligned image ..", 0, 0)
-            ConsoleWrite("Computing descriptor on aligned image .." & @CRLF)
+			ConsoleWrite("Computing descriptor on aligned image .." & @CRLF)
 
 			; Let's generate the aligned image using get_face_chip
 			$face_chip = $dlib.get_face_chip($img, $shape)

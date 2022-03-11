@@ -16,7 +16,7 @@ Func _Dlib_ObjCreate($sClassname, $sFilename = Default)
 	Local Const $namespaces[3] = ["", "Dlib.", "Dlib.dlib."]
 	Local $siClassname, $oObj
 
-	For $i = 0 To UBound($namespaces) -1
+	For $i = 0 To UBound($namespaces) - 1
 		$siClassname = $namespaces[$i] & $sClassname
 		_Dlib_DebugMsg("Try ObjCreate " & $siClassname)
 

@@ -17,27 +17,27 @@ OnAutoItExitRegister("_OnAutoItExit")
 Example()
 
 Func Example()
-    Local Const $dlib = _Dlib_get()
-    If Not IsObj($dlib) Then Return
+	Local Const $dlib = _Dlib_get()
+	If Not IsObj($dlib) Then Return
 
-    ; Path to the video frames
-    Local $video_folder = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\video_frames"
+	; Path to the video frames
+	Local $video_folder = "..\autoit-dlib-com\build_x64\_deps\dlib-src\examples\video_frames"
 
-    ; Create the correlation tracker - the object needs to be initialized
-    ; before it can be used
-    Local $tracker = _Dlib_ObjCreate("correlation_tracker")
+	; Create the correlation tracker - the object needs to be initialized
+	; before it can be used
+	Local $tracker = _Dlib_ObjCreate("correlation_tracker")
 
-    Local $win = _Dlib_ObjCreate("image_window")
+	Local $win = _Dlib_ObjCreate("image_window")
 
-    ; We will track the frames as we load them off of disk
-    Local Const $aFiles = _Dlib_FindFiles($video_folder & "\*.jpg")
-    Local Const $Rectangle = _Dlib_ObjCreate("rectangle")
-    Local $f, $img
+	; We will track the frames as we load them off of disk
+	Local Const $aFiles = _Dlib_FindFiles($video_folder & "\*.jpg")
+	Local Const $Rectangle = _Dlib_ObjCreate("rectangle")
+	Local $f, $img
 
-    ToolTip("Hit ESC to stop", 0, 0)
-    ConsoleWrite("Hit ESC to stop" & @CRLF)
+	ToolTip("Hit ESC to stop", 0, 0)
+	ConsoleWrite("Hit ESC to stop" & @CRLF)
 
-    While True
+	While True
 		$win.set_title("correlation tracker")
 
 		For $k = 0 To UBound($aFiles) - 1
@@ -65,10 +65,10 @@ Func Example()
 			Sleep(50)
 			If _IsPressed("1B") Then ExitLoop 2
 		Next
-    WEnd
+	WEnd
 
 EndFunc   ;==>Example
 
 Func _OnAutoItExit()
-    _Dlib_Unregister_And_Close()
+	_Dlib_Unregister_And_Close()
 EndFunc   ;==>_OnAutoItExit

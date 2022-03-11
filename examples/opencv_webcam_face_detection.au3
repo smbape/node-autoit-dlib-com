@@ -8,6 +8,7 @@
 ;~ Sources:
 ;~     https://github.com/davisking/dlib/blob/master/python_examples/opencv_webcam_face_detection.py
 
+#include <Misc.au3>
 #include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 #include "..\autoit-opencv-com\udf\opencv_udf_utils.au3"
 
@@ -41,12 +42,14 @@ Func Example()
 			Next
 
 			;; Flip the image horizontally to give the mirror impression
-			$cv.imshow('my webcam', $cv.flip($img, 1))
+			$cv.imshow("my webcam", $cv.flip($img, 1))
 		EndIf
 
-		If $cv.waitKey(30) == 27 Then
+		If _IsPressed("1B") Then
 			ExitLoop  ; esc to quit
 		EndIf
+
+		Sleep(1)
 	WEnd
 
 	$cv.destroyAllWindows()

@@ -106,7 +106,7 @@ Func Example()
 		hit_to_continue()
 	Next
 
-    Local $fhog_object_detector = _Dlib_ObjCreate("fhog_object_detector")
+	Local $fhog_object_detector = _Dlib_ObjCreate("fhog_object_detector")
 
 	; Next, suppose you have trained multiple detectors and you want to run them
 	; efficiently as a group.  You can do this as follows:

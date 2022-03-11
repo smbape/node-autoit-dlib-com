@@ -102,7 +102,7 @@ Func hit_to_continue($msg = "")
 	Do
 		Sleep(50)
 	Until _IsPressed("1B")
-    Sleep(50)
+	Sleep(50)
 EndFunc   ;==>hit_to_continue
 
 Func _OnAutoItExit()
