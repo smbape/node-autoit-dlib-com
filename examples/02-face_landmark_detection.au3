@@ -32,7 +32,7 @@ Func Example()
 	Local $predictor = _Dlib_ObjCreate("shape_predictor").create($predictor_path)
 	Local $win = _Dlib_ObjCreate("image_window")
 
-	Local $image_path = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces\2008_002470.jpg")
+	Local $image_path = _Dlib_FindFile("examples\faces\2008_002470.jpg")
 	Local $img = $dlib.load_rgb_image($image_path)
 
 	$win.set_image($img)

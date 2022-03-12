@@ -29,7 +29,7 @@ Func Example()
 			"http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2")
 
 	Local $predictor_path = $AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_68_face_landmarks.dat"
-	Local $faces_folder_path = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
+	Local $faces_folder_path = _Dlib_FindFile("examples\faces")
 
 	Local $detector = $dlib.get_frontal_face_detector()
 	Local $predictor = _Dlib_ObjCreate("shape_predictor").create($predictor_path)

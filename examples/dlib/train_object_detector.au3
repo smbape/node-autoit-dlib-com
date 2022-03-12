@@ -23,7 +23,7 @@ Func Example()
 
 	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
 
-	Local $faces_folder = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
+	Local $faces_folder = _Dlib_FindFile("examples\faces")
 
 	; Now let's do the training.  The train_simple_object_detector() function has a
 	; bunch of options, all of which come with reasonable default values.  The next

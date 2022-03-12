@@ -30,6 +30,14 @@ FetchContent_Declare(dlib
 )
 FetchContent_Populate(dlib)
 
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../examples/faces")
+  execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${dlib_SOURCE_DIR}/examples/faces ${CMAKE_CURRENT_SOURCE_DIR}/../examples/faces)
+endif()
+
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../examples/video_frames")
+  execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${dlib_SOURCE_DIR}/examples/video_frames ${CMAKE_CURRENT_SOURCE_DIR}/../examples/video_frames)
+endif()
+
 add_subdirectory(${dlib_SOURCE_DIR}/dlib ${dlib_BINARY_DIR})
 add_definitions(-DDLIB_VERSION=${DLIB_VERSION})
 add_definitions(-DCVAPI_EXPORTS)
@@ -52,9 +60,9 @@ endif()
 
 # Tell cmake we will need autoit-opencv-com. These command will pull in opencv.
 include(ExternalProject)
-ExternalProject_Add(opencv
-  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v1.3.0-rc.0/autoit-opencv-4.5.5-com-v1.3.0-rc.0.7z
-  URL_HASH          SHA256=0da691868939ae26a09f39b7ced1e8b0da1dc3c9bea1783c8bcadfef34957897
+ExternalProject_Add(autoit-opencv-com
+  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v1.4.0-rc.0/autoit-opencv-4.5.5-com-v1.4.0-rc.0.7z
+  URL_HASH          SHA256=b2930d137ac80c09fe76983180151632b1bc76796860ee83d6fd06be1e0cac23
   DOWNLOAD_NO_EXTRACT TRUE
   DOWNLOAD_DIR      ${CMAKE_CURRENT_SOURCE_DIR}/..
   CONFIGURE_COMMAND ""
@@ -63,7 +71,7 @@ ExternalProject_Add(opencv
 )
 
 if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com/autoit_opencv_com455d.pdb")
-  execute_process(COMMAND 7z x ${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-4.5.5-com-v1.3.0-rc.0.7z -aoa -o${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com -y)
+  execute_process(COMMAND 7z x ${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-4.5.5-com-v1.4.0-rc.0.7z -aoa -o${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com -y)
 endif()
 
 # Library directories

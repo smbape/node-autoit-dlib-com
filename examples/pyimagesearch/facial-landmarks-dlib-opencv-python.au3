@@ -23,7 +23,7 @@ _OpenCV_Open_And_Register(_OpenCV_FindDLL("opencv_world4*", "opencv-4.*\opencv")
 OnAutoItExitRegister("_OnAutoItExit")
 
 Global Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
-Global Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
+Global Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("examples\faces")
 
 #Region ### START Koda GUI section ### Form=
 Global Const $FormGUI = GUICreate("Facial landmarks with dlib, OpenCV, and Python", 1001, 708, 192, 95)

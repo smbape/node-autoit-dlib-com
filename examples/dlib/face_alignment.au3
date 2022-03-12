@@ -21,7 +21,7 @@ Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
 	Local Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
-	Local Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
+	Local Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("examples\faces")
 
 	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
 

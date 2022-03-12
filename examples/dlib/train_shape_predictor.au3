@@ -23,7 +23,7 @@ Func Example()
 
 	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
 
-	Local $faces_folder = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
+	Local $faces_folder = _Dlib_FindFile("examples\faces")
 
 	Local $options = _Dlib_ObjCreate("shape_predictor_training_options")
 	; Now make the object responsible for training the model.

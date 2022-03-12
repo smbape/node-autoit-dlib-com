@@ -19,7 +19,7 @@ Example()
 Func Example()
 	Local Const $dlib = _Dlib_get()
 	If Not IsObj($dlib) Then Return
-	Local Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
+	Local Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("examples\faces")
 
 	Local $detector = $dlib.get_frontal_face_detector()
 	Local $win = _Dlib_ObjCreate("image_window")

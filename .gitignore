@@ -5,6 +5,8 @@
 /examples/data/*.dat
 /examples/data/*.dat.bz2
 /examples/data/*.svm
+/examples/faces
+/examples/video_frames
 /node_modules
 /opencv-*
 BackUp

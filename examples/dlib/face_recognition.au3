@@ -35,7 +35,7 @@ Func Example()
 	; _Dlib_FindFiles
 	Local $predictor_path = $AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat"
 	Local $face_rec_model_path = $AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat"
-	Local $faces_folder_path = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\faces")
+	Local $faces_folder_path = _Dlib_FindFile("examples\faces")
 
 	; Load all the models we need: a detector to find the faces, a shape predictor
 	; to find face landmarks so we can precisely localize the face, and finally the

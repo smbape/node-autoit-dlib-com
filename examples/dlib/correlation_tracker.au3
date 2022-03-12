@@ -21,7 +21,7 @@ Func Example()
 	If Not IsObj($dlib) Then Return
 
 	; Path to the video frames
-	Local $video_folder = _Dlib_FindFile("autoit-dlib-com\build_x64\_deps\dlib-src\examples\video_frames")
+	Local $video_folder = _Dlib_FindFile("examples\video_frames")
 
 	; Create the correlation tracker - the object needs to be initialized
 	; before it can be used
