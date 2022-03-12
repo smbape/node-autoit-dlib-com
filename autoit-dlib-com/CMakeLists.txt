@@ -38,6 +38,10 @@ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../examples/video_frames")
   execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink ${dlib_SOURCE_DIR}/examples/video_frames ${CMAKE_CURRENT_SOURCE_DIR}/../examples/video_frames)
 endif()
 
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../examples/data")
+  file(MAKE_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../examples/data")
+endif()
+
 add_subdirectory(${dlib_SOURCE_DIR}/dlib ${dlib_BINARY_DIR})
 add_definitions(-DDLIB_VERSION=${DLIB_VERSION})
 add_definitions(-DCVAPI_EXPORTS)

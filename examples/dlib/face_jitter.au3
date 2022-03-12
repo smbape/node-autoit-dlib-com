@@ -23,8 +23,6 @@ Func Example()
 	Local Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
 	Local Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("examples\faces")
 
-	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
-
 	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat", _
 			$AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat.bz2", _
 			"http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2")
@@ -92,15 +90,17 @@ Func _DownloadData($sFilePath, $sUrl)
 	InetGet($sUrl, $sFilePath, $INET_FORCERELOAD)
 EndFunc   ;==>_DownloadData
 
-Func _UnpackData($sArchive)
-	ShellExecuteWait("7z", "x -y " & $sArchive & " -o" & @ScriptDir)
+Func _UnpackData($sArchive, $sFilePath)
+	Local $sDrive = "", $sDir = "", $sFileName = "", $sExtension = ""
+	_PathSplit($sFilePath, $sDrive, $sDir, $sFileName, $sExtension)
+	ShellExecuteWait("7z", "x -y " & $sArchive & " -o" & $sDrive & $sDir)
 EndFunc   ;==>_UnpackData
 
 Func _DownloadAndUnpackData($sFilePath, $sArchive, $sUrl)
 	Local $iActualSize = FileGetSize($sFilePath)
 	If $iActualSize <> 0 Then Return
 	_DownloadData($sArchive, $sUrl)
-	_UnpackData($sArchive)
+	_UnpackData($sArchive, $sFilePath)
 EndFunc   ;==>_DownloadAndUnpackData
 
 Func hit_to_continue($msg = "")

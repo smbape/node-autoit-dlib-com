@@ -278,7 +278,7 @@ Func _Dlib_rect_to_bb($rect)
 EndFunc   ;==>_Dlib_rect_to_bb
 
 Func _Dlib_shape_to_points($shape)
-	Local  Const $num_parts = $shape.num_parts
+	Local Const $num_parts = $shape.num_parts
 	Local $points[$num_parts]
 	Local $point
 	For $i = 0 To $num_parts - 1

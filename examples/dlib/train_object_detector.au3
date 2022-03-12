@@ -21,8 +21,6 @@ Func Example()
 	If Not IsObj($dlib) Then Return
 	Local Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
 
-	If Not FileExists($AUTOIT_SAMPLES_DATA_PATH) Then DirCreate($AUTOIT_SAMPLES_DATA_PATH)
-
 	Local $faces_folder = _Dlib_FindFile("examples\faces")
 
 	; Now let's do the training.  The train_simple_object_detector() function has a
