@@ -24,22 +24,17 @@ exports.declare = (generator, type, parent, options = {}) => {
     coclass.is_simple = true;
     coclass.is_class = true;
     coclass.is_stdmap = true;
-    coclass.key_type = key_type;
-    coclass.value_type = value_type;
-
-    coclass.idltype_key = generator.getIDLType(key_type, {
-        fqn,
-        namespace: parent.namespace,
-    }, options);
-
-    coclass.idltype_value = generator.getIDLType(value_type, {
-        fqn,
-        namespace: parent.namespace,
-    }, options);
-
     coclass.include = parent;
+    coclass.key_type = generator.getCppType(key_type, coclass, options);
+    coclass.value_type = generator.getCppType(value_type, coclass, options);
+    coclass.idltype_key = generator.getIDLType(key_type, coclass, options);
+    coclass.idltype_value = generator.getIDLType(value_type, coclass, options);
 
     coclass.addMethod([`${ fqn }.${ coclass.name }`, "", [], [], "", ""]);
+
+    coclass.addMethod([`${ fqn }.create`, `shared_ptr<${ coclass.name }>`, ["/External", "/S"], [
+        [`std::vector<std::pair<${ key_type }, ${ value_type }>>`, "pairs", "", []],
+    ], "", ""]);
 
     // Element access
     coclass.addMethod([`${ fqn }.at`, value_type, ["=get"], [
@@ -47,7 +42,8 @@ exports.declare = (generator, type, parent, options = {}) => {
     ], "", ""]);
 
     // Iterators
-    coclass.addMethod([`${ fqn }.keys`, `vector_${ key_type }`, ["/External"], [], "", ""]);
+    coclass.addMethod([`${ fqn }.Keys`, `vector_${ key_type }`, ["/External"], [], "", ""]);
+    coclass.addMethod([`${ fqn }.Items`, `vector_${ value_type }`, ["/External"], [], "", ""]);
 
     // Capacity
     coclass.addMethod([`${ fqn }.empty`, "bool", [], [], "", ""]);
@@ -92,10 +88,21 @@ exports.declare = (generator, type, parent, options = {}) => {
 
 exports.generate = (coclass, header, impl, options = {}) => {
     const cotype = coclass.getClassName();
-    const { key_type } = coclass;
+    const { key_type, value_type } = coclass;
+    const pair_type = `${ key_type }, ${ value_type }`;
+    const map_type = `std::map<${ pair_type }>`;
 
     impl.push(`
-        const std::vector<${ key_type }> C${ cotype }::keys(HRESULT& hr) {
+        const std::shared_ptr<${ map_type }> C${ cotype }::create(std::vector<std::pair<${ pair_type }>>& pairs, HRESULT& hr) {
+            hr = S_OK;
+            auto sp = std::make_shared<${ map_type }>();
+            for (const auto& pair_ : pairs) {
+                sp->insert_or_assign(pair_.first, pair_.second);
+            }
+            return sp;
+        }
+
+        const std::vector<${ key_type }> C${ cotype }::Keys(HRESULT& hr) {
             hr = S_OK;
             auto& map = *this->__self->get();
 
@@ -103,6 +110,19 @@ exports.generate = (coclass, header, impl, options = {}) => {
 
             for (auto it = map.begin(); it != map.end(); ++it) {
                 keys.push_back(it->first);
+            }
+
+            return keys;
+        }
+
+        const std::vector<${ value_type }> C${ cotype }::Items(HRESULT& hr) {
+            hr = S_OK;
+            auto& map = *this->__self->get();
+
+            std::vector<${ value_type }> keys;
+
+            for (auto it = map.begin(); it != map.end(); ++it) {
+                keys.push_back(it->second);
             }
 
             return keys;

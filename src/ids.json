@@ -395,6 +395,10 @@
         "iid": "945ff88d-70e4-4169-a15c-f001fc222902",
         "clsid": "82f4dbf5-6292-40e8-a59b-24ba0490a00b"
     },
+    "VectorOfPairOfStringAndPoint": {
+        "iid": "998b9372-7f41-4ead-90ef-8db9086473be",
+        "clsid": "2daf235a-e990-487f-bd5e-b961700ceb4e"
+    },
     "VectorOfString": {
         "iid": "3351f398-e483-436e-920c-4d3b320356e3",
         "clsid": "7835f787-333a-428c-b5b1-d5a6b47d6f63"

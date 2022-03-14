@@ -26,7 +26,7 @@ Global Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
 Global Const $DLIB_SAMPLES_FACES_PATH = _Dlib_FindFile("examples\faces")
 
 #Region ### START Koda GUI section ### Form=
-Global Const $FormGUI = GUICreate("Facial landmarks with dlib, OpenCV, and Python", 1001, 708, 192, 95)
+Global Const $FormGUI = GUICreate("Facial landmarks with dlib, OpenCV, and AutoIt", 1001, 708, 192, 95)
 
 Global Const $InputImg = GUICtrlCreateInput($DLIB_SAMPLES_FACES_PATH & "\2008_002470.jpg", 230, 16, 449, 21)
 Global Const $BtnImg = GUICtrlCreateButton("Image", 689, 14, 115, 25)
@@ -128,8 +128,7 @@ Func Main()
 
 		; loop over the (x, y)-coordinates for the facial landmarks
 		; and draw them on the image
-		For $j = 0 To $shape.num_parts - 1
-			$point = $shape.part($j)
+		For $point In $shape.parts()
 			$cv.circle($image, _OpenCV_Tuple($point.x, $point.y), 1, $color_red, $CV_FILLED)
 		Next
 	Next

@@ -189,11 +189,10 @@ class AutoItGenerator {
                 const {modifiers} = coclass.properties.get(idlname);
                 return !modifiers.includes("/Enum");
             }).forEach(idlname => {
-                Properties.writeProperty(this, iidl, impl, ipublic, idnames, fqn, idlname, ++id, is_test, options);
+                Properties.writeProperty(this, iidl, impl, ipublic, iprivate, idnames, fqn, idlname, ++id, is_test, options);
             });
 
             const varprefix = "pVarArg";
-            const include = coclass.include ? coclass.include : coclass;
 
             // methods
             for (const fname of coclass.methods.keys()) {
@@ -339,8 +338,8 @@ class AutoItGenerator {
                             defval = SIMPLE_ARGTYPE_DEFAULTS.has(argtype) ? SIMPLE_ARGTYPE_DEFAULTS.get(argtype) : "";
                         }
 
-                        const idltype = this.getIDLType(argtype, include, options);
-                        const cpptype = this.getCppType(argtype, include, options);
+                        const idltype = this.getIDLType(argtype, coclass, options);
+                        const cpptype = this.getCppType(argtype, coclass, options);
 
                         let callarg = parg + argname;
                         let other_default;
@@ -485,6 +484,8 @@ class AutoItGenerator {
                             `.replace(/^ {32}/mg, "").trim().split("\n"));
                         } else if (cpptype === "_variant_t") {
                             cvt.push(`${ argname } = *${ in_val };`);
+                        } else if (cpptype === "VARIANT*") {
+                            cvt.push(`${ argname } = ${ in_val };`);
                         } else {
                             cvt.push(...`
                                 hr = autoit_to(${ in_val }, ${ argname });
@@ -495,7 +496,7 @@ class AutoItGenerator {
                             `.replace(/^ {32}/mg, "").trim().split("\n"));
                         }
 
-                        if (argtype === "_variant_t") {
+                        if (argtype === "_variant_t" || argtype === "VARIANT*") {
                             conditions[j] = is_optional ? "true" : `!PARAMETER_MISSING(${ in_val })`;
                         } else if (is_array) {
                             conditions[j] = `(is_array${ is_vector ? "s" : "" }_from(${ in_val }, ${ is_optional })`;
@@ -616,7 +617,7 @@ class AutoItGenerator {
                             }
                         }
 
-                        if (!is_external && callargs.length === 1 && /^operator[/*+-]=?$/.test(path[path.length - 1])) {
+                        if (!is_external && callargs.length === 1 && /^operator(?:[/*+-]=?|\+\+)$/.test(path[path.length - 1])) {
                             const operator = path[path.length - 1].slice("operator".length);
                             callee = `(*${ callee }) ${ operator } `;
                         } else {
@@ -647,7 +648,7 @@ class AutoItGenerator {
                     }
 
                     if (is_external) {
-                        const type = [this.getCppType(return_value_type === "" ? "void" : return_value_type, include, options)];
+                        const type = [this.getCppType(return_value_type === "" ? "void" : return_value_type, coclass, options)];
 
                         if (is_constructor) {
                             type[0] = `${ shared_ptr }<${ type[0] }>`;
@@ -659,21 +660,21 @@ class AutoItGenerator {
                             type.join(""),
                             path[path.length - 1]
                         ].filter(text => text !== null).join(" ") }(${ list_of_arguments.map(([argtype, argname]) => {
-                            const idltype = this.getIDLType(argtype, include, options);
-                            const cpptype = this.getCppType(argtype, include, options);
+                            const idltype = this.getIDLType(argtype, coclass, options);
+                            const cpptype = this.getCppType(argtype, coclass, options);
                             const byref = !PTR.has(cpptype) && (idltype === "VARIANT" || idltype[0] === "I");
                             return `${ cpptype }${ byref ? "&" : "" } ${ argname }`;
                         }).concat(["HRESULT& hr"]).join(", ") });`);
                     }
 
                     if (return_value_type !== "void") {
-                        if (PTR.has(this.getCppType(return_value_type, include, options))) {
+                        if (PTR.has(this.getCppType(return_value_type, coclass, options))) {
                             callee = `reinterpret_cast<ULONGLONG>(${ callee })`;
                         }
 
                         if (is_external) {
-                            const idltype = this.getIDLType(return_value_type, include, options);
-                            const cpptype = this.getCppType(return_value_type, include, options);
+                            const idltype = this.getIDLType(return_value_type, coclass, options);
+                            const cpptype = this.getCppType(return_value_type, coclass, options);
                             const byref = !PTR.has(cpptype) && (idltype === "VARIANT" || idltype[0] === "I");
 
                             const ebody = cindent + `
@@ -700,12 +701,12 @@ class AutoItGenerator {
                     `.replace(/^ {24}/mg, "").trim().split("\n").join(`\n${ cindent }`));
 
                     if (return_value_type !== "void") {
-                        const idltype = is_constructor ? coclass.idl : this.getIDLType(return_value_type, include, options);
+                        const idltype = is_constructor ? coclass.idl : this.getIDLType(return_value_type, coclass, options);
                         this.setReturn(returns, idltype, "_retval");
                         retval.unshift([returns[0], "_retval", returns[0], false]);
                     } else if (retval.length !== 0) {
                         const [, argname, argtype] = retval[0];
-                        const idltype = this.getIDLType(argtype, include, options);
+                        const idltype = this.getIDLType(argtype, coclass, options);
                         this.setReturn(returns, idltype, "_retval");
                         outputs.get(argname).push("_retval"); // mark _retval as an output of argname
                     }
@@ -856,7 +857,7 @@ class AutoItGenerator {
                 const {modifiers} = coclass.properties.get(idlname);
                 return modifiers.includes("/Enum");
             }).forEach(idlname => {
-                Properties.writeProperty(this, iidl, impl, ipublic, idnames, fqn, idlname, ++id, is_test, options);
+                Properties.writeProperty(this, iidl, impl, ipublic, iprivate, idnames, fqn, idlname, ++id, is_test, options);
             });
 
             if (is_idl_class) {
@@ -882,6 +883,10 @@ class AutoItGenerator {
             // converter
             conversion.convert(coclass, iglobal, impl, options);
 
+            if (coclass.generate) {
+                coclass.generate(iglobal, iidl, impl, ipublic, iprivate, idnames, id, is_test, options);
+            }
+
             const hdr_id = `_${ coclass.getObjectName().toUpperCase() }_OBJECT_`;
 
             const definition = `
@@ -893,7 +898,7 @@ class AutoItGenerator {
                     pointer_default(unique)
                 ]
 
-                interface I${ cotype } : IDispatch
+                interface I${ cotype } : ${ coclass.interface }
                 {
                     ${ iidl.join("\n").split("\n").join(`\n${ " ".repeat(20) }`) }
                 };
@@ -935,7 +940,7 @@ class AutoItGenerator {
                 const bases = [
                     "public CComObjectRootEx<CComSingleThreadModel>",
                     `public CComCoClass<C${ cotype }, &CLSID_${ cotype }>`,
-                    `public IDispatchImpl<I${ cotype }, &IID_I${ cotype }, &LIBID_${ LIBRARY }, /*wMajor =*/ ${ VERSION_MAJOR }, /*wMinor =*/ ${ VERSION_MINOR }>`,
+                    `public IDispatchImpl<I${ coclass.dispimpl ? coclass.dispimpl : cotype }, &IID_I${ cotype }, &LIBID_${ LIBRARY }, /*wMajor =*/ ${ VERSION_MAJOR }, /*wMinor =*/ ${ VERSION_MINOR }>`,
                 ];
 
                 if (is_idl_class) {
@@ -943,7 +948,7 @@ class AutoItGenerator {
                         bases.push(`public IVariantArrayImpl<${ coclass.fqn }>`);
                     } else if (ARRAYS_CLASSES.has(coclass.fqn)) {
                         bases.push(`public IVariantArraysImpl<${ coclass.fqn }>`);
-                    } else {
+                    } else if (!coclass.dispimpl) {
                         bases.push(`public AutoItObject<${ coclass.fqn }>`);
                     }
                 }
@@ -962,7 +967,7 @@ class AutoItGenerator {
 
                     BEGIN_COM_MAP(C${ cotype })
                         COM_INTERFACE_ENTRY(I${ cotype })
-                        COM_INTERFACE_ENTRY(IDispatch)
+                        COM_INTERFACE_ENTRY(${ coclass.interface })
                     END_COM_MAP()
 
                         DECLARE_PROTECT_FINAL_CONSTRUCT()
@@ -1051,7 +1056,9 @@ class AutoItGenerator {
                 this.getOrderedDependencies(new Set(this.dependencies.get(fqn).values()))
                 : [];
 
-            const idl_deps = dependencies.filter(dependency => !dependency.noidl).map(dependency => `import "${ dependency.iface.filename }";`);
+            const idl_deps = dependencies.filter(dependency => !dependency.noidl).map(dependency => {
+                return `import "${ dependency.iface.filename }";\ncpp_quote("#include \\"${ dependency.iface.filename.replace(".idl", ".h") }\\"") `
+            });
 
             if (dependencies.length !== 0) {
                 idl_deps.unshift("");
@@ -1493,6 +1500,8 @@ class AutoItGenerator {
                 coclass.idl = modifier.slice("/idl=".length);
             } else if (modifier.startsWith("/cpp_quote=")) {
                 coclass.cpp_quotes.push(modifier.slice("/cpp_quote=".length));
+            } else if (modifier.startsWith("/interface=")) {
+                coclass.interface = modifier.slice("/interface=".length);
             }
         }
 
@@ -1667,7 +1676,11 @@ class AutoItGenerator {
 
     getIDLType(type, coclass, options = {}) {
         const shared_ptr = removeNamespaces(options.shared_ptr, options);
-        type = Properties.restoreOriginalType(type, options);
+        type = Properties.restoreOriginalType(removeNamespaces(type, options), options);
+
+        if (type === "IUnknown*" || type === "IEnumVARIANT*" || type === "VARIANT*" || type === "VARIANT") {
+            return type;
+        }
 
         if (type.startsWith(`${ shared_ptr }<`) && type.endsWith(">")) {
             // Add dependency
@@ -1726,10 +1739,16 @@ class AutoItGenerator {
             return custom_type.getIDLType();
         }
 
-        for (const fqn of this.getTypes(type, coclass)) {
+        let include = coclass;
+        while (include.include) {
+            include = include.include;
+        }
+
+        for (const fqn of this.getTypes(type, include)) {
             if (this.enums.has(fqn)) {
                 const pos = fqn.lastIndexOf("::");
                 this.addDependency(coclass.fqn, fqn.slice(0, pos));
+                this.addDependency(include.fqn, fqn.slice(0, pos));
                 return "LONG";
             }
 
@@ -1743,6 +1762,7 @@ class AutoItGenerator {
 
             if (this.classes.has(fqn)) {
                 this.addDependency(coclass.fqn, fqn);
+                this.addDependency(include.fqn, fqn);
                 return this.classes.get(fqn).getIDLType();
             }
         }
@@ -1757,9 +1777,9 @@ class AutoItGenerator {
     getCppType(type, coclass, options = {}) {
         const {shared_ptr} = options;
         const shared_ptr_ = removeNamespaces(shared_ptr, options);
-        type = Properties.restoreOriginalType(type, options);
+        type = Properties.restoreOriginalType(removeNamespaces(type, options), options);
 
-        if (type === "_variant_t") {
+        if (type === "IUnknown*" || type === "IEnumVARIANT*" || type === "VARIANT*" || type === "VARIANT" || type === "_variant_t") {
             return type;
         }
 
@@ -1795,7 +1815,12 @@ class AutoItGenerator {
             return `${ this.getCppType(type.slice(0, -1), coclass, options) }*`;
         }
 
-        for (const fqn of this.getTypes(type, coclass)) {
+        let include = coclass;
+        while (include.include) {
+            include = include.include;
+        }
+
+        for (const fqn of this.getTypes(type, include)) {
             if (this.enums.has(fqn)) {
                 return "int";
             }
@@ -1853,7 +1878,7 @@ class AutoItGenerator {
     }
 
     addDependency(dependent, dependency) {
-        if (dependent === dependency) {
+        if (dependent === dependency || !dependency || !dependent) {
             return;
         }
 
