@@ -29,15 +29,14 @@ Func Example()
 	Local $cam = _OpenCV_ObjCreate("VideoCapture").create(0)
 	Local $color_green = _OpenCV_Tuple(0, 255, 0)
 	Local $line_width = 3
-	Local $dets, $det
+	Local $dets
 	Local $img = _OpenCV_ObjCreate("Mat")
 
 	While True
 		If $cam.read($img) Then
 			$dets = $detector.call($img)
 
-			For $i = 0 To UBound($dets) - 1
-				$det = $dets[$i]
+			For $det In $dets
 				$cv.rectangle($img, _OpenCV_Tuple($det.left(), $det.top()), _OpenCV_Tuple($det.right(), $det.bottom()), $color_green, $line_width)
 			Next
 

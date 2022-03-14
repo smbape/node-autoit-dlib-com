@@ -26,8 +26,10 @@ Func Example()
 	Local $rects = $dlib.find_candidate_object_locations($img, Default, 500)
 
 	ConsoleWrite("number of rectangles found " & UBound($rects))
+
+	Local $d
 	For $k = 0 To UBound($rects) - 1
-		Local $d = $rects[$k]
+		$d = $rects[$k]
 		ConsoleWrite(StringFormat("Detection %d: Left: %d Top: %d Right: %d Bottom: %d", _
 				$k, $d.left(), $d.top(), $d.right(), $d.bottom()) & @CRLF)
 	Next

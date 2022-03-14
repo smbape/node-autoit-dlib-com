@@ -389,7 +389,7 @@ autoit_from(const std::tuple<_Ts...>& in_val, VARIANT*& out_val) {
 	return hr;
 }
 
-template <typename _Ty1, typename _Ty2>
+template<typename _Ty1, typename _Ty2>
 const bool is_assignable_from(std::pair<_Ty1, _Ty2>& out_val, VARIANT const* const& in_val, bool is_optional) {
 	if (V_VT(in_val) == VT_ERROR) {
 		return V_ERROR(in_val) == DISP_E_PARAMNOTFOUND && is_optional;
@@ -423,7 +423,7 @@ const bool is_assignable_from(std::pair<_Ty1, _Ty2>& out_val, VARIANT const* con
 	return hr;
 }
 
-template <typename _Ty1, typename _Ty2>
+template<typename _Ty1, typename _Ty2>
 HRESULT autoit_to(VARIANT const* const& in_val, std::pair<_Ty1, _Ty2>& out_val) {
 	typename ATL::template CComSafeArray<VARIANT> vArray;
 	vArray.Attach(V_ARRAY(in_val));
@@ -448,7 +448,7 @@ HRESULT autoit_to(VARIANT const* const& in_val, std::pair<_Ty1, _Ty2>& out_val) 
 	return hr;
 }
 
-template <typename _Ty1, typename _Ty2>
+template<typename _Ty1, typename _Ty2>
 HRESULT autoit_from(const std::pair<_Ty1, _Ty2>& in_val, VARIANT*& out_val) {
 	typename ATL::template CComSafeArray<VARIANT> vArray(2);
 
@@ -595,6 +595,16 @@ extern const HRESULT autoit_from(T const& in_val, T*& out_val) {
 namespace autoit
 {
 
+	template<typename destination_type, typename ... _Rest>
+	inline HRESULT _GenericCopy(destination_type* pTo, const std::tuple <_Rest...>* pFrom) {
+		return autoit_from(*pFrom, pTo);
+	}
+
+	template <typename destination_type, typename _Ty1, typename _Ty2>
+	inline HRESULT _GenericCopy(destination_type* pTo, const std::pair<_Ty1, _Ty2>* pFrom) {
+		return autoit_from(*pFrom, pTo);
+	}
+
 	template<typename destination_type, typename source_type>
 	inline HRESULT _GenericCopy(destination_type* pTo, const source_type* pFrom) {
 		std::shared_ptr<source_type> sp = std::shared_ptr<source_type>(std::shared_ptr<source_type>{}, const_cast<source_type*>(pFrom));
@@ -604,18 +614,6 @@ namespace autoit
 	template<typename destination_type>
 	inline HRESULT _GenericCopy(destination_type* pTo, const _variant_t* pFrom) {
 		return _Copy<destination_type>::copy(pTo, pFrom);
-	}
-
-	template<typename destination_type, typename ... _Rest>
-	inline HRESULT _GenericCopy(destination_type* pTo, const std::tuple <_Rest...>* pFrom) {
-		// TODO : class for tuple to avoid copy
-		return autoit_from(*pFrom, pTo);
-	}
-
-	template <typename destination_type, typename _Ty1, typename _Ty2>
-	inline HRESULT _GenericCopy(destination_type* pTo, const std::pair<_Ty1, _Ty2>* pFrom) {
-		// TODO : class for pair to avoid copy
-		return autoit_from(*pFrom, pTo);
 	}
 
 #define NATIVE_TYPE_COPY(ScalarType) \
@@ -655,10 +653,36 @@ namespace autoit
 	};
 }
 
-template <class T, class CollType, class ItemType, class CopyItem, class EnumType>
-class IAutoItCollectionOnSTLImpl :
+template<class T, class CollType, class EnumType>
+class IAutoItCollectionEnumOnSTLImpl :
 	public T,
 	public AutoItObject<CollType>
+{
+public:
+	STDMETHOD(get__NewEnum)(_Outptr_ IUnknown** ppUnk)
+	{
+		auto& m_coll = *this->__self->get();
+		if (ppUnk == NULL)
+			return E_POINTER;
+		*ppUnk = NULL;
+		HRESULT hRes = S_OK;
+		CComObject<EnumType>* p;
+		hRes = CComObject<EnumType>::CreateInstance(&p);
+		if (SUCCEEDED(hRes))
+		{
+			hRes = p->Init(this, m_coll);
+			if (hRes == S_OK)
+				hRes = p->QueryInterface(__uuidof(IUnknown), (void**)ppUnk);
+		}
+		if (hRes != S_OK)
+			delete p;
+		return hRes;
+	}
+};
+
+template<class T, class CollType, class ItemType, class CopyItem, class EnumType>
+class IAutoItCollectionOnSTLImpl :
+	public IAutoItCollectionEnumOnSTLImpl<T, CollType, EnumType>
 {
 public:
 	STDMETHOD(get_Count)(_Out_ long* pcount)

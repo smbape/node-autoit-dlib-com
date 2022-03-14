@@ -25,37 +25,37 @@ Func Example()
 	Local $segments = _Dlib_rangess() ; make an array of arrays of dlib.range objects.
 	Local $sentences = _Dlib_ObjCreate("VectorOfString")
 
-	$sentences.push_back("The other day I saw a man named Jim Smith")
+	$sentences.Add("The other day I saw a man named Jim Smith")
 	; We want to detect person names.  So we note that the name is located within
 	; the range [8, 10).  Note that we use half open ranges to identify segments.
 	; So in this case, the segment identifies the string "Jim Smith".
-	$names.push_back(_DLib_Tuple(8, 10))
-	$segments.push_back($names)
+	$names.Add(_DLib_Tuple(8, 10))
+	$segments.Add($names)
 	$names.clear() ; make names empty for use again below
 
-	$sentences.push_back("Davis King is the main author of the dlib Library")
-	$names.push_back(_DLib_Tuple(0, 2))
-	$segments.push_back($names)
+	$sentences.Add("Davis King is the main author of the dlib Library")
+	$names.Add(_DLib_Tuple(0, 2))
+	$segments.Add($names)
 	$names.clear()
 
-	$sentences.push_back("Bob Jones is a name and so is George Clinton")
-	$names.push_back(_DLib_Tuple(0, 2))
-	$names.push_back(_DLib_Tuple(8, 10))
-	$segments.push_back($names)
+	$sentences.Add("Bob Jones is a name and so is George Clinton")
+	$names.Add(_DLib_Tuple(0, 2))
+	$names.Add(_DLib_Tuple(8, 10))
+	$segments.Add($names)
 	$names.clear()
 
-	$sentences.push_back("My dog is named Bob Barker")
-	$names.push_back(_DLib_Tuple(4, 6))
-	$segments.push_back($names)
+	$sentences.Add("My dog is named Bob Barker")
+	$names.Add(_DLib_Tuple(4, 6))
+	$segments.Add($names)
 	$names.clear()
 
-	$sentences.push_back("ABC is an acronym but John James Smith is a name")
-	$names.push_back(_DLib_Tuple(5, 8))
-	$segments.push_back($names)
+	$sentences.Add("ABC is an acronym but John James Smith is a name")
+	$names.Add(_DLib_Tuple(5, 8))
+	$segments.Add($names)
 	$names.clear()
 
-	$sentences.push_back("No names in this sentence at all")
-	$segments.push_back($names)
+	$sentences.Add("No names in this sentence at all")
+	$segments.Add($names)
 	$names.clear()
 
 
@@ -70,14 +70,14 @@ Func Example()
 		$training_sequences = _Dlib_sparse_vectorss()
 		For $i = 0 To $sentences.size() - 1
 			$s = $sentences.at($i)
-			$training_sequences.push_back(sentence_to_sparse_vectors($s))
+			$training_sequences.Add(sentence_to_sparse_vectors($s))
 		Next
 	Else
 		; Make an array of arrays of dlib.vector objects.
 		$training_sequences = _Dlib_vectorss()
 		For $i = 0 To $sentences.size() - 1
 			$s = $sentences.at($i)
-			$training_sequences.push_back(sentence_to_vectors($s))
+			$training_sequences.Add(sentence_to_vectors($s))
 		Next
 	EndIf
 
@@ -156,9 +156,9 @@ Func sentence_to_vectors($sentence)
 		; single feature is 1 if the first letter of the word is capitalized and
 		; 0 otherwise.
 		If StringIsUpper(StringMid($word, 1, 1)) Then
-			$vects.push_back(_Dlib_vector(_DLib_Tuple(1)))
+			$vects.Add(_Dlib_vector(_DLib_Tuple(1)))
 		Else
-			$vects.push_back(_Dlib_vector(_DLib_Tuple(0)))
+			$vects.Add(_Dlib_vector(_DLib_Tuple(0)))
 		EndIf
 	Next
 	Return $vects
@@ -178,7 +178,7 @@ Func sentence_to_sparse_vectors($sentence)
 	Local $has_cap = _Dlib_sparse_vector()
 	Local $no_cap = _Dlib_sparse_vector()
 	; make has_cap equivalent to dlib.vector([1])
-	$has_cap.push_back(_DLib_Tuple(0, 1))
+	$has_cap.Add(_DLib_Tuple(0, 1))
 
 	; Since we didn't add anything to no_cap it is equivalent to
 	; dlib.vector([0])
@@ -187,9 +187,9 @@ Func sentence_to_sparse_vectors($sentence)
 	For $i = 1 To $words[0]
 		$word = $words[$i]
 		If StringIsUpper(StringMid($word, 1, 1)) Then
-			$vects.push_back($has_cap)
+			$vects.Add($has_cap)
 		Else
-			$vects.push_back($no_cap)
+			$vects.Add($no_cap)
 		EndIf
 	Next
 	Return $vects
@@ -197,9 +197,8 @@ EndFunc   ;==>sentence_to_sparse_vectors
 
 Func print_segment($sentence, $names)
 	Local $words = StringSplit($sentence, " ")
-	Local $name, $i
-	For $k = 0 To UBound($names) - 1
-		$name = $names[$k]
+	Local $i
+	For $name In $names
 		For $i = $name[0] To ($name[1] - 1)
 			ConsoleWrite($words[$i + 1] & " ")
 		Next

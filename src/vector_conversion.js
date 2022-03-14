@@ -1,8 +1,24 @@
 const _generate = function(iglobal, iidl, impl, ipublic, iprivate, idnames, id, is_test, options) {
+    const coclass = this;
+    const cotype = coclass.getClassName();
+
     iidl.push(`
         [propget, id(${ ++id })] HRESULT Count([out, retval] long* plNumber);
         [propget, id(DISPID_VALUE)] HRESULT Item([in] long vIndex, [out, retval] VARIANT* pvItem);
+        [propput, id(DISPID_VALUE)] HRESULT Item([in] long vIndex, [in] VARIANT* pvItem);
         [propget, restricted, id(DISPID_NEWENUM)] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+    `.replace(/^ {8}/mg, "").trim());
+
+    ipublic.push(`
+        STDMETHOD(put_Item)(_In_ long vIndex, _In_ VARIANT* pvItem);
+    `.replace(/^ {8}/mg, "").trim());
+
+    impl.push(`
+        HRESULT C${ cotype }::put_Item(_In_ long vIndex, _In_ VARIANT* pvItem) {
+            ${ coclass.idltype }* out_val = NULL;
+            _variant_t in_val(vIndex);
+            return at(&in_val, pvItem, out_val);
+        }
     `.replace(/^ {8}/mg, "").trim());
 };
 
@@ -51,6 +67,14 @@ exports.declare = (generator, type, parent, options = {}) => {
         [vtype, "value", "", []],
     ], "", ""]);
 
+    coclass.addMethod([`${ fqn }.push_back`, "void", ["=Add"], [
+        [vtype, "value", "", []],
+    ], "", ""]);
+
+    coclass.addMethod([`${ fqn }.erase`, "void", ["=Remove"], [
+        ["size_t", "index", "", ["/Expr=std::next(this->__self->get()->begin() + index)"]],
+    ], "", ""]);
+
     coclass.addMethod([`${ fqn }.at`, vtype, [], [
         ["size_t", "index", "", []],
     ], "", ""]);
@@ -96,8 +120,9 @@ exports.declare = (generator, type, parent, options = {}) => {
 
     // make vector to be recognized as a collection
     const cotype = coclass.getClassName();
-    const CIntEnum = `CComEnumOnSTL<IEnumVARIANT, &IID_IEnumVARIANT, VARIANT, autoit::GenericCopy<${ coclass.cpptype }>, ${ fqn }>`;
-    const IIntCollection = `AutoItCollectionOnSTLImpl<I${ cotype }, ${ fqn }, VARIANT, autoit::GenericCopy<${ coclass.cpptype }>, ${ CIntEnum }>`;
+    const _Copy = `autoit::GenericCopy<${ coclass.cpptype }>`;
+    const CIntEnum = `CComEnumOnSTL<IEnumVARIANT, &IID_IEnumVARIANT, VARIANT, ${ _Copy }, ${ fqn }>`;
+    const IIntCollection = `AutoItCollectionOnSTLImpl<I${ cotype }, ${ fqn }, VARIANT, ${ _Copy }, ${ CIntEnum }>`;
 
     coclass.dispimpl = IIntCollection;
     coclass.generate = _generate;

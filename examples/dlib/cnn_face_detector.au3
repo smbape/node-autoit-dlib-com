@@ -32,10 +32,10 @@ Func Example()
 
 	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $DLIB_SAMPLES_FACES_PATH)
 
-	Local $f, $img, $dets, $d, $rects
+	Local $img, $dets, $rects, $d
 
-	For $j = 0 To UBound($aFiles) - 1
-		$f = $DLIB_SAMPLES_FACES_PATH & "\" & $aFiles[$j]
+	For $f In $aFiles
+		$f = $DLIB_SAMPLES_FACES_PATH & "\" & $f
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)
@@ -53,10 +53,10 @@ Func Example()
 		This detector returns a mmod_rectangles object. This object contains a list of mmod_rectangle objects.
 		These objects can be accessed by simply iterating over the mmod_rectangles object
 		The mmod_rectangle object has two member variables, a dlib.rectangle object, and a confidence score.
-		
+
 		It is also possible to pass a list of images to the detector.
 			- like this: dets = cnn_face_detector([image list], upsample_num, batch_size = 128)
-		
+
 		In this case it will return a mmod_rectangless object.
 		This object behaves just like a list of lists and can be iterated over.
 		#ce
@@ -68,9 +68,8 @@ Func Example()
 		Next
 
 		$rects = _Dlib_ObjCreate("VectorOfRectangle")
-		For $i = 0 To UBound($dets) - 1
-			$d = $dets[$i]
-			$rects.push_back($d.rect)
+		For $d In $dets
+			$rects.Add($d.rect)
 		Next
 
 		$win.add_overlay($rects)

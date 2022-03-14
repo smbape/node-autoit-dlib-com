@@ -26,10 +26,10 @@ Func Example()
 
 	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $DLIB_SAMPLES_FACES_PATH)
 
-	Local $f, $img, $dets, $d, $scores, $idx
+	Local $img, $dets, $d, $scores, $idx
 
-	For $j = 0 To UBound($aFiles) - 1
-		$f = $DLIB_SAMPLES_FACES_PATH & "\" & $aFiles[$j]
+	For $f In $aFiles
+		$f = $DLIB_SAMPLES_FACES_PATH & "\" & $f
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)
@@ -64,8 +64,7 @@ Func Example()
 		$dets = $dlib.extended[0]
 		$scores = $dlib.extended[1]
 		$idx = $dlib.extended[2]
-		For $i = 0 To UBound($dets) - 1
-			$d = $dets[$i]
+		For $d In $dets
 			ConsoleWrite(StringFormat("Detection %s, score: %f, face_type: %d" & @CRLF, _
 					$d.ToString(), $scores[$i], $idx[$i]))
 		Next

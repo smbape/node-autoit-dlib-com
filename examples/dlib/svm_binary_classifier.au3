@@ -25,10 +25,10 @@ Func Example()
 	; Make a training dataset.  Here we have just two training examples.  Normally
 	; you would use a much larger training dataset, but for the purpose of example
 	; this is plenty.  For binary classification, the y labels should all be either +1 or -1.
-	$x.push_back(_Dlib_vector(_Dlib_Tuple(1, 2, 3, -1, -2, -3)))
+	$x.Add(_Dlib_vector(_Dlib_Tuple(1, 2, 3, -1, -2, -3)))
 	_ArrayAdd($y, +1)
 
-	$x.push_back(_Dlib_vector(_Dlib_Tuple(-1, -2, -3, 1, 2, 3)))
+	$x.Add(_Dlib_vector(_Dlib_Tuple(-1, -2, -3, 1, 2, 3)))
 	_ArrayAdd($y, -1)
 
 

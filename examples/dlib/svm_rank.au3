@@ -27,8 +27,8 @@ Func Example()
 	Local $data = _Dlib_ranking_pair()
 	; Here we add two examples.  In real applications, you would want lots of
 	; examples of relevant and non-relevant vectors.
-	$data.relevant.push_back(_Dlib_vector(_Dlib_Tuple(1, 0)))
-	$data.nonrelevant.push_back(_Dlib_vector(_Dlib_Tuple(0, 1)))
+	$data.relevant.Add(_Dlib_vector(_Dlib_Tuple(1, 0)))
+	$data.nonrelevant.Add(_Dlib_vector(_Dlib_Tuple(0, 1)))
 
 	; Now that we have some data, we can use a machine learning method to learn a
 	; function that will give high scores to the relevant vectors and low scores to
@@ -87,10 +87,10 @@ Func Example()
 	; relevant/non-relevant sets for a particular query.  An example is shown below
 	; (for simplicity, we reuse our data from above to make 4 identical "queries").
 	Local $queries = _Dlib_ranking_pairs()
-	$queries.push_back($data)
-	$queries.push_back($data)
-	$queries.push_back($data)
-	$queries.push_back($data)
+	$queries.Add($data)
+	$queries.Add($data)
+	$queries.Add($data)
+	$queries.Add($data)
 
 	; We can train just as before.
 	$rank = $trainer.train($queries)
@@ -120,13 +120,13 @@ Func Example()
 	; increasing order and no index value shows up more than once.  If necessary,
 	; you can use the dlib.make_sparse_vector() routine to make a sparse vector
 	; object properly sorted and contain unique indices.
-	$samp.push_back(_DLib_Tuple(0, 1))
-	$data.relevant.push_back($samp)
+	$samp.Add(_DLib_Tuple(0, 1))
+	$data.relevant.Add($samp)
 
 	; Now make samp represent the same vector as dlib.vector([0, 1])
 	$samp.clear()
-	$samp.push_back(_DLib_Tuple(1, 1))
-	$data.nonrelevant.push_back($samp)
+	$samp.Add(_DLib_Tuple(1, 1))
+	$data.nonrelevant.Add($samp)
 
 	$trainer = _Dlib_ObjCreate("svm_rank_trainer_sparse")
 	$rank = $trainer.train($data)

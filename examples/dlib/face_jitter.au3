@@ -41,13 +41,10 @@ Func Example()
 	; Ask the detector to find the bounding boxes of each face.
 	Local $dets = $detector.call($img)
 
-	Local $num_faces = UBound($dets)
-
 	; Find the 5 face landmarks we need to do the alignment.
 	Local $faces = _Dlib_ObjCreate("VectorOfFull_object_detection")
-	For $i = 0 To $num_faces - 1
-		Local $detection = $dets[$i]
-		$faces.push_back($sp.call($img, $detection))
+	For $detection In $dets
+		$faces.Add($sp.call($img, $detection))
 	Next
 
 	; Get the aligned face image and show it

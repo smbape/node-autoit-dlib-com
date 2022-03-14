@@ -35,10 +35,10 @@ Func Example()
 
 	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $faces_folder_path)
 
-	Local $f, $img, $dets, $d, $shape
+	Local $img, $dets, $d, $shape
 
-	For $j = 0 To UBound($aFiles) - 1
-		$f = $faces_folder_path & "\" & $aFiles[$j]
+	For $f In $aFiles
+		$f = $faces_folder_path & "\" & $f
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)

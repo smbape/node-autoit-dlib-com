@@ -49,10 +49,10 @@ Func Example()
 	; Now find all the faces and compute 128D face descriptors for each face.
 	Local Const $aFiles = _Dlib_FindFiles("*.jpg", $faces_folder_path)
 
-	Local $f, $img, $dets, $d, $shape, $face_descriptor
+	Local $img, $dets, $d, $shape, $face_descriptor
 
-	For $k = 0 To UBound($aFiles) - 1
-		$f = $faces_folder_path & "\" & $aFiles[$k]
+	For $f In $aFiles
+		$f = $faces_folder_path & "\" & $f
 		ToolTip("Processing file: " & $f, 0, 0)
 		ConsoleWrite("Processing file: " & $f & @CRLF)
 		$img = $dlib.load_rgb_image($f)
@@ -64,16 +64,15 @@ Func Example()
 		ConsoleWrite("Number of faces detected: " & UBound($dets) & @CRLF)
 
 		; Now process each face we found.
-		For $i = 0 To UBound($dets) - 1
-			$d = $dets[$i]
+		For $d In $dets
 			; Get the landmarks/parts for the face in box d.
 			$shape = $sp.call($img, $d)
 
 			; Compute the 128D vector that describes the face in img identified by
 			; shape.
 			$face_descriptor = $facerec.compute_face_descriptor($img, $shape)
-			$descriptors.push_back($face_descriptor)
-			$images.push_back(_DLib_Tuple($img, $shape))
+			$descriptors.Add($face_descriptor)
+			$images.Add(_DLib_Tuple($img, $shape))
 		Next
 	Next
 

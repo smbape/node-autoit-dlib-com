@@ -1,5 +1,34 @@
 const Properties = require("./Properties");
 
+const _generate = function(iglobal, iidl, impl, ipublic, iprivate, idnames, id, is_test, options) {
+    const coclass = this;
+    const cotype = coclass.getClassName();
+    const {idltype_key, idltype_value} = coclass;
+
+    iidl.push(`
+        [propget, id(DISPID_VALUE)] HRESULT Item([in] VARIANT* vKey, [out, retval] VARIANT* pvItem);
+        [propput, id(DISPID_VALUE)] HRESULT Item([in] VARIANT* vKey, [in] VARIANT* pvItem);
+        [propget, restricted, id(DISPID_NEWENUM)] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
+    `.replace(/^ {8}/mg, "").trim());
+
+    ipublic.push(`
+        STDMETHOD(get_Item)(_In_ VARIANT* vKey, _In_ VARIANT* pvItem);
+        STDMETHOD(put_Item)(_In_ VARIANT* vKey, _In_ VARIANT* pvItem);
+    `.replace(/^ {8}/mg, "").trim());
+
+    impl.push(`
+        HRESULT C${ cotype }::get_Item(_In_ VARIANT* vKey, _Out_ VARIANT* pvItem) {
+            ${ idltype_value }* out_val = NULL;
+            HRESULT hr = Get(vKey, out_val);
+            autoit_from(out_val, pvItem);
+            return hr;
+        }
+        HRESULT C${ cotype }::put_Item(_In_ VARIANT* vKey, _In_ VARIANT* pvItem) {
+            return Add(vKey, pvItem);
+        }
+    `.replace(/^ {8}/mg, "").trim());
+};
+
 exports.declare = (generator, type, parent, options = {}) => {
     const cpptype = generator.getCppType(type, parent, options);
 
@@ -37,7 +66,7 @@ exports.declare = (generator, type, parent, options = {}) => {
     ], "", ""]);
 
     // Element access
-    coclass.addMethod([`${ fqn }.at`, value_type, ["=get"], [
+    coclass.addMethod([`${ fqn }.at`, value_type, ["=Get"], [
         [key_type, "key", "", []],
     ], "", ""]);
 
@@ -53,7 +82,7 @@ exports.declare = (generator, type, parent, options = {}) => {
     // Modifiers
     coclass.addMethod([`${ fqn }.clear`, "void", [], [], "", ""]);
 
-    coclass.addMethod([`${ fqn }.insert_or_assign`, "void", ["=set"], [
+    coclass.addMethod([`${ fqn }.insert_or_assign`, "void", ["=Add"], [
         [key_type, "key", "", []],
         [value_type, "value", "", []],
     ], "", ""]);
@@ -62,7 +91,7 @@ exports.declare = (generator, type, parent, options = {}) => {
         [key_type, "key", "", []],
     ], "", ""]);
 
-    coclass.addMethod([`${ fqn }.erase`, "size_t", ["=remove"], [
+    coclass.addMethod([`${ fqn }.erase`, "size_t", ["=Remove"], [
         [key_type, "key", "", []],
     ], "", ""]);
 
@@ -82,6 +111,15 @@ exports.declare = (generator, type, parent, options = {}) => {
     coclass.addMethod([`${ fqn }.contains`, "bool", ["=has"], [
         [key_type, "key", "", []],
     ], "", ""]);
+
+    // make map to be recognized as a collection
+    const cotype = coclass.getClassName();
+    const _Copy = `autoit::GenericCopy<std::pair<const ${ key_type }, ${ value_type }>>`;
+    const CIntEnum = `CComEnumOnSTL<IEnumVARIANT, &IID_IEnumVARIANT, VARIANT, ${ _Copy }, ${ fqn }>`;
+    const IIntCollection = `AutoItCollectionEnumOnSTLImpl<I${ cotype }, ${ fqn }, ${ CIntEnum }>`;
+
+    coclass.dispimpl = IIntCollection;
+    coclass.generate = _generate;
 
     return fqn;
 };

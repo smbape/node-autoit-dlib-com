@@ -43,28 +43,24 @@ Func Example()
 	; will make everything bigger and allow us to detect more faces.
 	Local $dets = $detector.call($img, 1)
 
-	Local $num_faces = UBound($dets)
-	If $num_faces == 0 Then
+	If UBound($dets) == 0 Then
 		ConsoleWrite("Sorry, there were no faces found in '" & $face_file_path & "'")
 		Return
 	EndIf
 
 	; Find the 5 face landmarks we need to do the alignment.
 	Local $faces = _Dlib_ObjCreate("VectorOfFull_object_detection")
-	For $i = 0 To UBound($dets) - 1
-		Local $detection = $dets[$i]
-		$faces.push_back($sp.call($img, $detection))
+	For $detection In $dets
+		$faces.Add($sp.call($img, $detection))
 	Next
 
 	Local $window = _Dlib_ObjCreate("image_window")
-	Local $image
 
 	; Get the aligned face images
 	; Optionally:
 	; images = dlib.get_face_chips(img, faces, size=160, padding=0.25)
 	Local $images = $dlib.get_face_chips($img, $faces, 320)
-	For $i = 0 To UBound($images) - 1
-		$image = $images[$i]
+	For $image In $images
 		$window.set_image($image)
 		hit_to_continue()
 	Next
