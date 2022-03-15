@@ -1,31 +1,26 @@
-const Properties = require("./Properties");
+const FunctionDeclaration = require("./FunctionDeclaration");
+const PropertyDeclaration = require("./PropertyDeclaration");
 
-const _generate = function(iglobal, iidl, impl, ipublic, iprivate, idnames, id, is_test, options) {
+const _generate = function(generator, iglobal, iidl, impl, ipublic, iprivate, idnames, id, is_test, options) {
     const coclass = this;
     const cotype = coclass.getClassName();
-    const {idltype_key, idltype_value} = coclass;
+    const {key_type, value_type} = coclass;
+
+    FunctionDeclaration.declare(generator, coclass, [
+        [`${ coclass.fqn }.at`, value_type, ["/attr=propget", "=get_Item"], [
+            [key_type, "vKey", "", []],
+        ], "", ""]
+    ], "get_Item", "Item", "DISPID_VALUE", iidl, ipublic, impl, is_test, options);
+
+    FunctionDeclaration.declare(generator, coclass, [
+        [`${ coclass.fqn }.insert_or_assign`, "void", ["/attr=propput", "=put_Item"], [
+            [key_type, "vKey", "", []],
+            [value_type, "vItem", "", []],
+        ], "", ""]
+    ], "put_Item", "Item", "DISPID_VALUE", iidl, ipublic, impl, is_test, options);
 
     iidl.push(`
-        [propget, id(DISPID_VALUE)] HRESULT Item([in] VARIANT* vKey, [out, retval] VARIANT* pvItem);
-        [propput, id(DISPID_VALUE)] HRESULT Item([in] VARIANT* vKey, [in] VARIANT* pvItem);
         [propget, restricted, id(DISPID_NEWENUM)] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
-    `.replace(/^ {8}/mg, "").trim());
-
-    ipublic.push(`
-        STDMETHOD(get_Item)(_In_ VARIANT* vKey, _In_ VARIANT* pvItem);
-        STDMETHOD(put_Item)(_In_ VARIANT* vKey, _In_ VARIANT* pvItem);
-    `.replace(/^ {8}/mg, "").trim());
-
-    impl.push(`
-        HRESULT C${ cotype }::get_Item(_In_ VARIANT* vKey, _Out_ VARIANT* pvItem) {
-            ${ idltype_value }* out_val = NULL;
-            HRESULT hr = Get(vKey, out_val);
-            autoit_from(out_val, pvItem);
-            return hr;
-        }
-        HRESULT C${ cotype }::put_Item(_In_ VARIANT* vKey, _In_ VARIANT* pvItem) {
-            return Add(vKey, pvItem);
-        }
     `.replace(/^ {8}/mg, "").trim());
 };
 
@@ -46,7 +41,7 @@ exports.declare = (generator, type, parent, options = {}) => {
         return fqn;
     }
 
-    const [key_type, value_type] = Properties.getTupleTypes(type.slice("map<".length, -">".length));
+    const [key_type, value_type] = PropertyDeclaration.getTupleTypes(type.slice("map<".length, -">".length));
     const coclass = generator.getCoClass(fqn);
     generator.typedefs.set(fqn, cpptype);
 
@@ -119,7 +114,7 @@ exports.declare = (generator, type, parent, options = {}) => {
     const IIntCollection = `AutoItCollectionEnumOnSTLImpl<I${ cotype }, ${ fqn }, ${ CIntEnum }>`;
 
     coclass.dispimpl = IIntCollection;
-    coclass.generate = _generate;
+    coclass.generate = _generate.bind(coclass, generator);
 
     return fqn;
 };

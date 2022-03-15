@@ -1,24 +1,26 @@
-const _generate = function(iglobal, iidl, impl, ipublic, iprivate, idnames, id, is_test, options) {
-    const coclass = this;
+const FunctionDeclaration = require("./FunctionDeclaration");
+
+const _generate = function(generator, iglobal, iidl, impl, ipublic, iprivate, idnames, id, is_test, options) {
+    const coclass = this; // eslint-disable-line no-invalid-this
     const cotype = coclass.getClassName();
+    const { idltype, cpptype } = coclass;
+    const byref = cpptype !== "void*" && cpptype !== "uchar*" && (idltype === "VARIANT" || idltype[0] === "I");
+
+    FunctionDeclaration.declare(generator, coclass, [
+        [`${ coclass.fqn }.at`, cpptype, ["/attr=propget", "=get_Item"], [
+            ["size_t", "vIndex", "", []],
+        ], "", ""]
+    ], "get_Item", "Item", "DISPID_VALUE", iidl, ipublic, impl, is_test, options);
+
+    FunctionDeclaration.declare(generator, coclass, [
+        [`${ coclass.fqn }.at`, "void", ["/attr=propput", "=put_Item", "/ExternalNoDecl"], [
+            ["size_t", "vIndex", "", []],
+            [cpptype, "vItem", "", []],
+        ], "", ""]
+    ], "put_Item", "Item", "DISPID_VALUE", iidl, ipublic, impl, is_test, options);
 
     iidl.push(`
-        [propget, id(${ ++id })] HRESULT Count([out, retval] long* plNumber);
-        [propget, id(DISPID_VALUE)] HRESULT Item([in] long vIndex, [out, retval] VARIANT* pvItem);
-        [propput, id(DISPID_VALUE)] HRESULT Item([in] long vIndex, [in] VARIANT* pvItem);
         [propget, restricted, id(DISPID_NEWENUM)] HRESULT _NewEnum([out, retval] IUnknown** ppUnk);
-    `.replace(/^ {8}/mg, "").trim());
-
-    ipublic.push(`
-        STDMETHOD(put_Item)(_In_ long vIndex, _In_ VARIANT* pvItem);
-    `.replace(/^ {8}/mg, "").trim());
-
-    impl.push(`
-        HRESULT C${ cotype }::put_Item(_In_ long vIndex, _In_ VARIANT* pvItem) {
-            ${ coclass.idltype }* out_val = NULL;
-            _variant_t in_val(vIndex);
-            return at(&in_val, pvItem, out_val);
-        }
     `.replace(/^ {8}/mg, "").trim());
 };
 
@@ -49,6 +51,8 @@ exports.declare = (generator, type, parent, options = {}) => {
     coclass.is_vector = true;
     coclass.cpptype = cpptype.slice("std::vector<".length, -">".length);
     coclass.idltype = generator.getIDLType(vtype, coclass, options);
+
+    coclass.addProperty(["size_t", `Count`, "", ["/R", `=size()`]]);
 
     coclass.addMethod([`${ fqn }.${ coclass.name }`, "", [], [], "", ""]);
 
@@ -122,10 +126,10 @@ exports.declare = (generator, type, parent, options = {}) => {
     const cotype = coclass.getClassName();
     const _Copy = `autoit::GenericCopy<${ coclass.cpptype }>`;
     const CIntEnum = `CComEnumOnSTL<IEnumVARIANT, &IID_IEnumVARIANT, VARIANT, ${ _Copy }, ${ fqn }>`;
-    const IIntCollection = `AutoItCollectionOnSTLImpl<I${ cotype }, ${ fqn }, VARIANT, ${ _Copy }, ${ CIntEnum }>`;
+    const IIntCollection = `AutoItCollectionEnumOnSTLImpl<I${ cotype }, ${ fqn }, ${ CIntEnum }>`;
 
     coclass.dispimpl = IIntCollection;
-    coclass.generate = _generate;
+    coclass.generate = _generate.bind(coclass, generator);
 
     return fqn;
 };
