@@ -2,9 +2,7 @@ const FunctionDeclaration = require("./FunctionDeclaration");
 
 const _generate = function(generator, iglobal, iidl, impl, ipublic, iprivate, idnames, id, is_test, options) {
     const coclass = this; // eslint-disable-line no-invalid-this
-    const cotype = coclass.getClassName();
-    const { idltype, cpptype } = coclass;
-    const byref = cpptype !== "void*" && cpptype !== "uchar*" && (idltype === "VARIANT" || idltype[0] === "I");
+    const { cpptype } = coclass;
 
     FunctionDeclaration.declare(generator, coclass, [
         [`${ coclass.fqn }.at`, cpptype, ["/attr=propget", "=get_Item"], [
@@ -52,7 +50,7 @@ exports.declare = (generator, type, parent, options = {}) => {
     coclass.cpptype = cpptype.slice("std::vector<".length, -">".length);
     coclass.idltype = generator.getIDLType(vtype, coclass, options);
 
-    coclass.addProperty(["size_t", `Count`, "", ["/R", `=size()`]]);
+    coclass.addProperty(["size_t", "Count", "", ["/R", "=size()"]]);
 
     coclass.addMethod([`${ fqn }.${ coclass.name }`, "", [], [], "", ""]);
 
@@ -126,7 +124,7 @@ exports.declare = (generator, type, parent, options = {}) => {
     const cotype = coclass.getClassName();
     const _Copy = `autoit::GenericCopy<${ coclass.cpptype }>`;
     const CIntEnum = `CComEnumOnSTL<IEnumVARIANT, &IID_IEnumVARIANT, VARIANT, ${ _Copy }, ${ fqn }>`;
-    const IIntCollection = `AutoItCollectionEnumOnSTLImpl<I${ cotype }, ${ fqn }, ${ CIntEnum }>`;
+    const IIntCollection = `AutoItCollectionEnumOnSTLImpl<I${ cotype }, ${ fqn }, ${ CIntEnum }, AutoItObject<${ fqn }>>`;
 
     coclass.dispimpl = IIntCollection;
     coclass.generate = _generate.bind(coclass, generator);

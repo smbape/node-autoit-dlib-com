@@ -20,7 +20,7 @@ const declarations = [
         ["double", "adjust_threshold", "0.0", []],
     ], "", ""],
 
-    ["dlib.fhog_object_detector.call", "void", ["/External"], [
+    ["dlib.fhog_object_detector.call", "void", ["/External", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
         ["cv::Mat", "image", "", []],
         ["vector_rectangle", "rectangles", "", ["/O"]],
         ["vector_double", "detection_confidences", "", ["/O"]],

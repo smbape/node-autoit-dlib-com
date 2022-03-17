@@ -13,11 +13,11 @@ const declarations = [
     ["dlib.rect_filter.typical_acceleration", "double", ["/Call=this->__self->get()->get_left().get_typical_acceleration"], [], "", ""],
     ["dlib.rect_filter.max_measurement_deviation", "double", ["/Call=this->__self->get()->get_left().get_max_measurement_deviation"], [], "", ""],
 
-    ["dlib.rect_filter.call", "drectangle", ["/Call=(*this->__self->get())"], [
+    ["dlib.rect_filter.call", "drectangle", ["/Call=(*this->__self->get())", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
         ["rectangle", "rect", "", []],
     ], "", ""],
 
-    ["dlib.rect_filter.call", "drectangle", ["/Call=(*this->__self->get())"], [
+    ["dlib.rect_filter.call", "drectangle", ["/Call=(*this->__self->get())", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
         ["drectangle", "rect", "", []],
     ], "", ""],
 

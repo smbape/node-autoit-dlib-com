@@ -93,7 +93,7 @@ namespace dlib {
 		CV_WRAP segmenter_type() : mode(-1)
 		{ }
 
-		CV_WRAP_AS(call) ranges segment_sequence_dense(
+		CV_WRAP_AS(get call) ranges segment_sequence_dense(
 			const std::vector<dense_vect>& x
 		) const
 		{
@@ -111,7 +111,7 @@ namespace dlib {
 			}
 		}
 
-		CV_WRAP_AS(call) ranges segment_sequence_sparse(
+		CV_WRAP_AS(get call) ranges segment_sequence_sparse(
 			const std::vector<sparse_vect>& x
 		) const
 		{

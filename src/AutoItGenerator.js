@@ -295,9 +295,17 @@ class AutoItGenerator {
 
                 if (is_idl_class) {
                     if (ARRAY_CLASSES.has(coclass.fqn)) {
-                        bases.push(`public IVariantArrayImpl<${ coclass.fqn }>`);
+                        if (coclass.dispimpl) {
+                            bases[bases.length - 1] = bases[bases.length - 1].replace("AutoItObject", "IVariantArrayImpl");
+                        } else {
+                            bases.push(`public IVariantArrayImpl<${ coclass.fqn }>`);
+                        }
                     } else if (ARRAYS_CLASSES.has(coclass.fqn)) {
-                        bases.push(`public IVariantArraysImpl<${ coclass.fqn }>`);
+                        if (coclass.dispimpl) {
+                            bases[bases.length - 1] = bases[bases.length - 1].replace("AutoItObject", "IVariantArraysImpl");
+                        } else {
+                            bases.push(`public IVariantArraysImpl<${ coclass.fqn }>`);
+                        }
                     } else if (!coclass.dispimpl) {
                         bases.push(`public AutoItObject<${ coclass.fqn }>`);
                     }

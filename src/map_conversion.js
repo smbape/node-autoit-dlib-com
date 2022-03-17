@@ -2,8 +2,7 @@ const FunctionDeclaration = require("./FunctionDeclaration");
 const PropertyDeclaration = require("./PropertyDeclaration");
 
 const _generate = function(generator, iglobal, iidl, impl, ipublic, iprivate, idnames, id, is_test, options) {
-    const coclass = this;
-    const cotype = coclass.getClassName();
+    const coclass = this; // eslint-disable-line no-invalid-this
     const {key_type, value_type} = coclass;
 
     FunctionDeclaration.declare(generator, coclass, [
@@ -111,7 +110,7 @@ exports.declare = (generator, type, parent, options = {}) => {
     const cotype = coclass.getClassName();
     const _Copy = `autoit::GenericCopy<std::pair<const ${ key_type }, ${ value_type }>>`;
     const CIntEnum = `CComEnumOnSTL<IEnumVARIANT, &IID_IEnumVARIANT, VARIANT, ${ _Copy }, ${ fqn }>`;
-    const IIntCollection = `AutoItCollectionEnumOnSTLImpl<I${ cotype }, ${ fqn }, ${ CIntEnum }>`;
+    const IIntCollection = `AutoItCollectionEnumOnSTLImpl<I${ cotype }, ${ fqn }, ${ CIntEnum }, AutoItObject<${ fqn }>>`;
 
     coclass.dispimpl = IIntCollection;
     coclass.generate = _generate.bind(coclass, generator);

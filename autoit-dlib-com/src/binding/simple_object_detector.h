@@ -76,7 +76,7 @@ namespace dlib {
 		}
 	};
 
-	struct CV_EXPORTS_AS(simple_object_detector) simple_object_detector_com
+	struct CV_EXPORTS_W_SIMPLE simple_object_detector_com
 	{
 		CV_WRAP simple_object_detector_com() = default;
 
@@ -90,8 +90,8 @@ namespace dlib {
 
 		CV_WRAP static std::shared_ptr<simple_object_detector_com> create(const std::string & filename);
 
-		CV_WRAP std::vector<rectangle> call(cv::Mat & img, const uint upsampling_amount_);
-		CV_WRAP std::vector<rectangle> call(cv::Mat & img);
+		CV_WRAP_AS(get call) std::vector<rectangle> call(cv::Mat & img, const uint upsampling_amount_);
+		CV_WRAP_AS(get call) std::vector<rectangle> call(cv::Mat & img);
 
 		CV_PROP_RW fhog_object_detector detector;
 		CV_PROP_RW uint upsampling_amount = 0;

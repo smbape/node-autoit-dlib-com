@@ -60,13 +60,13 @@ Func Example()
 		; Ask the detector to find the bounding boxes of each face. The 1 in the
 		; second argument indicates that we should upsample the image 1 time. This
 		; will make everything bigger and allow us to detect more faces.
-		$dets = $detector.call($img, 1)
+		$dets = $detector($img, 1)
 		ConsoleWrite("Number of faces detected: " & UBound($dets) & @CRLF)
 
 		; Now process each face we found.
 		For $d In $dets
 			; Get the landmarks/parts for the face in box d.
-			$shape = $sp.call($img, $d)
+			$shape = $sp($img, $d)
 
 			; Compute the 128D vector that describes the face in img identified by
 			; shape.
@@ -114,7 +114,7 @@ Func Example()
 	Local $index, $tuple, $file_path
 	For $i = 0 To UBound($indices) - 1
 		$index = $indices[$i]
-		$tuple = $images.at($index)
+		$tuple = $images($index)
 
 		$img = $tuple[0]
 		$shape = $tuple[1]

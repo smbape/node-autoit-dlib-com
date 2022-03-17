@@ -25,7 +25,7 @@ module.exports = [
         ["string", "filename", "", []],
     ], "", ""],
 
-    ["dlib.shape_predictor.call", "full_object_detection", ["/Call=dlib::run_predictor", "/Expr=*this->__self->get(), $0"], [
+    ["dlib.shape_predictor.call", "full_object_detection", ["/Call=dlib::run_predictor", "/Expr=*this->__self->get(), $0", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
         ["Mat", "img", "", []],
         ["rectangle", "box", "", []],
     ], "", ""],

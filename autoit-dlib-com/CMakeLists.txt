@@ -17,7 +17,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(PROJECT_BUILD_STEPS_FILE "${CMAKE_CURRENT_SOURCE_DIR}/project_build_steps.cmake")
-set(DLIB_PATCH_FILE "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-src.patch")
 
 add_compile_options(/MP)
 
@@ -26,7 +25,7 @@ include(FetchContent)
 FetchContent_Declare(dlib
    GIT_REPOSITORY https://github.com/davisking/dlib.git
    GIT_TAG        v19.23
-   PATCH_COMMAND  "${CMAKE_COMMAND}" -DBUILD_STEP=patch "-DPATCH_FILE=${DLIB_PATCH_FILE}" -P "${PROJECT_BUILD_STEPS_FILE}"
+   PATCH_COMMAND  "${CMAKE_COMMAND}" -DBUILD_STEP=patch "-DPATCH_FILE=${CMAKE_CURRENT_SOURCE_DIR}/patches/001-dlib-src.patch" -P "${PROJECT_BUILD_STEPS_FILE}"
 )
 FetchContent_Populate(dlib)
 
@@ -62,11 +61,20 @@ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15/opencv/sour
   execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15.exe -o${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15 -y)
 endif()
 
+execute_process(
+    COMMAND patch -p 1 -d ${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15/opencv/sources/ -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-opencv-src.patch" -R --dry-run
+    RESULT_VARIABLE ret
+    ERROR_QUIET
+)
+if(NOT ${ret} EQUAL "0")
+    execute_process(COMMAND patch -p 1 -d ${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15/opencv/sources/ -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-opencv-src.patch")
+endif()
+
 # Tell cmake we will need autoit-opencv-com. These command will pull in opencv.
 include(ExternalProject)
 ExternalProject_Add(autoit-opencv-com
-  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v1.4.0-rc.0/autoit-opencv-4.5.5-com-v1.4.0-rc.0.7z
-  URL_HASH          SHA256=b2930d137ac80c09fe76983180151632b1bc76796860ee83d6fd06be1e0cac23
+  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v1.5.0-rc.0/autoit-opencv-4.5.5-com-v1.5.0-rc.0.7z
+  URL_HASH          SHA256=a6784270f4411cc462ce7575a283a85b83c87b8bc356c8f9bdf4e2928cb4239e
   DOWNLOAD_NO_EXTRACT TRUE
   DOWNLOAD_DIR      ${CMAKE_CURRENT_SOURCE_DIR}/..
   CONFIGURE_COMMAND ""
@@ -75,7 +83,7 @@ ExternalProject_Add(autoit-opencv-com
 )
 
 if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com/autoit_opencv_com455d.pdb")
-  execute_process(COMMAND 7z x ${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-4.5.5-com-v1.4.0-rc.0.7z -aoa -o${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com -y)
+  execute_process(COMMAND 7z x ${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-4.5.5-com-v1.5.0-rc.0.7z -aoa -o${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com -y)
 endif()
 
 # Library directories

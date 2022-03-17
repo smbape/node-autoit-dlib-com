@@ -47,9 +47,9 @@ Func Example()
 	; particular, the ranking score for relevant vectors should be larger than the
 	; score for non-relevant vectors.
 	ConsoleWrite("Ranking score for a relevant vector:     " & _
-			$rank.call($data.relevant.at(0)) & @CRLF)
+			$rank($data.relevant(0)) & @CRLF)
 	ConsoleWrite("Ranking score for a non-relevant vector: " & _
-			$rank.call($data.nonrelevant.at(0)) & @CRLF)
+			$rank($data.nonrelevant(0)) & @CRLF)
 	; The output is the following:
 	;    ranking score for a relevant vector:     0.5
 	;    ranking score for a non-relevant vector: -0.5
@@ -131,9 +131,9 @@ Func Example()
 	$trainer = _Dlib_ObjCreate("svm_rank_trainer_sparse")
 	$rank = $trainer.train($data)
 	ConsoleWrite("Ranking score for a relevant vector:     " & _
-			$rank.call($data.relevant.at(0)) & @CRLF)
+			$rank($data.relevant(0)) & @CRLF)
 	ConsoleWrite("Ranking score for a non-relevant vector: " & _
-			$rank.call($data.nonrelevant.at(0)) & @CRLF)
+			$rank($data.nonrelevant(0)) & @CRLF)
 	; Just as before, the output is the following:
 	;    ranking score for a relevant vector:     0.5
 	;    ranking score for a non-relevant vector: -0.5

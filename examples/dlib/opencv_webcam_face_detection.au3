@@ -34,7 +34,7 @@ Func Example()
 
 	While True
 		If $cam.read($img) Then
-			$dets = $detector.call($img)
+			$dets = $detector($img)
 
 			For $det In $dets
 				$cv.rectangle($img, _OpenCV_Tuple($det.left(), $det.top()), _OpenCV_Tuple($det.right(), $det.bottom()), $color_green, $line_width)

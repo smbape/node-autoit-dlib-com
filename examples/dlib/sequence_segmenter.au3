@@ -68,15 +68,13 @@ Func Example()
 	If $use_sparse_vects Then
 		; Make an array of arrays of dlib.sparse_vector objects.
 		$training_sequences = _Dlib_sparse_vectorss()
-		For $i = 0 To $sentences.size() - 1
-			$s = $sentences.at($i)
+		For $s In $sentences
 			$training_sequences.Add(sentence_to_sparse_vectors($s))
 		Next
 	Else
 		; Make an array of arrays of dlib.vector objects.
 		$training_sequences = _Dlib_vectorss()
-		For $i = 0 To $sentences.size() - 1
-			$s = $sentences.at($i)
+		For $s In $sentences
 			$training_sequences.Add(sentence_to_vectors($s))
 		Next
 	EndIf
@@ -102,9 +100,9 @@ Func Example()
 	; Let's print out the things the model thinks are names.  The output is a set
 	; of ranges which are predicted to contain names.  If you run this example
 	; program you will see that it gets them all correct.
-	For $i = 0 To $sentences.size() - 1
-		$s = $sentences.at($i)
-		print_segment($s, $model.call($training_sequences.at($i)))
+	For $i = 0 To $sentences.Count - 1
+		$s = $sentences($i)
+		print_segment($s, $model($training_sequences($i)))
 	Next
 
 	; Let's also try segmenting a new sentence.  This will print out "Bob Bucket".
@@ -113,9 +111,9 @@ Func Example()
 	Local $test_sentence = "There once was a man from Nantucket " & _
 			"whose name rhymed with Bob Bucket"
 	If $use_sparse_vects Then
-		print_segment($test_sentence, $model.call(sentence_to_sparse_vectors($test_sentence)))
+		print_segment($test_sentence, $model(sentence_to_sparse_vectors($test_sentence)))
 	Else
-		print_segment($test_sentence, $model.call(sentence_to_vectors($test_sentence)))
+		print_segment($test_sentence, $model(sentence_to_vectors($test_sentence)))
 	EndIf
 
 	; We can also measure the accuracy of a model relative to some labeled data.

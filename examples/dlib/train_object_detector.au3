@@ -95,7 +95,7 @@ Func Example()
 		$win.clear_overlay()
 		$win.set_image($img)
 
-		$dets = $detector.call($img)
+		$dets = $detector($img)
 		ConsoleWrite("Number of faces detected: " & UBound($dets) & @CRLF)
 
 		For $k = 0 To UBound($dets) - 1

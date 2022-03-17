@@ -39,16 +39,16 @@ Func Example()
 	Local $img = $dlib.load_rgb_image($face_file_path)
 
 	; Ask the detector to find the bounding boxes of each face.
-	Local $dets = $detector.call($img)
+	Local $dets = $detector($img)
 
 	; Find the 5 face landmarks we need to do the alignment.
 	Local $faces = _Dlib_ObjCreate("VectorOfFull_object_detection")
 	For $detection In $dets
-		$faces.Add($sp.call($img, $detection))
+		$faces.Add($sp($img, $detection))
 	Next
 
 	; Get the aligned face image and show it
-	Local $image = $dlib.get_face_chip($img, $faces.at(0), 320)
+	Local $image = $dlib.get_face_chip($img, $faces(0), 320)
 	Local $window = _Dlib_ObjCreate("image_window")
 	$window.set_image($image)
 	hit_to_continue("get_face_chip: ")

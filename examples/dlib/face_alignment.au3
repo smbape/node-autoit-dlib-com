@@ -41,7 +41,7 @@ Func Example()
 	; Ask the detector to find the bounding boxes of each face. The 1 in the
 	; second argument indicates that we should upsample the image 1 time. This
 	; will make everything bigger and allow us to detect more faces.
-	Local $dets = $detector.call($img, 1)
+	Local $dets = $detector($img, 1)
 
 	If UBound($dets) == 0 Then
 		ConsoleWrite("Sorry, there were no faces found in '" & $face_file_path & "'")
@@ -51,7 +51,7 @@ Func Example()
 	; Find the 5 face landmarks we need to do the alignment.
 	Local $faces = _Dlib_ObjCreate("VectorOfFull_object_detection")
 	For $detection In $dets
-		$faces.Add($sp.call($img, $detection))
+		$faces.Add($sp($img, $detection))
 	Next
 
 	Local $window = _Dlib_ObjCreate("image_window")
@@ -66,7 +66,7 @@ Func Example()
 	Next
 
 	; It is also possible to get a single chip
-	$image = $dlib.get_face_chip($img, $faces.at(0))
+	$image = $dlib.get_face_chip($img, $faces(0))
 	$window.set_image($image)
 	hit_to_continue()
 

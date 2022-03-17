@@ -5,7 +5,7 @@ const add_linear_df = (declarations, function_type, sample_type, scalar_type = "
             [scalar_type, "bias", "", ["/RW", "/External"]],
         ], "", ""],
 
-        [`dlib.${ function_type }.call`, "double", ["/External"], [
+        [`dlib.${ function_type }.call`, "double", ["/External", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
             [sample_type, "sample", "", []],
         ], "", ""],
     ]);
@@ -19,7 +19,7 @@ const add_df = (declarations, function_type, sample_type, scalar_type = "double"
             ["vector_sample_type", "basis_vectors", "", ["/R", "/External"]],
         ], "", ""],
 
-        [`dlib.${ function_type }.call`, "double", ["/External"], [
+        [`dlib.${ function_type }.call`, "double", ["/External", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
             [sample_type, "sample", "", []],
         ], "", ""],
     ]);
@@ -35,7 +35,7 @@ const add_normalized_df = (declarations, function_type, sample_type, scalar_type
             [sample_type, "invstd_devs", "", ["/R", "=normalizer.std_devs()"]],
         ], "", ""],
 
-        [`dlib.${ function_type }.call`, "double", ["/External"], [
+        [`dlib.${ function_type }.call`, "double", ["/External", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
             [sample_type, "sample", "", ["/Ref"]],
         ], "", ""],
 

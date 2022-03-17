@@ -17,7 +17,7 @@ Object.assign(exports, {
         let minopt = Number.POSITIVE_INFINITY;
         const bodies = [];
         const indent = " ".repeat(has_override ? 4 : 0);
-        const parameterNames = [];
+        // const parameterNames = [];
 
         for (const decl of overrides) {
             const [, , , list_of_arguments] = decl;
@@ -80,11 +80,11 @@ Object.assign(exports, {
                 const j = indexes[i];
 
                 const [, argname, , arg_modifiers] = list_of_arguments[j];
-                if (parameterNames[j] !== undefined && parameterNames[j] !== argname) {
-                    // debugger;
-                } else {
-                    parameterNames[j] = argname;
-                }
+                // if (parameterNames[j] !== undefined && parameterNames[j] !== argname) {
+                //     debugger;
+                // } else {
+                //     parameterNames[j] = argname;
+                // }
 
                 let [argtype, , defval] = list_of_arguments[j];
 
@@ -441,6 +441,8 @@ Object.assign(exports, {
                     callee = modifier.slice("/Call=".length).replace(/\$(?:0\b|\{0\})/g, callee);
                 } else if (modifier.startsWith("/attr=")) {
                     attrs.push(modifier.slice("/attr=".length));
+                } else if (modifier.startsWith("/id=")) {
+                    id = modifier.slice("/id=".length);
                 }
             }
 
@@ -453,6 +455,8 @@ Object.assign(exports, {
             for (const modifier of func_modifiers) {
                 if (modifier.startsWith("/WrapAs=")) {
                     callee = `${ modifier.slice("/WrapAs=".length) }(${ callee })`;
+                } else if (modifier.startsWith("/idlname=")) {
+                    idlname = modifier.slice("/idlname=".length);
                 }
             }
 
@@ -648,7 +652,9 @@ Object.assign(exports, {
             implargs.push(`${ idltype }* ${ argname }`);
         }
 
-        iidl.push(`[${ [`id(${ id })`].concat(attrs).join(", ") }] HRESULT ${ idlname }(${ idlargs.join(", ") });`);
+        attrs.unshift(`id(${ id })`);
+
+        iidl.push(`[${ Array.from(new Set(attrs)).join(", ") }] HRESULT ${ idlname }(${ idlargs.join(", ") });`);
 
         ipublic.push(`STDMETHOD(${ fname })(${ implargs.join(", ") });`);
 

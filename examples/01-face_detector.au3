@@ -31,7 +31,7 @@ Func Example()
 	; The 1 in the second argument indicates that we should upsample the image
 	; 1 time.  This will make everything bigger and allow us to detect more
 	; faces.
-	Local $dets = $detector.call($img, 1)
+	Local $dets = $detector($img, 1)
 	ConsoleWrite("Number of faces detected: " & UBound($dets) & @CRLF)
 
 	Local $d

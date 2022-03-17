@@ -140,7 +140,7 @@ static void test_cnn_face_detector() {
 
 	auto img = dlib->load_rgb_image(to_variant_t(image_path));
 
-	auto dets = cnn_face_detector->call(to_variant_t(img.GetInterfacePtr()), to_variant_t(1));
+	auto dets = cnn_face_detector->Getcall(to_variant_t(img.GetInterfacePtr()), to_variant_t(1));
 
 	assert((V_VT(&dets) & VT_ARRAY) == VT_ARRAY);
 	assert((V_VT(&dets) ^ VT_ARRAY) == VT_VARIANT);

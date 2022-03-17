@@ -89,14 +89,14 @@ Func Example()
 		; Ask the detector to find the bounding boxes of each face. The 1 in the
 		; second argument indicates that we should upsample the image 1 time. This
 		; will make everything bigger and allow us to detect more faces.
-		$dets = $detector.call($img, 1)
+		$dets = $detector($img, 1)
 		ConsoleWrite("Number of faces detected: " & UBound($dets) & @CRLF)
 		For $k = 0 To UBound($dets) - 1
 			$d = $dets[$k]
 			ConsoleWrite(StringFormat("Detection %d: Left: %d Top: %d Right: %d Bottom: %d", _
 					$k, $d.left(), $d.top(), $d.right(), $d.bottom()) & @CRLF)
 			; Get the landmarks/parts for the face in box d.
-			$shape = $predictor.call($img, $d)
+			$shape = $predictor($img, $d)
 			ConsoleWrite(StringFormat("Part 0: %s, Part 1: %s ...", $shape.part(0).ToString(), _
 					$shape.part(1).ToString()) & @CRLF)
 			; Draw the face landmarks on the screen.

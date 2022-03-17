@@ -104,7 +104,7 @@ Func Main()
 	; Ask the detector to find the bounding boxes of each face. The 1 in the
 	; second argument indicates that we should upsample the image 1 time. This
 	; will make everything bigger and allow us to detect more faces.
-	Local $dets = $detector.call($image, 1)
+	Local $dets = $detector($image, 1)
 	ConsoleWrite("Number of faces detected: " & UBound($dets) & @CRLF)
 
 	Local $rect, $shape, $left, $top, $right, $bottom, $point
@@ -124,7 +124,7 @@ Func Main()
 				$CV_FONT_HERSHEY_SIMPLEX, 0.5, $color_green, 1)
 
 		; Get the landmarks/parts for the face in box rect.
-		$shape = $predictor.call($image, $rect)
+		$shape = $predictor($image, $rect)
 
 		; loop over the (x, y)-coordinates for the facial landmarks
 		; and draw them on the image

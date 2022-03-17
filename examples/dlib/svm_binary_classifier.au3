@@ -46,8 +46,8 @@ Func Example()
 	Local $classifier = $svm.train($x, $y)
 
 	; Now run the model on our data and look at the results.
-	ConsoleWrite("prediction for first sample:  " & $classifier.call($x.at(0)) & @CRLF)
-	ConsoleWrite("prediction for second sample: " & $classifier.call($x.at(1)) & @CRLF)
+	ConsoleWrite("prediction for first sample:  " & $classifier($x(0)) & @CRLF)
+	ConsoleWrite("prediction for second sample: " & $classifier($x(1)) & @CRLF)
 EndFunc   ;==>Example
 
 Func _OnAutoItExit()

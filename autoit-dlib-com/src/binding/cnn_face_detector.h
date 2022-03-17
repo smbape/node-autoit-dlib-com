@@ -22,7 +22,7 @@ namespace dlib {
 			const int upsample_num_times = 0
 		);
 
-		CV_WRAP std::vector<mmod_rect> call(
+		CV_WRAP_AS(get call) std::vector<mmod_rect> call(
 			const cv::Mat& img,
 			const int upsample_num_times = 0
 		);
@@ -33,7 +33,7 @@ namespace dlib {
 			const int batch_size = 128
 		);
 
-		CV_WRAP std::vector<std::vector<mmod_rect>> call(
+		CV_WRAP_AS(get call) std::vector<std::vector<mmod_rect>> call(
 			const std::vector<cv::Mat>& imgs,
 			const int upsample_num_times = 0,
 			const int batch_size = 128

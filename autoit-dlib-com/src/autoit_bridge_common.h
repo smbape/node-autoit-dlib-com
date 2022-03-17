@@ -595,41 +595,50 @@ extern const HRESULT autoit_from(T const& in_val, T*& out_val) {
 namespace autoit
 {
 
+	template<typename destination_type, typename source_type>
+	struct _GenericCopy {
+		inline static HRESULT copy(destination_type* pTo, const source_type* pFrom) {
+			AUTOIT_PTR<source_type> sp = AUTOIT_PTR<source_type>(AUTOIT_PTR<source_type>{}, const_cast<source_type*>(pFrom));
+			return autoit_from(sp, pTo);
+		}
+	};
+
 	template<typename destination_type, typename ... _Rest>
-	inline HRESULT _GenericCopy(destination_type* pTo, const std::tuple <_Rest...>* pFrom) {
-		return autoit_from(*pFrom, pTo);
-	}
+	struct _GenericCopy<destination_type, std::tuple <_Rest...>> {
+		inline static HRESULT copy(destination_type* pTo, const std::tuple <_Rest...>* pFrom) {
+			return autoit_from(*pFrom, pTo);
+		}
+	};
 
 	template <typename destination_type, typename _Ty1, typename _Ty2>
-	inline HRESULT _GenericCopy(destination_type* pTo, const std::pair<_Ty1, _Ty2>* pFrom) {
-		return autoit_from(*pFrom, pTo);
-	}
-
-	template<typename destination_type, typename source_type>
-	inline HRESULT _GenericCopy(destination_type* pTo, const source_type* pFrom) {
-		std::shared_ptr<source_type> sp = std::shared_ptr<source_type>(std::shared_ptr<source_type>{}, const_cast<source_type*>(pFrom));
-		return autoit_from(sp, pTo);
-	}
+	struct _GenericCopy<destination_type, std::pair<_Ty1, _Ty2>> {
+		inline static HRESULT copy(destination_type* pTo, const std::pair<_Ty1, _Ty2>* pFrom) {
+			return autoit_from(*pFrom, pTo);
+		}
+	};
 
 	template<typename destination_type>
-	inline HRESULT _GenericCopy(destination_type* pTo, const _variant_t* pFrom) {
-		return _Copy<destination_type>::copy(pTo, pFrom);
-	}
+	struct _GenericCopy<destination_type, _variant_t> {
+		inline static HRESULT copy(destination_type* pTo, const _variant_t* pFrom) {
+			return _Copy<destination_type>::copy(pTo, pFrom);
+		}
+	};
 
-#define NATIVE_TYPE_COPY(ScalarType) \
+#define NATIVE_TYPE_GENERIC_COPY(source_type) \
 	template<typename destination_type> \
-	inline HRESULT _GenericCopy(destination_type* pTo, const ScalarType* pFrom) { \
-		return autoit_from(*pFrom, pTo); \
-	}
+	struct _GenericCopy<destination_type, source_type> { \
+		inline static HRESULT copy(destination_type* pTo, const source_type* pFrom) { \
+			return autoit_from(*pFrom, pTo); \
+		} \
+	};
 
-	NATIVE_TYPE_COPY(int);
-	NATIVE_TYPE_COPY(UINT);
-	NATIVE_TYPE_COPY(long);
-	NATIVE_TYPE_COPY(ULONG);
-	NATIVE_TYPE_COPY(LONGLONG);
-	NATIVE_TYPE_COPY(ULONGLONG);
-	NATIVE_TYPE_COPY(std::string);
-#undef NATIVE_TYPE_COPY
+	NATIVE_TYPE_GENERIC_COPY(int);
+	NATIVE_TYPE_GENERIC_COPY(UINT);
+	NATIVE_TYPE_GENERIC_COPY(long);
+	NATIVE_TYPE_GENERIC_COPY(ULONG);
+	NATIVE_TYPE_GENERIC_COPY(LONGLONG);
+	NATIVE_TYPE_GENERIC_COPY(ULONGLONG);
+	NATIVE_TYPE_GENERIC_COPY(std::string);
 
 	template<typename SourceType>
 	class GenericCopy
@@ -648,15 +657,16 @@ namespace autoit
 		}
 		static HRESULT copy(destination_type* pTo, const source_type* pFrom)
 		{
-			return _GenericCopy(pTo, pFrom);
+			return _GenericCopy<destination_type, source_type>::copy(pTo, pFrom);
 		}
 	};
+
 }
 
-template<class T, class CollType, class EnumType>
+template<typename T, typename CollType, typename EnumType, typename AutoItType = AutoItObject<CollType>>
 class IAutoItCollectionEnumOnSTLImpl :
 	public T,
-	public AutoItObject<CollType>
+	public AutoItType
 {
 public:
 	STDMETHOD(get__NewEnum)(_Outptr_ IUnknown** ppUnk)
