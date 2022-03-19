@@ -194,7 +194,7 @@ Func visualize_facial_landmarks($image, $shape, $colors = Default, $alpha = 0.75
 	Next
 
 	; apply the transparent overlay
-	$cv.addWeighted($overlay, $alpha, $output, 1 - $alpha, 0, Default, $output)
+	$cv.addWeighted($overlay, $alpha, $output, 1 - $alpha, 0, $output)
 
 	; return the output image
 	Return $output

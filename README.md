@@ -152,11 +152,11 @@ curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.0.0
 # extract autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0.7z
 7z x autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0.7z -aoa -oautoit-dlib-com
 
-# download autoit-opencv-4.5.5-com-v1.5.0-rc.0.7z
-curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v1.5.0-rc.0/autoit-opencv-4.5.5-com-v1.5.0-rc.0.7z' -o autoit-opencv-4.5.5-com-v1.5.0-rc.0.7z
+# download autoit-opencv-4.5.5-com-v2.0.0.7z
+curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.0.0/autoit-opencv-4.5.5-com-v2.0.0.7z' -o autoit-opencv-4.5.5-com-v2.0.0.7z
 
-# extract autoit-opencv-4.5.5-com-v1.5.0-rc.0.7z
-7z x autoit-opencv-4.5.5-com-v1.5.0-rc.0.7z -aoa -oautoit-opencv-com
+# extract autoit-opencv-4.5.5-com-v2.0.0.7z
+7z x autoit-opencv-4.5.5-com-v2.0.0.7z -aoa -oautoit-opencv-com
 
 # download opencv-4.5.5-vc14_vc15.exe
 curl -L 'https://github.com/opencv/opencv/releases/download/4.5.5/opencv-4.5.5-vc14_vc15.exe' -o opencv-4.5.5-vc14_vc15.exe

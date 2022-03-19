@@ -10,15 +10,15 @@ const waterfall = require("async/waterfall");
 const {explore} = require("fs-explorer");
 
 const progids = new Map([
-    ["dlib.simple_object_detector", "fhog_object_detector"],
-    ["dlib.simple_object_detector_com", "simple_object_detector"],
-    ["dlib.simple_structural_svm_problem", "structural_svm_problem"],
-    ["dlib.SpaceVector", "vector"],
-    ["dlib.Matrix", "matrix"],
-    ["dlib.vec_ranking_pair", "ranking_pair"],
-    ["dlib.vec_svm_rank_trainer", "svm_rank_trainer"],
-    ["dlib.mmod_rect", "mmod_rectangle"],
-    ["dlib.gender_t", "gender_type"],
+    ["dlib.simple_object_detector", "dlib.fhog_object_detector"],
+    ["dlib.simple_object_detector_com", "dlib.simple_object_detector"],
+    ["dlib.simple_structural_svm_problem", "dlib.structural_svm_problem"],
+    ["dlib.SpaceVector", "dlib.vector"],
+    ["dlib.Matrix", "dlib.matrix"],
+    ["dlib.vec_ranking_pair", "dlib.ranking_pair"],
+    ["dlib.vec_svm_rank_trainer", "dlib.svm_rank_trainer"],
+    ["dlib.mmod_rect", "dlib.mmod_rectangle"],
+    ["dlib.gender_t", "dlib.gender_type"],
 ]);
 
 const parseArguments = PROJECT_DIR => {

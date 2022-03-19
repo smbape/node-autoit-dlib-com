@@ -47,6 +47,8 @@ class AutoItGenerator {
 
         this.dependents = new Map();
         this.dependencies = new Map();
+
+        this.docs = [];
     }
 
     generate({decls, namespaces, generated_include}, options = {}, cb = undefined) {
@@ -695,6 +697,8 @@ class AutoItGenerator {
             ${ etext.split("\n").join(`\n${ " ".repeat(12) }`) }
         `.replace(/^ {12}/mg, "").trim() }\n`);
 
+        files.set(sysPath.resolve(options.output, "..", "udf", "docs.txt"), this.docs.join("\n"));
+
         let vs_generate = false;
         const idls_to_generate = new Set();
 
@@ -721,12 +725,15 @@ class AutoItGenerator {
 
                         (buffer, next) => {
                             const content = eol.crlf(files.get(filename));
-                            if (content !== buffer.toString()) {
-                                console.log("write file", filename);
-                                fs.writeFile(filename, content, next);
-                            } else {
+                            const str = buffer.toString();
+
+                            if (content === str) {
                                 next();
+                                return;
                             }
+
+                            console.log("write file", options.output, sysPath.relative(options.output, filename));
+                            fs.writeFile(filename, content, next);
                         },
 
                         next => {

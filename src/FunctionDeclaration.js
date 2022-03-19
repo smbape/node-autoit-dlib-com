@@ -20,7 +20,8 @@ Object.assign(exports, {
         // const parameterNames = [];
 
         for (const decl of overrides) {
-            const [, , , list_of_arguments] = decl;
+            const [, return_value_type, func_modifiers, list_of_arguments] = decl;
+            const is_constructor = func_modifiers.includes("/CO");
 
             const argc = list_of_arguments.length;
 
@@ -47,34 +48,59 @@ Object.assign(exports, {
 
             const in_args = new Array(argc).fill(false);
             const out_args = new Array(argc).fill(false);
+            const out_array_args = new Array(argc).fill(false);
+
+            const getArgWeight = j => {
+                if (!in_args[j]) {
+                    // is OutPutArray
+                    if (out_array_args[j]) {
+                        return 2;
+                    }
+
+                    // out arg which is not an output array
+                    if (out_args[j]) {
+                        return 3;
+                    }
+                }
+
+                // has a default value
+                if (list_of_arguments[j][2] !== "") {
+                    return 2;
+                }
+
+                // is non optional value
+                return 1;
+            };
+
+            const outlist = [];
+
+            if (return_value_type !== "" && return_value_type !== "void") {
+                outlist.push("retval");
+            } else if (is_constructor) {
+                outlist.push("self");
+            }
 
             for (let j = 0; j < argc; j++) {
-                const [argtype, , defval, arg_modifiers] = list_of_arguments[j];
+                const [argtype, argname, defval, arg_modifiers] = list_of_arguments[j];
                 const is_ptr = argtype.endsWith("*");
                 const is_in_array = /^Input(?:Output)?Array(?:OfArrays)?$/.test(argtype);
                 const is_out_array = /^(?:Input)?OutputArray(?:OfArrays)?$/.test(argtype);
                 const is_in_out = arg_modifiers.includes("/IO");
                 in_args[j] = is_in_array || is_in_out || arg_modifiers.includes("/I");
                 out_args[j] = is_out_array || is_in_out || arg_modifiers.includes("/O") || is_ptr && defval === "" && SIMPLE_ARGTYPE_DEFAULTS.has(argtype.slice(0, -1));
+                out_array_args[j] = is_out_array;
+
+                if (out_args[j]) {
+                    outlist.push(argname);
+                }
             }
 
             const indexes = Array.from(new Array(argc).keys()).sort((a, b) => {
-                const a_is_out = out_args[a] && !in_args[a];
-                const b_is_out = out_args[b] && !in_args[b];
-
-                if (a_is_out) {
-                    if (b_is_out) {
-                        return a - b;
-                    }
-                    return 1;
-                }
-
-                if (b_is_out) {
-                    return -1;
-                }
-
-                return a - b;
+                const diff = getArgWeight(a) - getArgWeight(b);
+                return diff === 0 ? a - b : diff;
             });
+
+            let firstoptarg = argc;
 
             for (let i = 0, is_first_optional = true; i < argc; i++) {
                 const j = indexes[i];
@@ -91,7 +117,7 @@ Object.assign(exports, {
                 const in_val = `${ varprefix }${ i }`;
                 const is_ptr = argtype.endsWith("*");
                 const is_out = out_args[j];
-                const is_optional = defval !== "" || is_out;
+                const is_optional = defval !== "" || is_out && !in_args[j];
 
                 let is_array = false;
                 let arrtype = "";
@@ -305,7 +331,7 @@ Object.assign(exports, {
                 if (argtype === "_variant_t" || argtype === "VARIANT*") {
                     conditions[j] = is_optional ? "true" : `!PARAMETER_MISSING(${ in_val })`;
                 } else if (is_array) {
-                    conditions[j] = `(is_array${ is_vector ? "s" : "" }_from(${ in_val }, ${ is_optional })`;
+                    conditions[j] = `(is_array${ is_vector ? "s" : "" }_from(${ in_val }, ${ is_optional }) `;
                     conditions[j] += `|| is_assignable_from(${ placeholder_name }, ${ in_val }, ${ is_optional }))`;
                 } else {
                     conditions[j] = `is_assignable_from(${ placeholder_name }, ${ in_val }, ${ is_optional })`;
@@ -332,9 +358,82 @@ Object.assign(exports, {
 
                 if (is_optional && is_first_optional) {
                     minopt = Math.min(minopt, i);
+                    firstoptarg = Math.min(firstoptarg, i);
                     is_first_optional = false;
                 }
             }
+
+            for (const modifier of func_modifiers) {
+                if (modifier.startsWith("/idlname=")) {
+                    idlname = modifier.slice("/idlname=".length);
+                } else if (modifier.startsWith("/id=")) {
+                    id = modifier.slice("/id=".length);
+                } else if (modifier.startsWith("/attr=")) {
+                    attrs.push(modifier.slice("/attr=".length));
+                }
+            }
+
+            const argnamelist = indexes.map(j => `$${ list_of_arguments[j][1] }`);
+            const proput = id === "DISPID_VALUE" && attrs.includes("propput") ? argnamelist.pop() : false;
+
+            let argstr = argnamelist.slice(0, firstoptarg).join(", ");
+            argstr = [argstr].concat(argnamelist.slice(firstoptarg)).join("[, ");
+            argstr += "]".repeat(argc - firstoptarg);
+            if (argstr.startsWith("[, ")) {
+                argstr = `[${ argstr.slice("[, ".length) }`;
+            }
+
+            let outstr;
+
+            if (is_constructor) {
+                outstr = `<${ fqn.split("::").join(".") } object>`;
+            } else if (outlist.length !== 0) {
+                outstr = outlist.join(", ");
+            } else {
+                outstr = "None";
+            }
+
+            let description = `${ coclass.progid }.${ idlname }( ${ argstr } )`;
+
+            if (proput) {
+                description += ` = ${ proput }`;
+            } else {
+                description += ` -> ${ outstr }`;
+            }
+
+            if (id === "DISPID_VALUE" && attrs.includes("propget")) {
+                description += `\n    ${ coclass.progid }( ${ argstr } ) -> ${ outstr }`;
+            }
+
+            const cppsignature = `${ generator.getCppType(return_value_type, coclass, options) } ${ fqn }::${ fname }`;
+
+            let maxlength = 0;
+
+            const typelist = list_of_arguments.map(([argtype, , , arg_modifiers]) => {
+                let str = arg_modifiers.includes("/C") ? "const " : "";
+                str += generator.getCppType(argtype, coclass, options);
+                if (arg_modifiers.includes("/Ref")) {
+                    str += "&";
+                }
+                maxlength = Math.max(maxlength, str.length);
+                return str;
+            });
+
+            const cppdescription = `${ cppsignature }( ${ list_of_arguments.map(([, argname, defval], i) => {
+                let str = typelist[i] + " ".repeat(maxlength + 1 - typelist[i].length) + argname;
+                if (defval !== "") {
+                    str += ` = ${ defval }`;
+                }
+                return str;
+            }).join(`\n${ " ".repeat(cppsignature.length + "( ".length) }`) } )`;
+
+            generator.docs.push([
+                cppdescription,
+                "",
+                "AutoIt:",
+                " ".repeat(4) + description,
+                ""
+            ].join("\n").replace(/\s*\( {2}\)/g, "()"));
         }
 
         if (minopt === Number.POSITIVE_INFINITY) {
@@ -439,10 +538,6 @@ Object.assign(exports, {
                     expr = modifier.slice("/Expr=".length).replace(/\$(?:0\b|\{0\})/g, expr);
                 } else if (modifier.startsWith("/Call=")) {
                     callee = modifier.slice("/Call=".length).replace(/\$(?:0\b|\{0\})/g, callee);
-                } else if (modifier.startsWith("/attr=")) {
-                    attrs.push(modifier.slice("/attr=".length));
-                } else if (modifier.startsWith("/id=")) {
-                    id = modifier.slice("/id=".length);
                 }
             }
 
@@ -455,8 +550,6 @@ Object.assign(exports, {
             for (const modifier of func_modifiers) {
                 if (modifier.startsWith("/WrapAs=")) {
                     callee = `${ modifier.slice("/WrapAs=".length) }(${ callee })`;
-                } else if (modifier.startsWith("/idlname=")) {
-                    idlname = modifier.slice("/idlname=".length);
                 }
             }
 
