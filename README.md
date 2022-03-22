@@ -1,3 +1,22 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Dlib autoit udf](#dlib-autoit-udf)
+  - [What is missing](#what-is-missing)
+- [Usage of the UDF](#usage-of-the-udf)
+  - [Prerequisites](#prerequisites)
+  - [Usage](#usage)
+    - [AutoIt](#autoit)
+      - [With opencv COM+ binding](#with-opencv-com-binding)
+  - [Running examples](#running-examples)
+  - [Developpement](#developpement)
+    - [Prerequisites](#prerequisites-1)
+    - [Environment](#environment)
+    - [Generate the UDF files](#generate-the-udf-files)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Dlib autoit udf
 
 Partial COM+ binding to [dlib](http://dlib.net/)
@@ -97,6 +116,7 @@ EndFunc   ;==>_OnAutoItExit
 
 _Dlib_Open_And_Register("opencv-4.5.5-vc14_vc15\opencv\build\x64\vc15\bin\opencv_world455.dll", "autoit-dlib-com\autoit_dlib_com-19.23.0-455.dll")
 _OpenCV_Open_And_Register("opencv-4.5.5-vc14_vc15\opencv\build\x64\vc15\bin\opencv_world455.dll", "autoit-opencv-com\autoit_opencv_com455.dll")
+OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
 

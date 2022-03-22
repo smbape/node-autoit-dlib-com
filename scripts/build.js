@@ -10,6 +10,7 @@ const project = sysPath.join(sources, "autoit-dlib-com");
 const files = [
     [project, "install.bat"],
     [project, "udf/*.au3"],
+    [project, "udf/*.md"],
     [sysPath.join(project, "generated"), "dlibCOM.tlb"],
     [sysPath.join(project, "build_x64", "Debug"), "autoit*"],
     [sysPath.join(project, "build_x64", "Release"), "autoit*"],

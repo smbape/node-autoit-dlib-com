@@ -19,6 +19,8 @@ Object.assign(exports, {
         const indent = " ".repeat(has_override ? 4 : 0);
         // const parameterNames = [];
 
+        generator.docs.push(`### ${ fqn }::${ fname }\n`);
+
         for (const decl of overrides) {
             const [, return_value_type, func_modifiers, list_of_arguments] = decl;
             const is_constructor = func_modifiers.includes("/CO");
@@ -91,7 +93,7 @@ Object.assign(exports, {
                 out_array_args[j] = is_out_array;
 
                 if (out_args[j]) {
-                    outlist.push(argname);
+                    outlist.push(`$${ argname }`);
                 }
             }
 
@@ -393,7 +395,10 @@ Object.assign(exports, {
                 outstr = "None";
             }
 
-            let description = `${ coclass.progid }.${ idlname }( ${ argstr } )`;
+            const is_idl_class = !coclass.noidl && (coclass.is_class || coclass.is_struct);
+            const is_static = func_modifiers.includes("/S");
+            const caller = !is_idl_class || is_static ? `_${ options.APP_NAME }_ObjCreate("${ coclass.progid }")` : `$o${ coclass.name }`;
+            let description = `${ caller }.${ idlname }( ${ argstr } )`;
 
             if (proput) {
                 description += ` = ${ proput }`;
@@ -405,12 +410,17 @@ Object.assign(exports, {
                 description += `\n    ${ coclass.progid }( ${ argstr } ) -> ${ outstr }`;
             }
 
-            const cppsignature = `${ generator.getCppType(return_value_type, coclass, options) } ${ fqn }::${ fname }`;
+            const cppsignature = `${ is_static ? "static " : "" }${ generator.getCppType(return_value_type, coclass, options) } ${ fqn }::${ fname }`;
 
             let maxlength = 0;
 
             const typelist = list_of_arguments.map(([argtype, , , arg_modifiers]) => {
-                let str = arg_modifiers.includes("/C") ? "const " : "";
+                let str = "";
+
+                if (arg_modifiers.includes("/C")) {
+                    str += "const ";
+                }
+
                 str += generator.getCppType(argtype, coclass, options);
                 if (arg_modifiers.includes("/Ref")) {
                     str += "&";
@@ -425,13 +435,15 @@ Object.assign(exports, {
                     str += ` = ${ defval }`;
                 }
                 return str;
-            }).join(`\n${ " ".repeat(cppsignature.length + "( ".length) }`) } )`;
+            }).join(`,\n${ " ".repeat(cppsignature.length + "( ".length) }`) } );`;
 
             generator.docs.push([
+                "```cpp",
                 cppdescription,
                 "",
                 "AutoIt:",
                 " ".repeat(4) + description,
+                "```",
                 ""
             ].join("\n").replace(/\s*\( {2}\)/g, "()"));
         }
