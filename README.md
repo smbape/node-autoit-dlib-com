@@ -23,13 +23,6 @@ Partial COM+ binding to [dlib](http://dlib.net/)
 
 ## What is missing
   - Images operations: These look redundant with [OpenCV](https://opencv.org/). I hope they can be found in the [OpenCV COM+ binding](https://github.com/smbape/node-autoit-dlib-com)
-  - Global optimization functions: Due to my lack of knowledge in C++
-    - find_max_global
-    - find_min_global
-    - function_evaluation
-    - function_spec
-    - function_evaluation_request
-    - global_function_search
 
 # Usage of the UDF
 

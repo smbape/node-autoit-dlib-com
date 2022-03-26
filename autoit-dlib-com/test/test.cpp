@@ -1,5 +1,6 @@
 #include "test.h"
 #include <semaphore>
+#include <numbers>
 
 #import "dlibCOM.tlb"
 
@@ -91,6 +92,21 @@ static void test_cv_returns() {
 	assert(img->height == 375);
 }
 
+static double holder_table(double x0, double x1) {
+	return -abs(sin(x0) * cos(x1) * exp(abs(1 - sqrt(x0 * x0 + x1 * x1) / std::numbers::pi)));
+}
+
+static void test_find_min_global() {
+	dlibCOM::IDlib_ObjectPtr dlib;
+	auto hr = dlib.CreateInstance(__uuidof(dlibCOM::Dlib_Object));
+	assert(SUCCEEDED(hr));
+
+	_variant_t lower = _Dlib_Tuple(-10, -10);
+	_variant_t upper = _Dlib_Tuple(10, 10);
+	_variant_t num_function_calls(80);
+	dlib->find_min_global(to_variant_t((ULONGLONG) &holder_table), &lower, &upper, &num_function_calls);
+}
+
 static void test_face_recognition_model_v1() {
 	dlibCOM::IDlib_ObjectPtr dlib;
 	auto hr = dlib.CreateInstance(__uuidof(dlibCOM::Dlib_Object));
@@ -101,7 +117,7 @@ static void test_face_recognition_model_v1() {
 	assert(SUCCEEDED(hr));
 
 	_bstr_t dat_path;
-	string_to_bstr("..\\..\\examples\\dlib_face_recognition_resnet_model_v1.dat", dat_path);
+	string_to_bstr("_deps\\dlib-src\\examples\\dlib_face_recognition_resnet_model_v1.dat", dat_path);
 	auto facerec = Face_recognition_model_v1->create(to_variant_t(dat_path));
 }
 
@@ -128,7 +144,7 @@ static void test_cnn_face_detector() {
 	assert(SUCCEEDED(hr));
 
 	_bstr_t dat_path;
-	string_to_bstr("..\\..\\examples\\mmod_human_face_detector.dat", dat_path);
+	string_to_bstr("_deps\\dlib-src\\examples\\mmod_human_face_detector.dat", dat_path);
 	auto cnn_face_detector = Cnn_face_detection_model_v1->create(to_variant_t(dat_path));
 
 	dlibCOM::IDlib_Image_window_ObjectPtr win;
@@ -159,6 +175,7 @@ static int perform() {
 
 	testMatrix();
 	test_cv_returns();
+	test_find_min_global();
 	test_face_recognition_model_v1();
 	test_find_candidate_object_locations();
 	test_cnn_face_detector();
@@ -169,21 +186,6 @@ static int perform() {
 int main(int argc, char* argv[])
 {
 	using namespace dlib;
-
-	std::string dataset_filename = "E:\\development\\git\\node-autoit-dlib-com\\autoit-dlib-com\\build_x64\\_deps\\dlib-src\\examples\\faces\\training.xml";
-	std::string detector_output_filename = "E:\\development\\git\\node-autoit-dlib-com\\examples\\detector.svm";
-	simple_object_detector_training_options options;
-
-	options.add_left_right_image_flips = true;
-	options.C = 5;
-	options.num_threads = 4;
-	options.be_verbose = true;
-
-	train_simple_object_detector(
-		dataset_filename,
-		detector_output_filename,
-		options
-	);
 
 	HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
 	if (FAILED(hr)) {

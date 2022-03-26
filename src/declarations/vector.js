@@ -24,13 +24,22 @@ const declarations = [
 
     ["dlib.SpaceVector.size", "long", [], [], "", ""],
 
+    ["dlib.SpaceVector.get", "double", ["/External"], [
+        ["long", "row", "", []],
+    ], "", ""],
+
     ["dlib.SpaceVector.set", "void", ["/External"], [
         ["long", "row", "", []],
         ["double", "val", "", []],
     ], "", ""],
 
-    ["dlib.SpaceVector.get", "double", ["/External"], [
+    ["dlib.SpaceVector.get", "double", ["/ExternalNoDecl", "/attr=propget", "=get_Item", "/idlname=Item", "/id=DISPID_VALUE"], [
         ["long", "row", "", []],
+    ], "", ""],
+
+    ["dlib.SpaceVector.set", "void", ["/ExternalNoDecl", "/attr=propput", "=put_Item", "/idlname=Item", "/id=DISPID_VALUE"], [
+        ["long", "row", "", []],
+        ["double", "val", "", []],
     ], "", ""],
 
     ["dlib.SpaceVector.slice", "SpaceVector", ["/External"], [

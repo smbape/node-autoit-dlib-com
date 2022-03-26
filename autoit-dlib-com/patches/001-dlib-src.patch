@@ -89,3 +89,16 @@ index 422a3410..bb9dd860 100644
      }
  
  // ----------------------------------------------------------------------------------------
+diff --git a/dlib/global_optimization/global_function_search.h b/dlib/global_optimization/global_function_search.h
+index fa036884..d39db1d2 100644
+--- a/dlib/global_optimization/global_function_search.h
++++ b/dlib/global_optimization/global_function_search.h
+@@ -18,6 +18,8 @@ namespace dlib
+ 
+     struct function_spec
+     {
++        function_spec() = default;
++
+         function_spec(
+             matrix<double,0,1> bound1, 
+             matrix<double,0,1> bound2

@@ -159,7 +159,7 @@ exports.generate = (coclass, header, impl, {shared_ptr} = {}) => {
     `).replace(/^ {8}/mg, "").trim().split("\n");
 
     header.push(`
-        typedef bool (*${ comparator })(${ cpptype } a, ${ cpptype } b);
+        typedef bool (*${ comparator })(${ cpptype }${ byref ? "&" : "" } a, ${ cpptype }${ byref ? "&" : "" } b);
         typedef bool (*${ ptr_comparator })(${ ptrtype }* a, ${ ptrtype }* b);
         typedef struct _${ comparator }Proxy  ${ comparator }Proxy;
     `.replace(/^ {8}/mg, ""));
@@ -167,12 +167,10 @@ exports.generate = (coclass, header, impl, {shared_ptr} = {}) => {
     impl.push(`
         typedef struct _${ comparator }Proxy {
             ${ ptr_comparator } cmp;
-            bool operator() (${ cpptype } a, ${ cpptype } b) {
+            bool operator() (${ cpptype }${ byref ? "&" : "" } a, ${ cpptype }${ byref ? "&" : "" } b) {
                 ${ cvt.join(`\n${ " ".repeat(16) }`) }
             }
         } ${ comparator }Proxy;
-
-        #include "vectors_c.h"
 
         const std::vector<int> C${ cotype }::Keys(HRESULT& hr) {
             const auto& v = *this->__self->get();
@@ -188,46 +186,50 @@ exports.generate = (coclass, header, impl, {shared_ptr} = {}) => {
 
         void C${ cotype }::push_vector(${ coclass.fqn }& other, HRESULT& hr) {
             hr = S_OK;
-            auto v = this->__self->get();
-            VectorPushMulti(v, &other[0], other.size());
+            auto& v = *this->__self->get();
+            v.insert(std::end(v), std::begin(other), std::end(other));
         }
 
         void C${ cotype }::push_vector(${ coclass.fqn }& other, size_t count, size_t start, HRESULT& hr) {
             hr = S_OK;
-            auto v = this->__self->get();
-            VectorPushMulti(v, &other[start], count);
+            auto& v = *this->__self->get();
+            auto begin = std::begin(other) + start;
+            v.insert(std::end(v), begin, begin + count);
         }
 
         const ${ coclass.fqn } C${ cotype }::slice(size_t start, size_t count, HRESULT& hr) {
-            auto v = this->__self->get();
-            auto begin = v->begin() + start;
+            hr = S_OK;
+            auto& v = *this->__self->get();
+            auto begin = std::begin(v) + start;
             return ${ coclass.fqn }(begin, begin + count);
         }
 
         void C${ cotype }::sort(void* comparator, size_t start, size_t count, HRESULT& hr) {
             hr = S_OK;
-            auto v = this->__self->get();
-            auto begin = v->begin() + start;
+            auto& v = *this->__self->get();
+            auto begin = std::begin(v) + start;
             std::sort(begin, begin + count, reinterpret_cast<${ comparator }>(comparator));
         }
 
         void C${ cotype }::sort_variant(void* comparator, size_t start, size_t count, HRESULT& hr) {
             hr = S_OK;
-            auto v = this->__self->get();
-            auto begin = v->begin() + start;
+            auto& v = *this->__self->get();
+            auto begin = std::begin(v) + start;
             ${ comparator }Proxy cmp = { reinterpret_cast<${ ptr_comparator }>(comparator) };
             std::sort(begin, begin + count, cmp);
         }
 
         const void* C${ cotype }::start(HRESULT& hr) {
-            auto v = this->__self->get();
-            auto _result = v->empty() ? NULL : static_cast<const void*>(&(*v)[0]);
+            hr = S_OK;
+            auto& v = *this->__self->get();
+            ${ cpptype === "bool" ? "void*" : "auto" } _result = ${ cpptype === "bool" ? "NULL" : "v.empty() ? NULL : static_cast<const void*>(&v[0])" };
             return _result;
         }
 
         const void* C${ cotype }::end(HRESULT& hr) {
-            auto v = this->__self->get();
-            auto _result = v->empty() ? NULL : static_cast<const void*>(&(*v)[v->size()]);
+            hr = S_OK;
+            auto& v = *this->__self->get();
+            ${ cpptype === "bool" ? "void*" : "auto" } _result = ${ cpptype === "bool" ? "NULL" : "v.empty() ? NULL : static_cast<const void*>(&v[v.size()])" };
             return _result;
         }
 

@@ -881,7 +881,7 @@ class AutoItGenerator {
             coclass.is_ptr = true;
         }
 
-        if ((coclass.is_struct || list_of_modifiers.includes("/DC")) && !this.has_default_constructor) {
+        if ((coclass.is_map || coclass.is_struct && coclass.is_simple || list_of_modifiers.includes("/DC")) && !this.has_default_constructor) {
             // Add a default constructor
             coclass.addMethod([
                 `${ name.slice("class ".length) }.${ coclass.name }`,

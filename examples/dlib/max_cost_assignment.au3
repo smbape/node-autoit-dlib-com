@@ -44,7 +44,7 @@ Func Example()
 	; which indicates that we should assign the person from the first row of the
 	; cost matrix to job 2, the middle row person to job 0, and the bottom row
 	; person to job 1.
-	ConsoleWrite("Optimal assignments: " & VectorToString($assignment) & @CRLF)
+	ConsoleWrite("Optimal assignments: " & ArrayToString($assignment) & @CRLF)
 
 	; This prints optimal cost:  16.0
 	; which is correct since our optimal assignment is 6+5+5.
@@ -52,16 +52,9 @@ Func Example()
 
 EndFunc   ;==>Example
 
-Func VectorToString($v)
-	Local $s = '['
-	For $i = 0 To UBound($v) - 1
-		$s &= $v[$i] ;
-		If $i <> UBound($v) - 1 Then $s &= ", "
-	Next
-	$s &= ']'
-
-	Return $s
-EndFunc   ;==>VectorToString
+Func ArrayToString($v)
+	Return "[" & _ArrayToString($v, ", ") & "]"
+EndFunc   ;==>ArrayToString
 
 Func _OnAutoItExit()
 	_Dlib_Unregister_And_Close()

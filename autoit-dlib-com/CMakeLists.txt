@@ -73,8 +73,8 @@ endif()
 # Tell cmake we will need autoit-opencv-com. These command will pull in opencv.
 include(ExternalProject)
 ExternalProject_Add(autoit-opencv-com
-  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.0.0/autoit-opencv-4.5.5-com-v2.0.0.7z
-  URL_HASH          SHA256=17635aead5ac73d2805981e00a49af67f9e28e04b3585a09c8643a1a634e8d59
+  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.0.1/autoit-opencv-4.5.5-com-v2.0.1.7z
+  URL_HASH          SHA256=148903552ca590f72e4a07223e695e7bff876767fbc37fd40e2d5585b9fcfe12
   DOWNLOAD_NO_EXTRACT TRUE
   DOWNLOAD_DIR      ${CMAKE_CURRENT_SOURCE_DIR}/..
   CONFIGURE_COMMAND ""
@@ -83,7 +83,7 @@ ExternalProject_Add(autoit-opencv-com
 )
 
 if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com/autoit_opencv_com455d.pdb")
-  execute_process(COMMAND 7z x ${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-4.5.5-com-v2.0.0.7z -aoa -o${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com -y)
+  execute_process(COMMAND 7z x ${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-4.5.5-com-v2.0.1.7z -aoa -o${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com -y)
 endif()
 
 # Library directories

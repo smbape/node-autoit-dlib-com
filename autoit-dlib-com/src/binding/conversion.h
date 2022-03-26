@@ -130,4 +130,18 @@ namespace dlib {
 		return rectangles;
 	}
 
+	inline matrix<double, 0, 1> list_to_mat(const std::vector<double>& l)
+	{
+		matrix<double, 0, 1> result(l.size());
+		for (long i = 0; i < result.size(); ++i)
+			result(i) = l[i];
+		return result;
+	}
+
+	inline void mat_to_list(const matrix<double, 0, 1>& m, std::vector<double>& l)
+	{
+		for (long i = 0; i < m.size(); ++i)
+			l.push_back(m(i));
+	}
+
 }

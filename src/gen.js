@@ -28,6 +28,7 @@ const parseArguments = PROJECT_DIR => {
         LIBRARY: "dlibCOM",
         namespace: "dlib",
         shared_ptr: "std::shared_ptr",
+        make_shared: "std::make_shared",
         assert: "AUTOIT_ASSERT",
         progid: progid => {
             if (progids.has(progid)) {

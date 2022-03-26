@@ -300,15 +300,11 @@ Object.assign(exports, {
             `.replace(/^ {16}/mg, ""));
         }
 
-        if (coclass.is_simple || coclass.is_struct || coclass.is_map || coclass.has_copy_constructor || coclass.has_assign_operator) {
+        if (coclass.is_struct || coclass.is_simple || coclass.is_map || coclass.has_copy_constructor || coclass.has_assign_operator) {
             const assign = coclass.has_assign_operator ? "*(*obj->__self) = in_val" : `obj->__self->reset(new ${ coclass.fqn }(in_val))`;
 
             if (!coclass.is_vector) {
-                header.push(`
-                    extern const bool is_assignable_from(${ coclass.fqn }& out_val, VARIANT const* const& in_val, bool is_optional);
-                    extern const HRESULT autoit_to(VARIANT const* const& in_val, ${ coclass.fqn }& out_val);
-                `.replace(/^ {20}/mg, "").trim());
-
+                header.push(`extern const bool is_assignable_from(${ coclass.fqn }& out_val, VARIANT const* const& in_val, bool is_optional);`);
                 impl.push(`
                     const bool is_assignable_from(${ coclass.fqn }& out_val, VARIANT const* const& in_val, bool is_optional) {
                         switch (V_VT(in_val)) {
@@ -322,15 +318,12 @@ Object.assign(exports, {
                                 return false;
                         }
                     }
+                `.replace(/^ {20}/mg, "").trim());
 
+                header.push(`extern const HRESULT autoit_to(VARIANT const* const& in_val, ${ coclass.fqn }& out_val);`);
+                impl.push(`
                     const HRESULT autoit_to(VARIANT const* const& in_val, ${ coclass.fqn }& out_val) {
-                        ${ optional.assign.join(`\n${ " ".repeat(20) }`) }
-
-                        if (V_VT(in_val) == VT_UI8) {
-                            const auto& ptr = V_UI8(in_val);
-                            out_val = *reinterpret_cast<${ coclass.fqn }*>(ptr);
-                            return S_OK;
-                        }
+                        ${ optional.assign.join(`\n${ " ".repeat(24) }`) }
 
                         if (V_VT(in_val) == VT_${ wtype }) {
                             auto obj = dynamic_cast<C${ cotype }*>(getRealIDispatch(in_val));

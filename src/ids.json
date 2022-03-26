@@ -127,6 +127,22 @@
         "iid": "444cd8aa-b2d2-44ae-9f3d-30e12ce281dc",
         "clsid": "1a0dd5ac-e363-4c64-8539-8a12af6fc339"
     },
+    "dlib::function_evaluation": {
+        "iid": "7994e133-112b-42ed-8b0d-ace81f5195a4",
+        "clsid": "276d59f1-c721-4a98-9440-dbbcca519d20"
+    },
+    "dlib::function_spec": {
+        "iid": "2ecef046-ba0e-4560-8d04-5320e771fc11",
+        "clsid": "9ad1e581-4e83-4eb0-bd3e-6fb035403d59"
+    },
+    "dlib::function_evaluation_request": {
+        "iid": "233cb2ee-00a8-4763-8938-f35cfe488384",
+        "clsid": "00011fda-c2c3-4045-ae01-4ac904cdaee6"
+    },
+    "dlib::global_function_search": {
+        "iid": "cea96ced-f663-420c-aa6e-6bcaf4681cc6",
+        "clsid": "5c26eaff-2e07-45d7-b804-71fc6d34af41"
+    },
     "dlib::image_window": {
         "iid": "a328b636-f56b-4eba-ab98-8a30dfe517bd",
         "clsid": "1ca65d46-f523-4386-897a-2cabedc72cc4"
@@ -299,6 +315,14 @@
         "iid": "f2a6c01c-53a3-4af5-8b09-1ffeb02d841c",
         "clsid": "0e8b2098-fe36-490d-a6e5-37209adda4d9"
     },
+    "VectorOfDouble": {
+        "iid": "5894cb47-bfaf-4c06-98d0-87b0495d23e1",
+        "clsid": "908eabab-d1d6-4c9e-8e29-8352743f092b"
+    },
+    "VectorOfBool": {
+        "iid": "291bfafc-c72f-4dd3-a9f5-d8d7ddab3d41",
+        "clsid": "16c4687f-79b4-4797-9441-3224b3d8be54"
+    },
     "VectorOfRectangle": {
         "iid": "a88222b7-f250-4d89-acc6-b1972cc2c349",
         "clsid": "66684103-d1c2-4857-b45b-39493af368da"
@@ -306,10 +330,6 @@
     "VectorOfLong": {
         "iid": "c4ecf965-2552-4d10-baf0-455aa3ef4a19",
         "clsid": "ce96240f-8698-4556-a3ae-1232681bc0b0"
-    },
-    "VectorOfDouble": {
-        "iid": "5894cb47-bfaf-4c06-98d0-87b0495d23e1",
-        "clsid": "908eabab-d1d6-4c9e-8e29-8352743f092b"
     },
     "VectorOfVectorOfSpaceVector": {
         "iid": "da781d65-2eab-4565-95c8-b3b0e0ac16b4",
@@ -370,6 +390,18 @@
     "VectorOfFhog_object_detector": {
         "iid": "64c28de0-0cd3-4824-bece-a495cd853e5e",
         "clsid": "12e600e1-e004-4e2f-8530-c60cfeebbac9"
+    },
+    "VectorOfFunction_spec": {
+        "iid": "05d6072e-2191-4a85-a4a2-7d2188948f3d",
+        "clsid": "80c039df-9e39-470f-9c27-21a5b750162c"
+    },
+    "VectorOfFunction_evaluation": {
+        "iid": "b5885a38-e8b3-46f1-8190-56f1ef56c8bf",
+        "clsid": "8ea801ef-43aa-4cf3-909d-b58fb4dd222d"
+    },
+    "VectorOfVectorOfFunction_evaluation": {
+        "iid": "ef7a1e89-fc28-4d2b-8300-0cbefd0d7468",
+        "clsid": "c37f0205-d7e8-4a7e-8797-3c94ffab8944"
     },
     "VectorOfDrectangle": {
         "iid": "eb5aecbe-6e0b-421c-896d-0ad60f0a00e9",
