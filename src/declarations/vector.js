@@ -6,11 +6,11 @@ const declarations = [
 
     ["dlib.SpaceVector.SpaceVector", "", [], [], "", ""],
 
-    ["dlib.SpaceVector.create", "shared_ptr_SpaceVector", ["/External"], [
+    ["dlib.SpaceVector.create", "shared_ptr_SpaceVector", ["/External", "/S"], [
         ["vector_double", "list", "", []]
     ], "", ""],
 
-    ["dlib.SpaceVector.create", "shared_ptr_SpaceVector", ["/External"], [
+    ["dlib.SpaceVector.create", "shared_ptr_SpaceVector", ["/External", "/S"], [
         ["long", "rows", "", []],
     ], "", ""],
 
