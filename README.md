@@ -29,7 +29,7 @@ Partial COM+ binding to [dlib](http://dlib.net/)
 ## Prerequisites
 
   - Download and extract [opencv-4.5.5-vc14_vc15.exe](https://sourceforge.net/projects/opencvlibrary/files/4.5.5/opencv-4.5.5-vc14_vc15.exe/download) into a folder
-  - Download and extract [autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0.7z](https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.0.0-rc.0/autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0.7z) into a folder
+  - Download and extract [autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z](https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.1.0-rc.0/autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z) into a folder
 
 ## Usage
 
@@ -159,11 +159,11 @@ EndFunc   ;==>_OnAutoItExit
 ## Running examples
 
 ```sh
-# download autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0.7z
-curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.0.0-rc.0/autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0.7z' -o autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0.7z
+# download autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z
+curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.1.0-rc.0/autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z' -o autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z
 
-# extract autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0.7z
-7z x autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0.7z -aoa -oautoit-dlib-com
+# extract autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z
+7z x autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z -aoa -oautoit-dlib-com
 
 # download autoit-opencv-4.5.5-com-v2.0.0.7z
 curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.0.0/autoit-opencv-4.5.5-com-v2.0.0.7z' -o autoit-opencv-4.5.5-com-v2.0.0.7z
@@ -178,12 +178,12 @@ curl -L 'https://github.com/opencv/opencv/releases/download/4.5.5/opencv-4.5.5-v
 ./opencv-4.5.5-vc14_vc15.exe -oopencv-4.5.5-vc14_vc15 -y
 
 # download node-autoit-dlib-com source files
-curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.0.0-rc.0.zip' -o autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0-src.zip
+curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.1.0-rc.0.zip' -o autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0-src.zip
 
-# extract autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0-src.zip
-7z x autoit-dlib-19.23.0-opencv-4.5.5-com-v1.0.0-rc.0-src.zip -aoa 'node-autoit-dlib-com-1.0.0-rc.0\examples'
-cp -rf node-autoit-dlib-com-1.0.0-rc.0/* ./
-rm -rf node-autoit-dlib-com-1.0.0-rc.0
+# extract autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0-src.zip
+7z x autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0-src.zip -aoa 'node-autoit-dlib-com-1.1.0-rc.0\examples'
+cp -rf node-autoit-dlib-com-1.1.0-rc.0/* ./
+rm -rf node-autoit-dlib-com-1.1.0-rc.0
 
 # download dlib source files
 curl -L 'https://github.com/davisking/dlib/archive/refs/tags/v19.23.zip' -o autoit-dlib-v19.23-src.zip
