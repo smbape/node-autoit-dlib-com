@@ -158,42 +158,46 @@ EndFunc   ;==>_OnAutoItExit
 
 ## Running examples
 
+Install [7-zip](https://www.7-zip.org/download.html) and add the 7-zip folder to you system PATH environment variable
+
+Then, in [Git Bash](https://gitforwindows.org/), execute the following commands
+
 ```sh
 # download autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z
 curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.1.0-rc.0/autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z' -o autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z
 
-# extract autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z
+# extract the content of autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z into a folder named autoit-dlib-com
 7z x autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0.7z -aoa -oautoit-dlib-com
 
 # download autoit-opencv-4.5.5-com-v2.0.0.7z
 curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.0.0/autoit-opencv-4.5.5-com-v2.0.0.7z' -o autoit-opencv-4.5.5-com-v2.0.0.7z
 
-# extract autoit-opencv-4.5.5-com-v2.0.0.7z
+# extract the content of autoit-opencv-4.5.5-com-v2.0.0.7z into a folder named autoit-opencv-com
 7z x autoit-opencv-4.5.5-com-v2.0.0.7z -aoa -oautoit-opencv-com
 
 # download opencv-4.5.5-vc14_vc15.exe
 curl -L 'https://github.com/opencv/opencv/releases/download/4.5.5/opencv-4.5.5-vc14_vc15.exe' -o opencv-4.5.5-vc14_vc15.exe
 
-# extract opencv-4.5.5-vc14_vc15.exe 
+# extract the content of opencv-4.5.5-vc14_vc15.exe into a folder named opencv-4.5.5-vc14_vc15
 ./opencv-4.5.5-vc14_vc15.exe -oopencv-4.5.5-vc14_vc15 -y
 
-# download node-autoit-dlib-com source files
+# download autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0-src.zip
 curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.1.0-rc.0.zip' -o autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0-src.zip
 
-# extract autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0-src.zip
+# extract the examples folder of autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0-src.zip
 7z x autoit-dlib-19.23.0-opencv-4.5.5-com-v1.1.0-rc.0-src.zip -aoa 'node-autoit-dlib-com-1.1.0-rc.0\examples'
 cp -rf node-autoit-dlib-com-1.1.0-rc.0/* ./
 rm -rf node-autoit-dlib-com-1.1.0-rc.0
 
-# download dlib source files
-curl -L 'https://github.com/davisking/dlib/archive/refs/tags/v19.23.zip' -o autoit-dlib-v19.23-src.zip
+# download dlib-v19.23-src.zip
+curl -L 'https://github.com/davisking/dlib/archive/refs/tags/v19.23.zip' -o dlib-v19.23-src.zip
 
-# extract autoit-dlib-v19.23-src.zip
-7z x autoit-dlib-v19.23-src.zip -aoa 'dlib-19.23\examples\faces' 'dlib-19.23\examples\video_frames'
+# extract the examples\faces and examples\video_frames folders of dlib-v19.23-src.zip
+7z x dlib-v19.23-src.zip -aoa 'dlib-19.23\examples\faces' 'dlib-19.23\examples\video_frames'
 cp -rf dlib-19.23/* ./
 rm -rf dlib-19.23
 
-# create data dir
+# create the data dir
 mkdir examples/data
 ```
 
