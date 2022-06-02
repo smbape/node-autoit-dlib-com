@@ -24,7 +24,7 @@ add_compile_options(/MP)
 include(FetchContent)
 FetchContent_Declare(dlib
    GIT_REPOSITORY https://github.com/davisking/dlib.git
-   GIT_TAG        v19.23
+   GIT_TAG        v19.24
    PATCH_COMMAND  "${CMAKE_COMMAND}" -DBUILD_STEP=patch "-DPATCH_FILE=${CMAKE_CURRENT_SOURCE_DIR}/patches/001-dlib-src.patch" -P "${PROJECT_BUILD_STEPS_FILE}"
 )
 FetchContent_Populate(dlib)

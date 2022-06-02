@@ -291,6 +291,10 @@
         "iid": "a4dd8496-bd68-43fb-9e5c-d62b74aa6523",
         "clsid": "02edcce5-cb64-4dfe-99e6-2d0b3db82034"
     },
+    "MapOfStringAndVariant": {
+        "iid": "515c4b61-b396-4701-a2bd-3bd772c6c344",
+        "clsid": "4e1e09c1-2188-4d31-8c2b-738be68f5d67"
+    },
     "VectorOfPairOfULONGAndDouble": {
         "iid": "6c4d593f-e582-4c36-9c5b-2d3b7e6b5e14",
         "clsid": "78bc52f1-2ea1-4343-a872-68f78702d98d"
@@ -427,12 +431,16 @@
         "iid": "945ff88d-70e4-4169-a15c-f001fc222902",
         "clsid": "82f4dbf5-6292-40e8-a59b-24ba0490a00b"
     },
-    "VectorOfPairOfStringAndPoint": {
-        "iid": "998b9372-7f41-4ead-90ef-8db9086473be",
-        "clsid": "2daf235a-e990-487f-bd5e-b961700ceb4e"
+    "VectorOfPairOfStringAndVariant": {
+        "iid": "911844da-be45-453c-9c39-4c95e70f956f",
+        "clsid": "4be064ca-81fd-45c4-9983-39ce4e4f61b3"
     },
     "VectorOfString": {
         "iid": "3351f398-e483-436e-920c-4d3b320356e3",
         "clsid": "7835f787-333a-428c-b5b1-d5a6b47d6f63"
+    },
+    "VectorOfPairOfStringAndPoint": {
+        "iid": "998b9372-7f41-4ead-90ef-8db9086473be",
+        "clsid": "2daf235a-e990-487f-bd5e-b961700ceb4e"
     }
 }

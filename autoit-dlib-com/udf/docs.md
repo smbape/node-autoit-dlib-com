@@ -1076,25 +1076,6 @@
   - [VectorOfImage::start](#vectorofimagestart)
   - [VectorOfImage::get_Item](#vectorofimageget_item)
   - [VectorOfImage::put_Item](#vectorofimageput_item)
-- [VectorOfPairOfStringAndPoint](#vectorofpairofstringandpoint)
-  - [VectorOfPairOfStringAndPoint::create](#vectorofpairofstringandpointcreate)
-  - [VectorOfPairOfStringAndPoint::Add](#vectorofpairofstringandpointadd)
-  - [VectorOfPairOfStringAndPoint::Items](#vectorofpairofstringandpointitems)
-  - [VectorOfPairOfStringAndPoint::Keys](#vectorofpairofstringandpointkeys)
-  - [VectorOfPairOfStringAndPoint::Remove](#vectorofpairofstringandpointremove)
-  - [VectorOfPairOfStringAndPoint::at](#vectorofpairofstringandpointat)
-  - [VectorOfPairOfStringAndPoint::clear](#vectorofpairofstringandpointclear)
-  - [VectorOfPairOfStringAndPoint::empty](#vectorofpairofstringandpointempty)
-  - [VectorOfPairOfStringAndPoint::end](#vectorofpairofstringandpointend)
-  - [VectorOfPairOfStringAndPoint::push_back](#vectorofpairofstringandpointpush_back)
-  - [VectorOfPairOfStringAndPoint::push_vector](#vectorofpairofstringandpointpush_vector)
-  - [VectorOfPairOfStringAndPoint::size](#vectorofpairofstringandpointsize)
-  - [VectorOfPairOfStringAndPoint::slice](#vectorofpairofstringandpointslice)
-  - [VectorOfPairOfStringAndPoint::sort](#vectorofpairofstringandpointsort)
-  - [VectorOfPairOfStringAndPoint::sort_variant](#vectorofpairofstringandpointsort_variant)
-  - [VectorOfPairOfStringAndPoint::start](#vectorofpairofstringandpointstart)
-  - [VectorOfPairOfStringAndPoint::get_Item](#vectorofpairofstringandpointget_item)
-  - [VectorOfPairOfStringAndPoint::put_Item](#vectorofpairofstringandpointput_item)
 - [VectorOfString](#vectorofstring)
   - [VectorOfString::create](#vectorofstringcreate)
   - [VectorOfString::Add](#vectorofstringadd)
@@ -1114,6 +1095,25 @@
   - [VectorOfString::start](#vectorofstringstart)
   - [VectorOfString::get_Item](#vectorofstringget_item)
   - [VectorOfString::put_Item](#vectorofstringput_item)
+- [VectorOfPairOfStringAndPoint](#vectorofpairofstringandpoint)
+  - [VectorOfPairOfStringAndPoint::create](#vectorofpairofstringandpointcreate)
+  - [VectorOfPairOfStringAndPoint::Add](#vectorofpairofstringandpointadd)
+  - [VectorOfPairOfStringAndPoint::Items](#vectorofpairofstringandpointitems)
+  - [VectorOfPairOfStringAndPoint::Keys](#vectorofpairofstringandpointkeys)
+  - [VectorOfPairOfStringAndPoint::Remove](#vectorofpairofstringandpointremove)
+  - [VectorOfPairOfStringAndPoint::at](#vectorofpairofstringandpointat)
+  - [VectorOfPairOfStringAndPoint::clear](#vectorofpairofstringandpointclear)
+  - [VectorOfPairOfStringAndPoint::empty](#vectorofpairofstringandpointempty)
+  - [VectorOfPairOfStringAndPoint::end](#vectorofpairofstringandpointend)
+  - [VectorOfPairOfStringAndPoint::push_back](#vectorofpairofstringandpointpush_back)
+  - [VectorOfPairOfStringAndPoint::push_vector](#vectorofpairofstringandpointpush_vector)
+  - [VectorOfPairOfStringAndPoint::size](#vectorofpairofstringandpointsize)
+  - [VectorOfPairOfStringAndPoint::slice](#vectorofpairofstringandpointslice)
+  - [VectorOfPairOfStringAndPoint::sort](#vectorofpairofstringandpointsort)
+  - [VectorOfPairOfStringAndPoint::sort_variant](#vectorofpairofstringandpointsort_variant)
+  - [VectorOfPairOfStringAndPoint::start](#vectorofpairofstringandpointstart)
+  - [VectorOfPairOfStringAndPoint::get_Item](#vectorofpairofstringandpointget_item)
+  - [VectorOfPairOfStringAndPoint::put_Item](#vectorofpairofstringandpointput_item)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -13199,208 +13199,6 @@ AutoIt:
     $oVectorOfImage.Item( $vIndex ) = $vItem
 ```
 
-## VectorOfPairOfStringAndPoint
-
-### VectorOfPairOfStringAndPoint::create
-
-```cpp
-static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create();
-
-AutoIt:
-    _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create() -> <VectorOfPairOfStringAndPoint object>
-```
-
-```cpp
-static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create( size_t size );
-
-AutoIt:
-    _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create( $size ) -> <VectorOfPairOfStringAndPoint object>
-```
-
-```cpp
-static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create( VectorOfPairOfStringAndPoint other );
-
-AutoIt:
-    _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create( $other ) -> <VectorOfPairOfStringAndPoint object>
-```
-
-### VectorOfPairOfStringAndPoint::Add
-
-```cpp
-void VectorOfPairOfStringAndPoint::Add( std::pair<string, dlib::point> value );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.Add( $value ) -> None
-```
-
-### VectorOfPairOfStringAndPoint::Items
-
-```cpp
-VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::Items();
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.Items() -> retval
-```
-
-### VectorOfPairOfStringAndPoint::Keys
-
-```cpp
-std::vector<int> VectorOfPairOfStringAndPoint::Keys();
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.Keys() -> retval
-```
-
-### VectorOfPairOfStringAndPoint::Remove
-
-```cpp
-void VectorOfPairOfStringAndPoint::Remove( size_t index );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.Remove( $index ) -> None
-```
-
-### VectorOfPairOfStringAndPoint::at
-
-```cpp
-std::pair<string, dlib::point> VectorOfPairOfStringAndPoint::at( size_t index );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfPairOfStringAndPoint::at( size_t                         index,
-                                       std::pair<string, dlib::point> value );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.at( $index, $value ) -> None
-```
-
-### VectorOfPairOfStringAndPoint::clear
-
-```cpp
-void VectorOfPairOfStringAndPoint::clear();
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.clear() -> None
-```
-
-### VectorOfPairOfStringAndPoint::empty
-
-```cpp
-bool VectorOfPairOfStringAndPoint::empty();
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.empty() -> retval
-```
-
-### VectorOfPairOfStringAndPoint::end
-
-```cpp
-void* VectorOfPairOfStringAndPoint::end();
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.end() -> retval
-```
-
-### VectorOfPairOfStringAndPoint::push_back
-
-```cpp
-void VectorOfPairOfStringAndPoint::push_back( std::pair<string, dlib::point> value );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.push_back( $value ) -> None
-```
-
-### VectorOfPairOfStringAndPoint::push_vector
-
-```cpp
-void VectorOfPairOfStringAndPoint::push_vector( VectorOfPairOfStringAndPoint other );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfPairOfStringAndPoint::push_vector( VectorOfPairOfStringAndPoint other,
-                                                size_t                       count,
-                                                size_t                       start = 0 );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfPairOfStringAndPoint::size
-
-```cpp
-size_t VectorOfPairOfStringAndPoint::size();
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.size() -> retval
-```
-
-### VectorOfPairOfStringAndPoint::slice
-
-```cpp
-VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::slice( size_t start = 0,
-                                                                  size_t count = this->__self->get()->size() );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfPairOfStringAndPoint::sort
-
-```cpp
-void VectorOfPairOfStringAndPoint::sort( void*  comparator,
-                                         size_t start = 0,
-                                         size_t count = this->__self->get()->size() );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfPairOfStringAndPoint::sort_variant
-
-```cpp
-void VectorOfPairOfStringAndPoint::sort_variant( void*  comparator,
-                                                 size_t start = 0,
-                                                 size_t count = this->__self->get()->size() );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfPairOfStringAndPoint::start
-
-```cpp
-void* VectorOfPairOfStringAndPoint::start();
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.start() -> retval
-```
-
-### VectorOfPairOfStringAndPoint::get_Item
-
-```cpp
-std::pair<string, dlib::point> VectorOfPairOfStringAndPoint::get_Item( size_t vIndex );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.Item( $vIndex ) -> retval
-    VectorOfPairOfStringAndPoint( $vIndex ) -> retval
-```
-
-### VectorOfPairOfStringAndPoint::put_Item
-
-```cpp
-void VectorOfPairOfStringAndPoint::put_Item( size_t                         vIndex,
-                                             std::pair<string, dlib::point> vItem );
-
-AutoIt:
-    $oVectorOfPairOfStringAndPoint.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfString
 
 ### VectorOfString::create
@@ -13601,4 +13399,206 @@ void VectorOfString::put_Item( size_t vIndex,
 
 AutoIt:
     $oVectorOfString.Item( $vIndex ) = $vItem
+```
+
+## VectorOfPairOfStringAndPoint
+
+### VectorOfPairOfStringAndPoint::create
+
+```cpp
+static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create();
+
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create() -> <VectorOfPairOfStringAndPoint object>
+```
+
+```cpp
+static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create( size_t size );
+
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create( $size ) -> <VectorOfPairOfStringAndPoint object>
+```
+
+```cpp
+static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create( VectorOfPairOfStringAndPoint other );
+
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create( $other ) -> <VectorOfPairOfStringAndPoint object>
+```
+
+### VectorOfPairOfStringAndPoint::Add
+
+```cpp
+void VectorOfPairOfStringAndPoint::Add( std::pair<string, dlib::point> value );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.Add( $value ) -> None
+```
+
+### VectorOfPairOfStringAndPoint::Items
+
+```cpp
+VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::Items();
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.Items() -> retval
+```
+
+### VectorOfPairOfStringAndPoint::Keys
+
+```cpp
+std::vector<int> VectorOfPairOfStringAndPoint::Keys();
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.Keys() -> retval
+```
+
+### VectorOfPairOfStringAndPoint::Remove
+
+```cpp
+void VectorOfPairOfStringAndPoint::Remove( size_t index );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.Remove( $index ) -> None
+```
+
+### VectorOfPairOfStringAndPoint::at
+
+```cpp
+std::pair<string, dlib::point> VectorOfPairOfStringAndPoint::at( size_t index );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfPairOfStringAndPoint::at( size_t                         index,
+                                       std::pair<string, dlib::point> value );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.at( $index, $value ) -> None
+```
+
+### VectorOfPairOfStringAndPoint::clear
+
+```cpp
+void VectorOfPairOfStringAndPoint::clear();
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.clear() -> None
+```
+
+### VectorOfPairOfStringAndPoint::empty
+
+```cpp
+bool VectorOfPairOfStringAndPoint::empty();
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.empty() -> retval
+```
+
+### VectorOfPairOfStringAndPoint::end
+
+```cpp
+void* VectorOfPairOfStringAndPoint::end();
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.end() -> retval
+```
+
+### VectorOfPairOfStringAndPoint::push_back
+
+```cpp
+void VectorOfPairOfStringAndPoint::push_back( std::pair<string, dlib::point> value );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.push_back( $value ) -> None
+```
+
+### VectorOfPairOfStringAndPoint::push_vector
+
+```cpp
+void VectorOfPairOfStringAndPoint::push_vector( VectorOfPairOfStringAndPoint other );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfPairOfStringAndPoint::push_vector( VectorOfPairOfStringAndPoint other,
+                                                size_t                       count,
+                                                size_t                       start = 0 );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfPairOfStringAndPoint::size
+
+```cpp
+size_t VectorOfPairOfStringAndPoint::size();
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.size() -> retval
+```
+
+### VectorOfPairOfStringAndPoint::slice
+
+```cpp
+VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::slice( size_t start = 0,
+                                                                  size_t count = this->__self->get()->size() );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfPairOfStringAndPoint::sort
+
+```cpp
+void VectorOfPairOfStringAndPoint::sort( void*  comparator,
+                                         size_t start = 0,
+                                         size_t count = this->__self->get()->size() );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfPairOfStringAndPoint::sort_variant
+
+```cpp
+void VectorOfPairOfStringAndPoint::sort_variant( void*  comparator,
+                                                 size_t start = 0,
+                                                 size_t count = this->__self->get()->size() );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfPairOfStringAndPoint::start
+
+```cpp
+void* VectorOfPairOfStringAndPoint::start();
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.start() -> retval
+```
+
+### VectorOfPairOfStringAndPoint::get_Item
+
+```cpp
+std::pair<string, dlib::point> VectorOfPairOfStringAndPoint::get_Item( size_t vIndex );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.Item( $vIndex ) -> retval
+    VectorOfPairOfStringAndPoint( $vIndex ) -> retval
+```
+
+### VectorOfPairOfStringAndPoint::put_Item
+
+```cpp
+void VectorOfPairOfStringAndPoint::put_Item( size_t                         vIndex,
+                                             std::pair<string, dlib::point> vItem );
+
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.Item( $vIndex ) = $vItem
 ```

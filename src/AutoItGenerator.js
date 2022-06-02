@@ -78,6 +78,7 @@ class AutoItGenerator {
         }
 
         this.add_vector("vector<_variant_t>", {}, options);
+        this.namedParameters = this.classes.get(this.add_map("map<string, _variant_t>", {}, options));
 
         for (const fqn of IGNORED_CLASSES) {
             if (this.classes.has(fqn)) {
@@ -444,7 +445,7 @@ class AutoItGenerator {
                 : [];
 
             const idl_deps = dependencies.filter(dependency => !dependency.noidl).map(dependency => {
-                return `import "${ dependency.iface.filename }";\ncpp_quote("#include \\"${ dependency.iface.filename.replace(".idl", ".h") }\\"") `;
+                return `import "${ dependency.iface.filename }";\ncpp_quote("#include \\"${ dependency.iface.filename.replace(".idl", ".h") }\\"")`;
             });
 
             if (dependencies.length !== 0) {
@@ -474,6 +475,12 @@ class AutoItGenerator {
             }
 
             const includes = dependencies.map(dependency => `#include "${ dependency.getClassName() }.h"`);
+
+            if (coclass === this.namedParameters) {
+                includes.push(`\ntypedef ${ this.namedParameters.fqn } NamedParameters;\n`);
+            } else if (!coclass.is_vector && !coclass.is_stdmap) {
+                includes.push(`#include "${ this.namedParameters.getClassName() }.h"`);
+            }
 
             if (options.hdr !== false) {
                 const using = new Set([
@@ -990,6 +997,10 @@ class AutoItGenerator {
                 continue;
             }
 
+            if (this.options.noEnumExport) {
+                continue;
+            }
+
             // Make enumerations available via a COM property.
             // Because com properties and methods are case insensitive,
             // an enum name cannot be the same as a property or a method.
@@ -1189,6 +1200,8 @@ class AutoItGenerator {
     getCppType(type, coclass, options = {}) {
         const {shared_ptr} = options;
         const shared_ptr_ = removeNamespaces(shared_ptr, options);
+
+        const type_ = type;
         type = PropertyDeclaration.restoreOriginalType(removeNamespaces(type, options), options);
 
         if (type === "IUnknown*" || type === "IEnumVARIANT*" || type === "VARIANT*" || type === "VARIANT" || type === "_variant_t") {
@@ -1250,7 +1263,7 @@ class AutoItGenerator {
             }
         }
 
-        return options.implicitNamespaceType && options.implicitNamespaceType.test(type) ? `${ this.namespace }::${ type }` : type;
+        return options.implicitNamespaceType && options.implicitNamespaceType.test(type) ? `${ this.namespace }::${ type }` : type_;
     }
 
     castAsEnumIfNeeded(type, value, coclass) {

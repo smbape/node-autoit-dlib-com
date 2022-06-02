@@ -34,49 +34,25 @@ IF EXIST "%PROGRAMFILES_DIR%\CMake\bin\cmake.exe" SET CMAKE="%PROGRAMFILES_DIR%\
 IF EXIST "%PROGRAMW6432%\CMake\bin\cmake.exe" SET CMAKE="%PROGRAMW6432%\CMake\bin\cmake.exe"
 
 ::Find Visual Studio
-for /f "usebackq tokens=*" %%F in (`vswhere.exe -version [16.0^,17.0^) -property installationPath`) DO (
-    SET CMAKE_CONF="Visual Studio 16" %BUILD_ARCH%
+FOR /F "usebackq tokens=* USEBACKQ" %%F IN (`vswhere.exe -legacy -version [10.0^,^) -property installationVersion -latest`) DO SET VS_VERSION=%%F
+
+FOR /F "usebackq tokens=* USEBACKQ" %%F IN (`vswhere.exe -version [16.0^,^) -property installationPath -latest`) DO (
+    SET CMAKE_CONF="Visual Studio %VS_VERSION:~0,2%" -A x64
     CALL "%%F\VC\Auxiliary\Build\vcvars64.bat"
     GOTO MAKE
     EXIT /b %ERRORLEVEL%
 )
 
-FOR /F "tokens=* USEBACKQ" %%F IN (`vswhere.exe -version [15.0^,16.0^) -property installationPath`) DO (
-    SET CMAKE_CONF="Visual Studio 15%OS_MODE%"
+FOR /F "usebackq tokens=* USEBACKQ" %%F IN (`vswhere.exe -version [15.0^,16.0^) -property installationPath -latest`) DO (
+    SET CMAKE_CONF="Visual Studio %VS_VERSION:~0,2% Win64"
     CALL "%%F\VC\Auxiliary\Build\vcvars64.bat"
     GOTO MAKE
     EXIT /b %ERRORLEVEL%
 )
 
-FOR /F "tokens=* USEBACKQ" %%F IN (`vswhere.exe -legacy -version [14.0^,15.0^) -property installationPath`) DO (
-    SET CMAKE_CONF="Visual Studio 14%OS_MODE%"
-    rem SET MSVC_DIR=%%F
-    CALL "!MSVC_DIR!VC\vcvarsall.bat" %ARCH%
-    GOTO MAKE
-    EXIT /b %ERRORLEVEL%
-)
-
-FOR /F "tokens=* USEBACKQ" %%F IN (`vswhere.exe -legacy -version [12.0^,13.0^) -property installationPath`) DO (
-    SET CMAKE_CONF="Visual Studio 12%OS_MODE%"
-    rem SET MSVC_DIR=%%F
-    CALL "!MSVC_DIR!VC\vcvarsall.bat" %ARCH%
-    GOTO MAKE
-    EXIT /b %ERRORLEVEL%
-)
-
-FOR /F "tokens=* USEBACKQ" %%F IN (`vswhere.exe -legacy -version [11.0^,12.0^) -property installationPath`) DO (
-    SET CMAKE_CONF="Visual Studio 11%OS_MODE%"
-    SET MSVC_DIR=%%F
-    CALL "!MSVC_DIR!VC\vcvarsall.bat" %ARCH%
-    GOTO MAKE
-    EXIT /b %ERRORLEVEL%
-)
-
-FOR /F "tokens=* USEBACKQ" %%F IN (`vswhere.exe -legacy -version [10.0^,11.0^) -property installationPath`) DO (
-    SET CMAKE_CONF="Visual Studio 10%OS_MODE%"
-    SET MSVC_DIR=%%F
-    rem ECHO CALL "!MSVC_DIR!VC\vcvarsall.bat" %ARCH%
-    CALL "!MSVC_DIR!VC\vcvarsall.bat" %ARCH%
+FOR /F "usebackq tokens=* USEBACKQ" %%F IN (`vswhere.exe -legacy -version [10.0^,15.0^) -property installationPath -latest`) DO (
+    SET CMAKE_CONF="Visual Studio %VS_VERSION:~0,2% Win64"
+    CALL "%%F\VC\vcvarsall.bat" x64
     GOTO MAKE
     EXIT /b %ERRORLEVEL%
 )
