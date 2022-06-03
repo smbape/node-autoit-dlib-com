@@ -23,7 +23,7 @@ Func Example()
 	Local $img = $dlib.load_rgb_image($image_file)
 
 	; Locations of candidate objects will be saved into rects
-	Local $rects = $dlib.find_candidate_object_locations($img, Default, 500)
+	Local $rects = $dlib.find_candidate_object_locations($img, _Dlib_Params("min_size", 500))
 
 	ConsoleWrite("number of rectangles found " & UBound($rects))
 
