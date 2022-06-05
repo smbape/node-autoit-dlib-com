@@ -25,7 +25,7 @@ Func Example()
 	; Locations of candidate objects will be saved into rects
 	Local $rects = $dlib.find_candidate_object_locations($img, _Dlib_Params("min_size", 500))
 
-	ConsoleWrite("number of rectangles found " & UBound($rects))
+	ConsoleWrite("number of rectangles found " & UBound($rects) & @CRLF)
 
 	Local $d
 	For $k = 0 To UBound($rects) - 1

@@ -45,46 +45,31 @@ add_subdirectory(${dlib_SOURCE_DIR}/dlib ${dlib_BINARY_DIR})
 add_definitions(-DDLIB_VERSION=${DLIB_VERSION})
 add_definitions(-DCVAPI_EXPORTS)
 
-# Tell cmake we will need opencv. These command will pull in opencv.
+set(OPENCV_DOWNLOAD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
+
+# Tell cmake we will need opencv.
 include(ExternalProject)
 ExternalProject_Add(opencv
   URL               https://github.com/opencv/opencv/releases/download/4.5.5/opencv-4.5.5-vc14_vc15.exe
   URL_HASH          SHA256=cac31973cd1c59bfe9dc926acbde815553d23662ea355e0414b5e50d8f8aa5a8
   DOWNLOAD_NO_EXTRACT TRUE
-  DOWNLOAD_DIR      ${CMAKE_CURRENT_SOURCE_DIR}/..
-  CONFIGURE_COMMAND ""
-  BUILD_COMMAND     ""
+  DOWNLOAD_DIR      "${OPENCV_DOWNLOAD_DIR}"
+  CONFIGURE_COMMAND "${OPENCV_DOWNLOAD_DIR}/opencv-4.5.5-vc14_vc15.exe" "-o${OPENCV_DOWNLOAD_DIR}/opencv-4.5.5-vc14_vc15" -y
+  BUILD_COMMAND     patch -p 1 -d "${OPENCV_DOWNLOAD_DIR}/opencv-4.5.5-vc14_vc15/opencv/sources/" -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-opencv-src.patch"
   INSTALL_COMMAND   ""
 )
 
-if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15/opencv/sources/SECURITY.md")
-  execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15.exe -o${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15 -y)
-endif()
-
-execute_process(
-    COMMAND patch -p 1 -d ${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15/opencv/sources/ -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-opencv-src.patch" -R --dry-run
-    RESULT_VARIABLE ret
-    ERROR_QUIET
-)
-if(NOT ${ret} EQUAL "0")
-    execute_process(COMMAND patch -p 1 -d ${CMAKE_CURRENT_SOURCE_DIR}/../opencv-4.5.5-vc14_vc15/opencv/sources/ -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-opencv-src.patch")
-endif()
-
-# Tell cmake we will need autoit-opencv-com. These command will pull in opencv.
+# Tell cmake we will need autoit-opencv-com.
 include(ExternalProject)
 ExternalProject_Add(autoit-opencv-com
   URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.0.1/autoit-opencv-4.5.5-com-v2.0.1.7z
   URL_HASH          SHA256=148903552ca590f72e4a07223e695e7bff876767fbc37fd40e2d5585b9fcfe12
   DOWNLOAD_NO_EXTRACT TRUE
-  DOWNLOAD_DIR      ${CMAKE_CURRENT_SOURCE_DIR}/..
+  DOWNLOAD_DIR      "${OPENCV_DOWNLOAD_DIR}"
   CONFIGURE_COMMAND ""
   BUILD_COMMAND     ""
-  INSTALL_COMMAND   ""
+  INSTALL_COMMAND   7z x "${OPENCV_DOWNLOAD_DIR}/autoit-opencv-4.5.5-com-v2.0.1.7z" -aoa "-o${OPENCV_DOWNLOAD_DIR}/autoit-opencv-com" -y
 )
-
-if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com/autoit_opencv_com455d.pdb")
-  execute_process(COMMAND 7z x ${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-4.5.5-com-v2.0.1.7z -aoa -o${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com -y)
-endif()
 
 # Library directories
 set(OpenCV_DIR "")
@@ -98,7 +83,9 @@ foreach(f ${__OpenCV_ROOT_DIR})
 endforeach()
 unset(__f)
 
-find_package(OpenCV REQUIRED)
+if(EXISTS "${OpenCV_DIR}")
+  find_package(OpenCV REQUIRED)
+endif()
 
 get_filename_component(OpenCV_BINARY_DIR "${OpenCV_DIR}/x64/vc15/bin" REALPATH)
 file(TO_NATIVE_PATH "${OpenCV_BINARY_DIR}" OpenCV_BINARY_DIR)

@@ -4,9 +4,11 @@ SETLOCAL enabledelayedexpansion
 PUSHD "%~dp0"
 CD /d %CD%
 SET "PATH=%CD%;%PATH%"
+SET "CWD=%CD%"
 
 SET skip_node=0
 SET skip_build=0
+SET TARGET=ALL_BUILD
 
 SET nparms=20
 :LOOP
@@ -64,6 +66,15 @@ GOTO END
 :MAKE
 SET ERROR=0
 
+:DOWNLOAD_OPENCV
+SET TARGET=opencv
+CALL :MAKE_CONFIG
+SET ERROR=%ERRORLEVEL%
+SET TARGET=ALL_BUILD
+CD /d %CWD%
+IF "%ERROR%" == "0" GOTO GEN_SOURCES
+GOTO END
+
 :GEN_SOURCES
 IF [%skip_node%] == [1] GOTO MAKE_CONFIG
 node --unhandled-rejections=strict --trace-uncaught --trace-warnings ..\src\gen.js --skip=vs
@@ -72,12 +83,11 @@ IF "%ERROR%" == "0" GOTO MAKE_CONFIG
 GOTO END
 
 :MAKE_CONFIG
+IF [%skip_config%] == [1] GOTO BUILD
+
 IF NOT EXIST %BUILD_FOLDER% mkdir %BUILD_FOLDER%
 cd %BUILD_FOLDER%
-
-IF [%skip_config%] == [1] GOTO RUN_CMAKE
-
-IF EXIST "CMakeache.txt" del CMakeCache.txt
+rem IF EXIST "CMakeCache.txt" del CMakeCache.txt
 
 :RUN_CMAKE
 %CMAKE% -G %CMAKE_CONF% %GENERAL_CMAKE_CONFIG_FLAGS% ..\
@@ -87,7 +97,7 @@ GOTO END
 
 :BUILD
 IF [%skip_build%] == [1] GOTO END
-%CMAKE% --build . --config %CMAKE_BUILD_TYPE% --target ALL_BUILD
+%CMAKE% --build . --config %CMAKE_BUILD_TYPE% --target %TARGET%
 SET ERROR=%ERRORLEVEL%
 
 :END
