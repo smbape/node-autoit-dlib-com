@@ -5,11 +5,7 @@
 
 template<typename _Tp, long nr>
 const bool is_assignable_from(matrix<_Tp, nr, 1>& out_val, VARIANT const* const& in_val, bool is_optional) {
-	if (V_VT(in_val) == VT_ERROR) {
-		return V_ERROR(in_val) == DISP_E_PARAMNOTFOUND && is_optional;
-	}
-
-	if (V_VT(in_val) == VT_EMPTY) {
+	if (PARAMETER_MISSING(in_val)) {
 		return is_optional;
 	}
 
@@ -47,11 +43,7 @@ const bool is_assignable_from(matrix<_Tp, nr, 1>& out_val, VARIANT const* const&
 
 template<typename _Tp, long nr>
 const HRESULT autoit_to(VARIANT const* const& in_val, matrix<_Tp, nr, 1>& out_val) {
-	if (V_VT(in_val) == VT_ERROR) {
-		return V_ERROR(in_val) == DISP_E_PARAMNOTFOUND ? S_OK : E_INVALIDARG;
-	}
-
-	if (V_VT(in_val) == VT_EMPTY) {
+	if (PARAMETER_MISSING(in_val)) {
 		return S_OK;
 	}
 
@@ -97,7 +89,7 @@ const HRESULT autoit_from(const cv::Ptr<matrix<_Tp, nr, 1>>& in_val, VARIANT*& o
 
 template<typename _Tp, long nr>
 const HRESULT autoit_from(const matrix<_Tp, nr, 1>& in_val, VARIANT*& out_val) {
-	if (V_VT(out_val) == VT_EMPTY || V_VT(out_val) == VT_ERROR && V_ERROR(out_val) == DISP_E_PARAMNOTFOUND) {
+	if (PARAMETER_MISSING(out_val)) {
 		V_VT(out_val) = VT_ARRAY | VT_VARIANT;
 		typename ATL::template CComSafeArray<VARIANT> vArray((ULONG)0);
 		V_ARRAY(out_val) = vArray.Detach();
@@ -131,11 +123,7 @@ const HRESULT autoit_from(const matrix<_Tp, nr, 1>& in_val, VARIANT*& out_val) {
 
 template<typename _Tp, long nr, long nc>
 const bool is_assignable_from(matrix<_Tp, nr, nc>& out_val, VARIANT const* const& in_val, bool is_optional) {
-	if (V_VT(in_val) == VT_ERROR) {
-		return V_ERROR(in_val) == DISP_E_PARAMNOTFOUND && is_optional;
-	}
-
-	if (V_VT(in_val) == VT_EMPTY) {
+	if (PARAMETER_MISSING(in_val)) {
 		return is_optional;
 	}
 
@@ -198,11 +186,7 @@ end:
 
 template<typename _Tp, long nr, long nc>
 const HRESULT autoit_to(VARIANT const* const& in_val, matrix<_Tp, nr, nc>& out_val) {
-	if (V_VT(in_val) == VT_ERROR) {
-		return V_ERROR(in_val) == DISP_E_PARAMNOTFOUND ? S_OK : E_INVALIDARG;
-	}
-
-	if (V_VT(in_val) == VT_EMPTY) {
+	if (PARAMETER_MISSING(in_val)) {
 		return S_OK;
 	}
 
@@ -272,7 +256,7 @@ const HRESULT autoit_from(const cv::Ptr<matrix<_Tp, nr, nc>>& in_val, VARIANT*& 
 
 template<typename _Tp, long nr, long nc>
 const HRESULT autoit_from(const matrix<_Tp, nr, nc>& in_val, VARIANT*& out_val) {
-	if (V_VT(out_val) == VT_EMPTY || V_VT(out_val) == VT_ERROR && V_ERROR(out_val) == DISP_E_PARAMNOTFOUND) {
+	if (PARAMETER_MISSING(out_val)) {
 		V_VT(out_val) = VT_ARRAY | VT_VARIANT;
 		typename ATL::template CComSafeArray<VARIANT> vArray((ULONG)0);
 		V_ARRAY(out_val) = vArray.Detach();
@@ -291,7 +275,7 @@ const HRESULT autoit_from(const matrix<_Tp, nr, nc>& in_val, VARIANT*& out_val) 
 		auto& _row_v_ = vMatrixArray.GetAt(i);
 		VARIANT* _row_out_val = &_row_v_;
 
-		if (V_VT(_row_out_val) == VT_EMPTY || V_VT(_row_out_val) == VT_ERROR && V_ERROR(_row_out_val) == DISP_E_PARAMNOTFOUND) {
+		if (PARAMETER_MISSING(_row_out_val)) {
 			VARIANT value = { VT_EMPTY };
 			auto* pvalue = &value;
 			V_VT(pvalue) = VT_ARRAY | VT_VARIANT;

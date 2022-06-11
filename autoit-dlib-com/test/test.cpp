@@ -104,7 +104,8 @@ static void test_find_min_global() {
 	_variant_t lower = _Dlib_Tuple(-10, -10);
 	_variant_t upper = _Dlib_Tuple(10, 10);
 	_variant_t num_function_calls(80);
-	dlib->find_min_global(to_variant_t((ULONGLONG) &holder_table), &lower, &upper, &num_function_calls);
+	dlib->find_min_global(to_variant_t((ULONGLONG) &holder_table), &lower, &upper, &num_function_calls, &vtDefault, &vtDefault, &vtDefault, &vtDefault);
+	VariantClear(&vtDefault);
 }
 
 static void test_face_recognition_model_v1() {
@@ -117,7 +118,7 @@ static void test_face_recognition_model_v1() {
 	assert(SUCCEEDED(hr));
 
 	_bstr_t dat_path;
-	string_to_bstr("_deps\\dlib-src\\examples\\dlib_face_recognition_resnet_model_v1.dat", dat_path);
+	string_to_bstr("..\\..\\examples\\data\\dlib_face_recognition_resnet_model_v1.dat", dat_path);
 	auto facerec = Face_recognition_model_v1->create(to_variant_t(dat_path));
 }
 
@@ -131,7 +132,8 @@ static void test_find_candidate_object_locations() {
 
 	auto img = dlib->load_rgb_image(to_variant_t(image_path));
 
-	dlib->find_candidate_object_locations(to_variant_t(img.GetInterfacePtr()), &vtDefault, to_variant_t(500));
+	dlib->find_candidate_object_locations(to_variant_t(img.GetInterfacePtr()), &vtDefault, to_variant_t(500), &vtDefault, &vtDefault);
+	VariantClear(&vtDefault);
 }
 
 static void test_cnn_face_detector() {
@@ -144,7 +146,7 @@ static void test_cnn_face_detector() {
 	assert(SUCCEEDED(hr));
 
 	_bstr_t dat_path;
-	string_to_bstr("_deps\\dlib-src\\examples\\mmod_human_face_detector.dat", dat_path);
+	string_to_bstr("..\\..\\examples\\data\\mmod_human_face_detector.dat", dat_path);
 	auto cnn_face_detector = Cnn_face_detection_model_v1->create(to_variant_t(dat_path));
 
 	dlibCOM::IDlib_Image_window_ObjectPtr win;
@@ -183,19 +185,62 @@ static int perform() {
 	return 0;
 }
 
-int main(int argc, char* argv[])
-{
-	using namespace dlib;
+class CoInitializer {
+public:
+	CoInitializer() {
+		m_hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+		CV_Assert(SUCCEEDED(m_hr));
+	}
+	~CoInitializer() {
+		if (SUCCEEDED(m_hr)) {
+			CoUninitialize();
+		}
+	}
+private:
+	HRESULT m_hr;
+};
 
-	HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
-	if (FAILED(hr)) {
-		std::wcout << L"could not initialize COM\n";
-		return 1;
+#ifdef _DEBUG
+#define RELEASE_TYPE "Debug"
+#define DLL_SUFFFIX "d"
+#else
+#define RELEASE_TYPE "Release"
+#define DLL_SUFFFIX ""
+#endif
+
+#define DLL_FILE RELEASE_TYPE "\\autoit_dlib_com-19.24.0-455" DLL_SUFFFIX ".dll"
+
+class DllInstallInitializer {
+public:
+	typedef HRESULT(*DllInstall_t)(BOOL bInstall, _In_opt_ LPCWSTR pszCmdLine);
+
+	DllInstallInitializer() {
+		m_lib = LoadLibrary(DLL_FILE);
+		CV_Assert(m_lib != 0);
+
+		m_DllInstall = (DllInstall_t)GetProcAddress(m_lib, "DllInstall");
+		m_hr = m_DllInstall(true, L"user");
+		CV_Assert(SUCCEEDED(m_hr));
 	}
 
-	int code = perform();
+	~DllInstallInitializer() {
+		if (SUCCEEDED(m_hr)) {
+			m_DllInstall(false, L"user");
+		}
 
-	CoUninitialize();
+		if (m_lib != 0) {
+			FreeLibrary(m_lib);
+		}
+	}
+private:
+	HMODULE m_lib = 0;
+	HRESULT m_hr = E_FAIL;
+	DllInstall_t m_DllInstall;
+};
 
-	return code;
+int main(int argc, char* argv[])
+{
+	CoInitializer coInitializer;
+	DllInstallInitializer dllInstallInitializer;
+	return perform();
 }

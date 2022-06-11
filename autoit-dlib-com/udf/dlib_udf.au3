@@ -255,6 +255,9 @@ Func _Dlib_Tuple($val0 = 0, $val1 = 0, $val2 = 0, $val3 = 0, $val4 = 0, $val5 = 
 	;     Return $_aResult
 	; `.trim()).join("\n"))
 	Switch @NumParams
+		Case 0
+			Local $_aResult[0] = []
+			Return $_aResult
 		Case 1
 			Local $_aResult[@NumParams] = [$val0]
 			Return $_aResult
