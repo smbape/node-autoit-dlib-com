@@ -46,7 +46,7 @@ Partial COM+ binding to [dlib](http://dlib.net/)
 #include <Misc.au3>
 #include "autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open_And_Register("opencv-4.6.0-vc14_vc15\opencv\build\x64\vc15\bin\opencv_world460.dll", "autoit-dlib-com\autoit_dlib_com-19.24.0-455.dll")
+_Dlib_Open_And_Register("opencv-4.6.0-vc14_vc15\opencv\build\x64\vc15\bin\opencv_world460.dll", "autoit-dlib-com\autoit_dlib_com-19.24.0-460.dll")
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -107,7 +107,7 @@ EndFunc   ;==>_OnAutoItExit
 #include "autoit-dlib-com\udf\dlib_udf_utils.au3"
 #include "autoit-opencv-com\udf\opencv_udf_utils.au3"
 
-_Dlib_Open_And_Register("opencv-4.6.0-vc14_vc15\opencv\build\x64\vc15\bin\opencv_world460.dll", "autoit-dlib-com\autoit_dlib_com-19.24.0-455.dll")
+_Dlib_Open_And_Register("opencv-4.6.0-vc14_vc15\opencv\build\x64\vc15\bin\opencv_world460.dll", "autoit-dlib-com\autoit_dlib_com-19.24.0-460.dll")
 _OpenCV_Open_And_Register("opencv-4.6.0-vc14_vc15\opencv\build\x64\vc15\bin\opencv_world460.dll", "autoit-opencv-com\autoit_opencv_com460.dll")
 OnAutoItExitRegister("_OnAutoItExit")
 

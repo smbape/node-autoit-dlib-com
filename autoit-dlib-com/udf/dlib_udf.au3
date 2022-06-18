@@ -61,7 +61,7 @@ EndFunc   ;==>_Dlib_Unregister_And_Close
 
 Func _Dlib_Install($s_dlib_wolrd_dll = Default, $s_autoit_dlib_com_dll = Default, $bUser = Default, $bOpen = True, $bClose = True, $bInstall = False, $bUninstall = False)
 	If $s_dlib_wolrd_dll == Default Then $s_dlib_wolrd_dll = "opencv_world460.dll"
-	If $s_autoit_dlib_com_dll == Default Then $s_autoit_dlib_com_dll = "autoit_dlib_com-19.24.0-455.dll"
+	If $s_autoit_dlib_com_dll == Default Then $s_autoit_dlib_com_dll = "autoit_dlib_com-19.24.0-460.dll"
 	If $bUser == Default Then $bUser = Not IsAdmin()
 
 	If $bClose And $h_dlib_world_dll <> -1 Then DllClose($h_dlib_world_dll)
