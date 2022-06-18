@@ -1124,7 +1124,6 @@
 ```cpp
 double dlib::angle_between_lines( dlib::line a,
                                   dlib::line b );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").angle_between_lines( $a, $b ) -> retval
 ```
@@ -1134,7 +1133,6 @@ AutoIt:
 ```cpp
 dlib::SpaceVector dlib::apply_cca_transform( const dlib::Matrix&                          m,
                                              const std::vector<std::pair<ULONG, double>>& v );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").apply_cca_transform( $m, $v ) -> retval
 ```
@@ -1144,7 +1142,6 @@ AutoIt:
 ```cpp
 double dlib::assignment_cost( const dlib::Matrix& cost,
                               std::vector<long>&  assignment );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").assignment_cost( $cost, $assignment ) -> retval
 ```
@@ -1156,7 +1153,6 @@ dlib::_normalized_decision_function_radial_basis dlib::auto_train_rbf_classifier
                                                                                   std::vector<double>&            y,
                                                                                   double                          max_runtime_seconds,
                                                                                   bool                            be_verbose = true );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").auto_train_rbf_classifier( $x, $y, $max_runtime_seconds[, $be_verbose] ) -> retval
 ```
@@ -1166,7 +1162,6 @@ dlib::_normalized_decision_function_radial_basis dlib::auto_train_rbf_classifier
                                                                                   std::vector<double>& y,
                                                                                   double               max_runtime_seconds,
                                                                                   bool                 be_verbose = true );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").auto_train_rbf_classifier( $x, $y, $max_runtime_seconds[, $be_verbose] ) -> retval
 ```
@@ -1180,7 +1175,6 @@ dlib::cca_outputs dlib::cca( const std::vector<std::vector<std::pair<ULONG, doub
                              ULONG                                                     extra_rank = 5,
                              ULONG                                                     q = 2,
                              double                                                    regularization = 0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cca( $L, $R, $num_correlations[, $extra_rank[, $q[, $regularization]]] ) -> retval
 ```
@@ -1189,14 +1183,12 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::center( dlib::rectangle rect );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").center( $rect ) -> retval
 ```
 
 ```cpp
 dlib::dpoint dlib::center( dlib::drectangle rect );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").center( $rect ) -> retval
 ```
@@ -1207,7 +1199,6 @@ AutoIt:
 dlib::drectangle dlib::centered_drect( dlib::dpoint p,
                                        double       width,
                                        double       height );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").centered_drect( $p, $width, $height ) -> retval
 ```
@@ -1216,7 +1207,6 @@ AutoIt:
 dlib::drectangle dlib::centered_drect( dlib::drectangle rect,
                                        double           width,
                                        double           height );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").centered_drect( $rect, $width, $height ) -> retval
 ```
@@ -1227,7 +1217,6 @@ AutoIt:
 dlib::rectangle dlib::centered_rect( dlib::point p,
                                      ULONG       width,
                                      ULONG       height );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").centered_rect( $p, $width, $height ) -> retval
 ```
@@ -1236,7 +1225,6 @@ AutoIt:
 dlib::rectangle dlib::centered_rect( dlib::rectangle rect,
                                      ULONG           width,
                                      ULONG           height );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").centered_rect( $rect, $width, $height ) -> retval
 ```
@@ -1246,7 +1234,6 @@ dlib::rectangle dlib::centered_rect( long  x,
                                      long  y,
                                      ULONG width,
                                      ULONG height );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").centered_rect( $x, $y, $width, $height ) -> retval
 ```
@@ -1257,7 +1244,6 @@ AutoIt:
 std::vector<dlib::rectangle> dlib::centered_rects( std::vector<dlib::point> pts,
                                                    ULONG                    width,
                                                    ULONG                    height );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").centered_rects( $pts, $width, $height ) -> retval
 ```
@@ -1266,7 +1252,6 @@ AutoIt:
 
 ```cpp
 std::vector<ULONG> dlib::chinese_whispers( std::vector<dlib::SpaceVector> edges );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").chinese_whispers( $edges ) -> retval
 ```
@@ -1276,7 +1261,6 @@ AutoIt:
 ```cpp
 std::vector<ULONG> dlib::chinese_whispers_clustering( std::vector<dlib::SpaceVector> descriptors,
                                                       float                          threshold );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").chinese_whispers_clustering( $descriptors, $threshold ) -> retval
 ```
@@ -1288,7 +1272,6 @@ double dlib::count_points_between_lines( dlib::line                l1,
                                          dlib::line                l2,
                                          dlib::dpoint              reference_point,
                                          std::vector<dlib::dpoint> pts );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").count_points_between_lines( $l1, $l2, $reference_point, $pts ) -> retval
 ```
@@ -1298,7 +1281,6 @@ double dlib::count_points_between_lines( dlib::line               l1,
                                          dlib::line               l2,
                                          dlib::dpoint             reference_point,
                                          std::vector<dlib::point> pts );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").count_points_between_lines( $l1, $l2, $reference_point, $pts ) -> retval
 ```
@@ -1311,7 +1293,6 @@ double dlib::count_points_on_side_of_line( dlib::line                l,
                                            std::vector<dlib::dpoint> pts,
                                            double                    dist_thresh_min = 0,
                                            double                    dist_thresh_max = std::numeric_limits<double>::infinity() );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").count_points_on_side_of_line( $l, $reference_point, $pts[, $dist_thresh_min[, $dist_thresh_max]] ) -> retval
 ```
@@ -1322,7 +1303,6 @@ double dlib::count_points_on_side_of_line( dlib::line               l,
                                            std::vector<dlib::point> pts,
                                            double                   dist_thresh_min = 0,
                                            double                   dist_thresh_max = std::numeric_limits<double>::infinity() );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").count_points_on_side_of_line( $l, $reference_point, $pts[, $dist_thresh_min[, $dist_thresh_max]] ) -> retval
 ```
@@ -1332,7 +1312,6 @@ AutoIt:
 ```cpp
 size_t dlib::count_steps_without_decrease( std::vector<double>& time_series,
                                            double               probability_of_decrease = 0.51 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").count_steps_without_decrease( $time_series[, $probability_of_decrease] ) -> retval
 ```
@@ -1343,7 +1322,6 @@ AutoIt:
 size_t dlib::count_steps_without_decrease_robust( std::vector<double>& time_series,
                                                   double               probability_of_decrease = 0.51,
                                                   double               quantile_discard = 0.1 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").count_steps_without_decrease_robust( $time_series[, $probability_of_decrease[, $quantile_discard]] ) -> retval
 ```
@@ -1354,7 +1332,6 @@ AutoIt:
 dlib::ranking_test dlib::cross_validate_ranking_trainer( dlib::vec_svm_rank_trainer          trainer,
                                                          std::vector<dlib::vec_ranking_pair> samples,
                                                          ULONG                               folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_ranking_trainer( $trainer, $samples, $folds ) -> retval
 ```
@@ -1363,7 +1340,6 @@ AutoIt:
 dlib::ranking_test dlib::cross_validate_ranking_trainer( dlib::svm_rank_trainer_sparse          trainer,
                                                          std::vector<dlib::sparse_ranking_pair> samples,
                                                          ULONG                                  folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_ranking_trainer( $trainer, $samples, $folds ) -> retval
 ```
@@ -1375,7 +1351,6 @@ dlib::segmenter_test dlib::cross_validate_sequence_segmenter( const std::vector<
                                                               const std::vector<std::vector<std::pair<ULONG, ULONG>>>& segments,
                                                               long                                                     folds,
                                                               dlib::segmenter_params                                   params = segmenter_params() );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_sequence_segmenter( $samples, $segments, $folds[, $params] ) -> retval
 ```
@@ -1385,7 +1360,6 @@ dlib::segmenter_test dlib::cross_validate_sequence_segmenter( const std::vector<
                                                               const std::vector<std::vector<std::pair<ULONG, ULONG>>>&               segments,
                                                               long                                                                   folds,
                                                               dlib::segmenter_params                                                 params = segmenter_params() );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_sequence_segmenter( $samples, $segments, $folds[, $params] ) -> retval
 ```
@@ -1397,7 +1371,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::svm_c_trainer_radial_basis
                                                 std::vector<dlib::SpaceVector>   x,
                                                 std::vector<double>              y,
                                                 ULONG                            folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1407,7 +1380,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::svm_c_trainer_sparse_radia
                                                 std::vector<std::vector<std::pair<ULONG, double>>> x,
                                                 std::vector<double>                                y,
                                                 ULONG                                              folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1417,7 +1389,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::svm_c_trainer_histogram_in
                                                 std::vector<dlib::SpaceVector>             x,
                                                 std::vector<double>                        y,
                                                 ULONG                                      folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1427,7 +1398,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::svm_c_trainer_sparse_histo
                                                 std::vector<std::vector<std::pair<ULONG, double>>> x,
                                                 std::vector<double>                                y,
                                                 ULONG                                              folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1437,7 +1407,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::svm_c_trainer_linear     s
                                                 std::vector<dlib::SpaceVector> x,
                                                 std::vector<double>            y,
                                                 ULONG                          folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1447,7 +1416,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::svm_c_trainer_sparse_linea
                                                 std::vector<std::vector<std::pair<ULONG, double>>> x,
                                                 std::vector<double>                                y,
                                                 ULONG                                              folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1457,7 +1425,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::rvm_trainer_radial_basis s
                                                 std::vector<dlib::SpaceVector> x,
                                                 std::vector<double>            y,
                                                 ULONG                          folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1467,7 +1434,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::rvm_trainer_sparse_radial_
                                                 std::vector<std::vector<std::pair<ULONG, double>>> x,
                                                 std::vector<double>                                y,
                                                 ULONG                                              folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1477,7 +1443,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::rvm_trainer_histogram_inte
                                                 std::vector<dlib::SpaceVector>           x,
                                                 std::vector<double>                      y,
                                                 ULONG                                    folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1487,7 +1452,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::rvm_trainer_sparse_histogr
                                                 std::vector<std::vector<std::pair<ULONG, double>>> x,
                                                 std::vector<double>                                y,
                                                 ULONG                                              folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1497,7 +1461,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::rvm_trainer_linear       s
                                                 std::vector<dlib::SpaceVector> x,
                                                 std::vector<double>            y,
                                                 ULONG                          folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1507,7 +1470,6 @@ dlib::binary_test dlib::cross_validate_trainer( dlib::rvm_trainer_sparse_linear 
                                                 std::vector<std::vector<std::pair<ULONG, double>>> x,
                                                 std::vector<double>                                y,
                                                 ULONG                                              folds );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
@@ -1520,7 +1482,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::svm_c_trainer_rad
                                                          std::vector<double>              y,
                                                          ULONG                            folds,
                                                          ULONG                            num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1531,7 +1492,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::svm_c_trainer_spa
                                                          std::vector<double>                                y,
                                                          ULONG                                              folds,
                                                          ULONG                                              num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1542,7 +1502,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::svm_c_trainer_his
                                                          std::vector<double>                        y,
                                                          ULONG                                      folds,
                                                          ULONG                                      num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1553,7 +1512,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::svm_c_trainer_spa
                                                          std::vector<double>                                y,
                                                          ULONG                                              folds,
                                                          ULONG                                              num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1564,7 +1522,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::svm_c_trainer_lin
                                                          std::vector<double>            y,
                                                          ULONG                          folds,
                                                          ULONG                          num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1575,7 +1532,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::svm_c_trainer_spa
                                                          std::vector<double>                                y,
                                                          ULONG                                              folds,
                                                          ULONG                                              num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1586,7 +1542,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::rvm_trainer_radia
                                                          std::vector<double>            y,
                                                          ULONG                          folds,
                                                          ULONG                          num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1597,7 +1552,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::rvm_trainer_spars
                                                          std::vector<double>                                y,
                                                          ULONG                                              folds,
                                                          ULONG                                              num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1608,7 +1562,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::rvm_trainer_histo
                                                          std::vector<double>                      y,
                                                          ULONG                                    folds,
                                                          ULONG                                    num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1619,7 +1572,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::rvm_trainer_spars
                                                          std::vector<double>                                y,
                                                          ULONG                                              folds,
                                                          ULONG                                              num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1630,7 +1582,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::rvm_trainer_linea
                                                          std::vector<double>            y,
                                                          ULONG                          folds,
                                                          ULONG                          num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1641,7 +1592,6 @@ dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::rvm_trainer_spars
                                                          std::vector<double>                                y,
                                                          ULONG                                              folds,
                                                          ULONG                                              num_threads );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
@@ -1651,7 +1601,6 @@ AutoIt:
 ```cpp
 double dlib::distance_to_line( dlib::line   l,
                                dlib::dpoint p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").distance_to_line( $l, $p ) -> retval
 ```
@@ -1659,7 +1608,6 @@ AutoIt:
 ```cpp
 double dlib::distance_to_line( dlib::line  l,
                                dlib::point p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").distance_to_line( $l, $p ) -> retval
 ```
@@ -1668,7 +1616,6 @@ AutoIt:
 
 ```cpp
 bool dlib::dnn_prefer_fastest_algorithms();
-
 AutoIt:
     _Dlib_ObjCreate("dlib").dnn_prefer_fastest_algorithms() -> retval
 ```
@@ -1678,7 +1625,6 @@ AutoIt:
 ```cpp
 double dlib::dot( dlib::Matrix& a,
                   dlib::Matrix& b );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").dot( $a, $b ) -> retval
 ```
@@ -1686,7 +1632,6 @@ AutoIt:
 ```cpp
 double dlib::dot( dlib::SpaceVector& a,
                   dlib::SpaceVector& b );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").dot( $a, $b ) -> retval
 ```
@@ -1694,7 +1639,6 @@ AutoIt:
 ```cpp
 double dlib::dot( dlib::dpoint& a,
                   dlib::dpoint& b );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").dot( $a, $b ) -> retval
 ```
@@ -1702,7 +1646,6 @@ AutoIt:
 ```cpp
 double dlib::dot( dlib::point& a,
                   dlib::point& b );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").dot( $a, $b ) -> retval
 ```
@@ -1715,7 +1658,6 @@ void dlib::find_candidate_object_locations( cv::Mat&                         ima
                                             std::tuple<double, double, long> kvals = std::tuple<double, double, long>(50, 200, 3),
                                             ULONG                            min_size = 20,
                                             ULONG                            max_merging_iterations = 50 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").find_candidate_object_locations( $image[, $kvals[, $min_size[, $max_merging_iterations[, $rects]]]] ) -> $rects
 ```
@@ -1731,7 +1673,6 @@ void dlib::find_max_global( void*                f,
                             double               solver_epsilon = 0,
                             std::vector<double>& x,
                             float*               y );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").find_max_global( $f, $bound1, $bound2, $is_integer_variable, $num_function_calls[, $solver_epsilon[, $x[, $y]]] ) -> $x, $y
 ```
@@ -1744,7 +1685,6 @@ void dlib::find_max_global( void*                f,
                             double               solver_epsilon = 0,
                             std::vector<double>& x,
                             float*               y );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").find_max_global( $f, $bound1, $bound2, $num_function_calls[, $solver_epsilon[, $x[, $y]]] ) -> $x, $y
 ```
@@ -1760,7 +1700,6 @@ void dlib::find_min_global( void*                f,
                             double               solver_epsilon = 0,
                             std::vector<double>& x,
                             float*               y );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").find_min_global( $f, $bound1, $bound2, $is_integer_variable, $num_function_calls[, $solver_epsilon[, $x[, $y]]] ) -> $x, $y
 ```
@@ -1773,7 +1712,6 @@ void dlib::find_min_global( void*                f,
                             double               solver_epsilon = 0,
                             std::vector<double>& x,
                             float*               y );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").find_min_global( $f, $bound1, $bound2, $num_function_calls[, $solver_epsilon[, $x[, $y]]] ) -> $x, $y
 ```
@@ -1783,7 +1721,6 @@ AutoIt:
 ```cpp
 dlib::rect_filter dlib::find_optimal_rect_filter( std::vector<dlib::rectangle> rects,
                                                   double                       smoothness = 1 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").find_optimal_rect_filter( $rects[, $smoothness] ) -> retval
 ```
@@ -1793,7 +1730,6 @@ AutoIt:
 ```cpp
 dlib::point_transform_projective dlib::find_projective_transform( std::vector<dlib::dpoint>& from_points,
                                                                   std::vector<dlib::dpoint>& to_points );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").find_projective_transform( $from_points, $to_points ) -> retval
 ```
@@ -1801,7 +1737,6 @@ AutoIt:
 ```cpp
 dlib::point_transform_projective dlib::find_projective_transform( dlib::Matrix& from_points,
                                                                   dlib::Matrix& to_points );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").find_projective_transform( $from_points, $to_points ) -> retval
 ```
@@ -1809,7 +1744,6 @@ AutoIt:
 ```cpp
 dlib::point_transform_projective dlib::find_projective_transform( cv::Mat& from_points,
                                                                   cv::Mat& to_points );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").find_projective_transform( $from_points, $to_points ) -> retval
 ```
@@ -1821,7 +1755,6 @@ cv::Mat dlib::get_face_chip( const cv::Mat&                     img,
                              const dlib::full_object_detection& face,
                              size_t                             size = 150,
                              float                              padding = 0.25 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").get_face_chip( $img, $face[, $size[, $padding]] ) -> retval
 ```
@@ -1833,7 +1766,6 @@ std::vector<cv::Mat> dlib::get_face_chips( const cv::Mat&                       
                                            const std::vector<dlib::full_object_detection>& faces,
                                            size_t                                          size = 150,
                                            float                                           padding = 0.25 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").get_face_chips( $img, $faces[, $size[, $padding]] ) -> retval
 ```
@@ -1842,7 +1774,6 @@ AutoIt:
 
 ```cpp
 dlib::fhog_object_detector dlib::get_frontal_face_detector();
-
 AutoIt:
     _Dlib_ObjCreate("dlib").get_frontal_face_detector() -> retval
 ```
@@ -1851,7 +1782,6 @@ AutoIt:
 
 ```cpp
 void dlib::hit_enter_to_continue();
-
 AutoIt:
     _Dlib_ObjCreate("dlib").hit_enter_to_continue() -> None
 ```
@@ -1861,7 +1791,6 @@ AutoIt:
 ```cpp
 dlib::dpoint dlib::intersect( dlib::line a,
                               dlib::line b );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").intersect( $a, $b ) -> retval
 ```
@@ -1870,7 +1799,6 @@ AutoIt:
 
 ```cpp
 dlib::point_transform_projective dlib::inv( dlib::point_transform_projective& trans );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").inv( $trans ) -> retval
 ```
@@ -1881,7 +1809,6 @@ AutoIt:
 std::vector<cv::Mat> dlib::jitter_image( const cv::Mat& img,
                                          size_t         num_jitters = 1,
                                          bool           disturb_colors = false );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").jitter_image( $img[, $num_jitters[, $disturb_colors]] ) -> retval
 ```
@@ -1890,14 +1817,12 @@ AutoIt:
 
 ```cpp
 double dlib::length( dlib::dpoint& p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").length( $p ) -> retval
 ```
 
 ```cpp
 double dlib::length( dlib::point& p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").length( $p ) -> retval
 ```
@@ -1906,7 +1831,6 @@ AutoIt:
 
 ```cpp
 cv::Mat dlib::load_grayscale_image( const string& path );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").load_grayscale_image( $path ) -> retval
 ```
@@ -1917,7 +1841,6 @@ AutoIt:
 void dlib::load_libsvm_formatted_data( string&                                             file_name,
                                        std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                        std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").load_libsvm_formatted_data( $file_name[, $samples[, $labels]] ) -> $samples, $labels
 ```
@@ -1926,7 +1849,6 @@ AutoIt:
 
 ```cpp
 cv::Mat dlib::load_rgb_image( const string& path );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").load_rgb_image( $path ) -> retval
 ```
@@ -1935,14 +1857,12 @@ AutoIt:
 
 ```cpp
 void dlib::make_sparse_vector( std::vector<std::pair<ULONG, double>>& v );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").make_sparse_vector( [$v] ) -> $v
 ```
 
 ```cpp
 void dlib::make_sparse_vector( std::vector<std::vector<std::pair<ULONG, double>>>& v );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").make_sparse_vector( [$v] ) -> $v
 ```
@@ -1951,7 +1871,6 @@ AutoIt:
 
 ```cpp
 std::vector<long> dlib::max_cost_assignment( const dlib::Matrix& cost );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").max_cost_assignment( $cost ) -> retval
 ```
@@ -1960,7 +1879,6 @@ AutoIt:
 
 ```cpp
 ULONG dlib::max_index_plus_one( std::vector<std::pair<ULONG, double>>& v );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").max_index_plus_one( $v ) -> retval
 ```
@@ -1969,14 +1887,12 @@ AutoIt:
 
 ```cpp
 ULONG dlib::num_separable_filters( dlib::fhog_object_detector& detector );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").num_separable_filters( $detector ) -> retval
 ```
 
 ```cpp
 ULONG dlib::num_separable_filters( dlib::simple_object_detector_com& detector );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").num_separable_filters( $detector ) -> retval
 ```
@@ -1985,7 +1901,6 @@ AutoIt:
 
 ```cpp
 double dlib::polygon_area( std::vector<dlib::dpoint>& pts );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").polygon_area( $pts ) -> retval
 ```
@@ -1995,7 +1910,6 @@ AutoIt:
 ```cpp
 double dlib::probability_that_sequence_is_increasing( std::vector<double>& time_series,
                                                       double               thresh = 0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").probability_that_sequence_is_increasing( $time_series[, $thresh] ) -> retval
 ```
@@ -2007,7 +1921,6 @@ dlib::_normalized_decision_function_radial_basis dlib::reduce( dlib::_normalized
                                                                std::vector<dlib::SpaceVector>&                   x,
                                                                long                                              num_basis_vectors,
                                                                double                                            eps = 1e-3 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").reduce( $df, $x, $num_basis_vectors[, $eps] ) -> retval
 ```
@@ -2017,7 +1930,6 @@ dlib::_normalized_decision_function_radial_basis dlib::reduce( dlib::_normalized
                                                                cv::Mat&                                          x,
                                                                long                                              num_basis_vectors,
                                                                double                                            eps = 1e-3 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").reduce( $df, $x, $num_basis_vectors[, $eps] ) -> retval
 ```
@@ -2030,7 +1942,6 @@ void dlib::save_face_chip( const cv::Mat&                     img,
                            const string&                      chip_filename,
                            size_t                             size = 150,
                            float                              padding = 0.25 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").save_face_chip( $img, $face, $chip_filename[, $size[, $padding]] ) -> None
 ```
@@ -2043,7 +1954,6 @@ void dlib::save_face_chips( const cv::Mat&                                  img,
                             const string&                                   chip_filename,
                             size_t                                          size = 150,
                             float                                           padding = 0.25 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").save_face_chips( $img, $faces, $chip_filename[, $size[, $padding]] ) -> None
 ```
@@ -2053,7 +1963,6 @@ AutoIt:
 ```cpp
 void dlib::save_image( const cv::Mat& img,
                        const string&  path );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").save_image( $img, $path ) -> None
 ```
@@ -2064,7 +1973,6 @@ AutoIt:
 void dlib::save_libsvm_formatted_data( const string&                                             file_name,
                                        const std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                        const std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").save_libsvm_formatted_data( $file_name, $samples, $labels ) -> None
 ```
@@ -2074,7 +1982,6 @@ AutoIt:
 ```cpp
 dlib::rectangle dlib::scale_rect( dlib::rectangle rect,
                                   double          scale );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").scale_rect( $rect, $scale ) -> retval
 ```
@@ -2082,7 +1989,6 @@ AutoIt:
 ```cpp
 dlib::drectangle dlib::scale_rect( dlib::drectangle rect,
                                    double           scale );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").scale_rect( $rect, $scale ) -> retval
 ```
@@ -2091,7 +1997,6 @@ AutoIt:
 
 ```cpp
 void dlib::set_dnn_prefer_fastest_algorithms();
-
 AutoIt:
     _Dlib_ObjCreate("dlib").set_dnn_prefer_fastest_algorithms() -> None
 ```
@@ -2100,7 +2005,6 @@ AutoIt:
 
 ```cpp
 void dlib::set_dnn_prefer_smallest_algorithms();
-
 AutoIt:
     _Dlib_ObjCreate("dlib").set_dnn_prefer_smallest_algorithms() -> None
 ```
@@ -2110,7 +2014,6 @@ AutoIt:
 ```cpp
 dlib::rectangle dlib::shrink_rect( dlib::rectangle rect,
                                    long            num );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").shrink_rect( $rect, $num ) -> retval
 ```
@@ -2118,7 +2021,6 @@ AutoIt:
 ```cpp
 dlib::drectangle dlib::shrink_rect( dlib::drectangle rect,
                                     double           num );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").shrink_rect( $rect, $num ) -> retval
 ```
@@ -2128,7 +2030,6 @@ AutoIt:
 ```cpp
 double dlib::signed_distance_to_line( dlib::line   l,
                                       dlib::dpoint p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").signed_distance_to_line( $l, $p ) -> retval
 ```
@@ -2136,7 +2037,6 @@ AutoIt:
 ```cpp
 double dlib::signed_distance_to_line( dlib::line  l,
                                       dlib::point p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").signed_distance_to_line( $l, $p ) -> retval
 ```
@@ -2145,7 +2045,6 @@ AutoIt:
 
 ```cpp
 dlib::SpaceVector dlib::solve_structural_svm_problem( dlib::simple_structural_svm_problem& problem );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").solve_structural_svm_problem( $problem ) -> retval
 ```
@@ -2156,7 +2055,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_normalized_decision_function_radial_basis& dec_funct,
                                                        std::vector<dlib::SpaceVector>&                   samples,
                                                        std::vector<double>&                              labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2165,7 +2063,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_normalized_decision_function_radial_basis& dec_funct,
                                                        cv::Mat&                                          samples,
                                                        std::vector<double>&                              labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2174,7 +2071,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_linear& dec_funct,
                                                        std::vector<dlib::SpaceVector>&  samples,
                                                        std::vector<double>&             labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2183,7 +2079,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_linear& dec_funct,
                                                        cv::Mat&                         samples,
                                                        std::vector<double>&             labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2192,7 +2087,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_sparse_linear&             dec_funct,
                                                        std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                                        std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2201,7 +2095,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_radial_basis& dec_funct,
                                                        std::vector<dlib::SpaceVector>&        samples,
                                                        std::vector<double>&                   labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2210,7 +2103,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_radial_basis& dec_funct,
                                                        cv::Mat&                               samples,
                                                        std::vector<double>&                   labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2219,7 +2111,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_sparse_radial_basis&       dec_funct,
                                                        std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                                        std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2228,7 +2119,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_polynomial& dec_funct,
                                                        std::vector<dlib::SpaceVector>&      samples,
                                                        std::vector<double>&                 labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2237,7 +2127,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_polynomial& dec_funct,
                                                        cv::Mat&                             samples,
                                                        std::vector<double>&                 labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2246,7 +2135,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_sparse_polynomial&         dec_funct,
                                                        std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                                        std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2255,7 +2143,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_histogram_intersection& dec_funct,
                                                        std::vector<dlib::SpaceVector>&                  samples,
                                                        std::vector<double>&                             labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2264,7 +2151,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_histogram_intersection& dec_funct,
                                                        cv::Mat&                                         samples,
                                                        std::vector<double>&                             labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2273,7 +2159,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_sparse_histogram_intersection& dec_funct,
                                                        std::vector<std::vector<std::pair<ULONG, double>>>&     samples,
                                                        std::vector<double>&                                    labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2282,7 +2167,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_sigmoid& dec_funct,
                                                        std::vector<dlib::SpaceVector>&   samples,
                                                        std::vector<double>&              labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2291,7 +2175,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_sigmoid& dec_funct,
                                                        cv::Mat&                          samples,
                                                        std::vector<double>&              labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2300,7 +2183,6 @@ AutoIt:
 dlib::binary_test dlib::test_binary_decision_function( dlib::_decision_function_sparse_sigmoid&            dec_funct,
                                                        std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                                        std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2310,7 +2192,6 @@ AutoIt:
 ```cpp
 dlib::ranking_test dlib::test_ranking_function( dlib::_decision_function_linear&     dec_funct,
                                                 std::vector<dlib::vec_ranking_pair>& samples );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_ranking_function( $dec_funct, $samples ) -> retval
 ```
@@ -2318,7 +2199,6 @@ AutoIt:
 ```cpp
 dlib::ranking_test dlib::test_ranking_function( dlib::_decision_function_linear& dec_funct,
                                                 dlib::vec_ranking_pair&          sample );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_ranking_function( $dec_funct, $sample ) -> retval
 ```
@@ -2326,7 +2206,6 @@ AutoIt:
 ```cpp
 dlib::ranking_test dlib::test_ranking_function( dlib::_decision_function_sparse_linear& dec_funct,
                                                 std::vector<dlib::sparse_ranking_pair>& samples );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_ranking_function( $dec_funct, $samples ) -> retval
 ```
@@ -2334,7 +2213,6 @@ AutoIt:
 ```cpp
 dlib::ranking_test dlib::test_ranking_function( dlib::_decision_function_sparse_linear& dec_funct,
                                                 dlib::sparse_ranking_pair&              sample );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_ranking_function( $dec_funct, $sample ) -> retval
 ```
@@ -2345,7 +2223,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_linear& dec_funct,
                                                       std::vector<dlib::SpaceVector>&  samples,
                                                       std::vector<double>&             labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2354,7 +2231,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_linear& dec_funct,
                                                       cv::Mat&                         samples,
                                                       std::vector<double>&             labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2363,7 +2239,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_sparse_linear&             dec_funct,
                                                       std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                                       std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2372,7 +2247,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_radial_basis& dec_funct,
                                                       std::vector<dlib::SpaceVector>&        samples,
                                                       std::vector<double>&                   labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2381,7 +2255,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_radial_basis& dec_funct,
                                                       cv::Mat&                               samples,
                                                       std::vector<double>&                   labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2390,7 +2263,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_sparse_radial_basis&       dec_funct,
                                                       std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                                       std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2399,7 +2271,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_polynomial& dec_funct,
                                                       std::vector<dlib::SpaceVector>&      samples,
                                                       std::vector<double>&                 labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2408,7 +2279,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_polynomial& dec_funct,
                                                       cv::Mat&                             samples,
                                                       std::vector<double>&                 labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2417,7 +2287,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_sparse_polynomial&         dec_funct,
                                                       std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                                       std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2426,7 +2295,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_histogram_intersection& dec_funct,
                                                       std::vector<dlib::SpaceVector>&                  samples,
                                                       std::vector<double>&                             labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2435,7 +2303,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_histogram_intersection& dec_funct,
                                                       cv::Mat&                                         samples,
                                                       std::vector<double>&                             labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2444,7 +2311,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_sparse_histogram_intersection& dec_funct,
                                                       std::vector<std::vector<std::pair<ULONG, double>>>&     samples,
                                                       std::vector<double>&                                    labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2453,7 +2319,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_sigmoid& dec_funct,
                                                       std::vector<dlib::SpaceVector>&   samples,
                                                       std::vector<double>&              labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2462,7 +2327,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_sigmoid& dec_funct,
                                                       cv::Mat&                          samples,
                                                       std::vector<double>&              labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2471,7 +2335,6 @@ AutoIt:
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_sparse_sigmoid&            dec_funct,
                                                       std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                                       std::vector<double>&                                labels );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
@@ -2482,7 +2345,6 @@ AutoIt:
 dlib::segmenter_test dlib::test_sequence_segmenter( const dlib::segmenter_type&                              segmenter,
                                                     const std::vector<std::vector<dlib::SpaceVector>>&       samples,
                                                     const std::vector<std::vector<std::pair<ULONG, ULONG>>>& segments );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_sequence_segmenter( $segmenter, $samples, $segments ) -> retval
 ```
@@ -2491,7 +2353,6 @@ AutoIt:
 dlib::segmenter_test dlib::test_sequence_segmenter( const dlib::segmenter_type&                                            segmenter,
                                                     const std::vector<std::vector<std::vector<std::pair<ULONG, double>>>>& samples,
                                                     const std::vector<std::vector<std::pair<ULONG, ULONG>>>&               segments );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_sequence_segmenter( $segmenter, $samples, $segments ) -> retval
 ```
@@ -2501,7 +2362,6 @@ AutoIt:
 ```cpp
 double dlib::test_shape_predictor( string dataset_filename,
                                    string predictor_filename );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_shape_predictor( $dataset_filename, $predictor_filename ) -> retval
 ```
@@ -2511,7 +2371,6 @@ double dlib::test_shape_predictor( std::vector<cv::Mat>&                        
                                    std::vector<std::vector<dlib::full_object_detection>>& detections,
                                    std::vector<std::vector<double>>&                      scales,
                                    dlib::shape_predictor&                                 predictor );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_shape_predictor( $images, $detections, $scales, $predictor ) -> retval
 ```
@@ -2521,7 +2380,6 @@ double dlib::test_shape_predictor( std::vector<cv::Mat>&                        
                                    std::vector<std::vector<dlib::full_object_detection>>& detections,
                                    dlib::shape_predictor&                                 predictor,
                                    std::vector<std::vector<double>>&                      scales = vector_vector_double() );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_shape_predictor( $images, $detections, $predictor[, $scales] ) -> retval
 ```
@@ -2532,7 +2390,6 @@ AutoIt:
 dlib::simple_test_results dlib::test_simple_object_detector( const string& dataset_filename,
                                                              const string& detector_filename,
                                                              const int     upsampling_amount = -1 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_simple_object_detector( $dataset_filename, $detector_filename[, $upsampling_amount] ) -> retval
 ```
@@ -2541,7 +2398,6 @@ AutoIt:
 dlib::simple_test_results dlib::test_simple_object_detector( const string&               dataset_filename,
                                                              dlib::fhog_object_detector& detector,
                                                              const int                   upsampling_amount = -1 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_simple_object_detector( $dataset_filename, $detector[, $upsampling_amount] ) -> retval
 ```
@@ -2550,7 +2406,6 @@ AutoIt:
 dlib::simple_test_results dlib::test_simple_object_detector( const string&                     dataset_filename,
                                                              dlib::simple_object_detector_com& detector,
                                                              const int                         upsampling_amount = -1 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_simple_object_detector( $dataset_filename, $detector[, $upsampling_amount] ) -> retval
 ```
@@ -2560,7 +2415,6 @@ dlib::simple_test_results dlib::test_simple_object_detector( const std::vector<c
                                                              std::vector<std::vector<dlib::rectangle>>& boxes,
                                                              dlib::fhog_object_detector&                detector,
                                                              const int                                  upsampling_amount = -1 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_simple_object_detector( $images, $boxes, $detector[, $upsampling_amount] ) -> retval
 ```
@@ -2570,7 +2424,6 @@ dlib::simple_test_results dlib::test_simple_object_detector( const std::vector<c
                                                              std::vector<std::vector<dlib::rectangle>>& boxes,
                                                              dlib::simple_object_detector_com&          detector,
                                                              const int                                  upsampling_amount = -1 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").test_simple_object_detector( $images, $boxes, $detector[, $upsampling_amount] ) -> retval
 ```
@@ -2581,7 +2434,6 @@ AutoIt:
 dlib::fhog_object_detector dlib::threshold_filter_singular_values( dlib::fhog_object_detector& detector,
                                                                    double                      thresh,
                                                                    ULONG                       weight_index = 0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").threshold_filter_singular_values( $detector, $thresh[, $weight_index] ) -> retval
 ```
@@ -2590,7 +2442,6 @@ AutoIt:
 dlib::simple_object_detector_com dlib::threshold_filter_singular_values( dlib::simple_object_detector_com& detector,
                                                                          double                            thresh,
                                                                          ULONG                             weight_index = 0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").threshold_filter_singular_values( $detector, $thresh[, $weight_index] ) -> retval
 ```
@@ -2601,7 +2452,6 @@ AutoIt:
 dlib::segmenter_type dlib::train_sequence_segmenter( const std::vector<std::vector<dlib::SpaceVector>>&       samples,
                                                      const std::vector<std::vector<std::pair<ULONG, ULONG>>>& segments,
                                                      dlib::segmenter_params                                   params = segmenter_params() );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").train_sequence_segmenter( $samples, $segments[, $params] ) -> retval
 ```
@@ -2610,7 +2460,6 @@ AutoIt:
 dlib::segmenter_type dlib::train_sequence_segmenter( const std::vector<std::vector<std::vector<std::pair<ULONG, double>>>>& samples,
                                                      const std::vector<std::vector<std::pair<ULONG, ULONG>>>&               segments,
                                                      dlib::segmenter_params                                                 params = segmenter_params() );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").train_sequence_segmenter( $samples, $segments[, $params] ) -> retval
 ```
@@ -2621,7 +2470,6 @@ AutoIt:
 void dlib::train_shape_predictor( const string&                                 dataset_filename,
                                   const string&                                 predictor_output_filename,
                                   const dlib::shape_predictor_training_options& options );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").train_shape_predictor( $dataset_filename, $predictor_output_filename, $options ) -> None
 ```
@@ -2630,7 +2478,6 @@ AutoIt:
 dlib::shape_predictor dlib::train_shape_predictor( std::vector<cv::Mat>&                                  images,
                                                    std::vector<std::vector<dlib::full_object_detection>>& detections,
                                                    dlib::shape_predictor_training_options&                options );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").train_shape_predictor( $images, $detections, $options ) -> retval
 ```
@@ -2641,7 +2488,6 @@ AutoIt:
 void dlib::train_simple_object_detector( const string&                                        dataset_filename,
                                          const string&                                        detector_output_filename,
                                          const dlib::simple_object_detector_training_options& options );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").train_simple_object_detector( $dataset_filename, $detector_output_filename, $options ) -> None
 ```
@@ -2650,7 +2496,6 @@ AutoIt:
 dlib::simple_object_detector_com dlib::train_simple_object_detector( const std::vector<cv::Mat>&                          images,
                                                                      std::vector<std::vector<dlib::rectangle>>&           boxes,
                                                                      const dlib::simple_object_detector_training_options& options );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").train_simple_object_detector( $images, $boxes, $options ) -> retval
 ```
@@ -2660,7 +2505,6 @@ AutoIt:
 ```cpp
 dlib::rectangle dlib::translate_rect( dlib::rectangle rect,
                                       dlib::point     p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").translate_rect( $rect, $p ) -> retval
 ```
@@ -2668,7 +2512,6 @@ AutoIt:
 ```cpp
 dlib::rectangle dlib::translate_rect( dlib::rectangle rect,
                                       dlib::dpoint    p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").translate_rect( $rect, $p ) -> retval
 ```
@@ -2676,7 +2519,6 @@ AutoIt:
 ```cpp
 dlib::drectangle dlib::translate_rect( dlib::drectangle rect,
                                        dlib::point      p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").translate_rect( $rect, $p ) -> retval
 ```
@@ -2684,7 +2526,6 @@ AutoIt:
 ```cpp
 dlib::drectangle dlib::translate_rect( dlib::drectangle rect,
                                        dlib::dpoint     p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").translate_rect( $rect, $p ) -> retval
 ```
@@ -2693,7 +2534,6 @@ AutoIt:
 
 ```cpp
 _variant_t dlib::variant( void* ptr );
-
 AutoIt:
     _Dlib_ObjCreate("dlib").variant( $ptr ) -> retval
 ```
@@ -2704,7 +2544,6 @@ AutoIt:
 
 ```cpp
 static dlib::binary_test dlib::binary_test::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.binary_test").create() -> <dlib.binary_test object>
 ```
@@ -2713,7 +2552,6 @@ AutoIt:
 
 ```cpp
 string dlib::binary_test::ToString() const;
-
 AutoIt:
     $obinary_test.ToString() -> retval
 ```
@@ -2724,7 +2562,6 @@ AutoIt:
 
 ```cpp
 static dlib::regression_test dlib::regression_test::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.regression_test").create() -> <dlib.regression_test object>
 ```
@@ -2733,7 +2570,6 @@ AutoIt:
 
 ```cpp
 string dlib::regression_test::ToString() const;
-
 AutoIt:
     $oregression_test.ToString() -> retval
 ```
@@ -2744,7 +2580,6 @@ AutoIt:
 
 ```cpp
 static dlib::ranking_test dlib::ranking_test::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_test").create() -> <dlib.ranking_test object>
 ```
@@ -2753,7 +2588,6 @@ AutoIt:
 
 ```cpp
 string dlib::ranking_test::ToString() const;
-
 AutoIt:
     $oranking_test.ToString() -> retval
 ```
@@ -2764,7 +2598,6 @@ AutoIt:
 
 ```cpp
 static dlib::cca_outputs dlib::cca_outputs::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.cca_outputs").create() -> <dlib.cca_outputs object>
 ```
@@ -2775,7 +2608,6 @@ AutoIt:
 
 ```cpp
 static dlib::cnn_face_detection_model_v1 dlib::cnn_face_detection_model_v1::create( const string& model_filename );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.cnn_face_detection_model_v1").create( $model_filename ) -> <dlib.cnn_face_detection_model_v1 object>
 ```
@@ -2785,7 +2617,6 @@ AutoIt:
 ```cpp
 std::vector<dlib::mmod_rect> dlib::cnn_face_detection_model_v1::detect( const cv::Mat& img,
                                                                         const int      upsample_num_times = 0 );
-
 AutoIt:
     $ocnn_face_detection_model_v1.detect( $img[, $upsample_num_times] ) -> retval
 ```
@@ -2796,7 +2627,6 @@ AutoIt:
 std::vector<std::vector<dlib::mmod_rect>> dlib::cnn_face_detection_model_v1::detect_multi( const std::vector<cv::Mat>& imgs,
                                                                                            const int                   upsample_num_times = 0,
                                                                                            const int                   batch_size = 128 );
-
 AutoIt:
     $ocnn_face_detection_model_v1.detect_multi( $imgs[, $upsample_num_times[, $batch_size]] ) -> retval
 ```
@@ -2806,7 +2636,6 @@ AutoIt:
 ```cpp
 std::vector<dlib::mmod_rect> dlib::cnn_face_detection_model_v1::get_call( const cv::Mat& img,
                                                                           const int      upsample_num_times = 0 );
-
 AutoIt:
     $ocnn_face_detection_model_v1.call( $img[, $upsample_num_times] ) -> retval
     dlib.cnn_face_detection_model_v1( $img[, $upsample_num_times] ) -> retval
@@ -2816,7 +2645,6 @@ AutoIt:
 std::vector<std::vector<dlib::mmod_rect>> dlib::cnn_face_detection_model_v1::get_call( const std::vector<cv::Mat>& imgs,
                                                                                        const int                   upsample_num_times = 0,
                                                                                        const int                   batch_size = 128 );
-
 AutoIt:
     $ocnn_face_detection_model_v1.call( $imgs[, $upsample_num_times[, $batch_size]] ) -> retval
     dlib.cnn_face_detection_model_v1( $imgs[, $upsample_num_times[, $batch_size]] ) -> retval
@@ -2828,7 +2656,6 @@ AutoIt:
 
 ```cpp
 static dlib::face_recognition_model_v1 dlib::face_recognition_model_v1::create( const string& model_filename );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.face_recognition_model_v1").create( $model_filename ) -> <dlib.face_recognition_model_v1 object>
 ```
@@ -2840,7 +2667,6 @@ dlib::SpaceVector dlib::face_recognition_model_v1::compute_face_descriptor( cons
                                                                             const dlib::full_object_detection& face,
                                                                             const int                          num_jitters = 0,
                                                                             float                              padding = 0.25 );
-
 AutoIt:
     $oface_recognition_model_v1.compute_face_descriptor( $image, $face[, $num_jitters[, $padding]] ) -> retval
 ```
@@ -2848,7 +2674,6 @@ AutoIt:
 ```cpp
 dlib::SpaceVector dlib::face_recognition_model_v1::compute_face_descriptor( const cv::Mat& image,
                                                                             const int      num_jitters = 0 );
-
 AutoIt:
     $oface_recognition_model_v1.compute_face_descriptor( $image[, $num_jitters] ) -> retval
 ```
@@ -2858,7 +2683,6 @@ std::vector<dlib::SpaceVector> dlib::face_recognition_model_v1::compute_face_des
                                                                                          const std::vector<dlib::full_object_detection>& faces,
                                                                                          const int                                       num_jitters = 0,
                                                                                          float                                           padding = 0.25 );
-
 AutoIt:
     $oface_recognition_model_v1.compute_face_descriptor( $image, $faces[, $num_jitters[, $padding]] ) -> retval
 ```
@@ -2868,7 +2692,6 @@ std::vector<std::vector<dlib::SpaceVector>> dlib::face_recognition_model_v1::com
                                                                                                       const std::vector<std::vector<dlib::full_object_detection>>& batch_faces,
                                                                                                       const int                                                    num_jitters = 0,
                                                                                                       float                                                        padding = 0.25 );
-
 AutoIt:
     $oface_recognition_model_v1.compute_face_descriptor( $images, $batch_faces[, $num_jitters[, $padding]] ) -> retval
 ```
@@ -2876,7 +2699,6 @@ AutoIt:
 ```cpp
 std::vector<dlib::SpaceVector> dlib::face_recognition_model_v1::compute_face_descriptor( const std::vector<cv::Mat>& images,
                                                                                          const int                   num_jitters = 0 );
-
 AutoIt:
     $oface_recognition_model_v1.compute_face_descriptor( $images[, $num_jitters] ) -> retval
 ```
@@ -2887,7 +2709,6 @@ AutoIt:
 
 ```cpp
 static dlib::_row dlib::_row::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._row").create() -> <dlib._row object>
 ```
@@ -2895,7 +2716,6 @@ AutoIt:
 ```cpp
 static dlib::_row dlib::_row::create( double* data_,
                                       long    size_ );
-
 AutoIt:
     _Dlib_ObjCreate("dlib._row").create( $size_[, $data_] ) -> <dlib._row object>
 ```
@@ -2904,7 +2724,6 @@ AutoIt:
 
 ```cpp
 string dlib::_row::ToString();
-
 AutoIt:
     $o_row.ToString() -> retval
 ```
@@ -2913,7 +2732,6 @@ AutoIt:
 
 ```cpp
 double dlib::_row::get( long r );
-
 AutoIt:
     $o_row.get( $r ) -> retval
 ```
@@ -2923,7 +2741,6 @@ AutoIt:
 ```cpp
 void dlib::_row::set( long   r,
                       double val );
-
 AutoIt:
     $o_row.set( $r, $val ) -> None
 ```
@@ -2934,7 +2751,6 @@ AutoIt:
 
 ```cpp
 static dlib::segmenter_type dlib::segmenter_type::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_type").create() -> <dlib.segmenter_type object>
 ```
@@ -2943,7 +2759,6 @@ AutoIt:
 
 ```cpp
 std::vector<std::pair<ULONG, ULONG>> dlib::segmenter_type::get_call( const std::vector<dlib::SpaceVector>& x ) const;
-
 AutoIt:
     $osegmenter_type.call( $x ) -> retval
     dlib.segmenter_type( $x ) -> retval
@@ -2951,7 +2766,6 @@ AutoIt:
 
 ```cpp
 std::vector<std::pair<ULONG, ULONG>> dlib::segmenter_type::get_call( const std::vector<std::vector<std::pair<ULONG, double>>>& x ) const;
-
 AutoIt:
     $osegmenter_type.call( $x ) -> retval
     dlib.segmenter_type( $x ) -> retval
@@ -2963,7 +2777,6 @@ AutoIt:
 
 ```cpp
 static dlib::segmenter_params dlib::segmenter_params::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_params").create() -> <dlib.segmenter_params object>
 ```
@@ -2972,7 +2785,6 @@ AutoIt:
 
 ```cpp
 string dlib::segmenter_params::ToString() const;
-
 AutoIt:
     $osegmenter_params.ToString() -> retval
 ```
@@ -2983,7 +2795,6 @@ AutoIt:
 
 ```cpp
 static dlib::segmenter_test dlib::segmenter_test::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_test").create() -> <dlib.segmenter_test object>
 ```
@@ -2992,7 +2803,6 @@ AutoIt:
 
 ```cpp
 string dlib::segmenter_test::ToString() const;
-
 AutoIt:
     $osegmenter_test.ToString() -> retval
 ```
@@ -3003,7 +2813,6 @@ AutoIt:
 
 ```cpp
 static dlib::shape_predictor_training_options dlib::shape_predictor_training_options::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.shape_predictor_training_options").create() -> <dlib.shape_predictor_training_options object>
 ```
@@ -3012,7 +2821,6 @@ AutoIt:
 
 ```cpp
 string dlib::shape_predictor_training_options::ToString() const;
-
 AutoIt:
     $oshape_predictor_training_options.ToString() -> retval
 ```
@@ -3023,7 +2831,6 @@ AutoIt:
 
 ```cpp
 static dlib::simple_object_detector_training_options dlib::simple_object_detector_training_options::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector_training_options").create() -> <dlib.simple_object_detector_training_options object>
 ```
@@ -3032,7 +2839,6 @@ AutoIt:
 
 ```cpp
 string dlib::simple_object_detector_training_options::ToString() const;
-
 AutoIt:
     $osimple_object_detector_training_options.ToString() -> retval
 ```
@@ -3043,7 +2849,6 @@ AutoIt:
 
 ```cpp
 static dlib::simple_test_results dlib::simple_test_results::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_test_results").create() -> <dlib.simple_test_results object>
 ```
@@ -3052,7 +2857,6 @@ AutoIt:
 
 ```cpp
 string dlib::simple_test_results::ToString() const;
-
 AutoIt:
     $osimple_test_results.ToString() -> retval
 ```
@@ -3063,7 +2867,6 @@ AutoIt:
 
 ```cpp
 static dlib::simple_object_detector_com dlib::simple_object_detector_com::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector").create() -> <dlib.simple_object_detector_com object>
 ```
@@ -3071,21 +2874,18 @@ AutoIt:
 ```cpp
 static dlib::simple_object_detector_com dlib::simple_object_detector_com::create( dlib::fhog_object_detector& _detector,
                                                                                   uint                        _upsampling_amount = 0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector").create( $_detector[, $_upsampling_amount] ) -> <dlib.simple_object_detector_com object>
 ```
 
 ```cpp
 static dlib::simple_object_detector_com dlib::simple_object_detector_com::create( std::vector<dlib::simple_object_detector_com>& detectors );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector").create( $detectors ) -> <dlib.simple_object_detector_com object>
 ```
 
 ```cpp
 static std::shared_ptr<dlib::simple_object_detector_com> dlib::simple_object_detector_com::create( const string& filename );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector").create( $filename ) -> retval
 ```
@@ -3095,7 +2895,6 @@ AutoIt:
 ```cpp
 std::vector<dlib::rectangle> dlib::simple_object_detector_com::get_call( cv::Mat&   img,
                                                                          const uint upsampling_amount_ );
-
 AutoIt:
     $osimple_object_detector_com.call( $img, $upsampling_amount_ ) -> retval
     dlib.simple_object_detector( $img, $upsampling_amount_ ) -> retval
@@ -3103,7 +2902,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::rectangle> dlib::simple_object_detector_com::get_call( cv::Mat& img );
-
 AutoIt:
     $osimple_object_detector_com.call( $img ) -> retval
     dlib.simple_object_detector( $img ) -> retval
@@ -3119,7 +2917,6 @@ static void dlib::simple_object_detector_com::run_multiple( std::vector<dlib::fh
                                                             std::vector<ULONG>                      weight_indices,
                                                             uint                                    upsample_num_times = 0,
                                                             double                                  adjust_threshold = 0.0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector").run_multiple( $vectors, $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
 ```
@@ -3132,7 +2929,6 @@ static void dlib::simple_object_detector_com::run_multiple( std::vector<dlib::si
                                                             std::vector<ULONG>                            weight_indices,
                                                             uint                                          upsample_num_times = 0,
                                                             double                                        adjust_threshold = 0.0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector").run_multiple( $vectors, $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
 ```
@@ -3143,7 +2939,6 @@ AutoIt:
 
 ```cpp
 static dlib::simple_structural_svm_problem dlib::simple_structural_svm_problem::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.structural_svm_problem").create() -> <dlib.simple_structural_svm_problem object>
 ```
@@ -3156,7 +2951,6 @@ AutoIt:
 static dlib::mmod_rect dlib::mmod_rect::create( dlib::rectangle rect = rectangle(),
                                                 double          detection_confidence = 0,
                                                 string          label = string() );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.mmod_rectangle").create( [$rect[, $detection_confidence[, $label]]] ) -> <dlib.mmod_rect object>
 ```
@@ -3168,7 +2962,6 @@ AutoIt:
 ```cpp
 bool dlib::cuda::can_access_peer( int device_id,
                                   int peer_device_id );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.cuda").can_access_peer( $device_id, $peer_device_id ) -> retval
 ```
@@ -3177,7 +2970,6 @@ AutoIt:
 
 ```cpp
 void dlib::cuda::device_synchronize( int device_id );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.cuda").device_synchronize( $device_id ) -> None
 ```
@@ -3186,7 +2978,6 @@ AutoIt:
 
 ```cpp
 int dlib::cuda::get_device();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.cuda").get_device() -> retval
 ```
@@ -3195,7 +2986,6 @@ AutoIt:
 
 ```cpp
 string dlib::cuda::get_device_name( int device );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.cuda").get_device_name( $device ) -> retval
 ```
@@ -3204,7 +2994,6 @@ AutoIt:
 
 ```cpp
 void dlib::cuda::set_current_device_blocking_sync();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.cuda").set_current_device_blocking_sync() -> None
 ```
@@ -3213,7 +3002,6 @@ AutoIt:
 
 ```cpp
 void dlib::cuda::set_device( int device );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.cuda").set_device( $device ) -> None
 ```
@@ -3224,7 +3012,6 @@ AutoIt:
 
 ```cpp
 static dlib::correlation_tracker dlib::correlation_tracker::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.correlation_tracker").create() -> <dlib.correlation_tracker object>
 ```
@@ -3233,7 +3020,6 @@ AutoIt:
 
 ```cpp
 dlib::drectangle dlib::correlation_tracker::get_position();
-
 AutoIt:
     $ocorrelation_tracker.get_position() -> retval
 ```
@@ -3243,7 +3029,6 @@ AutoIt:
 ```cpp
 void dlib::correlation_tracker::start_track( cv::Mat          image,
                                              dlib::drectangle bounding_box );
-
 AutoIt:
     $ocorrelation_tracker.start_track( $image, $bounding_box ) -> None
 ```
@@ -3251,7 +3036,6 @@ AutoIt:
 ```cpp
 void dlib::correlation_tracker::start_track( cv::Mat         image,
                                              dlib::rectangle bounding_box );
-
 AutoIt:
     $ocorrelation_tracker.start_track( $image, $bounding_box ) -> None
 ```
@@ -3260,7 +3044,6 @@ AutoIt:
 
 ```cpp
 double dlib::correlation_tracker::update( cv::Mat image );
-
 AutoIt:
     $ocorrelation_tracker.update( $image ) -> retval
 ```
@@ -3268,7 +3051,6 @@ AutoIt:
 ```cpp
 double dlib::correlation_tracker::update( cv::Mat          image,
                                           dlib::drectangle bounding_box );
-
 AutoIt:
     $ocorrelation_tracker.update( $image, $bounding_box ) -> retval
 ```
@@ -3276,7 +3058,6 @@ AutoIt:
 ```cpp
 double dlib::correlation_tracker::update( cv::Mat         image,
                                           dlib::rectangle bounding_box );
-
 AutoIt:
     $ocorrelation_tracker.update( $image, $bounding_box ) -> retval
 ```
@@ -3287,7 +3068,6 @@ AutoIt:
 
 ```cpp
 static dlib::_radial_basis_kernel dlib::_radial_basis_kernel::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._radial_basis_kernel").create() -> <dlib._radial_basis_kernel object>
 ```
@@ -3298,7 +3078,6 @@ AutoIt:
 
 ```cpp
 static dlib::_linear_kernel dlib::_linear_kernel::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._linear_kernel").create() -> <dlib._linear_kernel object>
 ```
@@ -3309,7 +3088,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_linear dlib::_decision_function_linear::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_linear").create() -> <dlib._decision_function_linear object>
 ```
@@ -3318,7 +3096,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_linear::get_call( dlib::SpaceVector sample );
-
 AutoIt:
     $o_decision_function_linear.call( $sample ) -> retval
     dlib._decision_function_linear( $sample ) -> retval
@@ -3330,7 +3107,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_sparse_linear dlib::_decision_function_sparse_linear::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_linear").create() -> <dlib._decision_function_sparse_linear object>
 ```
@@ -3339,7 +3115,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_sparse_linear::get_call( std::vector<std::pair<ULONG, double>> sample );
-
 AutoIt:
     $o_decision_function_sparse_linear.call( $sample ) -> retval
     dlib._decision_function_sparse_linear( $sample ) -> retval
@@ -3351,7 +3126,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_histogram_intersection dlib::_decision_function_histogram_intersection::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_histogram_intersection").create() -> <dlib._decision_function_histogram_intersection object>
 ```
@@ -3360,7 +3134,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_histogram_intersection::get_call( dlib::SpaceVector sample );
-
 AutoIt:
     $o_decision_function_histogram_intersection.call( $sample ) -> retval
     dlib._decision_function_histogram_intersection( $sample ) -> retval
@@ -3372,7 +3145,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_sparse_histogram_intersection dlib::_decision_function_sparse_histogram_intersection::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_histogram_intersection").create() -> <dlib._decision_function_sparse_histogram_intersection object>
 ```
@@ -3381,7 +3153,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_sparse_histogram_intersection::get_call( std::vector<std::pair<ULONG, double>> sample );
-
 AutoIt:
     $o_decision_function_sparse_histogram_intersection.call( $sample ) -> retval
     dlib._decision_function_sparse_histogram_intersection( $sample ) -> retval
@@ -3393,7 +3164,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_polynomial dlib::_decision_function_polynomial::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_polynomial").create() -> <dlib._decision_function_polynomial object>
 ```
@@ -3402,7 +3172,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_polynomial::get_call( dlib::SpaceVector sample );
-
 AutoIt:
     $o_decision_function_polynomial.call( $sample ) -> retval
     dlib._decision_function_polynomial( $sample ) -> retval
@@ -3414,7 +3183,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_sparse_polynomial dlib::_decision_function_sparse_polynomial::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_polynomial").create() -> <dlib._decision_function_sparse_polynomial object>
 ```
@@ -3423,7 +3191,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_sparse_polynomial::get_call( std::vector<std::pair<ULONG, double>> sample );
-
 AutoIt:
     $o_decision_function_sparse_polynomial.call( $sample ) -> retval
     dlib._decision_function_sparse_polynomial( $sample ) -> retval
@@ -3435,7 +3202,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_radial_basis dlib::_decision_function_radial_basis::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_radial_basis").create() -> <dlib._decision_function_radial_basis object>
 ```
@@ -3444,7 +3210,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_radial_basis::get_call( dlib::SpaceVector sample );
-
 AutoIt:
     $o_decision_function_radial_basis.call( $sample ) -> retval
     dlib._decision_function_radial_basis( $sample ) -> retval
@@ -3456,7 +3221,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_sparse_radial_basis dlib::_decision_function_sparse_radial_basis::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_radial_basis").create() -> <dlib._decision_function_sparse_radial_basis object>
 ```
@@ -3465,7 +3229,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_sparse_radial_basis::get_call( std::vector<std::pair<ULONG, double>> sample );
-
 AutoIt:
     $o_decision_function_sparse_radial_basis.call( $sample ) -> retval
     dlib._decision_function_sparse_radial_basis( $sample ) -> retval
@@ -3477,7 +3240,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_sigmoid dlib::_decision_function_sigmoid::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sigmoid").create() -> <dlib._decision_function_sigmoid object>
 ```
@@ -3486,7 +3248,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_sigmoid::get_call( dlib::SpaceVector sample );
-
 AutoIt:
     $o_decision_function_sigmoid.call( $sample ) -> retval
     dlib._decision_function_sigmoid( $sample ) -> retval
@@ -3498,7 +3259,6 @@ AutoIt:
 
 ```cpp
 static dlib::_decision_function_sparse_sigmoid dlib::_decision_function_sparse_sigmoid::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_sigmoid").create() -> <dlib._decision_function_sparse_sigmoid object>
 ```
@@ -3507,7 +3267,6 @@ AutoIt:
 
 ```cpp
 double dlib::_decision_function_sparse_sigmoid::get_call( std::vector<std::pair<ULONG, double>> sample );
-
 AutoIt:
     $o_decision_function_sparse_sigmoid.call( $sample ) -> retval
     dlib._decision_function_sparse_sigmoid( $sample ) -> retval
@@ -3519,7 +3278,6 @@ AutoIt:
 
 ```cpp
 static dlib::_normalized_decision_function_radial_basis dlib::_normalized_decision_function_radial_basis::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib._normalized_decision_function_radial_basis").create() -> <dlib._normalized_decision_function_radial_basis object>
 ```
@@ -3528,14 +3286,12 @@ AutoIt:
 
 ```cpp
 std::vector<double> dlib::_normalized_decision_function_radial_basis::batch_predict( std::vector<dlib::SpaceVector>& samples );
-
 AutoIt:
     $o_normalized_decision_function_radial_basis.batch_predict( $samples ) -> retval
 ```
 
 ```cpp
 std::vector<double> dlib::_normalized_decision_function_radial_basis::batch_predict( cv::Mat& samples );
-
 AutoIt:
     $o_normalized_decision_function_radial_basis.batch_predict( $samples ) -> retval
 ```
@@ -3544,7 +3300,6 @@ AutoIt:
 
 ```cpp
 double dlib::_normalized_decision_function_radial_basis::get_call( dlib::SpaceVector& sample );
-
 AutoIt:
     $o_normalized_decision_function_radial_basis.call( $sample ) -> retval
     dlib._normalized_decision_function_radial_basis( $sample ) -> retval
@@ -3556,7 +3311,6 @@ AutoIt:
 
 ```cpp
 static dlib::function_evaluation dlib::function_evaluation::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create() -> <dlib.function_evaluation object>
 ```
@@ -3564,7 +3318,6 @@ AutoIt:
 ```cpp
 static dlib::function_evaluation dlib::function_evaluation::create( dlib::SpaceVector x,
                                                                     double            y );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create( $x, $y ) -> <dlib.function_evaluation object>
 ```
@@ -3572,7 +3325,6 @@ AutoIt:
 ```cpp
 static dlib::function_evaluation dlib::function_evaluation::create( std::vector<double> x,
                                                                     double              y );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create( $x, $y ) -> <dlib.function_evaluation object>
 ```
@@ -3584,7 +3336,6 @@ AutoIt:
 ```cpp
 static dlib::function_spec dlib::function_spec::create( dlib::SpaceVector bound1,
                                                         dlib::SpaceVector bound2 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
@@ -3593,7 +3344,6 @@ AutoIt:
 static dlib::function_spec dlib::function_spec::create( dlib::SpaceVector bound1,
                                                         dlib::SpaceVector bound2,
                                                         std::vector<bool> is_integer );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
@@ -3601,7 +3351,6 @@ AutoIt:
 ```cpp
 static dlib::function_spec dlib::function_spec::create( std::vector<double> bound1,
                                                         dlib::SpaceVector   bound2 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
@@ -3610,7 +3359,6 @@ AutoIt:
 static dlib::function_spec dlib::function_spec::create( std::vector<double> bound1,
                                                         dlib::SpaceVector   bound2,
                                                         std::vector<bool>   is_integer );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
@@ -3618,7 +3366,6 @@ AutoIt:
 ```cpp
 static dlib::function_spec dlib::function_spec::create( dlib::SpaceVector   bound1,
                                                         std::vector<double> bound2 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
@@ -3627,7 +3374,6 @@ AutoIt:
 static dlib::function_spec dlib::function_spec::create( dlib::SpaceVector   bound1,
                                                         std::vector<double> bound2,
                                                         std::vector<bool>   is_integer );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
@@ -3635,7 +3381,6 @@ AutoIt:
 ```cpp
 static dlib::function_spec dlib::function_spec::create( std::vector<double> bound1,
                                                         std::vector<double> bound2 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
@@ -3644,7 +3389,6 @@ AutoIt:
 static dlib::function_spec dlib::function_spec::create( std::vector<double> bound1,
                                                         std::vector<double> bound2,
                                                         std::vector<bool>   is_integer );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
@@ -3655,7 +3399,6 @@ AutoIt:
 
 ```cpp
 void dlib::function_evaluation_request::set( double y );
-
 AutoIt:
     $ofunction_evaluation_request.set( $y ) -> None
 ```
@@ -3666,14 +3409,12 @@ AutoIt:
 
 ```cpp
 static dlib::global_function_search dlib::global_function_search::create( dlib::function_spec& function );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $function ) -> <dlib.global_function_search object>
 ```
 
 ```cpp
 static dlib::global_function_search dlib::global_function_search::create( std::vector<dlib::function_spec>& functions );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $functions ) -> <dlib.global_function_search object>
 ```
@@ -3682,7 +3423,6 @@ AutoIt:
 static dlib::global_function_search dlib::global_function_search::create( std::vector<dlib::function_spec>                    functions,
                                                                           std::vector<std::vector<dlib::function_evaluation>> initial_function_evals,
                                                                           double                                              relative_noise_magnitude = 0.001 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $functions, $initial_function_evals[, $relative_noise_magnitude] ) -> <dlib.global_function_search object>
 ```
@@ -3693,7 +3433,6 @@ AutoIt:
 void dlib::global_function_search::get_best_function_eval( dlib::SpaceVector& x,
                                                            double&            y,
                                                            size_t&            idx );
-
 AutoIt:
     $oglobal_function_search.get_best_function_eval( [$x[, $y[, $idx]]] ) -> $x, $y, $idx
 ```
@@ -3703,7 +3442,6 @@ AutoIt:
 ```cpp
 void dlib::global_function_search::get_function_evaluations( std::vector<dlib::function_spec>                    specs,
                                                              std::vector<std::vector<dlib::function_evaluation>> function_evals );
-
 AutoIt:
     $oglobal_function_search.get_function_evaluations( [$specs[, $function_evals]] ) -> $specs, $function_evals
 ```
@@ -3712,7 +3450,6 @@ AutoIt:
 
 ```cpp
 size_t dlib::global_function_search::get_monte_carlo_upper_bound_sample_num();
-
 AutoIt:
     $oglobal_function_search.get_monte_carlo_upper_bound_sample_num() -> retval
 ```
@@ -3721,7 +3458,6 @@ AutoIt:
 
 ```cpp
 dlib::function_evaluation_request dlib::global_function_search::get_next_x();
-
 AutoIt:
     $oglobal_function_search.get_next_x() -> retval
 ```
@@ -3730,7 +3466,6 @@ AutoIt:
 
 ```cpp
 double dlib::global_function_search::get_pure_random_search_probability();
-
 AutoIt:
     $oglobal_function_search.get_pure_random_search_probability() -> retval
 ```
@@ -3739,7 +3474,6 @@ AutoIt:
 
 ```cpp
 double dlib::global_function_search::get_relative_noise_magnitude();
-
 AutoIt:
     $oglobal_function_search.get_relative_noise_magnitude() -> retval
 ```
@@ -3748,7 +3482,6 @@ AutoIt:
 
 ```cpp
 double dlib::global_function_search::get_solver_epsilon();
-
 AutoIt:
     $oglobal_function_search.get_solver_epsilon() -> retval
 ```
@@ -3757,7 +3490,6 @@ AutoIt:
 
 ```cpp
 size_t dlib::global_function_search::num_functions();
-
 AutoIt:
     $oglobal_function_search.num_functions() -> retval
 ```
@@ -3766,7 +3498,6 @@ AutoIt:
 
 ```cpp
 void dlib::global_function_search::set_monte_carlo_upper_bound_sample_num( size_t num );
-
 AutoIt:
     $oglobal_function_search.set_monte_carlo_upper_bound_sample_num( $num ) -> None
 ```
@@ -3775,7 +3506,6 @@ AutoIt:
 
 ```cpp
 void dlib::global_function_search::set_pure_random_search_probability( double prob );
-
 AutoIt:
     $oglobal_function_search.set_pure_random_search_probability( $prob ) -> None
 ```
@@ -3784,7 +3514,6 @@ AutoIt:
 
 ```cpp
 void dlib::global_function_search::set_relative_noise_magnitude( double value );
-
 AutoIt:
     $oglobal_function_search.set_relative_noise_magnitude( $value ) -> None
 ```
@@ -3793,7 +3522,6 @@ AutoIt:
 
 ```cpp
 void dlib::global_function_search::set_seed( LONGLONG seed );
-
 AutoIt:
     $oglobal_function_search.set_seed( $seed ) -> None
 ```
@@ -3802,7 +3530,6 @@ AutoIt:
 
 ```cpp
 void dlib::global_function_search::set_solver_epsilon( double eps );
-
 AutoIt:
     $oglobal_function_search.set_solver_epsilon( $eps ) -> None
 ```
@@ -3813,21 +3540,18 @@ AutoIt:
 
 ```cpp
 static dlib::image_window dlib::image_window::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.image_window").create() -> <dlib.image_window object>
 ```
 
 ```cpp
 std::shared_ptr<dlib::image_window> dlib::image_window::create( dlib::fhog_object_detector& detector );
-
 AutoIt:
     $oimage_window.create( $detector ) -> retval
 ```
 
 ```cpp
 std::shared_ptr<dlib::image_window> dlib::image_window::create( dlib::simple_object_detector_com& detector );
-
 AutoIt:
     $oimage_window.create( $detector ) -> retval
 ```
@@ -3835,7 +3559,6 @@ AutoIt:
 ```cpp
 std::shared_ptr<dlib::image_window> dlib::image_window::create( dlib::fhog_object_detector& detector,
                                                                 string                      title );
-
 AutoIt:
     $oimage_window.create( $detector, $title ) -> retval
 ```
@@ -3843,14 +3566,12 @@ AutoIt:
 ```cpp
 std::shared_ptr<dlib::image_window> dlib::image_window::create( dlib::simple_object_detector_com& detector,
                                                                 string                            title );
-
 AutoIt:
     $oimage_window.create( $detector, $title ) -> retval
 ```
 
 ```cpp
 std::shared_ptr<dlib::image_window> dlib::image_window::create( cv::Mat& img );
-
 AutoIt:
     $oimage_window.create( $img ) -> retval
 ```
@@ -3858,7 +3579,6 @@ AutoIt:
 ```cpp
 std::shared_ptr<dlib::image_window> dlib::image_window::create( cv::Mat& img,
                                                                 string   title );
-
 AutoIt:
     $oimage_window.create( $img, $title ) -> retval
 ```
@@ -3868,7 +3588,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( std::vector<dlib::rectangle> rectangles,
                                       dlib::rgb_pixel              color = rgb_pixel(255, 0, 0) );
-
 AutoIt:
     $oimage_window.add_overlay( $rectangles[, $color] ) -> None
 ```
@@ -3876,7 +3595,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( std::vector<dlib::rectangle>    rectangles,
                                       std::tuple<uchar, uchar, uchar> color = {255, 0, 0} );
-
 AutoIt:
     $oimage_window.add_overlay( $rectangles[, $color] ) -> None
 ```
@@ -3884,7 +3602,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( std::vector<dlib::drectangle> drectangles,
                                       dlib::rgb_pixel               color = rgb_pixel(255, 0, 0) );
-
 AutoIt:
     $oimage_window.add_overlay( $drectangles[, $color] ) -> None
 ```
@@ -3892,7 +3609,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( std::vector<dlib::drectangle>   drectangles,
                                       std::tuple<uchar, uchar, uchar> color = {255, 0, 0} );
-
 AutoIt:
     $oimage_window.add_overlay( $drectangles[, $color] ) -> None
 ```
@@ -3900,7 +3616,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( std::vector<_variant_t> objs,
                                       dlib::rgb_pixel         color = rgb_pixel(255, 0, 0) );
-
 AutoIt:
     $oimage_window.add_overlay( $objs[, $color] ) -> None
 ```
@@ -3908,7 +3623,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( std::vector<_variant_t>         objs,
                                       std::tuple<uchar, uchar, uchar> color = {255, 0, 0} );
-
 AutoIt:
     $oimage_window.add_overlay( $objs[, $color] ) -> None
 ```
@@ -3916,7 +3630,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( dlib::rectangle rect,
                                       dlib::rgb_pixel color = rgb_pixel(255, 0, 0) );
-
 AutoIt:
     $oimage_window.add_overlay( $rect[, $color] ) -> None
 ```
@@ -3924,7 +3637,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( dlib::rectangle                 rect,
                                       std::tuple<uchar, uchar, uchar> color = {255, 0, 0} );
-
 AutoIt:
     $oimage_window.add_overlay( $rect[, $color] ) -> None
 ```
@@ -3932,7 +3644,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( dlib::drectangle drect,
                                       dlib::rgb_pixel  color = rgb_pixel(255, 0, 0) );
-
 AutoIt:
     $oimage_window.add_overlay( $drect[, $color] ) -> None
 ```
@@ -3940,7 +3651,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( dlib::drectangle                drect,
                                       std::tuple<uchar, uchar, uchar> color = {255, 0, 0} );
-
 AutoIt:
     $oimage_window.add_overlay( $drect[, $color] ) -> None
 ```
@@ -3948,7 +3658,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( dlib::full_object_detection& detection,
                                       dlib::rgb_pixel              color = rgb_pixel(0, 0, 255) );
-
 AutoIt:
     $oimage_window.add_overlay( $detection[, $color] ) -> None
 ```
@@ -3956,7 +3665,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( dlib::full_object_detection&    detection,
                                       std::tuple<uchar, uchar, uchar> color = {0, 0, 255} );
-
 AutoIt:
     $oimage_window.add_overlay( $detection[, $color] ) -> None
 ```
@@ -3964,7 +3672,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( dlib::line      l,
                                       dlib::rgb_pixel color = rgb_pixel(255, 0, 0) );
-
 AutoIt:
     $oimage_window.add_overlay( $l[, $color] ) -> None
 ```
@@ -3972,7 +3679,6 @@ AutoIt:
 ```cpp
 void dlib::image_window::add_overlay( dlib::line                      l,
                                       std::tuple<uchar, uchar, uchar> color = {255, 0, 0} );
-
 AutoIt:
     $oimage_window.add_overlay( $l[, $color] ) -> None
 ```
@@ -3983,7 +3689,6 @@ AutoIt:
 void dlib::image_window::add_overlay_circle( dlib::point     center,
                                              double          radius,
                                              dlib::rgb_pixel color = rgb_pixel(255, 0, 0) );
-
 AutoIt:
     $oimage_window.add_overlay_circle( $center, $radius[, $color] ) -> None
 ```
@@ -3992,7 +3697,6 @@ AutoIt:
 void dlib::image_window::add_overlay_circle( dlib::point                     center,
                                              double                          radius,
                                              std::tuple<uchar, uchar, uchar> color = {255, 0, 0} );
-
 AutoIt:
     $oimage_window.add_overlay_circle( $center, $radius[, $color] ) -> None
 ```
@@ -4001,7 +3705,6 @@ AutoIt:
 void dlib::image_window::add_overlay_circle( dlib::dpoint    center,
                                              double          radius,
                                              dlib::rgb_pixel color = rgb_pixel(255, 0, 0) );
-
 AutoIt:
     $oimage_window.add_overlay_circle( $center, $radius[, $color] ) -> None
 ```
@@ -4010,7 +3713,6 @@ AutoIt:
 void dlib::image_window::add_overlay_circle( dlib::dpoint                    center,
                                              double                          radius,
                                              std::tuple<uchar, uchar, uchar> color = {255, 0, 0} );
-
 AutoIt:
     $oimage_window.add_overlay_circle( $center, $radius[, $color] ) -> None
 ```
@@ -4019,7 +3721,6 @@ AutoIt:
 
 ```cpp
 void dlib::image_window::clear_overlay();
-
 AutoIt:
     $oimage_window.clear_overlay() -> None
 ```
@@ -4028,7 +3729,6 @@ AutoIt:
 
 ```cpp
 bool dlib::image_window::get_next_double_click( dlib::point p );
-
 AutoIt:
     $oimage_window.get_next_double_click( [$p] ) -> retval, $p
 ```
@@ -4040,7 +3740,6 @@ bool dlib::image_window::get_next_keypress( char*&           key,
                                             bool*&           is_printable,
                                             std::vector<int> mods,
                                             bool             get_keyboard_modifiers = false );
-
 AutoIt:
     $oimage_window.get_next_keypress( [$get_keyboard_modifiers[, $key[, $is_printable[, $mods]]]] ) -> retval, $key, $is_printable, $mods
 ```
@@ -4049,7 +3748,6 @@ AutoIt:
 
 ```cpp
 bool dlib::image_window::is_closed();
-
 AutoIt:
     $oimage_window.is_closed() -> retval
 ```
@@ -4058,21 +3756,18 @@ AutoIt:
 
 ```cpp
 void dlib::image_window::set_image( dlib::fhog_object_detector& detector );
-
 AutoIt:
     $oimage_window.set_image( $detector ) -> None
 ```
 
 ```cpp
 void dlib::image_window::set_image( dlib::simple_object_detector_com& detector );
-
 AutoIt:
     $oimage_window.set_image( $detector ) -> None
 ```
 
 ```cpp
 void dlib::image_window::set_image( cv::Mat& img );
-
 AutoIt:
     $oimage_window.set_image( $img ) -> None
 ```
@@ -4081,7 +3776,6 @@ AutoIt:
 
 ```cpp
 void dlib::image_window::set_title( string title );
-
 AutoIt:
     $oimage_window.set_title( $title ) -> None
 ```
@@ -4090,14 +3784,12 @@ AutoIt:
 
 ```cpp
 void dlib::image_window::wait_for_keypress( char wait_key );
-
 AutoIt:
     $oimage_window.wait_for_keypress( $wait_key ) -> None
 ```
 
 ```cpp
 void dlib::image_window::wait_for_keypress( string wait_key );
-
 AutoIt:
     $oimage_window.wait_for_keypress( $wait_key ) -> None
 ```
@@ -4106,7 +3798,6 @@ AutoIt:
 
 ```cpp
 void dlib::image_window::wait_until_closed();
-
 AutoIt:
     $oimage_window.wait_until_closed() -> None
 ```
@@ -4119,14 +3810,12 @@ AutoIt:
 static dlib::rgb_pixel dlib::rgb_pixel::create( uchar red,
                                                 uchar blue,
                                                 uchar green );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rgb_pixel").create( $red, $blue, $green ) -> <dlib.rgb_pixel object>
 ```
 
 ```cpp
 static dlib::rgb_pixel dlib::rgb_pixel::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rgb_pixel").create() -> <dlib.rgb_pixel object>
 ```
@@ -4137,7 +3826,6 @@ AutoIt:
 
 ```cpp
 bool cv::haveImageReader( string filename );
-
 AutoIt:
     _Dlib_ObjCreate("cv").haveImageReader( $filename ) -> retval
 ```
@@ -4146,7 +3834,6 @@ AutoIt:
 
 ```cpp
 bool cv::haveImageWriter( string filename );
-
 AutoIt:
     _Dlib_ObjCreate("cv").haveImageWriter( $filename ) -> retval
 ```
@@ -4156,7 +3843,6 @@ AutoIt:
 ```cpp
 size_t cv::imcount( string filename,
                     int    flags = IMREAD_ANYCOLOR );
-
 AutoIt:
     _Dlib_ObjCreate("cv").imcount( $filename[, $flags] ) -> retval
 ```
@@ -4166,7 +3852,6 @@ AutoIt:
 ```cpp
 cv::Mat cv::imdecode( cv::Mat buf,
                       int     flags );
-
 AutoIt:
     _Dlib_ObjCreate("cv").imdecode( $buf, $flags ) -> retval
 ```
@@ -4178,7 +3863,6 @@ bool cv::imencode( string             ext,
                    cv::Mat            img,
                    std::vector<uchar> buf,
                    std::vector<int>   params = std::vector<int>() );
-
 AutoIt:
     _Dlib_ObjCreate("cv").imencode( $ext, $img[, $params[, $buf]] ) -> retval, $buf
 ```
@@ -4188,7 +3872,6 @@ AutoIt:
 ```cpp
 cv::Mat cv::imread( string filename,
                     int    flags = IMREAD_COLOR );
-
 AutoIt:
     _Dlib_ObjCreate("cv").imread( $filename[, $flags] ) -> retval
 ```
@@ -4199,7 +3882,6 @@ AutoIt:
 bool cv::imreadmulti( string               filename,
                       std::vector<cv::Mat> mats,
                       int                  flags = IMREAD_ANYCOLOR );
-
 AutoIt:
     _Dlib_ObjCreate("cv").imreadmulti( $filename[, $flags[, $mats]] ) -> retval, $mats
 ```
@@ -4210,7 +3892,6 @@ bool cv::imreadmulti( string               filename,
                       int                  start,
                       int                  count,
                       int                  flags = IMREAD_ANYCOLOR );
-
 AutoIt:
     _Dlib_ObjCreate("cv").imreadmulti( $filename, $start, $count[, $flags[, $mats]] ) -> retval, $mats
 ```
@@ -4221,7 +3902,6 @@ AutoIt:
 bool cv::imwrite( string           filename,
                   cv::Mat          img,
                   std::vector<int> params = std::vector<int>() );
-
 AutoIt:
     _Dlib_ObjCreate("cv").imwrite( $filename, $img[, $params] ) -> retval
 ```
@@ -4232,7 +3912,6 @@ AutoIt:
 bool cv::imwritemulti( string               filename,
                        std::vector<cv::Mat> img,
                        std::vector<int>     params = std::vector<int>() );
-
 AutoIt:
     _Dlib_ObjCreate("cv").imwritemulti( $filename, $img[, $params] ) -> retval
 ```
@@ -4243,7 +3922,6 @@ AutoIt:
 
 ```cpp
 static cv::Mat cv::Mat::create();
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").create() -> <cv.Mat object>
 ```
@@ -4252,7 +3930,6 @@ AutoIt:
 static cv::Mat cv::Mat::create( int rows,
                                 int cols,
                                 int type );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").create( $rows, $cols, $type ) -> <cv.Mat object>
 ```
@@ -4260,7 +3937,6 @@ AutoIt:
 ```cpp
 static cv::Mat cv::Mat::create( std::tuple<int, int> size,
                                 int                  type );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").create( $size, $type ) -> <cv.Mat object>
 ```
@@ -4270,7 +3946,6 @@ static cv::Mat cv::Mat::create( int                                        rows,
                                 int                                        cols,
                                 int                                        type,
                                 std::tuple<double, double, double, double> s );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").create( $rows, $cols, $type, $s ) -> <cv.Mat object>
 ```
@@ -4279,7 +3954,6 @@ AutoIt:
 static cv::Mat cv::Mat::create( std::tuple<int, int>                       size,
                                 int                                        type,
                                 std::tuple<double, double, double, double> s );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").create( $size, $type, $s ) -> <cv.Mat object>
 ```
@@ -4290,14 +3964,12 @@ static cv::Mat cv::Mat::create( int    rows,
                                 int    type,
                                 void*  data,
                                 size_t step = cv::Mat::AUTO_STEP );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").create( $rows, $cols, $type, $data[, $step] ) -> <cv.Mat object>
 ```
 
 ```cpp
 static cv::Mat cv::Mat::create( cv::Mat m );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").create( $m ) -> <cv.Mat object>
 ```
@@ -4305,7 +3977,6 @@ AutoIt:
 ```cpp
 static cv::Mat cv::Mat::create( cv::Mat                        src,
                                 std::tuple<int, int, int, int> roi );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").create( $src, $roi ) -> <cv.Mat object>
 ```
@@ -4314,7 +3985,6 @@ AutoIt:
 
 ```cpp
 int cv::Mat::channels();
-
 AutoIt:
     $oMat.channels() -> retval
 ```
@@ -4325,7 +3995,6 @@ AutoIt:
 int cv::Mat::checkVector( int elemChannels,
                           int depth = -1,
                           int requireContinuous = true );
-
 AutoIt:
     $oMat.checkVector( $elemChannels[, $depth[, $requireContinuous]] ) -> retval
 ```
@@ -4334,7 +4003,6 @@ AutoIt:
 
 ```cpp
 int cv::Mat::depth();
-
 AutoIt:
     $oMat.depth() -> retval
 ```
@@ -4343,7 +4011,6 @@ AutoIt:
 
 ```cpp
 size_t cv::Mat::elemSize();
-
 AutoIt:
     $oMat.elemSize() -> retval
 ```
@@ -4352,7 +4019,6 @@ AutoIt:
 
 ```cpp
 size_t cv::Mat::elemSize1();
-
 AutoIt:
     $oMat.elemSize1() -> retval
 ```
@@ -4361,7 +4027,6 @@ AutoIt:
 
 ```cpp
 bool cv::Mat::empty();
-
 AutoIt:
     $oMat.empty() -> retval
 ```
@@ -4372,7 +4037,6 @@ AutoIt:
 static cv::Mat cv::Mat::eye( int rows,
                              int cols,
                              int type );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").eye( $rows, $cols, $type ) -> retval
 ```
@@ -4381,7 +4045,6 @@ AutoIt:
 
 ```cpp
 bool cv::Mat::isContinuous();
-
 AutoIt:
     $oMat.isContinuous() -> retval
 ```
@@ -4390,7 +4053,6 @@ AutoIt:
 
 ```cpp
 bool cv::Mat::isSubmatrix();
-
 AutoIt:
     $oMat.isSubmatrix() -> retval
 ```
@@ -4401,7 +4063,6 @@ AutoIt:
 static cv::Mat cv::Mat::ones( int rows,
                               int cols,
                               int type );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").ones( $rows, $cols, $type ) -> retval
 ```
@@ -4409,7 +4070,6 @@ AutoIt:
 ```cpp
 static cv::Mat cv::Mat::ones( std::tuple<int, int> size,
                               int                  type );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").ones( $size, $type ) -> retval
 ```
@@ -4418,7 +4078,6 @@ AutoIt:
 
 ```cpp
 void cv::Mat::pop_back( size_t value );
-
 AutoIt:
     $oMat.pop_back( $value ) -> None
 ```
@@ -4427,7 +4086,6 @@ AutoIt:
 
 ```cpp
 uchar* cv::Mat::ptr( int y = 0 );
-
 AutoIt:
     $oMat.ptr( [$y] ) -> retval
 ```
@@ -4435,7 +4093,6 @@ AutoIt:
 ```cpp
 uchar* cv::Mat::ptr( int i0,
                      int i1 );
-
 AutoIt:
     $oMat.ptr( $i0, $i1 ) -> retval
 ```
@@ -4444,7 +4101,6 @@ AutoIt:
 uchar* cv::Mat::ptr( int i0,
                      int i1,
                      int i2 );
-
 AutoIt:
     $oMat.ptr( $i0, $i1, $i2 ) -> retval
 ```
@@ -4453,7 +4109,6 @@ AutoIt:
 
 ```cpp
 void cv::Mat::push_back( cv::Mat value );
-
 AutoIt:
     $oMat.push_back( $value ) -> None
 ```
@@ -4463,7 +4118,6 @@ AutoIt:
 ```cpp
 cv::Mat cv::Mat::reshape( int cn,
                           int rows = 0 );
-
 AutoIt:
     $oMat.reshape( $cn[, $rows] ) -> retval
 ```
@@ -4472,7 +4126,6 @@ AutoIt:
 
 ```cpp
 size_t cv::Mat::step1( int i = 0 );
-
 AutoIt:
     $oMat.step1( [$i] ) -> retval
 ```
@@ -4481,7 +4134,6 @@ AutoIt:
 
 ```cpp
 size_t cv::Mat::total();
-
 AutoIt:
     $oMat.total() -> retval
 ```
@@ -4489,7 +4141,6 @@ AutoIt:
 ```cpp
 size_t cv::Mat::total( int startDim,
                        int endDim = INT_MAX );
-
 AutoIt:
     $oMat.total( $startDim[, $endDim] ) -> retval
 ```
@@ -4498,7 +4149,6 @@ AutoIt:
 
 ```cpp
 int cv::Mat::type();
-
 AutoIt:
     $oMat.type() -> retval
 ```
@@ -4509,7 +4159,6 @@ AutoIt:
 static cv::Mat cv::Mat::zeros( int rows,
                                int cols,
                                int type );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").zeros( $rows, $cols, $type ) -> retval
 ```
@@ -4517,7 +4166,6 @@ AutoIt:
 ```cpp
 static cv::Mat cv::Mat::zeros( std::tuple<int, int> size,
                                int                  type );
-
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").zeros( $size, $type ) -> retval
 ```
@@ -4529,7 +4177,6 @@ AutoIt:
 ```cpp
 void dlib::image_dataset_metadata::load_image_dataset_metadata( dlib::image_dataset_metadata::dataset& data,
                                                                 string                                 filename );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata").load_image_dataset_metadata( $filename[, $data] ) -> $data
 ```
@@ -4539,7 +4186,6 @@ AutoIt:
 ```cpp
 dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::make_bounding_box_regression_training_data( dlib::image_dataset_metadata::dataset&    truth,
                                                                                                                 std::vector<std::vector<dlib::rectangle>> detections );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata").make_bounding_box_regression_training_data( $truth, $detections ) -> retval
 ```
@@ -4549,7 +4195,6 @@ AutoIt:
 ```cpp
 void dlib::image_dataset_metadata::save_image_dataset_metadata( dlib::image_dataset_metadata::dataset data,
                                                                 string                                filename );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata").save_image_dataset_metadata( $data, $filename ) -> None
 ```
@@ -4560,14 +4205,12 @@ AutoIt:
 
 ```cpp
 static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::box::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.box").create() -> <dlib.image_dataset_metadata.box object>
 ```
 
 ```cpp
 static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::box::create( dlib::rectangle rect );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.box").create( $rect ) -> <dlib.image_dataset_metadata.box object>
 ```
@@ -4576,7 +4219,6 @@ AutoIt:
 
 ```cpp
 bool dlib::image_dataset_metadata::box::has_label();
-
 AutoIt:
     $obox.has_label() -> retval
 ```
@@ -4587,14 +4229,12 @@ AutoIt:
 
 ```cpp
 static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::image::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.image").create() -> <dlib.image_dataset_metadata.image object>
 ```
 
 ```cpp
 static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::image::create( string filename );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.image").create( $filename ) -> <dlib.image_dataset_metadata.image object>
 ```
@@ -4605,7 +4245,6 @@ AutoIt:
 
 ```cpp
 static dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::dataset::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.dataset").create() -> <dlib.image_dataset_metadata.dataset object>
 ```
@@ -4616,7 +4255,6 @@ AutoIt:
 
 ```cpp
 static dlib::line dlib::line::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.line").create() -> <dlib.line object>
 ```
@@ -4624,7 +4262,6 @@ AutoIt:
 ```cpp
 static dlib::line dlib::line::create( dlib::dpoint a,
                                       dlib::dpoint b );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.line").create( $a, $b ) -> <dlib.line object>
 ```
@@ -4632,7 +4269,6 @@ AutoIt:
 ```cpp
 static dlib::line dlib::line::create( dlib::point a,
                                       dlib::point b );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.line").create( $a, $b ) -> <dlib.line object>
 ```
@@ -4643,21 +4279,18 @@ AutoIt:
 
 ```cpp
 static dlib::Matrix dlib::Matrix::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.matrix").create() -> <dlib.Matrix object>
 ```
 
 ```cpp
 std::shared_ptr<dlib::Matrix> dlib::Matrix::create( std::vector<double> list );
-
 AutoIt:
     $oMatrix.create( $list ) -> retval
 ```
 
 ```cpp
 std::shared_ptr<dlib::Matrix> dlib::Matrix::create( std::vector<std::vector<double>> list );
-
 AutoIt:
     $oMatrix.create( $list ) -> retval
 ```
@@ -4665,7 +4298,6 @@ AutoIt:
 ```cpp
 std::shared_ptr<dlib::Matrix> dlib::Matrix::create( long rows,
                                                     long cols );
-
 AutoIt:
     $oMatrix.create( $rows, $cols ) -> retval
 ```
@@ -4674,7 +4306,6 @@ AutoIt:
 
 ```cpp
 string dlib::Matrix::ToString();
-
 AutoIt:
     $oMatrix.ToString() -> retval
 ```
@@ -4683,7 +4314,6 @@ AutoIt:
 
 ```cpp
 void dlib::Matrix::deserialize( string file );
-
 AutoIt:
     $oMatrix.deserialize( $file ) -> None
 ```
@@ -4692,7 +4322,6 @@ AutoIt:
 
 ```cpp
 dlib::_row dlib::Matrix::get( long row );
-
 AutoIt:
     $oMatrix.get( $row ) -> retval
 ```
@@ -4701,7 +4330,6 @@ AutoIt:
 
 ```cpp
 long dlib::Matrix::nc();
-
 AutoIt:
     $oMatrix.nc() -> retval
 ```
@@ -4710,7 +4338,6 @@ AutoIt:
 
 ```cpp
 long dlib::Matrix::nr();
-
 AutoIt:
     $oMatrix.nr() -> retval
 ```
@@ -4719,7 +4346,6 @@ AutoIt:
 
 ```cpp
 void dlib::Matrix::serialize( string file );
-
 AutoIt:
     $oMatrix.serialize( $file ) -> None
 ```
@@ -4729,7 +4355,6 @@ AutoIt:
 ```cpp
 void dlib::Matrix::set_size( long rows,
                              long cols );
-
 AutoIt:
     $oMatrix.set_size( $rows, $cols ) -> None
 ```
@@ -4740,14 +4365,12 @@ AutoIt:
 
 ```cpp
 static dlib::fhog_object_detector dlib::fhog_object_detector::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.fhog_object_detector").create() -> <dlib.fhog_object_detector object>
 ```
 
 ```cpp
 std::shared_ptr<dlib::fhog_object_detector> dlib::fhog_object_detector::create( string filename );
-
 AutoIt:
     $ofhog_object_detector.create( $filename ) -> retval
 ```
@@ -4761,7 +4384,6 @@ void dlib::fhog_object_detector::get_call( cv::Mat                      image,
                                            std::vector<ULONG>           weight_indices,
                                            uint                         upsample_num_times = 0,
                                            double                       adjust_threshold = 0.0 );
-
 AutoIt:
     $ofhog_object_detector.call( $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
     dlib.fhog_object_detector( $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
@@ -4776,7 +4398,6 @@ void dlib::fhog_object_detector::run( cv::Mat                      image,
                                       std::vector<ULONG>           weight_indices,
                                       uint                         upsample_num_times = 0,
                                       double                       adjust_threshold = 0.0 );
-
 AutoIt:
     $ofhog_object_detector.run( $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
 ```
@@ -4791,7 +4412,6 @@ static void dlib::fhog_object_detector::run_multiple( std::vector<dlib::fhog_obj
                                                       std::vector<ULONG>                      weight_indices,
                                                       uint                                    upsample_num_times = 0,
                                                       double                                  adjust_threshold = 0.0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.fhog_object_detector").run_multiple( $vectors, $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
 ```
@@ -4804,7 +4424,6 @@ static void dlib::fhog_object_detector::run_multiple( std::vector<dlib::simple_o
                                                       std::vector<ULONG>                            weight_indices,
                                                       uint                                          upsample_num_times = 0,
                                                       double                                        adjust_threshold = 0.0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.fhog_object_detector").run_multiple( $vectors, $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
 ```
@@ -4813,7 +4432,6 @@ AutoIt:
 
 ```cpp
 void dlib::fhog_object_detector::save( string detector_output_filename );
-
 AutoIt:
     $ofhog_object_detector.save( $detector_output_filename ) -> None
 ```
@@ -4824,7 +4442,6 @@ AutoIt:
 
 ```cpp
 static dlib::rect_filter dlib::rect_filter::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rect_filter").create() -> <dlib.rect_filter object>
 ```
@@ -4833,7 +4450,6 @@ AutoIt:
 static dlib::rect_filter dlib::rect_filter::create( double measurement_noise,
                                                     double typical_acceleration,
                                                     double max_measurement_deviation );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rect_filter").create( $measurement_noise, $typical_acceleration, $max_measurement_deviation ) -> <dlib.rect_filter object>
 ```
@@ -4842,7 +4458,6 @@ AutoIt:
 
 ```cpp
 dlib::drectangle dlib::rect_filter::get_call( dlib::rectangle rect );
-
 AutoIt:
     $orect_filter.call( $rect ) -> retval
     dlib.rect_filter( $rect ) -> retval
@@ -4850,7 +4465,6 @@ AutoIt:
 
 ```cpp
 dlib::drectangle dlib::rect_filter::get_call( dlib::drectangle rect );
-
 AutoIt:
     $orect_filter.call( $rect ) -> retval
     dlib.rect_filter( $rect ) -> retval
@@ -4860,7 +4474,6 @@ AutoIt:
 
 ```cpp
 double dlib::rect_filter::max_measurement_deviation();
-
 AutoIt:
     $orect_filter.max_measurement_deviation() -> retval
 ```
@@ -4869,7 +4482,6 @@ AutoIt:
 
 ```cpp
 double dlib::rect_filter::measurement_noise();
-
 AutoIt:
     $orect_filter.measurement_noise() -> retval
 ```
@@ -4878,7 +4490,6 @@ AutoIt:
 
 ```cpp
 double dlib::rect_filter::typical_acceleration();
-
 AutoIt:
     $orect_filter.typical_acceleration() -> retval
 ```
@@ -4889,7 +4500,6 @@ AutoIt:
 
 ```cpp
 static dlib::rectangle dlib::rectangle::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create() -> <dlib.rectangle object>
 ```
@@ -4899,21 +4509,18 @@ static dlib::rectangle dlib::rectangle::create( long& left,
                                                 long& top,
                                                 long& right,
                                                 long& bottom );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $left, $top, $right, $bottom ) -> <dlib.rectangle object>
 ```
 
 ```cpp
 static dlib::rectangle dlib::rectangle::create( dlib::drectangle& rect );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $rect ) -> <dlib.rectangle object>
 ```
 
 ```cpp
 static dlib::rectangle dlib::rectangle::create( dlib::rectangle& rect );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $rect ) -> <dlib.rectangle object>
 ```
@@ -4922,7 +4529,6 @@ AutoIt:
 
 ```cpp
 string dlib::rectangle::ToString();
-
 AutoIt:
     $orectangle.ToString() -> retval
 ```
@@ -4931,7 +4537,6 @@ AutoIt:
 
 ```cpp
 ULONG dlib::rectangle::area();
-
 AutoIt:
     $orectangle.area() -> retval
 ```
@@ -4940,7 +4545,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::rectangle::bl_corner();
-
 AutoIt:
     $orectangle.bl_corner() -> retval
 ```
@@ -4949,7 +4553,6 @@ AutoIt:
 
 ```cpp
 long dlib::rectangle::bottom();
-
 AutoIt:
     $orectangle.bottom() -> retval
 ```
@@ -4958,7 +4561,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::rectangle::br_corner();
-
 AutoIt:
     $orectangle.br_corner() -> retval
 ```
@@ -4967,7 +4569,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::rectangle::center();
-
 AutoIt:
     $orectangle.center() -> retval
 ```
@@ -4976,14 +4577,12 @@ AutoIt:
 
 ```cpp
 bool dlib::rectangle::contains( dlib::dpoint& point );
-
 AutoIt:
     $orectangle.contains( $point ) -> retval
 ```
 
 ```cpp
 bool dlib::rectangle::contains( dlib::point& point );
-
 AutoIt:
     $orectangle.contains( $point ) -> retval
 ```
@@ -4991,14 +4590,12 @@ AutoIt:
 ```cpp
 bool dlib::rectangle::contains( long& x,
                                 long& y );
-
 AutoIt:
     $orectangle.contains( $x, $y ) -> retval
 ```
 
 ```cpp
 bool dlib::rectangle::contains( dlib::rectangle& rect );
-
 AutoIt:
     $orectangle.contains( $rect ) -> retval
 ```
@@ -5007,7 +4604,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::rectangle::dcenter();
-
 AutoIt:
     $orectangle.dcenter() -> retval
 ```
@@ -5016,7 +4612,6 @@ AutoIt:
 
 ```cpp
 ULONG dlib::rectangle::height();
-
 AutoIt:
     $orectangle.height() -> retval
 ```
@@ -5025,7 +4620,6 @@ AutoIt:
 
 ```cpp
 dlib::rectangle dlib::rectangle::intersect( dlib::rectangle& rect );
-
 AutoIt:
     $orectangle.intersect( $rect ) -> retval
 ```
@@ -5034,7 +4628,6 @@ AutoIt:
 
 ```cpp
 bool dlib::rectangle::is_empty();
-
 AutoIt:
     $orectangle.is_empty() -> retval
 ```
@@ -5043,7 +4636,6 @@ AutoIt:
 
 ```cpp
 long dlib::rectangle::left();
-
 AutoIt:
     $orectangle.left() -> retval
 ```
@@ -5052,7 +4644,6 @@ AutoIt:
 
 ```cpp
 long dlib::rectangle::right();
-
 AutoIt:
     $orectangle.right() -> retval
 ```
@@ -5061,7 +4652,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::rectangle::tl_corner();
-
 AutoIt:
     $orectangle.tl_corner() -> retval
 ```
@@ -5070,7 +4660,6 @@ AutoIt:
 
 ```cpp
 long dlib::rectangle::top();
-
 AutoIt:
     $orectangle.top() -> retval
 ```
@@ -5079,7 +4668,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::rectangle::tr_corner();
-
 AutoIt:
     $orectangle.tr_corner() -> retval
 ```
@@ -5088,7 +4676,6 @@ AutoIt:
 
 ```cpp
 ULONG dlib::rectangle::width();
-
 AutoIt:
     $orectangle.width() -> retval
 ```
@@ -5099,7 +4686,6 @@ AutoIt:
 
 ```cpp
 static dlib::drectangle dlib::drectangle::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create() -> <dlib.drectangle object>
 ```
@@ -5109,21 +4695,18 @@ static dlib::drectangle dlib::drectangle::create( double& left,
                                                   double& top,
                                                   double& right,
                                                   double& bottom );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $left, $top, $right, $bottom ) -> <dlib.drectangle object>
 ```
 
 ```cpp
 static dlib::drectangle dlib::drectangle::create( dlib::drectangle& rect );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $rect ) -> <dlib.drectangle object>
 ```
 
 ```cpp
 static dlib::drectangle dlib::drectangle::create( dlib::rectangle& rect );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $rect ) -> <dlib.drectangle object>
 ```
@@ -5132,7 +4715,6 @@ AutoIt:
 
 ```cpp
 string dlib::drectangle::ToString();
-
 AutoIt:
     $odrectangle.ToString() -> retval
 ```
@@ -5141,7 +4723,6 @@ AutoIt:
 
 ```cpp
 double dlib::drectangle::area();
-
 AutoIt:
     $odrectangle.area() -> retval
 ```
@@ -5150,7 +4731,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::drectangle::bl_corner();
-
 AutoIt:
     $odrectangle.bl_corner() -> retval
 ```
@@ -5159,7 +4739,6 @@ AutoIt:
 
 ```cpp
 double dlib::drectangle::bottom();
-
 AutoIt:
     $odrectangle.bottom() -> retval
 ```
@@ -5168,7 +4747,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::drectangle::br_corner();
-
 AutoIt:
     $odrectangle.br_corner() -> retval
 ```
@@ -5177,7 +4755,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::drectangle::center();
-
 AutoIt:
     $odrectangle.center() -> retval
 ```
@@ -5186,14 +4763,12 @@ AutoIt:
 
 ```cpp
 bool dlib::drectangle::contains( dlib::dpoint& point );
-
 AutoIt:
     $odrectangle.contains( $point ) -> retval
 ```
 
 ```cpp
 bool dlib::drectangle::contains( dlib::point& point );
-
 AutoIt:
     $odrectangle.contains( $point ) -> retval
 ```
@@ -5201,14 +4776,12 @@ AutoIt:
 ```cpp
 bool dlib::drectangle::contains( long& x,
                                  long& y );
-
 AutoIt:
     $odrectangle.contains( $x, $y ) -> retval
 ```
 
 ```cpp
 bool dlib::drectangle::contains( dlib::drectangle& rect );
-
 AutoIt:
     $odrectangle.contains( $rect ) -> retval
 ```
@@ -5217,7 +4790,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::drectangle::dcenter();
-
 AutoIt:
     $odrectangle.dcenter() -> retval
 ```
@@ -5226,7 +4798,6 @@ AutoIt:
 
 ```cpp
 double dlib::drectangle::height();
-
 AutoIt:
     $odrectangle.height() -> retval
 ```
@@ -5235,7 +4806,6 @@ AutoIt:
 
 ```cpp
 dlib::drectangle dlib::drectangle::intersect( dlib::drectangle& rect );
-
 AutoIt:
     $odrectangle.intersect( $rect ) -> retval
 ```
@@ -5244,7 +4814,6 @@ AutoIt:
 
 ```cpp
 bool dlib::drectangle::is_empty();
-
 AutoIt:
     $odrectangle.is_empty() -> retval
 ```
@@ -5253,7 +4822,6 @@ AutoIt:
 
 ```cpp
 double dlib::drectangle::left();
-
 AutoIt:
     $odrectangle.left() -> retval
 ```
@@ -5262,7 +4830,6 @@ AutoIt:
 
 ```cpp
 double dlib::drectangle::right();
-
 AutoIt:
     $odrectangle.right() -> retval
 ```
@@ -5271,7 +4838,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::drectangle::tl_corner();
-
 AutoIt:
     $odrectangle.tl_corner() -> retval
 ```
@@ -5280,7 +4846,6 @@ AutoIt:
 
 ```cpp
 double dlib::drectangle::top();
-
 AutoIt:
     $odrectangle.top() -> retval
 ```
@@ -5289,7 +4854,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::drectangle::tr_corner();
-
 AutoIt:
     $odrectangle.tr_corner() -> retval
 ```
@@ -5298,7 +4862,6 @@ AutoIt:
 
 ```cpp
 double dlib::drectangle::width();
-
 AutoIt:
     $odrectangle.width() -> retval
 ```
@@ -5309,7 +4872,6 @@ AutoIt:
 
 ```cpp
 static dlib::full_object_detection dlib::full_object_detection::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.full_object_detection").create() -> <dlib.full_object_detection object>
 ```
@@ -5317,7 +4879,6 @@ AutoIt:
 ```cpp
 static dlib::full_object_detection dlib::full_object_detection::create( dlib::rectangle          rect,
                                                                         std::vector<dlib::point> parts );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.full_object_detection").create( $rect, $parts ) -> <dlib.full_object_detection object>
 ```
@@ -5326,7 +4887,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::full_object_detection::part( ULONG idx );
-
 AutoIt:
     $ofull_object_detection.part( $idx ) -> retval
 ```
@@ -5335,7 +4895,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::point> dlib::full_object_detection::parts();
-
 AutoIt:
     $ofull_object_detection.parts() -> retval
 ```
@@ -5346,14 +4905,12 @@ AutoIt:
 
 ```cpp
 static dlib::shape_predictor dlib::shape_predictor::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.shape_predictor").create() -> <dlib.shape_predictor object>
 ```
 
 ```cpp
 std::shared_ptr<dlib::shape_predictor> dlib::shape_predictor::create( string filename );
-
 AutoIt:
     $oshape_predictor.create( $filename ) -> retval
 ```
@@ -5363,7 +4920,6 @@ AutoIt:
 ```cpp
 dlib::full_object_detection dlib::shape_predictor::get_call( cv::Mat         img,
                                                              dlib::rectangle box );
-
 AutoIt:
     $oshape_predictor.call( $img, $box ) -> retval
     dlib.shape_predictor( $img, $box ) -> retval
@@ -5373,7 +4929,6 @@ AutoIt:
 
 ```cpp
 void dlib::shape_predictor::save( string detector_output_filename );
-
 AutoIt:
     $oshape_predictor.save( $detector_output_filename ) -> None
 ```
@@ -5384,7 +4939,6 @@ AutoIt:
 
 ```cpp
 static dlib::svm_c_trainer_radial_basis dlib::svm_c_trainer_radial_basis::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_radial_basis").create() -> <dlib.svm_c_trainer_radial_basis object>
 ```
@@ -5393,7 +4947,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_radial_basis::set_c( double c );
-
 AutoIt:
     $osvm_c_trainer_radial_basis.set_c( $c ) -> None
 ```
@@ -5403,7 +4956,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_radial_basis dlib::svm_c_trainer_radial_basis::train( std::vector<dlib::SpaceVector> samples,
                                                                                std::vector<double>            labels );
-
 AutoIt:
     $osvm_c_trainer_radial_basis.train( $samples, $labels ) -> retval
 ```
@@ -5414,7 +4966,6 @@ AutoIt:
 
 ```cpp
 static dlib::svm_c_trainer_sparse_radial_basis dlib::svm_c_trainer_sparse_radial_basis::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_radial_basis").create() -> <dlib.svm_c_trainer_sparse_radial_basis object>
 ```
@@ -5423,7 +4974,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_sparse_radial_basis::set_c( double c );
-
 AutoIt:
     $osvm_c_trainer_sparse_radial_basis.set_c( $c ) -> None
 ```
@@ -5433,7 +4983,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_sparse_radial_basis dlib::svm_c_trainer_sparse_radial_basis::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
                                                                                              std::vector<double>                                labels );
-
 AutoIt:
     $osvm_c_trainer_sparse_radial_basis.train( $samples, $labels ) -> retval
 ```
@@ -5444,7 +4993,6 @@ AutoIt:
 
 ```cpp
 static dlib::svm_c_trainer_histogram_intersection dlib::svm_c_trainer_histogram_intersection::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_histogram_intersection").create() -> <dlib.svm_c_trainer_histogram_intersection object>
 ```
@@ -5453,7 +5001,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_histogram_intersection::set_c( double c );
-
 AutoIt:
     $osvm_c_trainer_histogram_intersection.set_c( $c ) -> None
 ```
@@ -5463,7 +5010,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_histogram_intersection dlib::svm_c_trainer_histogram_intersection::train( std::vector<dlib::SpaceVector> samples,
                                                                                                    std::vector<double>            labels );
-
 AutoIt:
     $osvm_c_trainer_histogram_intersection.train( $samples, $labels ) -> retval
 ```
@@ -5474,7 +5020,6 @@ AutoIt:
 
 ```cpp
 static dlib::svm_c_trainer_sparse_histogram_intersection dlib::svm_c_trainer_sparse_histogram_intersection::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_histogram_intersection").create() -> <dlib.svm_c_trainer_sparse_histogram_intersection object>
 ```
@@ -5483,7 +5028,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_sparse_histogram_intersection::set_c( double c );
-
 AutoIt:
     $osvm_c_trainer_sparse_histogram_intersection.set_c( $c ) -> None
 ```
@@ -5493,7 +5037,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_sparse_histogram_intersection dlib::svm_c_trainer_sparse_histogram_intersection::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
                                                                                                                  std::vector<double>                                labels );
-
 AutoIt:
     $osvm_c_trainer_sparse_histogram_intersection.train( $samples, $labels ) -> retval
 ```
@@ -5504,7 +5047,6 @@ AutoIt:
 
 ```cpp
 static dlib::svm_c_trainer_linear dlib::svm_c_trainer_linear::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_linear").create() -> <dlib.svm_c_trainer_linear object>
 ```
@@ -5513,7 +5055,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_linear::be_quiet();
-
 AutoIt:
     $osvm_c_trainer_linear.be_quiet() -> None
 ```
@@ -5522,7 +5063,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_linear::be_verbose();
-
 AutoIt:
     $osvm_c_trainer_linear.be_verbose() -> None
 ```
@@ -5531,7 +5071,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_linear::set_c( double c );
-
 AutoIt:
     $osvm_c_trainer_linear.set_c( $c ) -> None
 ```
@@ -5540,7 +5079,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_linear::set_prior( dlib::_decision_function_linear prior_ );
-
 AutoIt:
     $osvm_c_trainer_linear.set_prior( $prior_ ) -> None
 ```
@@ -5550,7 +5088,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_linear dlib::svm_c_trainer_linear::train( std::vector<dlib::SpaceVector> samples,
                                                                    std::vector<double>            labels );
-
 AutoIt:
     $osvm_c_trainer_linear.train( $samples, $labels ) -> retval
 ```
@@ -5561,7 +5098,6 @@ AutoIt:
 
 ```cpp
 static dlib::svm_c_trainer_sparse_linear dlib::svm_c_trainer_sparse_linear::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_linear").create() -> <dlib.svm_c_trainer_sparse_linear object>
 ```
@@ -5570,7 +5106,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_sparse_linear::be_quiet();
-
 AutoIt:
     $osvm_c_trainer_sparse_linear.be_quiet() -> None
 ```
@@ -5579,7 +5114,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_sparse_linear::be_verbose();
-
 AutoIt:
     $osvm_c_trainer_sparse_linear.be_verbose() -> None
 ```
@@ -5588,7 +5122,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_sparse_linear::set_c( double c );
-
 AutoIt:
     $osvm_c_trainer_sparse_linear.set_c( $c ) -> None
 ```
@@ -5597,7 +5130,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_c_trainer_sparse_linear::set_prior( dlib::_decision_function_sparse_linear prior_ );
-
 AutoIt:
     $osvm_c_trainer_sparse_linear.set_prior( $prior_ ) -> None
 ```
@@ -5607,7 +5139,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_sparse_linear dlib::svm_c_trainer_sparse_linear::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
                                                                                  std::vector<double>                                labels );
-
 AutoIt:
     $osvm_c_trainer_sparse_linear.train( $samples, $labels ) -> retval
 ```
@@ -5618,7 +5149,6 @@ AutoIt:
 
 ```cpp
 static dlib::rvm_trainer_radial_basis dlib::rvm_trainer_radial_basis::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_radial_basis").create() -> <dlib.rvm_trainer_radial_basis object>
 ```
@@ -5628,7 +5158,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_radial_basis dlib::rvm_trainer_radial_basis::train( std::vector<dlib::SpaceVector> samples,
                                                                              std::vector<double>            labels );
-
 AutoIt:
     $orvm_trainer_radial_basis.train( $samples, $labels ) -> retval
 ```
@@ -5639,7 +5168,6 @@ AutoIt:
 
 ```cpp
 static dlib::rvm_trainer_sparse_radial_basis dlib::rvm_trainer_sparse_radial_basis::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_sparse_radial_basis").create() -> <dlib.rvm_trainer_sparse_radial_basis object>
 ```
@@ -5649,7 +5177,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_sparse_radial_basis dlib::rvm_trainer_sparse_radial_basis::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
                                                                                            std::vector<double>                                labels );
-
 AutoIt:
     $orvm_trainer_sparse_radial_basis.train( $samples, $labels ) -> retval
 ```
@@ -5660,7 +5187,6 @@ AutoIt:
 
 ```cpp
 static dlib::rvm_trainer_histogram_intersection dlib::rvm_trainer_histogram_intersection::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_histogram_intersection").create() -> <dlib.rvm_trainer_histogram_intersection object>
 ```
@@ -5670,7 +5196,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_histogram_intersection dlib::rvm_trainer_histogram_intersection::train( std::vector<dlib::SpaceVector> samples,
                                                                                                  std::vector<double>            labels );
-
 AutoIt:
     $orvm_trainer_histogram_intersection.train( $samples, $labels ) -> retval
 ```
@@ -5681,7 +5206,6 @@ AutoIt:
 
 ```cpp
 static dlib::rvm_trainer_sparse_histogram_intersection dlib::rvm_trainer_sparse_histogram_intersection::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_sparse_histogram_intersection").create() -> <dlib.rvm_trainer_sparse_histogram_intersection object>
 ```
@@ -5691,7 +5215,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_sparse_histogram_intersection dlib::rvm_trainer_sparse_histogram_intersection::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
                                                                                                                std::vector<double>                                labels );
-
 AutoIt:
     $orvm_trainer_sparse_histogram_intersection.train( $samples, $labels ) -> retval
 ```
@@ -5702,7 +5225,6 @@ AutoIt:
 
 ```cpp
 static dlib::rvm_trainer_linear dlib::rvm_trainer_linear::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_linear").create() -> <dlib.rvm_trainer_linear object>
 ```
@@ -5712,7 +5234,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_linear dlib::rvm_trainer_linear::train( std::vector<dlib::SpaceVector> samples,
                                                                  std::vector<double>            labels );
-
 AutoIt:
     $orvm_trainer_linear.train( $samples, $labels ) -> retval
 ```
@@ -5723,7 +5244,6 @@ AutoIt:
 
 ```cpp
 static dlib::rvm_trainer_sparse_linear dlib::rvm_trainer_sparse_linear::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_sparse_linear").create() -> <dlib.rvm_trainer_sparse_linear object>
 ```
@@ -5733,7 +5253,6 @@ AutoIt:
 ```cpp
 dlib::_decision_function_sparse_linear dlib::rvm_trainer_sparse_linear::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
                                                                                std::vector<double>                                labels );
-
 AutoIt:
     $orvm_trainer_sparse_linear.train( $samples, $labels ) -> retval
 ```
@@ -5744,7 +5263,6 @@ AutoIt:
 
 ```cpp
 static dlib::vec_ranking_pair dlib::vec_ranking_pair::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_pair").create() -> <dlib.vec_ranking_pair object>
 ```
@@ -5752,7 +5270,6 @@ AutoIt:
 ```cpp
 static dlib::vec_ranking_pair dlib::vec_ranking_pair::create( std::vector<dlib::SpaceVector> relevant,
                                                               std::vector<dlib::SpaceVector> nonrelevant );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_pair").create( $relevant, $nonrelevant ) -> <dlib.vec_ranking_pair object>
 ```
@@ -5763,7 +5280,6 @@ AutoIt:
 
 ```cpp
 static dlib::sparse_ranking_pair dlib::sparse_ranking_pair::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.sparse_ranking_pair").create() -> <dlib.sparse_ranking_pair object>
 ```
@@ -5771,7 +5287,6 @@ AutoIt:
 ```cpp
 static dlib::sparse_ranking_pair dlib::sparse_ranking_pair::create( std::vector<std::vector<std::pair<ULONG, double>>> relevant,
                                                                     std::vector<std::vector<std::pair<ULONG, double>>> nonrelevant );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.sparse_ranking_pair").create( $relevant, $nonrelevant ) -> <dlib.sparse_ranking_pair object>
 ```
@@ -5782,7 +5297,6 @@ AutoIt:
 
 ```cpp
 static dlib::vec_svm_rank_trainer dlib::vec_svm_rank_trainer::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_rank_trainer").create() -> <dlib.vec_svm_rank_trainer object>
 ```
@@ -5791,7 +5305,6 @@ AutoIt:
 
 ```cpp
 void dlib::vec_svm_rank_trainer::be_quiet();
-
 AutoIt:
     $ovec_svm_rank_trainer.be_quiet() -> None
 ```
@@ -5800,7 +5313,6 @@ AutoIt:
 
 ```cpp
 void dlib::vec_svm_rank_trainer::be_verbose();
-
 AutoIt:
     $ovec_svm_rank_trainer.be_verbose() -> None
 ```
@@ -5809,7 +5321,6 @@ AutoIt:
 
 ```cpp
 void dlib::vec_svm_rank_trainer::set_prior( dlib::_decision_function_linear prior_ );
-
 AutoIt:
     $ovec_svm_rank_trainer.set_prior( $prior_ ) -> None
 ```
@@ -5818,14 +5329,12 @@ AutoIt:
 
 ```cpp
 dlib::_decision_function_linear dlib::vec_svm_rank_trainer::train( dlib::vec_ranking_pair sample );
-
 AutoIt:
     $ovec_svm_rank_trainer.train( $sample ) -> retval
 ```
 
 ```cpp
 dlib::_decision_function_linear dlib::vec_svm_rank_trainer::train( std::vector<dlib::vec_ranking_pair> samples );
-
 AutoIt:
     $ovec_svm_rank_trainer.train( $samples ) -> retval
 ```
@@ -5836,7 +5345,6 @@ AutoIt:
 
 ```cpp
 static dlib::svm_rank_trainer_sparse dlib::svm_rank_trainer_sparse::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_rank_trainer_sparse").create() -> <dlib.svm_rank_trainer_sparse object>
 ```
@@ -5845,7 +5353,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_rank_trainer_sparse::be_quiet();
-
 AutoIt:
     $osvm_rank_trainer_sparse.be_quiet() -> None
 ```
@@ -5854,7 +5361,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_rank_trainer_sparse::be_verbose();
-
 AutoIt:
     $osvm_rank_trainer_sparse.be_verbose() -> None
 ```
@@ -5863,7 +5369,6 @@ AutoIt:
 
 ```cpp
 void dlib::svm_rank_trainer_sparse::set_prior( dlib::_decision_function_sparse_linear prior_ );
-
 AutoIt:
     $osvm_rank_trainer_sparse.set_prior( $prior_ ) -> None
 ```
@@ -5872,14 +5377,12 @@ AutoIt:
 
 ```cpp
 dlib::_decision_function_sparse_linear dlib::svm_rank_trainer_sparse::train( dlib::sparse_ranking_pair sample );
-
 AutoIt:
     $osvm_rank_trainer_sparse.train( $sample ) -> retval
 ```
 
 ```cpp
 dlib::_decision_function_sparse_linear dlib::svm_rank_trainer_sparse::train( std::vector<dlib::sparse_ranking_pair> samples );
-
 AutoIt:
     $osvm_rank_trainer_sparse.train( $samples ) -> retval
 ```
@@ -5890,21 +5393,18 @@ AutoIt:
 
 ```cpp
 static dlib::SpaceVector dlib::SpaceVector::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.vector").create() -> <dlib.SpaceVector object>
 ```
 
 ```cpp
 static std::shared_ptr<dlib::SpaceVector> dlib::SpaceVector::create( std::vector<double> list );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.vector").create( $list ) -> retval
 ```
 
 ```cpp
 static std::shared_ptr<dlib::SpaceVector> dlib::SpaceVector::create( long rows );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.vector").create( $rows ) -> retval
 ```
@@ -5913,7 +5413,6 @@ AutoIt:
 
 ```cpp
 string dlib::SpaceVector::ToString();
-
 AutoIt:
     $oSpaceVector.ToString() -> retval
 ```
@@ -5922,7 +5421,6 @@ AutoIt:
 
 ```cpp
 double dlib::SpaceVector::get( long row );
-
 AutoIt:
     $oSpaceVector.get( $row ) -> retval
 ```
@@ -5931,7 +5429,6 @@ AutoIt:
 
 ```cpp
 double dlib::SpaceVector::get_Item( long row );
-
 AutoIt:
     $oSpaceVector.Item( $row ) -> retval
     dlib.vector( $row ) -> retval
@@ -5942,7 +5439,6 @@ AutoIt:
 ```cpp
 void dlib::SpaceVector::put_Item( long   row,
                                   double val );
-
 AutoIt:
     $oSpaceVector.Item( $row ) = $val
 ```
@@ -5951,7 +5447,6 @@ AutoIt:
 
 ```cpp
 void dlib::SpaceVector::resize( long rows );
-
 AutoIt:
     $oSpaceVector.resize( $rows ) -> None
 ```
@@ -5961,7 +5456,6 @@ AutoIt:
 ```cpp
 void dlib::SpaceVector::set( long   row,
                              double val );
-
 AutoIt:
     $oSpaceVector.set( $row, $val ) -> None
 ```
@@ -5970,7 +5464,6 @@ AutoIt:
 
 ```cpp
 void dlib::SpaceVector::set_size( long rows );
-
 AutoIt:
     $oSpaceVector.set_size( $rows ) -> None
 ```
@@ -5979,7 +5472,6 @@ AutoIt:
 
 ```cpp
 long dlib::SpaceVector::size();
-
 AutoIt:
     $oSpaceVector.size() -> retval
 ```
@@ -5990,7 +5482,6 @@ AutoIt:
 dlib::SpaceVector dlib::SpaceVector::slice( long start,
                                             long stop = this->__self->get()->size(),
                                             long step = 1 );
-
 AutoIt:
     $oSpaceVector.slice( $start[, $stop[, $step]] ) -> retval
 ```
@@ -6001,21 +5492,18 @@ AutoIt:
 
 ```cpp
 static dlib::point_transform_projective dlib::point_transform_projective::create();
-
 AutoIt:
     _Dlib_ObjCreate("dlib.point_transform_projective").create() -> <dlib.point_transform_projective object>
 ```
 
 ```cpp
 std::shared_ptr<dlib::point_transform_projective> dlib::point_transform_projective::create( dlib::Matrix m );
-
 AutoIt:
     $opoint_transform_projective.create( $m ) -> retval
 ```
 
 ```cpp
 std::shared_ptr<dlib::point_transform_projective> dlib::point_transform_projective::create( cv::Mat m );
-
 AutoIt:
     $opoint_transform_projective.create( $m ) -> retval
 ```
@@ -6027,14 +5515,12 @@ AutoIt:
 ```cpp
 static dlib::dpoint dlib::dpoint::create( double& x = 0,
                                           double& y = 0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.dpoint").create( [$x[, $y]] ) -> <dlib.dpoint object>
 ```
 
 ```cpp
 static dlib::dpoint dlib::dpoint::create( dlib::point& p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.dpoint").create( $p ) -> <dlib.dpoint object>
 ```
@@ -6043,7 +5529,6 @@ AutoIt:
 
 ```cpp
 string dlib::dpoint::ToString();
-
 AutoIt:
     $odpoint.ToString() -> retval
 ```
@@ -6052,7 +5537,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::dpoint::add( dlib::dpoint& other );
-
 AutoIt:
     $odpoint.add( $other ) -> retval
 ```
@@ -6061,7 +5545,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::dpoint::divide( double& scalar );
-
 AutoIt:
     $odpoint.divide( $scalar ) -> retval
 ```
@@ -6070,7 +5553,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::dpoint::multiply( double& scalar );
-
 AutoIt:
     $odpoint.multiply( $scalar ) -> retval
 ```
@@ -6079,7 +5561,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::dpoint::normalize();
-
 AutoIt:
     $odpoint.normalize() -> retval
 ```
@@ -6088,7 +5569,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint dlib::dpoint::sub( dlib::dpoint& other );
-
 AutoIt:
     $odpoint.sub( $other ) -> retval
 ```
@@ -6100,14 +5580,12 @@ AutoIt:
 ```cpp
 static dlib::point dlib::point::create( long& x = 0,
                                         long& y = 0 );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.point").create( [$x[, $y]] ) -> <dlib.point object>
 ```
 
 ```cpp
 static dlib::point dlib::point::create( dlib::dpoint& p );
-
 AutoIt:
     _Dlib_ObjCreate("dlib.point").create( $p ) -> <dlib.point object>
 ```
@@ -6116,7 +5594,6 @@ AutoIt:
 
 ```cpp
 string dlib::point::ToString();
-
 AutoIt:
     $opoint.ToString() -> retval
 ```
@@ -6125,7 +5602,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::point::add( dlib::point& other );
-
 AutoIt:
     $opoint.add( $other ) -> retval
 ```
@@ -6134,7 +5610,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::point::divide( double& scalar );
-
 AutoIt:
     $opoint.divide( $scalar ) -> retval
 ```
@@ -6143,7 +5618,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::point::multiply( double& scalar );
-
 AutoIt:
     $opoint.multiply( $scalar ) -> retval
 ```
@@ -6152,7 +5626,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::point::normalize();
-
 AutoIt:
     $opoint.normalize() -> retval
 ```
@@ -6161,7 +5634,6 @@ AutoIt:
 
 ```cpp
 dlib::point dlib::point::sub( dlib::point& other );
-
 AutoIt:
     $opoint.sub( $other ) -> retval
 ```
@@ -6172,21 +5644,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVariant VectorOfVariant::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVariant").create() -> <VectorOfVariant object>
 ```
 
 ```cpp
 static VectorOfVariant VectorOfVariant::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVariant").create( $size ) -> <VectorOfVariant object>
 ```
 
 ```cpp
 static VectorOfVariant VectorOfVariant::create( VectorOfVariant other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVariant").create( $other ) -> <VectorOfVariant object>
 ```
@@ -6195,7 +5664,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVariant::Add( _variant_t value );
-
 AutoIt:
     $oVectorOfVariant.Add( $value ) -> None
 ```
@@ -6204,7 +5672,6 @@ AutoIt:
 
 ```cpp
 VectorOfVariant VectorOfVariant::Items();
-
 AutoIt:
     $oVectorOfVariant.Items() -> retval
 ```
@@ -6213,7 +5680,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVariant::Keys();
-
 AutoIt:
     $oVectorOfVariant.Keys() -> retval
 ```
@@ -6222,7 +5688,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVariant::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVariant.Remove( $index ) -> None
 ```
@@ -6231,7 +5696,6 @@ AutoIt:
 
 ```cpp
 _variant_t VectorOfVariant::at( size_t index );
-
 AutoIt:
     $oVectorOfVariant.at( $index ) -> retval
 ```
@@ -6239,7 +5703,6 @@ AutoIt:
 ```cpp
 void VectorOfVariant::at( size_t     index,
                           _variant_t value );
-
 AutoIt:
     $oVectorOfVariant.at( $index, $value ) -> None
 ```
@@ -6248,7 +5711,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVariant::clear();
-
 AutoIt:
     $oVectorOfVariant.clear() -> None
 ```
@@ -6257,7 +5719,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVariant::empty();
-
 AutoIt:
     $oVectorOfVariant.empty() -> retval
 ```
@@ -6266,7 +5727,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVariant::end();
-
 AutoIt:
     $oVectorOfVariant.end() -> retval
 ```
@@ -6275,7 +5735,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVariant::push_back( _variant_t value );
-
 AutoIt:
     $oVectorOfVariant.push_back( $value ) -> None
 ```
@@ -6284,7 +5743,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVariant::push_vector( VectorOfVariant other );
-
 AutoIt:
     $oVectorOfVariant.push_vector( $other ) -> None
 ```
@@ -6293,7 +5751,6 @@ AutoIt:
 void VectorOfVariant::push_vector( VectorOfVariant other,
                                    size_t          count,
                                    size_t          start = 0 );
-
 AutoIt:
     $oVectorOfVariant.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -6302,7 +5759,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVariant::size();
-
 AutoIt:
     $oVectorOfVariant.size() -> retval
 ```
@@ -6312,7 +5768,6 @@ AutoIt:
 ```cpp
 VectorOfVariant VectorOfVariant::slice( size_t start = 0,
                                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVariant.slice( [$start[, $count]] ) -> retval
 ```
@@ -6323,7 +5778,6 @@ AutoIt:
 void VectorOfVariant::sort( void*  comparator,
                             size_t start = 0,
                             size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVariant.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6334,7 +5788,6 @@ AutoIt:
 void VectorOfVariant::sort_variant( void*  comparator,
                                     size_t start = 0,
                                     size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVariant.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6343,7 +5796,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVariant::start();
-
 AutoIt:
     $oVectorOfVariant.start() -> retval
 ```
@@ -6352,7 +5804,6 @@ AutoIt:
 
 ```cpp
 _variant_t VectorOfVariant::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVariant.Item( $vIndex ) -> retval
     VectorOfVariant( $vIndex ) -> retval
@@ -6363,7 +5814,6 @@ AutoIt:
 ```cpp
 void VectorOfVariant::put_Item( size_t     vIndex,
                                 _variant_t vItem );
-
 AutoIt:
     $oVectorOfVariant.Item( $vIndex ) = $vItem
 ```
@@ -6374,21 +5824,18 @@ AutoIt:
 
 ```cpp
 static VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble").create() -> <VectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
 static VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble").create( $size ) -> <VectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
 static VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::create( VectorOfPairOfULONGAndDouble other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble").create( $other ) -> <VectorOfPairOfULONGAndDouble object>
 ```
@@ -6397,7 +5844,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndDouble::Add( std::pair<ULONG, double> value );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.Add( $value ) -> None
 ```
@@ -6406,7 +5852,6 @@ AutoIt:
 
 ```cpp
 VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::Items();
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.Items() -> retval
 ```
@@ -6415,7 +5860,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfPairOfULONGAndDouble::Keys();
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.Keys() -> retval
 ```
@@ -6424,7 +5868,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndDouble::Remove( size_t index );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.Remove( $index ) -> None
 ```
@@ -6433,7 +5876,6 @@ AutoIt:
 
 ```cpp
 std::pair<ULONG, double> VectorOfPairOfULONGAndDouble::at( size_t index );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.at( $index ) -> retval
 ```
@@ -6441,7 +5883,6 @@ AutoIt:
 ```cpp
 void VectorOfPairOfULONGAndDouble::at( size_t                   index,
                                        std::pair<ULONG, double> value );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.at( $index, $value ) -> None
 ```
@@ -6450,7 +5891,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndDouble::clear();
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.clear() -> None
 ```
@@ -6459,7 +5899,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfPairOfULONGAndDouble::empty();
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.empty() -> retval
 ```
@@ -6468,7 +5907,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfPairOfULONGAndDouble::end();
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.end() -> retval
 ```
@@ -6477,7 +5915,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndDouble::push_back( std::pair<ULONG, double> value );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.push_back( $value ) -> None
 ```
@@ -6486,7 +5923,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndDouble::push_vector( VectorOfPairOfULONGAndDouble other );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.push_vector( $other ) -> None
 ```
@@ -6495,7 +5931,6 @@ AutoIt:
 void VectorOfPairOfULONGAndDouble::push_vector( VectorOfPairOfULONGAndDouble other,
                                                 size_t                       count,
                                                 size_t                       start = 0 );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -6504,7 +5939,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfPairOfULONGAndDouble::size();
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.size() -> retval
 ```
@@ -6514,7 +5948,6 @@ AutoIt:
 ```cpp
 VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::slice( size_t start = 0,
                                                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -6525,7 +5958,6 @@ AutoIt:
 void VectorOfPairOfULONGAndDouble::sort( void*  comparator,
                                          size_t start = 0,
                                          size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6536,7 +5968,6 @@ AutoIt:
 void VectorOfPairOfULONGAndDouble::sort_variant( void*  comparator,
                                                  size_t start = 0,
                                                  size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6545,7 +5976,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfPairOfULONGAndDouble::start();
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.start() -> retval
 ```
@@ -6554,7 +5984,6 @@ AutoIt:
 
 ```cpp
 std::pair<ULONG, double> VectorOfPairOfULONGAndDouble::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.Item( $vIndex ) -> retval
     VectorOfPairOfULONGAndDouble( $vIndex ) -> retval
@@ -6565,7 +5994,6 @@ AutoIt:
 ```cpp
 void VectorOfPairOfULONGAndDouble::put_Item( size_t                   vIndex,
                                              std::pair<ULONG, double> vItem );
-
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.Item( $vIndex ) = $vItem
 ```
@@ -6576,21 +6004,18 @@ AutoIt:
 
 ```cpp
 static VectorOfLong VectorOfLong::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfLong").create() -> <VectorOfLong object>
 ```
 
 ```cpp
 static VectorOfLong VectorOfLong::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfLong").create( $size ) -> <VectorOfLong object>
 ```
 
 ```cpp
 static VectorOfLong VectorOfLong::create( VectorOfLong other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfLong").create( $other ) -> <VectorOfLong object>
 ```
@@ -6599,7 +6024,6 @@ AutoIt:
 
 ```cpp
 void VectorOfLong::Add( long value );
-
 AutoIt:
     $oVectorOfLong.Add( $value ) -> None
 ```
@@ -6608,7 +6032,6 @@ AutoIt:
 
 ```cpp
 VectorOfLong VectorOfLong::Items();
-
 AutoIt:
     $oVectorOfLong.Items() -> retval
 ```
@@ -6617,7 +6040,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfLong::Keys();
-
 AutoIt:
     $oVectorOfLong.Keys() -> retval
 ```
@@ -6626,7 +6048,6 @@ AutoIt:
 
 ```cpp
 void VectorOfLong::Remove( size_t index );
-
 AutoIt:
     $oVectorOfLong.Remove( $index ) -> None
 ```
@@ -6635,7 +6056,6 @@ AutoIt:
 
 ```cpp
 long VectorOfLong::at( size_t index );
-
 AutoIt:
     $oVectorOfLong.at( $index ) -> retval
 ```
@@ -6643,7 +6063,6 @@ AutoIt:
 ```cpp
 void VectorOfLong::at( size_t index,
                        long   value );
-
 AutoIt:
     $oVectorOfLong.at( $index, $value ) -> None
 ```
@@ -6652,7 +6071,6 @@ AutoIt:
 
 ```cpp
 void VectorOfLong::clear();
-
 AutoIt:
     $oVectorOfLong.clear() -> None
 ```
@@ -6661,7 +6079,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfLong::empty();
-
 AutoIt:
     $oVectorOfLong.empty() -> retval
 ```
@@ -6670,7 +6087,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfLong::end();
-
 AutoIt:
     $oVectorOfLong.end() -> retval
 ```
@@ -6679,7 +6095,6 @@ AutoIt:
 
 ```cpp
 void VectorOfLong::push_back( long value );
-
 AutoIt:
     $oVectorOfLong.push_back( $value ) -> None
 ```
@@ -6688,7 +6103,6 @@ AutoIt:
 
 ```cpp
 void VectorOfLong::push_vector( VectorOfLong other );
-
 AutoIt:
     $oVectorOfLong.push_vector( $other ) -> None
 ```
@@ -6697,7 +6111,6 @@ AutoIt:
 void VectorOfLong::push_vector( VectorOfLong other,
                                 size_t       count,
                                 size_t       start = 0 );
-
 AutoIt:
     $oVectorOfLong.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -6706,7 +6119,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfLong::size();
-
 AutoIt:
     $oVectorOfLong.size() -> retval
 ```
@@ -6716,7 +6128,6 @@ AutoIt:
 ```cpp
 VectorOfLong VectorOfLong::slice( size_t start = 0,
                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfLong.slice( [$start[, $count]] ) -> retval
 ```
@@ -6727,7 +6138,6 @@ AutoIt:
 void VectorOfLong::sort( void*  comparator,
                          size_t start = 0,
                          size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfLong.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6738,7 +6148,6 @@ AutoIt:
 void VectorOfLong::sort_variant( void*  comparator,
                                  size_t start = 0,
                                  size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfLong.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6747,7 +6156,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfLong::start();
-
 AutoIt:
     $oVectorOfLong.start() -> retval
 ```
@@ -6756,7 +6164,6 @@ AutoIt:
 
 ```cpp
 long VectorOfLong::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfLong.Item( $vIndex ) -> retval
     VectorOfLong( $vIndex ) -> retval
@@ -6767,7 +6174,6 @@ AutoIt:
 ```cpp
 void VectorOfLong::put_Item( size_t vIndex,
                              long   vItem );
-
 AutoIt:
     $oVectorOfLong.Item( $vIndex ) = $vItem
 ```
@@ -6778,21 +6184,18 @@ AutoIt:
 
 ```cpp
 static VectorOfSpaceVector VectorOfSpaceVector::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfSpaceVector").create() -> <VectorOfSpaceVector object>
 ```
 
 ```cpp
 static VectorOfSpaceVector VectorOfSpaceVector::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfSpaceVector").create( $size ) -> <VectorOfSpaceVector object>
 ```
 
 ```cpp
 static VectorOfSpaceVector VectorOfSpaceVector::create( VectorOfSpaceVector other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfSpaceVector").create( $other ) -> <VectorOfSpaceVector object>
 ```
@@ -6801,7 +6204,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSpaceVector::Add( dlib::SpaceVector value );
-
 AutoIt:
     $oVectorOfSpaceVector.Add( $value ) -> None
 ```
@@ -6810,7 +6212,6 @@ AutoIt:
 
 ```cpp
 VectorOfSpaceVector VectorOfSpaceVector::Items();
-
 AutoIt:
     $oVectorOfSpaceVector.Items() -> retval
 ```
@@ -6819,7 +6220,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfSpaceVector::Keys();
-
 AutoIt:
     $oVectorOfSpaceVector.Keys() -> retval
 ```
@@ -6828,7 +6228,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSpaceVector::Remove( size_t index );
-
 AutoIt:
     $oVectorOfSpaceVector.Remove( $index ) -> None
 ```
@@ -6837,7 +6236,6 @@ AutoIt:
 
 ```cpp
 dlib::SpaceVector VectorOfSpaceVector::at( size_t index );
-
 AutoIt:
     $oVectorOfSpaceVector.at( $index ) -> retval
 ```
@@ -6845,7 +6243,6 @@ AutoIt:
 ```cpp
 void VectorOfSpaceVector::at( size_t            index,
                               dlib::SpaceVector value );
-
 AutoIt:
     $oVectorOfSpaceVector.at( $index, $value ) -> None
 ```
@@ -6854,7 +6251,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSpaceVector::clear();
-
 AutoIt:
     $oVectorOfSpaceVector.clear() -> None
 ```
@@ -6863,7 +6259,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfSpaceVector::empty();
-
 AutoIt:
     $oVectorOfSpaceVector.empty() -> retval
 ```
@@ -6872,7 +6267,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfSpaceVector::end();
-
 AutoIt:
     $oVectorOfSpaceVector.end() -> retval
 ```
@@ -6881,7 +6275,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSpaceVector::push_back( dlib::SpaceVector value );
-
 AutoIt:
     $oVectorOfSpaceVector.push_back( $value ) -> None
 ```
@@ -6890,7 +6283,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSpaceVector::push_vector( VectorOfSpaceVector other );
-
 AutoIt:
     $oVectorOfSpaceVector.push_vector( $other ) -> None
 ```
@@ -6899,7 +6291,6 @@ AutoIt:
 void VectorOfSpaceVector::push_vector( VectorOfSpaceVector other,
                                        size_t              count,
                                        size_t              start = 0 );
-
 AutoIt:
     $oVectorOfSpaceVector.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -6908,7 +6299,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfSpaceVector::size();
-
 AutoIt:
     $oVectorOfSpaceVector.size() -> retval
 ```
@@ -6918,7 +6308,6 @@ AutoIt:
 ```cpp
 VectorOfSpaceVector VectorOfSpaceVector::slice( size_t start = 0,
                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfSpaceVector.slice( [$start[, $count]] ) -> retval
 ```
@@ -6929,7 +6318,6 @@ AutoIt:
 void VectorOfSpaceVector::sort( void*  comparator,
                                 size_t start = 0,
                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfSpaceVector.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6940,7 +6328,6 @@ AutoIt:
 void VectorOfSpaceVector::sort_variant( void*  comparator,
                                         size_t start = 0,
                                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfSpaceVector.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6949,7 +6336,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfSpaceVector::start();
-
 AutoIt:
     $oVectorOfSpaceVector.start() -> retval
 ```
@@ -6958,7 +6344,6 @@ AutoIt:
 
 ```cpp
 dlib::SpaceVector VectorOfSpaceVector::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfSpaceVector.Item( $vIndex ) -> retval
     VectorOfSpaceVector( $vIndex ) -> retval
@@ -6969,7 +6354,6 @@ AutoIt:
 ```cpp
 void VectorOfSpaceVector::put_Item( size_t            vIndex,
                                     dlib::SpaceVector vItem );
-
 AutoIt:
     $oVectorOfSpaceVector.Item( $vIndex ) = $vItem
 ```
@@ -6980,21 +6364,18 @@ AutoIt:
 
 ```cpp
 static VectorOfDouble VectorOfDouble::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfDouble").create() -> <VectorOfDouble object>
 ```
 
 ```cpp
 static VectorOfDouble VectorOfDouble::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfDouble").create( $size ) -> <VectorOfDouble object>
 ```
 
 ```cpp
 static VectorOfDouble VectorOfDouble::create( VectorOfDouble other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfDouble").create( $other ) -> <VectorOfDouble object>
 ```
@@ -7003,7 +6384,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDouble::Add( double value );
-
 AutoIt:
     $oVectorOfDouble.Add( $value ) -> None
 ```
@@ -7012,7 +6392,6 @@ AutoIt:
 
 ```cpp
 VectorOfDouble VectorOfDouble::Items();
-
 AutoIt:
     $oVectorOfDouble.Items() -> retval
 ```
@@ -7021,7 +6400,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfDouble::Keys();
-
 AutoIt:
     $oVectorOfDouble.Keys() -> retval
 ```
@@ -7030,7 +6408,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDouble::Remove( size_t index );
-
 AutoIt:
     $oVectorOfDouble.Remove( $index ) -> None
 ```
@@ -7039,7 +6416,6 @@ AutoIt:
 
 ```cpp
 double VectorOfDouble::at( size_t index );
-
 AutoIt:
     $oVectorOfDouble.at( $index ) -> retval
 ```
@@ -7047,7 +6423,6 @@ AutoIt:
 ```cpp
 void VectorOfDouble::at( size_t index,
                          double value );
-
 AutoIt:
     $oVectorOfDouble.at( $index, $value ) -> None
 ```
@@ -7056,7 +6431,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDouble::clear();
-
 AutoIt:
     $oVectorOfDouble.clear() -> None
 ```
@@ -7065,7 +6439,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfDouble::empty();
-
 AutoIt:
     $oVectorOfDouble.empty() -> retval
 ```
@@ -7074,7 +6447,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfDouble::end();
-
 AutoIt:
     $oVectorOfDouble.end() -> retval
 ```
@@ -7083,7 +6455,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDouble::push_back( double value );
-
 AutoIt:
     $oVectorOfDouble.push_back( $value ) -> None
 ```
@@ -7092,7 +6463,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDouble::push_vector( VectorOfDouble other );
-
 AutoIt:
     $oVectorOfDouble.push_vector( $other ) -> None
 ```
@@ -7101,7 +6471,6 @@ AutoIt:
 void VectorOfDouble::push_vector( VectorOfDouble other,
                                   size_t         count,
                                   size_t         start = 0 );
-
 AutoIt:
     $oVectorOfDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -7110,7 +6479,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfDouble::size();
-
 AutoIt:
     $oVectorOfDouble.size() -> retval
 ```
@@ -7120,7 +6488,6 @@ AutoIt:
 ```cpp
 VectorOfDouble VectorOfDouble::slice( size_t start = 0,
                                       size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -7131,7 +6498,6 @@ AutoIt:
 void VectorOfDouble::sort( void*  comparator,
                            size_t start = 0,
                            size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7142,7 +6508,6 @@ AutoIt:
 void VectorOfDouble::sort_variant( void*  comparator,
                                    size_t start = 0,
                                    size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7151,7 +6516,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfDouble::start();
-
 AutoIt:
     $oVectorOfDouble.start() -> retval
 ```
@@ -7160,7 +6524,6 @@ AutoIt:
 
 ```cpp
 double VectorOfDouble::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfDouble.Item( $vIndex ) -> retval
     VectorOfDouble( $vIndex ) -> retval
@@ -7171,7 +6534,6 @@ AutoIt:
 ```cpp
 void VectorOfDouble::put_Item( size_t vIndex,
                                double vItem );
-
 AutoIt:
     $oVectorOfDouble.Item( $vIndex ) = $vItem
 ```
@@ -7182,21 +6544,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create() -> <VectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
 static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create( $size ) -> <VectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
 static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create( VectorOfVectorOfPairOfULONGAndDouble other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create( $other ) -> <VectorOfVectorOfPairOfULONGAndDouble object>
 ```
@@ -7205,7 +6564,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::Add( std::vector<std::pair<ULONG, double>> value );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.Add( $value ) -> None
 ```
@@ -7214,7 +6572,6 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::Items();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.Items() -> retval
 ```
@@ -7223,7 +6580,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVectorOfPairOfULONGAndDouble::Keys();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.Keys() -> retval
 ```
@@ -7232,7 +6588,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.Remove( $index ) -> None
 ```
@@ -7241,7 +6596,6 @@ AutoIt:
 
 ```cpp
 std::vector<std::pair<ULONG, double>> VectorOfVectorOfPairOfULONGAndDouble::at( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.at( $index ) -> retval
 ```
@@ -7249,7 +6603,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::at( size_t                                index,
                                                std::vector<std::pair<ULONG, double>> value );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.at( $index, $value ) -> None
 ```
@@ -7258,7 +6611,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::clear();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.clear() -> None
 ```
@@ -7267,7 +6619,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVectorOfPairOfULONGAndDouble::empty();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.empty() -> retval
 ```
@@ -7276,7 +6627,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfPairOfULONGAndDouble::end();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.end() -> retval
 ```
@@ -7285,7 +6635,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::push_back( std::vector<std::pair<ULONG, double>> value );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.push_back( $value ) -> None
 ```
@@ -7294,7 +6643,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfPairOfULONGAndDouble other );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other ) -> None
 ```
@@ -7303,7 +6651,6 @@ AutoIt:
 void VectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfPairOfULONGAndDouble other,
                                                         size_t                               count,
                                                         size_t                               start = 0 );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -7312,7 +6659,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVectorOfPairOfULONGAndDouble::size();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.size() -> retval
 ```
@@ -7322,7 +6668,6 @@ AutoIt:
 ```cpp
 VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
                                                                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -7333,7 +6678,6 @@ AutoIt:
 void VectorOfVectorOfPairOfULONGAndDouble::sort( void*  comparator,
                                                  size_t start = 0,
                                                  size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7344,7 +6688,6 @@ AutoIt:
 void VectorOfVectorOfPairOfULONGAndDouble::sort_variant( void*  comparator,
                                                          size_t start = 0,
                                                          size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7353,7 +6696,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfPairOfULONGAndDouble::start();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.start() -> retval
 ```
@@ -7362,7 +6704,6 @@ AutoIt:
 
 ```cpp
 std::vector<std::pair<ULONG, double>> VectorOfVectorOfPairOfULONGAndDouble::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.Item( $vIndex ) -> retval
     VectorOfVectorOfPairOfULONGAndDouble( $vIndex ) -> retval
@@ -7373,7 +6714,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::put_Item( size_t                                vIndex,
                                                      std::vector<std::pair<ULONG, double>> vItem );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.Item( $vIndex ) = $vItem
 ```
@@ -7384,21 +6724,18 @@ AutoIt:
 
 ```cpp
 static VectorOfPoint VectorOfPoint::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPoint").create() -> <VectorOfPoint object>
 ```
 
 ```cpp
 static VectorOfPoint VectorOfPoint::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPoint").create( $size ) -> <VectorOfPoint object>
 ```
 
 ```cpp
 static VectorOfPoint VectorOfPoint::create( VectorOfPoint other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPoint").create( $other ) -> <VectorOfPoint object>
 ```
@@ -7407,7 +6744,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPoint::Add( dlib::point value );
-
 AutoIt:
     $oVectorOfPoint.Add( $value ) -> None
 ```
@@ -7416,7 +6752,6 @@ AutoIt:
 
 ```cpp
 VectorOfPoint VectorOfPoint::Items();
-
 AutoIt:
     $oVectorOfPoint.Items() -> retval
 ```
@@ -7425,7 +6760,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfPoint::Keys();
-
 AutoIt:
     $oVectorOfPoint.Keys() -> retval
 ```
@@ -7434,7 +6768,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPoint::Remove( size_t index );
-
 AutoIt:
     $oVectorOfPoint.Remove( $index ) -> None
 ```
@@ -7443,7 +6776,6 @@ AutoIt:
 
 ```cpp
 dlib::point VectorOfPoint::at( size_t index );
-
 AutoIt:
     $oVectorOfPoint.at( $index ) -> retval
 ```
@@ -7451,7 +6783,6 @@ AutoIt:
 ```cpp
 void VectorOfPoint::at( size_t      index,
                         dlib::point value );
-
 AutoIt:
     $oVectorOfPoint.at( $index, $value ) -> None
 ```
@@ -7460,7 +6791,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPoint::clear();
-
 AutoIt:
     $oVectorOfPoint.clear() -> None
 ```
@@ -7469,7 +6799,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfPoint::empty();
-
 AutoIt:
     $oVectorOfPoint.empty() -> retval
 ```
@@ -7478,7 +6807,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfPoint::end();
-
 AutoIt:
     $oVectorOfPoint.end() -> retval
 ```
@@ -7487,7 +6815,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPoint::push_back( dlib::point value );
-
 AutoIt:
     $oVectorOfPoint.push_back( $value ) -> None
 ```
@@ -7496,7 +6823,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPoint::push_vector( VectorOfPoint other );
-
 AutoIt:
     $oVectorOfPoint.push_vector( $other ) -> None
 ```
@@ -7505,7 +6831,6 @@ AutoIt:
 void VectorOfPoint::push_vector( VectorOfPoint other,
                                  size_t        count,
                                  size_t        start = 0 );
-
 AutoIt:
     $oVectorOfPoint.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -7514,7 +6839,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfPoint::size();
-
 AutoIt:
     $oVectorOfPoint.size() -> retval
 ```
@@ -7524,7 +6848,6 @@ AutoIt:
 ```cpp
 VectorOfPoint VectorOfPoint::slice( size_t start = 0,
                                     size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPoint.slice( [$start[, $count]] ) -> retval
 ```
@@ -7535,7 +6858,6 @@ AutoIt:
 void VectorOfPoint::sort( void*  comparator,
                           size_t start = 0,
                           size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPoint.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7546,7 +6868,6 @@ AutoIt:
 void VectorOfPoint::sort_variant( void*  comparator,
                                   size_t start = 0,
                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPoint.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7555,7 +6876,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfPoint::start();
-
 AutoIt:
     $oVectorOfPoint.start() -> retval
 ```
@@ -7564,7 +6884,6 @@ AutoIt:
 
 ```cpp
 dlib::point VectorOfPoint::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfPoint.Item( $vIndex ) -> retval
     VectorOfPoint( $vIndex ) -> retval
@@ -7575,7 +6894,6 @@ AutoIt:
 ```cpp
 void VectorOfPoint::put_Item( size_t      vIndex,
                               dlib::point vItem );
-
 AutoIt:
     $oVectorOfPoint.Item( $vIndex ) = $vItem
 ```
@@ -7586,21 +6904,18 @@ AutoIt:
 
 ```cpp
 static VectorOfRectangle VectorOfRectangle::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfRectangle").create() -> <VectorOfRectangle object>
 ```
 
 ```cpp
 static VectorOfRectangle VectorOfRectangle::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfRectangle").create( $size ) -> <VectorOfRectangle object>
 ```
 
 ```cpp
 static VectorOfRectangle VectorOfRectangle::create( VectorOfRectangle other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfRectangle").create( $other ) -> <VectorOfRectangle object>
 ```
@@ -7609,7 +6924,6 @@ AutoIt:
 
 ```cpp
 void VectorOfRectangle::Add( dlib::rectangle value );
-
 AutoIt:
     $oVectorOfRectangle.Add( $value ) -> None
 ```
@@ -7618,7 +6932,6 @@ AutoIt:
 
 ```cpp
 VectorOfRectangle VectorOfRectangle::Items();
-
 AutoIt:
     $oVectorOfRectangle.Items() -> retval
 ```
@@ -7627,7 +6940,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfRectangle::Keys();
-
 AutoIt:
     $oVectorOfRectangle.Keys() -> retval
 ```
@@ -7636,7 +6948,6 @@ AutoIt:
 
 ```cpp
 void VectorOfRectangle::Remove( size_t index );
-
 AutoIt:
     $oVectorOfRectangle.Remove( $index ) -> None
 ```
@@ -7645,7 +6956,6 @@ AutoIt:
 
 ```cpp
 dlib::rectangle VectorOfRectangle::at( size_t index );
-
 AutoIt:
     $oVectorOfRectangle.at( $index ) -> retval
 ```
@@ -7653,7 +6963,6 @@ AutoIt:
 ```cpp
 void VectorOfRectangle::at( size_t          index,
                             dlib::rectangle value );
-
 AutoIt:
     $oVectorOfRectangle.at( $index, $value ) -> None
 ```
@@ -7662,7 +6971,6 @@ AutoIt:
 
 ```cpp
 void VectorOfRectangle::clear();
-
 AutoIt:
     $oVectorOfRectangle.clear() -> None
 ```
@@ -7671,7 +6979,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfRectangle::empty();
-
 AutoIt:
     $oVectorOfRectangle.empty() -> retval
 ```
@@ -7680,7 +6987,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfRectangle::end();
-
 AutoIt:
     $oVectorOfRectangle.end() -> retval
 ```
@@ -7689,7 +6995,6 @@ AutoIt:
 
 ```cpp
 void VectorOfRectangle::push_back( dlib::rectangle value );
-
 AutoIt:
     $oVectorOfRectangle.push_back( $value ) -> None
 ```
@@ -7698,7 +7003,6 @@ AutoIt:
 
 ```cpp
 void VectorOfRectangle::push_vector( VectorOfRectangle other );
-
 AutoIt:
     $oVectorOfRectangle.push_vector( $other ) -> None
 ```
@@ -7707,7 +7011,6 @@ AutoIt:
 void VectorOfRectangle::push_vector( VectorOfRectangle other,
                                      size_t            count,
                                      size_t            start = 0 );
-
 AutoIt:
     $oVectorOfRectangle.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -7716,7 +7019,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfRectangle::size();
-
 AutoIt:
     $oVectorOfRectangle.size() -> retval
 ```
@@ -7726,7 +7028,6 @@ AutoIt:
 ```cpp
 VectorOfRectangle VectorOfRectangle::slice( size_t start = 0,
                                             size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfRectangle.slice( [$start[, $count]] ) -> retval
 ```
@@ -7737,7 +7038,6 @@ AutoIt:
 void VectorOfRectangle::sort( void*  comparator,
                               size_t start = 0,
                               size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfRectangle.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7748,7 +7048,6 @@ AutoIt:
 void VectorOfRectangle::sort_variant( void*  comparator,
                                       size_t start = 0,
                                       size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfRectangle.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7757,7 +7056,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfRectangle::start();
-
 AutoIt:
     $oVectorOfRectangle.start() -> retval
 ```
@@ -7766,7 +7064,6 @@ AutoIt:
 
 ```cpp
 dlib::rectangle VectorOfRectangle::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfRectangle.Item( $vIndex ) -> retval
     VectorOfRectangle( $vIndex ) -> retval
@@ -7777,7 +7074,6 @@ AutoIt:
 ```cpp
 void VectorOfRectangle::put_Item( size_t          vIndex,
                                   dlib::rectangle vItem );
-
 AutoIt:
     $oVectorOfRectangle.Item( $vIndex ) = $vItem
 ```
@@ -7788,21 +7084,18 @@ AutoIt:
 
 ```cpp
 static VectorOfULONG VectorOfULONG::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfULONG").create() -> <VectorOfULONG object>
 ```
 
 ```cpp
 static VectorOfULONG VectorOfULONG::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfULONG").create( $size ) -> <VectorOfULONG object>
 ```
 
 ```cpp
 static VectorOfULONG VectorOfULONG::create( VectorOfULONG other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfULONG").create( $other ) -> <VectorOfULONG object>
 ```
@@ -7811,7 +7104,6 @@ AutoIt:
 
 ```cpp
 void VectorOfULONG::Add( ULONG value );
-
 AutoIt:
     $oVectorOfULONG.Add( $value ) -> None
 ```
@@ -7820,7 +7112,6 @@ AutoIt:
 
 ```cpp
 VectorOfULONG VectorOfULONG::Items();
-
 AutoIt:
     $oVectorOfULONG.Items() -> retval
 ```
@@ -7829,7 +7120,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfULONG::Keys();
-
 AutoIt:
     $oVectorOfULONG.Keys() -> retval
 ```
@@ -7838,7 +7128,6 @@ AutoIt:
 
 ```cpp
 void VectorOfULONG::Remove( size_t index );
-
 AutoIt:
     $oVectorOfULONG.Remove( $index ) -> None
 ```
@@ -7847,7 +7136,6 @@ AutoIt:
 
 ```cpp
 ULONG VectorOfULONG::at( size_t index );
-
 AutoIt:
     $oVectorOfULONG.at( $index ) -> retval
 ```
@@ -7855,7 +7143,6 @@ AutoIt:
 ```cpp
 void VectorOfULONG::at( size_t index,
                         ULONG  value );
-
 AutoIt:
     $oVectorOfULONG.at( $index, $value ) -> None
 ```
@@ -7864,7 +7151,6 @@ AutoIt:
 
 ```cpp
 void VectorOfULONG::clear();
-
 AutoIt:
     $oVectorOfULONG.clear() -> None
 ```
@@ -7873,7 +7159,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfULONG::empty();
-
 AutoIt:
     $oVectorOfULONG.empty() -> retval
 ```
@@ -7882,7 +7167,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfULONG::end();
-
 AutoIt:
     $oVectorOfULONG.end() -> retval
 ```
@@ -7891,7 +7175,6 @@ AutoIt:
 
 ```cpp
 void VectorOfULONG::push_back( ULONG value );
-
 AutoIt:
     $oVectorOfULONG.push_back( $value ) -> None
 ```
@@ -7900,7 +7183,6 @@ AutoIt:
 
 ```cpp
 void VectorOfULONG::push_vector( VectorOfULONG other );
-
 AutoIt:
     $oVectorOfULONG.push_vector( $other ) -> None
 ```
@@ -7909,7 +7191,6 @@ AutoIt:
 void VectorOfULONG::push_vector( VectorOfULONG other,
                                  size_t        count,
                                  size_t        start = 0 );
-
 AutoIt:
     $oVectorOfULONG.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -7918,7 +7199,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfULONG::size();
-
 AutoIt:
     $oVectorOfULONG.size() -> retval
 ```
@@ -7928,7 +7208,6 @@ AutoIt:
 ```cpp
 VectorOfULONG VectorOfULONG::slice( size_t start = 0,
                                     size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfULONG.slice( [$start[, $count]] ) -> retval
 ```
@@ -7939,7 +7218,6 @@ AutoIt:
 void VectorOfULONG::sort( void*  comparator,
                           size_t start = 0,
                           size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfULONG.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7950,7 +7228,6 @@ AutoIt:
 void VectorOfULONG::sort_variant( void*  comparator,
                                   size_t start = 0,
                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7959,7 +7236,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfULONG::start();
-
 AutoIt:
     $oVectorOfULONG.start() -> retval
 ```
@@ -7968,7 +7244,6 @@ AutoIt:
 
 ```cpp
 ULONG VectorOfULONG::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfULONG.Item( $vIndex ) -> retval
     VectorOfULONG( $vIndex ) -> retval
@@ -7979,7 +7254,6 @@ AutoIt:
 ```cpp
 void VectorOfULONG::put_Item( size_t vIndex,
                               ULONG  vItem );
-
 AutoIt:
     $oVectorOfULONG.Item( $vIndex ) = $vItem
 ```
@@ -7990,21 +7264,18 @@ AutoIt:
 
 ```cpp
 static VectorOfDpoint VectorOfDpoint::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfDpoint").create() -> <VectorOfDpoint object>
 ```
 
 ```cpp
 static VectorOfDpoint VectorOfDpoint::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfDpoint").create( $size ) -> <VectorOfDpoint object>
 ```
 
 ```cpp
 static VectorOfDpoint VectorOfDpoint::create( VectorOfDpoint other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfDpoint").create( $other ) -> <VectorOfDpoint object>
 ```
@@ -8013,7 +7284,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDpoint::Add( dlib::dpoint value );
-
 AutoIt:
     $oVectorOfDpoint.Add( $value ) -> None
 ```
@@ -8022,7 +7292,6 @@ AutoIt:
 
 ```cpp
 VectorOfDpoint VectorOfDpoint::Items();
-
 AutoIt:
     $oVectorOfDpoint.Items() -> retval
 ```
@@ -8031,7 +7300,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfDpoint::Keys();
-
 AutoIt:
     $oVectorOfDpoint.Keys() -> retval
 ```
@@ -8040,7 +7308,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDpoint::Remove( size_t index );
-
 AutoIt:
     $oVectorOfDpoint.Remove( $index ) -> None
 ```
@@ -8049,7 +7316,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint VectorOfDpoint::at( size_t index );
-
 AutoIt:
     $oVectorOfDpoint.at( $index ) -> retval
 ```
@@ -8057,7 +7323,6 @@ AutoIt:
 ```cpp
 void VectorOfDpoint::at( size_t       index,
                          dlib::dpoint value );
-
 AutoIt:
     $oVectorOfDpoint.at( $index, $value ) -> None
 ```
@@ -8066,7 +7331,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDpoint::clear();
-
 AutoIt:
     $oVectorOfDpoint.clear() -> None
 ```
@@ -8075,7 +7339,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfDpoint::empty();
-
 AutoIt:
     $oVectorOfDpoint.empty() -> retval
 ```
@@ -8084,7 +7347,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfDpoint::end();
-
 AutoIt:
     $oVectorOfDpoint.end() -> retval
 ```
@@ -8093,7 +7355,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDpoint::push_back( dlib::dpoint value );
-
 AutoIt:
     $oVectorOfDpoint.push_back( $value ) -> None
 ```
@@ -8102,7 +7363,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDpoint::push_vector( VectorOfDpoint other );
-
 AutoIt:
     $oVectorOfDpoint.push_vector( $other ) -> None
 ```
@@ -8111,7 +7371,6 @@ AutoIt:
 void VectorOfDpoint::push_vector( VectorOfDpoint other,
                                   size_t         count,
                                   size_t         start = 0 );
-
 AutoIt:
     $oVectorOfDpoint.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -8120,7 +7379,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfDpoint::size();
-
 AutoIt:
     $oVectorOfDpoint.size() -> retval
 ```
@@ -8130,7 +7388,6 @@ AutoIt:
 ```cpp
 VectorOfDpoint VectorOfDpoint::slice( size_t start = 0,
                                       size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfDpoint.slice( [$start[, $count]] ) -> retval
 ```
@@ -8141,7 +7398,6 @@ AutoIt:
 void VectorOfDpoint::sort( void*  comparator,
                            size_t start = 0,
                            size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfDpoint.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8152,7 +7408,6 @@ AutoIt:
 void VectorOfDpoint::sort_variant( void*  comparator,
                                    size_t start = 0,
                                    size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfDpoint.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8161,7 +7416,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfDpoint::start();
-
 AutoIt:
     $oVectorOfDpoint.start() -> retval
 ```
@@ -8170,7 +7424,6 @@ AutoIt:
 
 ```cpp
 dlib::dpoint VectorOfDpoint::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfDpoint.Item( $vIndex ) -> retval
     VectorOfDpoint( $vIndex ) -> retval
@@ -8181,7 +7434,6 @@ AutoIt:
 ```cpp
 void VectorOfDpoint::put_Item( size_t       vIndex,
                                dlib::dpoint vItem );
-
 AutoIt:
     $oVectorOfDpoint.Item( $vIndex ) = $vItem
 ```
@@ -8192,21 +7444,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec_ranking_pair").create() -> <VectorOfVec_ranking_pair object>
 ```
 
 ```cpp
 static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec_ranking_pair").create( $size ) -> <VectorOfVec_ranking_pair object>
 ```
 
 ```cpp
 static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create( VectorOfVec_ranking_pair other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec_ranking_pair").create( $other ) -> <VectorOfVec_ranking_pair object>
 ```
@@ -8215,7 +7464,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVec_ranking_pair::Add( dlib::vec_ranking_pair value );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.Add( $value ) -> None
 ```
@@ -8224,7 +7472,6 @@ AutoIt:
 
 ```cpp
 VectorOfVec_ranking_pair VectorOfVec_ranking_pair::Items();
-
 AutoIt:
     $oVectorOfVec_ranking_pair.Items() -> retval
 ```
@@ -8233,7 +7480,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVec_ranking_pair::Keys();
-
 AutoIt:
     $oVectorOfVec_ranking_pair.Keys() -> retval
 ```
@@ -8242,7 +7488,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVec_ranking_pair::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.Remove( $index ) -> None
 ```
@@ -8251,7 +7496,6 @@ AutoIt:
 
 ```cpp
 dlib::vec_ranking_pair VectorOfVec_ranking_pair::at( size_t index );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.at( $index ) -> retval
 ```
@@ -8259,7 +7503,6 @@ AutoIt:
 ```cpp
 void VectorOfVec_ranking_pair::at( size_t                 index,
                                    dlib::vec_ranking_pair value );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.at( $index, $value ) -> None
 ```
@@ -8268,7 +7511,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVec_ranking_pair::clear();
-
 AutoIt:
     $oVectorOfVec_ranking_pair.clear() -> None
 ```
@@ -8277,7 +7519,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVec_ranking_pair::empty();
-
 AutoIt:
     $oVectorOfVec_ranking_pair.empty() -> retval
 ```
@@ -8286,7 +7527,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVec_ranking_pair::end();
-
 AutoIt:
     $oVectorOfVec_ranking_pair.end() -> retval
 ```
@@ -8295,7 +7535,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVec_ranking_pair::push_back( dlib::vec_ranking_pair value );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.push_back( $value ) -> None
 ```
@@ -8304,7 +7543,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVec_ranking_pair::push_vector( VectorOfVec_ranking_pair other );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.push_vector( $other ) -> None
 ```
@@ -8313,7 +7551,6 @@ AutoIt:
 void VectorOfVec_ranking_pair::push_vector( VectorOfVec_ranking_pair other,
                                             size_t                   count,
                                             size_t                   start = 0 );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -8322,7 +7559,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVec_ranking_pair::size();
-
 AutoIt:
     $oVectorOfVec_ranking_pair.size() -> retval
 ```
@@ -8332,7 +7568,6 @@ AutoIt:
 ```cpp
 VectorOfVec_ranking_pair VectorOfVec_ranking_pair::slice( size_t start = 0,
                                                           size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.slice( [$start[, $count]] ) -> retval
 ```
@@ -8343,7 +7578,6 @@ AutoIt:
 void VectorOfVec_ranking_pair::sort( void*  comparator,
                                      size_t start = 0,
                                      size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8354,7 +7588,6 @@ AutoIt:
 void VectorOfVec_ranking_pair::sort_variant( void*  comparator,
                                              size_t start = 0,
                                              size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8363,7 +7596,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVec_ranking_pair::start();
-
 AutoIt:
     $oVectorOfVec_ranking_pair.start() -> retval
 ```
@@ -8372,7 +7604,6 @@ AutoIt:
 
 ```cpp
 dlib::vec_ranking_pair VectorOfVec_ranking_pair::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.Item( $vIndex ) -> retval
     VectorOfVec_ranking_pair( $vIndex ) -> retval
@@ -8383,7 +7614,6 @@ AutoIt:
 ```cpp
 void VectorOfVec_ranking_pair::put_Item( size_t                 vIndex,
                                          dlib::vec_ranking_pair vItem );
-
 AutoIt:
     $oVectorOfVec_ranking_pair.Item( $vIndex ) = $vItem
 ```
@@ -8394,21 +7624,18 @@ AutoIt:
 
 ```cpp
 static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create() -> <VectorOfSparse_ranking_pair object>
 ```
 
 ```cpp
 static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create( $size ) -> <VectorOfSparse_ranking_pair object>
 ```
 
 ```cpp
 static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create( VectorOfSparse_ranking_pair other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create( $other ) -> <VectorOfSparse_ranking_pair object>
 ```
@@ -8417,7 +7644,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSparse_ranking_pair::Add( dlib::sparse_ranking_pair value );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.Add( $value ) -> None
 ```
@@ -8426,7 +7652,6 @@ AutoIt:
 
 ```cpp
 VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::Items();
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.Items() -> retval
 ```
@@ -8435,7 +7660,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfSparse_ranking_pair::Keys();
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.Keys() -> retval
 ```
@@ -8444,7 +7668,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSparse_ranking_pair::Remove( size_t index );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.Remove( $index ) -> None
 ```
@@ -8453,7 +7676,6 @@ AutoIt:
 
 ```cpp
 dlib::sparse_ranking_pair VectorOfSparse_ranking_pair::at( size_t index );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.at( $index ) -> retval
 ```
@@ -8461,7 +7683,6 @@ AutoIt:
 ```cpp
 void VectorOfSparse_ranking_pair::at( size_t                    index,
                                       dlib::sparse_ranking_pair value );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.at( $index, $value ) -> None
 ```
@@ -8470,7 +7691,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSparse_ranking_pair::clear();
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.clear() -> None
 ```
@@ -8479,7 +7699,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfSparse_ranking_pair::empty();
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.empty() -> retval
 ```
@@ -8488,7 +7707,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfSparse_ranking_pair::end();
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.end() -> retval
 ```
@@ -8497,7 +7715,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSparse_ranking_pair::push_back( dlib::sparse_ranking_pair value );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.push_back( $value ) -> None
 ```
@@ -8506,7 +7723,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSparse_ranking_pair::push_vector( VectorOfSparse_ranking_pair other );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.push_vector( $other ) -> None
 ```
@@ -8515,7 +7731,6 @@ AutoIt:
 void VectorOfSparse_ranking_pair::push_vector( VectorOfSparse_ranking_pair other,
                                                size_t                      count,
                                                size_t                      start = 0 );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -8524,7 +7739,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfSparse_ranking_pair::size();
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.size() -> retval
 ```
@@ -8534,7 +7748,6 @@ AutoIt:
 ```cpp
 VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::slice( size_t start = 0,
                                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.slice( [$start[, $count]] ) -> retval
 ```
@@ -8545,7 +7758,6 @@ AutoIt:
 void VectorOfSparse_ranking_pair::sort( void*  comparator,
                                         size_t start = 0,
                                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8556,7 +7768,6 @@ AutoIt:
 void VectorOfSparse_ranking_pair::sort_variant( void*  comparator,
                                                 size_t start = 0,
                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8565,7 +7776,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfSparse_ranking_pair::start();
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.start() -> retval
 ```
@@ -8574,7 +7784,6 @@ AutoIt:
 
 ```cpp
 dlib::sparse_ranking_pair VectorOfSparse_ranking_pair::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.Item( $vIndex ) -> retval
     VectorOfSparse_ranking_pair( $vIndex ) -> retval
@@ -8585,7 +7794,6 @@ AutoIt:
 ```cpp
 void VectorOfSparse_ranking_pair::put_Item( size_t                    vIndex,
                                             dlib::sparse_ranking_pair vItem );
-
 AutoIt:
     $oVectorOfSparse_ranking_pair.Item( $vIndex ) = $vItem
 ```
@@ -8596,21 +7804,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfSpaceVector").create() -> <VectorOfVectorOfSpaceVector object>
 ```
 
 ```cpp
 static VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfSpaceVector").create( $size ) -> <VectorOfVectorOfSpaceVector object>
 ```
 
 ```cpp
 static VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::create( VectorOfVectorOfSpaceVector other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfSpaceVector").create( $other ) -> <VectorOfVectorOfSpaceVector object>
 ```
@@ -8619,7 +7824,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfSpaceVector::Add( std::vector<dlib::SpaceVector> value );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.Add( $value ) -> None
 ```
@@ -8628,7 +7832,6 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::Items();
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.Items() -> retval
 ```
@@ -8637,7 +7840,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVectorOfSpaceVector::Keys();
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.Keys() -> retval
 ```
@@ -8646,7 +7848,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfSpaceVector::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.Remove( $index ) -> None
 ```
@@ -8655,7 +7856,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::SpaceVector> VectorOfVectorOfSpaceVector::at( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.at( $index ) -> retval
 ```
@@ -8663,7 +7863,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfSpaceVector::at( size_t                         index,
                                       std::vector<dlib::SpaceVector> value );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.at( $index, $value ) -> None
 ```
@@ -8672,7 +7871,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfSpaceVector::clear();
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.clear() -> None
 ```
@@ -8681,7 +7879,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVectorOfSpaceVector::empty();
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.empty() -> retval
 ```
@@ -8690,7 +7887,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfSpaceVector::end();
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.end() -> retval
 ```
@@ -8699,7 +7895,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfSpaceVector::push_back( std::vector<dlib::SpaceVector> value );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.push_back( $value ) -> None
 ```
@@ -8708,7 +7903,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfSpaceVector::push_vector( VectorOfVectorOfSpaceVector other );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.push_vector( $other ) -> None
 ```
@@ -8717,7 +7911,6 @@ AutoIt:
 void VectorOfVectorOfSpaceVector::push_vector( VectorOfVectorOfSpaceVector other,
                                                size_t                      count,
                                                size_t                      start = 0 );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -8726,7 +7919,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVectorOfSpaceVector::size();
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.size() -> retval
 ```
@@ -8736,7 +7928,6 @@ AutoIt:
 ```cpp
 VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::slice( size_t start = 0,
                                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.slice( [$start[, $count]] ) -> retval
 ```
@@ -8747,7 +7938,6 @@ AutoIt:
 void VectorOfVectorOfSpaceVector::sort( void*  comparator,
                                         size_t start = 0,
                                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8758,7 +7948,6 @@ AutoIt:
 void VectorOfVectorOfSpaceVector::sort_variant( void*  comparator,
                                                 size_t start = 0,
                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8767,7 +7956,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfSpaceVector::start();
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.start() -> retval
 ```
@@ -8776,7 +7964,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::SpaceVector> VectorOfVectorOfSpaceVector::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.Item( $vIndex ) -> retval
     VectorOfVectorOfSpaceVector( $vIndex ) -> retval
@@ -8787,7 +7974,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfSpaceVector::put_Item( size_t                         vIndex,
                                             std::vector<dlib::SpaceVector> vItem );
-
 AutoIt:
     $oVectorOfVectorOfSpaceVector.Item( $vIndex ) = $vItem
 ```
@@ -8798,21 +7984,18 @@ AutoIt:
 
 ```cpp
 static VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG").create() -> <VectorOfPairOfULONGAndULONG object>
 ```
 
 ```cpp
 static VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG").create( $size ) -> <VectorOfPairOfULONGAndULONG object>
 ```
 
 ```cpp
 static VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::create( VectorOfPairOfULONGAndULONG other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG").create( $other ) -> <VectorOfPairOfULONGAndULONG object>
 ```
@@ -8821,7 +8004,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndULONG::Add( std::pair<ULONG, ULONG> value );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.Add( $value ) -> None
 ```
@@ -8830,7 +8012,6 @@ AutoIt:
 
 ```cpp
 VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::Items();
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.Items() -> retval
 ```
@@ -8839,7 +8020,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfPairOfULONGAndULONG::Keys();
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.Keys() -> retval
 ```
@@ -8848,7 +8028,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndULONG::Remove( size_t index );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.Remove( $index ) -> None
 ```
@@ -8857,7 +8036,6 @@ AutoIt:
 
 ```cpp
 std::pair<ULONG, ULONG> VectorOfPairOfULONGAndULONG::at( size_t index );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.at( $index ) -> retval
 ```
@@ -8865,7 +8043,6 @@ AutoIt:
 ```cpp
 void VectorOfPairOfULONGAndULONG::at( size_t                  index,
                                       std::pair<ULONG, ULONG> value );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.at( $index, $value ) -> None
 ```
@@ -8874,7 +8051,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndULONG::clear();
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.clear() -> None
 ```
@@ -8883,7 +8059,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfPairOfULONGAndULONG::empty();
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.empty() -> retval
 ```
@@ -8892,7 +8067,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfPairOfULONGAndULONG::end();
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.end() -> retval
 ```
@@ -8901,7 +8075,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndULONG::push_back( std::pair<ULONG, ULONG> value );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.push_back( $value ) -> None
 ```
@@ -8910,7 +8083,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfULONGAndULONG::push_vector( VectorOfPairOfULONGAndULONG other );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.push_vector( $other ) -> None
 ```
@@ -8919,7 +8091,6 @@ AutoIt:
 void VectorOfPairOfULONGAndULONG::push_vector( VectorOfPairOfULONGAndULONG other,
                                                size_t                      count,
                                                size_t                      start = 0 );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -8928,7 +8099,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfPairOfULONGAndULONG::size();
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.size() -> retval
 ```
@@ -8938,7 +8108,6 @@ AutoIt:
 ```cpp
 VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::slice( size_t start = 0,
                                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.slice( [$start[, $count]] ) -> retval
 ```
@@ -8949,7 +8118,6 @@ AutoIt:
 void VectorOfPairOfULONGAndULONG::sort( void*  comparator,
                                         size_t start = 0,
                                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8960,7 +8128,6 @@ AutoIt:
 void VectorOfPairOfULONGAndULONG::sort_variant( void*  comparator,
                                                 size_t start = 0,
                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8969,7 +8136,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfPairOfULONGAndULONG::start();
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.start() -> retval
 ```
@@ -8978,7 +8144,6 @@ AutoIt:
 
 ```cpp
 std::pair<ULONG, ULONG> VectorOfPairOfULONGAndULONG::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.Item( $vIndex ) -> retval
     VectorOfPairOfULONGAndULONG( $vIndex ) -> retval
@@ -8989,7 +8154,6 @@ AutoIt:
 ```cpp
 void VectorOfPairOfULONGAndULONG::put_Item( size_t                  vIndex,
                                             std::pair<ULONG, ULONG> vItem );
-
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.Item( $vIndex ) = $vItem
 ```
@@ -9000,21 +8164,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG").create() -> <VectorOfVectorOfPairOfULONGAndULONG object>
 ```
 
 ```cpp
 static VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG").create( $size ) -> <VectorOfVectorOfPairOfULONGAndULONG object>
 ```
 
 ```cpp
 static VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::create( VectorOfVectorOfPairOfULONGAndULONG other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG").create( $other ) -> <VectorOfVectorOfPairOfULONGAndULONG object>
 ```
@@ -9023,7 +8184,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::Add( std::vector<std::pair<ULONG, ULONG>> value );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.Add( $value ) -> None
 ```
@@ -9032,7 +8192,6 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::Items();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.Items() -> retval
 ```
@@ -9041,7 +8200,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVectorOfPairOfULONGAndULONG::Keys();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.Keys() -> retval
 ```
@@ -9050,7 +8208,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.Remove( $index ) -> None
 ```
@@ -9059,7 +8216,6 @@ AutoIt:
 
 ```cpp
 std::vector<std::pair<ULONG, ULONG>> VectorOfVectorOfPairOfULONGAndULONG::at( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.at( $index ) -> retval
 ```
@@ -9067,7 +8223,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::at( size_t                               index,
                                               std::vector<std::pair<ULONG, ULONG>> value );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.at( $index, $value ) -> None
 ```
@@ -9076,7 +8231,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::clear();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.clear() -> None
 ```
@@ -9085,7 +8239,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVectorOfPairOfULONGAndULONG::empty();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.empty() -> retval
 ```
@@ -9094,7 +8247,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfPairOfULONGAndULONG::end();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.end() -> retval
 ```
@@ -9103,7 +8255,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::push_back( std::vector<std::pair<ULONG, ULONG>> value );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.push_back( $value ) -> None
 ```
@@ -9112,7 +8263,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::push_vector( VectorOfVectorOfPairOfULONGAndULONG other );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.push_vector( $other ) -> None
 ```
@@ -9121,7 +8271,6 @@ AutoIt:
 void VectorOfVectorOfPairOfULONGAndULONG::push_vector( VectorOfVectorOfPairOfULONGAndULONG other,
                                                        size_t                              count,
                                                        size_t                              start = 0 );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -9130,7 +8279,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVectorOfPairOfULONGAndULONG::size();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.size() -> retval
 ```
@@ -9140,7 +8288,6 @@ AutoIt:
 ```cpp
 VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::slice( size_t start = 0,
                                                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.slice( [$start[, $count]] ) -> retval
 ```
@@ -9151,7 +8298,6 @@ AutoIt:
 void VectorOfVectorOfPairOfULONGAndULONG::sort( void*  comparator,
                                                 size_t start = 0,
                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9162,7 +8308,6 @@ AutoIt:
 void VectorOfVectorOfPairOfULONGAndULONG::sort_variant( void*  comparator,
                                                         size_t start = 0,
                                                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9171,7 +8316,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfPairOfULONGAndULONG::start();
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.start() -> retval
 ```
@@ -9180,7 +8324,6 @@ AutoIt:
 
 ```cpp
 std::vector<std::pair<ULONG, ULONG>> VectorOfVectorOfPairOfULONGAndULONG::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.Item( $vIndex ) -> retval
     VectorOfVectorOfPairOfULONGAndULONG( $vIndex ) -> retval
@@ -9191,7 +8334,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::put_Item( size_t                               vIndex,
                                                     std::vector<std::pair<ULONG, ULONG>> vItem );
-
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.Item( $vIndex ) = $vItem
 ```
@@ -9202,21 +8344,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble").create() -> <VectorOfVectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
 static VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble").create( $size ) -> <VectorOfVectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
 static VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::create( VectorOfVectorOfVectorOfPairOfULONGAndDouble other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble").create( $other ) -> <VectorOfVectorOfVectorOfPairOfULONGAndDouble object>
 ```
@@ -9225,7 +8364,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::Add( std::vector<std::vector<std::pair<ULONG, double>>> value );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Add( $value ) -> None
 ```
@@ -9234,7 +8372,6 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::Items();
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Items() -> retval
 ```
@@ -9243,7 +8380,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVectorOfVectorOfPairOfULONGAndDouble::Keys();
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Keys() -> retval
 ```
@@ -9252,7 +8388,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Remove( $index ) -> None
 ```
@@ -9261,7 +8396,6 @@ AutoIt:
 
 ```cpp
 std::vector<std::vector<std::pair<ULONG, double>>> VectorOfVectorOfVectorOfPairOfULONGAndDouble::at( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.at( $index ) -> retval
 ```
@@ -9269,7 +8403,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::at( size_t                                             index,
                                                        std::vector<std::vector<std::pair<ULONG, double>>> value );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.at( $index, $value ) -> None
 ```
@@ -9278,7 +8411,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::clear();
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.clear() -> None
 ```
@@ -9287,7 +8419,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVectorOfVectorOfPairOfULONGAndDouble::empty();
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.empty() -> retval
 ```
@@ -9296,7 +8427,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfVectorOfPairOfULONGAndDouble::end();
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.end() -> retval
 ```
@@ -9305,7 +8435,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_back( std::vector<std::vector<std::pair<ULONG, double>>> value );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.push_back( $value ) -> None
 ```
@@ -9314,7 +8443,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfVectorOfPairOfULONGAndDouble other );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other ) -> None
 ```
@@ -9323,7 +8451,6 @@ AutoIt:
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfVectorOfPairOfULONGAndDouble other,
                                                                 size_t                                       count,
                                                                 size_t                                       start = 0 );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -9332,7 +8459,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVectorOfVectorOfPairOfULONGAndDouble::size();
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.size() -> retval
 ```
@@ -9342,7 +8468,6 @@ AutoIt:
 ```cpp
 VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
                                                                                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -9353,7 +8478,6 @@ AutoIt:
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort( void*  comparator,
                                                          size_t start = 0,
                                                          size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9364,7 +8488,6 @@ AutoIt:
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort_variant( void*  comparator,
                                                                  size_t start = 0,
                                                                  size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9373,7 +8496,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfVectorOfPairOfULONGAndDouble::start();
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.start() -> retval
 ```
@@ -9382,7 +8504,6 @@ AutoIt:
 
 ```cpp
 std::vector<std::vector<std::pair<ULONG, double>>> VectorOfVectorOfVectorOfPairOfULONGAndDouble::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Item( $vIndex ) -> retval
     VectorOfVectorOfVectorOfPairOfULONGAndDouble( $vIndex ) -> retval
@@ -9393,7 +8514,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::put_Item( size_t                                             vIndex,
                                                              std::vector<std::vector<std::pair<ULONG, double>>> vItem );
-
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Item( $vIndex ) = $vItem
 ```
@@ -9404,21 +8524,18 @@ AutoIt:
 
 ```cpp
 static VectorOfBool VectorOfBool::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfBool").create() -> <VectorOfBool object>
 ```
 
 ```cpp
 static VectorOfBool VectorOfBool::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfBool").create( $size ) -> <VectorOfBool object>
 ```
 
 ```cpp
 static VectorOfBool VectorOfBool::create( VectorOfBool other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfBool").create( $other ) -> <VectorOfBool object>
 ```
@@ -9427,7 +8544,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBool::Add( bool value );
-
 AutoIt:
     $oVectorOfBool.Add( $value ) -> None
 ```
@@ -9436,7 +8552,6 @@ AutoIt:
 
 ```cpp
 VectorOfBool VectorOfBool::Items();
-
 AutoIt:
     $oVectorOfBool.Items() -> retval
 ```
@@ -9445,7 +8560,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfBool::Keys();
-
 AutoIt:
     $oVectorOfBool.Keys() -> retval
 ```
@@ -9454,7 +8568,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBool::Remove( size_t index );
-
 AutoIt:
     $oVectorOfBool.Remove( $index ) -> None
 ```
@@ -9463,7 +8576,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfBool::at( size_t index );
-
 AutoIt:
     $oVectorOfBool.at( $index ) -> retval
 ```
@@ -9471,7 +8583,6 @@ AutoIt:
 ```cpp
 void VectorOfBool::at( size_t index,
                        bool   value );
-
 AutoIt:
     $oVectorOfBool.at( $index, $value ) -> None
 ```
@@ -9480,7 +8591,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBool::clear();
-
 AutoIt:
     $oVectorOfBool.clear() -> None
 ```
@@ -9489,7 +8599,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfBool::empty();
-
 AutoIt:
     $oVectorOfBool.empty() -> retval
 ```
@@ -9498,7 +8607,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfBool::end();
-
 AutoIt:
     $oVectorOfBool.end() -> retval
 ```
@@ -9507,7 +8615,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBool::push_back( bool value );
-
 AutoIt:
     $oVectorOfBool.push_back( $value ) -> None
 ```
@@ -9516,7 +8623,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBool::push_vector( VectorOfBool other );
-
 AutoIt:
     $oVectorOfBool.push_vector( $other ) -> None
 ```
@@ -9525,7 +8631,6 @@ AutoIt:
 void VectorOfBool::push_vector( VectorOfBool other,
                                 size_t       count,
                                 size_t       start = 0 );
-
 AutoIt:
     $oVectorOfBool.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -9534,7 +8639,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfBool::size();
-
 AutoIt:
     $oVectorOfBool.size() -> retval
 ```
@@ -9544,7 +8648,6 @@ AutoIt:
 ```cpp
 VectorOfBool VectorOfBool::slice( size_t start = 0,
                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfBool.slice( [$start[, $count]] ) -> retval
 ```
@@ -9555,7 +8658,6 @@ AutoIt:
 void VectorOfBool::sort( void*  comparator,
                          size_t start = 0,
                          size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfBool.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9566,7 +8668,6 @@ AutoIt:
 void VectorOfBool::sort_variant( void*  comparator,
                                  size_t start = 0,
                                  size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfBool.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9575,7 +8676,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfBool::start();
-
 AutoIt:
     $oVectorOfBool.start() -> retval
 ```
@@ -9584,7 +8684,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfBool::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfBool.Item( $vIndex ) -> retval
     VectorOfBool( $vIndex ) -> retval
@@ -9595,7 +8694,6 @@ AutoIt:
 ```cpp
 void VectorOfBool::put_Item( size_t vIndex,
                              bool   vItem );
-
 AutoIt:
     $oVectorOfBool.Item( $vIndex ) = $vItem
 ```
@@ -9606,21 +8704,18 @@ AutoIt:
 
 ```cpp
 static VectorOfFull_object_detection VectorOfFull_object_detection::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFull_object_detection").create() -> <VectorOfFull_object_detection object>
 ```
 
 ```cpp
 static VectorOfFull_object_detection VectorOfFull_object_detection::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFull_object_detection").create( $size ) -> <VectorOfFull_object_detection object>
 ```
 
 ```cpp
 static VectorOfFull_object_detection VectorOfFull_object_detection::create( VectorOfFull_object_detection other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFull_object_detection").create( $other ) -> <VectorOfFull_object_detection object>
 ```
@@ -9629,7 +8724,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFull_object_detection::Add( dlib::full_object_detection value );
-
 AutoIt:
     $oVectorOfFull_object_detection.Add( $value ) -> None
 ```
@@ -9638,7 +8732,6 @@ AutoIt:
 
 ```cpp
 VectorOfFull_object_detection VectorOfFull_object_detection::Items();
-
 AutoIt:
     $oVectorOfFull_object_detection.Items() -> retval
 ```
@@ -9647,7 +8740,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfFull_object_detection::Keys();
-
 AutoIt:
     $oVectorOfFull_object_detection.Keys() -> retval
 ```
@@ -9656,7 +8748,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFull_object_detection::Remove( size_t index );
-
 AutoIt:
     $oVectorOfFull_object_detection.Remove( $index ) -> None
 ```
@@ -9665,7 +8756,6 @@ AutoIt:
 
 ```cpp
 dlib::full_object_detection VectorOfFull_object_detection::at( size_t index );
-
 AutoIt:
     $oVectorOfFull_object_detection.at( $index ) -> retval
 ```
@@ -9673,7 +8763,6 @@ AutoIt:
 ```cpp
 void VectorOfFull_object_detection::at( size_t                      index,
                                         dlib::full_object_detection value );
-
 AutoIt:
     $oVectorOfFull_object_detection.at( $index, $value ) -> None
 ```
@@ -9682,7 +8771,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFull_object_detection::clear();
-
 AutoIt:
     $oVectorOfFull_object_detection.clear() -> None
 ```
@@ -9691,7 +8779,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfFull_object_detection::empty();
-
 AutoIt:
     $oVectorOfFull_object_detection.empty() -> retval
 ```
@@ -9700,7 +8787,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfFull_object_detection::end();
-
 AutoIt:
     $oVectorOfFull_object_detection.end() -> retval
 ```
@@ -9709,7 +8795,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFull_object_detection::push_back( dlib::full_object_detection value );
-
 AutoIt:
     $oVectorOfFull_object_detection.push_back( $value ) -> None
 ```
@@ -9718,7 +8803,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFull_object_detection::push_vector( VectorOfFull_object_detection other );
-
 AutoIt:
     $oVectorOfFull_object_detection.push_vector( $other ) -> None
 ```
@@ -9727,7 +8811,6 @@ AutoIt:
 void VectorOfFull_object_detection::push_vector( VectorOfFull_object_detection other,
                                                  size_t                        count,
                                                  size_t                        start = 0 );
-
 AutoIt:
     $oVectorOfFull_object_detection.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -9736,7 +8819,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfFull_object_detection::size();
-
 AutoIt:
     $oVectorOfFull_object_detection.size() -> retval
 ```
@@ -9746,7 +8828,6 @@ AutoIt:
 ```cpp
 VectorOfFull_object_detection VectorOfFull_object_detection::slice( size_t start = 0,
                                                                     size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFull_object_detection.slice( [$start[, $count]] ) -> retval
 ```
@@ -9757,7 +8838,6 @@ AutoIt:
 void VectorOfFull_object_detection::sort( void*  comparator,
                                           size_t start = 0,
                                           size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFull_object_detection.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9768,7 +8848,6 @@ AutoIt:
 void VectorOfFull_object_detection::sort_variant( void*  comparator,
                                                   size_t start = 0,
                                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFull_object_detection.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9777,7 +8856,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfFull_object_detection::start();
-
 AutoIt:
     $oVectorOfFull_object_detection.start() -> retval
 ```
@@ -9786,7 +8864,6 @@ AutoIt:
 
 ```cpp
 dlib::full_object_detection VectorOfFull_object_detection::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfFull_object_detection.Item( $vIndex ) -> retval
     VectorOfFull_object_detection( $vIndex ) -> retval
@@ -9797,7 +8874,6 @@ AutoIt:
 ```cpp
 void VectorOfFull_object_detection::put_Item( size_t                      vIndex,
                                               dlib::full_object_detection vItem );
-
 AutoIt:
     $oVectorOfFull_object_detection.Item( $vIndex ) = $vItem
 ```
@@ -9808,21 +8884,18 @@ AutoIt:
 
 ```cpp
 static VectorOfMat VectorOfMat::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfMat").create() -> <VectorOfMat object>
 ```
 
 ```cpp
 static VectorOfMat VectorOfMat::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfMat").create( $size ) -> <VectorOfMat object>
 ```
 
 ```cpp
 static VectorOfMat VectorOfMat::create( VectorOfMat other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfMat").create( $other ) -> <VectorOfMat object>
 ```
@@ -9831,7 +8904,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMat::Add( cv::Mat value );
-
 AutoIt:
     $oVectorOfMat.Add( $value ) -> None
 ```
@@ -9840,7 +8912,6 @@ AutoIt:
 
 ```cpp
 VectorOfMat VectorOfMat::Items();
-
 AutoIt:
     $oVectorOfMat.Items() -> retval
 ```
@@ -9849,7 +8920,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfMat::Keys();
-
 AutoIt:
     $oVectorOfMat.Keys() -> retval
 ```
@@ -9858,7 +8928,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMat::Remove( size_t index );
-
 AutoIt:
     $oVectorOfMat.Remove( $index ) -> None
 ```
@@ -9867,7 +8936,6 @@ AutoIt:
 
 ```cpp
 cv::Mat VectorOfMat::at( size_t index );
-
 AutoIt:
     $oVectorOfMat.at( $index ) -> retval
 ```
@@ -9875,7 +8943,6 @@ AutoIt:
 ```cpp
 void VectorOfMat::at( size_t  index,
                       cv::Mat value );
-
 AutoIt:
     $oVectorOfMat.at( $index, $value ) -> None
 ```
@@ -9884,7 +8951,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMat::clear();
-
 AutoIt:
     $oVectorOfMat.clear() -> None
 ```
@@ -9893,7 +8959,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfMat::empty();
-
 AutoIt:
     $oVectorOfMat.empty() -> retval
 ```
@@ -9902,7 +8967,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfMat::end();
-
 AutoIt:
     $oVectorOfMat.end() -> retval
 ```
@@ -9911,7 +8975,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMat::push_back( cv::Mat value );
-
 AutoIt:
     $oVectorOfMat.push_back( $value ) -> None
 ```
@@ -9920,7 +8983,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMat::push_vector( VectorOfMat other );
-
 AutoIt:
     $oVectorOfMat.push_vector( $other ) -> None
 ```
@@ -9929,7 +8991,6 @@ AutoIt:
 void VectorOfMat::push_vector( VectorOfMat other,
                                size_t      count,
                                size_t      start = 0 );
-
 AutoIt:
     $oVectorOfMat.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -9938,7 +8999,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfMat::size();
-
 AutoIt:
     $oVectorOfMat.size() -> retval
 ```
@@ -9948,7 +9008,6 @@ AutoIt:
 ```cpp
 VectorOfMat VectorOfMat::slice( size_t start = 0,
                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfMat.slice( [$start[, $count]] ) -> retval
 ```
@@ -9959,7 +9018,6 @@ AutoIt:
 void VectorOfMat::sort( void*  comparator,
                         size_t start = 0,
                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfMat.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9970,7 +9028,6 @@ AutoIt:
 void VectorOfMat::sort_variant( void*  comparator,
                                 size_t start = 0,
                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfMat.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9979,7 +9036,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfMat::start();
-
 AutoIt:
     $oVectorOfMat.start() -> retval
 ```
@@ -9988,7 +9044,6 @@ AutoIt:
 
 ```cpp
 cv::Mat VectorOfMat::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfMat.Item( $vIndex ) -> retval
     VectorOfMat( $vIndex ) -> retval
@@ -9999,7 +9054,6 @@ AutoIt:
 ```cpp
 void VectorOfMat::put_Item( size_t  vIndex,
                             cv::Mat vItem );
-
 AutoIt:
     $oVectorOfMat.Item( $vIndex ) = $vItem
 ```
@@ -10010,21 +9064,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").create() -> <VectorOfVectorOfFull_object_detection object>
 ```
 
 ```cpp
 static VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").create( $size ) -> <VectorOfVectorOfFull_object_detection object>
 ```
 
 ```cpp
 static VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::create( VectorOfVectorOfFull_object_detection other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").create( $other ) -> <VectorOfVectorOfFull_object_detection object>
 ```
@@ -10033,7 +9084,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::Add( std::vector<dlib::full_object_detection> value );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.Add( $value ) -> None
 ```
@@ -10042,7 +9092,6 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::Items();
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.Items() -> retval
 ```
@@ -10051,7 +9100,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVectorOfFull_object_detection::Keys();
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.Keys() -> retval
 ```
@@ -10060,7 +9108,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.Remove( $index ) -> None
 ```
@@ -10069,7 +9116,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::full_object_detection> VectorOfVectorOfFull_object_detection::at( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.at( $index ) -> retval
 ```
@@ -10077,7 +9123,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfFull_object_detection::at( size_t                                   index,
                                                 std::vector<dlib::full_object_detection> value );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.at( $index, $value ) -> None
 ```
@@ -10086,7 +9131,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::clear();
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.clear() -> None
 ```
@@ -10095,7 +9139,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVectorOfFull_object_detection::empty();
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.empty() -> retval
 ```
@@ -10104,7 +9147,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfFull_object_detection::end();
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.end() -> retval
 ```
@@ -10113,7 +9155,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::push_back( std::vector<dlib::full_object_detection> value );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.push_back( $value ) -> None
 ```
@@ -10122,7 +9163,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::push_vector( VectorOfVectorOfFull_object_detection other );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.push_vector( $other ) -> None
 ```
@@ -10131,7 +9171,6 @@ AutoIt:
 void VectorOfVectorOfFull_object_detection::push_vector( VectorOfVectorOfFull_object_detection other,
                                                          size_t                                count,
                                                          size_t                                start = 0 );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -10140,7 +9179,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVectorOfFull_object_detection::size();
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.size() -> retval
 ```
@@ -10150,7 +9188,6 @@ AutoIt:
 ```cpp
 VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::slice( size_t start = 0,
                                                                                     size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.slice( [$start[, $count]] ) -> retval
 ```
@@ -10161,7 +9198,6 @@ AutoIt:
 void VectorOfVectorOfFull_object_detection::sort( void*  comparator,
                                                   size_t start = 0,
                                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10172,7 +9208,6 @@ AutoIt:
 void VectorOfVectorOfFull_object_detection::sort_variant( void*  comparator,
                                                           size_t start = 0,
                                                           size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10181,7 +9216,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfFull_object_detection::start();
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.start() -> retval
 ```
@@ -10190,7 +9224,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::full_object_detection> VectorOfVectorOfFull_object_detection::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.Item( $vIndex ) -> retval
     VectorOfVectorOfFull_object_detection( $vIndex ) -> retval
@@ -10201,7 +9234,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfFull_object_detection::put_Item( size_t                                   vIndex,
                                                       std::vector<dlib::full_object_detection> vItem );
-
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.Item( $vIndex ) = $vItem
 ```
@@ -10212,21 +9244,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVectorOfDouble VectorOfVectorOfDouble::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfDouble").create() -> <VectorOfVectorOfDouble object>
 ```
 
 ```cpp
 static VectorOfVectorOfDouble VectorOfVectorOfDouble::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfDouble").create( $size ) -> <VectorOfVectorOfDouble object>
 ```
 
 ```cpp
 static VectorOfVectorOfDouble VectorOfVectorOfDouble::create( VectorOfVectorOfDouble other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfDouble").create( $other ) -> <VectorOfVectorOfDouble object>
 ```
@@ -10235,7 +9264,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfDouble::Add( std::vector<double> value );
-
 AutoIt:
     $oVectorOfVectorOfDouble.Add( $value ) -> None
 ```
@@ -10244,7 +9272,6 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfDouble VectorOfVectorOfDouble::Items();
-
 AutoIt:
     $oVectorOfVectorOfDouble.Items() -> retval
 ```
@@ -10253,7 +9280,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVectorOfDouble::Keys();
-
 AutoIt:
     $oVectorOfVectorOfDouble.Keys() -> retval
 ```
@@ -10262,7 +9288,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfDouble::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfDouble.Remove( $index ) -> None
 ```
@@ -10271,7 +9296,6 @@ AutoIt:
 
 ```cpp
 std::vector<double> VectorOfVectorOfDouble::at( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfDouble.at( $index ) -> retval
 ```
@@ -10279,7 +9303,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfDouble::at( size_t              index,
                                  std::vector<double> value );
-
 AutoIt:
     $oVectorOfVectorOfDouble.at( $index, $value ) -> None
 ```
@@ -10288,7 +9311,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfDouble::clear();
-
 AutoIt:
     $oVectorOfVectorOfDouble.clear() -> None
 ```
@@ -10297,7 +9319,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVectorOfDouble::empty();
-
 AutoIt:
     $oVectorOfVectorOfDouble.empty() -> retval
 ```
@@ -10306,7 +9327,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfDouble::end();
-
 AutoIt:
     $oVectorOfVectorOfDouble.end() -> retval
 ```
@@ -10315,7 +9335,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfDouble::push_back( std::vector<double> value );
-
 AutoIt:
     $oVectorOfVectorOfDouble.push_back( $value ) -> None
 ```
@@ -10324,7 +9343,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfDouble::push_vector( VectorOfVectorOfDouble other );
-
 AutoIt:
     $oVectorOfVectorOfDouble.push_vector( $other ) -> None
 ```
@@ -10333,7 +9351,6 @@ AutoIt:
 void VectorOfVectorOfDouble::push_vector( VectorOfVectorOfDouble other,
                                           size_t                 count,
                                           size_t                 start = 0 );
-
 AutoIt:
     $oVectorOfVectorOfDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -10342,7 +9359,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVectorOfDouble::size();
-
 AutoIt:
     $oVectorOfVectorOfDouble.size() -> retval
 ```
@@ -10352,7 +9368,6 @@ AutoIt:
 ```cpp
 VectorOfVectorOfDouble VectorOfVectorOfDouble::slice( size_t start = 0,
                                                       size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -10363,7 +9378,6 @@ AutoIt:
 void VectorOfVectorOfDouble::sort( void*  comparator,
                                    size_t start = 0,
                                    size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10374,7 +9388,6 @@ AutoIt:
 void VectorOfVectorOfDouble::sort_variant( void*  comparator,
                                            size_t start = 0,
                                            size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10383,7 +9396,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfDouble::start();
-
 AutoIt:
     $oVectorOfVectorOfDouble.start() -> retval
 ```
@@ -10392,7 +9404,6 @@ AutoIt:
 
 ```cpp
 std::vector<double> VectorOfVectorOfDouble::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVectorOfDouble.Item( $vIndex ) -> retval
     VectorOfVectorOfDouble( $vIndex ) -> retval
@@ -10403,7 +9414,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfDouble::put_Item( size_t              vIndex,
                                        std::vector<double> vItem );
-
 AutoIt:
     $oVectorOfVectorOfDouble.Item( $vIndex ) = $vItem
 ```
@@ -10414,21 +9424,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVectorOfRectangle VectorOfVectorOfRectangle::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfRectangle").create() -> <VectorOfVectorOfRectangle object>
 ```
 
 ```cpp
 static VectorOfVectorOfRectangle VectorOfVectorOfRectangle::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfRectangle").create( $size ) -> <VectorOfVectorOfRectangle object>
 ```
 
 ```cpp
 static VectorOfVectorOfRectangle VectorOfVectorOfRectangle::create( VectorOfVectorOfRectangle other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfRectangle").create( $other ) -> <VectorOfVectorOfRectangle object>
 ```
@@ -10437,7 +9444,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfRectangle::Add( std::vector<dlib::rectangle> value );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.Add( $value ) -> None
 ```
@@ -10446,7 +9452,6 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfRectangle VectorOfVectorOfRectangle::Items();
-
 AutoIt:
     $oVectorOfVectorOfRectangle.Items() -> retval
 ```
@@ -10455,7 +9460,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVectorOfRectangle::Keys();
-
 AutoIt:
     $oVectorOfVectorOfRectangle.Keys() -> retval
 ```
@@ -10464,7 +9468,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfRectangle::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.Remove( $index ) -> None
 ```
@@ -10473,7 +9476,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::rectangle> VectorOfVectorOfRectangle::at( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.at( $index ) -> retval
 ```
@@ -10481,7 +9483,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfRectangle::at( size_t                       index,
                                     std::vector<dlib::rectangle> value );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.at( $index, $value ) -> None
 ```
@@ -10490,7 +9491,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfRectangle::clear();
-
 AutoIt:
     $oVectorOfVectorOfRectangle.clear() -> None
 ```
@@ -10499,7 +9499,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVectorOfRectangle::empty();
-
 AutoIt:
     $oVectorOfVectorOfRectangle.empty() -> retval
 ```
@@ -10508,7 +9507,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfRectangle::end();
-
 AutoIt:
     $oVectorOfVectorOfRectangle.end() -> retval
 ```
@@ -10517,7 +9515,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfRectangle::push_back( std::vector<dlib::rectangle> value );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.push_back( $value ) -> None
 ```
@@ -10526,7 +9523,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfRectangle::push_vector( VectorOfVectorOfRectangle other );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.push_vector( $other ) -> None
 ```
@@ -10535,7 +9531,6 @@ AutoIt:
 void VectorOfVectorOfRectangle::push_vector( VectorOfVectorOfRectangle other,
                                              size_t                    count,
                                              size_t                    start = 0 );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -10544,7 +9539,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVectorOfRectangle::size();
-
 AutoIt:
     $oVectorOfVectorOfRectangle.size() -> retval
 ```
@@ -10554,7 +9548,6 @@ AutoIt:
 ```cpp
 VectorOfVectorOfRectangle VectorOfVectorOfRectangle::slice( size_t start = 0,
                                                             size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.slice( [$start[, $count]] ) -> retval
 ```
@@ -10565,7 +9558,6 @@ AutoIt:
 void VectorOfVectorOfRectangle::sort( void*  comparator,
                                       size_t start = 0,
                                       size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10576,7 +9568,6 @@ AutoIt:
 void VectorOfVectorOfRectangle::sort_variant( void*  comparator,
                                               size_t start = 0,
                                               size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10585,7 +9576,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfRectangle::start();
-
 AutoIt:
     $oVectorOfVectorOfRectangle.start() -> retval
 ```
@@ -10594,7 +9584,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::rectangle> VectorOfVectorOfRectangle::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.Item( $vIndex ) -> retval
     VectorOfVectorOfRectangle( $vIndex ) -> retval
@@ -10605,7 +9594,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfRectangle::put_Item( size_t                       vIndex,
                                           std::vector<dlib::rectangle> vItem );
-
 AutoIt:
     $oVectorOfVectorOfRectangle.Item( $vIndex ) = $vItem
 ```
@@ -10616,21 +9604,18 @@ AutoIt:
 
 ```cpp
 static VectorOfMmod_rect VectorOfMmod_rect::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfMmod_rect").create() -> <VectorOfMmod_rect object>
 ```
 
 ```cpp
 static VectorOfMmod_rect VectorOfMmod_rect::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfMmod_rect").create( $size ) -> <VectorOfMmod_rect object>
 ```
 
 ```cpp
 static VectorOfMmod_rect VectorOfMmod_rect::create( VectorOfMmod_rect other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfMmod_rect").create( $other ) -> <VectorOfMmod_rect object>
 ```
@@ -10639,7 +9624,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMmod_rect::Add( dlib::mmod_rect value );
-
 AutoIt:
     $oVectorOfMmod_rect.Add( $value ) -> None
 ```
@@ -10648,7 +9632,6 @@ AutoIt:
 
 ```cpp
 VectorOfMmod_rect VectorOfMmod_rect::Items();
-
 AutoIt:
     $oVectorOfMmod_rect.Items() -> retval
 ```
@@ -10657,7 +9640,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfMmod_rect::Keys();
-
 AutoIt:
     $oVectorOfMmod_rect.Keys() -> retval
 ```
@@ -10666,7 +9648,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMmod_rect::Remove( size_t index );
-
 AutoIt:
     $oVectorOfMmod_rect.Remove( $index ) -> None
 ```
@@ -10675,7 +9656,6 @@ AutoIt:
 
 ```cpp
 dlib::mmod_rect VectorOfMmod_rect::at( size_t index );
-
 AutoIt:
     $oVectorOfMmod_rect.at( $index ) -> retval
 ```
@@ -10683,7 +9663,6 @@ AutoIt:
 ```cpp
 void VectorOfMmod_rect::at( size_t          index,
                             dlib::mmod_rect value );
-
 AutoIt:
     $oVectorOfMmod_rect.at( $index, $value ) -> None
 ```
@@ -10692,7 +9671,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMmod_rect::clear();
-
 AutoIt:
     $oVectorOfMmod_rect.clear() -> None
 ```
@@ -10701,7 +9679,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfMmod_rect::empty();
-
 AutoIt:
     $oVectorOfMmod_rect.empty() -> retval
 ```
@@ -10710,7 +9687,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfMmod_rect::end();
-
 AutoIt:
     $oVectorOfMmod_rect.end() -> retval
 ```
@@ -10719,7 +9695,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMmod_rect::push_back( dlib::mmod_rect value );
-
 AutoIt:
     $oVectorOfMmod_rect.push_back( $value ) -> None
 ```
@@ -10728,7 +9703,6 @@ AutoIt:
 
 ```cpp
 void VectorOfMmod_rect::push_vector( VectorOfMmod_rect other );
-
 AutoIt:
     $oVectorOfMmod_rect.push_vector( $other ) -> None
 ```
@@ -10737,7 +9711,6 @@ AutoIt:
 void VectorOfMmod_rect::push_vector( VectorOfMmod_rect other,
                                      size_t            count,
                                      size_t            start = 0 );
-
 AutoIt:
     $oVectorOfMmod_rect.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -10746,7 +9719,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfMmod_rect::size();
-
 AutoIt:
     $oVectorOfMmod_rect.size() -> retval
 ```
@@ -10756,7 +9728,6 @@ AutoIt:
 ```cpp
 VectorOfMmod_rect VectorOfMmod_rect::slice( size_t start = 0,
                                             size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfMmod_rect.slice( [$start[, $count]] ) -> retval
 ```
@@ -10767,7 +9738,6 @@ AutoIt:
 void VectorOfMmod_rect::sort( void*  comparator,
                               size_t start = 0,
                               size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfMmod_rect.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10778,7 +9748,6 @@ AutoIt:
 void VectorOfMmod_rect::sort_variant( void*  comparator,
                                       size_t start = 0,
                                       size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfMmod_rect.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10787,7 +9756,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfMmod_rect::start();
-
 AutoIt:
     $oVectorOfMmod_rect.start() -> retval
 ```
@@ -10796,7 +9764,6 @@ AutoIt:
 
 ```cpp
 dlib::mmod_rect VectorOfMmod_rect::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfMmod_rect.Item( $vIndex ) -> retval
     VectorOfMmod_rect( $vIndex ) -> retval
@@ -10807,7 +9774,6 @@ AutoIt:
 ```cpp
 void VectorOfMmod_rect::put_Item( size_t          vIndex,
                                   dlib::mmod_rect vItem );
-
 AutoIt:
     $oVectorOfMmod_rect.Item( $vIndex ) = $vItem
 ```
@@ -10818,21 +9784,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").create() -> <VectorOfVectorOfMmod_rect object>
 ```
 
 ```cpp
 static VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").create( $size ) -> <VectorOfVectorOfMmod_rect object>
 ```
 
 ```cpp
 static VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::create( VectorOfVectorOfMmod_rect other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").create( $other ) -> <VectorOfVectorOfMmod_rect object>
 ```
@@ -10841,7 +9804,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfMmod_rect::Add( std::vector<dlib::mmod_rect> value );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.Add( $value ) -> None
 ```
@@ -10850,7 +9812,6 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::Items();
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.Items() -> retval
 ```
@@ -10859,7 +9820,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVectorOfMmod_rect::Keys();
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.Keys() -> retval
 ```
@@ -10868,7 +9828,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfMmod_rect::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.Remove( $index ) -> None
 ```
@@ -10877,7 +9836,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::mmod_rect> VectorOfVectorOfMmod_rect::at( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.at( $index ) -> retval
 ```
@@ -10885,7 +9843,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfMmod_rect::at( size_t                       index,
                                     std::vector<dlib::mmod_rect> value );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.at( $index, $value ) -> None
 ```
@@ -10894,7 +9851,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfMmod_rect::clear();
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.clear() -> None
 ```
@@ -10903,7 +9859,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVectorOfMmod_rect::empty();
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.empty() -> retval
 ```
@@ -10912,7 +9867,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfMmod_rect::end();
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.end() -> retval
 ```
@@ -10921,7 +9875,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfMmod_rect::push_back( std::vector<dlib::mmod_rect> value );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.push_back( $value ) -> None
 ```
@@ -10930,7 +9883,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfMmod_rect::push_vector( VectorOfVectorOfMmod_rect other );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.push_vector( $other ) -> None
 ```
@@ -10939,7 +9891,6 @@ AutoIt:
 void VectorOfVectorOfMmod_rect::push_vector( VectorOfVectorOfMmod_rect other,
                                              size_t                    count,
                                              size_t                    start = 0 );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -10948,7 +9899,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVectorOfMmod_rect::size();
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.size() -> retval
 ```
@@ -10958,7 +9908,6 @@ AutoIt:
 ```cpp
 VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::slice( size_t start = 0,
                                                             size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.slice( [$start[, $count]] ) -> retval
 ```
@@ -10969,7 +9918,6 @@ AutoIt:
 void VectorOfVectorOfMmod_rect::sort( void*  comparator,
                                       size_t start = 0,
                                       size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10980,7 +9928,6 @@ AutoIt:
 void VectorOfVectorOfMmod_rect::sort_variant( void*  comparator,
                                               size_t start = 0,
                                               size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -10989,7 +9936,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfMmod_rect::start();
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.start() -> retval
 ```
@@ -10998,7 +9944,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::mmod_rect> VectorOfVectorOfMmod_rect::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.Item( $vIndex ) -> retval
     VectorOfVectorOfMmod_rect( $vIndex ) -> retval
@@ -11009,7 +9954,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfMmod_rect::put_Item( size_t                       vIndex,
                                           std::vector<dlib::mmod_rect> vItem );
-
 AutoIt:
     $oVectorOfVectorOfMmod_rect.Item( $vIndex ) = $vItem
 ```
@@ -11020,21 +9964,18 @@ AutoIt:
 
 ```cpp
 static VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfSimple_object_detector_com").create() -> <VectorOfSimple_object_detector_com object>
 ```
 
 ```cpp
 static VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfSimple_object_detector_com").create( $size ) -> <VectorOfSimple_object_detector_com object>
 ```
 
 ```cpp
 static VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::create( VectorOfSimple_object_detector_com other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfSimple_object_detector_com").create( $other ) -> <VectorOfSimple_object_detector_com object>
 ```
@@ -11043,7 +9984,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSimple_object_detector_com::Add( dlib::simple_object_detector_com value );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.Add( $value ) -> None
 ```
@@ -11052,7 +9992,6 @@ AutoIt:
 
 ```cpp
 VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::Items();
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.Items() -> retval
 ```
@@ -11061,7 +10000,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfSimple_object_detector_com::Keys();
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.Keys() -> retval
 ```
@@ -11070,7 +10008,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSimple_object_detector_com::Remove( size_t index );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.Remove( $index ) -> None
 ```
@@ -11079,7 +10016,6 @@ AutoIt:
 
 ```cpp
 dlib::simple_object_detector_com VectorOfSimple_object_detector_com::at( size_t index );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.at( $index ) -> retval
 ```
@@ -11087,7 +10023,6 @@ AutoIt:
 ```cpp
 void VectorOfSimple_object_detector_com::at( size_t                           index,
                                              dlib::simple_object_detector_com value );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.at( $index, $value ) -> None
 ```
@@ -11096,7 +10031,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSimple_object_detector_com::clear();
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.clear() -> None
 ```
@@ -11105,7 +10039,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfSimple_object_detector_com::empty();
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.empty() -> retval
 ```
@@ -11114,7 +10047,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfSimple_object_detector_com::end();
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.end() -> retval
 ```
@@ -11123,7 +10055,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSimple_object_detector_com::push_back( dlib::simple_object_detector_com value );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.push_back( $value ) -> None
 ```
@@ -11132,7 +10063,6 @@ AutoIt:
 
 ```cpp
 void VectorOfSimple_object_detector_com::push_vector( VectorOfSimple_object_detector_com other );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.push_vector( $other ) -> None
 ```
@@ -11141,7 +10071,6 @@ AutoIt:
 void VectorOfSimple_object_detector_com::push_vector( VectorOfSimple_object_detector_com other,
                                                       size_t                             count,
                                                       size_t                             start = 0 );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -11150,7 +10079,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfSimple_object_detector_com::size();
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.size() -> retval
 ```
@@ -11160,7 +10088,6 @@ AutoIt:
 ```cpp
 VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::slice( size_t start = 0,
                                                                               size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.slice( [$start[, $count]] ) -> retval
 ```
@@ -11171,7 +10098,6 @@ AutoIt:
 void VectorOfSimple_object_detector_com::sort( void*  comparator,
                                                size_t start = 0,
                                                size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11182,7 +10108,6 @@ AutoIt:
 void VectorOfSimple_object_detector_com::sort_variant( void*  comparator,
                                                        size_t start = 0,
                                                        size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11191,7 +10116,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfSimple_object_detector_com::start();
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.start() -> retval
 ```
@@ -11200,7 +10124,6 @@ AutoIt:
 
 ```cpp
 dlib::simple_object_detector_com VectorOfSimple_object_detector_com::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.Item( $vIndex ) -> retval
     VectorOfSimple_object_detector_com( $vIndex ) -> retval
@@ -11211,7 +10134,6 @@ AutoIt:
 ```cpp
 void VectorOfSimple_object_detector_com::put_Item( size_t                           vIndex,
                                                    dlib::simple_object_detector_com vItem );
-
 AutoIt:
     $oVectorOfSimple_object_detector_com.Item( $vIndex ) = $vItem
 ```
@@ -11222,21 +10144,18 @@ AutoIt:
 
 ```cpp
 static VectorOfFhog_object_detector VectorOfFhog_object_detector::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFhog_object_detector").create() -> <VectorOfFhog_object_detector object>
 ```
 
 ```cpp
 static VectorOfFhog_object_detector VectorOfFhog_object_detector::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFhog_object_detector").create( $size ) -> <VectorOfFhog_object_detector object>
 ```
 
 ```cpp
 static VectorOfFhog_object_detector VectorOfFhog_object_detector::create( VectorOfFhog_object_detector other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFhog_object_detector").create( $other ) -> <VectorOfFhog_object_detector object>
 ```
@@ -11245,7 +10164,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFhog_object_detector::Add( dlib::fhog_object_detector value );
-
 AutoIt:
     $oVectorOfFhog_object_detector.Add( $value ) -> None
 ```
@@ -11254,7 +10172,6 @@ AutoIt:
 
 ```cpp
 VectorOfFhog_object_detector VectorOfFhog_object_detector::Items();
-
 AutoIt:
     $oVectorOfFhog_object_detector.Items() -> retval
 ```
@@ -11263,7 +10180,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfFhog_object_detector::Keys();
-
 AutoIt:
     $oVectorOfFhog_object_detector.Keys() -> retval
 ```
@@ -11272,7 +10188,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFhog_object_detector::Remove( size_t index );
-
 AutoIt:
     $oVectorOfFhog_object_detector.Remove( $index ) -> None
 ```
@@ -11281,7 +10196,6 @@ AutoIt:
 
 ```cpp
 dlib::fhog_object_detector VectorOfFhog_object_detector::at( size_t index );
-
 AutoIt:
     $oVectorOfFhog_object_detector.at( $index ) -> retval
 ```
@@ -11289,7 +10203,6 @@ AutoIt:
 ```cpp
 void VectorOfFhog_object_detector::at( size_t                     index,
                                        dlib::fhog_object_detector value );
-
 AutoIt:
     $oVectorOfFhog_object_detector.at( $index, $value ) -> None
 ```
@@ -11298,7 +10211,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFhog_object_detector::clear();
-
 AutoIt:
     $oVectorOfFhog_object_detector.clear() -> None
 ```
@@ -11307,7 +10219,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfFhog_object_detector::empty();
-
 AutoIt:
     $oVectorOfFhog_object_detector.empty() -> retval
 ```
@@ -11316,7 +10227,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfFhog_object_detector::end();
-
 AutoIt:
     $oVectorOfFhog_object_detector.end() -> retval
 ```
@@ -11325,7 +10235,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFhog_object_detector::push_back( dlib::fhog_object_detector value );
-
 AutoIt:
     $oVectorOfFhog_object_detector.push_back( $value ) -> None
 ```
@@ -11334,7 +10243,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFhog_object_detector::push_vector( VectorOfFhog_object_detector other );
-
 AutoIt:
     $oVectorOfFhog_object_detector.push_vector( $other ) -> None
 ```
@@ -11343,7 +10251,6 @@ AutoIt:
 void VectorOfFhog_object_detector::push_vector( VectorOfFhog_object_detector other,
                                                 size_t                       count,
                                                 size_t                       start = 0 );
-
 AutoIt:
     $oVectorOfFhog_object_detector.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -11352,7 +10259,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfFhog_object_detector::size();
-
 AutoIt:
     $oVectorOfFhog_object_detector.size() -> retval
 ```
@@ -11362,7 +10268,6 @@ AutoIt:
 ```cpp
 VectorOfFhog_object_detector VectorOfFhog_object_detector::slice( size_t start = 0,
                                                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFhog_object_detector.slice( [$start[, $count]] ) -> retval
 ```
@@ -11373,7 +10278,6 @@ AutoIt:
 void VectorOfFhog_object_detector::sort( void*  comparator,
                                          size_t start = 0,
                                          size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFhog_object_detector.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11384,7 +10288,6 @@ AutoIt:
 void VectorOfFhog_object_detector::sort_variant( void*  comparator,
                                                  size_t start = 0,
                                                  size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFhog_object_detector.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11393,7 +10296,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfFhog_object_detector::start();
-
 AutoIt:
     $oVectorOfFhog_object_detector.start() -> retval
 ```
@@ -11402,7 +10304,6 @@ AutoIt:
 
 ```cpp
 dlib::fhog_object_detector VectorOfFhog_object_detector::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfFhog_object_detector.Item( $vIndex ) -> retval
     VectorOfFhog_object_detector( $vIndex ) -> retval
@@ -11413,7 +10314,6 @@ AutoIt:
 ```cpp
 void VectorOfFhog_object_detector::put_Item( size_t                     vIndex,
                                              dlib::fhog_object_detector vItem );
-
 AutoIt:
     $oVectorOfFhog_object_detector.Item( $vIndex ) = $vItem
 ```
@@ -11424,21 +10324,18 @@ AutoIt:
 
 ```cpp
 static VectorOfFunction_spec VectorOfFunction_spec::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_spec").create() -> <VectorOfFunction_spec object>
 ```
 
 ```cpp
 static VectorOfFunction_spec VectorOfFunction_spec::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_spec").create( $size ) -> <VectorOfFunction_spec object>
 ```
 
 ```cpp
 static VectorOfFunction_spec VectorOfFunction_spec::create( VectorOfFunction_spec other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_spec").create( $other ) -> <VectorOfFunction_spec object>
 ```
@@ -11447,7 +10344,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_spec::Add( dlib::function_spec value );
-
 AutoIt:
     $oVectorOfFunction_spec.Add( $value ) -> None
 ```
@@ -11456,7 +10352,6 @@ AutoIt:
 
 ```cpp
 VectorOfFunction_spec VectorOfFunction_spec::Items();
-
 AutoIt:
     $oVectorOfFunction_spec.Items() -> retval
 ```
@@ -11465,7 +10360,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfFunction_spec::Keys();
-
 AutoIt:
     $oVectorOfFunction_spec.Keys() -> retval
 ```
@@ -11474,7 +10368,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_spec::Remove( size_t index );
-
 AutoIt:
     $oVectorOfFunction_spec.Remove( $index ) -> None
 ```
@@ -11483,7 +10376,6 @@ AutoIt:
 
 ```cpp
 dlib::function_spec VectorOfFunction_spec::at( size_t index );
-
 AutoIt:
     $oVectorOfFunction_spec.at( $index ) -> retval
 ```
@@ -11491,7 +10383,6 @@ AutoIt:
 ```cpp
 void VectorOfFunction_spec::at( size_t              index,
                                 dlib::function_spec value );
-
 AutoIt:
     $oVectorOfFunction_spec.at( $index, $value ) -> None
 ```
@@ -11500,7 +10391,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_spec::clear();
-
 AutoIt:
     $oVectorOfFunction_spec.clear() -> None
 ```
@@ -11509,7 +10399,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfFunction_spec::empty();
-
 AutoIt:
     $oVectorOfFunction_spec.empty() -> retval
 ```
@@ -11518,7 +10407,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfFunction_spec::end();
-
 AutoIt:
     $oVectorOfFunction_spec.end() -> retval
 ```
@@ -11527,7 +10415,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_spec::push_back( dlib::function_spec value );
-
 AutoIt:
     $oVectorOfFunction_spec.push_back( $value ) -> None
 ```
@@ -11536,7 +10423,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_spec::push_vector( VectorOfFunction_spec other );
-
 AutoIt:
     $oVectorOfFunction_spec.push_vector( $other ) -> None
 ```
@@ -11545,7 +10431,6 @@ AutoIt:
 void VectorOfFunction_spec::push_vector( VectorOfFunction_spec other,
                                          size_t                count,
                                          size_t                start = 0 );
-
 AutoIt:
     $oVectorOfFunction_spec.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -11554,7 +10439,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfFunction_spec::size();
-
 AutoIt:
     $oVectorOfFunction_spec.size() -> retval
 ```
@@ -11564,7 +10448,6 @@ AutoIt:
 ```cpp
 VectorOfFunction_spec VectorOfFunction_spec::slice( size_t start = 0,
                                                     size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFunction_spec.slice( [$start[, $count]] ) -> retval
 ```
@@ -11575,7 +10458,6 @@ AutoIt:
 void VectorOfFunction_spec::sort( void*  comparator,
                                   size_t start = 0,
                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFunction_spec.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11586,7 +10468,6 @@ AutoIt:
 void VectorOfFunction_spec::sort_variant( void*  comparator,
                                           size_t start = 0,
                                           size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFunction_spec.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11595,7 +10476,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfFunction_spec::start();
-
 AutoIt:
     $oVectorOfFunction_spec.start() -> retval
 ```
@@ -11604,7 +10484,6 @@ AutoIt:
 
 ```cpp
 dlib::function_spec VectorOfFunction_spec::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfFunction_spec.Item( $vIndex ) -> retval
     VectorOfFunction_spec( $vIndex ) -> retval
@@ -11615,7 +10494,6 @@ AutoIt:
 ```cpp
 void VectorOfFunction_spec::put_Item( size_t              vIndex,
                                       dlib::function_spec vItem );
-
 AutoIt:
     $oVectorOfFunction_spec.Item( $vIndex ) = $vItem
 ```
@@ -11626,21 +10504,18 @@ AutoIt:
 
 ```cpp
 static VectorOfFunction_evaluation VectorOfFunction_evaluation::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_evaluation").create() -> <VectorOfFunction_evaluation object>
 ```
 
 ```cpp
 static VectorOfFunction_evaluation VectorOfFunction_evaluation::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_evaluation").create( $size ) -> <VectorOfFunction_evaluation object>
 ```
 
 ```cpp
 static VectorOfFunction_evaluation VectorOfFunction_evaluation::create( VectorOfFunction_evaluation other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_evaluation").create( $other ) -> <VectorOfFunction_evaluation object>
 ```
@@ -11649,7 +10524,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_evaluation::Add( dlib::function_evaluation value );
-
 AutoIt:
     $oVectorOfFunction_evaluation.Add( $value ) -> None
 ```
@@ -11658,7 +10532,6 @@ AutoIt:
 
 ```cpp
 VectorOfFunction_evaluation VectorOfFunction_evaluation::Items();
-
 AutoIt:
     $oVectorOfFunction_evaluation.Items() -> retval
 ```
@@ -11667,7 +10540,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfFunction_evaluation::Keys();
-
 AutoIt:
     $oVectorOfFunction_evaluation.Keys() -> retval
 ```
@@ -11676,7 +10548,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_evaluation::Remove( size_t index );
-
 AutoIt:
     $oVectorOfFunction_evaluation.Remove( $index ) -> None
 ```
@@ -11685,7 +10556,6 @@ AutoIt:
 
 ```cpp
 dlib::function_evaluation VectorOfFunction_evaluation::at( size_t index );
-
 AutoIt:
     $oVectorOfFunction_evaluation.at( $index ) -> retval
 ```
@@ -11693,7 +10563,6 @@ AutoIt:
 ```cpp
 void VectorOfFunction_evaluation::at( size_t                    index,
                                       dlib::function_evaluation value );
-
 AutoIt:
     $oVectorOfFunction_evaluation.at( $index, $value ) -> None
 ```
@@ -11702,7 +10571,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_evaluation::clear();
-
 AutoIt:
     $oVectorOfFunction_evaluation.clear() -> None
 ```
@@ -11711,7 +10579,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfFunction_evaluation::empty();
-
 AutoIt:
     $oVectorOfFunction_evaluation.empty() -> retval
 ```
@@ -11720,7 +10587,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfFunction_evaluation::end();
-
 AutoIt:
     $oVectorOfFunction_evaluation.end() -> retval
 ```
@@ -11729,7 +10595,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_evaluation::push_back( dlib::function_evaluation value );
-
 AutoIt:
     $oVectorOfFunction_evaluation.push_back( $value ) -> None
 ```
@@ -11738,7 +10603,6 @@ AutoIt:
 
 ```cpp
 void VectorOfFunction_evaluation::push_vector( VectorOfFunction_evaluation other );
-
 AutoIt:
     $oVectorOfFunction_evaluation.push_vector( $other ) -> None
 ```
@@ -11747,7 +10611,6 @@ AutoIt:
 void VectorOfFunction_evaluation::push_vector( VectorOfFunction_evaluation other,
                                                size_t                      count,
                                                size_t                      start = 0 );
-
 AutoIt:
     $oVectorOfFunction_evaluation.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -11756,7 +10619,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfFunction_evaluation::size();
-
 AutoIt:
     $oVectorOfFunction_evaluation.size() -> retval
 ```
@@ -11766,7 +10628,6 @@ AutoIt:
 ```cpp
 VectorOfFunction_evaluation VectorOfFunction_evaluation::slice( size_t start = 0,
                                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFunction_evaluation.slice( [$start[, $count]] ) -> retval
 ```
@@ -11777,7 +10638,6 @@ AutoIt:
 void VectorOfFunction_evaluation::sort( void*  comparator,
                                         size_t start = 0,
                                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFunction_evaluation.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11788,7 +10648,6 @@ AutoIt:
 void VectorOfFunction_evaluation::sort_variant( void*  comparator,
                                                 size_t start = 0,
                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfFunction_evaluation.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11797,7 +10656,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfFunction_evaluation::start();
-
 AutoIt:
     $oVectorOfFunction_evaluation.start() -> retval
 ```
@@ -11806,7 +10664,6 @@ AutoIt:
 
 ```cpp
 dlib::function_evaluation VectorOfFunction_evaluation::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfFunction_evaluation.Item( $vIndex ) -> retval
     VectorOfFunction_evaluation( $vIndex ) -> retval
@@ -11817,7 +10674,6 @@ AutoIt:
 ```cpp
 void VectorOfFunction_evaluation::put_Item( size_t                    vIndex,
                                             dlib::function_evaluation vItem );
-
 AutoIt:
     $oVectorOfFunction_evaluation.Item( $vIndex ) = $vItem
 ```
@@ -11828,21 +10684,18 @@ AutoIt:
 
 ```cpp
 static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create() -> <VectorOfVectorOfFunction_evaluation object>
 ```
 
 ```cpp
 static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create( $size ) -> <VectorOfVectorOfFunction_evaluation object>
 ```
 
 ```cpp
 static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create( VectorOfVectorOfFunction_evaluation other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create( $other ) -> <VectorOfVectorOfFunction_evaluation object>
 ```
@@ -11851,7 +10704,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFunction_evaluation::Add( std::vector<dlib::function_evaluation> value );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.Add( $value ) -> None
 ```
@@ -11860,7 +10712,6 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::Items();
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.Items() -> retval
 ```
@@ -11869,7 +10720,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfVectorOfFunction_evaluation::Keys();
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.Keys() -> retval
 ```
@@ -11878,7 +10728,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFunction_evaluation::Remove( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.Remove( $index ) -> None
 ```
@@ -11887,7 +10736,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::function_evaluation> VectorOfVectorOfFunction_evaluation::at( size_t index );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.at( $index ) -> retval
 ```
@@ -11895,7 +10743,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfFunction_evaluation::at( size_t                                 index,
                                               std::vector<dlib::function_evaluation> value );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.at( $index, $value ) -> None
 ```
@@ -11904,7 +10751,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFunction_evaluation::clear();
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.clear() -> None
 ```
@@ -11913,7 +10759,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfVectorOfFunction_evaluation::empty();
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.empty() -> retval
 ```
@@ -11922,7 +10767,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfFunction_evaluation::end();
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.end() -> retval
 ```
@@ -11931,7 +10775,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFunction_evaluation::push_back( std::vector<dlib::function_evaluation> value );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.push_back( $value ) -> None
 ```
@@ -11940,7 +10783,6 @@ AutoIt:
 
 ```cpp
 void VectorOfVectorOfFunction_evaluation::push_vector( VectorOfVectorOfFunction_evaluation other );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.push_vector( $other ) -> None
 ```
@@ -11949,7 +10791,6 @@ AutoIt:
 void VectorOfVectorOfFunction_evaluation::push_vector( VectorOfVectorOfFunction_evaluation other,
                                                        size_t                              count,
                                                        size_t                              start = 0 );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -11958,7 +10799,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfVectorOfFunction_evaluation::size();
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.size() -> retval
 ```
@@ -11968,7 +10808,6 @@ AutoIt:
 ```cpp
 VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::slice( size_t start = 0,
                                                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.slice( [$start[, $count]] ) -> retval
 ```
@@ -11979,7 +10818,6 @@ AutoIt:
 void VectorOfVectorOfFunction_evaluation::sort( void*  comparator,
                                                 size_t start = 0,
                                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11990,7 +10828,6 @@ AutoIt:
 void VectorOfVectorOfFunction_evaluation::sort_variant( void*  comparator,
                                                         size_t start = 0,
                                                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11999,7 +10836,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfVectorOfFunction_evaluation::start();
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.start() -> retval
 ```
@@ -12008,7 +10844,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::function_evaluation> VectorOfVectorOfFunction_evaluation::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.Item( $vIndex ) -> retval
     VectorOfVectorOfFunction_evaluation( $vIndex ) -> retval
@@ -12019,7 +10854,6 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfFunction_evaluation::put_Item( size_t                                 vIndex,
                                                     std::vector<dlib::function_evaluation> vItem );
-
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.Item( $vIndex ) = $vItem
 ```
@@ -12030,21 +10864,18 @@ AutoIt:
 
 ```cpp
 static VectorOfDrectangle VectorOfDrectangle::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfDrectangle").create() -> <VectorOfDrectangle object>
 ```
 
 ```cpp
 static VectorOfDrectangle VectorOfDrectangle::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfDrectangle").create( $size ) -> <VectorOfDrectangle object>
 ```
 
 ```cpp
 static VectorOfDrectangle VectorOfDrectangle::create( VectorOfDrectangle other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfDrectangle").create( $other ) -> <VectorOfDrectangle object>
 ```
@@ -12053,7 +10884,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDrectangle::Add( dlib::drectangle value );
-
 AutoIt:
     $oVectorOfDrectangle.Add( $value ) -> None
 ```
@@ -12062,7 +10892,6 @@ AutoIt:
 
 ```cpp
 VectorOfDrectangle VectorOfDrectangle::Items();
-
 AutoIt:
     $oVectorOfDrectangle.Items() -> retval
 ```
@@ -12071,7 +10900,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfDrectangle::Keys();
-
 AutoIt:
     $oVectorOfDrectangle.Keys() -> retval
 ```
@@ -12080,7 +10908,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDrectangle::Remove( size_t index );
-
 AutoIt:
     $oVectorOfDrectangle.Remove( $index ) -> None
 ```
@@ -12089,7 +10916,6 @@ AutoIt:
 
 ```cpp
 dlib::drectangle VectorOfDrectangle::at( size_t index );
-
 AutoIt:
     $oVectorOfDrectangle.at( $index ) -> retval
 ```
@@ -12097,7 +10923,6 @@ AutoIt:
 ```cpp
 void VectorOfDrectangle::at( size_t           index,
                              dlib::drectangle value );
-
 AutoIt:
     $oVectorOfDrectangle.at( $index, $value ) -> None
 ```
@@ -12106,7 +10931,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDrectangle::clear();
-
 AutoIt:
     $oVectorOfDrectangle.clear() -> None
 ```
@@ -12115,7 +10939,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfDrectangle::empty();
-
 AutoIt:
     $oVectorOfDrectangle.empty() -> retval
 ```
@@ -12124,7 +10947,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfDrectangle::end();
-
 AutoIt:
     $oVectorOfDrectangle.end() -> retval
 ```
@@ -12133,7 +10955,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDrectangle::push_back( dlib::drectangle value );
-
 AutoIt:
     $oVectorOfDrectangle.push_back( $value ) -> None
 ```
@@ -12142,7 +10963,6 @@ AutoIt:
 
 ```cpp
 void VectorOfDrectangle::push_vector( VectorOfDrectangle other );
-
 AutoIt:
     $oVectorOfDrectangle.push_vector( $other ) -> None
 ```
@@ -12151,7 +10971,6 @@ AutoIt:
 void VectorOfDrectangle::push_vector( VectorOfDrectangle other,
                                       size_t             count,
                                       size_t             start = 0 );
-
 AutoIt:
     $oVectorOfDrectangle.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -12160,7 +10979,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfDrectangle::size();
-
 AutoIt:
     $oVectorOfDrectangle.size() -> retval
 ```
@@ -12170,7 +10988,6 @@ AutoIt:
 ```cpp
 VectorOfDrectangle VectorOfDrectangle::slice( size_t start = 0,
                                               size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfDrectangle.slice( [$start[, $count]] ) -> retval
 ```
@@ -12181,7 +10998,6 @@ AutoIt:
 void VectorOfDrectangle::sort( void*  comparator,
                                size_t start = 0,
                                size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfDrectangle.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -12192,7 +11008,6 @@ AutoIt:
 void VectorOfDrectangle::sort_variant( void*  comparator,
                                        size_t start = 0,
                                        size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfDrectangle.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -12201,7 +11016,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfDrectangle::start();
-
 AutoIt:
     $oVectorOfDrectangle.start() -> retval
 ```
@@ -12210,7 +11024,6 @@ AutoIt:
 
 ```cpp
 dlib::drectangle VectorOfDrectangle::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfDrectangle.Item( $vIndex ) -> retval
     VectorOfDrectangle( $vIndex ) -> retval
@@ -12221,7 +11034,6 @@ AutoIt:
 ```cpp
 void VectorOfDrectangle::put_Item( size_t           vIndex,
                                    dlib::drectangle vItem );
-
 AutoIt:
     $oVectorOfDrectangle.Item( $vIndex ) = $vItem
 ```
@@ -12232,21 +11044,18 @@ AutoIt:
 
 ```cpp
 static VectorOfInt VectorOfInt::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfInt").create() -> <VectorOfInt object>
 ```
 
 ```cpp
 static VectorOfInt VectorOfInt::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfInt").create( $size ) -> <VectorOfInt object>
 ```
 
 ```cpp
 static VectorOfInt VectorOfInt::create( VectorOfInt other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfInt").create( $other ) -> <VectorOfInt object>
 ```
@@ -12255,7 +11064,6 @@ AutoIt:
 
 ```cpp
 void VectorOfInt::Add( int value );
-
 AutoIt:
     $oVectorOfInt.Add( $value ) -> None
 ```
@@ -12264,7 +11072,6 @@ AutoIt:
 
 ```cpp
 VectorOfInt VectorOfInt::Items();
-
 AutoIt:
     $oVectorOfInt.Items() -> retval
 ```
@@ -12273,7 +11080,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfInt::Keys();
-
 AutoIt:
     $oVectorOfInt.Keys() -> retval
 ```
@@ -12282,7 +11088,6 @@ AutoIt:
 
 ```cpp
 void VectorOfInt::Remove( size_t index );
-
 AutoIt:
     $oVectorOfInt.Remove( $index ) -> None
 ```
@@ -12291,7 +11096,6 @@ AutoIt:
 
 ```cpp
 int VectorOfInt::at( size_t index );
-
 AutoIt:
     $oVectorOfInt.at( $index ) -> retval
 ```
@@ -12299,7 +11103,6 @@ AutoIt:
 ```cpp
 void VectorOfInt::at( size_t index,
                       int    value );
-
 AutoIt:
     $oVectorOfInt.at( $index, $value ) -> None
 ```
@@ -12308,7 +11111,6 @@ AutoIt:
 
 ```cpp
 void VectorOfInt::clear();
-
 AutoIt:
     $oVectorOfInt.clear() -> None
 ```
@@ -12317,7 +11119,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfInt::empty();
-
 AutoIt:
     $oVectorOfInt.empty() -> retval
 ```
@@ -12326,7 +11127,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfInt::end();
-
 AutoIt:
     $oVectorOfInt.end() -> retval
 ```
@@ -12335,7 +11135,6 @@ AutoIt:
 
 ```cpp
 void VectorOfInt::push_back( int value );
-
 AutoIt:
     $oVectorOfInt.push_back( $value ) -> None
 ```
@@ -12344,7 +11143,6 @@ AutoIt:
 
 ```cpp
 void VectorOfInt::push_vector( VectorOfInt other );
-
 AutoIt:
     $oVectorOfInt.push_vector( $other ) -> None
 ```
@@ -12353,7 +11151,6 @@ AutoIt:
 void VectorOfInt::push_vector( VectorOfInt other,
                                size_t      count,
                                size_t      start = 0 );
-
 AutoIt:
     $oVectorOfInt.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -12362,7 +11159,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfInt::size();
-
 AutoIt:
     $oVectorOfInt.size() -> retval
 ```
@@ -12372,7 +11168,6 @@ AutoIt:
 ```cpp
 VectorOfInt VectorOfInt::slice( size_t start = 0,
                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfInt.slice( [$start[, $count]] ) -> retval
 ```
@@ -12383,7 +11178,6 @@ AutoIt:
 void VectorOfInt::sort( void*  comparator,
                         size_t start = 0,
                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfInt.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -12394,7 +11188,6 @@ AutoIt:
 void VectorOfInt::sort_variant( void*  comparator,
                                 size_t start = 0,
                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfInt.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -12403,7 +11196,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfInt::start();
-
 AutoIt:
     $oVectorOfInt.start() -> retval
 ```
@@ -12412,7 +11204,6 @@ AutoIt:
 
 ```cpp
 int VectorOfInt::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfInt.Item( $vIndex ) -> retval
     VectorOfInt( $vIndex ) -> retval
@@ -12423,7 +11214,6 @@ AutoIt:
 ```cpp
 void VectorOfInt::put_Item( size_t vIndex,
                             int    vItem );
-
 AutoIt:
     $oVectorOfInt.Item( $vIndex ) = $vItem
 ```
@@ -12434,21 +11224,18 @@ AutoIt:
 
 ```cpp
 static VectorOfUchar VectorOfUchar::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfUchar").create() -> <VectorOfUchar object>
 ```
 
 ```cpp
 static VectorOfUchar VectorOfUchar::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfUchar").create( $size ) -> <VectorOfUchar object>
 ```
 
 ```cpp
 static VectorOfUchar VectorOfUchar::create( VectorOfUchar other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfUchar").create( $other ) -> <VectorOfUchar object>
 ```
@@ -12457,7 +11244,6 @@ AutoIt:
 
 ```cpp
 void VectorOfUchar::Add( uchar value );
-
 AutoIt:
     $oVectorOfUchar.Add( $value ) -> None
 ```
@@ -12466,7 +11252,6 @@ AutoIt:
 
 ```cpp
 VectorOfUchar VectorOfUchar::Items();
-
 AutoIt:
     $oVectorOfUchar.Items() -> retval
 ```
@@ -12475,7 +11260,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfUchar::Keys();
-
 AutoIt:
     $oVectorOfUchar.Keys() -> retval
 ```
@@ -12484,7 +11268,6 @@ AutoIt:
 
 ```cpp
 void VectorOfUchar::Remove( size_t index );
-
 AutoIt:
     $oVectorOfUchar.Remove( $index ) -> None
 ```
@@ -12493,7 +11276,6 @@ AutoIt:
 
 ```cpp
 uchar VectorOfUchar::at( size_t index );
-
 AutoIt:
     $oVectorOfUchar.at( $index ) -> retval
 ```
@@ -12501,7 +11283,6 @@ AutoIt:
 ```cpp
 void VectorOfUchar::at( size_t index,
                         uchar  value );
-
 AutoIt:
     $oVectorOfUchar.at( $index, $value ) -> None
 ```
@@ -12510,7 +11291,6 @@ AutoIt:
 
 ```cpp
 void VectorOfUchar::clear();
-
 AutoIt:
     $oVectorOfUchar.clear() -> None
 ```
@@ -12519,7 +11299,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfUchar::empty();
-
 AutoIt:
     $oVectorOfUchar.empty() -> retval
 ```
@@ -12528,7 +11307,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfUchar::end();
-
 AutoIt:
     $oVectorOfUchar.end() -> retval
 ```
@@ -12537,7 +11315,6 @@ AutoIt:
 
 ```cpp
 void VectorOfUchar::push_back( uchar value );
-
 AutoIt:
     $oVectorOfUchar.push_back( $value ) -> None
 ```
@@ -12546,7 +11323,6 @@ AutoIt:
 
 ```cpp
 void VectorOfUchar::push_vector( VectorOfUchar other );
-
 AutoIt:
     $oVectorOfUchar.push_vector( $other ) -> None
 ```
@@ -12555,7 +11331,6 @@ AutoIt:
 void VectorOfUchar::push_vector( VectorOfUchar other,
                                  size_t        count,
                                  size_t        start = 0 );
-
 AutoIt:
     $oVectorOfUchar.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -12564,7 +11339,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfUchar::size();
-
 AutoIt:
     $oVectorOfUchar.size() -> retval
 ```
@@ -12574,7 +11348,6 @@ AutoIt:
 ```cpp
 VectorOfUchar VectorOfUchar::slice( size_t start = 0,
                                     size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfUchar.slice( [$start[, $count]] ) -> retval
 ```
@@ -12585,7 +11358,6 @@ AutoIt:
 void VectorOfUchar::sort( void*  comparator,
                           size_t start = 0,
                           size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfUchar.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -12596,7 +11368,6 @@ AutoIt:
 void VectorOfUchar::sort_variant( void*  comparator,
                                   size_t start = 0,
                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfUchar.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -12605,7 +11376,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfUchar::start();
-
 AutoIt:
     $oVectorOfUchar.start() -> retval
 ```
@@ -12614,7 +11384,6 @@ AutoIt:
 
 ```cpp
 uchar VectorOfUchar::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfUchar.Item( $vIndex ) -> retval
     VectorOfUchar( $vIndex ) -> retval
@@ -12625,7 +11394,6 @@ AutoIt:
 ```cpp
 void VectorOfUchar::put_Item( size_t vIndex,
                               uchar  vItem );
-
 AutoIt:
     $oVectorOfUchar.Item( $vIndex ) = $vItem
 ```
@@ -12636,14 +11404,12 @@ AutoIt:
 
 ```cpp
 static MapOfStringAndPoint MapOfStringAndPoint::create();
-
 AutoIt:
     _Dlib_ObjCreate("MapOfStringAndPoint").create() -> <MapOfStringAndPoint object>
 ```
 
 ```cpp
 static std::shared_ptr<MapOfStringAndPoint> MapOfStringAndPoint::create( std::vector<std::pair<string, dlib::point>> pairs );
-
 AutoIt:
     _Dlib_ObjCreate("MapOfStringAndPoint").create( $pairs ) -> retval
 ```
@@ -12653,7 +11419,6 @@ AutoIt:
 ```cpp
 void MapOfStringAndPoint::Add( string      key,
                                dlib::point value );
-
 AutoIt:
     $oMapOfStringAndPoint.Add( $key, $value ) -> None
 ```
@@ -12662,7 +11427,6 @@ AutoIt:
 
 ```cpp
 dlib::point MapOfStringAndPoint::Get( string key );
-
 AutoIt:
     $oMapOfStringAndPoint.Get( $key ) -> retval
 ```
@@ -12671,7 +11435,6 @@ AutoIt:
 
 ```cpp
 std::vector<dlib::point> MapOfStringAndPoint::Items();
-
 AutoIt:
     $oMapOfStringAndPoint.Items() -> retval
 ```
@@ -12680,7 +11443,6 @@ AutoIt:
 
 ```cpp
 std::vector<string> MapOfStringAndPoint::Keys();
-
 AutoIt:
     $oMapOfStringAndPoint.Keys() -> retval
 ```
@@ -12689,7 +11451,6 @@ AutoIt:
 
 ```cpp
 size_t MapOfStringAndPoint::Remove( string key );
-
 AutoIt:
     $oMapOfStringAndPoint.Remove( $key ) -> retval
 ```
@@ -12698,7 +11459,6 @@ AutoIt:
 
 ```cpp
 void MapOfStringAndPoint::clear();
-
 AutoIt:
     $oMapOfStringAndPoint.clear() -> None
 ```
@@ -12707,7 +11467,6 @@ AutoIt:
 
 ```cpp
 bool MapOfStringAndPoint::contains( string key );
-
 AutoIt:
     $oMapOfStringAndPoint.contains( $key ) -> retval
 ```
@@ -12716,7 +11475,6 @@ AutoIt:
 
 ```cpp
 size_t MapOfStringAndPoint::count( string key );
-
 AutoIt:
     $oMapOfStringAndPoint.count( $key ) -> retval
 ```
@@ -12725,7 +11483,6 @@ AutoIt:
 
 ```cpp
 bool MapOfStringAndPoint::empty();
-
 AutoIt:
     $oMapOfStringAndPoint.empty() -> retval
 ```
@@ -12734,7 +11491,6 @@ AutoIt:
 
 ```cpp
 size_t MapOfStringAndPoint::erase( string key );
-
 AutoIt:
     $oMapOfStringAndPoint.erase( $key ) -> retval
 ```
@@ -12743,7 +11499,6 @@ AutoIt:
 
 ```cpp
 bool MapOfStringAndPoint::has( string key );
-
 AutoIt:
     $oMapOfStringAndPoint.has( $key ) -> retval
 ```
@@ -12752,7 +11507,6 @@ AutoIt:
 
 ```cpp
 size_t MapOfStringAndPoint::max_size();
-
 AutoIt:
     $oMapOfStringAndPoint.max_size() -> retval
 ```
@@ -12761,7 +11515,6 @@ AutoIt:
 
 ```cpp
 void MapOfStringAndPoint::merge( MapOfStringAndPoint other );
-
 AutoIt:
     $oMapOfStringAndPoint.merge( $other ) -> None
 ```
@@ -12770,7 +11523,6 @@ AutoIt:
 
 ```cpp
 size_t MapOfStringAndPoint::size();
-
 AutoIt:
     $oMapOfStringAndPoint.size() -> retval
 ```
@@ -12779,7 +11531,6 @@ AutoIt:
 
 ```cpp
 dlib::point MapOfStringAndPoint::get_Item( string vKey );
-
 AutoIt:
     $oMapOfStringAndPoint.Item( $vKey ) -> retval
     MapOfStringAndPoint( $vKey ) -> retval
@@ -12790,7 +11541,6 @@ AutoIt:
 ```cpp
 void MapOfStringAndPoint::put_Item( string      vKey,
                                     dlib::point vItem );
-
 AutoIt:
     $oMapOfStringAndPoint.Item( $vKey ) = $vItem
 ```
@@ -12801,21 +11551,18 @@ AutoIt:
 
 ```cpp
 static VectorOfBox VectorOfBox::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfBox").create() -> <VectorOfBox object>
 ```
 
 ```cpp
 static VectorOfBox VectorOfBox::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfBox").create( $size ) -> <VectorOfBox object>
 ```
 
 ```cpp
 static VectorOfBox VectorOfBox::create( VectorOfBox other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfBox").create( $other ) -> <VectorOfBox object>
 ```
@@ -12824,7 +11571,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBox::Add( dlib::image_dataset_metadata::box value );
-
 AutoIt:
     $oVectorOfBox.Add( $value ) -> None
 ```
@@ -12833,7 +11579,6 @@ AutoIt:
 
 ```cpp
 VectorOfBox VectorOfBox::Items();
-
 AutoIt:
     $oVectorOfBox.Items() -> retval
 ```
@@ -12842,7 +11587,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfBox::Keys();
-
 AutoIt:
     $oVectorOfBox.Keys() -> retval
 ```
@@ -12851,7 +11595,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBox::Remove( size_t index );
-
 AutoIt:
     $oVectorOfBox.Remove( $index ) -> None
 ```
@@ -12860,7 +11603,6 @@ AutoIt:
 
 ```cpp
 dlib::image_dataset_metadata::box VectorOfBox::at( size_t index );
-
 AutoIt:
     $oVectorOfBox.at( $index ) -> retval
 ```
@@ -12868,7 +11610,6 @@ AutoIt:
 ```cpp
 void VectorOfBox::at( size_t                            index,
                       dlib::image_dataset_metadata::box value );
-
 AutoIt:
     $oVectorOfBox.at( $index, $value ) -> None
 ```
@@ -12877,7 +11618,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBox::clear();
-
 AutoIt:
     $oVectorOfBox.clear() -> None
 ```
@@ -12886,7 +11626,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfBox::empty();
-
 AutoIt:
     $oVectorOfBox.empty() -> retval
 ```
@@ -12895,7 +11634,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfBox::end();
-
 AutoIt:
     $oVectorOfBox.end() -> retval
 ```
@@ -12904,7 +11642,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBox::push_back( dlib::image_dataset_metadata::box value );
-
 AutoIt:
     $oVectorOfBox.push_back( $value ) -> None
 ```
@@ -12913,7 +11650,6 @@ AutoIt:
 
 ```cpp
 void VectorOfBox::push_vector( VectorOfBox other );
-
 AutoIt:
     $oVectorOfBox.push_vector( $other ) -> None
 ```
@@ -12922,7 +11658,6 @@ AutoIt:
 void VectorOfBox::push_vector( VectorOfBox other,
                                size_t      count,
                                size_t      start = 0 );
-
 AutoIt:
     $oVectorOfBox.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -12931,7 +11666,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfBox::size();
-
 AutoIt:
     $oVectorOfBox.size() -> retval
 ```
@@ -12941,7 +11675,6 @@ AutoIt:
 ```cpp
 VectorOfBox VectorOfBox::slice( size_t start = 0,
                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfBox.slice( [$start[, $count]] ) -> retval
 ```
@@ -12952,7 +11685,6 @@ AutoIt:
 void VectorOfBox::sort( void*  comparator,
                         size_t start = 0,
                         size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfBox.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -12963,7 +11695,6 @@ AutoIt:
 void VectorOfBox::sort_variant( void*  comparator,
                                 size_t start = 0,
                                 size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfBox.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -12972,7 +11703,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfBox::start();
-
 AutoIt:
     $oVectorOfBox.start() -> retval
 ```
@@ -12981,7 +11711,6 @@ AutoIt:
 
 ```cpp
 dlib::image_dataset_metadata::box VectorOfBox::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfBox.Item( $vIndex ) -> retval
     VectorOfBox( $vIndex ) -> retval
@@ -12992,7 +11721,6 @@ AutoIt:
 ```cpp
 void VectorOfBox::put_Item( size_t                            vIndex,
                             dlib::image_dataset_metadata::box vItem );
-
 AutoIt:
     $oVectorOfBox.Item( $vIndex ) = $vItem
 ```
@@ -13003,21 +11731,18 @@ AutoIt:
 
 ```cpp
 static VectorOfImage VectorOfImage::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage").create() -> <VectorOfImage object>
 ```
 
 ```cpp
 static VectorOfImage VectorOfImage::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage").create( $size ) -> <VectorOfImage object>
 ```
 
 ```cpp
 static VectorOfImage VectorOfImage::create( VectorOfImage other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage").create( $other ) -> <VectorOfImage object>
 ```
@@ -13026,7 +11751,6 @@ AutoIt:
 
 ```cpp
 void VectorOfImage::Add( dlib::image_dataset_metadata::image value );
-
 AutoIt:
     $oVectorOfImage.Add( $value ) -> None
 ```
@@ -13035,7 +11759,6 @@ AutoIt:
 
 ```cpp
 VectorOfImage VectorOfImage::Items();
-
 AutoIt:
     $oVectorOfImage.Items() -> retval
 ```
@@ -13044,7 +11767,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfImage::Keys();
-
 AutoIt:
     $oVectorOfImage.Keys() -> retval
 ```
@@ -13053,7 +11775,6 @@ AutoIt:
 
 ```cpp
 void VectorOfImage::Remove( size_t index );
-
 AutoIt:
     $oVectorOfImage.Remove( $index ) -> None
 ```
@@ -13062,7 +11783,6 @@ AutoIt:
 
 ```cpp
 dlib::image_dataset_metadata::image VectorOfImage::at( size_t index );
-
 AutoIt:
     $oVectorOfImage.at( $index ) -> retval
 ```
@@ -13070,7 +11790,6 @@ AutoIt:
 ```cpp
 void VectorOfImage::at( size_t                              index,
                         dlib::image_dataset_metadata::image value );
-
 AutoIt:
     $oVectorOfImage.at( $index, $value ) -> None
 ```
@@ -13079,7 +11798,6 @@ AutoIt:
 
 ```cpp
 void VectorOfImage::clear();
-
 AutoIt:
     $oVectorOfImage.clear() -> None
 ```
@@ -13088,7 +11806,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfImage::empty();
-
 AutoIt:
     $oVectorOfImage.empty() -> retval
 ```
@@ -13097,7 +11814,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfImage::end();
-
 AutoIt:
     $oVectorOfImage.end() -> retval
 ```
@@ -13106,7 +11822,6 @@ AutoIt:
 
 ```cpp
 void VectorOfImage::push_back( dlib::image_dataset_metadata::image value );
-
 AutoIt:
     $oVectorOfImage.push_back( $value ) -> None
 ```
@@ -13115,7 +11830,6 @@ AutoIt:
 
 ```cpp
 void VectorOfImage::push_vector( VectorOfImage other );
-
 AutoIt:
     $oVectorOfImage.push_vector( $other ) -> None
 ```
@@ -13124,7 +11838,6 @@ AutoIt:
 void VectorOfImage::push_vector( VectorOfImage other,
                                  size_t        count,
                                  size_t        start = 0 );
-
 AutoIt:
     $oVectorOfImage.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -13133,7 +11846,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfImage::size();
-
 AutoIt:
     $oVectorOfImage.size() -> retval
 ```
@@ -13143,7 +11855,6 @@ AutoIt:
 ```cpp
 VectorOfImage VectorOfImage::slice( size_t start = 0,
                                     size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfImage.slice( [$start[, $count]] ) -> retval
 ```
@@ -13154,7 +11865,6 @@ AutoIt:
 void VectorOfImage::sort( void*  comparator,
                           size_t start = 0,
                           size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfImage.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -13165,7 +11875,6 @@ AutoIt:
 void VectorOfImage::sort_variant( void*  comparator,
                                   size_t start = 0,
                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfImage.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -13174,7 +11883,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfImage::start();
-
 AutoIt:
     $oVectorOfImage.start() -> retval
 ```
@@ -13183,7 +11891,6 @@ AutoIt:
 
 ```cpp
 dlib::image_dataset_metadata::image VectorOfImage::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfImage.Item( $vIndex ) -> retval
     VectorOfImage( $vIndex ) -> retval
@@ -13194,7 +11901,6 @@ AutoIt:
 ```cpp
 void VectorOfImage::put_Item( size_t                              vIndex,
                               dlib::image_dataset_metadata::image vItem );
-
 AutoIt:
     $oVectorOfImage.Item( $vIndex ) = $vItem
 ```
@@ -13205,21 +11911,18 @@ AutoIt:
 
 ```cpp
 static VectorOfString VectorOfString::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfString").create() -> <VectorOfString object>
 ```
 
 ```cpp
 static VectorOfString VectorOfString::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfString").create( $size ) -> <VectorOfString object>
 ```
 
 ```cpp
 static VectorOfString VectorOfString::create( VectorOfString other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfString").create( $other ) -> <VectorOfString object>
 ```
@@ -13228,7 +11931,6 @@ AutoIt:
 
 ```cpp
 void VectorOfString::Add( string value );
-
 AutoIt:
     $oVectorOfString.Add( $value ) -> None
 ```
@@ -13237,7 +11939,6 @@ AutoIt:
 
 ```cpp
 VectorOfString VectorOfString::Items();
-
 AutoIt:
     $oVectorOfString.Items() -> retval
 ```
@@ -13246,7 +11947,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfString::Keys();
-
 AutoIt:
     $oVectorOfString.Keys() -> retval
 ```
@@ -13255,7 +11955,6 @@ AutoIt:
 
 ```cpp
 void VectorOfString::Remove( size_t index );
-
 AutoIt:
     $oVectorOfString.Remove( $index ) -> None
 ```
@@ -13264,7 +11963,6 @@ AutoIt:
 
 ```cpp
 string VectorOfString::at( size_t index );
-
 AutoIt:
     $oVectorOfString.at( $index ) -> retval
 ```
@@ -13272,7 +11970,6 @@ AutoIt:
 ```cpp
 void VectorOfString::at( size_t index,
                          string value );
-
 AutoIt:
     $oVectorOfString.at( $index, $value ) -> None
 ```
@@ -13281,7 +11978,6 @@ AutoIt:
 
 ```cpp
 void VectorOfString::clear();
-
 AutoIt:
     $oVectorOfString.clear() -> None
 ```
@@ -13290,7 +11986,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfString::empty();
-
 AutoIt:
     $oVectorOfString.empty() -> retval
 ```
@@ -13299,7 +11994,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfString::end();
-
 AutoIt:
     $oVectorOfString.end() -> retval
 ```
@@ -13308,7 +12002,6 @@ AutoIt:
 
 ```cpp
 void VectorOfString::push_back( string value );
-
 AutoIt:
     $oVectorOfString.push_back( $value ) -> None
 ```
@@ -13317,7 +12010,6 @@ AutoIt:
 
 ```cpp
 void VectorOfString::push_vector( VectorOfString other );
-
 AutoIt:
     $oVectorOfString.push_vector( $other ) -> None
 ```
@@ -13326,7 +12018,6 @@ AutoIt:
 void VectorOfString::push_vector( VectorOfString other,
                                   size_t         count,
                                   size_t         start = 0 );
-
 AutoIt:
     $oVectorOfString.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -13335,7 +12026,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfString::size();
-
 AutoIt:
     $oVectorOfString.size() -> retval
 ```
@@ -13345,7 +12035,6 @@ AutoIt:
 ```cpp
 VectorOfString VectorOfString::slice( size_t start = 0,
                                       size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfString.slice( [$start[, $count]] ) -> retval
 ```
@@ -13356,7 +12045,6 @@ AutoIt:
 void VectorOfString::sort( void*  comparator,
                            size_t start = 0,
                            size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfString.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -13367,7 +12055,6 @@ AutoIt:
 void VectorOfString::sort_variant( void*  comparator,
                                    size_t start = 0,
                                    size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfString.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -13376,7 +12063,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfString::start();
-
 AutoIt:
     $oVectorOfString.start() -> retval
 ```
@@ -13385,7 +12071,6 @@ AutoIt:
 
 ```cpp
 string VectorOfString::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfString.Item( $vIndex ) -> retval
     VectorOfString( $vIndex ) -> retval
@@ -13396,7 +12081,6 @@ AutoIt:
 ```cpp
 void VectorOfString::put_Item( size_t vIndex,
                                string vItem );
-
 AutoIt:
     $oVectorOfString.Item( $vIndex ) = $vItem
 ```
@@ -13407,21 +12091,18 @@ AutoIt:
 
 ```cpp
 static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create();
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create() -> <VectorOfPairOfStringAndPoint object>
 ```
 
 ```cpp
 static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create( size_t size );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create( $size ) -> <VectorOfPairOfStringAndPoint object>
 ```
 
 ```cpp
 static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create( VectorOfPairOfStringAndPoint other );
-
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create( $other ) -> <VectorOfPairOfStringAndPoint object>
 ```
@@ -13430,7 +12111,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfStringAndPoint::Add( std::pair<string, dlib::point> value );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.Add( $value ) -> None
 ```
@@ -13439,7 +12119,6 @@ AutoIt:
 
 ```cpp
 VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::Items();
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.Items() -> retval
 ```
@@ -13448,7 +12127,6 @@ AutoIt:
 
 ```cpp
 std::vector<int> VectorOfPairOfStringAndPoint::Keys();
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.Keys() -> retval
 ```
@@ -13457,7 +12135,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfStringAndPoint::Remove( size_t index );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.Remove( $index ) -> None
 ```
@@ -13466,7 +12143,6 @@ AutoIt:
 
 ```cpp
 std::pair<string, dlib::point> VectorOfPairOfStringAndPoint::at( size_t index );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.at( $index ) -> retval
 ```
@@ -13474,7 +12150,6 @@ AutoIt:
 ```cpp
 void VectorOfPairOfStringAndPoint::at( size_t                         index,
                                        std::pair<string, dlib::point> value );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.at( $index, $value ) -> None
 ```
@@ -13483,7 +12158,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfStringAndPoint::clear();
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.clear() -> None
 ```
@@ -13492,7 +12166,6 @@ AutoIt:
 
 ```cpp
 bool VectorOfPairOfStringAndPoint::empty();
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.empty() -> retval
 ```
@@ -13501,7 +12174,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfPairOfStringAndPoint::end();
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.end() -> retval
 ```
@@ -13510,7 +12182,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfStringAndPoint::push_back( std::pair<string, dlib::point> value );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.push_back( $value ) -> None
 ```
@@ -13519,7 +12190,6 @@ AutoIt:
 
 ```cpp
 void VectorOfPairOfStringAndPoint::push_vector( VectorOfPairOfStringAndPoint other );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.push_vector( $other ) -> None
 ```
@@ -13528,7 +12198,6 @@ AutoIt:
 void VectorOfPairOfStringAndPoint::push_vector( VectorOfPairOfStringAndPoint other,
                                                 size_t                       count,
                                                 size_t                       start = 0 );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -13537,7 +12206,6 @@ AutoIt:
 
 ```cpp
 size_t VectorOfPairOfStringAndPoint::size();
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.size() -> retval
 ```
@@ -13547,7 +12215,6 @@ AutoIt:
 ```cpp
 VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::slice( size_t start = 0,
                                                                   size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.slice( [$start[, $count]] ) -> retval
 ```
@@ -13558,7 +12225,6 @@ AutoIt:
 void VectorOfPairOfStringAndPoint::sort( void*  comparator,
                                          size_t start = 0,
                                          size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.sort( $comparator[, $start[, $count]] ) -> None
 ```
@@ -13569,7 +12235,6 @@ AutoIt:
 void VectorOfPairOfStringAndPoint::sort_variant( void*  comparator,
                                                  size_t start = 0,
                                                  size_t count = this->__self->get()->size() );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -13578,7 +12243,6 @@ AutoIt:
 
 ```cpp
 void* VectorOfPairOfStringAndPoint::start();
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.start() -> retval
 ```
@@ -13587,7 +12251,6 @@ AutoIt:
 
 ```cpp
 std::pair<string, dlib::point> VectorOfPairOfStringAndPoint::get_Item( size_t vIndex );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.Item( $vIndex ) -> retval
     VectorOfPairOfStringAndPoint( $vIndex ) -> retval
@@ -13598,7 +12261,6 @@ AutoIt:
 ```cpp
 void VectorOfPairOfStringAndPoint::put_Item( size_t                         vIndex,
                                              std::pair<string, dlib::point> vItem );
-
 AutoIt:
     $oVectorOfPairOfStringAndPoint.Item( $vIndex ) = $vItem
 ```

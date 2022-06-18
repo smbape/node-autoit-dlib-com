@@ -173,17 +173,17 @@ Func _Dlib_FindDLL($sFile, $sFilter = Default, $sDir = Default, $bReverse = Defa
 	Local $sPostfix = $_dlib_build_type == "Debug" ? "d" : ""
 
 	Local $aSearchPaths[] = [ _
-		0, _
-		".", _
-		"build_x64", _
-		"build_x64\" & $sBuildType, _
-		"build", _
-		"build\x64", _
-		"build\x64\vc15\bin", _
-		"autoit-dlib-com", _
-		"autoit-dlib-com\build_x64", _
-		"autoit-dlib-com\build_x64\" & $sBuildType _
-	]
+			0, _
+			".", _
+			"build_x64", _
+			"build_x64\" & $sBuildType, _
+			"build", _
+			"build\x64", _
+			"build\x64\vc15\bin", _
+			"autoit-dlib-com", _
+			"autoit-dlib-com\build_x64", _
+			"autoit-dlib-com\build_x64\" & $sBuildType _
+			]
 	$aSearchPaths[0] = UBound($aSearchPaths) - 1
 
 	Return _Dlib_FindFile($sFile & $sPostfix & ".dll", $sFilter, $sDir, $FLTA_FILES, $aSearchPaths, $bReverse)

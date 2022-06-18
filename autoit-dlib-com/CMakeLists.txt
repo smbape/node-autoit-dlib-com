@@ -50,25 +50,25 @@ set(OPENCV_DOWNLOAD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
 # Tell cmake we will need opencv.
 include(ExternalProject)
 ExternalProject_Add(opencv
-  URL               https://github.com/opencv/opencv/releases/download/4.5.5/opencv-4.5.5-vc14_vc15.exe
-  URL_HASH          SHA256=cac31973cd1c59bfe9dc926acbde815553d23662ea355e0414b5e50d8f8aa5a8
+  URL               https://github.com/opencv/opencv/releases/download/4.6.0/opencv-4.6.0-vc14_vc15.exe
+  URL_HASH          SHA256=3fb046e14dc5b50719a86ea0395b5b1e3299e2343111ebd2e31828aa31d6d477
   DOWNLOAD_NO_EXTRACT TRUE
   DOWNLOAD_DIR      "${OPENCV_DOWNLOAD_DIR}"
-  CONFIGURE_COMMAND "${OPENCV_DOWNLOAD_DIR}/opencv-4.5.5-vc14_vc15.exe" "-o${OPENCV_DOWNLOAD_DIR}/opencv-4.5.5-vc14_vc15" -y
-  BUILD_COMMAND     patch -p 1 -d "${OPENCV_DOWNLOAD_DIR}/opencv-4.5.5-vc14_vc15/opencv/sources/" -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-opencv-src.patch"
+  CONFIGURE_COMMAND "${OPENCV_DOWNLOAD_DIR}/opencv-4.6.0-vc14_vc15.exe" "-o${OPENCV_DOWNLOAD_DIR}/opencv-4.6.0-vc14_vc15" -y
+  BUILD_COMMAND     patch -p 1 -d "${OPENCV_DOWNLOAD_DIR}/opencv-4.6.0-vc14_vc15/opencv/sources/" -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-opencv-src.patch"
   INSTALL_COMMAND   ""
 )
 
 # Tell cmake we will need autoit-opencv-com.
 include(ExternalProject)
 ExternalProject_Add(autoit-opencv-com
-  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.0.1/autoit-opencv-4.5.5-com-v2.0.1.7z
-  URL_HASH          SHA256=148903552ca590f72e4a07223e695e7bff876767fbc37fd40e2d5585b9fcfe12
+  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.1.0/autoit-opencv-4.6.0-com-v2.1.0.7z
+  URL_HASH          SHA256=e6f70b1ea79be92db72e4a93b9ec07926ef0db3752af308cd0448572c009ab8f
   DOWNLOAD_NO_EXTRACT TRUE
   DOWNLOAD_DIR      "${OPENCV_DOWNLOAD_DIR}"
   CONFIGURE_COMMAND ""
   BUILD_COMMAND     ""
-  INSTALL_COMMAND   7z x "${OPENCV_DOWNLOAD_DIR}/autoit-opencv-4.5.5-com-v2.0.1.7z" -aoa "-o${OPENCV_DOWNLOAD_DIR}/autoit-opencv-com" -y
+  INSTALL_COMMAND   7z x "${OPENCV_DOWNLOAD_DIR}/autoit-opencv-4.6.0-com-v2.1.0.7z" -aoa "-o${OPENCV_DOWNLOAD_DIR}/autoit-opencv-com" -y
 )
 
 # Library directories
