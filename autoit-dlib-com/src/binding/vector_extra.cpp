@@ -11,8 +11,8 @@ using std::ostringstream;
 // SpaceVector
 
 STDMETHODIMP CDlib_SpaceVector_Object::get_shape(VARIANT* pVal) {
-	if (this->__self) {
-		auto& m = *this->__self->get();
+	if (__self) {
+		auto& m = *__self->get();
 		autoit_from(std::make_tuple(m.nr(), m.nc()), pVal);
 		return S_OK;
 	}
@@ -39,7 +39,7 @@ const std::shared_ptr<SpaceVector> CDlib_SpaceVector_Object::create(long rows, H
 }
 
 void CDlib_SpaceVector_Object::set_size(long rows, HRESULT& hr) {
-	auto& m = *this->__self->get();
+	auto& m = *__self->get();
 	m.set_size(rows);
 	m = 0;
 	hr = S_OK;
@@ -50,7 +50,7 @@ void CDlib_SpaceVector_Object::resize(long rows, HRESULT& hr) {
 }
 
 void CDlib_SpaceVector_Object::set(long row, double val, HRESULT& hr) {
-	auto& m = *this->__self->get();
+	auto& m = *__self->get();
 	if (row < 0) {
 		row = m.size() + row; // negative index
 	}
@@ -60,7 +60,7 @@ void CDlib_SpaceVector_Object::set(long row, double val, HRESULT& hr) {
 }
 
 const double CDlib_SpaceVector_Object::get(long row, HRESULT& hr) {
-	auto& m = *this->__self->get();
+	auto& m = *__self->get();
 	if (row < 0) {
 		row = m.size() + row; // negative index
 	}
@@ -70,7 +70,7 @@ const double CDlib_SpaceVector_Object::get(long row, HRESULT& hr) {
 }
 
 const SpaceVector CDlib_SpaceVector_Object::slice(long start, long stop, long step, HRESULT& hr) {
-	auto& m = *this->__self->get();
+	auto& m = *__self->get();
 
 	AUTOIT_ASSERT_THROW(step != 0, "step must not be 0");
 
@@ -104,7 +104,7 @@ const SpaceVector CDlib_SpaceVector_Object::slice(long start, long stop, long st
 
 const string CDlib_SpaceVector_Object::ToString(HRESULT& hr) {
 	hr = S_OK;
-	auto& v = *this->__self->get();
+	auto& v = *__self->get();
 	ostringstream sout;
 	for (long i = 0; i < v.size(); ++i)
 	{
@@ -143,7 +143,7 @@ const point_transform_projective CDlib_Object::find_projective_transform(std::ve
 
 const string CDlib_Dpoint_Object::ToString(HRESULT& hr) {
 	hr = S_OK;
-	auto& p = *this->__self->get();
+	auto& p = *__self->get();
 	std::ostringstream sout;
 	sout << "(" << p.x() << ", " << p.y() << ")";
 	return sout.str();
@@ -151,7 +151,7 @@ const string CDlib_Dpoint_Object::ToString(HRESULT& hr) {
 
 const string CDlib_Point_Object::ToString(HRESULT& hr) {
 	hr = S_OK;
-	auto& p = *this->__self->get();
+	auto& p = *__self->get();
 	std::ostringstream sout;
 	sout << "(" << p.x() << ", " << p.y() << ")";
 	return sout.str();

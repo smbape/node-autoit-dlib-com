@@ -198,37 +198,37 @@ const std::shared_ptr<dlib::image_window> CDlib_Image_window_Object::create(cv::
 
 void CDlib_Image_window_Object::set_image(cv::Mat& img, HRESULT& hr) {
 	hr = S_OK;
-	auto& win = *this->__self->get();
+	auto& win = *__self->get();
 	image_window_set_image(win, img);
 }
 
 void CDlib_Image_window_Object::add_overlay(dlib::full_object_detection& detection, dlib::rgb_pixel& color, HRESULT& hr) {
 	hr = S_OK;
-	auto& win = *this->__self->get();
+	auto& win = *__self->get();
 	add_overlay_parts(win, detection, color);
 }
 
 void CDlib_Image_window_Object::add_overlay(dlib::full_object_detection& detection, std::tuple<uchar, uchar, uchar>& color, HRESULT& hr) {
 	hr = S_OK;
-	auto& win = *this->__self->get();
+	auto& win = *__self->get();
 	add_overlay_parts(win, detection, rgb_pixel(std::get<0>(color), std::get<1>(color), std::get<2>(color)));
 }
 
 void CDlib_Image_window_Object::add_overlay(std::vector<_variant_t>& objs, dlib::rgb_pixel& color, HRESULT& hr) {
 	hr = S_OK;
-	auto& win = *this->__self->get();
+	auto& win = *__self->get();
 	add_overlay_vector_variant(win, objs, color);
 }
 
 void CDlib_Image_window_Object::add_overlay(std::vector<_variant_t>& objs, std::tuple<uchar, uchar, uchar>& color, HRESULT& hr) {
 	hr = S_OK;
-	auto& win = *this->__self->get();
+	auto& win = *__self->get();
 	add_overlay_vector_variant(win, objs, rgb_pixel(std::get<0>(color), std::get<1>(color), std::get<2>(color)));
 }
 
 void CDlib_Image_window_Object::wait_for_keypress(char wait_key, HRESULT& hr) {
 	hr = S_OK;
-	auto& win = *this->__self->get();
+	auto& win = *__self->get();
 
 	unsigned long key;
 	bool is_printable;
@@ -241,7 +241,7 @@ void CDlib_Image_window_Object::wait_for_keypress(char wait_key, HRESULT& hr) {
 
 void CDlib_Image_window_Object::wait_for_keypress(string _wait_key, HRESULT& hr) {
 	hr = S_OK;
-	auto& win = *this->__self->get();
+	auto& win = *__self->get();
 
 	static std::map<std::string, base_window::non_printable_keyboard_keys> str_to_key;
 
@@ -293,9 +293,15 @@ void CDlib_Image_window_Object::wait_for_keypress(string _wait_key, HRESULT& hr)
 	}
 }
 
-const bool CDlib_Image_window_Object::get_next_keypress(char* _key, bool* _is_printable, std::vector<int>& mods, bool get_keyboard_modifiers, HRESULT& hr) {
+const bool CDlib_Image_window_Object::get_next_keypress(
+	char* _key,
+	bool* _is_printable,
+	std::vector<image_window::keyboard_state_masks>& mods,
+	bool get_keyboard_modifiers,
+	HRESULT& hr
+) {
 	hr = S_OK;
-	auto& win = *this->__self->get();
+	auto& win = *__self->get();
 
 	unsigned long key;
 	auto& is_printable = *_is_printable;
@@ -308,13 +314,13 @@ const bool CDlib_Image_window_Object::get_next_keypress(char* _key, bool* _is_pr
 	*_key = (char)key;
 
 	if (get_keyboard_modifiers) {
-		if (state & base_window::KBD_MOD_SHIFT) mods.push_back(static_cast<int>(base_window::KBD_MOD_SHIFT));
-		if (state & base_window::KBD_MOD_CONTROL) mods.push_back(static_cast<int>(base_window::KBD_MOD_CONTROL));
-		if (state & base_window::KBD_MOD_ALT) mods.push_back(static_cast<int>(base_window::KBD_MOD_ALT));
-		if (state & base_window::KBD_MOD_META) mods.push_back(static_cast<int>(base_window::KBD_MOD_META));
-		if (state & base_window::KBD_MOD_CAPS_LOCK) mods.push_back(static_cast<int>(base_window::KBD_MOD_CAPS_LOCK));
-		if (state & base_window::KBD_MOD_NUM_LOCK) mods.push_back(static_cast<int>(base_window::KBD_MOD_NUM_LOCK));
-		if (state & base_window::KBD_MOD_SCROLL_LOCK) mods.push_back(static_cast<int>(base_window::KBD_MOD_SCROLL_LOCK));
+		if (state & base_window::KBD_MOD_SHIFT) mods.push_back(base_window::KBD_MOD_SHIFT);
+		if (state & base_window::KBD_MOD_CONTROL) mods.push_back(base_window::KBD_MOD_CONTROL);
+		if (state & base_window::KBD_MOD_ALT) mods.push_back(base_window::KBD_MOD_ALT);
+		if (state & base_window::KBD_MOD_META) mods.push_back(base_window::KBD_MOD_META);
+		if (state & base_window::KBD_MOD_CAPS_LOCK) mods.push_back(base_window::KBD_MOD_CAPS_LOCK);
+		if (state & base_window::KBD_MOD_NUM_LOCK) mods.push_back(base_window::KBD_MOD_NUM_LOCK);
+		if (state & base_window::KBD_MOD_SCROLL_LOCK) mods.push_back(base_window::KBD_MOD_SCROLL_LOCK);
 	}
 
 	return true;

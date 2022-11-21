@@ -9,15 +9,15 @@ const declarations = [
         ["double", "max_measurement_deviation", "", []],
     ], "", ""],
 
-    ["dlib.rect_filter.measurement_noise", "double", ["/Call=this->__self->get()->get_left().get_measurement_noise"], [], "", ""],
-    ["dlib.rect_filter.typical_acceleration", "double", ["/Call=this->__self->get()->get_left().get_typical_acceleration"], [], "", ""],
-    ["dlib.rect_filter.max_measurement_deviation", "double", ["/Call=this->__self->get()->get_left().get_max_measurement_deviation"], [], "", ""],
+    ["dlib.rect_filter.measurement_noise", "double", ["/Call=__self->get()->get_left().get_measurement_noise"], [], "", ""],
+    ["dlib.rect_filter.typical_acceleration", "double", ["/Call=__self->get()->get_left().get_typical_acceleration"], [], "", ""],
+    ["dlib.rect_filter.max_measurement_deviation", "double", ["/Call=__self->get()->get_left().get_max_measurement_deviation"], [], "", ""],
 
-    ["dlib.rect_filter.call", "drectangle", ["/Call=(*this->__self->get())", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
+    ["dlib.rect_filter.call", "drectangle", ["/Call=(*__self->get())", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
         ["rectangle", "rect", "", []],
     ], "", ""],
 
-    ["dlib.rect_filter.call", "drectangle", ["/Call=(*this->__self->get())", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
+    ["dlib.rect_filter.call", "drectangle", ["/Call=(*__self->get())", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
         ["drectangle", "rect", "", []],
     ], "", ""],
 
@@ -65,8 +65,8 @@ for (const [class_type, scalar_type, unsigned_type, point_type] of [["rectangle"
 
         [`dlib.${ class_type }.is_empty`, "bool", [], [], "", ""],
 
-        [`dlib.${ class_type }.center`, point_type, ["/Call=dlib::center", "/Expr=*this->__self->get()"], [], "", ""],
-        [`dlib.${ class_type }.dcenter`, "dpoint", ["/Call=dlib::dcenter", "/Expr=*this->__self->get()"], [], "", ""],
+        [`dlib.${ class_type }.center`, point_type, ["/Call=dlib::center", "/Expr=*__self->get()"], [], "", ""],
+        [`dlib.${ class_type }.dcenter`, "dpoint", ["/Call=dlib::dcenter", "/Expr=*__self->get()"], [], "", ""],
 
         [`dlib.${ class_type }.contains`, "bool", [], [
             ["dpoint", "point", "", ["/Ref"]],

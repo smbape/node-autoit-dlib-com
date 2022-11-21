@@ -7,16 +7,16 @@ const setup_trainer = (impl, trainer_type) => {
         #include "Dlib_${ trainer_type_obj }_Object.h"
 
         STDMETHODIMP CDlib_${ trainer_type_obj }_Object::get_gamma(DOUBLE* pVal) {
-            AUTOIT_ASSERT(this->__self->get() != NULL);
-            auto& trainer = *this->__self->get();
+            AUTOIT_ASSERT(__self->get() != NULL);
+            auto& trainer = *__self->get();
             *pVal = trainer.get_kernel().gamma;
             return S_OK;
         }
 
         STDMETHODIMP CDlib_${ trainer_type_obj }_Object::put_gamma(DOUBLE gamma) {
-            AUTOIT_ASSERT(this->__self->get() != NULL);
+            AUTOIT_ASSERT(__self->get() != NULL);
             AUTOIT_ASSERT(gamma > 0);
-            auto& trainer = *this->__self->get();
+            auto& trainer = *__self->get();
             trainer.set_kernel(${ trainer_type }::kernel_type(gamma));
             return S_OK;
         }

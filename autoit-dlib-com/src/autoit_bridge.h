@@ -4,7 +4,7 @@
 #include "autoit_bridge_generated.h"
 
 template<typename _Tp, long nr>
-const bool is_assignable_from(matrix<_Tp, nr, 1>& out_val, VARIANT const* const& in_val, bool is_optional) {
+const bool is_assignable_from(dlib::matrix<_Tp, nr, 1>& out_val, VARIANT const* const& in_val, bool is_optional) {
 	if (PARAMETER_MISSING(in_val)) {
 		return is_optional;
 	}
@@ -42,7 +42,7 @@ const bool is_assignable_from(matrix<_Tp, nr, 1>& out_val, VARIANT const* const&
 }
 
 template<typename _Tp, long nr>
-const HRESULT autoit_to(VARIANT const* const& in_val, matrix<_Tp, nr, 1>& out_val) {
+const HRESULT autoit_to(VARIANT const* const& in_val, dlib::matrix<_Tp, nr, 1>& out_val) {
 	if (PARAMETER_MISSING(in_val)) {
 		return S_OK;
 	}
@@ -83,12 +83,12 @@ const HRESULT autoit_to(VARIANT const* const& in_val, matrix<_Tp, nr, 1>& out_va
 }
 
 template<typename _Tp, long nr>
-const HRESULT autoit_from(const cv::Ptr<matrix<_Tp, nr, 1>>& in_val, VARIANT*& out_val) {
+const HRESULT autoit_from(const cv::Ptr<dlib::matrix<_Tp, nr, 1>>& in_val, VARIANT*& out_val) {
 	return autoit_from(*in_val.get(), out_val);
 }
 
 template<typename _Tp, long nr>
-const HRESULT autoit_from(const matrix<_Tp, nr, 1>& in_val, VARIANT*& out_val) {
+const HRESULT autoit_from(const dlib::matrix<_Tp, nr, 1>& in_val, VARIANT*& out_val) {
 	if (PARAMETER_MISSING(out_val)) {
 		V_VT(out_val) = VT_ARRAY | VT_VARIANT;
 		typename ATL::template CComSafeArray<VARIANT> vArray((ULONG)0);
@@ -122,7 +122,7 @@ const HRESULT autoit_from(const matrix<_Tp, nr, 1>& in_val, VARIANT*& out_val) {
 }
 
 template<typename _Tp, long nr, long nc>
-const bool is_assignable_from(matrix<_Tp, nr, nc>& out_val, VARIANT const* const& in_val, bool is_optional) {
+const bool is_assignable_from(dlib::matrix<_Tp, nr, nc>& out_val, VARIANT const* const& in_val, bool is_optional) {
 	if (PARAMETER_MISSING(in_val)) {
 		return is_optional;
 	}
@@ -185,7 +185,7 @@ end:
 }
 
 template<typename _Tp, long nr, long nc>
-const HRESULT autoit_to(VARIANT const* const& in_val, matrix<_Tp, nr, nc>& out_val) {
+const HRESULT autoit_to(VARIANT const* const& in_val, dlib::matrix<_Tp, nr, nc>& out_val) {
 	if (PARAMETER_MISSING(in_val)) {
 		return S_OK;
 	}
@@ -250,12 +250,12 @@ end:
 }
 
 template<typename _Tp, long nr, long nc>
-const HRESULT autoit_from(const cv::Ptr<matrix<_Tp, nr, nc>>& in_val, VARIANT*& out_val) {
+const HRESULT autoit_from(const cv::Ptr<dlib::matrix<_Tp, nr, nc>>& in_val, VARIANT*& out_val) {
 	return autoit_from(*in_val.get(), out_val);
 }
 
 template<typename _Tp, long nr, long nc>
-const HRESULT autoit_from(const matrix<_Tp, nr, nc>& in_val, VARIANT*& out_val) {
+const HRESULT autoit_from(const dlib::matrix<_Tp, nr, nc>& in_val, VARIANT*& out_val) {
 	if (PARAMETER_MISSING(out_val)) {
 		V_VT(out_val) = VT_ARRAY | VT_VARIANT;
 		typename ATL::template CComSafeArray<VARIANT> vArray((ULONG)0);

@@ -12,8 +12,6 @@
 #include <vector>
 #include "cv_image.h"
 
-using namespace std;
-
 namespace dlib {
 	// ----------------------------------------------------------------------------------------
 

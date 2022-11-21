@@ -29,7 +29,7 @@ const declarations = [
         ["double", "adjust_threshold", "0.0", []],
     ], "", ""],
 
-    ["dlib.fhog_object_detector.save", "void", ["/Call=dlib::save_object_to_file<fhog_object_detector>", "/Expr=*this->__self->get(), $0"], [
+    ["dlib.fhog_object_detector.save", "void", ["/Call=dlib::save_object_to_file<fhog_object_detector>", "/Expr=*__self->get(), $0"], [
         ["string", "detector_output_filename", "", []],
     ], "", ""],
 

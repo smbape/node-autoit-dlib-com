@@ -4,15 +4,15 @@ using namespace dlib;
 using std::ostringstream;
 
 STDMETHODIMP CDlib_Matrix_Object::get_shape(VARIANT* pVal) {
-	if (this->__self) {
-		auto& m = *this->__self->get();
+	if (__self) {
+		auto& m = *__self->get();
 		autoit_from(std::make_tuple(m.nr(), m.nc()), pVal);
 		return S_OK;
 	}
 	return E_FAIL;
 }
 
-const string mat_row::ToString() {
+const std::string mat_row::ToString() {
 	auto& c = *this;
 	ostringstream sout;
 	sout << mat(c.data, 1, c.size);
@@ -83,26 +83,26 @@ const std::shared_ptr<Matrix> CDlib_Matrix_Object::create(long rows, long cols, 
 }
 
 void CDlib_Matrix_Object::set_size(long rows, long cols, HRESULT& hr) {
-	auto& m = *this->__self->get();
+	auto& m = *__self->get();
 	m.set_size(rows, cols);
 	m = 0;
 	hr = S_OK;
 }
 
 void CDlib_Matrix_Object::serialize(const std::string file, HRESULT& hr) {
-	auto& m = *this->__self->get();
+	auto& m = *__self->get();
 	dlib::serialize(file) << m;
 	hr = S_OK;
 }
 
 void CDlib_Matrix_Object::deserialize(const std::string file, HRESULT& hr) {
-	auto& m = *this->__self->get();
+	auto& m = *__self->get();
 	dlib::deserialize(file) >> m;
 	hr = S_OK;
 }
 
 const mat_row CDlib_Matrix_Object::get(long r, HRESULT& hr) {
-	auto& m = *this->__self->get();
+	auto& m = *__self->get();
 	if (r < 0) {
 		r = m.nr() + r; // negative index
 	}
@@ -115,9 +115,9 @@ const mat_row CDlib_Matrix_Object::get(long r, HRESULT& hr) {
 	return mat_row(&m(r, 0), m.nc());
 }
 
-const string CDlib_Matrix_Object::ToString(HRESULT& hr) {
+const std::string CDlib_Matrix_Object::ToString(HRESULT& hr) {
 	hr = S_OK;
-	auto& m = *this->__self->get();
+	auto& m = *__self->get();
 	ostringstream sout;
 	sout << m;
 	return trim(sout.str());

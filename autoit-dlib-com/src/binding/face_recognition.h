@@ -10,8 +10,6 @@
 #include <dlib/clustering.h>
 #include "base.h"
 
-using namespace std;
-
 namespace dlib {
 	class CV_EXPORTS_W face_recognition_model_v1
 	{

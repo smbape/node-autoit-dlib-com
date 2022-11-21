@@ -109,7 +109,7 @@ module.exports = [
         ["size_t", "idx", "", ["/O", "/Ref"]],
     ], "", ""],
 
-    ["dlib.global_function_search.get_next_x", "function_evaluation_request", ["/WrapAs=std::move", "/WrapAs=std::make_shared<function_evaluation_request>"], [], "", ""],
+    ["dlib.global_function_search.get_next_x", "std::shared_ptr<function_evaluation_request>", ["/WrapAs=std::move", "/WrapAs=std::make_shared<function_evaluation_request>"], [], "", ""],
 
     ["dlib.global_function_search.get_pure_random_search_probability", "double", [], [], "", ""],
     ["dlib.global_function_search.set_pure_random_search_probability", "void", [], [

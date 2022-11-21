@@ -612,7 +612,7 @@ void CDlib_Fhog_object_detector_Object::run(
 	HRESULT& hr
 ) {
 	hr = S_OK;
-	auto& detector = *this->__self->get();
+	auto& detector = *__self->get();
 	rectangles = run_detector_with_upscale(detector, img, upsampling_amount, adjust_threshold, detection_confidences, weight_indices);
 }
 
@@ -626,7 +626,7 @@ void CDlib_Fhog_object_detector_Object::call(
 	HRESULT& hr
 ) {
 	hr = S_OK;
-	auto& detector = *this->__self->get();
+	auto& detector = *__self->get();
 	rectangles = run_detector_with_upscale(detector, img, upsampling_amount, adjust_threshold, detection_confidences, weight_indices);
 }
 

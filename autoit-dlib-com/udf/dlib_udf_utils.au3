@@ -122,7 +122,7 @@ Func _Dlib_FindFile($sFile, $sFilter = Default, $sDir = Default, $iFlag = Defaul
 	If $sDir == Default Then $sDir = @ScriptDir
 	If $aSearchPaths == Default Then $aSearchPaths = _Dlib_Tuple(1, ".")
 
-	_Dlib_DebugMsg("_Dlib_FindFile('" & $sFile & "', '" & $sDir & "') " & VarGetType($aSearchPaths))
+	_Dlib_DebugMsg("_Dlib_FindFile('" & $sFile & "', '" & $sFilter & "', '" & $sDir & "') " & VarGetType($aSearchPaths))
 
 	Local $sFound = "", $sPath, $aFileList
 	Local $sDrive = "", $sFileName = "", $sExtension = ""
@@ -169,7 +169,7 @@ Func _Dlib_FindFile($sFile, $sFilter = Default, $sDir = Default, $iFlag = Defaul
 EndFunc   ;==>_Dlib_FindFile
 
 Func _Dlib_FindDLL($sFile, $sFilter = Default, $sDir = Default, $bReverse = Default)
-	Local $sBuildType = $_dlib_build_type == "Debug" ? "Debug" : "Release"
+	Local $sBuildType = $_dlib_build_type == "Debug" ? "Debug" : "RelWithDebInfo"
 	Local $sPostfix = $_dlib_build_type == "Debug" ? "d" : ""
 
 	Local $aSearchPaths[] = [ _
@@ -184,6 +184,12 @@ Func _Dlib_FindDLL($sFile, $sFilter = Default, $sDir = Default, $bReverse = Defa
 			"autoit-dlib-com\build_x64", _
 			"autoit-dlib-com\build_x64\" & $sBuildType _
 			]
+
+	If $_dlib_build_type <> "Debug" Then
+		_ArrayAdd($aSearchPaths, "build_x64\Release")
+		_ArrayAdd($aSearchPaths, "autoit-dlib-com\build_x64\Release")
+	EndIf
+
 	$aSearchPaths[0] = UBound($aSearchPaths) - 1
 
 	Return _Dlib_FindFile($sFile & $sPostfix & ".dll", $sFilter, $sDir, $FLTA_FILES, $aSearchPaths, $bReverse)

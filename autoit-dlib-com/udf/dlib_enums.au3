@@ -1,7 +1,7 @@
 #include-once
 #include "dlib_interface.au3"
 
-; keyboard_state_masks
+; dlib::image_window::keyboard_state_masks
 Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_NONE = 0
 Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_SHIFT = 1
 Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_CONTROL = 2
@@ -11,7 +11,7 @@ Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_CAPS_LOCK = 16
 Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_NUM_LOCK = 32
 Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_SCROLL_LOCK = 64
 
-; non_printable_keyboard_keys
+; dlib::image_window::non_printable_keyboard_keys
 Global Const $DLIB_IMAGE_WINDOW_KEY_BACKSPACE = "BACKSPACE"
 Global Const $DLIB_IMAGE_WINDOW_KEY_SHIFT = "SHIFT"
 Global Const $DLIB_IMAGE_WINDOW_KEY_CTRL = "CTRL"
@@ -43,7 +43,7 @@ Global Const $DLIB_IMAGE_WINDOW_KEY_F10 = "F10"
 Global Const $DLIB_IMAGE_WINDOW_KEY_F11 = "F11"
 Global Const $DLIB_IMAGE_WINDOW_KEY_F12 = "F12"
 
-; gender_t
+; dlib::image_dataset_metadata::gender_t
 Global Const $DLIB_IMAGE_DATASET_METADATA_UNKNOWN = 0
 Global Const $DLIB_IMAGE_DATASET_METADATA_MALE = 1
 Global Const $DLIB_IMAGE_DATASET_METADATA_FEMALE = 2

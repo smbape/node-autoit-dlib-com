@@ -62,18 +62,18 @@ static void testMatrix() {
 
 	std::wcout << MatrixPtr->ToString() << std::endl;
 
-	auto _result = MatrixPtr->create();
+	auto _result = MatrixPtr->Getcreate();
 	assert(V_VT(&_result) == VT_DISPATCH);
 	auto matrix = static_cast<dlibCOM::IDlib_Matrix_Object*>(V_DISPATCH(&_result));
 	std::wcout << matrix->ToString() << std::endl;
 
-	_result = MatrixPtr->create(to_variant_t(3), to_variant_t(2));
+	_result = MatrixPtr->Getcreate(to_variant_t(3), to_variant_t(2));
 	assert(V_VT(&_result) == VT_DISPATCH);
 	matrix = static_cast<dlibCOM::IDlib_Matrix_Object*>(V_DISPATCH(&_result));
 	std::wcout << matrix->ToString() << std::endl;
 
 	_variant_t values = _Dlib_Tuple(1, 2, 3, 4);
-	_result = MatrixPtr->create(&values);
+	_result = MatrixPtr->Getcreate(&values);
 	assert(V_VT(&_result) == VT_DISPATCH);
 	matrix = static_cast<dlibCOM::IDlib_Matrix_Object*>(V_DISPATCH(&_result));
 	std::wcout << matrix->ToString() << std::endl;
@@ -119,7 +119,7 @@ static void test_face_recognition_model_v1() {
 
 	_bstr_t dat_path;
 	string_to_bstr("..\\..\\examples\\data\\dlib_face_recognition_resnet_model_v1.dat", dat_path);
-	auto facerec = Face_recognition_model_v1->create(to_variant_t(dat_path));
+	auto facerec = Face_recognition_model_v1->Getcreate(to_variant_t(dat_path));
 }
 
 static void test_find_candidate_object_locations() {

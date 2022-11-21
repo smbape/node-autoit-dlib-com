@@ -3,17 +3,17 @@
 
 using namespace dlib;
 
-const string CDlib_Drectangle_Object::ToString(HRESULT& hr) {
+const std::string CDlib_Drectangle_Object::ToString(HRESULT& hr) {
 	hr = S_OK;
-	auto& r = *this->__self->get();
+	auto& r = *__self->get();
 	std::ostringstream sout;
 	sout << r;
 	return sout.str();
 }
 
-const string CDlib_Rectangle_Object::ToString(HRESULT& hr) {
+const std::string CDlib_Rectangle_Object::ToString(HRESULT& hr) {
 	hr = S_OK;
-	auto& r = *this->__self->get();
+	auto& r = *__self->get();
 	std::ostringstream sout;
 	sout << r;
 	return sout.str();

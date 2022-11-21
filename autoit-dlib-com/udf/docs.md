@@ -6,210 +6,283 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [NamedParameters](#namedparameters)
+  - [NamedParameters::create](#namedparameterscreate)
+  - [NamedParameters::Add](#namedparametersadd)
+  - [NamedParameters::Get](#namedparametersget)
+  - [NamedParameters::Items](#namedparametersitems)
+  - [NamedParameters::Keys](#namedparameterskeys)
+  - [NamedParameters::Remove](#namedparametersremove)
+  - [NamedParameters::clear](#namedparametersclear)
+  - [NamedParameters::contains](#namedparameterscontains)
+  - [NamedParameters::count](#namedparameterscount)
+  - [NamedParameters::empty](#namedparametersempty)
+  - [NamedParameters::erase](#namedparameterserase)
+  - [NamedParameters::get\_Item](#namedparametersget%5C_item)
+  - [NamedParameters::get\_\_NewEnum](#namedparametersget%5C_%5C_newenum)
+  - [NamedParameters::has](#namedparametershas)
+  - [NamedParameters::max\_size](#namedparametersmax%5C_size)
+  - [NamedParameters::merge](#namedparametersmerge)
+  - [NamedParameters::put\_Item](#namedparametersput%5C_item)
+  - [NamedParameters::size](#namedparameterssize)
 - [dlib](#dlib)
-  - [dlib::angle_between_lines](#dlibangle_between_lines)
-  - [dlib::apply_cca_transform](#dlibapply_cca_transform)
-  - [dlib::assignment_cost](#dlibassignment_cost)
-  - [dlib::auto_train_rbf_classifier](#dlibauto_train_rbf_classifier)
+  - [dlib.binary\_test](#dlibbinary%5C_test)
+  - [dlib.regression\_test](#dlibregression%5C_test)
+  - [dlib.ranking\_test](#dlibranking%5C_test)
+  - [dlib.cca\_outputs](#dlibcca%5C_outputs)
+  - [dlib.cnn\_face\_detection\_model\_v1](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1)
+  - [dlib.face\_recognition\_model\_v1](#dlibface%5C_recognition%5C_model%5C_v1)
+  - [dlib.\_row](#dlib%5C_row)
+  - [dlib.segmenter\_type](#dlibsegmenter%5C_type)
+  - [dlib.segmenter\_params](#dlibsegmenter%5C_params)
+  - [dlib.segmenter\_test](#dlibsegmenter%5C_test)
+  - [dlib.shape\_predictor\_training\_options](#dlibshape%5C_predictor%5C_training%5C_options)
+  - [dlib.simple\_object\_detector\_training\_options](#dlibsimple%5C_object%5C_detector%5C_training%5C_options)
+  - [dlib.simple\_test\_results](#dlibsimple%5C_test%5C_results)
+  - [dlib.simple\_object\_detector\_com](#dlibsimple%5C_object%5C_detector%5C_com)
+  - [dlib.simple\_structural\_svm\_problem](#dlibsimple%5C_structural%5C_svm%5C_problem)
+  - [dlib.mmod\_rect](#dlibmmod%5C_rect)
+  - [dlib.correlation\_tracker](#dlibcorrelation%5C_tracker)
+  - [dlib.\_radial\_basis\_kernel](#dlib%5C_radial%5C_basis%5C_kernel)
+  - [dlib.\_linear\_kernel](#dlib%5C_linear%5C_kernel)
+  - [dlib.\_decision\_function\_linear](#dlib%5C_decision%5C_function%5C_linear)
+  - [dlib.\_decision\_function\_sparse\_linear](#dlib%5C_decision%5C_function%5C_sparse%5C_linear)
+  - [dlib.\_decision\_function\_histogram\_intersection](#dlib%5C_decision%5C_function%5C_histogram%5C_intersection)
+  - [dlib.\_decision\_function\_sparse\_histogram\_intersection](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersection)
+  - [dlib.\_decision\_function\_polynomial](#dlib%5C_decision%5C_function%5C_polynomial)
+  - [dlib.\_decision\_function\_sparse\_polynomial](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomial)
+  - [dlib.\_decision\_function\_radial\_basis](#dlib%5C_decision%5C_function%5C_radial%5C_basis)
+  - [dlib.\_decision\_function\_sparse\_radial\_basis](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basis)
+  - [dlib.\_decision\_function\_sigmoid](#dlib%5C_decision%5C_function%5C_sigmoid)
+  - [dlib.\_decision\_function\_sparse\_sigmoid](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoid)
+  - [dlib.\_normalized\_decision\_function\_radial\_basis](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basis)
+  - [dlib.extended](#dlibextended)
+  - [dlib.version](#dlibversion)
+  - [dlib.time\_compiled](#dlibtime%5C_compiled)
+  - [dlib.DLIB\_USE\_CUDA](#dlibdlib%5C_use%5C_cuda)
+  - [dlib.DLIB\_USE\_BLAS](#dlibdlib%5C_use%5C_blas)
+  - [dlib.DLIB\_USE\_LAPACK](#dlibdlib%5C_use%5C_lapack)
+  - [dlib.USE\_AVX\_INSTRUCTIONS](#dlibuse%5C_avx%5C_instructions)
+  - [dlib.USE\_NEON\_INSTRUCTIONS](#dlibuse%5C_neon%5C_instructions)
+  - [dlib.function\_evaluation](#dlibfunction%5C_evaluation)
+  - [dlib.function\_spec](#dlibfunction%5C_spec)
+  - [dlib.function\_evaluation\_request](#dlibfunction%5C_evaluation%5C_request)
+  - [dlib.global\_function\_search](#dlibglobal%5C_function%5C_search)
+  - [dlib.image\_window](#dlibimage%5C_window)
+  - [dlib.rgb\_pixel](#dlibrgb%5C_pixel)
+  - [dlib.line](#dlibline)
+  - [dlib.Matrix](#dlibmatrix)
+  - [dlib.fhog\_object\_detector](#dlibfhog%5C_object%5C_detector)
+  - [dlib.rect\_filter](#dlibrect%5C_filter)
+  - [dlib.rectangle](#dlibrectangle)
+  - [dlib.drectangle](#dlibdrectangle)
+  - [dlib.full\_object\_detection](#dlibfull%5C_object%5C_detection)
+  - [dlib.shape\_predictor](#dlibshape%5C_predictor)
+  - [dlib.svm\_c\_trainer\_radial\_basis](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basis)
+  - [dlib.svm\_c\_trainer\_sparse\_radial\_basis](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basis)
+  - [dlib.svm\_c\_trainer\_histogram\_intersection](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersection)
+  - [dlib.svm\_c\_trainer\_sparse\_histogram\_intersection](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersection)
+  - [dlib.svm\_c\_trainer\_linear](#dlibsvm%5C_c%5C_trainer%5C_linear)
+  - [dlib.svm\_c\_trainer\_sparse\_linear](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linear)
+  - [dlib.rvm\_trainer\_radial\_basis](#dlibrvm%5C_trainer%5C_radial%5C_basis)
+  - [dlib.rvm\_trainer\_sparse\_radial\_basis](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basis)
+  - [dlib.rvm\_trainer\_histogram\_intersection](#dlibrvm%5C_trainer%5C_histogram%5C_intersection)
+  - [dlib.rvm\_trainer\_sparse\_histogram\_intersection](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersection)
+  - [dlib.rvm\_trainer\_linear](#dlibrvm%5C_trainer%5C_linear)
+  - [dlib.rvm\_trainer\_sparse\_linear](#dlibrvm%5C_trainer%5C_sparse%5C_linear)
+  - [dlib.vec\_ranking\_pair](#dlibvec%5C_ranking%5C_pair)
+  - [dlib.sparse\_ranking\_pair](#dlibsparse%5C_ranking%5C_pair)
+  - [dlib.vec\_svm\_rank\_trainer](#dlibvec%5C_svm%5C_rank%5C_trainer)
+  - [dlib.svm\_rank\_trainer\_sparse](#dlibsvm%5C_rank%5C_trainer%5C_sparse)
+  - [dlib.SpaceVector](#dlibspacevector)
+  - [dlib.point\_transform\_projective](#dlibpoint%5C_transform%5C_projective)
+  - [dlib.dpoint](#dlibdpoint)
+  - [dlib.point](#dlibpoint)
+  - [dlib::angle\_between\_lines](#dlibangle%5C_between%5C_lines)
+  - [dlib::apply\_cca\_transform](#dlibapply%5C_cca%5C_transform)
+  - [dlib::assignment\_cost](#dlibassignment%5C_cost)
+  - [dlib::auto\_train\_rbf\_classifier](#dlibauto%5C_train%5C_rbf%5C_classifier)
   - [dlib::cca](#dlibcca)
   - [dlib::center](#dlibcenter)
-  - [dlib::centered_drect](#dlibcentered_drect)
-  - [dlib::centered_rect](#dlibcentered_rect)
-  - [dlib::centered_rects](#dlibcentered_rects)
-  - [dlib::chinese_whispers](#dlibchinese_whispers)
-  - [dlib::chinese_whispers_clustering](#dlibchinese_whispers_clustering)
-  - [dlib::count_points_between_lines](#dlibcount_points_between_lines)
-  - [dlib::count_points_on_side_of_line](#dlibcount_points_on_side_of_line)
-  - [dlib::count_steps_without_decrease](#dlibcount_steps_without_decrease)
-  - [dlib::count_steps_without_decrease_robust](#dlibcount_steps_without_decrease_robust)
-  - [dlib::cross_validate_ranking_trainer](#dlibcross_validate_ranking_trainer)
-  - [dlib::cross_validate_sequence_segmenter](#dlibcross_validate_sequence_segmenter)
-  - [dlib::cross_validate_trainer](#dlibcross_validate_trainer)
-  - [dlib::cross_validate_trainer_threaded](#dlibcross_validate_trainer_threaded)
-  - [dlib::distance_to_line](#dlibdistance_to_line)
-  - [dlib::dnn_prefer_fastest_algorithms](#dlibdnn_prefer_fastest_algorithms)
+  - [dlib::centered\_drect](#dlibcentered%5C_drect)
+  - [dlib::centered\_rect](#dlibcentered%5C_rect)
+  - [dlib::centered\_rects](#dlibcentered%5C_rects)
+  - [dlib::chinese\_whispers](#dlibchinese%5C_whispers)
+  - [dlib::chinese\_whispers\_clustering](#dlibchinese%5C_whispers%5C_clustering)
+  - [dlib::count\_points\_between\_lines](#dlibcount%5C_points%5C_between%5C_lines)
+  - [dlib::count\_points\_on\_side\_of\_line](#dlibcount%5C_points%5C_on%5C_side%5C_of%5C_line)
+  - [dlib::count\_steps\_without\_decrease](#dlibcount%5C_steps%5C_without%5C_decrease)
+  - [dlib::count\_steps\_without\_decrease\_robust](#dlibcount%5C_steps%5C_without%5C_decrease%5C_robust)
+  - [dlib::cross\_validate\_ranking\_trainer](#dlibcross%5C_validate%5C_ranking%5C_trainer)
+  - [dlib::cross\_validate\_sequence\_segmenter](#dlibcross%5C_validate%5C_sequence%5C_segmenter)
+  - [dlib::cross\_validate\_trainer](#dlibcross%5C_validate%5C_trainer)
+  - [dlib::cross\_validate\_trainer\_threaded](#dlibcross%5C_validate%5C_trainer%5C_threaded)
+  - [dlib::distance\_to\_line](#dlibdistance%5C_to%5C_line)
+  - [dlib::dnn\_prefer\_fastest\_algorithms](#dlibdnn%5C_prefer%5C_fastest%5C_algorithms)
   - [dlib::dot](#dlibdot)
-  - [dlib::find_candidate_object_locations](#dlibfind_candidate_object_locations)
-  - [dlib::find_max_global](#dlibfind_max_global)
-  - [dlib::find_min_global](#dlibfind_min_global)
-  - [dlib::find_optimal_rect_filter](#dlibfind_optimal_rect_filter)
-  - [dlib::find_projective_transform](#dlibfind_projective_transform)
-  - [dlib::get_face_chip](#dlibget_face_chip)
-  - [dlib::get_face_chips](#dlibget_face_chips)
-  - [dlib::get_frontal_face_detector](#dlibget_frontal_face_detector)
-  - [dlib::hit_enter_to_continue](#dlibhit_enter_to_continue)
+  - [dlib::find\_candidate\_object\_locations](#dlibfind%5C_candidate%5C_object%5C_locations)
+  - [dlib::find\_max\_global](#dlibfind%5C_max%5C_global)
+  - [dlib::find\_min\_global](#dlibfind%5C_min%5C_global)
+  - [dlib::find\_optimal\_rect\_filter](#dlibfind%5C_optimal%5C_rect%5C_filter)
+  - [dlib::find\_projective\_transform](#dlibfind%5C_projective%5C_transform)
+  - [dlib::get\_face\_chip](#dlibget%5C_face%5C_chip)
+  - [dlib::get\_face\_chips](#dlibget%5C_face%5C_chips)
+  - [dlib::get\_frontal\_face\_detector](#dlibget%5C_frontal%5C_face%5C_detector)
+  - [dlib::hit\_enter\_to\_continue](#dlibhit%5C_enter%5C_to%5C_continue)
   - [dlib::intersect](#dlibintersect)
   - [dlib::inv](#dlibinv)
-  - [dlib::jitter_image](#dlibjitter_image)
+  - [dlib::jitter\_image](#dlibjitter%5C_image)
   - [dlib::length](#dliblength)
-  - [dlib::load_grayscale_image](#dlibload_grayscale_image)
-  - [dlib::load_libsvm_formatted_data](#dlibload_libsvm_formatted_data)
-  - [dlib::load_rgb_image](#dlibload_rgb_image)
-  - [dlib::make_sparse_vector](#dlibmake_sparse_vector)
-  - [dlib::max_cost_assignment](#dlibmax_cost_assignment)
-  - [dlib::max_index_plus_one](#dlibmax_index_plus_one)
-  - [dlib::num_separable_filters](#dlibnum_separable_filters)
-  - [dlib::polygon_area](#dlibpolygon_area)
-  - [dlib::probability_that_sequence_is_increasing](#dlibprobability_that_sequence_is_increasing)
+  - [dlib::load\_grayscale\_image](#dlibload%5C_grayscale%5C_image)
+  - [dlib::load\_libsvm\_formatted\_data](#dlibload%5C_libsvm%5C_formatted%5C_data)
+  - [dlib::load\_rgb\_image](#dlibload%5C_rgb%5C_image)
+  - [dlib::make\_sparse\_vector](#dlibmake%5C_sparse%5C_vector)
+  - [dlib::max\_cost\_assignment](#dlibmax%5C_cost%5C_assignment)
+  - [dlib::max\_index\_plus\_one](#dlibmax%5C_index%5C_plus%5C_one)
+  - [dlib::num\_separable\_filters](#dlibnum%5C_separable%5C_filters)
+  - [dlib::polygon\_area](#dlibpolygon%5C_area)
+  - [dlib::probability\_that\_sequence\_is\_increasing](#dlibprobability%5C_that%5C_sequence%5C_is%5C_increasing)
   - [dlib::reduce](#dlibreduce)
-  - [dlib::save_face_chip](#dlibsave_face_chip)
-  - [dlib::save_face_chips](#dlibsave_face_chips)
-  - [dlib::save_image](#dlibsave_image)
-  - [dlib::save_libsvm_formatted_data](#dlibsave_libsvm_formatted_data)
-  - [dlib::scale_rect](#dlibscale_rect)
-  - [dlib::set_dnn_prefer_fastest_algorithms](#dlibset_dnn_prefer_fastest_algorithms)
-  - [dlib::set_dnn_prefer_smallest_algorithms](#dlibset_dnn_prefer_smallest_algorithms)
-  - [dlib::shrink_rect](#dlibshrink_rect)
-  - [dlib::signed_distance_to_line](#dlibsigned_distance_to_line)
-  - [dlib::solve_structural_svm_problem](#dlibsolve_structural_svm_problem)
-  - [dlib::test_binary_decision_function](#dlibtest_binary_decision_function)
-  - [dlib::test_ranking_function](#dlibtest_ranking_function)
-  - [dlib::test_regression_function](#dlibtest_regression_function)
-  - [dlib::test_sequence_segmenter](#dlibtest_sequence_segmenter)
-  - [dlib::test_shape_predictor](#dlibtest_shape_predictor)
-  - [dlib::test_simple_object_detector](#dlibtest_simple_object_detector)
-  - [dlib::threshold_filter_singular_values](#dlibthreshold_filter_singular_values)
-  - [dlib::train_sequence_segmenter](#dlibtrain_sequence_segmenter)
-  - [dlib::train_shape_predictor](#dlibtrain_shape_predictor)
-  - [dlib::train_simple_object_detector](#dlibtrain_simple_object_detector)
-  - [dlib::translate_rect](#dlibtranslate_rect)
+  - [dlib::save\_face\_chip](#dlibsave%5C_face%5C_chip)
+  - [dlib::save\_face\_chips](#dlibsave%5C_face%5C_chips)
+  - [dlib::save\_image](#dlibsave%5C_image)
+  - [dlib::save\_libsvm\_formatted\_data](#dlibsave%5C_libsvm%5C_formatted%5C_data)
+  - [dlib::scale\_rect](#dlibscale%5C_rect)
+  - [dlib::set\_dnn\_prefer\_fastest\_algorithms](#dlibset%5C_dnn%5C_prefer%5C_fastest%5C_algorithms)
+  - [dlib::set\_dnn\_prefer\_smallest\_algorithms](#dlibset%5C_dnn%5C_prefer%5C_smallest%5C_algorithms)
+  - [dlib::shrink\_rect](#dlibshrink%5C_rect)
+  - [dlib::signed\_distance\_to\_line](#dlibsigned%5C_distance%5C_to%5C_line)
+  - [dlib::solve\_structural\_svm\_problem](#dlibsolve%5C_structural%5C_svm%5C_problem)
+  - [dlib::test\_binary\_decision\_function](#dlibtest%5C_binary%5C_decision%5C_function)
+  - [dlib::test\_ranking\_function](#dlibtest%5C_ranking%5C_function)
+  - [dlib::test\_regression\_function](#dlibtest%5C_regression%5C_function)
+  - [dlib::test\_sequence\_segmenter](#dlibtest%5C_sequence%5C_segmenter)
+  - [dlib::test\_shape\_predictor](#dlibtest%5C_shape%5C_predictor)
+  - [dlib::test\_simple\_object\_detector](#dlibtest%5C_simple%5C_object%5C_detector)
+  - [dlib::threshold\_filter\_singular\_values](#dlibthreshold%5C_filter%5C_singular%5C_values)
+  - [dlib::train\_sequence\_segmenter](#dlibtrain%5C_sequence%5C_segmenter)
+  - [dlib::train\_shape\_predictor](#dlibtrain%5C_shape%5C_predictor)
+  - [dlib::train\_simple\_object\_detector](#dlibtrain%5C_simple%5C_object%5C_detector)
+  - [dlib::translate\_rect](#dlibtranslate%5C_rect)
   - [dlib::variant](#dlibvariant)
-- [dlib::binary_test](#dlibbinary_test)
-  - [dlib::binary_test::create](#dlibbinary_testcreate)
-  - [dlib::binary_test::ToString](#dlibbinary_testtostring)
-- [dlib::regression_test](#dlibregression_test)
-  - [dlib::regression_test::create](#dlibregression_testcreate)
-  - [dlib::regression_test::ToString](#dlibregression_testtostring)
-- [dlib::ranking_test](#dlibranking_test)
-  - [dlib::ranking_test::create](#dlibranking_testcreate)
-  - [dlib::ranking_test::ToString](#dlibranking_testtostring)
-- [dlib::cca_outputs](#dlibcca_outputs)
-  - [dlib::cca_outputs::create](#dlibcca_outputscreate)
-- [dlib::cnn_face_detection_model_v1](#dlibcnn_face_detection_model_v1)
-  - [dlib::cnn_face_detection_model_v1::create](#dlibcnn_face_detection_model_v1create)
-  - [dlib::cnn_face_detection_model_v1::detect](#dlibcnn_face_detection_model_v1detect)
-  - [dlib::cnn_face_detection_model_v1::detect_multi](#dlibcnn_face_detection_model_v1detect_multi)
-  - [dlib::cnn_face_detection_model_v1::get_call](#dlibcnn_face_detection_model_v1get_call)
-- [dlib::face_recognition_model_v1](#dlibface_recognition_model_v1)
-  - [dlib::face_recognition_model_v1::create](#dlibface_recognition_model_v1create)
-  - [dlib::face_recognition_model_v1::compute_face_descriptor](#dlibface_recognition_model_v1compute_face_descriptor)
-- [dlib::_row](#dlib_row)
-  - [dlib::_row::create](#dlib_rowcreate)
-  - [dlib::_row::ToString](#dlib_rowtostring)
-  - [dlib::_row::get](#dlib_rowget)
-  - [dlib::_row::set](#dlib_rowset)
-- [dlib::segmenter_type](#dlibsegmenter_type)
-  - [dlib::segmenter_type::create](#dlibsegmenter_typecreate)
-  - [dlib::segmenter_type::get_call](#dlibsegmenter_typeget_call)
-- [dlib::segmenter_params](#dlibsegmenter_params)
-  - [dlib::segmenter_params::create](#dlibsegmenter_paramscreate)
-  - [dlib::segmenter_params::ToString](#dlibsegmenter_paramstostring)
-- [dlib::segmenter_test](#dlibsegmenter_test)
-  - [dlib::segmenter_test::create](#dlibsegmenter_testcreate)
-  - [dlib::segmenter_test::ToString](#dlibsegmenter_testtostring)
-- [dlib::shape_predictor_training_options](#dlibshape_predictor_training_options)
-  - [dlib::shape_predictor_training_options::create](#dlibshape_predictor_training_optionscreate)
-  - [dlib::shape_predictor_training_options::ToString](#dlibshape_predictor_training_optionstostring)
-- [dlib::simple_object_detector_training_options](#dlibsimple_object_detector_training_options)
-  - [dlib::simple_object_detector_training_options::create](#dlibsimple_object_detector_training_optionscreate)
-  - [dlib::simple_object_detector_training_options::ToString](#dlibsimple_object_detector_training_optionstostring)
-- [dlib::simple_test_results](#dlibsimple_test_results)
-  - [dlib::simple_test_results::create](#dlibsimple_test_resultscreate)
-  - [dlib::simple_test_results::ToString](#dlibsimple_test_resultstostring)
-- [dlib::simple_object_detector_com](#dlibsimple_object_detector_com)
-  - [dlib::simple_object_detector_com::create](#dlibsimple_object_detector_comcreate)
-  - [dlib::simple_object_detector_com::get_call](#dlibsimple_object_detector_comget_call)
-  - [dlib::simple_object_detector_com::run_multiple](#dlibsimple_object_detector_comrun_multiple)
-- [dlib::simple_structural_svm_problem](#dlibsimple_structural_svm_problem)
-  - [dlib::simple_structural_svm_problem::create](#dlibsimple_structural_svm_problemcreate)
-- [dlib::mmod_rect](#dlibmmod_rect)
-  - [dlib::mmod_rect::create](#dlibmmod_rectcreate)
-- [dlib::cuda](#dlibcuda)
-  - [dlib::cuda::can_access_peer](#dlibcudacan_access_peer)
-  - [dlib::cuda::device_synchronize](#dlibcudadevice_synchronize)
-  - [dlib::cuda::get_device](#dlibcudaget_device)
-  - [dlib::cuda::get_device_name](#dlibcudaget_device_name)
-  - [dlib::cuda::set_current_device_blocking_sync](#dlibcudaset_current_device_blocking_sync)
-  - [dlib::cuda::set_device](#dlibcudaset_device)
-- [dlib::correlation_tracker](#dlibcorrelation_tracker)
-  - [dlib::correlation_tracker::create](#dlibcorrelation_trackercreate)
-  - [dlib::correlation_tracker::get_position](#dlibcorrelation_trackerget_position)
-  - [dlib::correlation_tracker::start_track](#dlibcorrelation_trackerstart_track)
-  - [dlib::correlation_tracker::update](#dlibcorrelation_trackerupdate)
-- [dlib::_radial_basis_kernel](#dlib_radial_basis_kernel)
-  - [dlib::_radial_basis_kernel::create](#dlib_radial_basis_kernelcreate)
-- [dlib::_linear_kernel](#dlib_linear_kernel)
-  - [dlib::_linear_kernel::create](#dlib_linear_kernelcreate)
-- [dlib::_decision_function_linear](#dlib_decision_function_linear)
-  - [dlib::_decision_function_linear::create](#dlib_decision_function_linearcreate)
-  - [dlib::_decision_function_linear::get_call](#dlib_decision_function_linearget_call)
-- [dlib::_decision_function_sparse_linear](#dlib_decision_function_sparse_linear)
-  - [dlib::_decision_function_sparse_linear::create](#dlib_decision_function_sparse_linearcreate)
-  - [dlib::_decision_function_sparse_linear::get_call](#dlib_decision_function_sparse_linearget_call)
-- [dlib::_decision_function_histogram_intersection](#dlib_decision_function_histogram_intersection)
-  - [dlib::_decision_function_histogram_intersection::create](#dlib_decision_function_histogram_intersectioncreate)
-  - [dlib::_decision_function_histogram_intersection::get_call](#dlib_decision_function_histogram_intersectionget_call)
-- [dlib::_decision_function_sparse_histogram_intersection](#dlib_decision_function_sparse_histogram_intersection)
-  - [dlib::_decision_function_sparse_histogram_intersection::create](#dlib_decision_function_sparse_histogram_intersectioncreate)
-  - [dlib::_decision_function_sparse_histogram_intersection::get_call](#dlib_decision_function_sparse_histogram_intersectionget_call)
-- [dlib::_decision_function_polynomial](#dlib_decision_function_polynomial)
-  - [dlib::_decision_function_polynomial::create](#dlib_decision_function_polynomialcreate)
-  - [dlib::_decision_function_polynomial::get_call](#dlib_decision_function_polynomialget_call)
-- [dlib::_decision_function_sparse_polynomial](#dlib_decision_function_sparse_polynomial)
-  - [dlib::_decision_function_sparse_polynomial::create](#dlib_decision_function_sparse_polynomialcreate)
-  - [dlib::_decision_function_sparse_polynomial::get_call](#dlib_decision_function_sparse_polynomialget_call)
-- [dlib::_decision_function_radial_basis](#dlib_decision_function_radial_basis)
-  - [dlib::_decision_function_radial_basis::create](#dlib_decision_function_radial_basiscreate)
-  - [dlib::_decision_function_radial_basis::get_call](#dlib_decision_function_radial_basisget_call)
-- [dlib::_decision_function_sparse_radial_basis](#dlib_decision_function_sparse_radial_basis)
-  - [dlib::_decision_function_sparse_radial_basis::create](#dlib_decision_function_sparse_radial_basiscreate)
-  - [dlib::_decision_function_sparse_radial_basis::get_call](#dlib_decision_function_sparse_radial_basisget_call)
-- [dlib::_decision_function_sigmoid](#dlib_decision_function_sigmoid)
-  - [dlib::_decision_function_sigmoid::create](#dlib_decision_function_sigmoidcreate)
-  - [dlib::_decision_function_sigmoid::get_call](#dlib_decision_function_sigmoidget_call)
-- [dlib::_decision_function_sparse_sigmoid](#dlib_decision_function_sparse_sigmoid)
-  - [dlib::_decision_function_sparse_sigmoid::create](#dlib_decision_function_sparse_sigmoidcreate)
-  - [dlib::_decision_function_sparse_sigmoid::get_call](#dlib_decision_function_sparse_sigmoidget_call)
-- [dlib::_normalized_decision_function_radial_basis](#dlib_normalized_decision_function_radial_basis)
-  - [dlib::_normalized_decision_function_radial_basis::create](#dlib_normalized_decision_function_radial_basiscreate)
-  - [dlib::_normalized_decision_function_radial_basis::batch_predict](#dlib_normalized_decision_function_radial_basisbatch_predict)
-  - [dlib::_normalized_decision_function_radial_basis::get_call](#dlib_normalized_decision_function_radial_basisget_call)
-- [dlib::function_evaluation](#dlibfunction_evaluation)
-  - [dlib::function_evaluation::create](#dlibfunction_evaluationcreate)
-- [dlib::function_spec](#dlibfunction_spec)
-  - [dlib::function_spec::create](#dlibfunction_speccreate)
-- [dlib::function_evaluation_request](#dlibfunction_evaluation_request)
-  - [dlib::function_evaluation_request::set](#dlibfunction_evaluation_requestset)
-- [dlib::global_function_search](#dlibglobal_function_search)
-  - [dlib::global_function_search::create](#dlibglobal_function_searchcreate)
-  - [dlib::global_function_search::get_best_function_eval](#dlibglobal_function_searchget_best_function_eval)
-  - [dlib::global_function_search::get_function_evaluations](#dlibglobal_function_searchget_function_evaluations)
-  - [dlib::global_function_search::get_monte_carlo_upper_bound_sample_num](#dlibglobal_function_searchget_monte_carlo_upper_bound_sample_num)
-  - [dlib::global_function_search::get_next_x](#dlibglobal_function_searchget_next_x)
-  - [dlib::global_function_search::get_pure_random_search_probability](#dlibglobal_function_searchget_pure_random_search_probability)
-  - [dlib::global_function_search::get_relative_noise_magnitude](#dlibglobal_function_searchget_relative_noise_magnitude)
-  - [dlib::global_function_search::get_solver_epsilon](#dlibglobal_function_searchget_solver_epsilon)
-  - [dlib::global_function_search::num_functions](#dlibglobal_function_searchnum_functions)
-  - [dlib::global_function_search::set_monte_carlo_upper_bound_sample_num](#dlibglobal_function_searchset_monte_carlo_upper_bound_sample_num)
-  - [dlib::global_function_search::set_pure_random_search_probability](#dlibglobal_function_searchset_pure_random_search_probability)
-  - [dlib::global_function_search::set_relative_noise_magnitude](#dlibglobal_function_searchset_relative_noise_magnitude)
-  - [dlib::global_function_search::set_seed](#dlibglobal_function_searchset_seed)
-  - [dlib::global_function_search::set_solver_epsilon](#dlibglobal_function_searchset_solver_epsilon)
-- [dlib::image_window](#dlibimage_window)
-  - [dlib::image_window::create](#dlibimage_windowcreate)
-  - [dlib::image_window::add_overlay](#dlibimage_windowadd_overlay)
-  - [dlib::image_window::add_overlay_circle](#dlibimage_windowadd_overlay_circle)
-  - [dlib::image_window::clear_overlay](#dlibimage_windowclear_overlay)
-  - [dlib::image_window::get_next_double_click](#dlibimage_windowget_next_double_click)
-  - [dlib::image_window::get_next_keypress](#dlibimage_windowget_next_keypress)
-  - [dlib::image_window::is_closed](#dlibimage_windowis_closed)
-  - [dlib::image_window::set_image](#dlibimage_windowset_image)
-  - [dlib::image_window::set_title](#dlibimage_windowset_title)
-  - [dlib::image_window::wait_for_keypress](#dlibimage_windowwait_for_keypress)
-  - [dlib::image_window::wait_until_closed](#dlibimage_windowwait_until_closed)
-- [dlib::rgb_pixel](#dlibrgb_pixel)
-  - [dlib::rgb_pixel::create](#dlibrgb_pixelcreate)
+- [dlib::binary\_test](#dlibbinary%5C_test)
+  - [binary\_test.class1\_accuracy](#binary%5C_testclass1%5C_accuracy)
+  - [binary\_test.class2\_accuracy](#binary%5C_testclass2%5C_accuracy)
+  - [dlib::binary\_test::get\_create](#dlibbinary%5C_testget%5C_create)
+  - [dlib::binary\_test::ToString](#dlibbinary%5C_testtostring)
+- [dlib::regression\_test](#dlibregression%5C_test)
+  - [regression\_test.mean\_squared\_error](#regression%5C_testmean%5C_squared%5C_error)
+  - [regression\_test.R\_squared](#regression%5C_testr%5C_squared)
+  - [regression\_test.mean\_average\_error](#regression%5C_testmean%5C_average%5C_error)
+  - [regression\_test.mean\_error\_stddev](#regression%5C_testmean%5C_error%5C_stddev)
+  - [dlib::regression\_test::get\_create](#dlibregression%5C_testget%5C_create)
+  - [dlib::regression\_test::ToString](#dlibregression%5C_testtostring)
+- [dlib::ranking\_test](#dlibranking%5C_test)
+  - [ranking\_test.ranking\_accuracy](#ranking%5C_testranking%5C_accuracy)
+  - [ranking\_test.mean\_ap](#ranking%5C_testmean%5C_ap)
+  - [dlib::ranking\_test::get\_create](#dlibranking%5C_testget%5C_create)
+  - [dlib::ranking\_test::ToString](#dlibranking%5C_testtostring)
+- [dlib::cca\_outputs](#dlibcca%5C_outputs)
+  - [cca\_outputs.correlations](#cca%5C_outputscorrelations)
+  - [cca\_outputs.Ltrans](#cca%5C_outputsltrans)
+  - [cca\_outputs.Rtrans](#cca%5C_outputsrtrans)
+  - [dlib::cca\_outputs::get\_create](#dlibcca%5C_outputsget%5C_create)
+- [dlib::cnn\_face\_detection\_model\_v1](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1)
+  - [dlib::cnn\_face\_detection\_model\_v1::create](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1create)
+  - [dlib::cnn\_face\_detection\_model\_v1::detect](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1detect)
+  - [dlib::cnn\_face\_detection\_model\_v1::detect\_multi](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1detect%5C_multi)
+  - [dlib::cnn\_face\_detection\_model\_v1::get\_call](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1get%5C_call)
+- [dlib::face\_recognition\_model\_v1](#dlibface%5C_recognition%5C_model%5C_v1)
+  - [dlib::face\_recognition\_model\_v1::get\_create](#dlibface%5C_recognition%5C_model%5C_v1get%5C_create)
+  - [dlib::face\_recognition\_model\_v1::compute\_face\_descriptor](#dlibface%5C_recognition%5C_model%5C_v1compute%5C_face%5C_descriptor)
+- [dlib::\_row](#dlib%5C_row)
+  - [dlib::\_row::get\_create](#dlib%5C_rowget%5C_create)
+  - [dlib::\_row::ToString](#dlib%5C_rowtostring)
+  - [dlib::\_row::get](#dlib%5C_rowget)
+  - [dlib::\_row::set](#dlib%5C_rowset)
+- [dlib::segmenter\_type](#dlibsegmenter%5C_type)
+  - [segmenter\_type.weights](#segmenter%5C_typeweights)
+  - [dlib::segmenter\_type::create](#dlibsegmenter%5C_typecreate)
+  - [dlib::segmenter\_type::get\_call](#dlibsegmenter%5C_typeget%5C_call)
+- [dlib::segmenter\_params](#dlibsegmenter%5C_params)
+  - [segmenter\_params.use\_BIO\_model](#segmenter%5C_paramsuse%5C_bio%5C_model)
+  - [segmenter\_params.use\_high\_order\_features](#segmenter%5C_paramsuse%5C_high%5C_order%5C_features)
+  - [segmenter\_params.allow\_negative\_weights](#segmenter%5C_paramsallow%5C_negative%5C_weights)
+  - [segmenter\_params.window\_size](#segmenter%5C_paramswindow%5C_size)
+  - [segmenter\_params.num\_threads](#segmenter%5C_paramsnum%5C_threads)
+  - [segmenter\_params.epsilon](#segmenter%5C_paramsepsilon)
+  - [segmenter\_params.max\_cache\_size](#segmenter%5C_paramsmax%5C_cache%5C_size)
+  - [segmenter\_params.be\_verbose](#segmenter%5C_paramsbe%5C_verbose)
+  - [segmenter\_params.C](#segmenter%5C_paramsc)
+  - [dlib::segmenter\_params::get\_create](#dlibsegmenter%5C_paramsget%5C_create)
+  - [dlib::segmenter\_params::ToString](#dlibsegmenter%5C_paramstostring)
+- [dlib::segmenter\_test](#dlibsegmenter%5C_test)
+  - [segmenter\_test.precision](#segmenter%5C_testprecision)
+  - [segmenter\_test.recall](#segmenter%5C_testrecall)
+  - [segmenter\_test.f1](#segmenter%5C_testf1)
+  - [dlib::segmenter\_test::get\_create](#dlibsegmenter%5C_testget%5C_create)
+  - [dlib::segmenter\_test::ToString](#dlibsegmenter%5C_testtostring)
+- [dlib::shape\_predictor\_training\_options](#dlibshape%5C_predictor%5C_training%5C_options)
+  - [shape\_predictor\_training\_options.be\_verbose](#shape%5C_predictor%5C_training%5C_optionsbe%5C_verbose)
+  - [shape\_predictor\_training\_options.cascade\_depth](#shape%5C_predictor%5C_training%5C_optionscascade%5C_depth)
+  - [shape\_predictor\_training\_options.tree\_depth](#shape%5C_predictor%5C_training%5C_optionstree%5C_depth)
+  - [shape\_predictor\_training\_options.num\_trees\_per\_cascade\_level](#shape%5C_predictor%5C_training%5C_optionsnum%5C_trees%5C_per%5C_cascade%5C_level)
+  - [shape\_predictor\_training\_options.nu](#shape%5C_predictor%5C_training%5C_optionsnu)
+  - [shape\_predictor\_training\_options.oversampling\_amount](#shape%5C_predictor%5C_training%5C_optionsoversampling%5C_amount)
+  - [shape\_predictor\_training\_options.oversampling\_translation\_jitter](#shape%5C_predictor%5C_training%5C_optionsoversampling%5C_translation%5C_jitter)
+  - [shape\_predictor\_training\_options.feature\_pool\_size](#shape%5C_predictor%5C_training%5C_optionsfeature%5C_pool%5C_size)
+  - [shape\_predictor\_training\_options.lambda\_param](#shape%5C_predictor%5C_training%5C_optionslambda%5C_param)
+  - [shape\_predictor\_training\_options.num\_test\_splits](#shape%5C_predictor%5C_training%5C_optionsnum%5C_test%5C_splits)
+  - [shape\_predictor\_training\_options.feature\_pool\_region\_padding](#shape%5C_predictor%5C_training%5C_optionsfeature%5C_pool%5C_region%5C_padding)
+  - [shape\_predictor\_training\_options.random\_seed](#shape%5C_predictor%5C_training%5C_optionsrandom%5C_seed)
+  - [shape\_predictor\_training\_options.landmark\_relative\_padding\_mode](#shape%5C_predictor%5C_training%5C_optionslandmark%5C_relative%5C_padding%5C_mode)
+  - [shape\_predictor\_training\_options.num\_threads](#shape%5C_predictor%5C_training%5C_optionsnum%5C_threads)
+  - [dlib::shape\_predictor\_training\_options::get\_create](#dlibshape%5C_predictor%5C_training%5C_optionsget%5C_create)
+  - [dlib::shape\_predictor\_training\_options::ToString](#dlibshape%5C_predictor%5C_training%5C_optionstostring)
+- [dlib::simple\_object\_detector\_training\_options](#dlibsimple%5C_object%5C_detector%5C_training%5C_options)
+  - [simple\_object\_detector\_training\_options.be\_verbose](#simple%5C_object%5C_detector%5C_training%5C_optionsbe%5C_verbose)
+  - [simple\_object\_detector\_training\_options.add\_left\_right\_image\_flips](#simple%5C_object%5C_detector%5C_training%5C_optionsadd%5C_left%5C_right%5C_image%5C_flips)
+  - [simple\_object\_detector\_training\_options.num\_threads](#simple%5C_object%5C_detector%5C_training%5C_optionsnum%5C_threads)
+  - [simple\_object\_detector\_training\_options.detection\_window\_size](#simple%5C_object%5C_detector%5C_training%5C_optionsdetection%5C_window%5C_size)
+  - [simple\_object\_detector\_training\_options.C](#simple%5C_object%5C_detector%5C_training%5C_optionsc)
+  - [simple\_object\_detector\_training\_options.epsilon](#simple%5C_object%5C_detector%5C_training%5C_optionsepsilon)
+  - [simple\_object\_detector\_training\_options.upsample\_limit](#simple%5C_object%5C_detector%5C_training%5C_optionsupsample%5C_limit)
+  - [simple\_object\_detector\_training\_options.nuclear\_norm\_regularization\_strength](#simple%5C_object%5C_detector%5C_training%5C_optionsnuclear%5C_norm%5C_regularization%5C_strength)
+  - [simple\_object\_detector\_training\_options.max\_runtime\_seconds](#simple%5C_object%5C_detector%5C_training%5C_optionsmax%5C_runtime%5C_seconds)
+  - [dlib::simple\_object\_detector\_training\_options::get\_create](#dlibsimple%5C_object%5C_detector%5C_training%5C_optionsget%5C_create)
+  - [dlib::simple\_object\_detector\_training\_options::ToString](#dlibsimple%5C_object%5C_detector%5C_training%5C_optionstostring)
+- [dlib::simple\_test\_results](#dlibsimple%5C_test%5C_results)
+  - [simple\_test\_results.precision](#simple%5C_test%5C_resultsprecision)
+  - [simple\_test\_results.recall](#simple%5C_test%5C_resultsrecall)
+  - [simple\_test\_results.average\_precision](#simple%5C_test%5C_resultsaverage%5C_precision)
+  - [dlib::simple\_test\_results::get\_create](#dlibsimple%5C_test%5C_resultsget%5C_create)
+  - [dlib::simple\_test\_results::ToString](#dlibsimple%5C_test%5C_resultstostring)
+- [dlib::simple\_object\_detector\_com](#dlibsimple%5C_object%5C_detector%5C_com)
+  - [simple\_object\_detector\_com.detector](#simple%5C_object%5C_detector%5C_comdetector)
+  - [simple\_object\_detector\_com.upsampling\_amount](#simple%5C_object%5C_detector%5C_comupsampling%5C_amount)
+  - [simple\_object\_detector\_com.detection\_window\_width](#simple%5C_object%5C_detector%5C_comdetection%5C_window%5C_width)
+  - [simple\_object\_detector\_com.detection\_window\_height](#simple%5C_object%5C_detector%5C_comdetection%5C_window%5C_height)
+  - [simple\_object\_detector\_com.num\_detectors](#simple%5C_object%5C_detector%5C_comnum%5C_detectors)
+  - [dlib::simple\_object\_detector\_com::create](#dlibsimple%5C_object%5C_detector%5C_comcreate)
+  - [dlib::simple\_object\_detector\_com::get\_call](#dlibsimple%5C_object%5C_detector%5C_comget%5C_call)
+  - [dlib::simple\_object\_detector\_com::run\_multiple](#dlibsimple%5C_object%5C_detector%5C_comrun%5C_multiple)
+- [dlib::simple\_structural\_svm\_problem](#dlibsimple%5C_structural%5C_svm%5C_problem)
+  - [simple\_structural\_svm\_problem.C](#simple%5C_structural%5C_svm%5C_problemc)
+  - [simple\_structural\_svm\_problem.num\_samples](#simple%5C_structural%5C_svm%5C_problemnum%5C_samples)
+  - [simple\_structural\_svm\_problem.num\_dimensions](#simple%5C_structural%5C_svm%5C_problemnum%5C_dimensions)
+  - [simple\_structural\_svm\_problem.get\_truth\_joint\_feature\_vector](#simple%5C_structural%5C_svm%5C_problemget%5C_truth%5C_joint%5C_feature%5C_vector)
+  - [simple\_structural\_svm\_problem.separation\_oracle](#simple%5C_structural%5C_svm%5C_problemseparation%5C_oracle)
+  - [simple\_structural\_svm\_problem.epsilon](#simple%5C_structural%5C_svm%5C_problemepsilon)
+  - [simple\_structural\_svm\_problem.max\_cache\_size](#simple%5C_structural%5C_svm%5C_problemmax%5C_cache%5C_size)
+  - [simple\_structural\_svm\_problem.be\_verbose](#simple%5C_structural%5C_svm%5C_problembe%5C_verbose)
+  - [simple\_structural\_svm\_problem.use\_sparse\_feature\_vectors](#simple%5C_structural%5C_svm%5C_problemuse%5C_sparse%5C_feature%5C_vectors)
+  - [simple\_structural\_svm\_problem.learns\_nonnegative\_weights](#simple%5C_structural%5C_svm%5C_problemlearns%5C_nonnegative%5C_weights)
+  - [simple\_structural\_svm\_problem.result](#simple%5C_structural%5C_svm%5C_problemresult)
+  - [dlib::simple\_structural\_svm\_problem::get\_create](#dlibsimple%5C_structural%5C_svm%5C_problemget%5C_create)
 - [cv](#cv)
+  - [cv.Mat](#cvmat)
+  - [cv.Range](#cvrange)
+  - [cv::createMatFromBitmap](#cvcreatematfrombitmap)
   - [cv::haveImageReader](#cvhaveimagereader)
   - [cv::haveImageWriter](#cvhaveimagewriter)
   - [cv::imcount](#cvimcount)
@@ -219,185 +292,488 @@
   - [cv::imreadmulti](#cvimreadmulti)
   - [cv::imwrite](#cvimwrite)
   - [cv::imwritemulti](#cvimwritemulti)
+- [dlib::mmod\_rect](#dlibmmod%5C_rect)
+  - [mmod\_rect.rect](#mmod%5C_rectrect)
+  - [mmod\_rect.confidence](#mmod%5C_rectconfidence)
+  - [mmod\_rect.label](#mmod%5C_rectlabel)
+  - [mmod\_rect.ignore](#mmod%5C_rectignore)
+  - [dlib::mmod\_rect::get\_create](#dlibmmod%5C_rectget%5C_create)
+- [dlib::cuda](#dlibcuda)
+  - [dlib::cuda::can\_access\_peer](#dlibcudacan%5C_access%5C_peer)
+  - [dlib::cuda::device\_synchronize](#dlibcudadevice%5C_synchronize)
+  - [dlib::cuda::get\_device](#dlibcudaget%5C_device)
+  - [dlib::cuda::get\_device\_name](#dlibcudaget%5C_device%5C_name)
+  - [dlib::cuda::set\_current\_device\_blocking\_sync](#dlibcudaset%5C_current%5C_device%5C_blocking%5C_sync)
+  - [dlib::cuda::set\_device](#dlibcudaset%5C_device)
+- [dlib::correlation\_tracker](#dlibcorrelation%5C_tracker)
+  - [dlib::correlation\_tracker::get\_create](#dlibcorrelation%5C_trackerget%5C_create)
+  - [dlib::correlation\_tracker::get\_position](#dlibcorrelation%5C_trackerget%5C_position)
+  - [dlib::correlation\_tracker::start\_track](#dlibcorrelation%5C_trackerstart%5C_track)
+  - [dlib::correlation\_tracker::update](#dlibcorrelation%5C_trackerupdate)
+- [dlib::\_radial\_basis\_kernel](#dlib%5C_radial%5C_basis%5C_kernel)
+  - [\_radial\_basis\_kernel.gamma](#%5C_radial%5C_basis%5C_kernelgamma)
+  - [dlib::\_radial\_basis\_kernel::get\_create](#dlib%5C_radial%5C_basis%5C_kernelget%5C_create)
+- [dlib::\_linear\_kernel](#dlib%5C_linear%5C_kernel)
+  - [dlib::\_linear\_kernel::get\_create](#dlib%5C_linear%5C_kernelget%5C_create)
+- [dlib::\_decision\_function\_linear](#dlib%5C_decision%5C_function%5C_linear)
+  - [\_decision\_function\_linear.weights](#%5C_decision%5C_function%5C_linearweights)
+  - [\_decision\_function\_linear.bias](#%5C_decision%5C_function%5C_linearbias)
+  - [dlib::\_decision\_function\_linear::create](#dlib%5C_decision%5C_function%5C_linearcreate)
+  - [dlib::\_decision\_function\_linear::get\_call](#dlib%5C_decision%5C_function%5C_linearget%5C_call)
+- [dlib::\_decision\_function\_sparse\_linear](#dlib%5C_decision%5C_function%5C_sparse%5C_linear)
+  - [\_decision\_function\_sparse\_linear.weights](#%5C_decision%5C_function%5C_sparse%5C_linearweights)
+  - [\_decision\_function\_sparse\_linear.bias](#%5C_decision%5C_function%5C_sparse%5C_linearbias)
+  - [dlib::\_decision\_function\_sparse\_linear::create](#dlib%5C_decision%5C_function%5C_sparse%5C_linearcreate)
+  - [dlib::\_decision\_function\_sparse\_linear::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_linearget%5C_call)
+- [dlib::\_decision\_function\_histogram\_intersection](#dlib%5C_decision%5C_function%5C_histogram%5C_intersection)
+  - [\_decision\_function\_histogram\_intersection.alpha](#%5C_decision%5C_function%5C_histogram%5C_intersectionalpha)
+  - [\_decision\_function\_histogram\_intersection.b](#%5C_decision%5C_function%5C_histogram%5C_intersectionb)
+  - [\_decision\_function\_histogram\_intersection.basis\_vectors](#%5C_decision%5C_function%5C_histogram%5C_intersectionbasis%5C_vectors)
+  - [dlib::\_decision\_function\_histogram\_intersection::create](#dlib%5C_decision%5C_function%5C_histogram%5C_intersectioncreate)
+  - [dlib::\_decision\_function\_histogram\_intersection::get\_call](#dlib%5C_decision%5C_function%5C_histogram%5C_intersectionget%5C_call)
+- [dlib::\_decision\_function\_sparse\_histogram\_intersection](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersection)
+  - [\_decision\_function\_sparse\_histogram\_intersection.alpha](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionalpha)
+  - [\_decision\_function\_sparse\_histogram\_intersection.b](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionb)
+  - [\_decision\_function\_sparse\_histogram\_intersection.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionbasis%5C_vectors)
+  - [dlib::\_decision\_function\_sparse\_histogram\_intersection::create](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectioncreate)
+  - [dlib::\_decision\_function\_sparse\_histogram\_intersection::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionget%5C_call)
+- [dlib::\_decision\_function\_polynomial](#dlib%5C_decision%5C_function%5C_polynomial)
+  - [\_decision\_function\_polynomial.alpha](#%5C_decision%5C_function%5C_polynomialalpha)
+  - [\_decision\_function\_polynomial.b](#%5C_decision%5C_function%5C_polynomialb)
+  - [\_decision\_function\_polynomial.basis\_vectors](#%5C_decision%5C_function%5C_polynomialbasis%5C_vectors)
+  - [dlib::\_decision\_function\_polynomial::create](#dlib%5C_decision%5C_function%5C_polynomialcreate)
+  - [dlib::\_decision\_function\_polynomial::get\_call](#dlib%5C_decision%5C_function%5C_polynomialget%5C_call)
+- [dlib::\_decision\_function\_sparse\_polynomial](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomial)
+  - [\_decision\_function\_sparse\_polynomial.alpha](#%5C_decision%5C_function%5C_sparse%5C_polynomialalpha)
+  - [\_decision\_function\_sparse\_polynomial.b](#%5C_decision%5C_function%5C_sparse%5C_polynomialb)
+  - [\_decision\_function\_sparse\_polynomial.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_polynomialbasis%5C_vectors)
+  - [dlib::\_decision\_function\_sparse\_polynomial::create](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomialcreate)
+  - [dlib::\_decision\_function\_sparse\_polynomial::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomialget%5C_call)
+- [dlib::\_decision\_function\_radial\_basis](#dlib%5C_decision%5C_function%5C_radial%5C_basis)
+  - [\_decision\_function\_radial\_basis.alpha](#%5C_decision%5C_function%5C_radial%5C_basisalpha)
+  - [\_decision\_function\_radial\_basis.b](#%5C_decision%5C_function%5C_radial%5C_basisb)
+  - [\_decision\_function\_radial\_basis.basis\_vectors](#%5C_decision%5C_function%5C_radial%5C_basisbasis%5C_vectors)
+  - [dlib::\_decision\_function\_radial\_basis::create](#dlib%5C_decision%5C_function%5C_radial%5C_basiscreate)
+  - [dlib::\_decision\_function\_radial\_basis::get\_call](#dlib%5C_decision%5C_function%5C_radial%5C_basisget%5C_call)
+- [dlib::\_decision\_function\_sparse\_radial\_basis](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basis)
+  - [\_decision\_function\_sparse\_radial\_basis.alpha](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisalpha)
+  - [\_decision\_function\_sparse\_radial\_basis.b](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisb)
+  - [\_decision\_function\_sparse\_radial\_basis.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisbasis%5C_vectors)
+  - [dlib::\_decision\_function\_sparse\_radial\_basis::create](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basiscreate)
+  - [dlib::\_decision\_function\_sparse\_radial\_basis::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisget%5C_call)
+- [dlib::\_decision\_function\_sigmoid](#dlib%5C_decision%5C_function%5C_sigmoid)
+  - [\_decision\_function\_sigmoid.alpha](#%5C_decision%5C_function%5C_sigmoidalpha)
+  - [\_decision\_function\_sigmoid.b](#%5C_decision%5C_function%5C_sigmoidb)
+  - [\_decision\_function\_sigmoid.basis\_vectors](#%5C_decision%5C_function%5C_sigmoidbasis%5C_vectors)
+  - [dlib::\_decision\_function\_sigmoid::create](#dlib%5C_decision%5C_function%5C_sigmoidcreate)
+  - [dlib::\_decision\_function\_sigmoid::get\_call](#dlib%5C_decision%5C_function%5C_sigmoidget%5C_call)
+- [dlib::\_decision\_function\_sparse\_sigmoid](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoid)
+  - [\_decision\_function\_sparse\_sigmoid.alpha](#%5C_decision%5C_function%5C_sparse%5C_sigmoidalpha)
+  - [\_decision\_function\_sparse\_sigmoid.b](#%5C_decision%5C_function%5C_sparse%5C_sigmoidb)
+  - [\_decision\_function\_sparse\_sigmoid.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_sigmoidbasis%5C_vectors)
+  - [dlib::\_decision\_function\_sparse\_sigmoid::create](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoidcreate)
+  - [dlib::\_decision\_function\_sparse\_sigmoid::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoidget%5C_call)
+- [dlib::\_normalized\_decision\_function\_radial\_basis](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basis)
+  - [\_normalized\_decision\_function\_radial\_basis.alpha](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisalpha)
+  - [\_normalized\_decision\_function\_radial\_basis.b](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisb)
+  - [\_normalized\_decision\_function\_radial\_basis.basis\_vectors](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisbasis%5C_vectors)
+  - [\_normalized\_decision\_function\_radial\_basis.means](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basismeans)
+  - [\_normalized\_decision\_function\_radial\_basis.invstd\_devs](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisinvstd%5C_devs)
+  - [dlib::\_normalized\_decision\_function\_radial\_basis::create](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basiscreate)
+  - [dlib::\_normalized\_decision\_function\_radial\_basis::batch\_predict](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisbatch%5C_predict)
+  - [dlib::\_normalized\_decision\_function\_radial\_basis::get\_call](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisget%5C_call)
+- [dlib::function\_evaluation](#dlibfunction%5C_evaluation)
+  - [function\_evaluation.x](#function%5C_evaluationx)
+  - [function\_evaluation.y](#function%5C_evaluationy)
+  - [dlib::function\_evaluation::get\_create](#dlibfunction%5C_evaluationget%5C_create)
+- [dlib::function\_spec](#dlibfunction%5C_spec)
+  - [function\_spec.lower](#function%5C_speclower)
+  - [function\_spec.upper](#function%5C_specupper)
+  - [function\_spec.is\_integer\_variable](#function%5C_specis%5C_integer%5C_variable)
+  - [dlib::function\_spec::get\_create](#dlibfunction%5C_specget%5C_create)
+- [dlib::function\_evaluation\_request](#dlibfunction%5C_evaluation%5C_request)
+  - [function\_evaluation\_request.function\_idx](#function%5C_evaluation%5C_requestfunction%5C_idx)
+  - [function\_evaluation\_request.x](#function%5C_evaluation%5C_requestx)
+  - [function\_evaluation\_request.has\_been\_evaluated](#function%5C_evaluation%5C_requesthas%5C_been%5C_evaluated)
+  - [dlib::function\_evaluation\_request::set](#dlibfunction%5C_evaluation%5C_requestset)
+- [dlib::global\_function\_search](#dlibglobal%5C_function%5C_search)
+  - [dlib::global\_function\_search::get\_create](#dlibglobal%5C_function%5C_searchget%5C_create)
+  - [dlib::global\_function\_search::get\_best\_function\_eval](#dlibglobal%5C_function%5C_searchget%5C_best%5C_function%5C_eval)
+  - [dlib::global\_function\_search::get\_function\_evaluations](#dlibglobal%5C_function%5C_searchget%5C_function%5C_evaluations)
+  - [dlib::global\_function\_search::get\_monte\_carlo\_upper\_bound\_sample\_num](#dlibglobal%5C_function%5C_searchget%5C_monte%5C_carlo%5C_upper%5C_bound%5C_sample%5C_num)
+  - [dlib::global\_function\_search::get\_next\_x](#dlibglobal%5C_function%5C_searchget%5C_next%5C_x)
+  - [dlib::global\_function\_search::get\_pure\_random\_search\_probability](#dlibglobal%5C_function%5C_searchget%5C_pure%5C_random%5C_search%5C_probability)
+  - [dlib::global\_function\_search::get\_relative\_noise\_magnitude](#dlibglobal%5C_function%5C_searchget%5C_relative%5C_noise%5C_magnitude)
+  - [dlib::global\_function\_search::get\_solver\_epsilon](#dlibglobal%5C_function%5C_searchget%5C_solver%5C_epsilon)
+  - [dlib::global\_function\_search::num\_functions](#dlibglobal%5C_function%5C_searchnum%5C_functions)
+  - [dlib::global\_function\_search::set\_monte\_carlo\_upper\_bound\_sample\_num](#dlibglobal%5C_function%5C_searchset%5C_monte%5C_carlo%5C_upper%5C_bound%5C_sample%5C_num)
+  - [dlib::global\_function\_search::set\_pure\_random\_search\_probability](#dlibglobal%5C_function%5C_searchset%5C_pure%5C_random%5C_search%5C_probability)
+  - [dlib::global\_function\_search::set\_relative\_noise\_magnitude](#dlibglobal%5C_function%5C_searchset%5C_relative%5C_noise%5C_magnitude)
+  - [dlib::global\_function\_search::set\_seed](#dlibglobal%5C_function%5C_searchset%5C_seed)
+  - [dlib::global\_function\_search::set\_solver\_epsilon](#dlibglobal%5C_function%5C_searchset%5C_solver%5C_epsilon)
+- [dlib::image\_window](#dlibimage%5C_window)
+  - [dlib::image\_window::get\_create](#dlibimage%5C_windowget%5C_create)
+  - [dlib::image\_window::add\_overlay](#dlibimage%5C_windowadd%5C_overlay)
+  - [dlib::image\_window::add\_overlay\_circle](#dlibimage%5C_windowadd%5C_overlay%5C_circle)
+  - [dlib::image\_window::clear\_overlay](#dlibimage%5C_windowclear%5C_overlay)
+  - [dlib::image\_window::get\_next\_double\_click](#dlibimage%5C_windowget%5C_next%5C_double%5C_click)
+  - [dlib::image\_window::get\_next\_keypress](#dlibimage%5C_windowget%5C_next%5C_keypress)
+  - [dlib::image\_window::is\_closed](#dlibimage%5C_windowis%5C_closed)
+  - [dlib::image\_window::set\_image](#dlibimage%5C_windowset%5C_image)
+  - [dlib::image\_window::set\_title](#dlibimage%5C_windowset%5C_title)
+  - [dlib::image\_window::wait\_for\_keypress](#dlibimage%5C_windowwait%5C_for%5C_keypress)
+  - [dlib::image\_window::wait\_until\_closed](#dlibimage%5C_windowwait%5C_until%5C_closed)
+  - [image\_window.KBD\_MOD\_NONE\_](#image%5C_windowkbd%5C_mod%5C_none%5C_)
+  - [image\_window.KBD\_MOD\_SHIFT\_](#image%5C_windowkbd%5C_mod%5C_shift%5C_)
+  - [image\_window.KBD\_MOD\_CONTROL\_](#image%5C_windowkbd%5C_mod%5C_control%5C_)
+  - [image\_window.KBD\_MOD\_ALT\_](#image%5C_windowkbd%5C_mod%5C_alt%5C_)
+  - [image\_window.KBD\_MOD\_META\_](#image%5C_windowkbd%5C_mod%5C_meta%5C_)
+  - [image\_window.KBD\_MOD\_CAPS\_LOCK\_](#image%5C_windowkbd%5C_mod%5C_caps%5C_lock%5C_)
+  - [image\_window.KBD\_MOD\_NUM\_LOCK\_](#image%5C_windowkbd%5C_mod%5C_num%5C_lock%5C_)
+  - [image\_window.KBD\_MOD\_SCROLL\_LOCK\_](#image%5C_windowkbd%5C_mod%5C_scroll%5C_lock%5C_)
+  - [image\_window.KEY\_BACKSPACE\_](#image%5C_windowkey%5C_backspace%5C_)
+  - [image\_window.KEY\_SHIFT\_](#image%5C_windowkey%5C_shift%5C_)
+  - [image\_window.KEY\_CTRL\_](#image%5C_windowkey%5C_ctrl%5C_)
+  - [image\_window.KEY\_ALT\_](#image%5C_windowkey%5C_alt%5C_)
+  - [image\_window.KEY\_PAUSE\_](#image%5C_windowkey%5C_pause%5C_)
+  - [image\_window.KEY\_CAPS\_LOCK\_](#image%5C_windowkey%5C_caps%5C_lock%5C_)
+  - [image\_window.KEY\_ESC\_](#image%5C_windowkey%5C_esc%5C_)
+  - [image\_window.KEY\_PAGE\_UP\_](#image%5C_windowkey%5C_page%5C_up%5C_)
+  - [image\_window.KEY\_PAGE\_DOWN\_](#image%5C_windowkey%5C_page%5C_down%5C_)
+  - [image\_window.KEY\_END\_](#image%5C_windowkey%5C_end%5C_)
+  - [image\_window.KEY\_HOME\_](#image%5C_windowkey%5C_home%5C_)
+  - [image\_window.KEY\_LEFT\_](#image%5C_windowkey%5C_left%5C_)
+  - [image\_window.KEY\_RIGHT\_](#image%5C_windowkey%5C_right%5C_)
+  - [image\_window.KEY\_UP\_](#image%5C_windowkey%5C_up%5C_)
+  - [image\_window.KEY\_DOWN\_](#image%5C_windowkey%5C_down%5C_)
+  - [image\_window.KEY\_INSERT\_](#image%5C_windowkey%5C_insert%5C_)
+  - [image\_window.KEY\_DELETE\_](#image%5C_windowkey%5C_delete%5C_)
+  - [image\_window.KEY\_SCROLL\_LOCK\_](#image%5C_windowkey%5C_scroll%5C_lock%5C_)
+  - [image\_window.KEY\_F1\_](#image%5C_windowkey%5C_f1%5C_)
+  - [image\_window.KEY\_F2\_](#image%5C_windowkey%5C_f2%5C_)
+  - [image\_window.KEY\_F3\_](#image%5C_windowkey%5C_f3%5C_)
+  - [image\_window.KEY\_F4\_](#image%5C_windowkey%5C_f4%5C_)
+  - [image\_window.KEY\_F5\_](#image%5C_windowkey%5C_f5%5C_)
+  - [image\_window.KEY\_F6\_](#image%5C_windowkey%5C_f6%5C_)
+  - [image\_window.KEY\_F7\_](#image%5C_windowkey%5C_f7%5C_)
+  - [image\_window.KEY\_F8\_](#image%5C_windowkey%5C_f8%5C_)
+  - [image\_window.KEY\_F9\_](#image%5C_windowkey%5C_f9%5C_)
+  - [image\_window.KEY\_F10\_](#image%5C_windowkey%5C_f10%5C_)
+  - [image\_window.KEY\_F11\_](#image%5C_windowkey%5C_f11%5C_)
+  - [image\_window.KEY\_F12\_](#image%5C_windowkey%5C_f12%5C_)
+- [dlib::rgb\_pixel](#dlibrgb%5C_pixel)
+  - [rgb\_pixel.red](#rgb%5C_pixelred)
+  - [rgb\_pixel.blue](#rgb%5C_pixelblue)
+  - [rgb\_pixel.green](#rgb%5C_pixelgreen)
+  - [dlib::rgb\_pixel::get\_create](#dlibrgb%5C_pixelget%5C_create)
+- [dlib::image\_dataset\_metadata](#dlibimage%5C_dataset%5C_metadata)
+  - [image\_dataset\_metadata.box](#image%5C_dataset%5C_metadatabox)
+  - [image\_dataset\_metadata.image](#image%5C_dataset%5C_metadataimage)
+  - [image\_dataset\_metadata.dataset](#image%5C_dataset%5C_metadatadataset)
+  - [dlib::image\_dataset\_metadata::load\_image\_dataset\_metadata](#dlibimage%5C_dataset%5C_metadataload%5C_image%5C_dataset%5C_metadata)
+  - [dlib::image\_dataset\_metadata::make\_bounding\_box\_regression\_training\_data](#dlibimage%5C_dataset%5C_metadatamake%5C_bounding%5C_box%5C_regression%5C_training%5C_data)
+  - [dlib::image\_dataset\_metadata::save\_image\_dataset\_metadata](#dlibimage%5C_dataset%5C_metadatasave%5C_image%5C_dataset%5C_metadata)
+  - [image\_dataset\_metadata.UNKNOWN\_](#image%5C_dataset%5C_metadataunknown%5C_)
+  - [image\_dataset\_metadata.MALE\_](#image%5C_dataset%5C_metadatamale%5C_)
+  - [image\_dataset\_metadata.FEMALE\_](#image%5C_dataset%5C_metadatafemale%5C_)
+- [dlib::image\_dataset\_metadata::box](#dlibimage%5C_dataset%5C_metadatabox)
+  - [box.rect](#boxrect)
+  - [box.parts](#boxparts)
+  - [box.label](#boxlabel)
+  - [box.difficult](#boxdifficult)
+  - [box.truncated](#boxtruncated)
+  - [box.occluded](#boxoccluded)
+  - [box.ignore](#boxignore)
+  - [box.pose](#boxpose)
+  - [box.detection\_score](#boxdetection%5C_score)
+  - [box.angle](#boxangle)
+  - [box.gender](#boxgender)
+  - [box.age](#boxage)
+  - [dlib::image\_dataset\_metadata::box::get\_create](#dlibimage%5C_dataset%5C_metadataboxget%5C_create)
+  - [dlib::image\_dataset\_metadata::box::has\_label](#dlibimage%5C_dataset%5C_metadataboxhas%5C_label)
+- [dlib::image\_dataset\_metadata::image](#dlibimage%5C_dataset%5C_metadataimage)
+  - [image.filename](#imagefilename)
+  - [image.boxes](#imageboxes)
+  - [dlib::image\_dataset\_metadata::image::get\_create](#dlibimage%5C_dataset%5C_metadataimageget%5C_create)
+- [dlib::image\_dataset\_metadata::dataset](#dlibimage%5C_dataset%5C_metadatadataset)
+  - [dataset.images](#datasetimages)
+  - [dataset.comment](#datasetcomment)
+  - [dataset.name](#datasetname)
+  - [dlib::image\_dataset\_metadata::dataset::get\_create](#dlibimage%5C_dataset%5C_metadatadatasetget%5C_create)
+- [dlib::line](#dlibline)
+  - [line.normal](#linenormal)
+  - [line.p1](#linep1)
+  - [line.p2](#linep2)
+  - [dlib::line::get\_create](#dliblineget%5C_create)
 - [cv::Mat](#cvmat)
+  - [Mat.flags](#matflags)
+  - [Mat.dims](#matdims)
+  - [Mat.rows](#matrows)
+  - [Mat.cols](#matcols)
+  - [Mat.data](#matdata)
+  - [Mat.step](#matstep)
+  - [Mat.width](#matwidth)
+  - [Mat.height](#matheight)
+  - [Mat.shape](#matshape)
   - [cv::Mat::create](#cvmatcreate)
+  - [cv::Mat::GdiplusResize](#cvmatgdiplusresize)
+  - [cv::Mat::asArray](#cvmatasarray)
+  - [cv::Mat::at](#cvmatat)
   - [cv::Mat::channels](#cvmatchannels)
   - [cv::Mat::checkVector](#cvmatcheckvector)
+  - [cv::Mat::clone](#cvmatclone)
+  - [cv::Mat::col](#cvmatcol)
+  - [cv::Mat::colRange](#cvmatcolrange)
+  - [cv::Mat::convertToBitmap](#cvmatconverttobitmap)
+  - [cv::Mat::convertToShow](#cvmatconverttoshow)
+  - [cv::Mat::copy](#cvmatcopy)
+  - [cv::Mat::createFromArray](#cvmatcreatefromarray)
+  - [cv::Mat::createFromVectorOfDouble](#cvmatcreatefromvectorofdouble)
+  - [cv::Mat::createFromVectorOfFloat](#cvmatcreatefromvectoroffloat)
+  - [cv::Mat::createFromVectorOfInt](#cvmatcreatefromvectorofint)
   - [cv::Mat::depth](#cvmatdepth)
+  - [cv::Mat::diag](#cvmatdiag)
   - [cv::Mat::elemSize](#cvmatelemsize)
   - [cv::Mat::elemSize1](#cvmatelemsize1)
   - [cv::Mat::empty](#cvmatempty)
   - [cv::Mat::eye](#cvmateye)
+  - [cv::Mat::get\_Item](#cvmatget%5C_item)
   - [cv::Mat::isContinuous](#cvmatiscontinuous)
   - [cv::Mat::isSubmatrix](#cvmatissubmatrix)
   - [cv::Mat::ones](#cvmatones)
-  - [cv::Mat::pop_back](#cvmatpop_back)
+  - [cv::Mat::pop\_back](#cvmatpop%5C_back)
   - [cv::Mat::ptr](#cvmatptr)
-  - [cv::Mat::push_back](#cvmatpush_back)
+  - [cv::Mat::push\_back](#cvmatpush%5C_back)
+  - [cv::Mat::put\_Item](#cvmatput%5C_item)
   - [cv::Mat::reshape](#cvmatreshape)
+  - [cv::Mat::row](#cvmatrow)
+  - [cv::Mat::rowRange](#cvmatrowrange)
+  - [cv::Mat::set\_at](#cvmatset%5C_at)
+  - [cv::Mat::size](#cvmatsize)
   - [cv::Mat::step1](#cvmatstep1)
+  - [cv::Mat::t](#cvmatt)
   - [cv::Mat::total](#cvmattotal)
   - [cv::Mat::type](#cvmattype)
   - [cv::Mat::zeros](#cvmatzeros)
-- [dlib::image_dataset_metadata](#dlibimage_dataset_metadata)
-  - [dlib::image_dataset_metadata::load_image_dataset_metadata](#dlibimage_dataset_metadataload_image_dataset_metadata)
-  - [dlib::image_dataset_metadata::make_bounding_box_regression_training_data](#dlibimage_dataset_metadatamake_bounding_box_regression_training_data)
-  - [dlib::image_dataset_metadata::save_image_dataset_metadata](#dlibimage_dataset_metadatasave_image_dataset_metadata)
-- [dlib::image_dataset_metadata::box](#dlibimage_dataset_metadatabox)
-  - [dlib::image_dataset_metadata::box::create](#dlibimage_dataset_metadataboxcreate)
-  - [dlib::image_dataset_metadata::box::has_label](#dlibimage_dataset_metadataboxhas_label)
-- [dlib::image_dataset_metadata::image](#dlibimage_dataset_metadataimage)
-  - [dlib::image_dataset_metadata::image::create](#dlibimage_dataset_metadataimagecreate)
-- [dlib::image_dataset_metadata::dataset](#dlibimage_dataset_metadatadataset)
-  - [dlib::image_dataset_metadata::dataset::create](#dlibimage_dataset_metadatadatasetcreate)
-- [dlib::line](#dlibline)
-  - [dlib::line::create](#dliblinecreate)
 - [dlib::Matrix](#dlibmatrix)
-  - [dlib::Matrix::create](#dlibmatrixcreate)
+  - [Matrix.shape](#matrixshape)
+  - [dlib::Matrix::get\_create](#dlibmatrixget%5C_create)
   - [dlib::Matrix::ToString](#dlibmatrixtostring)
   - [dlib::Matrix::deserialize](#dlibmatrixdeserialize)
   - [dlib::Matrix::get](#dlibmatrixget)
   - [dlib::Matrix::nc](#dlibmatrixnc)
   - [dlib::Matrix::nr](#dlibmatrixnr)
   - [dlib::Matrix::serialize](#dlibmatrixserialize)
-  - [dlib::Matrix::set_size](#dlibmatrixset_size)
-- [dlib::fhog_object_detector](#dlibfhog_object_detector)
-  - [dlib::fhog_object_detector::create](#dlibfhog_object_detectorcreate)
-  - [dlib::fhog_object_detector::get_call](#dlibfhog_object_detectorget_call)
-  - [dlib::fhog_object_detector::run](#dlibfhog_object_detectorrun)
-  - [dlib::fhog_object_detector::run_multiple](#dlibfhog_object_detectorrun_multiple)
-  - [dlib::fhog_object_detector::save](#dlibfhog_object_detectorsave)
-- [dlib::rect_filter](#dlibrect_filter)
-  - [dlib::rect_filter::create](#dlibrect_filtercreate)
-  - [dlib::rect_filter::get_call](#dlibrect_filterget_call)
-  - [dlib::rect_filter::max_measurement_deviation](#dlibrect_filtermax_measurement_deviation)
-  - [dlib::rect_filter::measurement_noise](#dlibrect_filtermeasurement_noise)
-  - [dlib::rect_filter::typical_acceleration](#dlibrect_filtertypical_acceleration)
+  - [dlib::Matrix::set\_size](#dlibmatrixset%5C_size)
+- [dlib::fhog\_object\_detector](#dlibfhog%5C_object%5C_detector)
+  - [fhog\_object\_detector.detection\_window\_width](#fhog%5C_object%5C_detectordetection%5C_window%5C_width)
+  - [fhog\_object\_detector.detection\_window\_height](#fhog%5C_object%5C_detectordetection%5C_window%5C_height)
+  - [fhog\_object\_detector.num\_detectors](#fhog%5C_object%5C_detectornum%5C_detectors)
+  - [dlib::fhog\_object\_detector::create](#dlibfhog%5C_object%5C_detectorcreate)
+  - [dlib::fhog\_object\_detector::get\_call](#dlibfhog%5C_object%5C_detectorget%5C_call)
+  - [dlib::fhog\_object\_detector::run](#dlibfhog%5C_object%5C_detectorrun)
+  - [dlib::fhog\_object\_detector::run\_multiple](#dlibfhog%5C_object%5C_detectorrun%5C_multiple)
+  - [dlib::fhog\_object\_detector::save](#dlibfhog%5C_object%5C_detectorsave)
+- [cv::Range](#cvrange)
+  - [Range.start](#rangestart)
+  - [Range.end](#rangeend)
+  - [cv::Range::get\_create](#cvrangeget%5C_create)
+  - [cv::Range::all](#cvrangeall)
+  - [cv::Range::empty](#cvrangeempty)
+  - [cv::Range::size](#cvrangesize)
+- [dlib::rect\_filter](#dlibrect%5C_filter)
+  - [dlib::rect\_filter::create](#dlibrect%5C_filtercreate)
+  - [dlib::rect\_filter::get\_call](#dlibrect%5C_filterget%5C_call)
+  - [dlib::rect\_filter::max\_measurement\_deviation](#dlibrect%5C_filtermax%5C_measurement%5C_deviation)
+  - [dlib::rect\_filter::measurement\_noise](#dlibrect%5C_filtermeasurement%5C_noise)
+  - [dlib::rect\_filter::typical\_acceleration](#dlibrect%5C_filtertypical%5C_acceleration)
 - [dlib::rectangle](#dlibrectangle)
-  - [dlib::rectangle::create](#dlibrectanglecreate)
+  - [dlib::rectangle::get\_create](#dlibrectangleget%5C_create)
   - [dlib::rectangle::ToString](#dlibrectangletostring)
   - [dlib::rectangle::area](#dlibrectanglearea)
-  - [dlib::rectangle::bl_corner](#dlibrectanglebl_corner)
+  - [dlib::rectangle::bl\_corner](#dlibrectanglebl%5C_corner)
   - [dlib::rectangle::bottom](#dlibrectanglebottom)
-  - [dlib::rectangle::br_corner](#dlibrectanglebr_corner)
+  - [dlib::rectangle::br\_corner](#dlibrectanglebr%5C_corner)
   - [dlib::rectangle::center](#dlibrectanglecenter)
   - [dlib::rectangle::contains](#dlibrectanglecontains)
   - [dlib::rectangle::dcenter](#dlibrectangledcenter)
   - [dlib::rectangle::height](#dlibrectangleheight)
   - [dlib::rectangle::intersect](#dlibrectangleintersect)
-  - [dlib::rectangle::is_empty](#dlibrectangleis_empty)
+  - [dlib::rectangle::is\_empty](#dlibrectangleis%5C_empty)
   - [dlib::rectangle::left](#dlibrectangleleft)
   - [dlib::rectangle::right](#dlibrectangleright)
-  - [dlib::rectangle::tl_corner](#dlibrectangletl_corner)
+  - [dlib::rectangle::tl\_corner](#dlibrectangletl%5C_corner)
   - [dlib::rectangle::top](#dlibrectangletop)
-  - [dlib::rectangle::tr_corner](#dlibrectangletr_corner)
+  - [dlib::rectangle::tr\_corner](#dlibrectangletr%5C_corner)
   - [dlib::rectangle::width](#dlibrectanglewidth)
 - [dlib::drectangle](#dlibdrectangle)
-  - [dlib::drectangle::create](#dlibdrectanglecreate)
+  - [dlib::drectangle::get\_create](#dlibdrectangleget%5C_create)
   - [dlib::drectangle::ToString](#dlibdrectangletostring)
   - [dlib::drectangle::area](#dlibdrectanglearea)
-  - [dlib::drectangle::bl_corner](#dlibdrectanglebl_corner)
+  - [dlib::drectangle::bl\_corner](#dlibdrectanglebl%5C_corner)
   - [dlib::drectangle::bottom](#dlibdrectanglebottom)
-  - [dlib::drectangle::br_corner](#dlibdrectanglebr_corner)
+  - [dlib::drectangle::br\_corner](#dlibdrectanglebr%5C_corner)
   - [dlib::drectangle::center](#dlibdrectanglecenter)
   - [dlib::drectangle::contains](#dlibdrectanglecontains)
   - [dlib::drectangle::dcenter](#dlibdrectangledcenter)
   - [dlib::drectangle::height](#dlibdrectangleheight)
   - [dlib::drectangle::intersect](#dlibdrectangleintersect)
-  - [dlib::drectangle::is_empty](#dlibdrectangleis_empty)
+  - [dlib::drectangle::is\_empty](#dlibdrectangleis%5C_empty)
   - [dlib::drectangle::left](#dlibdrectangleleft)
   - [dlib::drectangle::right](#dlibdrectangleright)
-  - [dlib::drectangle::tl_corner](#dlibdrectangletl_corner)
+  - [dlib::drectangle::tl\_corner](#dlibdrectangletl%5C_corner)
   - [dlib::drectangle::top](#dlibdrectangletop)
-  - [dlib::drectangle::tr_corner](#dlibdrectangletr_corner)
+  - [dlib::drectangle::tr\_corner](#dlibdrectangletr%5C_corner)
   - [dlib::drectangle::width](#dlibdrectanglewidth)
-- [dlib::full_object_detection](#dlibfull_object_detection)
-  - [dlib::full_object_detection::create](#dlibfull_object_detectioncreate)
-  - [dlib::full_object_detection::part](#dlibfull_object_detectionpart)
-  - [dlib::full_object_detection::parts](#dlibfull_object_detectionparts)
-- [dlib::shape_predictor](#dlibshape_predictor)
-  - [dlib::shape_predictor::create](#dlibshape_predictorcreate)
-  - [dlib::shape_predictor::get_call](#dlibshape_predictorget_call)
-  - [dlib::shape_predictor::save](#dlibshape_predictorsave)
-- [dlib::svm_c_trainer_radial_basis](#dlibsvm_c_trainer_radial_basis)
-  - [dlib::svm_c_trainer_radial_basis::create](#dlibsvm_c_trainer_radial_basiscreate)
-  - [dlib::svm_c_trainer_radial_basis::set_c](#dlibsvm_c_trainer_radial_basisset_c)
-  - [dlib::svm_c_trainer_radial_basis::train](#dlibsvm_c_trainer_radial_basistrain)
-- [dlib::svm_c_trainer_sparse_radial_basis](#dlibsvm_c_trainer_sparse_radial_basis)
-  - [dlib::svm_c_trainer_sparse_radial_basis::create](#dlibsvm_c_trainer_sparse_radial_basiscreate)
-  - [dlib::svm_c_trainer_sparse_radial_basis::set_c](#dlibsvm_c_trainer_sparse_radial_basisset_c)
-  - [dlib::svm_c_trainer_sparse_radial_basis::train](#dlibsvm_c_trainer_sparse_radial_basistrain)
-- [dlib::svm_c_trainer_histogram_intersection](#dlibsvm_c_trainer_histogram_intersection)
-  - [dlib::svm_c_trainer_histogram_intersection::create](#dlibsvm_c_trainer_histogram_intersectioncreate)
-  - [dlib::svm_c_trainer_histogram_intersection::set_c](#dlibsvm_c_trainer_histogram_intersectionset_c)
-  - [dlib::svm_c_trainer_histogram_intersection::train](#dlibsvm_c_trainer_histogram_intersectiontrain)
-- [dlib::svm_c_trainer_sparse_histogram_intersection](#dlibsvm_c_trainer_sparse_histogram_intersection)
-  - [dlib::svm_c_trainer_sparse_histogram_intersection::create](#dlibsvm_c_trainer_sparse_histogram_intersectioncreate)
-  - [dlib::svm_c_trainer_sparse_histogram_intersection::set_c](#dlibsvm_c_trainer_sparse_histogram_intersectionset_c)
-  - [dlib::svm_c_trainer_sparse_histogram_intersection::train](#dlibsvm_c_trainer_sparse_histogram_intersectiontrain)
-- [dlib::svm_c_trainer_linear](#dlibsvm_c_trainer_linear)
-  - [dlib::svm_c_trainer_linear::create](#dlibsvm_c_trainer_linearcreate)
-  - [dlib::svm_c_trainer_linear::be_quiet](#dlibsvm_c_trainer_linearbe_quiet)
-  - [dlib::svm_c_trainer_linear::be_verbose](#dlibsvm_c_trainer_linearbe_verbose)
-  - [dlib::svm_c_trainer_linear::set_c](#dlibsvm_c_trainer_linearset_c)
-  - [dlib::svm_c_trainer_linear::set_prior](#dlibsvm_c_trainer_linearset_prior)
-  - [dlib::svm_c_trainer_linear::train](#dlibsvm_c_trainer_lineartrain)
-- [dlib::svm_c_trainer_sparse_linear](#dlibsvm_c_trainer_sparse_linear)
-  - [dlib::svm_c_trainer_sparse_linear::create](#dlibsvm_c_trainer_sparse_linearcreate)
-  - [dlib::svm_c_trainer_sparse_linear::be_quiet](#dlibsvm_c_trainer_sparse_linearbe_quiet)
-  - [dlib::svm_c_trainer_sparse_linear::be_verbose](#dlibsvm_c_trainer_sparse_linearbe_verbose)
-  - [dlib::svm_c_trainer_sparse_linear::set_c](#dlibsvm_c_trainer_sparse_linearset_c)
-  - [dlib::svm_c_trainer_sparse_linear::set_prior](#dlibsvm_c_trainer_sparse_linearset_prior)
-  - [dlib::svm_c_trainer_sparse_linear::train](#dlibsvm_c_trainer_sparse_lineartrain)
-- [dlib::rvm_trainer_radial_basis](#dlibrvm_trainer_radial_basis)
-  - [dlib::rvm_trainer_radial_basis::create](#dlibrvm_trainer_radial_basiscreate)
-  - [dlib::rvm_trainer_radial_basis::train](#dlibrvm_trainer_radial_basistrain)
-- [dlib::rvm_trainer_sparse_radial_basis](#dlibrvm_trainer_sparse_radial_basis)
-  - [dlib::rvm_trainer_sparse_radial_basis::create](#dlibrvm_trainer_sparse_radial_basiscreate)
-  - [dlib::rvm_trainer_sparse_radial_basis::train](#dlibrvm_trainer_sparse_radial_basistrain)
-- [dlib::rvm_trainer_histogram_intersection](#dlibrvm_trainer_histogram_intersection)
-  - [dlib::rvm_trainer_histogram_intersection::create](#dlibrvm_trainer_histogram_intersectioncreate)
-  - [dlib::rvm_trainer_histogram_intersection::train](#dlibrvm_trainer_histogram_intersectiontrain)
-- [dlib::rvm_trainer_sparse_histogram_intersection](#dlibrvm_trainer_sparse_histogram_intersection)
-  - [dlib::rvm_trainer_sparse_histogram_intersection::create](#dlibrvm_trainer_sparse_histogram_intersectioncreate)
-  - [dlib::rvm_trainer_sparse_histogram_intersection::train](#dlibrvm_trainer_sparse_histogram_intersectiontrain)
-- [dlib::rvm_trainer_linear](#dlibrvm_trainer_linear)
-  - [dlib::rvm_trainer_linear::create](#dlibrvm_trainer_linearcreate)
-  - [dlib::rvm_trainer_linear::train](#dlibrvm_trainer_lineartrain)
-- [dlib::rvm_trainer_sparse_linear](#dlibrvm_trainer_sparse_linear)
-  - [dlib::rvm_trainer_sparse_linear::create](#dlibrvm_trainer_sparse_linearcreate)
-  - [dlib::rvm_trainer_sparse_linear::train](#dlibrvm_trainer_sparse_lineartrain)
-- [dlib::vec_ranking_pair](#dlibvec_ranking_pair)
-  - [dlib::vec_ranking_pair::create](#dlibvec_ranking_paircreate)
-- [dlib::sparse_ranking_pair](#dlibsparse_ranking_pair)
-  - [dlib::sparse_ranking_pair::create](#dlibsparse_ranking_paircreate)
-- [dlib::vec_svm_rank_trainer](#dlibvec_svm_rank_trainer)
-  - [dlib::vec_svm_rank_trainer::create](#dlibvec_svm_rank_trainercreate)
-  - [dlib::vec_svm_rank_trainer::be_quiet](#dlibvec_svm_rank_trainerbe_quiet)
-  - [dlib::vec_svm_rank_trainer::be_verbose](#dlibvec_svm_rank_trainerbe_verbose)
-  - [dlib::vec_svm_rank_trainer::set_prior](#dlibvec_svm_rank_trainerset_prior)
-  - [dlib::vec_svm_rank_trainer::train](#dlibvec_svm_rank_trainertrain)
-- [dlib::svm_rank_trainer_sparse](#dlibsvm_rank_trainer_sparse)
-  - [dlib::svm_rank_trainer_sparse::create](#dlibsvm_rank_trainer_sparsecreate)
-  - [dlib::svm_rank_trainer_sparse::be_quiet](#dlibsvm_rank_trainer_sparsebe_quiet)
-  - [dlib::svm_rank_trainer_sparse::be_verbose](#dlibsvm_rank_trainer_sparsebe_verbose)
-  - [dlib::svm_rank_trainer_sparse::set_prior](#dlibsvm_rank_trainer_sparseset_prior)
-  - [dlib::svm_rank_trainer_sparse::train](#dlibsvm_rank_trainer_sparsetrain)
+- [dlib::full\_object\_detection](#dlibfull%5C_object%5C_detection)
+  - [full\_object\_detection.rect](#full%5C_object%5C_detectionrect)
+  - [full\_object\_detection.num\_parts](#full%5C_object%5C_detectionnum%5C_parts)
+  - [dlib::full\_object\_detection::get\_create](#dlibfull%5C_object%5C_detectionget%5C_create)
+  - [dlib::full\_object\_detection::part](#dlibfull%5C_object%5C_detectionpart)
+  - [dlib::full\_object\_detection::parts](#dlibfull%5C_object%5C_detectionparts)
+- [dlib::shape\_predictor](#dlibshape%5C_predictor)
+  - [dlib::shape\_predictor::create](#dlibshape%5C_predictorcreate)
+  - [dlib::shape\_predictor::get\_call](#dlibshape%5C_predictorget%5C_call)
+  - [dlib::shape\_predictor::save](#dlibshape%5C_predictorsave)
+- [dlib::svm\_c\_trainer\_radial\_basis](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basis)
+  - [svm\_c\_trainer\_radial\_basis.epsilon](#svm%5C_c%5C_trainer%5C_radial%5C_basisepsilon)
+  - [svm\_c\_trainer\_radial\_basis.c\_class1](#svm%5C_c%5C_trainer%5C_radial%5C_basisc%5C_class1)
+  - [svm\_c\_trainer\_radial\_basis.c\_class2](#svm%5C_c%5C_trainer%5C_radial%5C_basisc%5C_class2)
+  - [svm\_c\_trainer\_radial\_basis.cache\_size](#svm%5C_c%5C_trainer%5C_radial%5C_basiscache%5C_size)
+  - [svm\_c\_trainer\_radial\_basis.gamma](#svm%5C_c%5C_trainer%5C_radial%5C_basisgamma)
+  - [dlib::svm\_c\_trainer\_radial\_basis::get\_create](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basisget%5C_create)
+  - [dlib::svm\_c\_trainer\_radial\_basis::set\_c](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basisset%5C_c)
+  - [dlib::svm\_c\_trainer\_radial\_basis::train](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basistrain)
+- [dlib::svm\_c\_trainer\_sparse\_radial\_basis](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basis)
+  - [svm\_c\_trainer\_sparse\_radial\_basis.epsilon](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisepsilon)
+  - [svm\_c\_trainer\_sparse\_radial\_basis.c\_class1](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisc%5C_class1)
+  - [svm\_c\_trainer\_sparse\_radial\_basis.c\_class2](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisc%5C_class2)
+  - [svm\_c\_trainer\_sparse\_radial\_basis.cache\_size](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basiscache%5C_size)
+  - [svm\_c\_trainer\_sparse\_radial\_basis.gamma](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisgamma)
+  - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::get\_create](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisget%5C_create)
+  - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::set\_c](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisset%5C_c)
+  - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::train](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basistrain)
+- [dlib::svm\_c\_trainer\_histogram\_intersection](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersection)
+  - [svm\_c\_trainer\_histogram\_intersection.epsilon](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectionepsilon)
+  - [svm\_c\_trainer\_histogram\_intersection.c\_class1](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectionc%5C_class1)
+  - [svm\_c\_trainer\_histogram\_intersection.c\_class2](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectionc%5C_class2)
+  - [svm\_c\_trainer\_histogram\_intersection.cache\_size](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectioncache%5C_size)
+  - [dlib::svm\_c\_trainer\_histogram\_intersection::get\_create](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectionget%5C_create)
+  - [dlib::svm\_c\_trainer\_histogram\_intersection::set\_c](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectionset%5C_c)
+  - [dlib::svm\_c\_trainer\_histogram\_intersection::train](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectiontrain)
+- [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersection)
+  - [svm\_c\_trainer\_sparse\_histogram\_intersection.epsilon](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionepsilon)
+  - [svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class1](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionc%5C_class1)
+  - [svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class2](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionc%5C_class2)
+  - [svm\_c\_trainer\_sparse\_histogram\_intersection.cache\_size](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectioncache%5C_size)
+  - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::get\_create](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionget%5C_create)
+  - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::set\_c](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionset%5C_c)
+  - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::train](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectiontrain)
+- [dlib::svm\_c\_trainer\_linear](#dlibsvm%5C_c%5C_trainer%5C_linear)
+  - [svm\_c\_trainer\_linear.epsilon](#svm%5C_c%5C_trainer%5C_linearepsilon)
+  - [svm\_c\_trainer\_linear.c\_class1](#svm%5C_c%5C_trainer%5C_linearc%5C_class1)
+  - [svm\_c\_trainer\_linear.c\_class2](#svm%5C_c%5C_trainer%5C_linearc%5C_class2)
+  - [svm\_c\_trainer\_linear.max\_iterations](#svm%5C_c%5C_trainer%5C_linearmax%5C_iterations)
+  - [svm\_c\_trainer\_linear.force\_last\_weight\_to\_1](#svm%5C_c%5C_trainer%5C_linearforce%5C_last%5C_weight%5C_to%5C_1)
+  - [svm\_c\_trainer\_linear.learns\_nonnegative\_weights](#svm%5C_c%5C_trainer%5C_linearlearns%5C_nonnegative%5C_weights)
+  - [svm\_c\_trainer\_linear.has\_prior](#svm%5C_c%5C_trainer%5C_linearhas%5C_prior)
+  - [dlib::svm\_c\_trainer\_linear::get\_create](#dlibsvm%5C_c%5C_trainer%5C_linearget%5C_create)
+  - [dlib::svm\_c\_trainer\_linear::be\_quiet](#dlibsvm%5C_c%5C_trainer%5C_linearbe%5C_quiet)
+  - [dlib::svm\_c\_trainer\_linear::be\_verbose](#dlibsvm%5C_c%5C_trainer%5C_linearbe%5C_verbose)
+  - [dlib::svm\_c\_trainer\_linear::set\_c](#dlibsvm%5C_c%5C_trainer%5C_linearset%5C_c)
+  - [dlib::svm\_c\_trainer\_linear::set\_prior](#dlibsvm%5C_c%5C_trainer%5C_linearset%5C_prior)
+  - [dlib::svm\_c\_trainer\_linear::train](#dlibsvm%5C_c%5C_trainer%5C_lineartrain)
+- [dlib::svm\_c\_trainer\_sparse\_linear](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linear)
+  - [svm\_c\_trainer\_sparse\_linear.epsilon](#svm%5C_c%5C_trainer%5C_sparse%5C_linearepsilon)
+  - [svm\_c\_trainer\_sparse\_linear.c\_class1](#svm%5C_c%5C_trainer%5C_sparse%5C_linearc%5C_class1)
+  - [svm\_c\_trainer\_sparse\_linear.c\_class2](#svm%5C_c%5C_trainer%5C_sparse%5C_linearc%5C_class2)
+  - [svm\_c\_trainer\_sparse\_linear.max\_iterations](#svm%5C_c%5C_trainer%5C_sparse%5C_linearmax%5C_iterations)
+  - [svm\_c\_trainer\_sparse\_linear.force\_last\_weight\_to\_1](#svm%5C_c%5C_trainer%5C_sparse%5C_linearforce%5C_last%5C_weight%5C_to%5C_1)
+  - [svm\_c\_trainer\_sparse\_linear.learns\_nonnegative\_weights](#svm%5C_c%5C_trainer%5C_sparse%5C_linearlearns%5C_nonnegative%5C_weights)
+  - [svm\_c\_trainer\_sparse\_linear.has\_prior](#svm%5C_c%5C_trainer%5C_sparse%5C_linearhas%5C_prior)
+  - [dlib::svm\_c\_trainer\_sparse\_linear::get\_create](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearget%5C_create)
+  - [dlib::svm\_c\_trainer\_sparse\_linear::be\_quiet](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearbe%5C_quiet)
+  - [dlib::svm\_c\_trainer\_sparse\_linear::be\_verbose](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearbe%5C_verbose)
+  - [dlib::svm\_c\_trainer\_sparse\_linear::set\_c](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearset%5C_c)
+  - [dlib::svm\_c\_trainer\_sparse\_linear::set\_prior](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearset%5C_prior)
+  - [dlib::svm\_c\_trainer\_sparse\_linear::train](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_lineartrain)
+- [dlib::rvm\_trainer\_radial\_basis](#dlibrvm%5C_trainer%5C_radial%5C_basis)
+  - [rvm\_trainer\_radial\_basis.epsilon](#rvm%5C_trainer%5C_radial%5C_basisepsilon)
+  - [rvm\_trainer\_radial\_basis.gamma](#rvm%5C_trainer%5C_radial%5C_basisgamma)
+  - [dlib::rvm\_trainer\_radial\_basis::get\_create](#dlibrvm%5C_trainer%5C_radial%5C_basisget%5C_create)
+  - [dlib::rvm\_trainer\_radial\_basis::train](#dlibrvm%5C_trainer%5C_radial%5C_basistrain)
+- [dlib::rvm\_trainer\_sparse\_radial\_basis](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basis)
+  - [rvm\_trainer\_sparse\_radial\_basis.epsilon](#rvm%5C_trainer%5C_sparse%5C_radial%5C_basisepsilon)
+  - [rvm\_trainer\_sparse\_radial\_basis.gamma](#rvm%5C_trainer%5C_sparse%5C_radial%5C_basisgamma)
+  - [dlib::rvm\_trainer\_sparse\_radial\_basis::get\_create](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basisget%5C_create)
+  - [dlib::rvm\_trainer\_sparse\_radial\_basis::train](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basistrain)
+- [dlib::rvm\_trainer\_histogram\_intersection](#dlibrvm%5C_trainer%5C_histogram%5C_intersection)
+  - [rvm\_trainer\_histogram\_intersection.epsilon](#rvm%5C_trainer%5C_histogram%5C_intersectionepsilon)
+  - [dlib::rvm\_trainer\_histogram\_intersection::get\_create](#dlibrvm%5C_trainer%5C_histogram%5C_intersectionget%5C_create)
+  - [dlib::rvm\_trainer\_histogram\_intersection::train](#dlibrvm%5C_trainer%5C_histogram%5C_intersectiontrain)
+- [dlib::rvm\_trainer\_sparse\_histogram\_intersection](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersection)
+  - [rvm\_trainer\_sparse\_histogram\_intersection.epsilon](#rvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionepsilon)
+  - [dlib::rvm\_trainer\_sparse\_histogram\_intersection::get\_create](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionget%5C_create)
+  - [dlib::rvm\_trainer\_sparse\_histogram\_intersection::train](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectiontrain)
+- [dlib::rvm\_trainer\_linear](#dlibrvm%5C_trainer%5C_linear)
+  - [rvm\_trainer\_linear.epsilon](#rvm%5C_trainer%5C_linearepsilon)
+  - [dlib::rvm\_trainer\_linear::get\_create](#dlibrvm%5C_trainer%5C_linearget%5C_create)
+  - [dlib::rvm\_trainer\_linear::train](#dlibrvm%5C_trainer%5C_lineartrain)
+- [dlib::rvm\_trainer\_sparse\_linear](#dlibrvm%5C_trainer%5C_sparse%5C_linear)
+  - [rvm\_trainer\_sparse\_linear.epsilon](#rvm%5C_trainer%5C_sparse%5C_linearepsilon)
+  - [dlib::rvm\_trainer\_sparse\_linear::get\_create](#dlibrvm%5C_trainer%5C_sparse%5C_linearget%5C_create)
+  - [dlib::rvm\_trainer\_sparse\_linear::train](#dlibrvm%5C_trainer%5C_sparse%5C_lineartrain)
+- [dlib::vec\_ranking\_pair](#dlibvec%5C_ranking%5C_pair)
+  - [vec\_ranking\_pair.relevant](#vec%5C_ranking%5C_pairrelevant)
+  - [vec\_ranking\_pair.nonrelevant](#vec%5C_ranking%5C_pairnonrelevant)
+  - [dlib::vec\_ranking\_pair::get\_create](#dlibvec%5C_ranking%5C_pairget%5C_create)
+- [dlib::sparse\_ranking\_pair](#dlibsparse%5C_ranking%5C_pair)
+  - [sparse\_ranking\_pair.relevant](#sparse%5C_ranking%5C_pairrelevant)
+  - [sparse\_ranking\_pair.nonrelevant](#sparse%5C_ranking%5C_pairnonrelevant)
+  - [dlib::sparse\_ranking\_pair::get\_create](#dlibsparse%5C_ranking%5C_pairget%5C_create)
+- [dlib::vec\_svm\_rank\_trainer](#dlibvec%5C_svm%5C_rank%5C_trainer)
+  - [vec\_svm\_rank\_trainer.epsilon](#vec%5C_svm%5C_rank%5C_trainerepsilon)
+  - [vec\_svm\_rank\_trainer.c](#vec%5C_svm%5C_rank%5C_trainerc)
+  - [vec\_svm\_rank\_trainer.max\_iterations](#vec%5C_svm%5C_rank%5C_trainermax%5C_iterations)
+  - [vec\_svm\_rank\_trainer.force\_last\_weight\_to\_1](#vec%5C_svm%5C_rank%5C_trainerforce%5C_last%5C_weight%5C_to%5C_1)
+  - [vec\_svm\_rank\_trainer.learns\_nonnegative\_weights](#vec%5C_svm%5C_rank%5C_trainerlearns%5C_nonnegative%5C_weights)
+  - [vec\_svm\_rank\_trainer.has\_prior](#vec%5C_svm%5C_rank%5C_trainerhas%5C_prior)
+  - [dlib::vec\_svm\_rank\_trainer::get\_create](#dlibvec%5C_svm%5C_rank%5C_trainerget%5C_create)
+  - [dlib::vec\_svm\_rank\_trainer::be\_quiet](#dlibvec%5C_svm%5C_rank%5C_trainerbe%5C_quiet)
+  - [dlib::vec\_svm\_rank\_trainer::be\_verbose](#dlibvec%5C_svm%5C_rank%5C_trainerbe%5C_verbose)
+  - [dlib::vec\_svm\_rank\_trainer::set\_prior](#dlibvec%5C_svm%5C_rank%5C_trainerset%5C_prior)
+  - [dlib::vec\_svm\_rank\_trainer::train](#dlibvec%5C_svm%5C_rank%5C_trainertrain)
+- [dlib::svm\_rank\_trainer\_sparse](#dlibsvm%5C_rank%5C_trainer%5C_sparse)
+  - [svm\_rank\_trainer\_sparse.epsilon](#svm%5C_rank%5C_trainer%5C_sparseepsilon)
+  - [svm\_rank\_trainer\_sparse.c](#svm%5C_rank%5C_trainer%5C_sparsec)
+  - [svm\_rank\_trainer\_sparse.max\_iterations](#svm%5C_rank%5C_trainer%5C_sparsemax%5C_iterations)
+  - [svm\_rank\_trainer\_sparse.force\_last\_weight\_to\_1](#svm%5C_rank%5C_trainer%5C_sparseforce%5C_last%5C_weight%5C_to%5C_1)
+  - [svm\_rank\_trainer\_sparse.learns\_nonnegative\_weights](#svm%5C_rank%5C_trainer%5C_sparselearns%5C_nonnegative%5C_weights)
+  - [svm\_rank\_trainer\_sparse.has\_prior](#svm%5C_rank%5C_trainer%5C_sparsehas%5C_prior)
+  - [dlib::svm\_rank\_trainer\_sparse::get\_create](#dlibsvm%5C_rank%5C_trainer%5C_sparseget%5C_create)
+  - [dlib::svm\_rank\_trainer\_sparse::be\_quiet](#dlibsvm%5C_rank%5C_trainer%5C_sparsebe%5C_quiet)
+  - [dlib::svm\_rank\_trainer\_sparse::be\_verbose](#dlibsvm%5C_rank%5C_trainer%5C_sparsebe%5C_verbose)
+  - [dlib::svm\_rank\_trainer\_sparse::set\_prior](#dlibsvm%5C_rank%5C_trainer%5C_sparseset%5C_prior)
+  - [dlib::svm\_rank\_trainer\_sparse::train](#dlibsvm%5C_rank%5C_trainer%5C_sparsetrain)
 - [dlib::SpaceVector](#dlibspacevector)
+  - [SpaceVector.shape](#spacevectorshape)
   - [dlib::SpaceVector::create](#dlibspacevectorcreate)
   - [dlib::SpaceVector::ToString](#dlibspacevectortostring)
   - [dlib::SpaceVector::get](#dlibspacevectorget)
-  - [dlib::SpaceVector::get_Item](#dlibspacevectorget_item)
-  - [dlib::SpaceVector::put_Item](#dlibspacevectorput_item)
+  - [dlib::SpaceVector::get\_Item](#dlibspacevectorget%5C_item)
+  - [dlib::SpaceVector::put\_Item](#dlibspacevectorput%5C_item)
   - [dlib::SpaceVector::resize](#dlibspacevectorresize)
   - [dlib::SpaceVector::set](#dlibspacevectorset)
-  - [dlib::SpaceVector::set_size](#dlibspacevectorset_size)
+  - [dlib::SpaceVector::set\_size](#dlibspacevectorset%5C_size)
   - [dlib::SpaceVector::size](#dlibspacevectorsize)
   - [dlib::SpaceVector::slice](#dlibspacevectorslice)
-- [dlib::point_transform_projective](#dlibpoint_transform_projective)
-  - [dlib::point_transform_projective::create](#dlibpoint_transform_projectivecreate)
+- [dlib::point\_transform\_projective](#dlibpoint%5C_transform%5C_projective)
+  - [point\_transform\_projective.m](#point%5C_transform%5C_projectivem)
+  - [dlib::point\_transform\_projective::get\_create](#dlibpoint%5C_transform%5C_projectiveget%5C_create)
 - [dlib::dpoint](#dlibdpoint)
-  - [dlib::dpoint::create](#dlibdpointcreate)
+  - [dpoint.x](#dpointx)
+  - [dpoint.y](#dpointy)
+  - [dlib::dpoint::get\_create](#dlibdpointget%5C_create)
   - [dlib::dpoint::ToString](#dlibdpointtostring)
   - [dlib::dpoint::add](#dlibdpointadd)
   - [dlib::dpoint::divide](#dlibdpointdivide)
@@ -405,621 +781,763 @@
   - [dlib::dpoint::normalize](#dlibdpointnormalize)
   - [dlib::dpoint::sub](#dlibdpointsub)
 - [dlib::point](#dlibpoint)
-  - [dlib::point::create](#dlibpointcreate)
+  - [point.x](#pointx)
+  - [point.y](#pointy)
+  - [dlib::point::get\_create](#dlibpointget%5C_create)
   - [dlib::point::ToString](#dlibpointtostring)
   - [dlib::point::add](#dlibpointadd)
   - [dlib::point::divide](#dlibpointdivide)
   - [dlib::point::multiply](#dlibpointmultiply)
   - [dlib::point::normalize](#dlibpointnormalize)
   - [dlib::point::sub](#dlibpointsub)
+- [VectorOfString](#vectorofstring)
+  - [VectorOfString.Count](#vectorofstringcount)
+  - [VectorOfString::create](#vectorofstringcreate)
+  - [VectorOfString::Add](#vectorofstringadd)
+  - [VectorOfString::Items](#vectorofstringitems)
+  - [VectorOfString::Keys](#vectorofstringkeys)
+  - [VectorOfString::Remove](#vectorofstringremove)
+  - [VectorOfString::append](#vectorofstringappend)
+  - [VectorOfString::at](#vectorofstringat)
+  - [VectorOfString::clear](#vectorofstringclear)
+  - [VectorOfString::empty](#vectorofstringempty)
+  - [VectorOfString::end](#vectorofstringend)
+  - [VectorOfString::get\_Item](#vectorofstringget%5C_item)
+  - [VectorOfString::get\_\_NewEnum](#vectorofstringget%5C_%5C_newenum)
+  - [VectorOfString::push\_back](#vectorofstringpush%5C_back)
+  - [VectorOfString::push\_vector](#vectorofstringpush%5C_vector)
+  - [VectorOfString::put\_Item](#vectorofstringput%5C_item)
+  - [VectorOfString::size](#vectorofstringsize)
+  - [VectorOfString::slice](#vectorofstringslice)
+  - [VectorOfString::sort](#vectorofstringsort)
+  - [VectorOfString::sort\_variant](#vectorofstringsort%5C_variant)
+  - [VectorOfString::start](#vectorofstringstart)
 - [VectorOfVariant](#vectorofvariant)
+  - [VectorOfVariant.Count](#vectorofvariantcount)
   - [VectorOfVariant::create](#vectorofvariantcreate)
   - [VectorOfVariant::Add](#vectorofvariantadd)
   - [VectorOfVariant::Items](#vectorofvariantitems)
   - [VectorOfVariant::Keys](#vectorofvariantkeys)
   - [VectorOfVariant::Remove](#vectorofvariantremove)
+  - [VectorOfVariant::append](#vectorofvariantappend)
   - [VectorOfVariant::at](#vectorofvariantat)
   - [VectorOfVariant::clear](#vectorofvariantclear)
   - [VectorOfVariant::empty](#vectorofvariantempty)
   - [VectorOfVariant::end](#vectorofvariantend)
-  - [VectorOfVariant::push_back](#vectorofvariantpush_back)
-  - [VectorOfVariant::push_vector](#vectorofvariantpush_vector)
+  - [VectorOfVariant::get\_Item](#vectorofvariantget%5C_item)
+  - [VectorOfVariant::get\_\_NewEnum](#vectorofvariantget%5C_%5C_newenum)
+  - [VectorOfVariant::push\_back](#vectorofvariantpush%5C_back)
+  - [VectorOfVariant::push\_vector](#vectorofvariantpush%5C_vector)
+  - [VectorOfVariant::put\_Item](#vectorofvariantput%5C_item)
   - [VectorOfVariant::size](#vectorofvariantsize)
   - [VectorOfVariant::slice](#vectorofvariantslice)
   - [VectorOfVariant::sort](#vectorofvariantsort)
-  - [VectorOfVariant::sort_variant](#vectorofvariantsort_variant)
+  - [VectorOfVariant::sort\_variant](#vectorofvariantsort%5C_variant)
   - [VectorOfVariant::start](#vectorofvariantstart)
-  - [VectorOfVariant::get_Item](#vectorofvariantget_item)
-  - [VectorOfVariant::put_Item](#vectorofvariantput_item)
 - [VectorOfPairOfULONGAndDouble](#vectorofpairofulonganddouble)
+  - [VectorOfPairOfULONGAndDouble.Count](#vectorofpairofulonganddoublecount)
   - [VectorOfPairOfULONGAndDouble::create](#vectorofpairofulonganddoublecreate)
   - [VectorOfPairOfULONGAndDouble::Add](#vectorofpairofulonganddoubleadd)
   - [VectorOfPairOfULONGAndDouble::Items](#vectorofpairofulonganddoubleitems)
   - [VectorOfPairOfULONGAndDouble::Keys](#vectorofpairofulonganddoublekeys)
   - [VectorOfPairOfULONGAndDouble::Remove](#vectorofpairofulonganddoubleremove)
+  - [VectorOfPairOfULONGAndDouble::append](#vectorofpairofulonganddoubleappend)
   - [VectorOfPairOfULONGAndDouble::at](#vectorofpairofulonganddoubleat)
   - [VectorOfPairOfULONGAndDouble::clear](#vectorofpairofulonganddoubleclear)
   - [VectorOfPairOfULONGAndDouble::empty](#vectorofpairofulonganddoubleempty)
   - [VectorOfPairOfULONGAndDouble::end](#vectorofpairofulonganddoubleend)
-  - [VectorOfPairOfULONGAndDouble::push_back](#vectorofpairofulonganddoublepush_back)
-  - [VectorOfPairOfULONGAndDouble::push_vector](#vectorofpairofulonganddoublepush_vector)
+  - [VectorOfPairOfULONGAndDouble::get\_Item](#vectorofpairofulonganddoubleget%5C_item)
+  - [VectorOfPairOfULONGAndDouble::get\_\_NewEnum](#vectorofpairofulonganddoubleget%5C_%5C_newenum)
+  - [VectorOfPairOfULONGAndDouble::push\_back](#vectorofpairofulonganddoublepush%5C_back)
+  - [VectorOfPairOfULONGAndDouble::push\_vector](#vectorofpairofulonganddoublepush%5C_vector)
+  - [VectorOfPairOfULONGAndDouble::put\_Item](#vectorofpairofulonganddoubleput%5C_item)
   - [VectorOfPairOfULONGAndDouble::size](#vectorofpairofulonganddoublesize)
   - [VectorOfPairOfULONGAndDouble::slice](#vectorofpairofulonganddoubleslice)
   - [VectorOfPairOfULONGAndDouble::sort](#vectorofpairofulonganddoublesort)
-  - [VectorOfPairOfULONGAndDouble::sort_variant](#vectorofpairofulonganddoublesort_variant)
+  - [VectorOfPairOfULONGAndDouble::sort\_variant](#vectorofpairofulonganddoublesort%5C_variant)
   - [VectorOfPairOfULONGAndDouble::start](#vectorofpairofulonganddoublestart)
-  - [VectorOfPairOfULONGAndDouble::get_Item](#vectorofpairofulonganddoubleget_item)
-  - [VectorOfPairOfULONGAndDouble::put_Item](#vectorofpairofulonganddoubleput_item)
 - [VectorOfLong](#vectoroflong)
+  - [VectorOfLong.Count](#vectoroflongcount)
   - [VectorOfLong::create](#vectoroflongcreate)
   - [VectorOfLong::Add](#vectoroflongadd)
   - [VectorOfLong::Items](#vectoroflongitems)
   - [VectorOfLong::Keys](#vectoroflongkeys)
   - [VectorOfLong::Remove](#vectoroflongremove)
+  - [VectorOfLong::append](#vectoroflongappend)
   - [VectorOfLong::at](#vectoroflongat)
   - [VectorOfLong::clear](#vectoroflongclear)
   - [VectorOfLong::empty](#vectoroflongempty)
   - [VectorOfLong::end](#vectoroflongend)
-  - [VectorOfLong::push_back](#vectoroflongpush_back)
-  - [VectorOfLong::push_vector](#vectoroflongpush_vector)
+  - [VectorOfLong::get\_Item](#vectoroflongget%5C_item)
+  - [VectorOfLong::get\_\_NewEnum](#vectoroflongget%5C_%5C_newenum)
+  - [VectorOfLong::push\_back](#vectoroflongpush%5C_back)
+  - [VectorOfLong::push\_vector](#vectoroflongpush%5C_vector)
+  - [VectorOfLong::put\_Item](#vectoroflongput%5C_item)
   - [VectorOfLong::size](#vectoroflongsize)
   - [VectorOfLong::slice](#vectoroflongslice)
   - [VectorOfLong::sort](#vectoroflongsort)
-  - [VectorOfLong::sort_variant](#vectoroflongsort_variant)
+  - [VectorOfLong::sort\_variant](#vectoroflongsort%5C_variant)
   - [VectorOfLong::start](#vectoroflongstart)
-  - [VectorOfLong::get_Item](#vectoroflongget_item)
-  - [VectorOfLong::put_Item](#vectoroflongput_item)
 - [VectorOfSpaceVector](#vectorofspacevector)
+  - [VectorOfSpaceVector.Count](#vectorofspacevectorcount)
   - [VectorOfSpaceVector::create](#vectorofspacevectorcreate)
   - [VectorOfSpaceVector::Add](#vectorofspacevectoradd)
   - [VectorOfSpaceVector::Items](#vectorofspacevectoritems)
   - [VectorOfSpaceVector::Keys](#vectorofspacevectorkeys)
   - [VectorOfSpaceVector::Remove](#vectorofspacevectorremove)
+  - [VectorOfSpaceVector::append](#vectorofspacevectorappend)
   - [VectorOfSpaceVector::at](#vectorofspacevectorat)
   - [VectorOfSpaceVector::clear](#vectorofspacevectorclear)
   - [VectorOfSpaceVector::empty](#vectorofspacevectorempty)
   - [VectorOfSpaceVector::end](#vectorofspacevectorend)
-  - [VectorOfSpaceVector::push_back](#vectorofspacevectorpush_back)
-  - [VectorOfSpaceVector::push_vector](#vectorofspacevectorpush_vector)
+  - [VectorOfSpaceVector::get\_Item](#vectorofspacevectorget%5C_item)
+  - [VectorOfSpaceVector::get\_\_NewEnum](#vectorofspacevectorget%5C_%5C_newenum)
+  - [VectorOfSpaceVector::push\_back](#vectorofspacevectorpush%5C_back)
+  - [VectorOfSpaceVector::push\_vector](#vectorofspacevectorpush%5C_vector)
+  - [VectorOfSpaceVector::put\_Item](#vectorofspacevectorput%5C_item)
   - [VectorOfSpaceVector::size](#vectorofspacevectorsize)
   - [VectorOfSpaceVector::slice](#vectorofspacevectorslice)
   - [VectorOfSpaceVector::sort](#vectorofspacevectorsort)
-  - [VectorOfSpaceVector::sort_variant](#vectorofspacevectorsort_variant)
+  - [VectorOfSpaceVector::sort\_variant](#vectorofspacevectorsort%5C_variant)
   - [VectorOfSpaceVector::start](#vectorofspacevectorstart)
-  - [VectorOfSpaceVector::get_Item](#vectorofspacevectorget_item)
-  - [VectorOfSpaceVector::put_Item](#vectorofspacevectorput_item)
 - [VectorOfDouble](#vectorofdouble)
+  - [VectorOfDouble.Count](#vectorofdoublecount)
   - [VectorOfDouble::create](#vectorofdoublecreate)
   - [VectorOfDouble::Add](#vectorofdoubleadd)
   - [VectorOfDouble::Items](#vectorofdoubleitems)
   - [VectorOfDouble::Keys](#vectorofdoublekeys)
   - [VectorOfDouble::Remove](#vectorofdoubleremove)
+  - [VectorOfDouble::append](#vectorofdoubleappend)
   - [VectorOfDouble::at](#vectorofdoubleat)
   - [VectorOfDouble::clear](#vectorofdoubleclear)
   - [VectorOfDouble::empty](#vectorofdoubleempty)
   - [VectorOfDouble::end](#vectorofdoubleend)
-  - [VectorOfDouble::push_back](#vectorofdoublepush_back)
-  - [VectorOfDouble::push_vector](#vectorofdoublepush_vector)
+  - [VectorOfDouble::get\_Item](#vectorofdoubleget%5C_item)
+  - [VectorOfDouble::get\_\_NewEnum](#vectorofdoubleget%5C_%5C_newenum)
+  - [VectorOfDouble::push\_back](#vectorofdoublepush%5C_back)
+  - [VectorOfDouble::push\_vector](#vectorofdoublepush%5C_vector)
+  - [VectorOfDouble::put\_Item](#vectorofdoubleput%5C_item)
   - [VectorOfDouble::size](#vectorofdoublesize)
   - [VectorOfDouble::slice](#vectorofdoubleslice)
   - [VectorOfDouble::sort](#vectorofdoublesort)
-  - [VectorOfDouble::sort_variant](#vectorofdoublesort_variant)
+  - [VectorOfDouble::sort\_variant](#vectorofdoublesort%5C_variant)
   - [VectorOfDouble::start](#vectorofdoublestart)
-  - [VectorOfDouble::get_Item](#vectorofdoubleget_item)
-  - [VectorOfDouble::put_Item](#vectorofdoubleput_item)
 - [VectorOfVectorOfPairOfULONGAndDouble](#vectorofvectorofpairofulonganddouble)
+  - [VectorOfVectorOfPairOfULONGAndDouble.Count](#vectorofvectorofpairofulonganddoublecount)
   - [VectorOfVectorOfPairOfULONGAndDouble::create](#vectorofvectorofpairofulonganddoublecreate)
   - [VectorOfVectorOfPairOfULONGAndDouble::Add](#vectorofvectorofpairofulonganddoubleadd)
   - [VectorOfVectorOfPairOfULONGAndDouble::Items](#vectorofvectorofpairofulonganddoubleitems)
   - [VectorOfVectorOfPairOfULONGAndDouble::Keys](#vectorofvectorofpairofulonganddoublekeys)
   - [VectorOfVectorOfPairOfULONGAndDouble::Remove](#vectorofvectorofpairofulonganddoubleremove)
+  - [VectorOfVectorOfPairOfULONGAndDouble::append](#vectorofvectorofpairofulonganddoubleappend)
   - [VectorOfVectorOfPairOfULONGAndDouble::at](#vectorofvectorofpairofulonganddoubleat)
   - [VectorOfVectorOfPairOfULONGAndDouble::clear](#vectorofvectorofpairofulonganddoubleclear)
   - [VectorOfVectorOfPairOfULONGAndDouble::empty](#vectorofvectorofpairofulonganddoubleempty)
   - [VectorOfVectorOfPairOfULONGAndDouble::end](#vectorofvectorofpairofulonganddoubleend)
-  - [VectorOfVectorOfPairOfULONGAndDouble::push_back](#vectorofvectorofpairofulonganddoublepush_back)
-  - [VectorOfVectorOfPairOfULONGAndDouble::push_vector](#vectorofvectorofpairofulonganddoublepush_vector)
+  - [VectorOfVectorOfPairOfULONGAndDouble::get\_Item](#vectorofvectorofpairofulonganddoubleget%5C_item)
+  - [VectorOfVectorOfPairOfULONGAndDouble::get\_\_NewEnum](#vectorofvectorofpairofulonganddoubleget%5C_%5C_newenum)
+  - [VectorOfVectorOfPairOfULONGAndDouble::push\_back](#vectorofvectorofpairofulonganddoublepush%5C_back)
+  - [VectorOfVectorOfPairOfULONGAndDouble::push\_vector](#vectorofvectorofpairofulonganddoublepush%5C_vector)
+  - [VectorOfVectorOfPairOfULONGAndDouble::put\_Item](#vectorofvectorofpairofulonganddoubleput%5C_item)
   - [VectorOfVectorOfPairOfULONGAndDouble::size](#vectorofvectorofpairofulonganddoublesize)
   - [VectorOfVectorOfPairOfULONGAndDouble::slice](#vectorofvectorofpairofulonganddoubleslice)
   - [VectorOfVectorOfPairOfULONGAndDouble::sort](#vectorofvectorofpairofulonganddoublesort)
-  - [VectorOfVectorOfPairOfULONGAndDouble::sort_variant](#vectorofvectorofpairofulonganddoublesort_variant)
+  - [VectorOfVectorOfPairOfULONGAndDouble::sort\_variant](#vectorofvectorofpairofulonganddoublesort%5C_variant)
   - [VectorOfVectorOfPairOfULONGAndDouble::start](#vectorofvectorofpairofulonganddoublestart)
-  - [VectorOfVectorOfPairOfULONGAndDouble::get_Item](#vectorofvectorofpairofulonganddoubleget_item)
-  - [VectorOfVectorOfPairOfULONGAndDouble::put_Item](#vectorofvectorofpairofulonganddoubleput_item)
 - [VectorOfPoint](#vectorofpoint)
+  - [VectorOfPoint.Count](#vectorofpointcount)
   - [VectorOfPoint::create](#vectorofpointcreate)
   - [VectorOfPoint::Add](#vectorofpointadd)
   - [VectorOfPoint::Items](#vectorofpointitems)
   - [VectorOfPoint::Keys](#vectorofpointkeys)
   - [VectorOfPoint::Remove](#vectorofpointremove)
+  - [VectorOfPoint::append](#vectorofpointappend)
   - [VectorOfPoint::at](#vectorofpointat)
   - [VectorOfPoint::clear](#vectorofpointclear)
   - [VectorOfPoint::empty](#vectorofpointempty)
   - [VectorOfPoint::end](#vectorofpointend)
-  - [VectorOfPoint::push_back](#vectorofpointpush_back)
-  - [VectorOfPoint::push_vector](#vectorofpointpush_vector)
+  - [VectorOfPoint::get\_Item](#vectorofpointget%5C_item)
+  - [VectorOfPoint::get\_\_NewEnum](#vectorofpointget%5C_%5C_newenum)
+  - [VectorOfPoint::push\_back](#vectorofpointpush%5C_back)
+  - [VectorOfPoint::push\_vector](#vectorofpointpush%5C_vector)
+  - [VectorOfPoint::put\_Item](#vectorofpointput%5C_item)
   - [VectorOfPoint::size](#vectorofpointsize)
   - [VectorOfPoint::slice](#vectorofpointslice)
   - [VectorOfPoint::sort](#vectorofpointsort)
-  - [VectorOfPoint::sort_variant](#vectorofpointsort_variant)
+  - [VectorOfPoint::sort\_variant](#vectorofpointsort%5C_variant)
   - [VectorOfPoint::start](#vectorofpointstart)
-  - [VectorOfPoint::get_Item](#vectorofpointget_item)
-  - [VectorOfPoint::put_Item](#vectorofpointput_item)
 - [VectorOfRectangle](#vectorofrectangle)
+  - [VectorOfRectangle.Count](#vectorofrectanglecount)
   - [VectorOfRectangle::create](#vectorofrectanglecreate)
   - [VectorOfRectangle::Add](#vectorofrectangleadd)
   - [VectorOfRectangle::Items](#vectorofrectangleitems)
   - [VectorOfRectangle::Keys](#vectorofrectanglekeys)
   - [VectorOfRectangle::Remove](#vectorofrectangleremove)
+  - [VectorOfRectangle::append](#vectorofrectangleappend)
   - [VectorOfRectangle::at](#vectorofrectangleat)
   - [VectorOfRectangle::clear](#vectorofrectangleclear)
   - [VectorOfRectangle::empty](#vectorofrectangleempty)
   - [VectorOfRectangle::end](#vectorofrectangleend)
-  - [VectorOfRectangle::push_back](#vectorofrectanglepush_back)
-  - [VectorOfRectangle::push_vector](#vectorofrectanglepush_vector)
+  - [VectorOfRectangle::get\_Item](#vectorofrectangleget%5C_item)
+  - [VectorOfRectangle::get\_\_NewEnum](#vectorofrectangleget%5C_%5C_newenum)
+  - [VectorOfRectangle::push\_back](#vectorofrectanglepush%5C_back)
+  - [VectorOfRectangle::push\_vector](#vectorofrectanglepush%5C_vector)
+  - [VectorOfRectangle::put\_Item](#vectorofrectangleput%5C_item)
   - [VectorOfRectangle::size](#vectorofrectanglesize)
   - [VectorOfRectangle::slice](#vectorofrectangleslice)
   - [VectorOfRectangle::sort](#vectorofrectanglesort)
-  - [VectorOfRectangle::sort_variant](#vectorofrectanglesort_variant)
+  - [VectorOfRectangle::sort\_variant](#vectorofrectanglesort%5C_variant)
   - [VectorOfRectangle::start](#vectorofrectanglestart)
-  - [VectorOfRectangle::get_Item](#vectorofrectangleget_item)
-  - [VectorOfRectangle::put_Item](#vectorofrectangleput_item)
 - [VectorOfULONG](#vectorofulong)
+  - [VectorOfULONG.Count](#vectorofulongcount)
   - [VectorOfULONG::create](#vectorofulongcreate)
   - [VectorOfULONG::Add](#vectorofulongadd)
   - [VectorOfULONG::Items](#vectorofulongitems)
   - [VectorOfULONG::Keys](#vectorofulongkeys)
   - [VectorOfULONG::Remove](#vectorofulongremove)
+  - [VectorOfULONG::append](#vectorofulongappend)
   - [VectorOfULONG::at](#vectorofulongat)
   - [VectorOfULONG::clear](#vectorofulongclear)
   - [VectorOfULONG::empty](#vectorofulongempty)
   - [VectorOfULONG::end](#vectorofulongend)
-  - [VectorOfULONG::push_back](#vectorofulongpush_back)
-  - [VectorOfULONG::push_vector](#vectorofulongpush_vector)
+  - [VectorOfULONG::get\_Item](#vectorofulongget%5C_item)
+  - [VectorOfULONG::get\_\_NewEnum](#vectorofulongget%5C_%5C_newenum)
+  - [VectorOfULONG::push\_back](#vectorofulongpush%5C_back)
+  - [VectorOfULONG::push\_vector](#vectorofulongpush%5C_vector)
+  - [VectorOfULONG::put\_Item](#vectorofulongput%5C_item)
   - [VectorOfULONG::size](#vectorofulongsize)
   - [VectorOfULONG::slice](#vectorofulongslice)
   - [VectorOfULONG::sort](#vectorofulongsort)
-  - [VectorOfULONG::sort_variant](#vectorofulongsort_variant)
+  - [VectorOfULONG::sort\_variant](#vectorofulongsort%5C_variant)
   - [VectorOfULONG::start](#vectorofulongstart)
-  - [VectorOfULONG::get_Item](#vectorofulongget_item)
-  - [VectorOfULONG::put_Item](#vectorofulongput_item)
 - [VectorOfDpoint](#vectorofdpoint)
+  - [VectorOfDpoint.Count](#vectorofdpointcount)
   - [VectorOfDpoint::create](#vectorofdpointcreate)
   - [VectorOfDpoint::Add](#vectorofdpointadd)
   - [VectorOfDpoint::Items](#vectorofdpointitems)
   - [VectorOfDpoint::Keys](#vectorofdpointkeys)
   - [VectorOfDpoint::Remove](#vectorofdpointremove)
+  - [VectorOfDpoint::append](#vectorofdpointappend)
   - [VectorOfDpoint::at](#vectorofdpointat)
   - [VectorOfDpoint::clear](#vectorofdpointclear)
   - [VectorOfDpoint::empty](#vectorofdpointempty)
   - [VectorOfDpoint::end](#vectorofdpointend)
-  - [VectorOfDpoint::push_back](#vectorofdpointpush_back)
-  - [VectorOfDpoint::push_vector](#vectorofdpointpush_vector)
+  - [VectorOfDpoint::get\_Item](#vectorofdpointget%5C_item)
+  - [VectorOfDpoint::get\_\_NewEnum](#vectorofdpointget%5C_%5C_newenum)
+  - [VectorOfDpoint::push\_back](#vectorofdpointpush%5C_back)
+  - [VectorOfDpoint::push\_vector](#vectorofdpointpush%5C_vector)
+  - [VectorOfDpoint::put\_Item](#vectorofdpointput%5C_item)
   - [VectorOfDpoint::size](#vectorofdpointsize)
   - [VectorOfDpoint::slice](#vectorofdpointslice)
   - [VectorOfDpoint::sort](#vectorofdpointsort)
-  - [VectorOfDpoint::sort_variant](#vectorofdpointsort_variant)
+  - [VectorOfDpoint::sort\_variant](#vectorofdpointsort%5C_variant)
   - [VectorOfDpoint::start](#vectorofdpointstart)
-  - [VectorOfDpoint::get_Item](#vectorofdpointget_item)
-  - [VectorOfDpoint::put_Item](#vectorofdpointput_item)
-- [VectorOfVec_ranking_pair](#vectorofvec_ranking_pair)
-  - [VectorOfVec_ranking_pair::create](#vectorofvec_ranking_paircreate)
-  - [VectorOfVec_ranking_pair::Add](#vectorofvec_ranking_pairadd)
-  - [VectorOfVec_ranking_pair::Items](#vectorofvec_ranking_pairitems)
-  - [VectorOfVec_ranking_pair::Keys](#vectorofvec_ranking_pairkeys)
-  - [VectorOfVec_ranking_pair::Remove](#vectorofvec_ranking_pairremove)
-  - [VectorOfVec_ranking_pair::at](#vectorofvec_ranking_pairat)
-  - [VectorOfVec_ranking_pair::clear](#vectorofvec_ranking_pairclear)
-  - [VectorOfVec_ranking_pair::empty](#vectorofvec_ranking_pairempty)
-  - [VectorOfVec_ranking_pair::end](#vectorofvec_ranking_pairend)
-  - [VectorOfVec_ranking_pair::push_back](#vectorofvec_ranking_pairpush_back)
-  - [VectorOfVec_ranking_pair::push_vector](#vectorofvec_ranking_pairpush_vector)
-  - [VectorOfVec_ranking_pair::size](#vectorofvec_ranking_pairsize)
-  - [VectorOfVec_ranking_pair::slice](#vectorofvec_ranking_pairslice)
-  - [VectorOfVec_ranking_pair::sort](#vectorofvec_ranking_pairsort)
-  - [VectorOfVec_ranking_pair::sort_variant](#vectorofvec_ranking_pairsort_variant)
-  - [VectorOfVec_ranking_pair::start](#vectorofvec_ranking_pairstart)
-  - [VectorOfVec_ranking_pair::get_Item](#vectorofvec_ranking_pairget_item)
-  - [VectorOfVec_ranking_pair::put_Item](#vectorofvec_ranking_pairput_item)
-- [VectorOfSparse_ranking_pair](#vectorofsparse_ranking_pair)
-  - [VectorOfSparse_ranking_pair::create](#vectorofsparse_ranking_paircreate)
-  - [VectorOfSparse_ranking_pair::Add](#vectorofsparse_ranking_pairadd)
-  - [VectorOfSparse_ranking_pair::Items](#vectorofsparse_ranking_pairitems)
-  - [VectorOfSparse_ranking_pair::Keys](#vectorofsparse_ranking_pairkeys)
-  - [VectorOfSparse_ranking_pair::Remove](#vectorofsparse_ranking_pairremove)
-  - [VectorOfSparse_ranking_pair::at](#vectorofsparse_ranking_pairat)
-  - [VectorOfSparse_ranking_pair::clear](#vectorofsparse_ranking_pairclear)
-  - [VectorOfSparse_ranking_pair::empty](#vectorofsparse_ranking_pairempty)
-  - [VectorOfSparse_ranking_pair::end](#vectorofsparse_ranking_pairend)
-  - [VectorOfSparse_ranking_pair::push_back](#vectorofsparse_ranking_pairpush_back)
-  - [VectorOfSparse_ranking_pair::push_vector](#vectorofsparse_ranking_pairpush_vector)
-  - [VectorOfSparse_ranking_pair::size](#vectorofsparse_ranking_pairsize)
-  - [VectorOfSparse_ranking_pair::slice](#vectorofsparse_ranking_pairslice)
-  - [VectorOfSparse_ranking_pair::sort](#vectorofsparse_ranking_pairsort)
-  - [VectorOfSparse_ranking_pair::sort_variant](#vectorofsparse_ranking_pairsort_variant)
-  - [VectorOfSparse_ranking_pair::start](#vectorofsparse_ranking_pairstart)
-  - [VectorOfSparse_ranking_pair::get_Item](#vectorofsparse_ranking_pairget_item)
-  - [VectorOfSparse_ranking_pair::put_Item](#vectorofsparse_ranking_pairput_item)
+- [VectorOfVec\_ranking\_pair](#vectorofvec%5C_ranking%5C_pair)
+  - [VectorOfVec\_ranking\_pair.Count](#vectorofvec%5C_ranking%5C_paircount)
+  - [VectorOfVec\_ranking\_pair::create](#vectorofvec%5C_ranking%5C_paircreate)
+  - [VectorOfVec\_ranking\_pair::Add](#vectorofvec%5C_ranking%5C_pairadd)
+  - [VectorOfVec\_ranking\_pair::Items](#vectorofvec%5C_ranking%5C_pairitems)
+  - [VectorOfVec\_ranking\_pair::Keys](#vectorofvec%5C_ranking%5C_pairkeys)
+  - [VectorOfVec\_ranking\_pair::Remove](#vectorofvec%5C_ranking%5C_pairremove)
+  - [VectorOfVec\_ranking\_pair::append](#vectorofvec%5C_ranking%5C_pairappend)
+  - [VectorOfVec\_ranking\_pair::at](#vectorofvec%5C_ranking%5C_pairat)
+  - [VectorOfVec\_ranking\_pair::clear](#vectorofvec%5C_ranking%5C_pairclear)
+  - [VectorOfVec\_ranking\_pair::empty](#vectorofvec%5C_ranking%5C_pairempty)
+  - [VectorOfVec\_ranking\_pair::end](#vectorofvec%5C_ranking%5C_pairend)
+  - [VectorOfVec\_ranking\_pair::get\_Item](#vectorofvec%5C_ranking%5C_pairget%5C_item)
+  - [VectorOfVec\_ranking\_pair::get\_\_NewEnum](#vectorofvec%5C_ranking%5C_pairget%5C_%5C_newenum)
+  - [VectorOfVec\_ranking\_pair::push\_back](#vectorofvec%5C_ranking%5C_pairpush%5C_back)
+  - [VectorOfVec\_ranking\_pair::push\_vector](#vectorofvec%5C_ranking%5C_pairpush%5C_vector)
+  - [VectorOfVec\_ranking\_pair::put\_Item](#vectorofvec%5C_ranking%5C_pairput%5C_item)
+  - [VectorOfVec\_ranking\_pair::size](#vectorofvec%5C_ranking%5C_pairsize)
+  - [VectorOfVec\_ranking\_pair::slice](#vectorofvec%5C_ranking%5C_pairslice)
+  - [VectorOfVec\_ranking\_pair::sort](#vectorofvec%5C_ranking%5C_pairsort)
+  - [VectorOfVec\_ranking\_pair::sort\_variant](#vectorofvec%5C_ranking%5C_pairsort%5C_variant)
+  - [VectorOfVec\_ranking\_pair::start](#vectorofvec%5C_ranking%5C_pairstart)
+- [VectorOfSparse\_ranking\_pair](#vectorofsparse%5C_ranking%5C_pair)
+  - [VectorOfSparse\_ranking\_pair.Count](#vectorofsparse%5C_ranking%5C_paircount)
+  - [VectorOfSparse\_ranking\_pair::create](#vectorofsparse%5C_ranking%5C_paircreate)
+  - [VectorOfSparse\_ranking\_pair::Add](#vectorofsparse%5C_ranking%5C_pairadd)
+  - [VectorOfSparse\_ranking\_pair::Items](#vectorofsparse%5C_ranking%5C_pairitems)
+  - [VectorOfSparse\_ranking\_pair::Keys](#vectorofsparse%5C_ranking%5C_pairkeys)
+  - [VectorOfSparse\_ranking\_pair::Remove](#vectorofsparse%5C_ranking%5C_pairremove)
+  - [VectorOfSparse\_ranking\_pair::append](#vectorofsparse%5C_ranking%5C_pairappend)
+  - [VectorOfSparse\_ranking\_pair::at](#vectorofsparse%5C_ranking%5C_pairat)
+  - [VectorOfSparse\_ranking\_pair::clear](#vectorofsparse%5C_ranking%5C_pairclear)
+  - [VectorOfSparse\_ranking\_pair::empty](#vectorofsparse%5C_ranking%5C_pairempty)
+  - [VectorOfSparse\_ranking\_pair::end](#vectorofsparse%5C_ranking%5C_pairend)
+  - [VectorOfSparse\_ranking\_pair::get\_Item](#vectorofsparse%5C_ranking%5C_pairget%5C_item)
+  - [VectorOfSparse\_ranking\_pair::get\_\_NewEnum](#vectorofsparse%5C_ranking%5C_pairget%5C_%5C_newenum)
+  - [VectorOfSparse\_ranking\_pair::push\_back](#vectorofsparse%5C_ranking%5C_pairpush%5C_back)
+  - [VectorOfSparse\_ranking\_pair::push\_vector](#vectorofsparse%5C_ranking%5C_pairpush%5C_vector)
+  - [VectorOfSparse\_ranking\_pair::put\_Item](#vectorofsparse%5C_ranking%5C_pairput%5C_item)
+  - [VectorOfSparse\_ranking\_pair::size](#vectorofsparse%5C_ranking%5C_pairsize)
+  - [VectorOfSparse\_ranking\_pair::slice](#vectorofsparse%5C_ranking%5C_pairslice)
+  - [VectorOfSparse\_ranking\_pair::sort](#vectorofsparse%5C_ranking%5C_pairsort)
+  - [VectorOfSparse\_ranking\_pair::sort\_variant](#vectorofsparse%5C_ranking%5C_pairsort%5C_variant)
+  - [VectorOfSparse\_ranking\_pair::start](#vectorofsparse%5C_ranking%5C_pairstart)
 - [VectorOfVectorOfSpaceVector](#vectorofvectorofspacevector)
+  - [VectorOfVectorOfSpaceVector.Count](#vectorofvectorofspacevectorcount)
   - [VectorOfVectorOfSpaceVector::create](#vectorofvectorofspacevectorcreate)
   - [VectorOfVectorOfSpaceVector::Add](#vectorofvectorofspacevectoradd)
   - [VectorOfVectorOfSpaceVector::Items](#vectorofvectorofspacevectoritems)
   - [VectorOfVectorOfSpaceVector::Keys](#vectorofvectorofspacevectorkeys)
   - [VectorOfVectorOfSpaceVector::Remove](#vectorofvectorofspacevectorremove)
+  - [VectorOfVectorOfSpaceVector::append](#vectorofvectorofspacevectorappend)
   - [VectorOfVectorOfSpaceVector::at](#vectorofvectorofspacevectorat)
   - [VectorOfVectorOfSpaceVector::clear](#vectorofvectorofspacevectorclear)
   - [VectorOfVectorOfSpaceVector::empty](#vectorofvectorofspacevectorempty)
   - [VectorOfVectorOfSpaceVector::end](#vectorofvectorofspacevectorend)
-  - [VectorOfVectorOfSpaceVector::push_back](#vectorofvectorofspacevectorpush_back)
-  - [VectorOfVectorOfSpaceVector::push_vector](#vectorofvectorofspacevectorpush_vector)
+  - [VectorOfVectorOfSpaceVector::get\_Item](#vectorofvectorofspacevectorget%5C_item)
+  - [VectorOfVectorOfSpaceVector::get\_\_NewEnum](#vectorofvectorofspacevectorget%5C_%5C_newenum)
+  - [VectorOfVectorOfSpaceVector::push\_back](#vectorofvectorofspacevectorpush%5C_back)
+  - [VectorOfVectorOfSpaceVector::push\_vector](#vectorofvectorofspacevectorpush%5C_vector)
+  - [VectorOfVectorOfSpaceVector::put\_Item](#vectorofvectorofspacevectorput%5C_item)
   - [VectorOfVectorOfSpaceVector::size](#vectorofvectorofspacevectorsize)
   - [VectorOfVectorOfSpaceVector::slice](#vectorofvectorofspacevectorslice)
   - [VectorOfVectorOfSpaceVector::sort](#vectorofvectorofspacevectorsort)
-  - [VectorOfVectorOfSpaceVector::sort_variant](#vectorofvectorofspacevectorsort_variant)
+  - [VectorOfVectorOfSpaceVector::sort\_variant](#vectorofvectorofspacevectorsort%5C_variant)
   - [VectorOfVectorOfSpaceVector::start](#vectorofvectorofspacevectorstart)
-  - [VectorOfVectorOfSpaceVector::get_Item](#vectorofvectorofspacevectorget_item)
-  - [VectorOfVectorOfSpaceVector::put_Item](#vectorofvectorofspacevectorput_item)
 - [VectorOfPairOfULONGAndULONG](#vectorofpairofulongandulong)
+  - [VectorOfPairOfULONGAndULONG.Count](#vectorofpairofulongandulongcount)
   - [VectorOfPairOfULONGAndULONG::create](#vectorofpairofulongandulongcreate)
   - [VectorOfPairOfULONGAndULONG::Add](#vectorofpairofulongandulongadd)
   - [VectorOfPairOfULONGAndULONG::Items](#vectorofpairofulongandulongitems)
   - [VectorOfPairOfULONGAndULONG::Keys](#vectorofpairofulongandulongkeys)
   - [VectorOfPairOfULONGAndULONG::Remove](#vectorofpairofulongandulongremove)
+  - [VectorOfPairOfULONGAndULONG::append](#vectorofpairofulongandulongappend)
   - [VectorOfPairOfULONGAndULONG::at](#vectorofpairofulongandulongat)
   - [VectorOfPairOfULONGAndULONG::clear](#vectorofpairofulongandulongclear)
   - [VectorOfPairOfULONGAndULONG::empty](#vectorofpairofulongandulongempty)
   - [VectorOfPairOfULONGAndULONG::end](#vectorofpairofulongandulongend)
-  - [VectorOfPairOfULONGAndULONG::push_back](#vectorofpairofulongandulongpush_back)
-  - [VectorOfPairOfULONGAndULONG::push_vector](#vectorofpairofulongandulongpush_vector)
+  - [VectorOfPairOfULONGAndULONG::get\_Item](#vectorofpairofulongandulongget%5C_item)
+  - [VectorOfPairOfULONGAndULONG::get\_\_NewEnum](#vectorofpairofulongandulongget%5C_%5C_newenum)
+  - [VectorOfPairOfULONGAndULONG::push\_back](#vectorofpairofulongandulongpush%5C_back)
+  - [VectorOfPairOfULONGAndULONG::push\_vector](#vectorofpairofulongandulongpush%5C_vector)
+  - [VectorOfPairOfULONGAndULONG::put\_Item](#vectorofpairofulongandulongput%5C_item)
   - [VectorOfPairOfULONGAndULONG::size](#vectorofpairofulongandulongsize)
   - [VectorOfPairOfULONGAndULONG::slice](#vectorofpairofulongandulongslice)
   - [VectorOfPairOfULONGAndULONG::sort](#vectorofpairofulongandulongsort)
-  - [VectorOfPairOfULONGAndULONG::sort_variant](#vectorofpairofulongandulongsort_variant)
+  - [VectorOfPairOfULONGAndULONG::sort\_variant](#vectorofpairofulongandulongsort%5C_variant)
   - [VectorOfPairOfULONGAndULONG::start](#vectorofpairofulongandulongstart)
-  - [VectorOfPairOfULONGAndULONG::get_Item](#vectorofpairofulongandulongget_item)
-  - [VectorOfPairOfULONGAndULONG::put_Item](#vectorofpairofulongandulongput_item)
 - [VectorOfVectorOfPairOfULONGAndULONG](#vectorofvectorofpairofulongandulong)
+  - [VectorOfVectorOfPairOfULONGAndULONG.Count](#vectorofvectorofpairofulongandulongcount)
   - [VectorOfVectorOfPairOfULONGAndULONG::create](#vectorofvectorofpairofulongandulongcreate)
   - [VectorOfVectorOfPairOfULONGAndULONG::Add](#vectorofvectorofpairofulongandulongadd)
   - [VectorOfVectorOfPairOfULONGAndULONG::Items](#vectorofvectorofpairofulongandulongitems)
   - [VectorOfVectorOfPairOfULONGAndULONG::Keys](#vectorofvectorofpairofulongandulongkeys)
   - [VectorOfVectorOfPairOfULONGAndULONG::Remove](#vectorofvectorofpairofulongandulongremove)
+  - [VectorOfVectorOfPairOfULONGAndULONG::append](#vectorofvectorofpairofulongandulongappend)
   - [VectorOfVectorOfPairOfULONGAndULONG::at](#vectorofvectorofpairofulongandulongat)
   - [VectorOfVectorOfPairOfULONGAndULONG::clear](#vectorofvectorofpairofulongandulongclear)
   - [VectorOfVectorOfPairOfULONGAndULONG::empty](#vectorofvectorofpairofulongandulongempty)
   - [VectorOfVectorOfPairOfULONGAndULONG::end](#vectorofvectorofpairofulongandulongend)
-  - [VectorOfVectorOfPairOfULONGAndULONG::push_back](#vectorofvectorofpairofulongandulongpush_back)
-  - [VectorOfVectorOfPairOfULONGAndULONG::push_vector](#vectorofvectorofpairofulongandulongpush_vector)
+  - [VectorOfVectorOfPairOfULONGAndULONG::get\_Item](#vectorofvectorofpairofulongandulongget%5C_item)
+  - [VectorOfVectorOfPairOfULONGAndULONG::get\_\_NewEnum](#vectorofvectorofpairofulongandulongget%5C_%5C_newenum)
+  - [VectorOfVectorOfPairOfULONGAndULONG::push\_back](#vectorofvectorofpairofulongandulongpush%5C_back)
+  - [VectorOfVectorOfPairOfULONGAndULONG::push\_vector](#vectorofvectorofpairofulongandulongpush%5C_vector)
+  - [VectorOfVectorOfPairOfULONGAndULONG::put\_Item](#vectorofvectorofpairofulongandulongput%5C_item)
   - [VectorOfVectorOfPairOfULONGAndULONG::size](#vectorofvectorofpairofulongandulongsize)
   - [VectorOfVectorOfPairOfULONGAndULONG::slice](#vectorofvectorofpairofulongandulongslice)
   - [VectorOfVectorOfPairOfULONGAndULONG::sort](#vectorofvectorofpairofulongandulongsort)
-  - [VectorOfVectorOfPairOfULONGAndULONG::sort_variant](#vectorofvectorofpairofulongandulongsort_variant)
+  - [VectorOfVectorOfPairOfULONGAndULONG::sort\_variant](#vectorofvectorofpairofulongandulongsort%5C_variant)
   - [VectorOfVectorOfPairOfULONGAndULONG::start](#vectorofvectorofpairofulongandulongstart)
-  - [VectorOfVectorOfPairOfULONGAndULONG::get_Item](#vectorofvectorofpairofulongandulongget_item)
-  - [VectorOfVectorOfPairOfULONGAndULONG::put_Item](#vectorofvectorofpairofulongandulongput_item)
 - [VectorOfVectorOfVectorOfPairOfULONGAndDouble](#vectorofvectorofvectorofpairofulonganddouble)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble.Count](#vectorofvectorofvectorofpairofulonganddoublecount)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::create](#vectorofvectorofvectorofpairofulonganddoublecreate)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::Add](#vectorofvectorofvectorofpairofulonganddoubleadd)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::Items](#vectorofvectorofvectorofpairofulonganddoubleitems)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::Keys](#vectorofvectorofvectorofpairofulonganddoublekeys)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::Remove](#vectorofvectorofvectorofpairofulonganddoubleremove)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::append](#vectorofvectorofvectorofpairofulonganddoubleappend)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::at](#vectorofvectorofvectorofpairofulonganddoubleat)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::clear](#vectorofvectorofvectorofpairofulonganddoubleclear)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::empty](#vectorofvectorofvectorofpairofulonganddoubleempty)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::end](#vectorofvectorofvectorofpairofulonganddoubleend)
-  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_back](#vectorofvectorofvectorofpairofulonganddoublepush_back)
-  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_vector](#vectorofvectorofvectorofpairofulonganddoublepush_vector)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::get\_Item](#vectorofvectorofvectorofpairofulonganddoubleget%5C_item)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::get\_\_NewEnum](#vectorofvectorofvectorofpairofulonganddoubleget%5C_%5C_newenum)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::push\_back](#vectorofvectorofvectorofpairofulonganddoublepush%5C_back)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::push\_vector](#vectorofvectorofvectorofpairofulonganddoublepush%5C_vector)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::put\_Item](#vectorofvectorofvectorofpairofulonganddoubleput%5C_item)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::size](#vectorofvectorofvectorofpairofulonganddoublesize)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::slice](#vectorofvectorofvectorofpairofulonganddoubleslice)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort](#vectorofvectorofvectorofpairofulonganddoublesort)
-  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort_variant](#vectorofvectorofvectorofpairofulonganddoublesort_variant)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort\_variant](#vectorofvectorofvectorofpairofulonganddoublesort%5C_variant)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::start](#vectorofvectorofvectorofpairofulonganddoublestart)
-  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::get_Item](#vectorofvectorofvectorofpairofulonganddoubleget_item)
-  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::put_Item](#vectorofvectorofvectorofpairofulonganddoubleput_item)
 - [VectorOfBool](#vectorofbool)
+  - [VectorOfBool.Count](#vectorofboolcount)
   - [VectorOfBool::create](#vectorofboolcreate)
   - [VectorOfBool::Add](#vectorofbooladd)
   - [VectorOfBool::Items](#vectorofboolitems)
   - [VectorOfBool::Keys](#vectorofboolkeys)
   - [VectorOfBool::Remove](#vectorofboolremove)
+  - [VectorOfBool::append](#vectorofboolappend)
   - [VectorOfBool::at](#vectorofboolat)
   - [VectorOfBool::clear](#vectorofboolclear)
   - [VectorOfBool::empty](#vectorofboolempty)
   - [VectorOfBool::end](#vectorofboolend)
-  - [VectorOfBool::push_back](#vectorofboolpush_back)
-  - [VectorOfBool::push_vector](#vectorofboolpush_vector)
+  - [VectorOfBool::get\_Item](#vectorofboolget%5C_item)
+  - [VectorOfBool::get\_\_NewEnum](#vectorofboolget%5C_%5C_newenum)
+  - [VectorOfBool::push\_back](#vectorofboolpush%5C_back)
+  - [VectorOfBool::push\_vector](#vectorofboolpush%5C_vector)
+  - [VectorOfBool::put\_Item](#vectorofboolput%5C_item)
   - [VectorOfBool::size](#vectorofboolsize)
   - [VectorOfBool::slice](#vectorofboolslice)
   - [VectorOfBool::sort](#vectorofboolsort)
-  - [VectorOfBool::sort_variant](#vectorofboolsort_variant)
+  - [VectorOfBool::sort\_variant](#vectorofboolsort%5C_variant)
   - [VectorOfBool::start](#vectorofboolstart)
-  - [VectorOfBool::get_Item](#vectorofboolget_item)
-  - [VectorOfBool::put_Item](#vectorofboolput_item)
-- [VectorOfFull_object_detection](#vectoroffull_object_detection)
-  - [VectorOfFull_object_detection::create](#vectoroffull_object_detectioncreate)
-  - [VectorOfFull_object_detection::Add](#vectoroffull_object_detectionadd)
-  - [VectorOfFull_object_detection::Items](#vectoroffull_object_detectionitems)
-  - [VectorOfFull_object_detection::Keys](#vectoroffull_object_detectionkeys)
-  - [VectorOfFull_object_detection::Remove](#vectoroffull_object_detectionremove)
-  - [VectorOfFull_object_detection::at](#vectoroffull_object_detectionat)
-  - [VectorOfFull_object_detection::clear](#vectoroffull_object_detectionclear)
-  - [VectorOfFull_object_detection::empty](#vectoroffull_object_detectionempty)
-  - [VectorOfFull_object_detection::end](#vectoroffull_object_detectionend)
-  - [VectorOfFull_object_detection::push_back](#vectoroffull_object_detectionpush_back)
-  - [VectorOfFull_object_detection::push_vector](#vectoroffull_object_detectionpush_vector)
-  - [VectorOfFull_object_detection::size](#vectoroffull_object_detectionsize)
-  - [VectorOfFull_object_detection::slice](#vectoroffull_object_detectionslice)
-  - [VectorOfFull_object_detection::sort](#vectoroffull_object_detectionsort)
-  - [VectorOfFull_object_detection::sort_variant](#vectoroffull_object_detectionsort_variant)
-  - [VectorOfFull_object_detection::start](#vectoroffull_object_detectionstart)
-  - [VectorOfFull_object_detection::get_Item](#vectoroffull_object_detectionget_item)
-  - [VectorOfFull_object_detection::put_Item](#vectoroffull_object_detectionput_item)
+- [VectorOfFull\_object\_detection](#vectoroffull%5C_object%5C_detection)
+  - [VectorOfFull\_object\_detection.Count](#vectoroffull%5C_object%5C_detectioncount)
+  - [VectorOfFull\_object\_detection::create](#vectoroffull%5C_object%5C_detectioncreate)
+  - [VectorOfFull\_object\_detection::Add](#vectoroffull%5C_object%5C_detectionadd)
+  - [VectorOfFull\_object\_detection::Items](#vectoroffull%5C_object%5C_detectionitems)
+  - [VectorOfFull\_object\_detection::Keys](#vectoroffull%5C_object%5C_detectionkeys)
+  - [VectorOfFull\_object\_detection::Remove](#vectoroffull%5C_object%5C_detectionremove)
+  - [VectorOfFull\_object\_detection::append](#vectoroffull%5C_object%5C_detectionappend)
+  - [VectorOfFull\_object\_detection::at](#vectoroffull%5C_object%5C_detectionat)
+  - [VectorOfFull\_object\_detection::clear](#vectoroffull%5C_object%5C_detectionclear)
+  - [VectorOfFull\_object\_detection::empty](#vectoroffull%5C_object%5C_detectionempty)
+  - [VectorOfFull\_object\_detection::end](#vectoroffull%5C_object%5C_detectionend)
+  - [VectorOfFull\_object\_detection::get\_Item](#vectoroffull%5C_object%5C_detectionget%5C_item)
+  - [VectorOfFull\_object\_detection::get\_\_NewEnum](#vectoroffull%5C_object%5C_detectionget%5C_%5C_newenum)
+  - [VectorOfFull\_object\_detection::push\_back](#vectoroffull%5C_object%5C_detectionpush%5C_back)
+  - [VectorOfFull\_object\_detection::push\_vector](#vectoroffull%5C_object%5C_detectionpush%5C_vector)
+  - [VectorOfFull\_object\_detection::put\_Item](#vectoroffull%5C_object%5C_detectionput%5C_item)
+  - [VectorOfFull\_object\_detection::size](#vectoroffull%5C_object%5C_detectionsize)
+  - [VectorOfFull\_object\_detection::slice](#vectoroffull%5C_object%5C_detectionslice)
+  - [VectorOfFull\_object\_detection::sort](#vectoroffull%5C_object%5C_detectionsort)
+  - [VectorOfFull\_object\_detection::sort\_variant](#vectoroffull%5C_object%5C_detectionsort%5C_variant)
+  - [VectorOfFull\_object\_detection::start](#vectoroffull%5C_object%5C_detectionstart)
 - [VectorOfMat](#vectorofmat)
+  - [VectorOfMat.Count](#vectorofmatcount)
   - [VectorOfMat::create](#vectorofmatcreate)
   - [VectorOfMat::Add](#vectorofmatadd)
   - [VectorOfMat::Items](#vectorofmatitems)
   - [VectorOfMat::Keys](#vectorofmatkeys)
   - [VectorOfMat::Remove](#vectorofmatremove)
+  - [VectorOfMat::append](#vectorofmatappend)
   - [VectorOfMat::at](#vectorofmatat)
   - [VectorOfMat::clear](#vectorofmatclear)
   - [VectorOfMat::empty](#vectorofmatempty)
   - [VectorOfMat::end](#vectorofmatend)
-  - [VectorOfMat::push_back](#vectorofmatpush_back)
-  - [VectorOfMat::push_vector](#vectorofmatpush_vector)
+  - [VectorOfMat::get\_Item](#vectorofmatget%5C_item)
+  - [VectorOfMat::get\_\_NewEnum](#vectorofmatget%5C_%5C_newenum)
+  - [VectorOfMat::push\_back](#vectorofmatpush%5C_back)
+  - [VectorOfMat::push\_vector](#vectorofmatpush%5C_vector)
+  - [VectorOfMat::put\_Item](#vectorofmatput%5C_item)
   - [VectorOfMat::size](#vectorofmatsize)
   - [VectorOfMat::slice](#vectorofmatslice)
   - [VectorOfMat::sort](#vectorofmatsort)
-  - [VectorOfMat::sort_variant](#vectorofmatsort_variant)
+  - [VectorOfMat::sort\_variant](#vectorofmatsort%5C_variant)
   - [VectorOfMat::start](#vectorofmatstart)
-  - [VectorOfMat::get_Item](#vectorofmatget_item)
-  - [VectorOfMat::put_Item](#vectorofmatput_item)
-- [VectorOfVectorOfFull_object_detection](#vectorofvectoroffull_object_detection)
-  - [VectorOfVectorOfFull_object_detection::create](#vectorofvectoroffull_object_detectioncreate)
-  - [VectorOfVectorOfFull_object_detection::Add](#vectorofvectoroffull_object_detectionadd)
-  - [VectorOfVectorOfFull_object_detection::Items](#vectorofvectoroffull_object_detectionitems)
-  - [VectorOfVectorOfFull_object_detection::Keys](#vectorofvectoroffull_object_detectionkeys)
-  - [VectorOfVectorOfFull_object_detection::Remove](#vectorofvectoroffull_object_detectionremove)
-  - [VectorOfVectorOfFull_object_detection::at](#vectorofvectoroffull_object_detectionat)
-  - [VectorOfVectorOfFull_object_detection::clear](#vectorofvectoroffull_object_detectionclear)
-  - [VectorOfVectorOfFull_object_detection::empty](#vectorofvectoroffull_object_detectionempty)
-  - [VectorOfVectorOfFull_object_detection::end](#vectorofvectoroffull_object_detectionend)
-  - [VectorOfVectorOfFull_object_detection::push_back](#vectorofvectoroffull_object_detectionpush_back)
-  - [VectorOfVectorOfFull_object_detection::push_vector](#vectorofvectoroffull_object_detectionpush_vector)
-  - [VectorOfVectorOfFull_object_detection::size](#vectorofvectoroffull_object_detectionsize)
-  - [VectorOfVectorOfFull_object_detection::slice](#vectorofvectoroffull_object_detectionslice)
-  - [VectorOfVectorOfFull_object_detection::sort](#vectorofvectoroffull_object_detectionsort)
-  - [VectorOfVectorOfFull_object_detection::sort_variant](#vectorofvectoroffull_object_detectionsort_variant)
-  - [VectorOfVectorOfFull_object_detection::start](#vectorofvectoroffull_object_detectionstart)
-  - [VectorOfVectorOfFull_object_detection::get_Item](#vectorofvectoroffull_object_detectionget_item)
-  - [VectorOfVectorOfFull_object_detection::put_Item](#vectorofvectoroffull_object_detectionput_item)
+- [VectorOfVectorOfFull\_object\_detection](#vectorofvectoroffull%5C_object%5C_detection)
+  - [VectorOfVectorOfFull\_object\_detection.Count](#vectorofvectoroffull%5C_object%5C_detectioncount)
+  - [VectorOfVectorOfFull\_object\_detection::create](#vectorofvectoroffull%5C_object%5C_detectioncreate)
+  - [VectorOfVectorOfFull\_object\_detection::Add](#vectorofvectoroffull%5C_object%5C_detectionadd)
+  - [VectorOfVectorOfFull\_object\_detection::Items](#vectorofvectoroffull%5C_object%5C_detectionitems)
+  - [VectorOfVectorOfFull\_object\_detection::Keys](#vectorofvectoroffull%5C_object%5C_detectionkeys)
+  - [VectorOfVectorOfFull\_object\_detection::Remove](#vectorofvectoroffull%5C_object%5C_detectionremove)
+  - [VectorOfVectorOfFull\_object\_detection::append](#vectorofvectoroffull%5C_object%5C_detectionappend)
+  - [VectorOfVectorOfFull\_object\_detection::at](#vectorofvectoroffull%5C_object%5C_detectionat)
+  - [VectorOfVectorOfFull\_object\_detection::clear](#vectorofvectoroffull%5C_object%5C_detectionclear)
+  - [VectorOfVectorOfFull\_object\_detection::empty](#vectorofvectoroffull%5C_object%5C_detectionempty)
+  - [VectorOfVectorOfFull\_object\_detection::end](#vectorofvectoroffull%5C_object%5C_detectionend)
+  - [VectorOfVectorOfFull\_object\_detection::get\_Item](#vectorofvectoroffull%5C_object%5C_detectionget%5C_item)
+  - [VectorOfVectorOfFull\_object\_detection::get\_\_NewEnum](#vectorofvectoroffull%5C_object%5C_detectionget%5C_%5C_newenum)
+  - [VectorOfVectorOfFull\_object\_detection::push\_back](#vectorofvectoroffull%5C_object%5C_detectionpush%5C_back)
+  - [VectorOfVectorOfFull\_object\_detection::push\_vector](#vectorofvectoroffull%5C_object%5C_detectionpush%5C_vector)
+  - [VectorOfVectorOfFull\_object\_detection::put\_Item](#vectorofvectoroffull%5C_object%5C_detectionput%5C_item)
+  - [VectorOfVectorOfFull\_object\_detection::size](#vectorofvectoroffull%5C_object%5C_detectionsize)
+  - [VectorOfVectorOfFull\_object\_detection::slice](#vectorofvectoroffull%5C_object%5C_detectionslice)
+  - [VectorOfVectorOfFull\_object\_detection::sort](#vectorofvectoroffull%5C_object%5C_detectionsort)
+  - [VectorOfVectorOfFull\_object\_detection::sort\_variant](#vectorofvectoroffull%5C_object%5C_detectionsort%5C_variant)
+  - [VectorOfVectorOfFull\_object\_detection::start](#vectorofvectoroffull%5C_object%5C_detectionstart)
 - [VectorOfVectorOfDouble](#vectorofvectorofdouble)
+  - [VectorOfVectorOfDouble.Count](#vectorofvectorofdoublecount)
   - [VectorOfVectorOfDouble::create](#vectorofvectorofdoublecreate)
   - [VectorOfVectorOfDouble::Add](#vectorofvectorofdoubleadd)
   - [VectorOfVectorOfDouble::Items](#vectorofvectorofdoubleitems)
   - [VectorOfVectorOfDouble::Keys](#vectorofvectorofdoublekeys)
   - [VectorOfVectorOfDouble::Remove](#vectorofvectorofdoubleremove)
+  - [VectorOfVectorOfDouble::append](#vectorofvectorofdoubleappend)
   - [VectorOfVectorOfDouble::at](#vectorofvectorofdoubleat)
   - [VectorOfVectorOfDouble::clear](#vectorofvectorofdoubleclear)
   - [VectorOfVectorOfDouble::empty](#vectorofvectorofdoubleempty)
   - [VectorOfVectorOfDouble::end](#vectorofvectorofdoubleend)
-  - [VectorOfVectorOfDouble::push_back](#vectorofvectorofdoublepush_back)
-  - [VectorOfVectorOfDouble::push_vector](#vectorofvectorofdoublepush_vector)
+  - [VectorOfVectorOfDouble::get\_Item](#vectorofvectorofdoubleget%5C_item)
+  - [VectorOfVectorOfDouble::get\_\_NewEnum](#vectorofvectorofdoubleget%5C_%5C_newenum)
+  - [VectorOfVectorOfDouble::push\_back](#vectorofvectorofdoublepush%5C_back)
+  - [VectorOfVectorOfDouble::push\_vector](#vectorofvectorofdoublepush%5C_vector)
+  - [VectorOfVectorOfDouble::put\_Item](#vectorofvectorofdoubleput%5C_item)
   - [VectorOfVectorOfDouble::size](#vectorofvectorofdoublesize)
   - [VectorOfVectorOfDouble::slice](#vectorofvectorofdoubleslice)
   - [VectorOfVectorOfDouble::sort](#vectorofvectorofdoublesort)
-  - [VectorOfVectorOfDouble::sort_variant](#vectorofvectorofdoublesort_variant)
+  - [VectorOfVectorOfDouble::sort\_variant](#vectorofvectorofdoublesort%5C_variant)
   - [VectorOfVectorOfDouble::start](#vectorofvectorofdoublestart)
-  - [VectorOfVectorOfDouble::get_Item](#vectorofvectorofdoubleget_item)
-  - [VectorOfVectorOfDouble::put_Item](#vectorofvectorofdoubleput_item)
 - [VectorOfVectorOfRectangle](#vectorofvectorofrectangle)
+  - [VectorOfVectorOfRectangle.Count](#vectorofvectorofrectanglecount)
   - [VectorOfVectorOfRectangle::create](#vectorofvectorofrectanglecreate)
   - [VectorOfVectorOfRectangle::Add](#vectorofvectorofrectangleadd)
   - [VectorOfVectorOfRectangle::Items](#vectorofvectorofrectangleitems)
   - [VectorOfVectorOfRectangle::Keys](#vectorofvectorofrectanglekeys)
   - [VectorOfVectorOfRectangle::Remove](#vectorofvectorofrectangleremove)
+  - [VectorOfVectorOfRectangle::append](#vectorofvectorofrectangleappend)
   - [VectorOfVectorOfRectangle::at](#vectorofvectorofrectangleat)
   - [VectorOfVectorOfRectangle::clear](#vectorofvectorofrectangleclear)
   - [VectorOfVectorOfRectangle::empty](#vectorofvectorofrectangleempty)
   - [VectorOfVectorOfRectangle::end](#vectorofvectorofrectangleend)
-  - [VectorOfVectorOfRectangle::push_back](#vectorofvectorofrectanglepush_back)
-  - [VectorOfVectorOfRectangle::push_vector](#vectorofvectorofrectanglepush_vector)
+  - [VectorOfVectorOfRectangle::get\_Item](#vectorofvectorofrectangleget%5C_item)
+  - [VectorOfVectorOfRectangle::get\_\_NewEnum](#vectorofvectorofrectangleget%5C_%5C_newenum)
+  - [VectorOfVectorOfRectangle::push\_back](#vectorofvectorofrectanglepush%5C_back)
+  - [VectorOfVectorOfRectangle::push\_vector](#vectorofvectorofrectanglepush%5C_vector)
+  - [VectorOfVectorOfRectangle::put\_Item](#vectorofvectorofrectangleput%5C_item)
   - [VectorOfVectorOfRectangle::size](#vectorofvectorofrectanglesize)
   - [VectorOfVectorOfRectangle::slice](#vectorofvectorofrectangleslice)
   - [VectorOfVectorOfRectangle::sort](#vectorofvectorofrectanglesort)
-  - [VectorOfVectorOfRectangle::sort_variant](#vectorofvectorofrectanglesort_variant)
+  - [VectorOfVectorOfRectangle::sort\_variant](#vectorofvectorofrectanglesort%5C_variant)
   - [VectorOfVectorOfRectangle::start](#vectorofvectorofrectanglestart)
-  - [VectorOfVectorOfRectangle::get_Item](#vectorofvectorofrectangleget_item)
-  - [VectorOfVectorOfRectangle::put_Item](#vectorofvectorofrectangleput_item)
-- [VectorOfMmod_rect](#vectorofmmod_rect)
-  - [VectorOfMmod_rect::create](#vectorofmmod_rectcreate)
-  - [VectorOfMmod_rect::Add](#vectorofmmod_rectadd)
-  - [VectorOfMmod_rect::Items](#vectorofmmod_rectitems)
-  - [VectorOfMmod_rect::Keys](#vectorofmmod_rectkeys)
-  - [VectorOfMmod_rect::Remove](#vectorofmmod_rectremove)
-  - [VectorOfMmod_rect::at](#vectorofmmod_rectat)
-  - [VectorOfMmod_rect::clear](#vectorofmmod_rectclear)
-  - [VectorOfMmod_rect::empty](#vectorofmmod_rectempty)
-  - [VectorOfMmod_rect::end](#vectorofmmod_rectend)
-  - [VectorOfMmod_rect::push_back](#vectorofmmod_rectpush_back)
-  - [VectorOfMmod_rect::push_vector](#vectorofmmod_rectpush_vector)
-  - [VectorOfMmod_rect::size](#vectorofmmod_rectsize)
-  - [VectorOfMmod_rect::slice](#vectorofmmod_rectslice)
-  - [VectorOfMmod_rect::sort](#vectorofmmod_rectsort)
-  - [VectorOfMmod_rect::sort_variant](#vectorofmmod_rectsort_variant)
-  - [VectorOfMmod_rect::start](#vectorofmmod_rectstart)
-  - [VectorOfMmod_rect::get_Item](#vectorofmmod_rectget_item)
-  - [VectorOfMmod_rect::put_Item](#vectorofmmod_rectput_item)
-- [VectorOfVectorOfMmod_rect](#vectorofvectorofmmod_rect)
-  - [VectorOfVectorOfMmod_rect::create](#vectorofvectorofmmod_rectcreate)
-  - [VectorOfVectorOfMmod_rect::Add](#vectorofvectorofmmod_rectadd)
-  - [VectorOfVectorOfMmod_rect::Items](#vectorofvectorofmmod_rectitems)
-  - [VectorOfVectorOfMmod_rect::Keys](#vectorofvectorofmmod_rectkeys)
-  - [VectorOfVectorOfMmod_rect::Remove](#vectorofvectorofmmod_rectremove)
-  - [VectorOfVectorOfMmod_rect::at](#vectorofvectorofmmod_rectat)
-  - [VectorOfVectorOfMmod_rect::clear](#vectorofvectorofmmod_rectclear)
-  - [VectorOfVectorOfMmod_rect::empty](#vectorofvectorofmmod_rectempty)
-  - [VectorOfVectorOfMmod_rect::end](#vectorofvectorofmmod_rectend)
-  - [VectorOfVectorOfMmod_rect::push_back](#vectorofvectorofmmod_rectpush_back)
-  - [VectorOfVectorOfMmod_rect::push_vector](#vectorofvectorofmmod_rectpush_vector)
-  - [VectorOfVectorOfMmod_rect::size](#vectorofvectorofmmod_rectsize)
-  - [VectorOfVectorOfMmod_rect::slice](#vectorofvectorofmmod_rectslice)
-  - [VectorOfVectorOfMmod_rect::sort](#vectorofvectorofmmod_rectsort)
-  - [VectorOfVectorOfMmod_rect::sort_variant](#vectorofvectorofmmod_rectsort_variant)
-  - [VectorOfVectorOfMmod_rect::start](#vectorofvectorofmmod_rectstart)
-  - [VectorOfVectorOfMmod_rect::get_Item](#vectorofvectorofmmod_rectget_item)
-  - [VectorOfVectorOfMmod_rect::put_Item](#vectorofvectorofmmod_rectput_item)
-- [VectorOfSimple_object_detector_com](#vectorofsimple_object_detector_com)
-  - [VectorOfSimple_object_detector_com::create](#vectorofsimple_object_detector_comcreate)
-  - [VectorOfSimple_object_detector_com::Add](#vectorofsimple_object_detector_comadd)
-  - [VectorOfSimple_object_detector_com::Items](#vectorofsimple_object_detector_comitems)
-  - [VectorOfSimple_object_detector_com::Keys](#vectorofsimple_object_detector_comkeys)
-  - [VectorOfSimple_object_detector_com::Remove](#vectorofsimple_object_detector_comremove)
-  - [VectorOfSimple_object_detector_com::at](#vectorofsimple_object_detector_comat)
-  - [VectorOfSimple_object_detector_com::clear](#vectorofsimple_object_detector_comclear)
-  - [VectorOfSimple_object_detector_com::empty](#vectorofsimple_object_detector_comempty)
-  - [VectorOfSimple_object_detector_com::end](#vectorofsimple_object_detector_comend)
-  - [VectorOfSimple_object_detector_com::push_back](#vectorofsimple_object_detector_compush_back)
-  - [VectorOfSimple_object_detector_com::push_vector](#vectorofsimple_object_detector_compush_vector)
-  - [VectorOfSimple_object_detector_com::size](#vectorofsimple_object_detector_comsize)
-  - [VectorOfSimple_object_detector_com::slice](#vectorofsimple_object_detector_comslice)
-  - [VectorOfSimple_object_detector_com::sort](#vectorofsimple_object_detector_comsort)
-  - [VectorOfSimple_object_detector_com::sort_variant](#vectorofsimple_object_detector_comsort_variant)
-  - [VectorOfSimple_object_detector_com::start](#vectorofsimple_object_detector_comstart)
-  - [VectorOfSimple_object_detector_com::get_Item](#vectorofsimple_object_detector_comget_item)
-  - [VectorOfSimple_object_detector_com::put_Item](#vectorofsimple_object_detector_comput_item)
-- [VectorOfFhog_object_detector](#vectoroffhog_object_detector)
-  - [VectorOfFhog_object_detector::create](#vectoroffhog_object_detectorcreate)
-  - [VectorOfFhog_object_detector::Add](#vectoroffhog_object_detectoradd)
-  - [VectorOfFhog_object_detector::Items](#vectoroffhog_object_detectoritems)
-  - [VectorOfFhog_object_detector::Keys](#vectoroffhog_object_detectorkeys)
-  - [VectorOfFhog_object_detector::Remove](#vectoroffhog_object_detectorremove)
-  - [VectorOfFhog_object_detector::at](#vectoroffhog_object_detectorat)
-  - [VectorOfFhog_object_detector::clear](#vectoroffhog_object_detectorclear)
-  - [VectorOfFhog_object_detector::empty](#vectoroffhog_object_detectorempty)
-  - [VectorOfFhog_object_detector::end](#vectoroffhog_object_detectorend)
-  - [VectorOfFhog_object_detector::push_back](#vectoroffhog_object_detectorpush_back)
-  - [VectorOfFhog_object_detector::push_vector](#vectoroffhog_object_detectorpush_vector)
-  - [VectorOfFhog_object_detector::size](#vectoroffhog_object_detectorsize)
-  - [VectorOfFhog_object_detector::slice](#vectoroffhog_object_detectorslice)
-  - [VectorOfFhog_object_detector::sort](#vectoroffhog_object_detectorsort)
-  - [VectorOfFhog_object_detector::sort_variant](#vectoroffhog_object_detectorsort_variant)
-  - [VectorOfFhog_object_detector::start](#vectoroffhog_object_detectorstart)
-  - [VectorOfFhog_object_detector::get_Item](#vectoroffhog_object_detectorget_item)
-  - [VectorOfFhog_object_detector::put_Item](#vectoroffhog_object_detectorput_item)
-- [VectorOfFunction_spec](#vectoroffunction_spec)
-  - [VectorOfFunction_spec::create](#vectoroffunction_speccreate)
-  - [VectorOfFunction_spec::Add](#vectoroffunction_specadd)
-  - [VectorOfFunction_spec::Items](#vectoroffunction_specitems)
-  - [VectorOfFunction_spec::Keys](#vectoroffunction_speckeys)
-  - [VectorOfFunction_spec::Remove](#vectoroffunction_specremove)
-  - [VectorOfFunction_spec::at](#vectoroffunction_specat)
-  - [VectorOfFunction_spec::clear](#vectoroffunction_specclear)
-  - [VectorOfFunction_spec::empty](#vectoroffunction_specempty)
-  - [VectorOfFunction_spec::end](#vectoroffunction_specend)
-  - [VectorOfFunction_spec::push_back](#vectoroffunction_specpush_back)
-  - [VectorOfFunction_spec::push_vector](#vectoroffunction_specpush_vector)
-  - [VectorOfFunction_spec::size](#vectoroffunction_specsize)
-  - [VectorOfFunction_spec::slice](#vectoroffunction_specslice)
-  - [VectorOfFunction_spec::sort](#vectoroffunction_specsort)
-  - [VectorOfFunction_spec::sort_variant](#vectoroffunction_specsort_variant)
-  - [VectorOfFunction_spec::start](#vectoroffunction_specstart)
-  - [VectorOfFunction_spec::get_Item](#vectoroffunction_specget_item)
-  - [VectorOfFunction_spec::put_Item](#vectoroffunction_specput_item)
-- [VectorOfFunction_evaluation](#vectoroffunction_evaluation)
-  - [VectorOfFunction_evaluation::create](#vectoroffunction_evaluationcreate)
-  - [VectorOfFunction_evaluation::Add](#vectoroffunction_evaluationadd)
-  - [VectorOfFunction_evaluation::Items](#vectoroffunction_evaluationitems)
-  - [VectorOfFunction_evaluation::Keys](#vectoroffunction_evaluationkeys)
-  - [VectorOfFunction_evaluation::Remove](#vectoroffunction_evaluationremove)
-  - [VectorOfFunction_evaluation::at](#vectoroffunction_evaluationat)
-  - [VectorOfFunction_evaluation::clear](#vectoroffunction_evaluationclear)
-  - [VectorOfFunction_evaluation::empty](#vectoroffunction_evaluationempty)
-  - [VectorOfFunction_evaluation::end](#vectoroffunction_evaluationend)
-  - [VectorOfFunction_evaluation::push_back](#vectoroffunction_evaluationpush_back)
-  - [VectorOfFunction_evaluation::push_vector](#vectoroffunction_evaluationpush_vector)
-  - [VectorOfFunction_evaluation::size](#vectoroffunction_evaluationsize)
-  - [VectorOfFunction_evaluation::slice](#vectoroffunction_evaluationslice)
-  - [VectorOfFunction_evaluation::sort](#vectoroffunction_evaluationsort)
-  - [VectorOfFunction_evaluation::sort_variant](#vectoroffunction_evaluationsort_variant)
-  - [VectorOfFunction_evaluation::start](#vectoroffunction_evaluationstart)
-  - [VectorOfFunction_evaluation::get_Item](#vectoroffunction_evaluationget_item)
-  - [VectorOfFunction_evaluation::put_Item](#vectoroffunction_evaluationput_item)
-- [VectorOfVectorOfFunction_evaluation](#vectorofvectoroffunction_evaluation)
-  - [VectorOfVectorOfFunction_evaluation::create](#vectorofvectoroffunction_evaluationcreate)
-  - [VectorOfVectorOfFunction_evaluation::Add](#vectorofvectoroffunction_evaluationadd)
-  - [VectorOfVectorOfFunction_evaluation::Items](#vectorofvectoroffunction_evaluationitems)
-  - [VectorOfVectorOfFunction_evaluation::Keys](#vectorofvectoroffunction_evaluationkeys)
-  - [VectorOfVectorOfFunction_evaluation::Remove](#vectorofvectoroffunction_evaluationremove)
-  - [VectorOfVectorOfFunction_evaluation::at](#vectorofvectoroffunction_evaluationat)
-  - [VectorOfVectorOfFunction_evaluation::clear](#vectorofvectoroffunction_evaluationclear)
-  - [VectorOfVectorOfFunction_evaluation::empty](#vectorofvectoroffunction_evaluationempty)
-  - [VectorOfVectorOfFunction_evaluation::end](#vectorofvectoroffunction_evaluationend)
-  - [VectorOfVectorOfFunction_evaluation::push_back](#vectorofvectoroffunction_evaluationpush_back)
-  - [VectorOfVectorOfFunction_evaluation::push_vector](#vectorofvectoroffunction_evaluationpush_vector)
-  - [VectorOfVectorOfFunction_evaluation::size](#vectorofvectoroffunction_evaluationsize)
-  - [VectorOfVectorOfFunction_evaluation::slice](#vectorofvectoroffunction_evaluationslice)
-  - [VectorOfVectorOfFunction_evaluation::sort](#vectorofvectoroffunction_evaluationsort)
-  - [VectorOfVectorOfFunction_evaluation::sort_variant](#vectorofvectoroffunction_evaluationsort_variant)
-  - [VectorOfVectorOfFunction_evaluation::start](#vectorofvectoroffunction_evaluationstart)
-  - [VectorOfVectorOfFunction_evaluation::get_Item](#vectorofvectoroffunction_evaluationget_item)
-  - [VectorOfVectorOfFunction_evaluation::put_Item](#vectorofvectoroffunction_evaluationput_item)
-- [VectorOfDrectangle](#vectorofdrectangle)
-  - [VectorOfDrectangle::create](#vectorofdrectanglecreate)
-  - [VectorOfDrectangle::Add](#vectorofdrectangleadd)
-  - [VectorOfDrectangle::Items](#vectorofdrectangleitems)
-  - [VectorOfDrectangle::Keys](#vectorofdrectanglekeys)
-  - [VectorOfDrectangle::Remove](#vectorofdrectangleremove)
-  - [VectorOfDrectangle::at](#vectorofdrectangleat)
-  - [VectorOfDrectangle::clear](#vectorofdrectangleclear)
-  - [VectorOfDrectangle::empty](#vectorofdrectangleempty)
-  - [VectorOfDrectangle::end](#vectorofdrectangleend)
-  - [VectorOfDrectangle::push_back](#vectorofdrectanglepush_back)
-  - [VectorOfDrectangle::push_vector](#vectorofdrectanglepush_vector)
-  - [VectorOfDrectangle::size](#vectorofdrectanglesize)
-  - [VectorOfDrectangle::slice](#vectorofdrectangleslice)
-  - [VectorOfDrectangle::sort](#vectorofdrectanglesort)
-  - [VectorOfDrectangle::sort_variant](#vectorofdrectanglesort_variant)
-  - [VectorOfDrectangle::start](#vectorofdrectanglestart)
-  - [VectorOfDrectangle::get_Item](#vectorofdrectangleget_item)
-  - [VectorOfDrectangle::put_Item](#vectorofdrectangleput_item)
+- [VectorOfMmod\_rect](#vectorofmmod%5C_rect)
+  - [VectorOfMmod\_rect.Count](#vectorofmmod%5C_rectcount)
+  - [VectorOfMmod\_rect::create](#vectorofmmod%5C_rectcreate)
+  - [VectorOfMmod\_rect::Add](#vectorofmmod%5C_rectadd)
+  - [VectorOfMmod\_rect::Items](#vectorofmmod%5C_rectitems)
+  - [VectorOfMmod\_rect::Keys](#vectorofmmod%5C_rectkeys)
+  - [VectorOfMmod\_rect::Remove](#vectorofmmod%5C_rectremove)
+  - [VectorOfMmod\_rect::append](#vectorofmmod%5C_rectappend)
+  - [VectorOfMmod\_rect::at](#vectorofmmod%5C_rectat)
+  - [VectorOfMmod\_rect::clear](#vectorofmmod%5C_rectclear)
+  - [VectorOfMmod\_rect::empty](#vectorofmmod%5C_rectempty)
+  - [VectorOfMmod\_rect::end](#vectorofmmod%5C_rectend)
+  - [VectorOfMmod\_rect::get\_Item](#vectorofmmod%5C_rectget%5C_item)
+  - [VectorOfMmod\_rect::get\_\_NewEnum](#vectorofmmod%5C_rectget%5C_%5C_newenum)
+  - [VectorOfMmod\_rect::push\_back](#vectorofmmod%5C_rectpush%5C_back)
+  - [VectorOfMmod\_rect::push\_vector](#vectorofmmod%5C_rectpush%5C_vector)
+  - [VectorOfMmod\_rect::put\_Item](#vectorofmmod%5C_rectput%5C_item)
+  - [VectorOfMmod\_rect::size](#vectorofmmod%5C_rectsize)
+  - [VectorOfMmod\_rect::slice](#vectorofmmod%5C_rectslice)
+  - [VectorOfMmod\_rect::sort](#vectorofmmod%5C_rectsort)
+  - [VectorOfMmod\_rect::sort\_variant](#vectorofmmod%5C_rectsort%5C_variant)
+  - [VectorOfMmod\_rect::start](#vectorofmmod%5C_rectstart)
+- [VectorOfVectorOfMmod\_rect](#vectorofvectorofmmod%5C_rect)
+  - [VectorOfVectorOfMmod\_rect.Count](#vectorofvectorofmmod%5C_rectcount)
+  - [VectorOfVectorOfMmod\_rect::create](#vectorofvectorofmmod%5C_rectcreate)
+  - [VectorOfVectorOfMmod\_rect::Add](#vectorofvectorofmmod%5C_rectadd)
+  - [VectorOfVectorOfMmod\_rect::Items](#vectorofvectorofmmod%5C_rectitems)
+  - [VectorOfVectorOfMmod\_rect::Keys](#vectorofvectorofmmod%5C_rectkeys)
+  - [VectorOfVectorOfMmod\_rect::Remove](#vectorofvectorofmmod%5C_rectremove)
+  - [VectorOfVectorOfMmod\_rect::append](#vectorofvectorofmmod%5C_rectappend)
+  - [VectorOfVectorOfMmod\_rect::at](#vectorofvectorofmmod%5C_rectat)
+  - [VectorOfVectorOfMmod\_rect::clear](#vectorofvectorofmmod%5C_rectclear)
+  - [VectorOfVectorOfMmod\_rect::empty](#vectorofvectorofmmod%5C_rectempty)
+  - [VectorOfVectorOfMmod\_rect::end](#vectorofvectorofmmod%5C_rectend)
+  - [VectorOfVectorOfMmod\_rect::get\_Item](#vectorofvectorofmmod%5C_rectget%5C_item)
+  - [VectorOfVectorOfMmod\_rect::get\_\_NewEnum](#vectorofvectorofmmod%5C_rectget%5C_%5C_newenum)
+  - [VectorOfVectorOfMmod\_rect::push\_back](#vectorofvectorofmmod%5C_rectpush%5C_back)
+  - [VectorOfVectorOfMmod\_rect::push\_vector](#vectorofvectorofmmod%5C_rectpush%5C_vector)
+  - [VectorOfVectorOfMmod\_rect::put\_Item](#vectorofvectorofmmod%5C_rectput%5C_item)
+  - [VectorOfVectorOfMmod\_rect::size](#vectorofvectorofmmod%5C_rectsize)
+  - [VectorOfVectorOfMmod\_rect::slice](#vectorofvectorofmmod%5C_rectslice)
+  - [VectorOfVectorOfMmod\_rect::sort](#vectorofvectorofmmod%5C_rectsort)
+  - [VectorOfVectorOfMmod\_rect::sort\_variant](#vectorofvectorofmmod%5C_rectsort%5C_variant)
+  - [VectorOfVectorOfMmod\_rect::start](#vectorofvectorofmmod%5C_rectstart)
+- [VectorOfSimple\_object\_detector\_com](#vectorofsimple%5C_object%5C_detector%5C_com)
+  - [VectorOfSimple\_object\_detector\_com.Count](#vectorofsimple%5C_object%5C_detector%5C_comcount)
+  - [VectorOfSimple\_object\_detector\_com::create](#vectorofsimple%5C_object%5C_detector%5C_comcreate)
+  - [VectorOfSimple\_object\_detector\_com::Add](#vectorofsimple%5C_object%5C_detector%5C_comadd)
+  - [VectorOfSimple\_object\_detector\_com::Items](#vectorofsimple%5C_object%5C_detector%5C_comitems)
+  - [VectorOfSimple\_object\_detector\_com::Keys](#vectorofsimple%5C_object%5C_detector%5C_comkeys)
+  - [VectorOfSimple\_object\_detector\_com::Remove](#vectorofsimple%5C_object%5C_detector%5C_comremove)
+  - [VectorOfSimple\_object\_detector\_com::append](#vectorofsimple%5C_object%5C_detector%5C_comappend)
+  - [VectorOfSimple\_object\_detector\_com::at](#vectorofsimple%5C_object%5C_detector%5C_comat)
+  - [VectorOfSimple\_object\_detector\_com::clear](#vectorofsimple%5C_object%5C_detector%5C_comclear)
+  - [VectorOfSimple\_object\_detector\_com::empty](#vectorofsimple%5C_object%5C_detector%5C_comempty)
+  - [VectorOfSimple\_object\_detector\_com::end](#vectorofsimple%5C_object%5C_detector%5C_comend)
+  - [VectorOfSimple\_object\_detector\_com::get\_Item](#vectorofsimple%5C_object%5C_detector%5C_comget%5C_item)
+  - [VectorOfSimple\_object\_detector\_com::get\_\_NewEnum](#vectorofsimple%5C_object%5C_detector%5C_comget%5C_%5C_newenum)
+  - [VectorOfSimple\_object\_detector\_com::push\_back](#vectorofsimple%5C_object%5C_detector%5C_compush%5C_back)
+  - [VectorOfSimple\_object\_detector\_com::push\_vector](#vectorofsimple%5C_object%5C_detector%5C_compush%5C_vector)
+  - [VectorOfSimple\_object\_detector\_com::put\_Item](#vectorofsimple%5C_object%5C_detector%5C_comput%5C_item)
+  - [VectorOfSimple\_object\_detector\_com::size](#vectorofsimple%5C_object%5C_detector%5C_comsize)
+  - [VectorOfSimple\_object\_detector\_com::slice](#vectorofsimple%5C_object%5C_detector%5C_comslice)
+  - [VectorOfSimple\_object\_detector\_com::sort](#vectorofsimple%5C_object%5C_detector%5C_comsort)
+  - [VectorOfSimple\_object\_detector\_com::sort\_variant](#vectorofsimple%5C_object%5C_detector%5C_comsort%5C_variant)
+  - [VectorOfSimple\_object\_detector\_com::start](#vectorofsimple%5C_object%5C_detector%5C_comstart)
+- [VectorOfFhog\_object\_detector](#vectoroffhog%5C_object%5C_detector)
+  - [VectorOfFhog\_object\_detector.Count](#vectoroffhog%5C_object%5C_detectorcount)
+  - [VectorOfFhog\_object\_detector::create](#vectoroffhog%5C_object%5C_detectorcreate)
+  - [VectorOfFhog\_object\_detector::Add](#vectoroffhog%5C_object%5C_detectoradd)
+  - [VectorOfFhog\_object\_detector::Items](#vectoroffhog%5C_object%5C_detectoritems)
+  - [VectorOfFhog\_object\_detector::Keys](#vectoroffhog%5C_object%5C_detectorkeys)
+  - [VectorOfFhog\_object\_detector::Remove](#vectoroffhog%5C_object%5C_detectorremove)
+  - [VectorOfFhog\_object\_detector::append](#vectoroffhog%5C_object%5C_detectorappend)
+  - [VectorOfFhog\_object\_detector::at](#vectoroffhog%5C_object%5C_detectorat)
+  - [VectorOfFhog\_object\_detector::clear](#vectoroffhog%5C_object%5C_detectorclear)
+  - [VectorOfFhog\_object\_detector::empty](#vectoroffhog%5C_object%5C_detectorempty)
+  - [VectorOfFhog\_object\_detector::end](#vectoroffhog%5C_object%5C_detectorend)
+  - [VectorOfFhog\_object\_detector::get\_Item](#vectoroffhog%5C_object%5C_detectorget%5C_item)
+  - [VectorOfFhog\_object\_detector::get\_\_NewEnum](#vectoroffhog%5C_object%5C_detectorget%5C_%5C_newenum)
+  - [VectorOfFhog\_object\_detector::push\_back](#vectoroffhog%5C_object%5C_detectorpush%5C_back)
+  - [VectorOfFhog\_object\_detector::push\_vector](#vectoroffhog%5C_object%5C_detectorpush%5C_vector)
+  - [VectorOfFhog\_object\_detector::put\_Item](#vectoroffhog%5C_object%5C_detectorput%5C_item)
+  - [VectorOfFhog\_object\_detector::size](#vectoroffhog%5C_object%5C_detectorsize)
+  - [VectorOfFhog\_object\_detector::slice](#vectoroffhog%5C_object%5C_detectorslice)
+  - [VectorOfFhog\_object\_detector::sort](#vectoroffhog%5C_object%5C_detectorsort)
+  - [VectorOfFhog\_object\_detector::sort\_variant](#vectoroffhog%5C_object%5C_detectorsort%5C_variant)
+  - [VectorOfFhog\_object\_detector::start](#vectoroffhog%5C_object%5C_detectorstart)
 - [VectorOfInt](#vectorofint)
+  - [VectorOfInt.Count](#vectorofintcount)
   - [VectorOfInt::create](#vectorofintcreate)
   - [VectorOfInt::Add](#vectorofintadd)
   - [VectorOfInt::Items](#vectorofintitems)
   - [VectorOfInt::Keys](#vectorofintkeys)
   - [VectorOfInt::Remove](#vectorofintremove)
+  - [VectorOfInt::append](#vectorofintappend)
   - [VectorOfInt::at](#vectorofintat)
   - [VectorOfInt::clear](#vectorofintclear)
   - [VectorOfInt::empty](#vectorofintempty)
   - [VectorOfInt::end](#vectorofintend)
-  - [VectorOfInt::push_back](#vectorofintpush_back)
-  - [VectorOfInt::push_vector](#vectorofintpush_vector)
+  - [VectorOfInt::get\_Item](#vectorofintget%5C_item)
+  - [VectorOfInt::get\_\_NewEnum](#vectorofintget%5C_%5C_newenum)
+  - [VectorOfInt::push\_back](#vectorofintpush%5C_back)
+  - [VectorOfInt::push\_vector](#vectorofintpush%5C_vector)
+  - [VectorOfInt::put\_Item](#vectorofintput%5C_item)
   - [VectorOfInt::size](#vectorofintsize)
   - [VectorOfInt::slice](#vectorofintslice)
   - [VectorOfInt::sort](#vectorofintsort)
-  - [VectorOfInt::sort_variant](#vectorofintsort_variant)
+  - [VectorOfInt::sort\_variant](#vectorofintsort%5C_variant)
   - [VectorOfInt::start](#vectorofintstart)
-  - [VectorOfInt::get_Item](#vectorofintget_item)
-  - [VectorOfInt::put_Item](#vectorofintput_item)
 - [VectorOfUchar](#vectorofuchar)
+  - [VectorOfUchar.Count](#vectorofucharcount)
   - [VectorOfUchar::create](#vectorofucharcreate)
   - [VectorOfUchar::Add](#vectorofucharadd)
   - [VectorOfUchar::Items](#vectorofucharitems)
   - [VectorOfUchar::Keys](#vectorofucharkeys)
   - [VectorOfUchar::Remove](#vectorofucharremove)
+  - [VectorOfUchar::append](#vectorofucharappend)
   - [VectorOfUchar::at](#vectorofucharat)
   - [VectorOfUchar::clear](#vectorofucharclear)
   - [VectorOfUchar::empty](#vectorofucharempty)
   - [VectorOfUchar::end](#vectorofucharend)
-  - [VectorOfUchar::push_back](#vectorofucharpush_back)
-  - [VectorOfUchar::push_vector](#vectorofucharpush_vector)
+  - [VectorOfUchar::get\_Item](#vectorofucharget%5C_item)
+  - [VectorOfUchar::get\_\_NewEnum](#vectorofucharget%5C_%5C_newenum)
+  - [VectorOfUchar::push\_back](#vectorofucharpush%5C_back)
+  - [VectorOfUchar::push\_vector](#vectorofucharpush%5C_vector)
+  - [VectorOfUchar::put\_Item](#vectorofucharput%5C_item)
   - [VectorOfUchar::size](#vectorofucharsize)
   - [VectorOfUchar::slice](#vectorofucharslice)
   - [VectorOfUchar::sort](#vectorofucharsort)
-  - [VectorOfUchar::sort_variant](#vectorofucharsort_variant)
+  - [VectorOfUchar::sort\_variant](#vectorofucharsort%5C_variant)
   - [VectorOfUchar::start](#vectorofucharstart)
-  - [VectorOfUchar::get_Item](#vectorofucharget_item)
-  - [VectorOfUchar::put_Item](#vectorofucharput_item)
+- [VectorOfFunction\_spec](#vectoroffunction%5C_spec)
+  - [VectorOfFunction\_spec.Count](#vectoroffunction%5C_speccount)
+  - [VectorOfFunction\_spec::create](#vectoroffunction%5C_speccreate)
+  - [VectorOfFunction\_spec::Add](#vectoroffunction%5C_specadd)
+  - [VectorOfFunction\_spec::Items](#vectoroffunction%5C_specitems)
+  - [VectorOfFunction\_spec::Keys](#vectoroffunction%5C_speckeys)
+  - [VectorOfFunction\_spec::Remove](#vectoroffunction%5C_specremove)
+  - [VectorOfFunction\_spec::append](#vectoroffunction%5C_specappend)
+  - [VectorOfFunction\_spec::at](#vectoroffunction%5C_specat)
+  - [VectorOfFunction\_spec::clear](#vectoroffunction%5C_specclear)
+  - [VectorOfFunction\_spec::empty](#vectoroffunction%5C_specempty)
+  - [VectorOfFunction\_spec::end](#vectoroffunction%5C_specend)
+  - [VectorOfFunction\_spec::get\_Item](#vectoroffunction%5C_specget%5C_item)
+  - [VectorOfFunction\_spec::get\_\_NewEnum](#vectoroffunction%5C_specget%5C_%5C_newenum)
+  - [VectorOfFunction\_spec::push\_back](#vectoroffunction%5C_specpush%5C_back)
+  - [VectorOfFunction\_spec::push\_vector](#vectoroffunction%5C_specpush%5C_vector)
+  - [VectorOfFunction\_spec::put\_Item](#vectoroffunction%5C_specput%5C_item)
+  - [VectorOfFunction\_spec::size](#vectoroffunction%5C_specsize)
+  - [VectorOfFunction\_spec::slice](#vectoroffunction%5C_specslice)
+  - [VectorOfFunction\_spec::sort](#vectoroffunction%5C_specsort)
+  - [VectorOfFunction\_spec::sort\_variant](#vectoroffunction%5C_specsort%5C_variant)
+  - [VectorOfFunction\_spec::start](#vectoroffunction%5C_specstart)
+- [VectorOfFunction\_evaluation](#vectoroffunction%5C_evaluation)
+  - [VectorOfFunction\_evaluation.Count](#vectoroffunction%5C_evaluationcount)
+  - [VectorOfFunction\_evaluation::create](#vectoroffunction%5C_evaluationcreate)
+  - [VectorOfFunction\_evaluation::Add](#vectoroffunction%5C_evaluationadd)
+  - [VectorOfFunction\_evaluation::Items](#vectoroffunction%5C_evaluationitems)
+  - [VectorOfFunction\_evaluation::Keys](#vectoroffunction%5C_evaluationkeys)
+  - [VectorOfFunction\_evaluation::Remove](#vectoroffunction%5C_evaluationremove)
+  - [VectorOfFunction\_evaluation::append](#vectoroffunction%5C_evaluationappend)
+  - [VectorOfFunction\_evaluation::at](#vectoroffunction%5C_evaluationat)
+  - [VectorOfFunction\_evaluation::clear](#vectoroffunction%5C_evaluationclear)
+  - [VectorOfFunction\_evaluation::empty](#vectoroffunction%5C_evaluationempty)
+  - [VectorOfFunction\_evaluation::end](#vectoroffunction%5C_evaluationend)
+  - [VectorOfFunction\_evaluation::get\_Item](#vectoroffunction%5C_evaluationget%5C_item)
+  - [VectorOfFunction\_evaluation::get\_\_NewEnum](#vectoroffunction%5C_evaluationget%5C_%5C_newenum)
+  - [VectorOfFunction\_evaluation::push\_back](#vectoroffunction%5C_evaluationpush%5C_back)
+  - [VectorOfFunction\_evaluation::push\_vector](#vectoroffunction%5C_evaluationpush%5C_vector)
+  - [VectorOfFunction\_evaluation::put\_Item](#vectoroffunction%5C_evaluationput%5C_item)
+  - [VectorOfFunction\_evaluation::size](#vectoroffunction%5C_evaluationsize)
+  - [VectorOfFunction\_evaluation::slice](#vectoroffunction%5C_evaluationslice)
+  - [VectorOfFunction\_evaluation::sort](#vectoroffunction%5C_evaluationsort)
+  - [VectorOfFunction\_evaluation::sort\_variant](#vectoroffunction%5C_evaluationsort%5C_variant)
+  - [VectorOfFunction\_evaluation::start](#vectoroffunction%5C_evaluationstart)
+- [VectorOfVectorOfFunction\_evaluation](#vectorofvectoroffunction%5C_evaluation)
+  - [VectorOfVectorOfFunction\_evaluation.Count](#vectorofvectoroffunction%5C_evaluationcount)
+  - [VectorOfVectorOfFunction\_evaluation::create](#vectorofvectoroffunction%5C_evaluationcreate)
+  - [VectorOfVectorOfFunction\_evaluation::Add](#vectorofvectoroffunction%5C_evaluationadd)
+  - [VectorOfVectorOfFunction\_evaluation::Items](#vectorofvectoroffunction%5C_evaluationitems)
+  - [VectorOfVectorOfFunction\_evaluation::Keys](#vectorofvectoroffunction%5C_evaluationkeys)
+  - [VectorOfVectorOfFunction\_evaluation::Remove](#vectorofvectoroffunction%5C_evaluationremove)
+  - [VectorOfVectorOfFunction\_evaluation::append](#vectorofvectoroffunction%5C_evaluationappend)
+  - [VectorOfVectorOfFunction\_evaluation::at](#vectorofvectoroffunction%5C_evaluationat)
+  - [VectorOfVectorOfFunction\_evaluation::clear](#vectorofvectoroffunction%5C_evaluationclear)
+  - [VectorOfVectorOfFunction\_evaluation::empty](#vectorofvectoroffunction%5C_evaluationempty)
+  - [VectorOfVectorOfFunction\_evaluation::end](#vectorofvectoroffunction%5C_evaluationend)
+  - [VectorOfVectorOfFunction\_evaluation::get\_Item](#vectorofvectoroffunction%5C_evaluationget%5C_item)
+  - [VectorOfVectorOfFunction\_evaluation::get\_\_NewEnum](#vectorofvectoroffunction%5C_evaluationget%5C_%5C_newenum)
+  - [VectorOfVectorOfFunction\_evaluation::push\_back](#vectorofvectoroffunction%5C_evaluationpush%5C_back)
+  - [VectorOfVectorOfFunction\_evaluation::push\_vector](#vectorofvectoroffunction%5C_evaluationpush%5C_vector)
+  - [VectorOfVectorOfFunction\_evaluation::put\_Item](#vectorofvectoroffunction%5C_evaluationput%5C_item)
+  - [VectorOfVectorOfFunction\_evaluation::size](#vectorofvectoroffunction%5C_evaluationsize)
+  - [VectorOfVectorOfFunction\_evaluation::slice](#vectorofvectoroffunction%5C_evaluationslice)
+  - [VectorOfVectorOfFunction\_evaluation::sort](#vectorofvectoroffunction%5C_evaluationsort)
+  - [VectorOfVectorOfFunction\_evaluation::sort\_variant](#vectorofvectoroffunction%5C_evaluationsort%5C_variant)
+  - [VectorOfVectorOfFunction\_evaluation::start](#vectorofvectoroffunction%5C_evaluationstart)
+- [VectorOfDrectangle](#vectorofdrectangle)
+  - [VectorOfDrectangle.Count](#vectorofdrectanglecount)
+  - [VectorOfDrectangle::create](#vectorofdrectanglecreate)
+  - [VectorOfDrectangle::Add](#vectorofdrectangleadd)
+  - [VectorOfDrectangle::Items](#vectorofdrectangleitems)
+  - [VectorOfDrectangle::Keys](#vectorofdrectanglekeys)
+  - [VectorOfDrectangle::Remove](#vectorofdrectangleremove)
+  - [VectorOfDrectangle::append](#vectorofdrectangleappend)
+  - [VectorOfDrectangle::at](#vectorofdrectangleat)
+  - [VectorOfDrectangle::clear](#vectorofdrectangleclear)
+  - [VectorOfDrectangle::empty](#vectorofdrectangleempty)
+  - [VectorOfDrectangle::end](#vectorofdrectangleend)
+  - [VectorOfDrectangle::get\_Item](#vectorofdrectangleget%5C_item)
+  - [VectorOfDrectangle::get\_\_NewEnum](#vectorofdrectangleget%5C_%5C_newenum)
+  - [VectorOfDrectangle::push\_back](#vectorofdrectanglepush%5C_back)
+  - [VectorOfDrectangle::push\_vector](#vectorofdrectanglepush%5C_vector)
+  - [VectorOfDrectangle::put\_Item](#vectorofdrectangleput%5C_item)
+  - [VectorOfDrectangle::size](#vectorofdrectanglesize)
+  - [VectorOfDrectangle::slice](#vectorofdrectangleslice)
+  - [VectorOfDrectangle::sort](#vectorofdrectanglesort)
+  - [VectorOfDrectangle::sort\_variant](#vectorofdrectanglesort%5C_variant)
+  - [VectorOfDrectangle::start](#vectorofdrectanglestart)
+- [VectorOfImage\_window\_keyboard\_state\_masks](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masks)
+  - [VectorOfImage\_window\_keyboard\_state\_masks.Count](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskscount)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::create](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskscreate)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::Add](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksadd)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::Items](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksitems)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::Keys](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskskeys)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::Remove](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksremove)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::append](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksappend)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::at](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksat)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::clear](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksclear)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::empty](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksempty)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::end](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksend)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::get\_Item](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksget%5C_item)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::get\_\_NewEnum](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksget%5C_%5C_newenum)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::push\_back](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskspush%5C_back)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::push\_vector](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskspush%5C_vector)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::put\_Item](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksput%5C_item)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::size](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskssize)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::slice](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksslice)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::sort](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskssort)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::sort\_variant](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskssort%5C_variant)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::start](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksstart)
 - [MapOfStringAndPoint](#mapofstringandpoint)
   - [MapOfStringAndPoint::create](#mapofstringandpointcreate)
   - [MapOfStringAndPoint::Add](#mapofstringandpointadd)
@@ -1032,94 +1550,832 @@
   - [MapOfStringAndPoint::count](#mapofstringandpointcount)
   - [MapOfStringAndPoint::empty](#mapofstringandpointempty)
   - [MapOfStringAndPoint::erase](#mapofstringandpointerase)
+  - [MapOfStringAndPoint::get\_Item](#mapofstringandpointget%5C_item)
+  - [MapOfStringAndPoint::get\_\_NewEnum](#mapofstringandpointget%5C_%5C_newenum)
   - [MapOfStringAndPoint::has](#mapofstringandpointhas)
-  - [MapOfStringAndPoint::max_size](#mapofstringandpointmax_size)
+  - [MapOfStringAndPoint::max\_size](#mapofstringandpointmax%5C_size)
   - [MapOfStringAndPoint::merge](#mapofstringandpointmerge)
+  - [MapOfStringAndPoint::put\_Item](#mapofstringandpointput%5C_item)
   - [MapOfStringAndPoint::size](#mapofstringandpointsize)
-  - [MapOfStringAndPoint::get_Item](#mapofstringandpointget_item)
-  - [MapOfStringAndPoint::put_Item](#mapofstringandpointput_item)
-- [VectorOfBox](#vectorofbox)
-  - [VectorOfBox::create](#vectorofboxcreate)
-  - [VectorOfBox::Add](#vectorofboxadd)
-  - [VectorOfBox::Items](#vectorofboxitems)
-  - [VectorOfBox::Keys](#vectorofboxkeys)
-  - [VectorOfBox::Remove](#vectorofboxremove)
-  - [VectorOfBox::at](#vectorofboxat)
-  - [VectorOfBox::clear](#vectorofboxclear)
-  - [VectorOfBox::empty](#vectorofboxempty)
-  - [VectorOfBox::end](#vectorofboxend)
-  - [VectorOfBox::push_back](#vectorofboxpush_back)
-  - [VectorOfBox::push_vector](#vectorofboxpush_vector)
-  - [VectorOfBox::size](#vectorofboxsize)
-  - [VectorOfBox::slice](#vectorofboxslice)
-  - [VectorOfBox::sort](#vectorofboxsort)
-  - [VectorOfBox::sort_variant](#vectorofboxsort_variant)
-  - [VectorOfBox::start](#vectorofboxstart)
-  - [VectorOfBox::get_Item](#vectorofboxget_item)
-  - [VectorOfBox::put_Item](#vectorofboxput_item)
-- [VectorOfImage](#vectorofimage)
-  - [VectorOfImage::create](#vectorofimagecreate)
-  - [VectorOfImage::Add](#vectorofimageadd)
-  - [VectorOfImage::Items](#vectorofimageitems)
-  - [VectorOfImage::Keys](#vectorofimagekeys)
-  - [VectorOfImage::Remove](#vectorofimageremove)
-  - [VectorOfImage::at](#vectorofimageat)
-  - [VectorOfImage::clear](#vectorofimageclear)
-  - [VectorOfImage::empty](#vectorofimageempty)
-  - [VectorOfImage::end](#vectorofimageend)
-  - [VectorOfImage::push_back](#vectorofimagepush_back)
-  - [VectorOfImage::push_vector](#vectorofimagepush_vector)
-  - [VectorOfImage::size](#vectorofimagesize)
-  - [VectorOfImage::slice](#vectorofimageslice)
-  - [VectorOfImage::sort](#vectorofimagesort)
-  - [VectorOfImage::sort_variant](#vectorofimagesort_variant)
-  - [VectorOfImage::start](#vectorofimagestart)
-  - [VectorOfImage::get_Item](#vectorofimageget_item)
-  - [VectorOfImage::put_Item](#vectorofimageput_item)
-- [VectorOfString](#vectorofstring)
-  - [VectorOfString::create](#vectorofstringcreate)
-  - [VectorOfString::Add](#vectorofstringadd)
-  - [VectorOfString::Items](#vectorofstringitems)
-  - [VectorOfString::Keys](#vectorofstringkeys)
-  - [VectorOfString::Remove](#vectorofstringremove)
-  - [VectorOfString::at](#vectorofstringat)
-  - [VectorOfString::clear](#vectorofstringclear)
-  - [VectorOfString::empty](#vectorofstringempty)
-  - [VectorOfString::end](#vectorofstringend)
-  - [VectorOfString::push_back](#vectorofstringpush_back)
-  - [VectorOfString::push_vector](#vectorofstringpush_vector)
-  - [VectorOfString::size](#vectorofstringsize)
-  - [VectorOfString::slice](#vectorofstringslice)
-  - [VectorOfString::sort](#vectorofstringsort)
-  - [VectorOfString::sort_variant](#vectorofstringsort_variant)
-  - [VectorOfString::start](#vectorofstringstart)
-  - [VectorOfString::get_Item](#vectorofstringget_item)
-  - [VectorOfString::put_Item](#vectorofstringput_item)
 - [VectorOfPairOfStringAndPoint](#vectorofpairofstringandpoint)
+  - [VectorOfPairOfStringAndPoint.Count](#vectorofpairofstringandpointcount)
   - [VectorOfPairOfStringAndPoint::create](#vectorofpairofstringandpointcreate)
   - [VectorOfPairOfStringAndPoint::Add](#vectorofpairofstringandpointadd)
   - [VectorOfPairOfStringAndPoint::Items](#vectorofpairofstringandpointitems)
   - [VectorOfPairOfStringAndPoint::Keys](#vectorofpairofstringandpointkeys)
   - [VectorOfPairOfStringAndPoint::Remove](#vectorofpairofstringandpointremove)
+  - [VectorOfPairOfStringAndPoint::append](#vectorofpairofstringandpointappend)
   - [VectorOfPairOfStringAndPoint::at](#vectorofpairofstringandpointat)
   - [VectorOfPairOfStringAndPoint::clear](#vectorofpairofstringandpointclear)
   - [VectorOfPairOfStringAndPoint::empty](#vectorofpairofstringandpointempty)
   - [VectorOfPairOfStringAndPoint::end](#vectorofpairofstringandpointend)
-  - [VectorOfPairOfStringAndPoint::push_back](#vectorofpairofstringandpointpush_back)
-  - [VectorOfPairOfStringAndPoint::push_vector](#vectorofpairofstringandpointpush_vector)
+  - [VectorOfPairOfStringAndPoint::get\_Item](#vectorofpairofstringandpointget%5C_item)
+  - [VectorOfPairOfStringAndPoint::get\_\_NewEnum](#vectorofpairofstringandpointget%5C_%5C_newenum)
+  - [VectorOfPairOfStringAndPoint::push\_back](#vectorofpairofstringandpointpush%5C_back)
+  - [VectorOfPairOfStringAndPoint::push\_vector](#vectorofpairofstringandpointpush%5C_vector)
+  - [VectorOfPairOfStringAndPoint::put\_Item](#vectorofpairofstringandpointput%5C_item)
   - [VectorOfPairOfStringAndPoint::size](#vectorofpairofstringandpointsize)
   - [VectorOfPairOfStringAndPoint::slice](#vectorofpairofstringandpointslice)
   - [VectorOfPairOfStringAndPoint::sort](#vectorofpairofstringandpointsort)
-  - [VectorOfPairOfStringAndPoint::sort_variant](#vectorofpairofstringandpointsort_variant)
+  - [VectorOfPairOfStringAndPoint::sort\_variant](#vectorofpairofstringandpointsort%5C_variant)
   - [VectorOfPairOfStringAndPoint::start](#vectorofpairofstringandpointstart)
-  - [VectorOfPairOfStringAndPoint::get_Item](#vectorofpairofstringandpointget_item)
-  - [VectorOfPairOfStringAndPoint::put_Item](#vectorofpairofstringandpointput_item)
+- [VectorOfImage\_dataset\_metadata\_box](#vectorofimage%5C_dataset%5C_metadata%5C_box)
+  - [VectorOfImage\_dataset\_metadata\_box.Count](#vectorofimage%5C_dataset%5C_metadata%5C_boxcount)
+  - [VectorOfImage\_dataset\_metadata\_box::create](#vectorofimage%5C_dataset%5C_metadata%5C_boxcreate)
+  - [VectorOfImage\_dataset\_metadata\_box::Add](#vectorofimage%5C_dataset%5C_metadata%5C_boxadd)
+  - [VectorOfImage\_dataset\_metadata\_box::Items](#vectorofimage%5C_dataset%5C_metadata%5C_boxitems)
+  - [VectorOfImage\_dataset\_metadata\_box::Keys](#vectorofimage%5C_dataset%5C_metadata%5C_boxkeys)
+  - [VectorOfImage\_dataset\_metadata\_box::Remove](#vectorofimage%5C_dataset%5C_metadata%5C_boxremove)
+  - [VectorOfImage\_dataset\_metadata\_box::append](#vectorofimage%5C_dataset%5C_metadata%5C_boxappend)
+  - [VectorOfImage\_dataset\_metadata\_box::at](#vectorofimage%5C_dataset%5C_metadata%5C_boxat)
+  - [VectorOfImage\_dataset\_metadata\_box::clear](#vectorofimage%5C_dataset%5C_metadata%5C_boxclear)
+  - [VectorOfImage\_dataset\_metadata\_box::empty](#vectorofimage%5C_dataset%5C_metadata%5C_boxempty)
+  - [VectorOfImage\_dataset\_metadata\_box::end](#vectorofimage%5C_dataset%5C_metadata%5C_boxend)
+  - [VectorOfImage\_dataset\_metadata\_box::get\_Item](#vectorofimage%5C_dataset%5C_metadata%5C_boxget%5C_item)
+  - [VectorOfImage\_dataset\_metadata\_box::get\_\_NewEnum](#vectorofimage%5C_dataset%5C_metadata%5C_boxget%5C_%5C_newenum)
+  - [VectorOfImage\_dataset\_metadata\_box::push\_back](#vectorofimage%5C_dataset%5C_metadata%5C_boxpush%5C_back)
+  - [VectorOfImage\_dataset\_metadata\_box::push\_vector](#vectorofimage%5C_dataset%5C_metadata%5C_boxpush%5C_vector)
+  - [VectorOfImage\_dataset\_metadata\_box::put\_Item](#vectorofimage%5C_dataset%5C_metadata%5C_boxput%5C_item)
+  - [VectorOfImage\_dataset\_metadata\_box::size](#vectorofimage%5C_dataset%5C_metadata%5C_boxsize)
+  - [VectorOfImage\_dataset\_metadata\_box::slice](#vectorofimage%5C_dataset%5C_metadata%5C_boxslice)
+  - [VectorOfImage\_dataset\_metadata\_box::sort](#vectorofimage%5C_dataset%5C_metadata%5C_boxsort)
+  - [VectorOfImage\_dataset\_metadata\_box::sort\_variant](#vectorofimage%5C_dataset%5C_metadata%5C_boxsort%5C_variant)
+  - [VectorOfImage\_dataset\_metadata\_box::start](#vectorofimage%5C_dataset%5C_metadata%5C_boxstart)
+- [VectorOfImage\_dataset\_metadata\_image](#vectorofimage%5C_dataset%5C_metadata%5C_image)
+  - [VectorOfImage\_dataset\_metadata\_image.Count](#vectorofimage%5C_dataset%5C_metadata%5C_imagecount)
+  - [VectorOfImage\_dataset\_metadata\_image::create](#vectorofimage%5C_dataset%5C_metadata%5C_imagecreate)
+  - [VectorOfImage\_dataset\_metadata\_image::Add](#vectorofimage%5C_dataset%5C_metadata%5C_imageadd)
+  - [VectorOfImage\_dataset\_metadata\_image::Items](#vectorofimage%5C_dataset%5C_metadata%5C_imageitems)
+  - [VectorOfImage\_dataset\_metadata\_image::Keys](#vectorofimage%5C_dataset%5C_metadata%5C_imagekeys)
+  - [VectorOfImage\_dataset\_metadata\_image::Remove](#vectorofimage%5C_dataset%5C_metadata%5C_imageremove)
+  - [VectorOfImage\_dataset\_metadata\_image::append](#vectorofimage%5C_dataset%5C_metadata%5C_imageappend)
+  - [VectorOfImage\_dataset\_metadata\_image::at](#vectorofimage%5C_dataset%5C_metadata%5C_imageat)
+  - [VectorOfImage\_dataset\_metadata\_image::clear](#vectorofimage%5C_dataset%5C_metadata%5C_imageclear)
+  - [VectorOfImage\_dataset\_metadata\_image::empty](#vectorofimage%5C_dataset%5C_metadata%5C_imageempty)
+  - [VectorOfImage\_dataset\_metadata\_image::end](#vectorofimage%5C_dataset%5C_metadata%5C_imageend)
+  - [VectorOfImage\_dataset\_metadata\_image::get\_Item](#vectorofimage%5C_dataset%5C_metadata%5C_imageget%5C_item)
+  - [VectorOfImage\_dataset\_metadata\_image::get\_\_NewEnum](#vectorofimage%5C_dataset%5C_metadata%5C_imageget%5C_%5C_newenum)
+  - [VectorOfImage\_dataset\_metadata\_image::push\_back](#vectorofimage%5C_dataset%5C_metadata%5C_imagepush%5C_back)
+  - [VectorOfImage\_dataset\_metadata\_image::push\_vector](#vectorofimage%5C_dataset%5C_metadata%5C_imagepush%5C_vector)
+  - [VectorOfImage\_dataset\_metadata\_image::put\_Item](#vectorofimage%5C_dataset%5C_metadata%5C_imageput%5C_item)
+  - [VectorOfImage\_dataset\_metadata\_image::size](#vectorofimage%5C_dataset%5C_metadata%5C_imagesize)
+  - [VectorOfImage\_dataset\_metadata\_image::slice](#vectorofimage%5C_dataset%5C_metadata%5C_imageslice)
+  - [VectorOfImage\_dataset\_metadata\_image::sort](#vectorofimage%5C_dataset%5C_metadata%5C_imagesort)
+  - [VectorOfImage\_dataset\_metadata\_image::sort\_variant](#vectorofimage%5C_dataset%5C_metadata%5C_imagesort%5C_variant)
+  - [VectorOfImage\_dataset\_metadata\_image::start](#vectorofimage%5C_dataset%5C_metadata%5C_imagestart)
+- [VectorOfFloat](#vectoroffloat)
+  - [VectorOfFloat.Count](#vectoroffloatcount)
+  - [VectorOfFloat::create](#vectoroffloatcreate)
+  - [VectorOfFloat::Add](#vectoroffloatadd)
+  - [VectorOfFloat::Items](#vectoroffloatitems)
+  - [VectorOfFloat::Keys](#vectoroffloatkeys)
+  - [VectorOfFloat::Remove](#vectoroffloatremove)
+  - [VectorOfFloat::append](#vectoroffloatappend)
+  - [VectorOfFloat::at](#vectoroffloatat)
+  - [VectorOfFloat::clear](#vectoroffloatclear)
+  - [VectorOfFloat::empty](#vectoroffloatempty)
+  - [VectorOfFloat::end](#vectoroffloatend)
+  - [VectorOfFloat::get\_Item](#vectoroffloatget%5C_item)
+  - [VectorOfFloat::get\_\_NewEnum](#vectoroffloatget%5C_%5C_newenum)
+  - [VectorOfFloat::push\_back](#vectoroffloatpush%5C_back)
+  - [VectorOfFloat::push\_vector](#vectoroffloatpush%5C_vector)
+  - [VectorOfFloat::put\_Item](#vectoroffloatput%5C_item)
+  - [VectorOfFloat::size](#vectoroffloatsize)
+  - [VectorOfFloat::slice](#vectoroffloatslice)
+  - [VectorOfFloat::sort](#vectoroffloatsort)
+  - [VectorOfFloat::sort\_variant](#vectoroffloatsort%5C_variant)
+  - [VectorOfFloat::start](#vectoroffloatstart)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## NamedParameters
+
+### NamedParameters::create
+
+```cpp
+static std::shared_ptr<NamedParameters> NamedParameters::create( std::vector<std::pair<std::string, _variant_t>> pairs );
+AutoIt:
+    _Dlib_ObjCreate("NamedParameters").create( $pairs ) -> retval
+```
+
+### NamedParameters::Add
+
+```cpp
+void NamedParameters::Add( std::string key,
+                           _variant_t  value );
+AutoIt:
+    $oNamedParameters.Add( $key, $value ) -> None
+```
+
+### NamedParameters::Get
+
+```cpp
+_variant_t NamedParameters::Get( std::string key );
+AutoIt:
+    $oNamedParameters.Get( $key ) -> retval
+```
+
+### NamedParameters::Items
+
+```cpp
+std::vector<_variant_t> NamedParameters::Items();
+AutoIt:
+    $oNamedParameters.Items() -> retval
+```
+
+### NamedParameters::Keys
+
+```cpp
+std::vector<std::string> NamedParameters::Keys();
+AutoIt:
+    $oNamedParameters.Keys() -> retval
+```
+
+### NamedParameters::Remove
+
+```cpp
+size_t NamedParameters::Remove( std::string key );
+AutoIt:
+    $oNamedParameters.Remove( $key ) -> retval
+```
+
+### NamedParameters::clear
+
+```cpp
+void NamedParameters::clear();
+AutoIt:
+    $oNamedParameters.clear() -> None
+```
+
+### NamedParameters::contains
+
+```cpp
+bool NamedParameters::contains( std::string key );
+AutoIt:
+    $oNamedParameters.contains( $key ) -> retval
+```
+
+### NamedParameters::count
+
+```cpp
+size_t NamedParameters::count( std::string key );
+AutoIt:
+    $oNamedParameters.count( $key ) -> retval
+```
+
+### NamedParameters::empty
+
+```cpp
+bool NamedParameters::empty();
+AutoIt:
+    $oNamedParameters.empty() -> retval
+```
+
+### NamedParameters::erase
+
+```cpp
+size_t NamedParameters::erase( std::string key );
+AutoIt:
+    $oNamedParameters.erase( $key ) -> retval
+```
+
+### NamedParameters::get\_Item
+
+```cpp
+_variant_t NamedParameters::get_Item( std::string key );
+AutoIt:
+    $oNamedParameters.Item( $key ) -> retval
+    $oNamedParameters( $key ) -> retval
+```
+
+### NamedParameters::get\_\_NewEnum
+
+```cpp
+IUnknown* NamedParameters::get__NewEnum();
+AutoIt:
+    $oNamedParameters._NewEnum() -> retval
+```
+
+### NamedParameters::has
+
+```cpp
+bool NamedParameters::has( std::string key );
+AutoIt:
+    $oNamedParameters.has( $key ) -> retval
+```
+
+### NamedParameters::max\_size
+
+```cpp
+size_t NamedParameters::max_size();
+AutoIt:
+    $oNamedParameters.max_size() -> retval
+```
+
+### NamedParameters::merge
+
+```cpp
+void NamedParameters::merge( MapOfStringAndVariant other );
+AutoIt:
+    $oNamedParameters.merge( $other ) -> None
+```
+
+### NamedParameters::put\_Item
+
+```cpp
+void NamedParameters::put_Item( std::string key,
+                                _variant_t  item );
+AutoIt:
+    $oNamedParameters.Item( $key ) = $item
+```
+
+### NamedParameters::size
+
+```cpp
+size_t NamedParameters::size();
+AutoIt:
+    $oNamedParameters.size() -> retval
+```
+
 ## dlib
 
-### dlib::angle_between_lines
+### dlib.binary\_test
+
+```cpp
+static dlib::binary_test dlib::this
+AutoIt:
+    [propget] $odlib.binary_test
+```
+
+### dlib.regression\_test
+
+```cpp
+static dlib::regression_test dlib::this
+AutoIt:
+    [propget] $odlib.regression_test
+```
+
+### dlib.ranking\_test
+
+```cpp
+static dlib::ranking_test dlib::this
+AutoIt:
+    [propget] $odlib.ranking_test
+```
+
+### dlib.cca\_outputs
+
+```cpp
+static dlib::cca_outputs dlib::this
+AutoIt:
+    [propget] $odlib.cca_outputs
+```
+
+### dlib.cnn\_face\_detection\_model\_v1
+
+```cpp
+static dlib::cnn_face_detection_model_v1 dlib::this
+AutoIt:
+    [propget] $odlib.cnn_face_detection_model_v1
+```
+
+### dlib.face\_recognition\_model\_v1
+
+```cpp
+static dlib::face_recognition_model_v1 dlib::this
+AutoIt:
+    [propget] $odlib.face_recognition_model_v1
+```
+
+### dlib.\_row
+
+```cpp
+static dlib::_row dlib::this
+AutoIt:
+    [propget] $odlib._row
+```
+
+### dlib.segmenter\_type
+
+```cpp
+static dlib::segmenter_type dlib::this
+AutoIt:
+    [propget] $odlib.segmenter_type
+```
+
+### dlib.segmenter\_params
+
+```cpp
+static dlib::segmenter_params dlib::this
+AutoIt:
+    [propget] $odlib.segmenter_params
+```
+
+### dlib.segmenter\_test
+
+```cpp
+static dlib::segmenter_test dlib::this
+AutoIt:
+    [propget] $odlib.segmenter_test
+```
+
+### dlib.shape\_predictor\_training\_options
+
+```cpp
+static dlib::shape_predictor_training_options dlib::this
+AutoIt:
+    [propget] $odlib.shape_predictor_training_options
+```
+
+### dlib.simple\_object\_detector\_training\_options
+
+```cpp
+static dlib::simple_object_detector_training_options dlib::this
+AutoIt:
+    [propget] $odlib.simple_object_detector_training_options
+```
+
+### dlib.simple\_test\_results
+
+```cpp
+static dlib::simple_test_results dlib::this
+AutoIt:
+    [propget] $odlib.simple_test_results
+```
+
+### dlib.simple\_object\_detector\_com
+
+```cpp
+static dlib::simple_object_detector_com dlib::this
+AutoIt:
+    [propget] $odlib.simple_object_detector_com
+```
+
+### dlib.simple\_structural\_svm\_problem
+
+```cpp
+static dlib::simple_structural_svm_problem dlib::this
+AutoIt:
+    [propget] $odlib.simple_structural_svm_problem
+```
+
+### dlib.mmod\_rect
+
+```cpp
+static dlib::mmod_rect dlib::this
+AutoIt:
+    [propget] $odlib.mmod_rect
+```
+
+### dlib.correlation\_tracker
+
+```cpp
+static dlib::correlation_tracker dlib::this
+AutoIt:
+    [propget] $odlib.correlation_tracker
+```
+
+### dlib.\_radial\_basis\_kernel
+
+```cpp
+static dlib::_radial_basis_kernel dlib::this
+AutoIt:
+    [propget] $odlib._radial_basis_kernel
+```
+
+### dlib.\_linear\_kernel
+
+```cpp
+static dlib::_linear_kernel dlib::this
+AutoIt:
+    [propget] $odlib._linear_kernel
+```
+
+### dlib.\_decision\_function\_linear
+
+```cpp
+static dlib::_decision_function_linear dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_linear
+```
+
+### dlib.\_decision\_function\_sparse\_linear
+
+```cpp
+static dlib::_decision_function_sparse_linear dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_sparse_linear
+```
+
+### dlib.\_decision\_function\_histogram\_intersection
+
+```cpp
+static dlib::_decision_function_histogram_intersection dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_histogram_intersection
+```
+
+### dlib.\_decision\_function\_sparse\_histogram\_intersection
+
+```cpp
+static dlib::_decision_function_sparse_histogram_intersection dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_sparse_histogram_intersection
+```
+
+### dlib.\_decision\_function\_polynomial
+
+```cpp
+static dlib::_decision_function_polynomial dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_polynomial
+```
+
+### dlib.\_decision\_function\_sparse\_polynomial
+
+```cpp
+static dlib::_decision_function_sparse_polynomial dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_sparse_polynomial
+```
+
+### dlib.\_decision\_function\_radial\_basis
+
+```cpp
+static dlib::_decision_function_radial_basis dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_radial_basis
+```
+
+### dlib.\_decision\_function\_sparse\_radial\_basis
+
+```cpp
+static dlib::_decision_function_sparse_radial_basis dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_sparse_radial_basis
+```
+
+### dlib.\_decision\_function\_sigmoid
+
+```cpp
+static dlib::_decision_function_sigmoid dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_sigmoid
+```
+
+### dlib.\_decision\_function\_sparse\_sigmoid
+
+```cpp
+static dlib::_decision_function_sparse_sigmoid dlib::this
+AutoIt:
+    [propget] $odlib._decision_function_sparse_sigmoid
+```
+
+### dlib.\_normalized\_decision\_function\_radial\_basis
+
+```cpp
+static dlib::_normalized_decision_function_radial_basis dlib::this
+AutoIt:
+    [propget] $odlib._normalized_decision_function_radial_basis
+```
+
+### dlib.extended
+
+```cpp
+static _variant_t dlib::extended
+AutoIt:
+    [propget] $odlib.extended
+```
+
+### dlib.version
+
+```cpp
+static std::string dlib::version
+AutoIt:
+    [propget] $odlib.version
+```
+
+### dlib.time\_compiled
+
+```cpp
+static std::string dlib::time_compiled
+AutoIt:
+    [propget] $odlib.time_compiled
+```
+
+### dlib.DLIB\_USE\_CUDA
+
+```cpp
+static bool dlib::DLIB_USE_CUDA
+AutoIt:
+    [propget] $odlib.DLIB_USE_CUDA
+```
+
+### dlib.DLIB\_USE\_BLAS
+
+```cpp
+static bool dlib::DLIB_USE_BLAS
+AutoIt:
+    [propget] $odlib.DLIB_USE_BLAS
+```
+
+### dlib.DLIB\_USE\_LAPACK
+
+```cpp
+static bool dlib::DLIB_USE_LAPACK
+AutoIt:
+    [propget] $odlib.DLIB_USE_LAPACK
+```
+
+### dlib.USE\_AVX\_INSTRUCTIONS
+
+```cpp
+static bool dlib::USE_AVX_INSTRUCTIONS
+AutoIt:
+    [propget] $odlib.USE_AVX_INSTRUCTIONS
+```
+
+### dlib.USE\_NEON\_INSTRUCTIONS
+
+```cpp
+static bool dlib::USE_NEON_INSTRUCTIONS
+AutoIt:
+    [propget] $odlib.USE_NEON_INSTRUCTIONS
+```
+
+### dlib.function\_evaluation
+
+```cpp
+static dlib::function_evaluation dlib::this
+AutoIt:
+    [propget] $odlib.function_evaluation
+```
+
+### dlib.function\_spec
+
+```cpp
+static dlib::function_spec dlib::this
+AutoIt:
+    [propget] $odlib.function_spec
+```
+
+### dlib.function\_evaluation\_request
+
+```cpp
+static dlib::function_evaluation_request dlib::this
+AutoIt:
+    [propget] $odlib.function_evaluation_request
+```
+
+### dlib.global\_function\_search
+
+```cpp
+static dlib::global_function_search dlib::this
+AutoIt:
+    [propget] $odlib.global_function_search
+```
+
+### dlib.image\_window
+
+```cpp
+static dlib::image_window dlib::this
+AutoIt:
+    [propget] $odlib.image_window
+```
+
+### dlib.rgb\_pixel
+
+```cpp
+static dlib::rgb_pixel dlib::this
+AutoIt:
+    [propget] $odlib.rgb_pixel
+```
+
+### dlib.line
+
+```cpp
+static dlib::line dlib::this
+AutoIt:
+    [propget] $odlib.line
+```
+
+### dlib.Matrix
+
+```cpp
+static dlib::Matrix dlib::this
+AutoIt:
+    [propget] $odlib.Matrix
+```
+
+### dlib.fhog\_object\_detector
+
+```cpp
+static dlib::fhog_object_detector dlib::this
+AutoIt:
+    [propget] $odlib.fhog_object_detector
+```
+
+### dlib.rect\_filter
+
+```cpp
+static dlib::rect_filter dlib::this
+AutoIt:
+    [propget] $odlib.rect_filter
+```
+
+### dlib.rectangle
+
+```cpp
+static dlib::rectangle dlib::this
+AutoIt:
+    [propget] $odlib.rectangle
+```
+
+### dlib.drectangle
+
+```cpp
+static dlib::drectangle dlib::this
+AutoIt:
+    [propget] $odlib.drectangle
+```
+
+### dlib.full\_object\_detection
+
+```cpp
+static dlib::full_object_detection dlib::this
+AutoIt:
+    [propget] $odlib.full_object_detection
+```
+
+### dlib.shape\_predictor
+
+```cpp
+static dlib::shape_predictor dlib::this
+AutoIt:
+    [propget] $odlib.shape_predictor
+```
+
+### dlib.svm\_c\_trainer\_radial\_basis
+
+```cpp
+static dlib::svm_c_trainer_radial_basis dlib::this
+AutoIt:
+    [propget] $odlib.svm_c_trainer_radial_basis
+```
+
+### dlib.svm\_c\_trainer\_sparse\_radial\_basis
+
+```cpp
+static dlib::svm_c_trainer_sparse_radial_basis dlib::this
+AutoIt:
+    [propget] $odlib.svm_c_trainer_sparse_radial_basis
+```
+
+### dlib.svm\_c\_trainer\_histogram\_intersection
+
+```cpp
+static dlib::svm_c_trainer_histogram_intersection dlib::this
+AutoIt:
+    [propget] $odlib.svm_c_trainer_histogram_intersection
+```
+
+### dlib.svm\_c\_trainer\_sparse\_histogram\_intersection
+
+```cpp
+static dlib::svm_c_trainer_sparse_histogram_intersection dlib::this
+AutoIt:
+    [propget] $odlib.svm_c_trainer_sparse_histogram_intersection
+```
+
+### dlib.svm\_c\_trainer\_linear
+
+```cpp
+static dlib::svm_c_trainer_linear dlib::this
+AutoIt:
+    [propget] $odlib.svm_c_trainer_linear
+```
+
+### dlib.svm\_c\_trainer\_sparse\_linear
+
+```cpp
+static dlib::svm_c_trainer_sparse_linear dlib::this
+AutoIt:
+    [propget] $odlib.svm_c_trainer_sparse_linear
+```
+
+### dlib.rvm\_trainer\_radial\_basis
+
+```cpp
+static dlib::rvm_trainer_radial_basis dlib::this
+AutoIt:
+    [propget] $odlib.rvm_trainer_radial_basis
+```
+
+### dlib.rvm\_trainer\_sparse\_radial\_basis
+
+```cpp
+static dlib::rvm_trainer_sparse_radial_basis dlib::this
+AutoIt:
+    [propget] $odlib.rvm_trainer_sparse_radial_basis
+```
+
+### dlib.rvm\_trainer\_histogram\_intersection
+
+```cpp
+static dlib::rvm_trainer_histogram_intersection dlib::this
+AutoIt:
+    [propget] $odlib.rvm_trainer_histogram_intersection
+```
+
+### dlib.rvm\_trainer\_sparse\_histogram\_intersection
+
+```cpp
+static dlib::rvm_trainer_sparse_histogram_intersection dlib::this
+AutoIt:
+    [propget] $odlib.rvm_trainer_sparse_histogram_intersection
+```
+
+### dlib.rvm\_trainer\_linear
+
+```cpp
+static dlib::rvm_trainer_linear dlib::this
+AutoIt:
+    [propget] $odlib.rvm_trainer_linear
+```
+
+### dlib.rvm\_trainer\_sparse\_linear
+
+```cpp
+static dlib::rvm_trainer_sparse_linear dlib::this
+AutoIt:
+    [propget] $odlib.rvm_trainer_sparse_linear
+```
+
+### dlib.vec\_ranking\_pair
+
+```cpp
+static dlib::vec_ranking_pair dlib::this
+AutoIt:
+    [propget] $odlib.vec_ranking_pair
+```
+
+### dlib.sparse\_ranking\_pair
+
+```cpp
+static dlib::sparse_ranking_pair dlib::this
+AutoIt:
+    [propget] $odlib.sparse_ranking_pair
+```
+
+### dlib.vec\_svm\_rank\_trainer
+
+```cpp
+static dlib::vec_svm_rank_trainer dlib::this
+AutoIt:
+    [propget] $odlib.vec_svm_rank_trainer
+```
+
+### dlib.svm\_rank\_trainer\_sparse
+
+```cpp
+static dlib::svm_rank_trainer_sparse dlib::this
+AutoIt:
+    [propget] $odlib.svm_rank_trainer_sparse
+```
+
+### dlib.SpaceVector
+
+```cpp
+static dlib::SpaceVector dlib::this
+AutoIt:
+    [propget] $odlib.SpaceVector
+```
+
+### dlib.point\_transform\_projective
+
+```cpp
+static dlib::point_transform_projective dlib::this
+AutoIt:
+    [propget] $odlib.point_transform_projective
+```
+
+### dlib.dpoint
+
+```cpp
+static dlib::dpoint dlib::this
+AutoIt:
+    [propget] $odlib.dpoint
+```
+
+### dlib.point
+
+```cpp
+static dlib::point dlib::this
+AutoIt:
+    [propget] $odlib.point
+```
+
+### dlib::angle\_between\_lines
 
 ```cpp
 double dlib::angle_between_lines( dlib::line a,
@@ -1128,7 +2384,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").angle_between_lines( $a, $b ) -> retval
 ```
 
-### dlib::apply_cca_transform
+### dlib::apply\_cca\_transform
 
 ```cpp
 dlib::SpaceVector dlib::apply_cca_transform( const dlib::Matrix&                          m,
@@ -1137,7 +2393,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").apply_cca_transform( $m, $v ) -> retval
 ```
 
-### dlib::assignment_cost
+### dlib::assignment\_cost
 
 ```cpp
 double dlib::assignment_cost( const dlib::Matrix& cost,
@@ -1146,7 +2402,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").assignment_cost( $cost, $assignment ) -> retval
 ```
 
-### dlib::auto_train_rbf_classifier
+### dlib::auto\_train\_rbf\_classifier
 
 ```cpp
 dlib::_normalized_decision_function_radial_basis dlib::auto_train_rbf_classifier( std::vector<dlib::SpaceVector>& x,
@@ -1193,7 +2449,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").center( $rect ) -> retval
 ```
 
-### dlib::centered_drect
+### dlib::centered\_drect
 
 ```cpp
 dlib::drectangle dlib::centered_drect( dlib::dpoint p,
@@ -1211,7 +2467,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").centered_drect( $rect, $width, $height ) -> retval
 ```
 
-### dlib::centered_rect
+### dlib::centered\_rect
 
 ```cpp
 dlib::rectangle dlib::centered_rect( dlib::point p,
@@ -1238,7 +2494,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").centered_rect( $x, $y, $width, $height ) -> retval
 ```
 
-### dlib::centered_rects
+### dlib::centered\_rects
 
 ```cpp
 std::vector<dlib::rectangle> dlib::centered_rects( std::vector<dlib::point> pts,
@@ -1248,7 +2504,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").centered_rects( $pts, $width, $height ) -> retval
 ```
 
-### dlib::chinese_whispers
+### dlib::chinese\_whispers
 
 ```cpp
 std::vector<ULONG> dlib::chinese_whispers( std::vector<dlib::SpaceVector> edges );
@@ -1256,7 +2512,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").chinese_whispers( $edges ) -> retval
 ```
 
-### dlib::chinese_whispers_clustering
+### dlib::chinese\_whispers\_clustering
 
 ```cpp
 std::vector<ULONG> dlib::chinese_whispers_clustering( std::vector<dlib::SpaceVector> descriptors,
@@ -1265,7 +2521,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").chinese_whispers_clustering( $descriptors, $threshold ) -> retval
 ```
 
-### dlib::count_points_between_lines
+### dlib::count\_points\_between\_lines
 
 ```cpp
 double dlib::count_points_between_lines( dlib::line                l1,
@@ -1285,7 +2541,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").count_points_between_lines( $l1, $l2, $reference_point, $pts ) -> retval
 ```
 
-### dlib::count_points_on_side_of_line
+### dlib::count\_points\_on\_side\_of\_line
 
 ```cpp
 double dlib::count_points_on_side_of_line( dlib::line                l,
@@ -1307,7 +2563,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").count_points_on_side_of_line( $l, $reference_point, $pts[, $dist_thresh_min[, $dist_thresh_max]] ) -> retval
 ```
 
-### dlib::count_steps_without_decrease
+### dlib::count\_steps\_without\_decrease
 
 ```cpp
 size_t dlib::count_steps_without_decrease( std::vector<double>& time_series,
@@ -1316,7 +2572,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").count_steps_without_decrease( $time_series[, $probability_of_decrease] ) -> retval
 ```
 
-### dlib::count_steps_without_decrease_robust
+### dlib::count\_steps\_without\_decrease\_robust
 
 ```cpp
 size_t dlib::count_steps_without_decrease_robust( std::vector<double>& time_series,
@@ -1326,7 +2582,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").count_steps_without_decrease_robust( $time_series[, $probability_of_decrease[, $quantile_discard]] ) -> retval
 ```
 
-### dlib::cross_validate_ranking_trainer
+### dlib::cross\_validate\_ranking\_trainer
 
 ```cpp
 dlib::ranking_test dlib::cross_validate_ranking_trainer( dlib::vec_svm_rank_trainer          trainer,
@@ -1344,7 +2600,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_ranking_trainer( $trainer, $samples, $folds ) -> retval
 ```
 
-### dlib::cross_validate_sequence_segmenter
+### dlib::cross\_validate\_sequence\_segmenter
 
 ```cpp
 dlib::segmenter_test dlib::cross_validate_sequence_segmenter( const std::vector<std::vector<dlib::SpaceVector>>&       samples,
@@ -1364,7 +2620,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_sequence_segmenter( $samples, $segments, $folds[, $params] ) -> retval
 ```
 
-### dlib::cross_validate_trainer
+### dlib::cross\_validate\_trainer
 
 ```cpp
 dlib::binary_test dlib::cross_validate_trainer( dlib::svm_c_trainer_radial_basis samples,
@@ -1474,7 +2730,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer( $samples, $x, $y, $folds ) -> retval
 ```
 
-### dlib::cross_validate_trainer_threaded
+### dlib::cross\_validate\_trainer\_threaded
 
 ```cpp
 dlib::binary_test dlib::cross_validate_trainer_threaded( dlib::svm_c_trainer_radial_basis samples,
@@ -1596,7 +2852,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").cross_validate_trainer_threaded( $samples, $x, $y, $folds, $num_threads ) -> retval
 ```
 
-### dlib::distance_to_line
+### dlib::distance\_to\_line
 
 ```cpp
 double dlib::distance_to_line( dlib::line   l,
@@ -1612,7 +2868,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").distance_to_line( $l, $p ) -> retval
 ```
 
-### dlib::dnn_prefer_fastest_algorithms
+### dlib::dnn\_prefer\_fastest\_algorithms
 
 ```cpp
 bool dlib::dnn_prefer_fastest_algorithms();
@@ -1650,7 +2906,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").dot( $a, $b ) -> retval
 ```
 
-### dlib::find_candidate_object_locations
+### dlib::find\_candidate\_object\_locations
 
 ```cpp
 void dlib::find_candidate_object_locations( cv::Mat&                         image,
@@ -1662,7 +2918,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").find_candidate_object_locations( $image[, $kvals[, $min_size[, $max_merging_iterations[, $rects]]]] ) -> $rects
 ```
 
-### dlib::find_max_global
+### dlib::find\_max\_global
 
 ```cpp
 void dlib::find_max_global( void*                f,
@@ -1689,7 +2945,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").find_max_global( $f, $bound1, $bound2, $num_function_calls[, $solver_epsilon[, $x[, $y]]] ) -> $x, $y
 ```
 
-### dlib::find_min_global
+### dlib::find\_min\_global
 
 ```cpp
 void dlib::find_min_global( void*                f,
@@ -1716,7 +2972,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").find_min_global( $f, $bound1, $bound2, $num_function_calls[, $solver_epsilon[, $x[, $y]]] ) -> $x, $y
 ```
 
-### dlib::find_optimal_rect_filter
+### dlib::find\_optimal\_rect\_filter
 
 ```cpp
 dlib::rect_filter dlib::find_optimal_rect_filter( std::vector<dlib::rectangle> rects,
@@ -1725,7 +2981,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").find_optimal_rect_filter( $rects[, $smoothness] ) -> retval
 ```
 
-### dlib::find_projective_transform
+### dlib::find\_projective\_transform
 
 ```cpp
 dlib::point_transform_projective dlib::find_projective_transform( std::vector<dlib::dpoint>& from_points,
@@ -1748,7 +3004,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").find_projective_transform( $from_points, $to_points ) -> retval
 ```
 
-### dlib::get_face_chip
+### dlib::get\_face\_chip
 
 ```cpp
 cv::Mat dlib::get_face_chip( const cv::Mat&                     img,
@@ -1759,7 +3015,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").get_face_chip( $img, $face[, $size[, $padding]] ) -> retval
 ```
 
-### dlib::get_face_chips
+### dlib::get\_face\_chips
 
 ```cpp
 std::vector<cv::Mat> dlib::get_face_chips( const cv::Mat&                                  img,
@@ -1770,7 +3026,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").get_face_chips( $img, $faces[, $size[, $padding]] ) -> retval
 ```
 
-### dlib::get_frontal_face_detector
+### dlib::get\_frontal\_face\_detector
 
 ```cpp
 dlib::fhog_object_detector dlib::get_frontal_face_detector();
@@ -1778,7 +3034,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").get_frontal_face_detector() -> retval
 ```
 
-### dlib::hit_enter_to_continue
+### dlib::hit\_enter\_to\_continue
 
 ```cpp
 void dlib::hit_enter_to_continue();
@@ -1803,7 +3059,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").inv( $trans ) -> retval
 ```
 
-### dlib::jitter_image
+### dlib::jitter\_image
 
 ```cpp
 std::vector<cv::Mat> dlib::jitter_image( const cv::Mat& img,
@@ -1827,33 +3083,33 @@ AutoIt:
     _Dlib_ObjCreate("dlib").length( $p ) -> retval
 ```
 
-### dlib::load_grayscale_image
+### dlib::load\_grayscale\_image
 
 ```cpp
-cv::Mat dlib::load_grayscale_image( const string& path );
+cv::Mat dlib::load_grayscale_image( const std::string& path );
 AutoIt:
     _Dlib_ObjCreate("dlib").load_grayscale_image( $path ) -> retval
 ```
 
-### dlib::load_libsvm_formatted_data
+### dlib::load\_libsvm\_formatted\_data
 
 ```cpp
-void dlib::load_libsvm_formatted_data( string&                                             file_name,
+void dlib::load_libsvm_formatted_data( std::string&                                        file_name,
                                        std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                        std::vector<double>&                                labels );
 AutoIt:
     _Dlib_ObjCreate("dlib").load_libsvm_formatted_data( $file_name[, $samples[, $labels]] ) -> $samples, $labels
 ```
 
-### dlib::load_rgb_image
+### dlib::load\_rgb\_image
 
 ```cpp
-cv::Mat dlib::load_rgb_image( const string& path );
+cv::Mat dlib::load_rgb_image( const std::string& path );
 AutoIt:
     _Dlib_ObjCreate("dlib").load_rgb_image( $path ) -> retval
 ```
 
-### dlib::make_sparse_vector
+### dlib::make\_sparse\_vector
 
 ```cpp
 void dlib::make_sparse_vector( std::vector<std::pair<ULONG, double>>& v );
@@ -1867,7 +3123,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").make_sparse_vector( [$v] ) -> $v
 ```
 
-### dlib::max_cost_assignment
+### dlib::max\_cost\_assignment
 
 ```cpp
 std::vector<long> dlib::max_cost_assignment( const dlib::Matrix& cost );
@@ -1875,7 +3131,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").max_cost_assignment( $cost ) -> retval
 ```
 
-### dlib::max_index_plus_one
+### dlib::max\_index\_plus\_one
 
 ```cpp
 ULONG dlib::max_index_plus_one( std::vector<std::pair<ULONG, double>>& v );
@@ -1883,7 +3139,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").max_index_plus_one( $v ) -> retval
 ```
 
-### dlib::num_separable_filters
+### dlib::num\_separable\_filters
 
 ```cpp
 ULONG dlib::num_separable_filters( dlib::fhog_object_detector& detector );
@@ -1897,7 +3153,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").num_separable_filters( $detector ) -> retval
 ```
 
-### dlib::polygon_area
+### dlib::polygon\_area
 
 ```cpp
 double dlib::polygon_area( std::vector<dlib::dpoint>& pts );
@@ -1905,7 +3161,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").polygon_area( $pts ) -> retval
 ```
 
-### dlib::probability_that_sequence_is_increasing
+### dlib::probability\_that\_sequence\_is\_increasing
 
 ```cpp
 double dlib::probability_that_sequence_is_increasing( std::vector<double>& time_series,
@@ -1934,50 +3190,50 @@ AutoIt:
     _Dlib_ObjCreate("dlib").reduce( $df, $x, $num_basis_vectors[, $eps] ) -> retval
 ```
 
-### dlib::save_face_chip
+### dlib::save\_face\_chip
 
 ```cpp
 void dlib::save_face_chip( const cv::Mat&                     img,
                            const dlib::full_object_detection& face,
-                           const string&                      chip_filename,
+                           const std::string&                 chip_filename,
                            size_t                             size = 150,
                            float                              padding = 0.25 );
 AutoIt:
     _Dlib_ObjCreate("dlib").save_face_chip( $img, $face, $chip_filename[, $size[, $padding]] ) -> None
 ```
 
-### dlib::save_face_chips
+### dlib::save\_face\_chips
 
 ```cpp
 void dlib::save_face_chips( const cv::Mat&                                  img,
                             const std::vector<dlib::full_object_detection>& faces,
-                            const string&                                   chip_filename,
+                            const std::string&                              chip_filename,
                             size_t                                          size = 150,
                             float                                           padding = 0.25 );
 AutoIt:
     _Dlib_ObjCreate("dlib").save_face_chips( $img, $faces, $chip_filename[, $size[, $padding]] ) -> None
 ```
 
-### dlib::save_image
+### dlib::save\_image
 
 ```cpp
-void dlib::save_image( const cv::Mat& img,
-                       const string&  path );
+void dlib::save_image( const cv::Mat&     img,
+                       const std::string& path );
 AutoIt:
     _Dlib_ObjCreate("dlib").save_image( $img, $path ) -> None
 ```
 
-### dlib::save_libsvm_formatted_data
+### dlib::save\_libsvm\_formatted\_data
 
 ```cpp
-void dlib::save_libsvm_formatted_data( const string&                                             file_name,
+void dlib::save_libsvm_formatted_data( const std::string&                                        file_name,
                                        const std::vector<std::vector<std::pair<ULONG, double>>>& samples,
                                        const std::vector<double>&                                labels );
 AutoIt:
     _Dlib_ObjCreate("dlib").save_libsvm_formatted_data( $file_name, $samples, $labels ) -> None
 ```
 
-### dlib::scale_rect
+### dlib::scale\_rect
 
 ```cpp
 dlib::rectangle dlib::scale_rect( dlib::rectangle rect,
@@ -1993,7 +3249,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").scale_rect( $rect, $scale ) -> retval
 ```
 
-### dlib::set_dnn_prefer_fastest_algorithms
+### dlib::set\_dnn\_prefer\_fastest\_algorithms
 
 ```cpp
 void dlib::set_dnn_prefer_fastest_algorithms();
@@ -2001,7 +3257,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").set_dnn_prefer_fastest_algorithms() -> None
 ```
 
-### dlib::set_dnn_prefer_smallest_algorithms
+### dlib::set\_dnn\_prefer\_smallest\_algorithms
 
 ```cpp
 void dlib::set_dnn_prefer_smallest_algorithms();
@@ -2009,7 +3265,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").set_dnn_prefer_smallest_algorithms() -> None
 ```
 
-### dlib::shrink_rect
+### dlib::shrink\_rect
 
 ```cpp
 dlib::rectangle dlib::shrink_rect( dlib::rectangle rect,
@@ -2025,7 +3281,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").shrink_rect( $rect, $num ) -> retval
 ```
 
-### dlib::signed_distance_to_line
+### dlib::signed\_distance\_to\_line
 
 ```cpp
 double dlib::signed_distance_to_line( dlib::line   l,
@@ -2041,7 +3297,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").signed_distance_to_line( $l, $p ) -> retval
 ```
 
-### dlib::solve_structural_svm_problem
+### dlib::solve\_structural\_svm\_problem
 
 ```cpp
 dlib::SpaceVector dlib::solve_structural_svm_problem( dlib::simple_structural_svm_problem& problem );
@@ -2049,7 +3305,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").solve_structural_svm_problem( $problem ) -> retval
 ```
 
-### dlib::test_binary_decision_function
+### dlib::test\_binary\_decision\_function
 
 ```cpp
 dlib::binary_test dlib::test_binary_decision_function( dlib::_normalized_decision_function_radial_basis& dec_funct,
@@ -2187,7 +3443,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").test_binary_decision_function( $dec_funct, $samples, $labels ) -> retval
 ```
 
-### dlib::test_ranking_function
+### dlib::test\_ranking\_function
 
 ```cpp
 dlib::ranking_test dlib::test_ranking_function( dlib::_decision_function_linear&     dec_funct,
@@ -2217,7 +3473,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").test_ranking_function( $dec_funct, $sample ) -> retval
 ```
 
-### dlib::test_regression_function
+### dlib::test\_regression\_function
 
 ```cpp
 dlib::regression_test dlib::test_regression_function( dlib::_decision_function_linear& dec_funct,
@@ -2339,7 +3595,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").test_regression_function( $dec_funct, $samples, $labels ) -> retval
 ```
 
-### dlib::test_sequence_segmenter
+### dlib::test\_sequence\_segmenter
 
 ```cpp
 dlib::segmenter_test dlib::test_sequence_segmenter( const dlib::segmenter_type&                              segmenter,
@@ -2357,11 +3613,11 @@ AutoIt:
     _Dlib_ObjCreate("dlib").test_sequence_segmenter( $segmenter, $samples, $segments ) -> retval
 ```
 
-### dlib::test_shape_predictor
+### dlib::test\_shape\_predictor
 
 ```cpp
-double dlib::test_shape_predictor( string dataset_filename,
-                                   string predictor_filename );
+double dlib::test_shape_predictor( std::string dataset_filename,
+                                   std::string predictor_filename );
 AutoIt:
     _Dlib_ObjCreate("dlib").test_shape_predictor( $dataset_filename, $predictor_filename ) -> retval
 ```
@@ -2384,18 +3640,18 @@ AutoIt:
     _Dlib_ObjCreate("dlib").test_shape_predictor( $images, $detections, $predictor[, $scales] ) -> retval
 ```
 
-### dlib::test_simple_object_detector
+### dlib::test\_simple\_object\_detector
 
 ```cpp
-dlib::simple_test_results dlib::test_simple_object_detector( const string& dataset_filename,
-                                                             const string& detector_filename,
-                                                             const int     upsampling_amount = -1 );
+dlib::simple_test_results dlib::test_simple_object_detector( const std::string& dataset_filename,
+                                                             const std::string& detector_filename,
+                                                             const int          upsampling_amount = -1 );
 AutoIt:
     _Dlib_ObjCreate("dlib").test_simple_object_detector( $dataset_filename, $detector_filename[, $upsampling_amount] ) -> retval
 ```
 
 ```cpp
-dlib::simple_test_results dlib::test_simple_object_detector( const string&               dataset_filename,
+dlib::simple_test_results dlib::test_simple_object_detector( const std::string&          dataset_filename,
                                                              dlib::fhog_object_detector& detector,
                                                              const int                   upsampling_amount = -1 );
 AutoIt:
@@ -2403,7 +3659,7 @@ AutoIt:
 ```
 
 ```cpp
-dlib::simple_test_results dlib::test_simple_object_detector( const string&                     dataset_filename,
+dlib::simple_test_results dlib::test_simple_object_detector( const std::string&                dataset_filename,
                                                              dlib::simple_object_detector_com& detector,
                                                              const int                         upsampling_amount = -1 );
 AutoIt:
@@ -2428,7 +3684,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").test_simple_object_detector( $images, $boxes, $detector[, $upsampling_amount] ) -> retval
 ```
 
-### dlib::threshold_filter_singular_values
+### dlib::threshold\_filter\_singular\_values
 
 ```cpp
 dlib::fhog_object_detector dlib::threshold_filter_singular_values( dlib::fhog_object_detector& detector,
@@ -2446,7 +3702,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").threshold_filter_singular_values( $detector, $thresh[, $weight_index] ) -> retval
 ```
 
-### dlib::train_sequence_segmenter
+### dlib::train\_sequence\_segmenter
 
 ```cpp
 dlib::segmenter_type dlib::train_sequence_segmenter( const std::vector<std::vector<dlib::SpaceVector>>&       samples,
@@ -2464,11 +3720,11 @@ AutoIt:
     _Dlib_ObjCreate("dlib").train_sequence_segmenter( $samples, $segments[, $params] ) -> retval
 ```
 
-### dlib::train_shape_predictor
+### dlib::train\_shape\_predictor
 
 ```cpp
-void dlib::train_shape_predictor( const string&                                 dataset_filename,
-                                  const string&                                 predictor_output_filename,
+void dlib::train_shape_predictor( const std::string&                            dataset_filename,
+                                  const std::string&                            predictor_output_filename,
                                   const dlib::shape_predictor_training_options& options );
 AutoIt:
     _Dlib_ObjCreate("dlib").train_shape_predictor( $dataset_filename, $predictor_output_filename, $options ) -> None
@@ -2482,11 +3738,11 @@ AutoIt:
     _Dlib_ObjCreate("dlib").train_shape_predictor( $images, $detections, $options ) -> retval
 ```
 
-### dlib::train_simple_object_detector
+### dlib::train\_simple\_object\_detector
 
 ```cpp
-void dlib::train_simple_object_detector( const string&                                        dataset_filename,
-                                         const string&                                        detector_output_filename,
+void dlib::train_simple_object_detector( const std::string&                                   dataset_filename,
+                                         const std::string&                                   detector_output_filename,
                                          const dlib::simple_object_detector_training_options& options );
 AutoIt:
     _Dlib_ObjCreate("dlib").train_simple_object_detector( $dataset_filename, $detector_output_filename, $options ) -> None
@@ -2500,7 +3756,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib").train_simple_object_detector( $images, $boxes, $options ) -> retval
 ```
 
-### dlib::translate_rect
+### dlib::translate\_rect
 
 ```cpp
 dlib::rectangle dlib::translate_rect( dlib::rectangle rect,
@@ -2538,81 +3794,173 @@ AutoIt:
     _Dlib_ObjCreate("dlib").variant( $ptr ) -> retval
 ```
 
-## dlib::binary_test
+## dlib::binary\_test
 
-### dlib::binary_test::create
+### binary\_test.class1\_accuracy
 
 ```cpp
-static dlib::binary_test dlib::binary_test::create();
+double dlib::binary_test::class1_accuracy
 AutoIt:
-    _Dlib_ObjCreate("dlib.binary_test").create() -> <dlib.binary_test object>
+    [propget propput] $obinary_test.class1_accuracy
 ```
 
-### dlib::binary_test::ToString
+### binary\_test.class2\_accuracy
 
 ```cpp
-string dlib::binary_test::ToString() const;
+double dlib::binary_test::class2_accuracy
+AutoIt:
+    [propget propput] $obinary_test.class2_accuracy
+```
+
+### dlib::binary\_test::get\_create
+
+```cpp
+static dlib::binary_test dlib::binary_test::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.binary_test").create() -> <dlib.binary_test object>
+    _Dlib_ObjCreate("dlib.binary_test")() -> <dlib.binary_test object>
+```
+
+### dlib::binary\_test::ToString
+
+```cpp
+std::string dlib::binary_test::ToString() const;
 AutoIt:
     $obinary_test.ToString() -> retval
 ```
 
-## dlib::regression_test
+## dlib::regression\_test
 
-### dlib::regression_test::create
+### regression\_test.mean\_squared\_error
 
 ```cpp
-static dlib::regression_test dlib::regression_test::create();
+double dlib::regression_test::mean_squared_error
 AutoIt:
-    _Dlib_ObjCreate("dlib.regression_test").create() -> <dlib.regression_test object>
+    [propget propput] $oregression_test.mean_squared_error
 ```
 
-### dlib::regression_test::ToString
+### regression\_test.R\_squared
 
 ```cpp
-string dlib::regression_test::ToString() const;
+double dlib::regression_test::R_squared
+AutoIt:
+    [propget propput] $oregression_test.R_squared
+```
+
+### regression\_test.mean\_average\_error
+
+```cpp
+double dlib::regression_test::mean_average_error
+AutoIt:
+    [propget propput] $oregression_test.mean_average_error
+```
+
+### regression\_test.mean\_error\_stddev
+
+```cpp
+double dlib::regression_test::mean_error_stddev
+AutoIt:
+    [propget propput] $oregression_test.mean_error_stddev
+```
+
+### dlib::regression\_test::get\_create
+
+```cpp
+static dlib::regression_test dlib::regression_test::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.regression_test").create() -> <dlib.regression_test object>
+    _Dlib_ObjCreate("dlib.regression_test")() -> <dlib.regression_test object>
+```
+
+### dlib::regression\_test::ToString
+
+```cpp
+std::string dlib::regression_test::ToString() const;
 AutoIt:
     $oregression_test.ToString() -> retval
 ```
 
-## dlib::ranking_test
+## dlib::ranking\_test
 
-### dlib::ranking_test::create
+### ranking\_test.ranking\_accuracy
 
 ```cpp
-static dlib::ranking_test dlib::ranking_test::create();
+double dlib::ranking_test::ranking_accuracy
 AutoIt:
-    _Dlib_ObjCreate("dlib.ranking_test").create() -> <dlib.ranking_test object>
+    [propget propput] $oranking_test.ranking_accuracy
 ```
 
-### dlib::ranking_test::ToString
+### ranking\_test.mean\_ap
 
 ```cpp
-string dlib::ranking_test::ToString() const;
+double dlib::ranking_test::mean_ap
+AutoIt:
+    [propget propput] $oranking_test.mean_ap
+```
+
+### dlib::ranking\_test::get\_create
+
+```cpp
+static dlib::ranking_test dlib::ranking_test::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.ranking_test").create() -> <dlib.ranking_test object>
+    _Dlib_ObjCreate("dlib.ranking_test")() -> <dlib.ranking_test object>
+```
+
+### dlib::ranking\_test::ToString
+
+```cpp
+std::string dlib::ranking_test::ToString() const;
 AutoIt:
     $oranking_test.ToString() -> retval
 ```
 
-## dlib::cca_outputs
+## dlib::cca\_outputs
 
-### dlib::cca_outputs::create
+### cca\_outputs.correlations
 
 ```cpp
-static dlib::cca_outputs dlib::cca_outputs::create();
+dlib::SpaceVector dlib::cca_outputs::correlations
 AutoIt:
-    _Dlib_ObjCreate("dlib.cca_outputs").create() -> <dlib.cca_outputs object>
+    [propget propput] $occa_outputs.correlations
 ```
 
-## dlib::cnn_face_detection_model_v1
-
-### dlib::cnn_face_detection_model_v1::create
+### cca\_outputs.Ltrans
 
 ```cpp
-static dlib::cnn_face_detection_model_v1 dlib::cnn_face_detection_model_v1::create( const string& model_filename );
+dlib::Matrix dlib::cca_outputs::Ltrans
+AutoIt:
+    [propget propput] $occa_outputs.Ltrans
+```
+
+### cca\_outputs.Rtrans
+
+```cpp
+dlib::Matrix dlib::cca_outputs::Rtrans
+AutoIt:
+    [propget propput] $occa_outputs.Rtrans
+```
+
+### dlib::cca\_outputs::get\_create
+
+```cpp
+static dlib::cca_outputs dlib::cca_outputs::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.cca_outputs").create() -> <dlib.cca_outputs object>
+    _Dlib_ObjCreate("dlib.cca_outputs")() -> <dlib.cca_outputs object>
+```
+
+## dlib::cnn\_face\_detection\_model\_v1
+
+### dlib::cnn\_face\_detection\_model\_v1::create
+
+```cpp
+static dlib::cnn_face_detection_model_v1 dlib::cnn_face_detection_model_v1::create( const std::string& model_filename );
 AutoIt:
     _Dlib_ObjCreate("dlib.cnn_face_detection_model_v1").create( $model_filename ) -> <dlib.cnn_face_detection_model_v1 object>
 ```
 
-### dlib::cnn_face_detection_model_v1::detect
+### dlib::cnn\_face\_detection\_model\_v1::detect
 
 ```cpp
 std::vector<dlib::mmod_rect> dlib::cnn_face_detection_model_v1::detect( const cv::Mat& img,
@@ -2621,7 +3969,7 @@ AutoIt:
     $ocnn_face_detection_model_v1.detect( $img[, $upsample_num_times] ) -> retval
 ```
 
-### dlib::cnn_face_detection_model_v1::detect_multi
+### dlib::cnn\_face\_detection\_model\_v1::detect\_multi
 
 ```cpp
 std::vector<std::vector<dlib::mmod_rect>> dlib::cnn_face_detection_model_v1::detect_multi( const std::vector<cv::Mat>& imgs,
@@ -2631,14 +3979,14 @@ AutoIt:
     $ocnn_face_detection_model_v1.detect_multi( $imgs[, $upsample_num_times[, $batch_size]] ) -> retval
 ```
 
-### dlib::cnn_face_detection_model_v1::get_call
+### dlib::cnn\_face\_detection\_model\_v1::get\_call
 
 ```cpp
 std::vector<dlib::mmod_rect> dlib::cnn_face_detection_model_v1::get_call( const cv::Mat& img,
                                                                           const int      upsample_num_times = 0 );
 AutoIt:
     $ocnn_face_detection_model_v1.call( $img[, $upsample_num_times] ) -> retval
-    dlib.cnn_face_detection_model_v1( $img[, $upsample_num_times] ) -> retval
+    $ocnn_face_detection_model_v1( $img[, $upsample_num_times] ) -> retval
 ```
 
 ```cpp
@@ -2647,20 +3995,21 @@ std::vector<std::vector<dlib::mmod_rect>> dlib::cnn_face_detection_model_v1::get
                                                                                        const int                   batch_size = 128 );
 AutoIt:
     $ocnn_face_detection_model_v1.call( $imgs[, $upsample_num_times[, $batch_size]] ) -> retval
-    dlib.cnn_face_detection_model_v1( $imgs[, $upsample_num_times[, $batch_size]] ) -> retval
+    $ocnn_face_detection_model_v1( $imgs[, $upsample_num_times[, $batch_size]] ) -> retval
 ```
 
-## dlib::face_recognition_model_v1
+## dlib::face\_recognition\_model\_v1
 
-### dlib::face_recognition_model_v1::create
+### dlib::face\_recognition\_model\_v1::get\_create
 
 ```cpp
-static dlib::face_recognition_model_v1 dlib::face_recognition_model_v1::create( const string& model_filename );
+static dlib::face_recognition_model_v1 dlib::face_recognition_model_v1::get_create( const std::string& model_filename );
 AutoIt:
     _Dlib_ObjCreate("dlib.face_recognition_model_v1").create( $model_filename ) -> <dlib.face_recognition_model_v1 object>
+    _Dlib_ObjCreate("dlib.face_recognition_model_v1")( $model_filename ) -> <dlib.face_recognition_model_v1 object>
 ```
 
-### dlib::face_recognition_model_v1::compute_face_descriptor
+### dlib::face\_recognition\_model\_v1::compute\_face\_descriptor
 
 ```cpp
 dlib::SpaceVector dlib::face_recognition_model_v1::compute_face_descriptor( const cv::Mat&                     image,
@@ -2703,32 +4052,34 @@ AutoIt:
     $oface_recognition_model_v1.compute_face_descriptor( $images[, $num_jitters] ) -> retval
 ```
 
-## dlib::_row
+## dlib::\_row
 
-### dlib::_row::create
+### dlib::\_row::get\_create
 
 ```cpp
-static dlib::_row dlib::_row::create();
+static dlib::_row dlib::_row::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib._row").create() -> <dlib._row object>
+    _Dlib_ObjCreate("dlib._row")() -> <dlib._row object>
 ```
 
 ```cpp
-static dlib::_row dlib::_row::create( double* data_,
-                                      long    size_ );
+static dlib::_row dlib::_row::get_create( double* data_,
+                                          long    size_ );
 AutoIt:
     _Dlib_ObjCreate("dlib._row").create( $size_[, $data_] ) -> <dlib._row object>
+    _Dlib_ObjCreate("dlib._row")( $size_[, $data_] ) -> <dlib._row object>
 ```
 
-### dlib::_row::ToString
+### dlib::\_row::ToString
 
 ```cpp
-string dlib::_row::ToString();
+std::string dlib::_row::ToString();
 AutoIt:
     $o_row.ToString() -> retval
 ```
 
-### dlib::_row::get
+### dlib::\_row::get
 
 ```cpp
 double dlib::_row::get( long r );
@@ -2736,7 +4087,7 @@ AutoIt:
     $o_row.get( $r ) -> retval
 ```
 
-### dlib::_row::set
+### dlib::\_row::set
 
 ```cpp
 void dlib::_row::set( long   r,
@@ -2745,9 +4096,17 @@ AutoIt:
     $o_row.set( $r, $val ) -> None
 ```
 
-## dlib::segmenter_type
+## dlib::segmenter\_type
 
-### dlib::segmenter_type::create
+### segmenter\_type.weights
+
+```cpp
+dlib::SpaceVector dlib::segmenter_type::get_weights()
+AutoIt:
+    [propget] $osegmenter_type.weights
+```
+
+### dlib::segmenter\_type::create
 
 ```cpp
 static dlib::segmenter_type dlib::segmenter_type::create();
@@ -2755,115 +4114,464 @@ AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_type").create() -> <dlib.segmenter_type object>
 ```
 
-### dlib::segmenter_type::get_call
+### dlib::segmenter\_type::get\_call
 
 ```cpp
 std::vector<std::pair<ULONG, ULONG>> dlib::segmenter_type::get_call( const std::vector<dlib::SpaceVector>& x ) const;
 AutoIt:
     $osegmenter_type.call( $x ) -> retval
-    dlib.segmenter_type( $x ) -> retval
+    $osegmenter_type( $x ) -> retval
 ```
 
 ```cpp
 std::vector<std::pair<ULONG, ULONG>> dlib::segmenter_type::get_call( const std::vector<std::vector<std::pair<ULONG, double>>>& x ) const;
 AutoIt:
     $osegmenter_type.call( $x ) -> retval
-    dlib.segmenter_type( $x ) -> retval
+    $osegmenter_type( $x ) -> retval
 ```
 
-## dlib::segmenter_params
+## dlib::segmenter\_params
 
-### dlib::segmenter_params::create
+### segmenter\_params.use\_BIO\_model
 
 ```cpp
-static dlib::segmenter_params dlib::segmenter_params::create();
+bool dlib::segmenter_params::use_BIO_model
+AutoIt:
+    [propget propput] $osegmenter_params.use_BIO_model
+```
+
+### segmenter\_params.use\_high\_order\_features
+
+```cpp
+bool dlib::segmenter_params::use_high_order_features
+AutoIt:
+    [propget propput] $osegmenter_params.use_high_order_features
+```
+
+### segmenter\_params.allow\_negative\_weights
+
+```cpp
+bool dlib::segmenter_params::allow_negative_weights
+AutoIt:
+    [propget propput] $osegmenter_params.allow_negative_weights
+```
+
+### segmenter\_params.window\_size
+
+```cpp
+ULONG dlib::segmenter_params::window_size
+AutoIt:
+    [propget propput] $osegmenter_params.window_size
+```
+
+### segmenter\_params.num\_threads
+
+```cpp
+ULONG dlib::segmenter_params::num_threads
+AutoIt:
+    [propget propput] $osegmenter_params.num_threads
+```
+
+### segmenter\_params.epsilon
+
+```cpp
+double dlib::segmenter_params::epsilon
+AutoIt:
+    [propget propput] $osegmenter_params.epsilon
+```
+
+### segmenter\_params.max\_cache\_size
+
+```cpp
+ULONG dlib::segmenter_params::max_cache_size
+AutoIt:
+    [propget propput] $osegmenter_params.max_cache_size
+```
+
+### segmenter\_params.be\_verbose
+
+```cpp
+bool dlib::segmenter_params::be_verbose
+AutoIt:
+    [propget propput] $osegmenter_params.be_verbose
+```
+
+### segmenter\_params.C
+
+```cpp
+double dlib::segmenter_params::C
+AutoIt:
+    [propget propput] $osegmenter_params.C
+```
+
+### dlib::segmenter\_params::get\_create
+
+```cpp
+static dlib::segmenter_params dlib::segmenter_params::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_params").create() -> <dlib.segmenter_params object>
+    _Dlib_ObjCreate("dlib.segmenter_params")() -> <dlib.segmenter_params object>
 ```
 
-### dlib::segmenter_params::ToString
+### dlib::segmenter\_params::ToString
 
 ```cpp
-string dlib::segmenter_params::ToString() const;
+std::string dlib::segmenter_params::ToString() const;
 AutoIt:
     $osegmenter_params.ToString() -> retval
 ```
 
-## dlib::segmenter_test
+## dlib::segmenter\_test
 
-### dlib::segmenter_test::create
+### segmenter\_test.precision
 
 ```cpp
-static dlib::segmenter_test dlib::segmenter_test::create();
+double dlib::segmenter_test::precision
 AutoIt:
-    _Dlib_ObjCreate("dlib.segmenter_test").create() -> <dlib.segmenter_test object>
+    [propget propput] $osegmenter_test.precision
 ```
 
-### dlib::segmenter_test::ToString
+### segmenter\_test.recall
 
 ```cpp
-string dlib::segmenter_test::ToString() const;
+double dlib::segmenter_test::recall
+AutoIt:
+    [propget propput] $osegmenter_test.recall
+```
+
+### segmenter\_test.f1
+
+```cpp
+double dlib::segmenter_test::f1
+AutoIt:
+    [propget propput] $osegmenter_test.f1
+```
+
+### dlib::segmenter\_test::get\_create
+
+```cpp
+static dlib::segmenter_test dlib::segmenter_test::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.segmenter_test").create() -> <dlib.segmenter_test object>
+    _Dlib_ObjCreate("dlib.segmenter_test")() -> <dlib.segmenter_test object>
+```
+
+### dlib::segmenter\_test::ToString
+
+```cpp
+std::string dlib::segmenter_test::ToString() const;
 AutoIt:
     $osegmenter_test.ToString() -> retval
 ```
 
-## dlib::shape_predictor_training_options
+## dlib::shape\_predictor\_training\_options
 
-### dlib::shape_predictor_training_options::create
+### shape\_predictor\_training\_options.be\_verbose
 
 ```cpp
-static dlib::shape_predictor_training_options dlib::shape_predictor_training_options::create();
+bool dlib::shape_predictor_training_options::be_verbose
 AutoIt:
-    _Dlib_ObjCreate("dlib.shape_predictor_training_options").create() -> <dlib.shape_predictor_training_options object>
+    [propget propput] $oshape_predictor_training_options.be_verbose
 ```
 
-### dlib::shape_predictor_training_options::ToString
+### shape\_predictor\_training\_options.cascade\_depth
 
 ```cpp
-string dlib::shape_predictor_training_options::ToString() const;
+ULONG dlib::shape_predictor_training_options::cascade_depth
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.cascade_depth
+```
+
+### shape\_predictor\_training\_options.tree\_depth
+
+```cpp
+ULONG dlib::shape_predictor_training_options::tree_depth
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.tree_depth
+```
+
+### shape\_predictor\_training\_options.num\_trees\_per\_cascade\_level
+
+```cpp
+ULONG dlib::shape_predictor_training_options::num_trees_per_cascade_level
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.num_trees_per_cascade_level
+```
+
+### shape\_predictor\_training\_options.nu
+
+```cpp
+double dlib::shape_predictor_training_options::nu
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.nu
+```
+
+### shape\_predictor\_training\_options.oversampling\_amount
+
+```cpp
+ULONG dlib::shape_predictor_training_options::oversampling_amount
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.oversampling_amount
+```
+
+### shape\_predictor\_training\_options.oversampling\_translation\_jitter
+
+```cpp
+double dlib::shape_predictor_training_options::oversampling_translation_jitter
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.oversampling_translation_jitter
+```
+
+### shape\_predictor\_training\_options.feature\_pool\_size
+
+```cpp
+ULONG dlib::shape_predictor_training_options::feature_pool_size
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.feature_pool_size
+```
+
+### shape\_predictor\_training\_options.lambda\_param
+
+```cpp
+double dlib::shape_predictor_training_options::lambda_param
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.lambda_param
+```
+
+### shape\_predictor\_training\_options.num\_test\_splits
+
+```cpp
+ULONG dlib::shape_predictor_training_options::num_test_splits
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.num_test_splits
+```
+
+### shape\_predictor\_training\_options.feature\_pool\_region\_padding
+
+```cpp
+double dlib::shape_predictor_training_options::feature_pool_region_padding
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.feature_pool_region_padding
+```
+
+### shape\_predictor\_training\_options.random\_seed
+
+```cpp
+std::string dlib::shape_predictor_training_options::random_seed
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.random_seed
+```
+
+### shape\_predictor\_training\_options.landmark\_relative\_padding\_mode
+
+```cpp
+bool dlib::shape_predictor_training_options::landmark_relative_padding_mode
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.landmark_relative_padding_mode
+```
+
+### shape\_predictor\_training\_options.num\_threads
+
+```cpp
+ULONG dlib::shape_predictor_training_options::num_threads
+AutoIt:
+    [propget propput] $oshape_predictor_training_options.num_threads
+```
+
+### dlib::shape\_predictor\_training\_options::get\_create
+
+```cpp
+static dlib::shape_predictor_training_options dlib::shape_predictor_training_options::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.shape_predictor_training_options").create() -> <dlib.shape_predictor_training_options object>
+    _Dlib_ObjCreate("dlib.shape_predictor_training_options")() -> <dlib.shape_predictor_training_options object>
+```
+
+### dlib::shape\_predictor\_training\_options::ToString
+
+```cpp
+std::string dlib::shape_predictor_training_options::ToString() const;
 AutoIt:
     $oshape_predictor_training_options.ToString() -> retval
 ```
 
-## dlib::simple_object_detector_training_options
+## dlib::simple\_object\_detector\_training\_options
 
-### dlib::simple_object_detector_training_options::create
+### simple\_object\_detector\_training\_options.be\_verbose
 
 ```cpp
-static dlib::simple_object_detector_training_options dlib::simple_object_detector_training_options::create();
+bool dlib::simple_object_detector_training_options::be_verbose
 AutoIt:
-    _Dlib_ObjCreate("dlib.simple_object_detector_training_options").create() -> <dlib.simple_object_detector_training_options object>
+    [propget propput] $osimple_object_detector_training_options.be_verbose
 ```
 
-### dlib::simple_object_detector_training_options::ToString
+### simple\_object\_detector\_training\_options.add\_left\_right\_image\_flips
 
 ```cpp
-string dlib::simple_object_detector_training_options::ToString() const;
+bool dlib::simple_object_detector_training_options::add_left_right_image_flips
+AutoIt:
+    [propget propput] $osimple_object_detector_training_options.add_left_right_image_flips
+```
+
+### simple\_object\_detector\_training\_options.num\_threads
+
+```cpp
+ULONG dlib::simple_object_detector_training_options::num_threads
+AutoIt:
+    [propget propput] $osimple_object_detector_training_options.num_threads
+```
+
+### simple\_object\_detector\_training\_options.detection\_window\_size
+
+```cpp
+ULONG dlib::simple_object_detector_training_options::detection_window_size
+AutoIt:
+    [propget propput] $osimple_object_detector_training_options.detection_window_size
+```
+
+### simple\_object\_detector\_training\_options.C
+
+```cpp
+double dlib::simple_object_detector_training_options::C
+AutoIt:
+    [propget propput] $osimple_object_detector_training_options.C
+```
+
+### simple\_object\_detector\_training\_options.epsilon
+
+```cpp
+double dlib::simple_object_detector_training_options::epsilon
+AutoIt:
+    [propget propput] $osimple_object_detector_training_options.epsilon
+```
+
+### simple\_object\_detector\_training\_options.upsample\_limit
+
+```cpp
+ULONG dlib::simple_object_detector_training_options::upsample_limit
+AutoIt:
+    [propget propput] $osimple_object_detector_training_options.upsample_limit
+```
+
+### simple\_object\_detector\_training\_options.nuclear\_norm\_regularization\_strength
+
+```cpp
+double dlib::simple_object_detector_training_options::nuclear_norm_regularization_strength
+AutoIt:
+    [propget propput] $osimple_object_detector_training_options.nuclear_norm_regularization_strength
+```
+
+### simple\_object\_detector\_training\_options.max\_runtime\_seconds
+
+```cpp
+double dlib::simple_object_detector_training_options::max_runtime_seconds
+AutoIt:
+    [propget propput] $osimple_object_detector_training_options.max_runtime_seconds
+```
+
+### dlib::simple\_object\_detector\_training\_options::get\_create
+
+```cpp
+static dlib::simple_object_detector_training_options dlib::simple_object_detector_training_options::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.simple_object_detector_training_options").create() -> <dlib.simple_object_detector_training_options object>
+    _Dlib_ObjCreate("dlib.simple_object_detector_training_options")() -> <dlib.simple_object_detector_training_options object>
+```
+
+### dlib::simple\_object\_detector\_training\_options::ToString
+
+```cpp
+std::string dlib::simple_object_detector_training_options::ToString() const;
 AutoIt:
     $osimple_object_detector_training_options.ToString() -> retval
 ```
 
-## dlib::simple_test_results
+## dlib::simple\_test\_results
 
-### dlib::simple_test_results::create
+### simple\_test\_results.precision
 
 ```cpp
-static dlib::simple_test_results dlib::simple_test_results::create();
+double dlib::simple_test_results::precision
 AutoIt:
-    _Dlib_ObjCreate("dlib.simple_test_results").create() -> <dlib.simple_test_results object>
+    [propget propput] $osimple_test_results.precision
 ```
 
-### dlib::simple_test_results::ToString
+### simple\_test\_results.recall
 
 ```cpp
-string dlib::simple_test_results::ToString() const;
+double dlib::simple_test_results::recall
+AutoIt:
+    [propget propput] $osimple_test_results.recall
+```
+
+### simple\_test\_results.average\_precision
+
+```cpp
+double dlib::simple_test_results::average_precision
+AutoIt:
+    [propget propput] $osimple_test_results.average_precision
+```
+
+### dlib::simple\_test\_results::get\_create
+
+```cpp
+static dlib::simple_test_results dlib::simple_test_results::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.simple_test_results").create() -> <dlib.simple_test_results object>
+    _Dlib_ObjCreate("dlib.simple_test_results")() -> <dlib.simple_test_results object>
+```
+
+### dlib::simple\_test\_results::ToString
+
+```cpp
+std::string dlib::simple_test_results::ToString() const;
 AutoIt:
     $osimple_test_results.ToString() -> retval
 ```
 
-## dlib::simple_object_detector_com
+## dlib::simple\_object\_detector\_com
 
-### dlib::simple_object_detector_com::create
+### simple\_object\_detector\_com.detector
+
+```cpp
+dlib::fhog_object_detector dlib::simple_object_detector_com::detector
+AutoIt:
+    [propget propput] $osimple_object_detector_com.detector
+```
+
+### simple\_object\_detector\_com.upsampling\_amount
+
+```cpp
+uint dlib::simple_object_detector_com::upsampling_amount
+AutoIt:
+    [propget propput] $osimple_object_detector_com.upsampling_amount
+```
+
+### simple\_object\_detector\_com.detection\_window\_width
+
+```cpp
+ULONG dlib::simple_object_detector_com::detector.get_scanner().get_detection_window_width()
+AutoIt:
+    [propget] $osimple_object_detector_com.detection_window_width
+```
+
+### simple\_object\_detector\_com.detection\_window\_height
+
+```cpp
+ULONG dlib::simple_object_detector_com::detector.get_scanner().get_detection_window_height()
+AutoIt:
+    [propget] $osimple_object_detector_com.detection_window_height
+```
+
+### simple\_object\_detector\_com.num\_detectors
+
+```cpp
+ULONG dlib::simple_object_detector_com::detector.num_detectors()
+AutoIt:
+    [propget] $osimple_object_detector_com.num_detectors
+```
+
+### dlib::simple\_object\_detector\_com::create
 
 ```cpp
 static dlib::simple_object_detector_com dlib::simple_object_detector_com::create();
@@ -2885,29 +4593,29 @@ AutoIt:
 ```
 
 ```cpp
-static std::shared_ptr<dlib::simple_object_detector_com> dlib::simple_object_detector_com::create( const string& filename );
+static std::shared_ptr<dlib::simple_object_detector_com> dlib::simple_object_detector_com::create( const std::string& filename );
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector").create( $filename ) -> retval
 ```
 
-### dlib::simple_object_detector_com::get_call
+### dlib::simple\_object\_detector\_com::get\_call
 
 ```cpp
 std::vector<dlib::rectangle> dlib::simple_object_detector_com::get_call( cv::Mat&   img,
                                                                          const uint upsampling_amount_ );
 AutoIt:
     $osimple_object_detector_com.call( $img, $upsampling_amount_ ) -> retval
-    dlib.simple_object_detector( $img, $upsampling_amount_ ) -> retval
+    $osimple_object_detector_com( $img, $upsampling_amount_ ) -> retval
 ```
 
 ```cpp
 std::vector<dlib::rectangle> dlib::simple_object_detector_com::get_call( cv::Mat& img );
 AutoIt:
     $osimple_object_detector_com.call( $img ) -> retval
-    dlib.simple_object_detector( $img ) -> retval
+    $osimple_object_detector_com( $img ) -> retval
 ```
 
-### dlib::simple_object_detector_com::run_multiple
+### dlib::simple\_object\_detector\_com::run\_multiple
 
 ```cpp
 static void dlib::simple_object_detector_com::run_multiple( std::vector<dlib::fhog_object_detector> vectors,
@@ -2933,31 +4641,274 @@ AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector").run_multiple( $vectors, $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
 ```
 
-## dlib::simple_structural_svm_problem
+## dlib::simple\_structural\_svm\_problem
 
-### dlib::simple_structural_svm_problem::create
+### simple\_structural\_svm\_problem.C
 
 ```cpp
-static dlib::simple_structural_svm_problem dlib::simple_structural_svm_problem::create();
+double dlib::simple_structural_svm_problem::C
 AutoIt:
-    _Dlib_ObjCreate("dlib.structural_svm_problem").create() -> <dlib.simple_structural_svm_problem object>
+    [propget propput] $osimple_structural_svm_problem.C
 ```
 
-## dlib::mmod_rect
-
-### dlib::mmod_rect::create
+### simple\_structural\_svm\_problem.num\_samples
 
 ```cpp
-static dlib::mmod_rect dlib::mmod_rect::create( dlib::rectangle rect = rectangle(),
-                                                double          detection_confidence = 0,
-                                                string          label = string() );
+long dlib::simple_structural_svm_problem::num_samples
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.num_samples
+```
+
+### simple\_structural\_svm\_problem.num\_dimensions
+
+```cpp
+long dlib::simple_structural_svm_problem::num_dimensions
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.num_dimensions
+```
+
+### simple\_structural\_svm\_problem.get\_truth\_joint\_feature\_vector
+
+```cpp
+get_truth_joint_feature_vector_function dlib::simple_structural_svm_problem::get_truth_joint_feature_vector
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.get_truth_joint_feature_vector
+```
+
+### simple\_structural\_svm\_problem.separation\_oracle
+
+```cpp
+separation_oracle_function dlib::simple_structural_svm_problem::separation_oracle
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.separation_oracle
+```
+
+### simple\_structural\_svm\_problem.epsilon
+
+```cpp
+double dlib::simple_structural_svm_problem::epsilon
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.epsilon
+```
+
+### simple\_structural\_svm\_problem.max\_cache\_size
+
+```cpp
+ULONG dlib::simple_structural_svm_problem::max_cache_size
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.max_cache_size
+```
+
+### simple\_structural\_svm\_problem.be\_verbose
+
+```cpp
+bool dlib::simple_structural_svm_problem::be_verbose
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.be_verbose
+```
+
+### simple\_structural\_svm\_problem.use\_sparse\_feature\_vectors
+
+```cpp
+bool dlib::simple_structural_svm_problem::use_sparse_feature_vectors
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.use_sparse_feature_vectors
+```
+
+### simple\_structural\_svm\_problem.learns\_nonnegative\_weights
+
+```cpp
+bool dlib::simple_structural_svm_problem::learns_nonnegative_weights
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.learns_nonnegative_weights
+```
+
+### simple\_structural\_svm\_problem.result
+
+```cpp
+_variant_t dlib::simple_structural_svm_problem::result
+AutoIt:
+    [propget propput] $osimple_structural_svm_problem.result
+```
+
+### dlib::simple\_structural\_svm\_problem::get\_create
+
+```cpp
+static dlib::simple_structural_svm_problem dlib::simple_structural_svm_problem::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.structural_svm_problem").create() -> <dlib.simple_structural_svm_problem object>
+    _Dlib_ObjCreate("dlib.structural_svm_problem")() -> <dlib.simple_structural_svm_problem object>
+```
+
+## cv
+
+### cv.Mat
+
+```cpp
+static cv::Mat cv::this
+AutoIt:
+    [propget] $ocv.Mat
+```
+
+### cv.Range
+
+```cpp
+static cv::Range cv::this
+AutoIt:
+    [propget] $ocv.Range
+```
+
+### cv::createMatFromBitmap
+
+```cpp
+cv::Mat cv::createMatFromBitmap( void* ptr,
+                                 bool  copy = true );
+AutoIt:
+    _Dlib_ObjCreate("cv").createMatFromBitmap( $ptr[, $copy] ) -> retval
+```
+
+### cv::haveImageReader
+
+```cpp
+bool cv::haveImageReader( std::string filename );
+AutoIt:
+    _Dlib_ObjCreate("cv").haveImageReader( $filename ) -> retval
+```
+
+### cv::haveImageWriter
+
+```cpp
+bool cv::haveImageWriter( std::string filename );
+AutoIt:
+    _Dlib_ObjCreate("cv").haveImageWriter( $filename ) -> retval
+```
+
+### cv::imcount
+
+```cpp
+size_t cv::imcount( std::string filename,
+                    int         flags = IMREAD_ANYCOLOR );
+AutoIt:
+    _Dlib_ObjCreate("cv").imcount( $filename[, $flags] ) -> retval
+```
+
+### cv::imdecode
+
+```cpp
+cv::Mat cv::imdecode( cv::Mat buf,
+                      int     flags );
+AutoIt:
+    _Dlib_ObjCreate("cv").imdecode( $buf, $flags ) -> retval
+```
+
+### cv::imencode
+
+```cpp
+bool cv::imencode( std::string        ext,
+                   cv::Mat            img,
+                   std::vector<uchar> buf,
+                   std::vector<int>   params = std::vector<int>() );
+AutoIt:
+    _Dlib_ObjCreate("cv").imencode( $ext, $img[, $params[, $buf]] ) -> retval, $buf
+```
+
+### cv::imread
+
+```cpp
+cv::Mat cv::imread( std::string filename,
+                    int         flags = IMREAD_COLOR );
+AutoIt:
+    _Dlib_ObjCreate("cv").imread( $filename[, $flags] ) -> retval
+```
+
+### cv::imreadmulti
+
+```cpp
+bool cv::imreadmulti( std::string          filename,
+                      std::vector<cv::Mat> mats,
+                      int                  flags = IMREAD_ANYCOLOR );
+AutoIt:
+    _Dlib_ObjCreate("cv").imreadmulti( $filename[, $flags[, $mats]] ) -> retval, $mats
+```
+
+```cpp
+bool cv::imreadmulti( std::string          filename,
+                      std::vector<cv::Mat> mats,
+                      int                  start,
+                      int                  count,
+                      int                  flags = IMREAD_ANYCOLOR );
+AutoIt:
+    _Dlib_ObjCreate("cv").imreadmulti( $filename, $start, $count[, $flags[, $mats]] ) -> retval, $mats
+```
+
+### cv::imwrite
+
+```cpp
+bool cv::imwrite( std::string      filename,
+                  cv::Mat          img,
+                  std::vector<int> params = std::vector<int>() );
+AutoIt:
+    _Dlib_ObjCreate("cv").imwrite( $filename, $img[, $params] ) -> retval
+```
+
+### cv::imwritemulti
+
+```cpp
+bool cv::imwritemulti( std::string          filename,
+                       std::vector<cv::Mat> img,
+                       std::vector<int>     params = std::vector<int>() );
+AutoIt:
+    _Dlib_ObjCreate("cv").imwritemulti( $filename, $img[, $params] ) -> retval
+```
+
+## dlib::mmod\_rect
+
+### mmod\_rect.rect
+
+```cpp
+dlib::rectangle dlib::mmod_rect::rect
+AutoIt:
+    [propget propput] $ommod_rect.rect
+```
+
+### mmod\_rect.confidence
+
+```cpp
+double dlib::mmod_rect::detection_confidence
+AutoIt:
+    [propget propput] $ommod_rect.confidence
+```
+
+### mmod\_rect.label
+
+```cpp
+std::string dlib::mmod_rect::label
+AutoIt:
+    [propget propput] $ommod_rect.label
+```
+
+### mmod\_rect.ignore
+
+```cpp
+bool dlib::mmod_rect::ignore
+AutoIt:
+    [propget propput] $ommod_rect.ignore
+```
+
+### dlib::mmod\_rect::get\_create
+
+```cpp
+static dlib::mmod_rect dlib::mmod_rect::get_create( dlib::rectangle rect = rectangle(),
+                                                    double          detection_confidence = 0,
+                                                    std::string     label = string() );
 AutoIt:
     _Dlib_ObjCreate("dlib.mmod_rectangle").create( [$rect[, $detection_confidence[, $label]]] ) -> <dlib.mmod_rect object>
+    _Dlib_ObjCreate("dlib.mmod_rectangle")( [$rect[, $detection_confidence[, $label]]] ) -> <dlib.mmod_rect object>
 ```
 
 ## dlib::cuda
 
-### dlib::cuda::can_access_peer
+### dlib::cuda::can\_access\_peer
 
 ```cpp
 bool dlib::cuda::can_access_peer( int device_id,
@@ -2966,7 +4917,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib.cuda").can_access_peer( $device_id, $peer_device_id ) -> retval
 ```
 
-### dlib::cuda::device_synchronize
+### dlib::cuda::device\_synchronize
 
 ```cpp
 void dlib::cuda::device_synchronize( int device_id );
@@ -2974,7 +4925,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib.cuda").device_synchronize( $device_id ) -> None
 ```
 
-### dlib::cuda::get_device
+### dlib::cuda::get\_device
 
 ```cpp
 int dlib::cuda::get_device();
@@ -2982,15 +4933,15 @@ AutoIt:
     _Dlib_ObjCreate("dlib.cuda").get_device() -> retval
 ```
 
-### dlib::cuda::get_device_name
+### dlib::cuda::get\_device\_name
 
 ```cpp
-string dlib::cuda::get_device_name( int device );
+std::string dlib::cuda::get_device_name( int device );
 AutoIt:
     _Dlib_ObjCreate("dlib.cuda").get_device_name( $device ) -> retval
 ```
 
-### dlib::cuda::set_current_device_blocking_sync
+### dlib::cuda::set\_current\_device\_blocking\_sync
 
 ```cpp
 void dlib::cuda::set_current_device_blocking_sync();
@@ -2998,7 +4949,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib.cuda").set_current_device_blocking_sync() -> None
 ```
 
-### dlib::cuda::set_device
+### dlib::cuda::set\_device
 
 ```cpp
 void dlib::cuda::set_device( int device );
@@ -3006,17 +4957,18 @@ AutoIt:
     _Dlib_ObjCreate("dlib.cuda").set_device( $device ) -> None
 ```
 
-## dlib::correlation_tracker
+## dlib::correlation\_tracker
 
-### dlib::correlation_tracker::create
+### dlib::correlation\_tracker::get\_create
 
 ```cpp
-static dlib::correlation_tracker dlib::correlation_tracker::create();
+static dlib::correlation_tracker dlib::correlation_tracker::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.correlation_tracker").create() -> <dlib.correlation_tracker object>
+    _Dlib_ObjCreate("dlib.correlation_tracker")() -> <dlib.correlation_tracker object>
 ```
 
-### dlib::correlation_tracker::get_position
+### dlib::correlation\_tracker::get\_position
 
 ```cpp
 dlib::drectangle dlib::correlation_tracker::get_position();
@@ -3024,7 +4976,7 @@ AutoIt:
     $ocorrelation_tracker.get_position() -> retval
 ```
 
-### dlib::correlation_tracker::start_track
+### dlib::correlation\_tracker::start\_track
 
 ```cpp
 void dlib::correlation_tracker::start_track( cv::Mat          image,
@@ -3040,7 +4992,7 @@ AutoIt:
     $ocorrelation_tracker.start_track( $image, $bounding_box ) -> None
 ```
 
-### dlib::correlation_tracker::update
+### dlib::correlation\_tracker::update
 
 ```cpp
 double dlib::correlation_tracker::update( cv::Mat image );
@@ -3062,29 +5014,55 @@ AutoIt:
     $ocorrelation_tracker.update( $image, $bounding_box ) -> retval
 ```
 
-## dlib::_radial_basis_kernel
+## dlib::\_radial\_basis\_kernel
 
-### dlib::_radial_basis_kernel::create
+### \_radial\_basis\_kernel.gamma
 
 ```cpp
-static dlib::_radial_basis_kernel dlib::_radial_basis_kernel::create();
+double dlib::_radial_basis_kernel::gamma
+AutoIt:
+    [propget] $o_radial_basis_kernel.gamma
+```
+
+### dlib::\_radial\_basis\_kernel::get\_create
+
+```cpp
+static dlib::_radial_basis_kernel dlib::_radial_basis_kernel::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib._radial_basis_kernel").create() -> <dlib._radial_basis_kernel object>
+    _Dlib_ObjCreate("dlib._radial_basis_kernel")() -> <dlib._radial_basis_kernel object>
 ```
 
-## dlib::_linear_kernel
+## dlib::\_linear\_kernel
 
-### dlib::_linear_kernel::create
+### dlib::\_linear\_kernel::get\_create
 
 ```cpp
-static dlib::_linear_kernel dlib::_linear_kernel::create();
+static dlib::_linear_kernel dlib::_linear_kernel::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib._linear_kernel").create() -> <dlib._linear_kernel object>
+    _Dlib_ObjCreate("dlib._linear_kernel")() -> <dlib._linear_kernel object>
 ```
 
-## dlib::_decision_function_linear
+## dlib::\_decision\_function\_linear
 
-### dlib::_decision_function_linear::create
+### \_decision\_function\_linear.weights
+
+```cpp
+dlib::SpaceVector dlib::_decision_function_linear::weights
+AutoIt:
+    [propget] $o_decision_function_linear.weights
+```
+
+### \_decision\_function\_linear.bias
+
+```cpp
+double dlib::_decision_function_linear::bias
+AutoIt:
+    [propget propput] $o_decision_function_linear.bias
+```
+
+### dlib::\_decision\_function\_linear::create
 
 ```cpp
 static dlib::_decision_function_linear dlib::_decision_function_linear::create();
@@ -3092,18 +5070,34 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_linear").create() -> <dlib._decision_function_linear object>
 ```
 
-### dlib::_decision_function_linear::get_call
+### dlib::\_decision\_function\_linear::get\_call
 
 ```cpp
 double dlib::_decision_function_linear::get_call( dlib::SpaceVector sample );
 AutoIt:
     $o_decision_function_linear.call( $sample ) -> retval
-    dlib._decision_function_linear( $sample ) -> retval
+    $o_decision_function_linear( $sample ) -> retval
 ```
 
-## dlib::_decision_function_sparse_linear
+## dlib::\_decision\_function\_sparse\_linear
 
-### dlib::_decision_function_sparse_linear::create
+### \_decision\_function\_sparse\_linear.weights
+
+```cpp
+std::vector<std::pair<ULONG, double>> dlib::_decision_function_sparse_linear::weights
+AutoIt:
+    [propget] $o_decision_function_sparse_linear.weights
+```
+
+### \_decision\_function\_sparse\_linear.bias
+
+```cpp
+double dlib::_decision_function_sparse_linear::bias
+AutoIt:
+    [propget propput] $o_decision_function_sparse_linear.bias
+```
+
+### dlib::\_decision\_function\_sparse\_linear::create
 
 ```cpp
 static dlib::_decision_function_sparse_linear dlib::_decision_function_sparse_linear::create();
@@ -3111,18 +5105,42 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_linear").create() -> <dlib._decision_function_sparse_linear object>
 ```
 
-### dlib::_decision_function_sparse_linear::get_call
+### dlib::\_decision\_function\_sparse\_linear::get\_call
 
 ```cpp
 double dlib::_decision_function_sparse_linear::get_call( std::vector<std::pair<ULONG, double>> sample );
 AutoIt:
     $o_decision_function_sparse_linear.call( $sample ) -> retval
-    dlib._decision_function_sparse_linear( $sample ) -> retval
+    $o_decision_function_sparse_linear( $sample ) -> retval
 ```
 
-## dlib::_decision_function_histogram_intersection
+## dlib::\_decision\_function\_histogram\_intersection
 
-### dlib::_decision_function_histogram_intersection::create
+### \_decision\_function\_histogram\_intersection.alpha
+
+```cpp
+dlib::SpaceVector dlib::_decision_function_histogram_intersection::alpha
+AutoIt:
+    [propget] $o_decision_function_histogram_intersection.alpha
+```
+
+### \_decision\_function\_histogram\_intersection.b
+
+```cpp
+double dlib::_decision_function_histogram_intersection::b
+AutoIt:
+    [propget] $o_decision_function_histogram_intersection.b
+```
+
+### \_decision\_function\_histogram\_intersection.basis\_vectors
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::_decision_function_histogram_intersection::basis_vectors
+AutoIt:
+    [propget] $o_decision_function_histogram_intersection.basis_vectors
+```
+
+### dlib::\_decision\_function\_histogram\_intersection::create
 
 ```cpp
 static dlib::_decision_function_histogram_intersection dlib::_decision_function_histogram_intersection::create();
@@ -3130,18 +5148,42 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_histogram_intersection").create() -> <dlib._decision_function_histogram_intersection object>
 ```
 
-### dlib::_decision_function_histogram_intersection::get_call
+### dlib::\_decision\_function\_histogram\_intersection::get\_call
 
 ```cpp
 double dlib::_decision_function_histogram_intersection::get_call( dlib::SpaceVector sample );
 AutoIt:
     $o_decision_function_histogram_intersection.call( $sample ) -> retval
-    dlib._decision_function_histogram_intersection( $sample ) -> retval
+    $o_decision_function_histogram_intersection( $sample ) -> retval
 ```
 
-## dlib::_decision_function_sparse_histogram_intersection
+## dlib::\_decision\_function\_sparse\_histogram\_intersection
 
-### dlib::_decision_function_sparse_histogram_intersection::create
+### \_decision\_function\_sparse\_histogram\_intersection.alpha
+
+```cpp
+dlib::SpaceVector dlib::_decision_function_sparse_histogram_intersection::alpha
+AutoIt:
+    [propget] $o_decision_function_sparse_histogram_intersection.alpha
+```
+
+### \_decision\_function\_sparse\_histogram\_intersection.b
+
+```cpp
+double dlib::_decision_function_sparse_histogram_intersection::b
+AutoIt:
+    [propget] $o_decision_function_sparse_histogram_intersection.b
+```
+
+### \_decision\_function\_sparse\_histogram\_intersection.basis\_vectors
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::_decision_function_sparse_histogram_intersection::basis_vectors
+AutoIt:
+    [propget] $o_decision_function_sparse_histogram_intersection.basis_vectors
+```
+
+### dlib::\_decision\_function\_sparse\_histogram\_intersection::create
 
 ```cpp
 static dlib::_decision_function_sparse_histogram_intersection dlib::_decision_function_sparse_histogram_intersection::create();
@@ -3149,18 +5191,42 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_histogram_intersection").create() -> <dlib._decision_function_sparse_histogram_intersection object>
 ```
 
-### dlib::_decision_function_sparse_histogram_intersection::get_call
+### dlib::\_decision\_function\_sparse\_histogram\_intersection::get\_call
 
 ```cpp
 double dlib::_decision_function_sparse_histogram_intersection::get_call( std::vector<std::pair<ULONG, double>> sample );
 AutoIt:
     $o_decision_function_sparse_histogram_intersection.call( $sample ) -> retval
-    dlib._decision_function_sparse_histogram_intersection( $sample ) -> retval
+    $o_decision_function_sparse_histogram_intersection( $sample ) -> retval
 ```
 
-## dlib::_decision_function_polynomial
+## dlib::\_decision\_function\_polynomial
 
-### dlib::_decision_function_polynomial::create
+### \_decision\_function\_polynomial.alpha
+
+```cpp
+dlib::SpaceVector dlib::_decision_function_polynomial::alpha
+AutoIt:
+    [propget] $o_decision_function_polynomial.alpha
+```
+
+### \_decision\_function\_polynomial.b
+
+```cpp
+double dlib::_decision_function_polynomial::b
+AutoIt:
+    [propget] $o_decision_function_polynomial.b
+```
+
+### \_decision\_function\_polynomial.basis\_vectors
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::_decision_function_polynomial::basis_vectors
+AutoIt:
+    [propget] $o_decision_function_polynomial.basis_vectors
+```
+
+### dlib::\_decision\_function\_polynomial::create
 
 ```cpp
 static dlib::_decision_function_polynomial dlib::_decision_function_polynomial::create();
@@ -3168,18 +5234,42 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_polynomial").create() -> <dlib._decision_function_polynomial object>
 ```
 
-### dlib::_decision_function_polynomial::get_call
+### dlib::\_decision\_function\_polynomial::get\_call
 
 ```cpp
 double dlib::_decision_function_polynomial::get_call( dlib::SpaceVector sample );
 AutoIt:
     $o_decision_function_polynomial.call( $sample ) -> retval
-    dlib._decision_function_polynomial( $sample ) -> retval
+    $o_decision_function_polynomial( $sample ) -> retval
 ```
 
-## dlib::_decision_function_sparse_polynomial
+## dlib::\_decision\_function\_sparse\_polynomial
 
-### dlib::_decision_function_sparse_polynomial::create
+### \_decision\_function\_sparse\_polynomial.alpha
+
+```cpp
+dlib::SpaceVector dlib::_decision_function_sparse_polynomial::alpha
+AutoIt:
+    [propget] $o_decision_function_sparse_polynomial.alpha
+```
+
+### \_decision\_function\_sparse\_polynomial.b
+
+```cpp
+double dlib::_decision_function_sparse_polynomial::b
+AutoIt:
+    [propget] $o_decision_function_sparse_polynomial.b
+```
+
+### \_decision\_function\_sparse\_polynomial.basis\_vectors
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::_decision_function_sparse_polynomial::basis_vectors
+AutoIt:
+    [propget] $o_decision_function_sparse_polynomial.basis_vectors
+```
+
+### dlib::\_decision\_function\_sparse\_polynomial::create
 
 ```cpp
 static dlib::_decision_function_sparse_polynomial dlib::_decision_function_sparse_polynomial::create();
@@ -3187,18 +5277,42 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_polynomial").create() -> <dlib._decision_function_sparse_polynomial object>
 ```
 
-### dlib::_decision_function_sparse_polynomial::get_call
+### dlib::\_decision\_function\_sparse\_polynomial::get\_call
 
 ```cpp
 double dlib::_decision_function_sparse_polynomial::get_call( std::vector<std::pair<ULONG, double>> sample );
 AutoIt:
     $o_decision_function_sparse_polynomial.call( $sample ) -> retval
-    dlib._decision_function_sparse_polynomial( $sample ) -> retval
+    $o_decision_function_sparse_polynomial( $sample ) -> retval
 ```
 
-## dlib::_decision_function_radial_basis
+## dlib::\_decision\_function\_radial\_basis
 
-### dlib::_decision_function_radial_basis::create
+### \_decision\_function\_radial\_basis.alpha
+
+```cpp
+dlib::SpaceVector dlib::_decision_function_radial_basis::alpha
+AutoIt:
+    [propget] $o_decision_function_radial_basis.alpha
+```
+
+### \_decision\_function\_radial\_basis.b
+
+```cpp
+double dlib::_decision_function_radial_basis::b
+AutoIt:
+    [propget] $o_decision_function_radial_basis.b
+```
+
+### \_decision\_function\_radial\_basis.basis\_vectors
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::_decision_function_radial_basis::basis_vectors
+AutoIt:
+    [propget] $o_decision_function_radial_basis.basis_vectors
+```
+
+### dlib::\_decision\_function\_radial\_basis::create
 
 ```cpp
 static dlib::_decision_function_radial_basis dlib::_decision_function_radial_basis::create();
@@ -3206,18 +5320,42 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_radial_basis").create() -> <dlib._decision_function_radial_basis object>
 ```
 
-### dlib::_decision_function_radial_basis::get_call
+### dlib::\_decision\_function\_radial\_basis::get\_call
 
 ```cpp
 double dlib::_decision_function_radial_basis::get_call( dlib::SpaceVector sample );
 AutoIt:
     $o_decision_function_radial_basis.call( $sample ) -> retval
-    dlib._decision_function_radial_basis( $sample ) -> retval
+    $o_decision_function_radial_basis( $sample ) -> retval
 ```
 
-## dlib::_decision_function_sparse_radial_basis
+## dlib::\_decision\_function\_sparse\_radial\_basis
 
-### dlib::_decision_function_sparse_radial_basis::create
+### \_decision\_function\_sparse\_radial\_basis.alpha
+
+```cpp
+dlib::SpaceVector dlib::_decision_function_sparse_radial_basis::alpha
+AutoIt:
+    [propget] $o_decision_function_sparse_radial_basis.alpha
+```
+
+### \_decision\_function\_sparse\_radial\_basis.b
+
+```cpp
+double dlib::_decision_function_sparse_radial_basis::b
+AutoIt:
+    [propget] $o_decision_function_sparse_radial_basis.b
+```
+
+### \_decision\_function\_sparse\_radial\_basis.basis\_vectors
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::_decision_function_sparse_radial_basis::basis_vectors
+AutoIt:
+    [propget] $o_decision_function_sparse_radial_basis.basis_vectors
+```
+
+### dlib::\_decision\_function\_sparse\_radial\_basis::create
 
 ```cpp
 static dlib::_decision_function_sparse_radial_basis dlib::_decision_function_sparse_radial_basis::create();
@@ -3225,18 +5363,42 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_radial_basis").create() -> <dlib._decision_function_sparse_radial_basis object>
 ```
 
-### dlib::_decision_function_sparse_radial_basis::get_call
+### dlib::\_decision\_function\_sparse\_radial\_basis::get\_call
 
 ```cpp
 double dlib::_decision_function_sparse_radial_basis::get_call( std::vector<std::pair<ULONG, double>> sample );
 AutoIt:
     $o_decision_function_sparse_radial_basis.call( $sample ) -> retval
-    dlib._decision_function_sparse_radial_basis( $sample ) -> retval
+    $o_decision_function_sparse_radial_basis( $sample ) -> retval
 ```
 
-## dlib::_decision_function_sigmoid
+## dlib::\_decision\_function\_sigmoid
 
-### dlib::_decision_function_sigmoid::create
+### \_decision\_function\_sigmoid.alpha
+
+```cpp
+dlib::SpaceVector dlib::_decision_function_sigmoid::alpha
+AutoIt:
+    [propget] $o_decision_function_sigmoid.alpha
+```
+
+### \_decision\_function\_sigmoid.b
+
+```cpp
+double dlib::_decision_function_sigmoid::b
+AutoIt:
+    [propget] $o_decision_function_sigmoid.b
+```
+
+### \_decision\_function\_sigmoid.basis\_vectors
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::_decision_function_sigmoid::basis_vectors
+AutoIt:
+    [propget] $o_decision_function_sigmoid.basis_vectors
+```
+
+### dlib::\_decision\_function\_sigmoid::create
 
 ```cpp
 static dlib::_decision_function_sigmoid dlib::_decision_function_sigmoid::create();
@@ -3244,18 +5406,42 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sigmoid").create() -> <dlib._decision_function_sigmoid object>
 ```
 
-### dlib::_decision_function_sigmoid::get_call
+### dlib::\_decision\_function\_sigmoid::get\_call
 
 ```cpp
 double dlib::_decision_function_sigmoid::get_call( dlib::SpaceVector sample );
 AutoIt:
     $o_decision_function_sigmoid.call( $sample ) -> retval
-    dlib._decision_function_sigmoid( $sample ) -> retval
+    $o_decision_function_sigmoid( $sample ) -> retval
 ```
 
-## dlib::_decision_function_sparse_sigmoid
+## dlib::\_decision\_function\_sparse\_sigmoid
 
-### dlib::_decision_function_sparse_sigmoid::create
+### \_decision\_function\_sparse\_sigmoid.alpha
+
+```cpp
+dlib::SpaceVector dlib::_decision_function_sparse_sigmoid::alpha
+AutoIt:
+    [propget] $o_decision_function_sparse_sigmoid.alpha
+```
+
+### \_decision\_function\_sparse\_sigmoid.b
+
+```cpp
+double dlib::_decision_function_sparse_sigmoid::b
+AutoIt:
+    [propget] $o_decision_function_sparse_sigmoid.b
+```
+
+### \_decision\_function\_sparse\_sigmoid.basis\_vectors
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::_decision_function_sparse_sigmoid::basis_vectors
+AutoIt:
+    [propget] $o_decision_function_sparse_sigmoid.basis_vectors
+```
+
+### dlib::\_decision\_function\_sparse\_sigmoid::create
 
 ```cpp
 static dlib::_decision_function_sparse_sigmoid dlib::_decision_function_sparse_sigmoid::create();
@@ -3263,18 +5449,58 @@ AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_sigmoid").create() -> <dlib._decision_function_sparse_sigmoid object>
 ```
 
-### dlib::_decision_function_sparse_sigmoid::get_call
+### dlib::\_decision\_function\_sparse\_sigmoid::get\_call
 
 ```cpp
 double dlib::_decision_function_sparse_sigmoid::get_call( std::vector<std::pair<ULONG, double>> sample );
 AutoIt:
     $o_decision_function_sparse_sigmoid.call( $sample ) -> retval
-    dlib._decision_function_sparse_sigmoid( $sample ) -> retval
+    $o_decision_function_sparse_sigmoid( $sample ) -> retval
 ```
 
-## dlib::_normalized_decision_function_radial_basis
+## dlib::\_normalized\_decision\_function\_radial\_basis
 
-### dlib::_normalized_decision_function_radial_basis::create
+### \_normalized\_decision\_function\_radial\_basis.alpha
+
+```cpp
+dlib::SpaceVector dlib::_normalized_decision_function_radial_basis::function.alpha
+AutoIt:
+    [propget] $o_normalized_decision_function_radial_basis.alpha
+```
+
+### \_normalized\_decision\_function\_radial\_basis.b
+
+```cpp
+double dlib::_normalized_decision_function_radial_basis::function.b
+AutoIt:
+    [propget] $o_normalized_decision_function_radial_basis.b
+```
+
+### \_normalized\_decision\_function\_radial\_basis.basis\_vectors
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::_normalized_decision_function_radial_basis::basis_vectors
+AutoIt:
+    [propget] $o_normalized_decision_function_radial_basis.basis_vectors
+```
+
+### \_normalized\_decision\_function\_radial\_basis.means
+
+```cpp
+dlib::SpaceVector dlib::_normalized_decision_function_radial_basis::normalizer.means()
+AutoIt:
+    [propget] $o_normalized_decision_function_radial_basis.means
+```
+
+### \_normalized\_decision\_function\_radial\_basis.invstd\_devs
+
+```cpp
+dlib::SpaceVector dlib::_normalized_decision_function_radial_basis::normalizer.std_devs()
+AutoIt:
+    [propget] $o_normalized_decision_function_radial_basis.invstd_devs
+```
+
+### dlib::\_normalized\_decision\_function\_radial\_basis::create
 
 ```cpp
 static dlib::_normalized_decision_function_radial_basis dlib::_normalized_decision_function_radial_basis::create();
@@ -3282,7 +5508,7 @@ AutoIt:
     _Dlib_ObjCreate("dlib._normalized_decision_function_radial_basis").create() -> <dlib._normalized_decision_function_radial_basis object>
 ```
 
-### dlib::_normalized_decision_function_radial_basis::batch_predict
+### dlib::\_normalized\_decision\_function\_radial\_basis::batch\_predict
 
 ```cpp
 std::vector<double> dlib::_normalized_decision_function_radial_basis::batch_predict( std::vector<dlib::SpaceVector>& samples );
@@ -3296,106 +5522,181 @@ AutoIt:
     $o_normalized_decision_function_radial_basis.batch_predict( $samples ) -> retval
 ```
 
-### dlib::_normalized_decision_function_radial_basis::get_call
+### dlib::\_normalized\_decision\_function\_radial\_basis::get\_call
 
 ```cpp
 double dlib::_normalized_decision_function_radial_basis::get_call( dlib::SpaceVector& sample );
 AutoIt:
     $o_normalized_decision_function_radial_basis.call( $sample ) -> retval
-    dlib._normalized_decision_function_radial_basis( $sample ) -> retval
+    $o_normalized_decision_function_radial_basis( $sample ) -> retval
 ```
 
-## dlib::function_evaluation
+## dlib::function\_evaluation
 
-### dlib::function_evaluation::create
+### function\_evaluation.x
 
 ```cpp
-static dlib::function_evaluation dlib::function_evaluation::create();
+dlib::SpaceVector dlib::function_evaluation::x
+AutoIt:
+    [propget] $ofunction_evaluation.x
+```
+
+### function\_evaluation.y
+
+```cpp
+double dlib::function_evaluation::y
+AutoIt:
+    [propget] $ofunction_evaluation.y
+```
+
+### dlib::function\_evaluation::get\_create
+
+```cpp
+static dlib::function_evaluation dlib::function_evaluation::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create() -> <dlib.function_evaluation object>
+    _Dlib_ObjCreate("dlib.function_evaluation")() -> <dlib.function_evaluation object>
 ```
 
 ```cpp
-static dlib::function_evaluation dlib::function_evaluation::create( dlib::SpaceVector x,
-                                                                    double            y );
+static dlib::function_evaluation dlib::function_evaluation::get_create( dlib::SpaceVector x,
+                                                                        double            y );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create( $x, $y ) -> <dlib.function_evaluation object>
+    _Dlib_ObjCreate("dlib.function_evaluation")( $x, $y ) -> <dlib.function_evaluation object>
 ```
 
 ```cpp
-static dlib::function_evaluation dlib::function_evaluation::create( std::vector<double> x,
-                                                                    double              y );
+static dlib::function_evaluation dlib::function_evaluation::get_create( std::vector<double> x,
+                                                                        double              y );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create( $x, $y ) -> <dlib.function_evaluation object>
+    _Dlib_ObjCreate("dlib.function_evaluation")( $x, $y ) -> <dlib.function_evaluation object>
 ```
 
-## dlib::function_spec
+## dlib::function\_spec
 
-### dlib::function_spec::create
+### function\_spec.lower
 
 ```cpp
-static dlib::function_spec dlib::function_spec::create( dlib::SpaceVector bound1,
-                                                        dlib::SpaceVector bound2 );
+dlib::SpaceVector dlib::function_spec::lower
+AutoIt:
+    [propget] $ofunction_spec.lower
+```
+
+### function\_spec.upper
+
+```cpp
+dlib::SpaceVector dlib::function_spec::upper
+AutoIt:
+    [propget] $ofunction_spec.upper
+```
+
+### function\_spec.is\_integer\_variable
+
+```cpp
+std::vector<bool> dlib::function_spec::is_integer_variable
+AutoIt:
+    [propget] $ofunction_spec.is_integer_variable
+```
+
+### dlib::function\_spec::get\_create
+
+```cpp
+static dlib::function_spec dlib::function_spec::get_create( dlib::SpaceVector bound1,
+                                                            dlib::SpaceVector bound2 );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
+    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
 
 ```cpp
-static dlib::function_spec dlib::function_spec::create( dlib::SpaceVector bound1,
-                                                        dlib::SpaceVector bound2,
-                                                        std::vector<bool> is_integer );
+static dlib::function_spec dlib::function_spec::get_create( dlib::SpaceVector bound1,
+                                                            dlib::SpaceVector bound2,
+                                                            std::vector<bool> is_integer );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
+    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
 
 ```cpp
-static dlib::function_spec dlib::function_spec::create( std::vector<double> bound1,
-                                                        dlib::SpaceVector   bound2 );
+static dlib::function_spec dlib::function_spec::get_create( std::vector<double> bound1,
+                                                            dlib::SpaceVector   bound2 );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
+    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
 
 ```cpp
-static dlib::function_spec dlib::function_spec::create( std::vector<double> bound1,
-                                                        dlib::SpaceVector   bound2,
-                                                        std::vector<bool>   is_integer );
+static dlib::function_spec dlib::function_spec::get_create( std::vector<double> bound1,
+                                                            dlib::SpaceVector   bound2,
+                                                            std::vector<bool>   is_integer );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
+    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
 
 ```cpp
-static dlib::function_spec dlib::function_spec::create( dlib::SpaceVector   bound1,
-                                                        std::vector<double> bound2 );
+static dlib::function_spec dlib::function_spec::get_create( dlib::SpaceVector   bound1,
+                                                            std::vector<double> bound2 );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
+    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
 
 ```cpp
-static dlib::function_spec dlib::function_spec::create( dlib::SpaceVector   bound1,
-                                                        std::vector<double> bound2,
-                                                        std::vector<bool>   is_integer );
+static dlib::function_spec dlib::function_spec::get_create( dlib::SpaceVector   bound1,
+                                                            std::vector<double> bound2,
+                                                            std::vector<bool>   is_integer );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
+    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
 
 ```cpp
-static dlib::function_spec dlib::function_spec::create( std::vector<double> bound1,
-                                                        std::vector<double> bound2 );
+static dlib::function_spec dlib::function_spec::get_create( std::vector<double> bound1,
+                                                            std::vector<double> bound2 );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
+    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
 
 ```cpp
-static dlib::function_spec dlib::function_spec::create( std::vector<double> bound1,
-                                                        std::vector<double> bound2,
-                                                        std::vector<bool>   is_integer );
+static dlib::function_spec dlib::function_spec::get_create( std::vector<double> bound1,
+                                                            std::vector<double> bound2,
+                                                            std::vector<bool>   is_integer );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
+    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
 
-## dlib::function_evaluation_request
+## dlib::function\_evaluation\_request
 
-### dlib::function_evaluation_request::set
+### function\_evaluation\_request.function\_idx
+
+```cpp
+size_t dlib::function_evaluation_request::function_idx
+AutoIt:
+    [propget] $ofunction_evaluation_request.function_idx
+```
+
+### function\_evaluation\_request.x
+
+```cpp
+dlib::SpaceVector dlib::function_evaluation_request::x
+AutoIt:
+    [propget] $ofunction_evaluation_request.x
+```
+
+### function\_evaluation\_request.has\_been\_evaluated
+
+```cpp
+bool dlib::function_evaluation_request::has_been_evaluated
+AutoIt:
+    [propget] $ofunction_evaluation_request.has_been_evaluated
+```
+
+### dlib::function\_evaluation\_request::set
 
 ```cpp
 void dlib::function_evaluation_request::set( double y );
@@ -3403,31 +5704,34 @@ AutoIt:
     $ofunction_evaluation_request.set( $y ) -> None
 ```
 
-## dlib::global_function_search
+## dlib::global\_function\_search
 
-### dlib::global_function_search::create
+### dlib::global\_function\_search::get\_create
 
 ```cpp
-static dlib::global_function_search dlib::global_function_search::create( dlib::function_spec& function );
+static dlib::global_function_search dlib::global_function_search::get_create( dlib::function_spec& function );
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $function ) -> <dlib.global_function_search object>
+    _Dlib_ObjCreate("dlib.global_function_search")( $function ) -> <dlib.global_function_search object>
 ```
 
 ```cpp
-static dlib::global_function_search dlib::global_function_search::create( std::vector<dlib::function_spec>& functions );
+static dlib::global_function_search dlib::global_function_search::get_create( std::vector<dlib::function_spec>& functions );
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $functions ) -> <dlib.global_function_search object>
+    _Dlib_ObjCreate("dlib.global_function_search")( $functions ) -> <dlib.global_function_search object>
 ```
 
 ```cpp
-static dlib::global_function_search dlib::global_function_search::create( std::vector<dlib::function_spec>                    functions,
-                                                                          std::vector<std::vector<dlib::function_evaluation>> initial_function_evals,
-                                                                          double                                              relative_noise_magnitude = 0.001 );
+static dlib::global_function_search dlib::global_function_search::get_create( std::vector<dlib::function_spec>                    functions,
+                                                                              std::vector<std::vector<dlib::function_evaluation>> initial_function_evals,
+                                                                              double                                              relative_noise_magnitude = 0.001 );
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $functions, $initial_function_evals[, $relative_noise_magnitude] ) -> <dlib.global_function_search object>
+    _Dlib_ObjCreate("dlib.global_function_search")( $functions, $initial_function_evals[, $relative_noise_magnitude] ) -> <dlib.global_function_search object>
 ```
 
-### dlib::global_function_search::get_best_function_eval
+### dlib::global\_function\_search::get\_best\_function\_eval
 
 ```cpp
 void dlib::global_function_search::get_best_function_eval( dlib::SpaceVector& x,
@@ -3437,7 +5741,7 @@ AutoIt:
     $oglobal_function_search.get_best_function_eval( [$x[, $y[, $idx]]] ) -> $x, $y, $idx
 ```
 
-### dlib::global_function_search::get_function_evaluations
+### dlib::global\_function\_search::get\_function\_evaluations
 
 ```cpp
 void dlib::global_function_search::get_function_evaluations( std::vector<dlib::function_spec>                    specs,
@@ -3446,7 +5750,7 @@ AutoIt:
     $oglobal_function_search.get_function_evaluations( [$specs[, $function_evals]] ) -> $specs, $function_evals
 ```
 
-### dlib::global_function_search::get_monte_carlo_upper_bound_sample_num
+### dlib::global\_function\_search::get\_monte\_carlo\_upper\_bound\_sample\_num
 
 ```cpp
 size_t dlib::global_function_search::get_monte_carlo_upper_bound_sample_num();
@@ -3454,15 +5758,15 @@ AutoIt:
     $oglobal_function_search.get_monte_carlo_upper_bound_sample_num() -> retval
 ```
 
-### dlib::global_function_search::get_next_x
+### dlib::global\_function\_search::get\_next\_x
 
 ```cpp
-dlib::function_evaluation_request dlib::global_function_search::get_next_x();
+std::shared_ptr<dlib::function_evaluation_request> dlib::global_function_search::get_next_x();
 AutoIt:
     $oglobal_function_search.get_next_x() -> retval
 ```
 
-### dlib::global_function_search::get_pure_random_search_probability
+### dlib::global\_function\_search::get\_pure\_random\_search\_probability
 
 ```cpp
 double dlib::global_function_search::get_pure_random_search_probability();
@@ -3470,7 +5774,7 @@ AutoIt:
     $oglobal_function_search.get_pure_random_search_probability() -> retval
 ```
 
-### dlib::global_function_search::get_relative_noise_magnitude
+### dlib::global\_function\_search::get\_relative\_noise\_magnitude
 
 ```cpp
 double dlib::global_function_search::get_relative_noise_magnitude();
@@ -3478,7 +5782,7 @@ AutoIt:
     $oglobal_function_search.get_relative_noise_magnitude() -> retval
 ```
 
-### dlib::global_function_search::get_solver_epsilon
+### dlib::global\_function\_search::get\_solver\_epsilon
 
 ```cpp
 double dlib::global_function_search::get_solver_epsilon();
@@ -3486,7 +5790,7 @@ AutoIt:
     $oglobal_function_search.get_solver_epsilon() -> retval
 ```
 
-### dlib::global_function_search::num_functions
+### dlib::global\_function\_search::num\_functions
 
 ```cpp
 size_t dlib::global_function_search::num_functions();
@@ -3494,7 +5798,7 @@ AutoIt:
     $oglobal_function_search.num_functions() -> retval
 ```
 
-### dlib::global_function_search::set_monte_carlo_upper_bound_sample_num
+### dlib::global\_function\_search::set\_monte\_carlo\_upper\_bound\_sample\_num
 
 ```cpp
 void dlib::global_function_search::set_monte_carlo_upper_bound_sample_num( size_t num );
@@ -3502,7 +5806,7 @@ AutoIt:
     $oglobal_function_search.set_monte_carlo_upper_bound_sample_num( $num ) -> None
 ```
 
-### dlib::global_function_search::set_pure_random_search_probability
+### dlib::global\_function\_search::set\_pure\_random\_search\_probability
 
 ```cpp
 void dlib::global_function_search::set_pure_random_search_probability( double prob );
@@ -3510,7 +5814,7 @@ AutoIt:
     $oglobal_function_search.set_pure_random_search_probability( $prob ) -> None
 ```
 
-### dlib::global_function_search::set_relative_noise_magnitude
+### dlib::global\_function\_search::set\_relative\_noise\_magnitude
 
 ```cpp
 void dlib::global_function_search::set_relative_noise_magnitude( double value );
@@ -3518,7 +5822,7 @@ AutoIt:
     $oglobal_function_search.set_relative_noise_magnitude( $value ) -> None
 ```
 
-### dlib::global_function_search::set_seed
+### dlib::global\_function\_search::set\_seed
 
 ```cpp
 void dlib::global_function_search::set_seed( LONGLONG seed );
@@ -3526,7 +5830,7 @@ AutoIt:
     $oglobal_function_search.set_seed( $seed ) -> None
 ```
 
-### dlib::global_function_search::set_solver_epsilon
+### dlib::global\_function\_search::set\_solver\_epsilon
 
 ```cpp
 void dlib::global_function_search::set_solver_epsilon( double eps );
@@ -3534,56 +5838,63 @@ AutoIt:
     $oglobal_function_search.set_solver_epsilon( $eps ) -> None
 ```
 
-## dlib::image_window
+## dlib::image\_window
 
-### dlib::image_window::create
+### dlib::image\_window::get\_create
 
 ```cpp
-static dlib::image_window dlib::image_window::create();
+static dlib::image_window dlib::image_window::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.image_window").create() -> <dlib.image_window object>
+    _Dlib_ObjCreate("dlib.image_window")() -> <dlib.image_window object>
 ```
 
 ```cpp
-std::shared_ptr<dlib::image_window> dlib::image_window::create( dlib::fhog_object_detector& detector );
+std::shared_ptr<dlib::image_window> dlib::image_window::get_create( dlib::fhog_object_detector& detector );
 AutoIt:
     $oimage_window.create( $detector ) -> retval
+    $oimage_window( $detector ) -> retval
 ```
 
 ```cpp
-std::shared_ptr<dlib::image_window> dlib::image_window::create( dlib::simple_object_detector_com& detector );
+std::shared_ptr<dlib::image_window> dlib::image_window::get_create( dlib::simple_object_detector_com& detector );
 AutoIt:
     $oimage_window.create( $detector ) -> retval
+    $oimage_window( $detector ) -> retval
 ```
 
 ```cpp
-std::shared_ptr<dlib::image_window> dlib::image_window::create( dlib::fhog_object_detector& detector,
-                                                                string                      title );
+std::shared_ptr<dlib::image_window> dlib::image_window::get_create( dlib::fhog_object_detector& detector,
+                                                                    std::string                 title );
 AutoIt:
     $oimage_window.create( $detector, $title ) -> retval
+    $oimage_window( $detector, $title ) -> retval
 ```
 
 ```cpp
-std::shared_ptr<dlib::image_window> dlib::image_window::create( dlib::simple_object_detector_com& detector,
-                                                                string                            title );
+std::shared_ptr<dlib::image_window> dlib::image_window::get_create( dlib::simple_object_detector_com& detector,
+                                                                    std::string                       title );
 AutoIt:
     $oimage_window.create( $detector, $title ) -> retval
+    $oimage_window( $detector, $title ) -> retval
 ```
 
 ```cpp
-std::shared_ptr<dlib::image_window> dlib::image_window::create( cv::Mat& img );
+std::shared_ptr<dlib::image_window> dlib::image_window::get_create( cv::Mat& img );
 AutoIt:
     $oimage_window.create( $img ) -> retval
+    $oimage_window( $img ) -> retval
 ```
 
 ```cpp
-std::shared_ptr<dlib::image_window> dlib::image_window::create( cv::Mat& img,
-                                                                string   title );
+std::shared_ptr<dlib::image_window> dlib::image_window::get_create( cv::Mat&    img,
+                                                                    std::string title );
 AutoIt:
     $oimage_window.create( $img, $title ) -> retval
+    $oimage_window( $img, $title ) -> retval
 ```
 
-### dlib::image_window::add_overlay
+### dlib::image\_window::add\_overlay
 
 ```cpp
 void dlib::image_window::add_overlay( std::vector<dlib::rectangle> rectangles,
@@ -3683,7 +5994,7 @@ AutoIt:
     $oimage_window.add_overlay( $l[, $color] ) -> None
 ```
 
-### dlib::image_window::add_overlay_circle
+### dlib::image\_window::add\_overlay\_circle
 
 ```cpp
 void dlib::image_window::add_overlay_circle( dlib::point     center,
@@ -3717,7 +6028,7 @@ AutoIt:
     $oimage_window.add_overlay_circle( $center, $radius[, $color] ) -> None
 ```
 
-### dlib::image_window::clear_overlay
+### dlib::image\_window::clear\_overlay
 
 ```cpp
 void dlib::image_window::clear_overlay();
@@ -3725,7 +6036,7 @@ AutoIt:
     $oimage_window.clear_overlay() -> None
 ```
 
-### dlib::image_window::get_next_double_click
+### dlib::image\_window::get\_next\_double\_click
 
 ```cpp
 bool dlib::image_window::get_next_double_click( dlib::point p );
@@ -3733,18 +6044,18 @@ AutoIt:
     $oimage_window.get_next_double_click( [$p] ) -> retval, $p
 ```
 
-### dlib::image_window::get_next_keypress
+### dlib::image\_window::get\_next\_keypress
 
 ```cpp
-bool dlib::image_window::get_next_keypress( char*&           key,
-                                            bool*&           is_printable,
-                                            std::vector<int> mods,
-                                            bool             get_keyboard_modifiers = false );
+bool dlib::image_window::get_next_keypress( char*                                                 key,
+                                            bool*                                                 is_printable,
+                                            std::vector<dlib::image_window::keyboard_state_masks> mods,
+                                            bool                                                  get_keyboard_modifiers = false );
 AutoIt:
     $oimage_window.get_next_keypress( [$get_keyboard_modifiers[, $key[, $is_printable[, $mods]]]] ) -> retval, $key, $is_printable, $mods
 ```
 
-### dlib::image_window::is_closed
+### dlib::image\_window::is\_closed
 
 ```cpp
 bool dlib::image_window::is_closed();
@@ -3752,7 +6063,7 @@ AutoIt:
     $oimage_window.is_closed() -> retval
 ```
 
-### dlib::image_window::set_image
+### dlib::image\_window::set\_image
 
 ```cpp
 void dlib::image_window::set_image( dlib::fhog_object_detector& detector );
@@ -3772,15 +6083,15 @@ AutoIt:
     $oimage_window.set_image( $img ) -> None
 ```
 
-### dlib::image_window::set_title
+### dlib::image\_window::set\_title
 
 ```cpp
-void dlib::image_window::set_title( string title );
+void dlib::image_window::set_title( std::string title );
 AutoIt:
     $oimage_window.set_title( $title ) -> None
 ```
 
-### dlib::image_window::wait_for_keypress
+### dlib::image\_window::wait\_for\_keypress
 
 ```cpp
 void dlib::image_window::wait_for_keypress( char wait_key );
@@ -3789,12 +6100,12 @@ AutoIt:
 ```
 
 ```cpp
-void dlib::image_window::wait_for_keypress( string wait_key );
+void dlib::image_window::wait_for_keypress( std::string wait_key );
 AutoIt:
     $oimage_window.wait_for_keypress( $wait_key ) -> None
 ```
 
-### dlib::image_window::wait_until_closed
+### dlib::image\_window::wait\_until\_closed
 
 ```cpp
 void dlib::image_window::wait_until_closed();
@@ -3802,121 +6113,746 @@ AutoIt:
     $oimage_window.wait_until_closed() -> None
 ```
 
-## dlib::rgb_pixel
-
-### dlib::rgb_pixel::create
+### image\_window.KBD\_MOD\_NONE\_
 
 ```cpp
-static dlib::rgb_pixel dlib::rgb_pixel::create( uchar red,
-                                                uchar blue,
-                                                uchar green );
+static int dlib::image_window::KBD_MOD_NONE
+AutoIt:
+    [propget] $oimage_window.KBD_MOD_NONE_
+```
+
+### image\_window.KBD\_MOD\_SHIFT\_
+
+```cpp
+static int dlib::image_window::KBD_MOD_SHIFT
+AutoIt:
+    [propget] $oimage_window.KBD_MOD_SHIFT_
+```
+
+### image\_window.KBD\_MOD\_CONTROL\_
+
+```cpp
+static int dlib::image_window::KBD_MOD_CONTROL
+AutoIt:
+    [propget] $oimage_window.KBD_MOD_CONTROL_
+```
+
+### image\_window.KBD\_MOD\_ALT\_
+
+```cpp
+static int dlib::image_window::KBD_MOD_ALT
+AutoIt:
+    [propget] $oimage_window.KBD_MOD_ALT_
+```
+
+### image\_window.KBD\_MOD\_META\_
+
+```cpp
+static int dlib::image_window::KBD_MOD_META
+AutoIt:
+    [propget] $oimage_window.KBD_MOD_META_
+```
+
+### image\_window.KBD\_MOD\_CAPS\_LOCK\_
+
+```cpp
+static int dlib::image_window::KBD_MOD_CAPS_LOCK
+AutoIt:
+    [propget] $oimage_window.KBD_MOD_CAPS_LOCK_
+```
+
+### image\_window.KBD\_MOD\_NUM\_LOCK\_
+
+```cpp
+static int dlib::image_window::KBD_MOD_NUM_LOCK
+AutoIt:
+    [propget] $oimage_window.KBD_MOD_NUM_LOCK_
+```
+
+### image\_window.KBD\_MOD\_SCROLL\_LOCK\_
+
+```cpp
+static int dlib::image_window::KBD_MOD_SCROLL_LOCK
+AutoIt:
+    [propget] $oimage_window.KBD_MOD_SCROLL_LOCK_
+```
+
+### image\_window.KEY\_BACKSPACE\_
+
+```cpp
+static int dlib::image_window::KEY_BACKSPACE
+AutoIt:
+    [propget] $oimage_window.KEY_BACKSPACE_
+```
+
+### image\_window.KEY\_SHIFT\_
+
+```cpp
+static int dlib::image_window::KEY_SHIFT
+AutoIt:
+    [propget] $oimage_window.KEY_SHIFT_
+```
+
+### image\_window.KEY\_CTRL\_
+
+```cpp
+static int dlib::image_window::KEY_CTRL
+AutoIt:
+    [propget] $oimage_window.KEY_CTRL_
+```
+
+### image\_window.KEY\_ALT\_
+
+```cpp
+static int dlib::image_window::KEY_ALT
+AutoIt:
+    [propget] $oimage_window.KEY_ALT_
+```
+
+### image\_window.KEY\_PAUSE\_
+
+```cpp
+static int dlib::image_window::KEY_PAUSE
+AutoIt:
+    [propget] $oimage_window.KEY_PAUSE_
+```
+
+### image\_window.KEY\_CAPS\_LOCK\_
+
+```cpp
+static int dlib::image_window::KEY_CAPS_LOCK
+AutoIt:
+    [propget] $oimage_window.KEY_CAPS_LOCK_
+```
+
+### image\_window.KEY\_ESC\_
+
+```cpp
+static int dlib::image_window::KEY_ESC
+AutoIt:
+    [propget] $oimage_window.KEY_ESC_
+```
+
+### image\_window.KEY\_PAGE\_UP\_
+
+```cpp
+static int dlib::image_window::KEY_PAGE_UP
+AutoIt:
+    [propget] $oimage_window.KEY_PAGE_UP_
+```
+
+### image\_window.KEY\_PAGE\_DOWN\_
+
+```cpp
+static int dlib::image_window::KEY_PAGE_DOWN
+AutoIt:
+    [propget] $oimage_window.KEY_PAGE_DOWN_
+```
+
+### image\_window.KEY\_END\_
+
+```cpp
+static int dlib::image_window::KEY_END
+AutoIt:
+    [propget] $oimage_window.KEY_END_
+```
+
+### image\_window.KEY\_HOME\_
+
+```cpp
+static int dlib::image_window::KEY_HOME
+AutoIt:
+    [propget] $oimage_window.KEY_HOME_
+```
+
+### image\_window.KEY\_LEFT\_
+
+```cpp
+static int dlib::image_window::KEY_LEFT
+AutoIt:
+    [propget] $oimage_window.KEY_LEFT_
+```
+
+### image\_window.KEY\_RIGHT\_
+
+```cpp
+static int dlib::image_window::KEY_RIGHT
+AutoIt:
+    [propget] $oimage_window.KEY_RIGHT_
+```
+
+### image\_window.KEY\_UP\_
+
+```cpp
+static int dlib::image_window::KEY_UP
+AutoIt:
+    [propget] $oimage_window.KEY_UP_
+```
+
+### image\_window.KEY\_DOWN\_
+
+```cpp
+static int dlib::image_window::KEY_DOWN
+AutoIt:
+    [propget] $oimage_window.KEY_DOWN_
+```
+
+### image\_window.KEY\_INSERT\_
+
+```cpp
+static int dlib::image_window::KEY_INSERT
+AutoIt:
+    [propget] $oimage_window.KEY_INSERT_
+```
+
+### image\_window.KEY\_DELETE\_
+
+```cpp
+static int dlib::image_window::KEY_DELETE
+AutoIt:
+    [propget] $oimage_window.KEY_DELETE_
+```
+
+### image\_window.KEY\_SCROLL\_LOCK\_
+
+```cpp
+static int dlib::image_window::KEY_SCROLL_LOCK
+AutoIt:
+    [propget] $oimage_window.KEY_SCROLL_LOCK_
+```
+
+### image\_window.KEY\_F1\_
+
+```cpp
+static int dlib::image_window::KEY_F1
+AutoIt:
+    [propget] $oimage_window.KEY_F1_
+```
+
+### image\_window.KEY\_F2\_
+
+```cpp
+static int dlib::image_window::KEY_F2
+AutoIt:
+    [propget] $oimage_window.KEY_F2_
+```
+
+### image\_window.KEY\_F3\_
+
+```cpp
+static int dlib::image_window::KEY_F3
+AutoIt:
+    [propget] $oimage_window.KEY_F3_
+```
+
+### image\_window.KEY\_F4\_
+
+```cpp
+static int dlib::image_window::KEY_F4
+AutoIt:
+    [propget] $oimage_window.KEY_F4_
+```
+
+### image\_window.KEY\_F5\_
+
+```cpp
+static int dlib::image_window::KEY_F5
+AutoIt:
+    [propget] $oimage_window.KEY_F5_
+```
+
+### image\_window.KEY\_F6\_
+
+```cpp
+static int dlib::image_window::KEY_F6
+AutoIt:
+    [propget] $oimage_window.KEY_F6_
+```
+
+### image\_window.KEY\_F7\_
+
+```cpp
+static int dlib::image_window::KEY_F7
+AutoIt:
+    [propget] $oimage_window.KEY_F7_
+```
+
+### image\_window.KEY\_F8\_
+
+```cpp
+static int dlib::image_window::KEY_F8
+AutoIt:
+    [propget] $oimage_window.KEY_F8_
+```
+
+### image\_window.KEY\_F9\_
+
+```cpp
+static int dlib::image_window::KEY_F9
+AutoIt:
+    [propget] $oimage_window.KEY_F9_
+```
+
+### image\_window.KEY\_F10\_
+
+```cpp
+static int dlib::image_window::KEY_F10
+AutoIt:
+    [propget] $oimage_window.KEY_F10_
+```
+
+### image\_window.KEY\_F11\_
+
+```cpp
+static int dlib::image_window::KEY_F11
+AutoIt:
+    [propget] $oimage_window.KEY_F11_
+```
+
+### image\_window.KEY\_F12\_
+
+```cpp
+static int dlib::image_window::KEY_F12
+AutoIt:
+    [propget] $oimage_window.KEY_F12_
+```
+
+## dlib::rgb\_pixel
+
+### rgb\_pixel.red
+
+```cpp
+uchar dlib::rgb_pixel::red
+AutoIt:
+    [propget propput] $orgb_pixel.red
+```
+
+### rgb\_pixel.blue
+
+```cpp
+uchar dlib::rgb_pixel::blue
+AutoIt:
+    [propget propput] $orgb_pixel.blue
+```
+
+### rgb\_pixel.green
+
+```cpp
+uchar dlib::rgb_pixel::green
+AutoIt:
+    [propget propput] $orgb_pixel.green
+```
+
+### dlib::rgb\_pixel::get\_create
+
+```cpp
+static dlib::rgb_pixel dlib::rgb_pixel::get_create( uchar red,
+                                                    uchar blue,
+                                                    uchar green );
 AutoIt:
     _Dlib_ObjCreate("dlib.rgb_pixel").create( $red, $blue, $green ) -> <dlib.rgb_pixel object>
+    _Dlib_ObjCreate("dlib.rgb_pixel")( $red, $blue, $green ) -> <dlib.rgb_pixel object>
 ```
 
 ```cpp
-static dlib::rgb_pixel dlib::rgb_pixel::create();
+static dlib::rgb_pixel dlib::rgb_pixel::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rgb_pixel").create() -> <dlib.rgb_pixel object>
+    _Dlib_ObjCreate("dlib.rgb_pixel")() -> <dlib.rgb_pixel object>
 ```
 
-## cv
+## dlib::image\_dataset\_metadata
 
-### cv::haveImageReader
+### image\_dataset\_metadata.box
 
 ```cpp
-bool cv::haveImageReader( string filename );
+static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::this
 AutoIt:
-    _Dlib_ObjCreate("cv").haveImageReader( $filename ) -> retval
+    [propget] $oimage_dataset_metadata.box
 ```
 
-### cv::haveImageWriter
+### image\_dataset\_metadata.image
 
 ```cpp
-bool cv::haveImageWriter( string filename );
+static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::this
 AutoIt:
-    _Dlib_ObjCreate("cv").haveImageWriter( $filename ) -> retval
+    [propget] $oimage_dataset_metadata.image
 ```
 
-### cv::imcount
+### image\_dataset\_metadata.dataset
 
 ```cpp
-size_t cv::imcount( string filename,
-                    int    flags = IMREAD_ANYCOLOR );
+static dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::this
 AutoIt:
-    _Dlib_ObjCreate("cv").imcount( $filename[, $flags] ) -> retval
+    [propget] $oimage_dataset_metadata.dataset
 ```
 
-### cv::imdecode
+### dlib::image\_dataset\_metadata::load\_image\_dataset\_metadata
 
 ```cpp
-cv::Mat cv::imdecode( cv::Mat buf,
-                      int     flags );
+void dlib::image_dataset_metadata::load_image_dataset_metadata( dlib::image_dataset_metadata::dataset& data,
+                                                                std::string                            filename );
 AutoIt:
-    _Dlib_ObjCreate("cv").imdecode( $buf, $flags ) -> retval
+    _Dlib_ObjCreate("dlib.image_dataset_metadata").load_image_dataset_metadata( $filename[, $data] ) -> $data
 ```
 
-### cv::imencode
+### dlib::image\_dataset\_metadata::make\_bounding\_box\_regression\_training\_data
 
 ```cpp
-bool cv::imencode( string             ext,
-                   cv::Mat            img,
-                   std::vector<uchar> buf,
-                   std::vector<int>   params = std::vector<int>() );
+dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::make_bounding_box_regression_training_data( dlib::image_dataset_metadata::dataset&    truth,
+                                                                                                                std::vector<std::vector<dlib::rectangle>> detections );
 AutoIt:
-    _Dlib_ObjCreate("cv").imencode( $ext, $img[, $params[, $buf]] ) -> retval, $buf
+    _Dlib_ObjCreate("dlib.image_dataset_metadata").make_bounding_box_regression_training_data( $truth, $detections ) -> retval
 ```
 
-### cv::imread
+### dlib::image\_dataset\_metadata::save\_image\_dataset\_metadata
 
 ```cpp
-cv::Mat cv::imread( string filename,
-                    int    flags = IMREAD_COLOR );
+void dlib::image_dataset_metadata::save_image_dataset_metadata( dlib::image_dataset_metadata::dataset data,
+                                                                std::string                           filename );
 AutoIt:
-    _Dlib_ObjCreate("cv").imread( $filename[, $flags] ) -> retval
+    _Dlib_ObjCreate("dlib.image_dataset_metadata").save_image_dataset_metadata( $data, $filename ) -> None
 ```
 
-### cv::imreadmulti
+### image\_dataset\_metadata.UNKNOWN\_
 
 ```cpp
-bool cv::imreadmulti( string               filename,
-                      std::vector<cv::Mat> mats,
-                      int                  flags = IMREAD_ANYCOLOR );
+static int dlib::image_dataset_metadata::UNKNOWN
 AutoIt:
-    _Dlib_ObjCreate("cv").imreadmulti( $filename[, $flags[, $mats]] ) -> retval, $mats
+    [propget] $oimage_dataset_metadata.UNKNOWN_
+```
+
+### image\_dataset\_metadata.MALE\_
+
+```cpp
+static int dlib::image_dataset_metadata::MALE
+AutoIt:
+    [propget] $oimage_dataset_metadata.MALE_
+```
+
+### image\_dataset\_metadata.FEMALE\_
+
+```cpp
+static int dlib::image_dataset_metadata::FEMALE
+AutoIt:
+    [propget] $oimage_dataset_metadata.FEMALE_
+```
+
+## dlib::image\_dataset\_metadata::box
+
+### box.rect
+
+```cpp
+dlib::rectangle dlib::image_dataset_metadata::box::rect
+AutoIt:
+    [propget propput] $obox.rect
+```
+
+### box.parts
+
+```cpp
+std::map<std::string, dlib::point> dlib::image_dataset_metadata::box::parts
+AutoIt:
+    [propget propput] $obox.parts
+```
+
+### box.label
+
+```cpp
+std::string dlib::image_dataset_metadata::box::label
+AutoIt:
+    [propget propput] $obox.label
+```
+
+### box.difficult
+
+```cpp
+bool dlib::image_dataset_metadata::box::difficult
+AutoIt:
+    [propget propput] $obox.difficult
+```
+
+### box.truncated
+
+```cpp
+bool dlib::image_dataset_metadata::box::truncated
+AutoIt:
+    [propget propput] $obox.truncated
+```
+
+### box.occluded
+
+```cpp
+bool dlib::image_dataset_metadata::box::occluded
+AutoIt:
+    [propget propput] $obox.occluded
+```
+
+### box.ignore
+
+```cpp
+bool dlib::image_dataset_metadata::box::ignore
+AutoIt:
+    [propget propput] $obox.ignore
+```
+
+### box.pose
+
+```cpp
+double dlib::image_dataset_metadata::box::pose
+AutoIt:
+    [propget propput] $obox.pose
+```
+
+### box.detection\_score
+
+```cpp
+double dlib::image_dataset_metadata::box::detection_score
+AutoIt:
+    [propget propput] $obox.detection_score
+```
+
+### box.angle
+
+```cpp
+double dlib::image_dataset_metadata::box::angle
+AutoIt:
+    [propget propput] $obox.angle
+```
+
+### box.gender
+
+```cpp
+dlib::image_dataset_metadata::gender_t dlib::image_dataset_metadata::box::gender
+AutoIt:
+    [propget propput] $obox.gender
+```
+
+### box.age
+
+```cpp
+double dlib::image_dataset_metadata::box::age
+AutoIt:
+    [propget propput] $obox.age
+```
+
+### dlib::image\_dataset\_metadata::box::get\_create
+
+```cpp
+static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::box::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.box").create() -> <dlib.image_dataset_metadata.box object>
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.box")() -> <dlib.image_dataset_metadata.box object>
 ```
 
 ```cpp
-bool cv::imreadmulti( string               filename,
-                      std::vector<cv::Mat> mats,
-                      int                  start,
-                      int                  count,
-                      int                  flags = IMREAD_ANYCOLOR );
+static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::box::get_create( dlib::rectangle rect );
 AutoIt:
-    _Dlib_ObjCreate("cv").imreadmulti( $filename, $start, $count[, $flags[, $mats]] ) -> retval, $mats
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.box").create( $rect ) -> <dlib.image_dataset_metadata.box object>
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.box")( $rect ) -> <dlib.image_dataset_metadata.box object>
 ```
 
-### cv::imwrite
+### dlib::image\_dataset\_metadata::box::has\_label
 
 ```cpp
-bool cv::imwrite( string           filename,
-                  cv::Mat          img,
-                  std::vector<int> params = std::vector<int>() );
+bool dlib::image_dataset_metadata::box::has_label();
 AutoIt:
-    _Dlib_ObjCreate("cv").imwrite( $filename, $img[, $params] ) -> retval
+    $obox.has_label() -> retval
 ```
 
-### cv::imwritemulti
+## dlib::image\_dataset\_metadata::image
+
+### image.filename
 
 ```cpp
-bool cv::imwritemulti( string               filename,
-                       std::vector<cv::Mat> img,
-                       std::vector<int>     params = std::vector<int>() );
+std::string dlib::image_dataset_metadata::image::filename
 AutoIt:
-    _Dlib_ObjCreate("cv").imwritemulti( $filename, $img[, $params] ) -> retval
+    [propget propput] $oimage.filename
+```
+
+### image.boxes
+
+```cpp
+std::vector<dlib::image_dataset_metadata::box> dlib::image_dataset_metadata::image::boxes
+AutoIt:
+    [propget propput] $oimage.boxes
+```
+
+### dlib::image\_dataset\_metadata::image::get\_create
+
+```cpp
+static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::image::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.image").create() -> <dlib.image_dataset_metadata.image object>
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.image")() -> <dlib.image_dataset_metadata.image object>
+```
+
+```cpp
+static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::image::get_create( std::string filename );
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.image").create( $filename ) -> <dlib.image_dataset_metadata.image object>
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.image")( $filename ) -> <dlib.image_dataset_metadata.image object>
+```
+
+## dlib::image\_dataset\_metadata::dataset
+
+### dataset.images
+
+```cpp
+std::vector<dlib::image_dataset_metadata::image> dlib::image_dataset_metadata::dataset::images
+AutoIt:
+    [propget propput] $odataset.images
+```
+
+### dataset.comment
+
+```cpp
+std::string dlib::image_dataset_metadata::dataset::comment
+AutoIt:
+    [propget propput] $odataset.comment
+```
+
+### dataset.name
+
+```cpp
+std::string dlib::image_dataset_metadata::dataset::name
+AutoIt:
+    [propget propput] $odataset.name
+```
+
+### dlib::image\_dataset\_metadata::dataset::get\_create
+
+```cpp
+static dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::dataset::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.dataset").create() -> <dlib.image_dataset_metadata.dataset object>
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.dataset")() -> <dlib.image_dataset_metadata.dataset object>
+```
+
+## dlib::line
+
+### line.normal
+
+```cpp
+dlib::dpoint dlib::line::normal()
+AutoIt:
+    [propget] $oline.normal
+```
+
+### line.p1
+
+```cpp
+dlib::dpoint dlib::line::p1()
+AutoIt:
+    [propget] $oline.p1
+```
+
+### line.p2
+
+```cpp
+dlib::dpoint dlib::line::p2()
+AutoIt:
+    [propget] $oline.p2
+```
+
+### dlib::line::get\_create
+
+```cpp
+static dlib::line dlib::line::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.line").create() -> <dlib.line object>
+    _Dlib_ObjCreate("dlib.line")() -> <dlib.line object>
+```
+
+```cpp
+static dlib::line dlib::line::get_create( dlib::dpoint a,
+                                          dlib::dpoint b );
+AutoIt:
+    _Dlib_ObjCreate("dlib.line").create( $a, $b ) -> <dlib.line object>
+    _Dlib_ObjCreate("dlib.line")( $a, $b ) -> <dlib.line object>
+```
+
+```cpp
+static dlib::line dlib::line::get_create( dlib::point a,
+                                          dlib::point b );
+AutoIt:
+    _Dlib_ObjCreate("dlib.line").create( $a, $b ) -> <dlib.line object>
+    _Dlib_ObjCreate("dlib.line")( $a, $b ) -> <dlib.line object>
 ```
 
 ## cv::Mat
+
+### Mat.flags
+
+```cpp
+int cv::Mat::flags
+AutoIt:
+    [propget propput] $oMat.flags
+```
+
+### Mat.dims
+
+```cpp
+int cv::Mat::dims
+AutoIt:
+    [propget propput] $oMat.dims
+```
+
+### Mat.rows
+
+```cpp
+int cv::Mat::rows
+AutoIt:
+    [propget propput] $oMat.rows
+```
+
+### Mat.cols
+
+```cpp
+int cv::Mat::cols
+AutoIt:
+    [propget propput] $oMat.cols
+```
+
+### Mat.data
+
+```cpp
+uchar* cv::Mat::data
+AutoIt:
+    [propget propput] $oMat.data
+```
+
+### Mat.step
+
+```cpp
+size_t cv::Mat::step
+AutoIt:
+    [propget propput] $oMat.step
+```
+
+### Mat.width
+
+```cpp
+int cv::Mat::cols
+AutoIt:
+    [propget propput] $oMat.width
+```
+
+### Mat.height
+
+```cpp
+int cv::Mat::rows
+AutoIt:
+    [propget propput] $oMat.height
+```
+
+### Mat.shape
+
+```cpp
+std::tuple<int, int, int> cv::Mat::shape
+AutoIt:
+    [propget] $oMat.shape
+```
 
 ### cv::Mat::create
 
@@ -3981,6 +6917,65 @@ AutoIt:
     _Dlib_ObjCreate("cv.Mat").create( $src, $roi ) -> <cv.Mat object>
 ```
 
+```cpp
+static cv::Mat cv::Mat::create( std::vector<double> vec );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").create( $vec ) -> <cv.Mat object>
+```
+
+```cpp
+static cv::Mat cv::Mat::create( std::vector<int> vec );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").create( $vec ) -> <cv.Mat object>
+```
+
+### cv::Mat::GdiplusResize
+
+```cpp
+cv::Mat cv::Mat::GdiplusResize( float newWidth,
+                                float newHeight,
+                                int   interpolation = 7 );
+AutoIt:
+    $oMat.GdiplusResize( $newWidth, $newHeight[, $interpolation] ) -> retval
+```
+
+### cv::Mat::asArray
+
+```cpp
+_variant_t cv::Mat::asArray();
+AutoIt:
+    $oMat.asArray() -> retval
+```
+
+### cv::Mat::at
+
+```cpp
+double cv::Mat::at( int i0 );
+AutoIt:
+    $oMat.at( $i0 ) -> retval
+```
+
+```cpp
+double cv::Mat::at( int row,
+                    int col );
+AutoIt:
+    $oMat.at( $row, $col ) -> retval
+```
+
+```cpp
+double cv::Mat::at( int i0,
+                    int i1,
+                    int i2 );
+AutoIt:
+    $oMat.at( $i0, $i1, $i2 ) -> retval
+```
+
+```cpp
+double cv::Mat::at( std::tuple<int, int> pt );
+AutoIt:
+    $oMat.at( $pt ) -> retval
+```
+
 ### cv::Mat::channels
 
 ```cpp
@@ -3999,12 +6994,109 @@ AutoIt:
     $oMat.checkVector( $elemChannels[, $depth[, $requireContinuous]] ) -> retval
 ```
 
+### cv::Mat::clone
+
+```cpp
+cv::Mat cv::Mat::clone();
+AutoIt:
+    $oMat.clone() -> retval
+```
+
+### cv::Mat::col
+
+```cpp
+cv::Mat cv::Mat::col( int x );
+AutoIt:
+    $oMat.col( $x ) -> retval
+```
+
+### cv::Mat::colRange
+
+```cpp
+cv::Mat cv::Mat::colRange( int startcol,
+                           int endcol );
+AutoIt:
+    $oMat.colRange( $startcol, $endcol ) -> retval
+```
+
+```cpp
+cv::Mat cv::Mat::colRange( cv::Range r );
+AutoIt:
+    $oMat.colRange( $r ) -> retval
+```
+
+### cv::Mat::convertToBitmap
+
+```cpp
+void* cv::Mat::convertToBitmap( bool copy = true );
+AutoIt:
+    $oMat.convertToBitmap( [$copy] ) -> retval
+```
+
+### cv::Mat::convertToShow
+
+```cpp
+cv::Mat cv::Mat::convertToShow( cv::Mat dst = Mat::zeros(__self->get()->rows, __self->get()->cols, CV_8UC3),
+                                bool    toRGB = false );
+AutoIt:
+    $oMat.convertToShow( [$dst[, $toRGB]] ) -> retval, $dst
+```
+
+### cv::Mat::copy
+
+```cpp
+cv::Mat cv::Mat::copy();
+AutoIt:
+    $oMat.copy() -> retval
+```
+
+### cv::Mat::createFromArray
+
+```cpp
+static cv::Mat cv::Mat::createFromArray( _variant_t array,
+                                         int        depth = -1 );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").createFromArray( $array[, $depth] ) -> retval
+```
+
+### cv::Mat::createFromVectorOfDouble
+
+```cpp
+static cv::Mat cv::Mat::createFromVectorOfDouble( std::vector<double> vec );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").createFromVectorOfDouble( $vec ) -> <cv.Mat object>
+```
+
+### cv::Mat::createFromVectorOfFloat
+
+```cpp
+static cv::Mat cv::Mat::createFromVectorOfFloat( std::vector<float> vec );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").createFromVectorOfFloat( $vec ) -> <cv.Mat object>
+```
+
+### cv::Mat::createFromVectorOfInt
+
+```cpp
+static cv::Mat cv::Mat::createFromVectorOfInt( std::vector<int> vec );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").createFromVectorOfInt( $vec ) -> <cv.Mat object>
+```
+
 ### cv::Mat::depth
 
 ```cpp
 int cv::Mat::depth();
 AutoIt:
     $oMat.depth() -> retval
+```
+
+### cv::Mat::diag
+
+```cpp
+cv::Mat cv::Mat::diag( int d = 0 );
+AutoIt:
+    $oMat.diag( [$d] ) -> retval
 ```
 
 ### cv::Mat::elemSize
@@ -4041,6 +7133,53 @@ AutoIt:
     _Dlib_ObjCreate("cv.Mat").eye( $rows, $cols, $type ) -> retval
 ```
 
+```cpp
+static cv::Mat cv::Mat::eye( int rows,
+                             int type );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").eye( $rows, $type ) -> retval
+```
+
+```cpp
+static cv::Mat cv::Mat::eye( int cols,
+                             int type );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").eye( $cols, $type ) -> retval
+```
+
+### cv::Mat::get\_Item
+
+```cpp
+double cv::Mat::get_Item( int i0 );
+AutoIt:
+    $oMat.Item( $i0 ) -> retval
+    $oMat( $i0 ) -> retval
+```
+
+```cpp
+double cv::Mat::get_Item( int row,
+                          int col );
+AutoIt:
+    $oMat.Item( $row, $col ) -> retval
+    $oMat( $row, $col ) -> retval
+```
+
+```cpp
+double cv::Mat::get_Item( int i0,
+                          int i1,
+                          int i2 );
+AutoIt:
+    $oMat.Item( $i0, $i1, $i2 ) -> retval
+    $oMat( $i0, $i1, $i2 ) -> retval
+```
+
+```cpp
+double cv::Mat::get_Item( std::tuple<int, int> pt );
+AutoIt:
+    $oMat.Item( $pt ) -> retval
+    $oMat( $pt ) -> retval
+```
+
 ### cv::Mat::isContinuous
 
 ```cpp
@@ -4068,13 +7207,27 @@ AutoIt:
 ```
 
 ```cpp
+static cv::Mat cv::Mat::ones( int cols,
+                              int type );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").ones( $cols, $type ) -> retval
+```
+
+```cpp
+static cv::Mat cv::Mat::ones( int rows,
+                              int type );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").ones( $rows, $type ) -> retval
+```
+
+```cpp
 static cv::Mat cv::Mat::ones( std::tuple<int, int> size,
                               int                  type );
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").ones( $size, $type ) -> retval
 ```
 
-### cv::Mat::pop_back
+### cv::Mat::pop\_back
 
 ```cpp
 void cv::Mat::pop_back( size_t value );
@@ -4105,12 +7258,45 @@ AutoIt:
     $oMat.ptr( $i0, $i1, $i2 ) -> retval
 ```
 
-### cv::Mat::push_back
+### cv::Mat::push\_back
 
 ```cpp
 void cv::Mat::push_back( cv::Mat value );
 AutoIt:
     $oMat.push_back( $value ) -> None
+```
+
+### cv::Mat::put\_Item
+
+```cpp
+void cv::Mat::put_Item( int    i0,
+                        double value );
+AutoIt:
+    $oMat.Item( $i0 ) = $value
+```
+
+```cpp
+void cv::Mat::put_Item( int    row,
+                        int    col,
+                        double value );
+AutoIt:
+    $oMat.Item( $row, $col ) = $value
+```
+
+```cpp
+void cv::Mat::put_Item( int    i0,
+                        int    i1,
+                        int    i2,
+                        double value );
+AutoIt:
+    $oMat.Item( $i0, $i1, $i2 ) = $value
+```
+
+```cpp
+void cv::Mat::put_Item( std::tuple<int, int> pt,
+                        double               value );
+AutoIt:
+    $oMat.Item( $pt ) = $value
 ```
 
 ### cv::Mat::reshape
@@ -4122,12 +7308,84 @@ AutoIt:
     $oMat.reshape( $cn[, $rows] ) -> retval
 ```
 
+### cv::Mat::row
+
+```cpp
+cv::Mat cv::Mat::row( int y );
+AutoIt:
+    $oMat.row( $y ) -> retval
+```
+
+### cv::Mat::rowRange
+
+```cpp
+cv::Mat cv::Mat::rowRange( int startrow,
+                           int endrow );
+AutoIt:
+    $oMat.rowRange( $startrow, $endrow ) -> retval
+```
+
+```cpp
+cv::Mat cv::Mat::rowRange( cv::Range r );
+AutoIt:
+    $oMat.rowRange( $r ) -> retval
+```
+
+### cv::Mat::set\_at
+
+```cpp
+void cv::Mat::set_at( int    i0,
+                      double value );
+AutoIt:
+    $oMat.set_at( $i0, $value ) -> None
+```
+
+```cpp
+void cv::Mat::set_at( int    row,
+                      int    col,
+                      double value );
+AutoIt:
+    $oMat.set_at( $row, $col, $value ) -> None
+```
+
+```cpp
+void cv::Mat::set_at( int    i0,
+                      int    i1,
+                      int    i2,
+                      double value );
+AutoIt:
+    $oMat.set_at( $i0, $i1, $i2, $value ) -> None
+```
+
+```cpp
+void cv::Mat::set_at( std::tuple<int, int> pt,
+                      double               value );
+AutoIt:
+    $oMat.set_at( $pt, $value ) -> None
+```
+
+### cv::Mat::size
+
+```cpp
+std::tuple<int, int> cv::Mat::size();
+AutoIt:
+    $oMat.size() -> retval
+```
+
 ### cv::Mat::step1
 
 ```cpp
 size_t cv::Mat::step1( int i = 0 );
 AutoIt:
     $oMat.step1( [$i] ) -> retval
+```
+
+### cv::Mat::t
+
+```cpp
+cv::Mat cv::Mat::t();
+AutoIt:
+    $oMat.t() -> retval
 ```
 
 ### cv::Mat::total
@@ -4164,148 +7422,71 @@ AutoIt:
 ```
 
 ```cpp
+static cv::Mat cv::Mat::zeros( int cols,
+                               int type );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").zeros( $cols, $type ) -> retval
+```
+
+```cpp
+static cv::Mat cv::Mat::zeros( int rows,
+                               int type );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").zeros( $rows, $type ) -> retval
+```
+
+```cpp
 static cv::Mat cv::Mat::zeros( std::tuple<int, int> size,
                                int                  type );
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").zeros( $size, $type ) -> retval
 ```
 
-## dlib::image_dataset_metadata
-
-### dlib::image_dataset_metadata::load_image_dataset_metadata
-
-```cpp
-void dlib::image_dataset_metadata::load_image_dataset_metadata( dlib::image_dataset_metadata::dataset& data,
-                                                                string                                 filename );
-AutoIt:
-    _Dlib_ObjCreate("dlib.image_dataset_metadata").load_image_dataset_metadata( $filename[, $data] ) -> $data
-```
-
-### dlib::image_dataset_metadata::make_bounding_box_regression_training_data
-
-```cpp
-dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::make_bounding_box_regression_training_data( dlib::image_dataset_metadata::dataset&    truth,
-                                                                                                                std::vector<std::vector<dlib::rectangle>> detections );
-AutoIt:
-    _Dlib_ObjCreate("dlib.image_dataset_metadata").make_bounding_box_regression_training_data( $truth, $detections ) -> retval
-```
-
-### dlib::image_dataset_metadata::save_image_dataset_metadata
-
-```cpp
-void dlib::image_dataset_metadata::save_image_dataset_metadata( dlib::image_dataset_metadata::dataset data,
-                                                                string                                filename );
-AutoIt:
-    _Dlib_ObjCreate("dlib.image_dataset_metadata").save_image_dataset_metadata( $data, $filename ) -> None
-```
-
-## dlib::image_dataset_metadata::box
-
-### dlib::image_dataset_metadata::box::create
-
-```cpp
-static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::box::create();
-AutoIt:
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.box").create() -> <dlib.image_dataset_metadata.box object>
-```
-
-```cpp
-static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::box::create( dlib::rectangle rect );
-AutoIt:
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.box").create( $rect ) -> <dlib.image_dataset_metadata.box object>
-```
-
-### dlib::image_dataset_metadata::box::has_label
-
-```cpp
-bool dlib::image_dataset_metadata::box::has_label();
-AutoIt:
-    $obox.has_label() -> retval
-```
-
-## dlib::image_dataset_metadata::image
-
-### dlib::image_dataset_metadata::image::create
-
-```cpp
-static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::image::create();
-AutoIt:
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.image").create() -> <dlib.image_dataset_metadata.image object>
-```
-
-```cpp
-static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::image::create( string filename );
-AutoIt:
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.image").create( $filename ) -> <dlib.image_dataset_metadata.image object>
-```
-
-## dlib::image_dataset_metadata::dataset
-
-### dlib::image_dataset_metadata::dataset::create
-
-```cpp
-static dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::dataset::create();
-AutoIt:
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.dataset").create() -> <dlib.image_dataset_metadata.dataset object>
-```
-
-## dlib::line
-
-### dlib::line::create
-
-```cpp
-static dlib::line dlib::line::create();
-AutoIt:
-    _Dlib_ObjCreate("dlib.line").create() -> <dlib.line object>
-```
-
-```cpp
-static dlib::line dlib::line::create( dlib::dpoint a,
-                                      dlib::dpoint b );
-AutoIt:
-    _Dlib_ObjCreate("dlib.line").create( $a, $b ) -> <dlib.line object>
-```
-
-```cpp
-static dlib::line dlib::line::create( dlib::point a,
-                                      dlib::point b );
-AutoIt:
-    _Dlib_ObjCreate("dlib.line").create( $a, $b ) -> <dlib.line object>
-```
-
 ## dlib::Matrix
 
-### dlib::Matrix::create
+### Matrix.shape
 
 ```cpp
-static dlib::Matrix dlib::Matrix::create();
+std::tuple<long, long> dlib::Matrix::shape
+AutoIt:
+    [propget] $oMatrix.shape
+```
+
+### dlib::Matrix::get\_create
+
+```cpp
+static dlib::Matrix dlib::Matrix::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.matrix").create() -> <dlib.Matrix object>
+    _Dlib_ObjCreate("dlib.matrix")() -> <dlib.Matrix object>
 ```
 
 ```cpp
-std::shared_ptr<dlib::Matrix> dlib::Matrix::create( std::vector<double> list );
+std::shared_ptr<dlib::Matrix> dlib::Matrix::get_create( std::vector<double> list );
 AutoIt:
     $oMatrix.create( $list ) -> retval
+    $oMatrix( $list ) -> retval
 ```
 
 ```cpp
-std::shared_ptr<dlib::Matrix> dlib::Matrix::create( std::vector<std::vector<double>> list );
+std::shared_ptr<dlib::Matrix> dlib::Matrix::get_create( std::vector<std::vector<double>> list );
 AutoIt:
     $oMatrix.create( $list ) -> retval
+    $oMatrix( $list ) -> retval
 ```
 
 ```cpp
-std::shared_ptr<dlib::Matrix> dlib::Matrix::create( long rows,
-                                                    long cols );
+std::shared_ptr<dlib::Matrix> dlib::Matrix::get_create( long rows,
+                                                        long cols );
 AutoIt:
     $oMatrix.create( $rows, $cols ) -> retval
+    $oMatrix( $rows, $cols ) -> retval
 ```
 
 ### dlib::Matrix::ToString
 
 ```cpp
-string dlib::Matrix::ToString();
+std::string dlib::Matrix::ToString();
 AutoIt:
     $oMatrix.ToString() -> retval
 ```
@@ -4313,7 +7494,7 @@ AutoIt:
 ### dlib::Matrix::deserialize
 
 ```cpp
-void dlib::Matrix::deserialize( string file );
+void dlib::Matrix::deserialize( std::string file );
 AutoIt:
     $oMatrix.deserialize( $file ) -> None
 ```
@@ -4345,12 +7526,12 @@ AutoIt:
 ### dlib::Matrix::serialize
 
 ```cpp
-void dlib::Matrix::serialize( string file );
+void dlib::Matrix::serialize( std::string file );
 AutoIt:
     $oMatrix.serialize( $file ) -> None
 ```
 
-### dlib::Matrix::set_size
+### dlib::Matrix::set\_size
 
 ```cpp
 void dlib::Matrix::set_size( long rows,
@@ -4359,9 +7540,33 @@ AutoIt:
     $oMatrix.set_size( $rows, $cols ) -> None
 ```
 
-## dlib::fhog_object_detector
+## dlib::fhog\_object\_detector
 
-### dlib::fhog_object_detector::create
+### fhog\_object\_detector.detection\_window\_width
+
+```cpp
+ULONG dlib::fhog_object_detector::get_scanner().get_detection_window_width()
+AutoIt:
+    [propget] $ofhog_object_detector.detection_window_width
+```
+
+### fhog\_object\_detector.detection\_window\_height
+
+```cpp
+ULONG dlib::fhog_object_detector::get_scanner().get_detection_window_height()
+AutoIt:
+    [propget] $ofhog_object_detector.detection_window_height
+```
+
+### fhog\_object\_detector.num\_detectors
+
+```cpp
+ULONG dlib::fhog_object_detector::num_detectors()
+AutoIt:
+    [propget] $ofhog_object_detector.num_detectors
+```
+
+### dlib::fhog\_object\_detector::create
 
 ```cpp
 static dlib::fhog_object_detector dlib::fhog_object_detector::create();
@@ -4370,12 +7575,12 @@ AutoIt:
 ```
 
 ```cpp
-std::shared_ptr<dlib::fhog_object_detector> dlib::fhog_object_detector::create( string filename );
+std::shared_ptr<dlib::fhog_object_detector> dlib::fhog_object_detector::create( std::string filename );
 AutoIt:
     $ofhog_object_detector.create( $filename ) -> retval
 ```
 
-### dlib::fhog_object_detector::get_call
+### dlib::fhog\_object\_detector::get\_call
 
 ```cpp
 void dlib::fhog_object_detector::get_call( cv::Mat                      image,
@@ -4386,10 +7591,10 @@ void dlib::fhog_object_detector::get_call( cv::Mat                      image,
                                            double                       adjust_threshold = 0.0 );
 AutoIt:
     $ofhog_object_detector.call( $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
-    dlib.fhog_object_detector( $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
+    $ofhog_object_detector( $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
 ```
 
-### dlib::fhog_object_detector::run
+### dlib::fhog\_object\_detector::run
 
 ```cpp
 void dlib::fhog_object_detector::run( cv::Mat                      image,
@@ -4402,7 +7607,7 @@ AutoIt:
     $ofhog_object_detector.run( $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
 ```
 
-### dlib::fhog_object_detector::run_multiple
+### dlib::fhog\_object\_detector::run\_multiple
 
 ```cpp
 static void dlib::fhog_object_detector::run_multiple( std::vector<dlib::fhog_object_detector> vectors,
@@ -4428,17 +7633,76 @@ AutoIt:
     _Dlib_ObjCreate("dlib.fhog_object_detector").run_multiple( $vectors, $image[, $upsample_num_times[, $adjust_threshold[, $rectangles[, $detection_confidences[, $weight_indices]]]]] ) -> $rectangles, $detection_confidences, $weight_indices
 ```
 
-### dlib::fhog_object_detector::save
+### dlib::fhog\_object\_detector::save
 
 ```cpp
-void dlib::fhog_object_detector::save( string detector_output_filename );
+void dlib::fhog_object_detector::save( std::string detector_output_filename );
 AutoIt:
     $ofhog_object_detector.save( $detector_output_filename ) -> None
 ```
 
-## dlib::rect_filter
+## cv::Range
 
-### dlib::rect_filter::create
+### Range.start
+
+```cpp
+int cv::Range::start
+AutoIt:
+    [propget propput] $oRange.start
+```
+
+### Range.end
+
+```cpp
+int cv::Range::end
+AutoIt:
+    [propget propput] $oRange.end
+```
+
+### cv::Range::get\_create
+
+```cpp
+static cv::Range cv::Range::get_create();
+AutoIt:
+    _Dlib_ObjCreate("cv.Range").create() -> <cv.Range object>
+    _Dlib_ObjCreate("cv.Range")() -> <cv.Range object>
+```
+
+```cpp
+static cv::Range cv::Range::get_create( int start,
+                                        int end );
+AutoIt:
+    _Dlib_ObjCreate("cv.Range").create( $start, $end ) -> <cv.Range object>
+    _Dlib_ObjCreate("cv.Range")( $start, $end ) -> <cv.Range object>
+```
+
+### cv::Range::all
+
+```cpp
+static cv::Range cv::Range::all();
+AutoIt:
+    _Dlib_ObjCreate("cv.Range").all() -> retval
+```
+
+### cv::Range::empty
+
+```cpp
+bool cv::Range::empty();
+AutoIt:
+    $oRange.empty() -> retval
+```
+
+### cv::Range::size
+
+```cpp
+int cv::Range::size();
+AutoIt:
+    $oRange.size() -> retval
+```
+
+## dlib::rect\_filter
+
+### dlib::rect\_filter::create
 
 ```cpp
 static dlib::rect_filter dlib::rect_filter::create();
@@ -4454,23 +7718,23 @@ AutoIt:
     _Dlib_ObjCreate("dlib.rect_filter").create( $measurement_noise, $typical_acceleration, $max_measurement_deviation ) -> <dlib.rect_filter object>
 ```
 
-### dlib::rect_filter::get_call
+### dlib::rect\_filter::get\_call
 
 ```cpp
 dlib::drectangle dlib::rect_filter::get_call( dlib::rectangle rect );
 AutoIt:
     $orect_filter.call( $rect ) -> retval
-    dlib.rect_filter( $rect ) -> retval
+    $orect_filter( $rect ) -> retval
 ```
 
 ```cpp
 dlib::drectangle dlib::rect_filter::get_call( dlib::drectangle rect );
 AutoIt:
     $orect_filter.call( $rect ) -> retval
-    dlib.rect_filter( $rect ) -> retval
+    $orect_filter( $rect ) -> retval
 ```
 
-### dlib::rect_filter::max_measurement_deviation
+### dlib::rect\_filter::max\_measurement\_deviation
 
 ```cpp
 double dlib::rect_filter::max_measurement_deviation();
@@ -4478,7 +7742,7 @@ AutoIt:
     $orect_filter.max_measurement_deviation() -> retval
 ```
 
-### dlib::rect_filter::measurement_noise
+### dlib::rect\_filter::measurement\_noise
 
 ```cpp
 double dlib::rect_filter::measurement_noise();
@@ -4486,7 +7750,7 @@ AutoIt:
     $orect_filter.measurement_noise() -> retval
 ```
 
-### dlib::rect_filter::typical_acceleration
+### dlib::rect\_filter::typical\_acceleration
 
 ```cpp
 double dlib::rect_filter::typical_acceleration();
@@ -4496,39 +7760,43 @@ AutoIt:
 
 ## dlib::rectangle
 
-### dlib::rectangle::create
+### dlib::rectangle::get\_create
 
 ```cpp
-static dlib::rectangle dlib::rectangle::create();
+static dlib::rectangle dlib::rectangle::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create() -> <dlib.rectangle object>
+    _Dlib_ObjCreate("dlib.rectangle")() -> <dlib.rectangle object>
 ```
 
 ```cpp
-static dlib::rectangle dlib::rectangle::create( long& left,
-                                                long& top,
-                                                long& right,
-                                                long& bottom );
+static dlib::rectangle dlib::rectangle::get_create( long& left,
+                                                    long& top,
+                                                    long& right,
+                                                    long& bottom );
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $left, $top, $right, $bottom ) -> <dlib.rectangle object>
+    _Dlib_ObjCreate("dlib.rectangle")( $left, $top, $right, $bottom ) -> <dlib.rectangle object>
 ```
 
 ```cpp
-static dlib::rectangle dlib::rectangle::create( dlib::drectangle& rect );
+static dlib::rectangle dlib::rectangle::get_create( dlib::drectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $rect ) -> <dlib.rectangle object>
+    _Dlib_ObjCreate("dlib.rectangle")( $rect ) -> <dlib.rectangle object>
 ```
 
 ```cpp
-static dlib::rectangle dlib::rectangle::create( dlib::rectangle& rect );
+static dlib::rectangle dlib::rectangle::get_create( dlib::rectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $rect ) -> <dlib.rectangle object>
+    _Dlib_ObjCreate("dlib.rectangle")( $rect ) -> <dlib.rectangle object>
 ```
 
 ### dlib::rectangle::ToString
 
 ```cpp
-string dlib::rectangle::ToString();
+std::string dlib::rectangle::ToString();
 AutoIt:
     $orectangle.ToString() -> retval
 ```
@@ -4541,7 +7809,7 @@ AutoIt:
     $orectangle.area() -> retval
 ```
 
-### dlib::rectangle::bl_corner
+### dlib::rectangle::bl\_corner
 
 ```cpp
 dlib::point dlib::rectangle::bl_corner();
@@ -4557,7 +7825,7 @@ AutoIt:
     $orectangle.bottom() -> retval
 ```
 
-### dlib::rectangle::br_corner
+### dlib::rectangle::br\_corner
 
 ```cpp
 dlib::point dlib::rectangle::br_corner();
@@ -4624,7 +7892,7 @@ AutoIt:
     $orectangle.intersect( $rect ) -> retval
 ```
 
-### dlib::rectangle::is_empty
+### dlib::rectangle::is\_empty
 
 ```cpp
 bool dlib::rectangle::is_empty();
@@ -4648,7 +7916,7 @@ AutoIt:
     $orectangle.right() -> retval
 ```
 
-### dlib::rectangle::tl_corner
+### dlib::rectangle::tl\_corner
 
 ```cpp
 dlib::point dlib::rectangle::tl_corner();
@@ -4664,7 +7932,7 @@ AutoIt:
     $orectangle.top() -> retval
 ```
 
-### dlib::rectangle::tr_corner
+### dlib::rectangle::tr\_corner
 
 ```cpp
 dlib::point dlib::rectangle::tr_corner();
@@ -4682,39 +7950,43 @@ AutoIt:
 
 ## dlib::drectangle
 
-### dlib::drectangle::create
+### dlib::drectangle::get\_create
 
 ```cpp
-static dlib::drectangle dlib::drectangle::create();
+static dlib::drectangle dlib::drectangle::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create() -> <dlib.drectangle object>
+    _Dlib_ObjCreate("dlib.drectangle")() -> <dlib.drectangle object>
 ```
 
 ```cpp
-static dlib::drectangle dlib::drectangle::create( double& left,
-                                                  double& top,
-                                                  double& right,
-                                                  double& bottom );
+static dlib::drectangle dlib::drectangle::get_create( double& left,
+                                                      double& top,
+                                                      double& right,
+                                                      double& bottom );
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $left, $top, $right, $bottom ) -> <dlib.drectangle object>
+    _Dlib_ObjCreate("dlib.drectangle")( $left, $top, $right, $bottom ) -> <dlib.drectangle object>
 ```
 
 ```cpp
-static dlib::drectangle dlib::drectangle::create( dlib::drectangle& rect );
+static dlib::drectangle dlib::drectangle::get_create( dlib::drectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $rect ) -> <dlib.drectangle object>
+    _Dlib_ObjCreate("dlib.drectangle")( $rect ) -> <dlib.drectangle object>
 ```
 
 ```cpp
-static dlib::drectangle dlib::drectangle::create( dlib::rectangle& rect );
+static dlib::drectangle dlib::drectangle::get_create( dlib::rectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $rect ) -> <dlib.drectangle object>
+    _Dlib_ObjCreate("dlib.drectangle")( $rect ) -> <dlib.drectangle object>
 ```
 
 ### dlib::drectangle::ToString
 
 ```cpp
-string dlib::drectangle::ToString();
+std::string dlib::drectangle::ToString();
 AutoIt:
     $odrectangle.ToString() -> retval
 ```
@@ -4727,7 +7999,7 @@ AutoIt:
     $odrectangle.area() -> retval
 ```
 
-### dlib::drectangle::bl_corner
+### dlib::drectangle::bl\_corner
 
 ```cpp
 dlib::dpoint dlib::drectangle::bl_corner();
@@ -4743,7 +8015,7 @@ AutoIt:
     $odrectangle.bottom() -> retval
 ```
 
-### dlib::drectangle::br_corner
+### dlib::drectangle::br\_corner
 
 ```cpp
 dlib::dpoint dlib::drectangle::br_corner();
@@ -4810,7 +8082,7 @@ AutoIt:
     $odrectangle.intersect( $rect ) -> retval
 ```
 
-### dlib::drectangle::is_empty
+### dlib::drectangle::is\_empty
 
 ```cpp
 bool dlib::drectangle::is_empty();
@@ -4834,7 +8106,7 @@ AutoIt:
     $odrectangle.right() -> retval
 ```
 
-### dlib::drectangle::tl_corner
+### dlib::drectangle::tl\_corner
 
 ```cpp
 dlib::dpoint dlib::drectangle::tl_corner();
@@ -4850,7 +8122,7 @@ AutoIt:
     $odrectangle.top() -> retval
 ```
 
-### dlib::drectangle::tr_corner
+### dlib::drectangle::tr\_corner
 
 ```cpp
 dlib::dpoint dlib::drectangle::tr_corner();
@@ -4866,24 +8138,42 @@ AutoIt:
     $odrectangle.width() -> retval
 ```
 
-## dlib::full_object_detection
+## dlib::full\_object\_detection
 
-### dlib::full_object_detection::create
+### full\_object\_detection.rect
 
 ```cpp
-static dlib::full_object_detection dlib::full_object_detection::create();
+dlib::rectangle dlib::full_object_detection::get_rect()
+AutoIt:
+    [propget] $ofull_object_detection.rect
+```
+
+### full\_object\_detection.num\_parts
+
+```cpp
+ULONG dlib::full_object_detection::num_parts()
+AutoIt:
+    [propget] $ofull_object_detection.num_parts
+```
+
+### dlib::full\_object\_detection::get\_create
+
+```cpp
+static dlib::full_object_detection dlib::full_object_detection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.full_object_detection").create() -> <dlib.full_object_detection object>
+    _Dlib_ObjCreate("dlib.full_object_detection")() -> <dlib.full_object_detection object>
 ```
 
 ```cpp
-static dlib::full_object_detection dlib::full_object_detection::create( dlib::rectangle          rect,
-                                                                        std::vector<dlib::point> parts );
+static dlib::full_object_detection dlib::full_object_detection::get_create( dlib::rectangle          rect,
+                                                                            std::vector<dlib::point> parts );
 AutoIt:
     _Dlib_ObjCreate("dlib.full_object_detection").create( $rect, $parts ) -> <dlib.full_object_detection object>
+    _Dlib_ObjCreate("dlib.full_object_detection")( $rect, $parts ) -> <dlib.full_object_detection object>
 ```
 
-### dlib::full_object_detection::part
+### dlib::full\_object\_detection::part
 
 ```cpp
 dlib::point dlib::full_object_detection::part( ULONG idx );
@@ -4891,7 +8181,7 @@ AutoIt:
     $ofull_object_detection.part( $idx ) -> retval
 ```
 
-### dlib::full_object_detection::parts
+### dlib::full\_object\_detection::parts
 
 ```cpp
 std::vector<dlib::point> dlib::full_object_detection::parts();
@@ -4899,9 +8189,9 @@ AutoIt:
     $ofull_object_detection.parts() -> retval
 ```
 
-## dlib::shape_predictor
+## dlib::shape\_predictor
 
-### dlib::shape_predictor::create
+### dlib::shape\_predictor::create
 
 ```cpp
 static dlib::shape_predictor dlib::shape_predictor::create();
@@ -4910,40 +8200,81 @@ AutoIt:
 ```
 
 ```cpp
-std::shared_ptr<dlib::shape_predictor> dlib::shape_predictor::create( string filename );
+std::shared_ptr<dlib::shape_predictor> dlib::shape_predictor::create( std::string filename );
 AutoIt:
     $oshape_predictor.create( $filename ) -> retval
 ```
 
-### dlib::shape_predictor::get_call
+### dlib::shape\_predictor::get\_call
 
 ```cpp
 dlib::full_object_detection dlib::shape_predictor::get_call( cv::Mat         img,
                                                              dlib::rectangle box );
 AutoIt:
     $oshape_predictor.call( $img, $box ) -> retval
-    dlib.shape_predictor( $img, $box ) -> retval
+    $oshape_predictor( $img, $box ) -> retval
 ```
 
-### dlib::shape_predictor::save
+### dlib::shape\_predictor::save
 
 ```cpp
-void dlib::shape_predictor::save( string detector_output_filename );
+void dlib::shape_predictor::save( std::string detector_output_filename );
 AutoIt:
     $oshape_predictor.save( $detector_output_filename ) -> None
 ```
 
-## dlib::svm_c_trainer_radial_basis
+## dlib::svm\_c\_trainer\_radial\_basis
 
-### dlib::svm_c_trainer_radial_basis::create
+### svm\_c\_trainer\_radial\_basis.epsilon
 
 ```cpp
-static dlib::svm_c_trainer_radial_basis dlib::svm_c_trainer_radial_basis::create();
+double dlib::svm_c_trainer_radial_basis::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.svm_c_trainer_radial_basis").create() -> <dlib.svm_c_trainer_radial_basis object>
+    [propget propput] $osvm_c_trainer_radial_basis.epsilon
 ```
 
-### dlib::svm_c_trainer_radial_basis::set_c
+### svm\_c\_trainer\_radial\_basis.c\_class1
+
+```cpp
+double dlib::svm_c_trainer_radial_basis::c_class1
+AutoIt:
+    [propget propput] $osvm_c_trainer_radial_basis.c_class1
+```
+
+### svm\_c\_trainer\_radial\_basis.c\_class2
+
+```cpp
+double dlib::svm_c_trainer_radial_basis::c_class2
+AutoIt:
+    [propget propput] $osvm_c_trainer_radial_basis.c_class2
+```
+
+### svm\_c\_trainer\_radial\_basis.cache\_size
+
+```cpp
+long dlib::svm_c_trainer_radial_basis::cache_size
+AutoIt:
+    [propget propput] $osvm_c_trainer_radial_basis.cache_size
+```
+
+### svm\_c\_trainer\_radial\_basis.gamma
+
+```cpp
+double dlib::svm_c_trainer_radial_basis::gamma
+AutoIt:
+    [propget propput] $osvm_c_trainer_radial_basis.gamma
+```
+
+### dlib::svm\_c\_trainer\_radial\_basis::get\_create
+
+```cpp
+static dlib::svm_c_trainer_radial_basis dlib::svm_c_trainer_radial_basis::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_radial_basis").create() -> <dlib.svm_c_trainer_radial_basis object>
+    _Dlib_ObjCreate("dlib.svm_c_trainer_radial_basis")() -> <dlib.svm_c_trainer_radial_basis object>
+```
+
+### dlib::svm\_c\_trainer\_radial\_basis::set\_c
 
 ```cpp
 void dlib::svm_c_trainer_radial_basis::set_c( double c );
@@ -4951,7 +8282,7 @@ AutoIt:
     $osvm_c_trainer_radial_basis.set_c( $c ) -> None
 ```
 
-### dlib::svm_c_trainer_radial_basis::train
+### dlib::svm\_c\_trainer\_radial\_basis::train
 
 ```cpp
 dlib::_decision_function_radial_basis dlib::svm_c_trainer_radial_basis::train( std::vector<dlib::SpaceVector> samples,
@@ -4960,17 +8291,58 @@ AutoIt:
     $osvm_c_trainer_radial_basis.train( $samples, $labels ) -> retval
 ```
 
-## dlib::svm_c_trainer_sparse_radial_basis
+## dlib::svm\_c\_trainer\_sparse\_radial\_basis
 
-### dlib::svm_c_trainer_sparse_radial_basis::create
+### svm\_c\_trainer\_sparse\_radial\_basis.epsilon
 
 ```cpp
-static dlib::svm_c_trainer_sparse_radial_basis dlib::svm_c_trainer_sparse_radial_basis::create();
+double dlib::svm_c_trainer_sparse_radial_basis::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_radial_basis").create() -> <dlib.svm_c_trainer_sparse_radial_basis object>
+    [propget propput] $osvm_c_trainer_sparse_radial_basis.epsilon
 ```
 
-### dlib::svm_c_trainer_sparse_radial_basis::set_c
+### svm\_c\_trainer\_sparse\_radial\_basis.c\_class1
+
+```cpp
+double dlib::svm_c_trainer_sparse_radial_basis::c_class1
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_radial_basis.c_class1
+```
+
+### svm\_c\_trainer\_sparse\_radial\_basis.c\_class2
+
+```cpp
+double dlib::svm_c_trainer_sparse_radial_basis::c_class2
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_radial_basis.c_class2
+```
+
+### svm\_c\_trainer\_sparse\_radial\_basis.cache\_size
+
+```cpp
+long dlib::svm_c_trainer_sparse_radial_basis::cache_size
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_radial_basis.cache_size
+```
+
+### svm\_c\_trainer\_sparse\_radial\_basis.gamma
+
+```cpp
+double dlib::svm_c_trainer_sparse_radial_basis::gamma
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_radial_basis.gamma
+```
+
+### dlib::svm\_c\_trainer\_sparse\_radial\_basis::get\_create
+
+```cpp
+static dlib::svm_c_trainer_sparse_radial_basis dlib::svm_c_trainer_sparse_radial_basis::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_radial_basis").create() -> <dlib.svm_c_trainer_sparse_radial_basis object>
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_radial_basis")() -> <dlib.svm_c_trainer_sparse_radial_basis object>
+```
+
+### dlib::svm\_c\_trainer\_sparse\_radial\_basis::set\_c
 
 ```cpp
 void dlib::svm_c_trainer_sparse_radial_basis::set_c( double c );
@@ -4978,7 +8350,7 @@ AutoIt:
     $osvm_c_trainer_sparse_radial_basis.set_c( $c ) -> None
 ```
 
-### dlib::svm_c_trainer_sparse_radial_basis::train
+### dlib::svm\_c\_trainer\_sparse\_radial\_basis::train
 
 ```cpp
 dlib::_decision_function_sparse_radial_basis dlib::svm_c_trainer_sparse_radial_basis::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
@@ -4987,17 +8359,50 @@ AutoIt:
     $osvm_c_trainer_sparse_radial_basis.train( $samples, $labels ) -> retval
 ```
 
-## dlib::svm_c_trainer_histogram_intersection
+## dlib::svm\_c\_trainer\_histogram\_intersection
 
-### dlib::svm_c_trainer_histogram_intersection::create
+### svm\_c\_trainer\_histogram\_intersection.epsilon
 
 ```cpp
-static dlib::svm_c_trainer_histogram_intersection dlib::svm_c_trainer_histogram_intersection::create();
+double dlib::svm_c_trainer_histogram_intersection::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.svm_c_trainer_histogram_intersection").create() -> <dlib.svm_c_trainer_histogram_intersection object>
+    [propget propput] $osvm_c_trainer_histogram_intersection.epsilon
 ```
 
-### dlib::svm_c_trainer_histogram_intersection::set_c
+### svm\_c\_trainer\_histogram\_intersection.c\_class1
+
+```cpp
+double dlib::svm_c_trainer_histogram_intersection::c_class1
+AutoIt:
+    [propget propput] $osvm_c_trainer_histogram_intersection.c_class1
+```
+
+### svm\_c\_trainer\_histogram\_intersection.c\_class2
+
+```cpp
+double dlib::svm_c_trainer_histogram_intersection::c_class2
+AutoIt:
+    [propget propput] $osvm_c_trainer_histogram_intersection.c_class2
+```
+
+### svm\_c\_trainer\_histogram\_intersection.cache\_size
+
+```cpp
+long dlib::svm_c_trainer_histogram_intersection::cache_size
+AutoIt:
+    [propget propput] $osvm_c_trainer_histogram_intersection.cache_size
+```
+
+### dlib::svm\_c\_trainer\_histogram\_intersection::get\_create
+
+```cpp
+static dlib::svm_c_trainer_histogram_intersection dlib::svm_c_trainer_histogram_intersection::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_histogram_intersection").create() -> <dlib.svm_c_trainer_histogram_intersection object>
+    _Dlib_ObjCreate("dlib.svm_c_trainer_histogram_intersection")() -> <dlib.svm_c_trainer_histogram_intersection object>
+```
+
+### dlib::svm\_c\_trainer\_histogram\_intersection::set\_c
 
 ```cpp
 void dlib::svm_c_trainer_histogram_intersection::set_c( double c );
@@ -5005,7 +8410,7 @@ AutoIt:
     $osvm_c_trainer_histogram_intersection.set_c( $c ) -> None
 ```
 
-### dlib::svm_c_trainer_histogram_intersection::train
+### dlib::svm\_c\_trainer\_histogram\_intersection::train
 
 ```cpp
 dlib::_decision_function_histogram_intersection dlib::svm_c_trainer_histogram_intersection::train( std::vector<dlib::SpaceVector> samples,
@@ -5014,17 +8419,50 @@ AutoIt:
     $osvm_c_trainer_histogram_intersection.train( $samples, $labels ) -> retval
 ```
 
-## dlib::svm_c_trainer_sparse_histogram_intersection
+## dlib::svm\_c\_trainer\_sparse\_histogram\_intersection
 
-### dlib::svm_c_trainer_sparse_histogram_intersection::create
+### svm\_c\_trainer\_sparse\_histogram\_intersection.epsilon
 
 ```cpp
-static dlib::svm_c_trainer_sparse_histogram_intersection dlib::svm_c_trainer_sparse_histogram_intersection::create();
+double dlib::svm_c_trainer_sparse_histogram_intersection::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_histogram_intersection").create() -> <dlib.svm_c_trainer_sparse_histogram_intersection object>
+    [propget propput] $osvm_c_trainer_sparse_histogram_intersection.epsilon
 ```
 
-### dlib::svm_c_trainer_sparse_histogram_intersection::set_c
+### svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class1
+
+```cpp
+double dlib::svm_c_trainer_sparse_histogram_intersection::c_class1
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_histogram_intersection.c_class1
+```
+
+### svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class2
+
+```cpp
+double dlib::svm_c_trainer_sparse_histogram_intersection::c_class2
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_histogram_intersection.c_class2
+```
+
+### svm\_c\_trainer\_sparse\_histogram\_intersection.cache\_size
+
+```cpp
+long dlib::svm_c_trainer_sparse_histogram_intersection::cache_size
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_histogram_intersection.cache_size
+```
+
+### dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::get\_create
+
+```cpp
+static dlib::svm_c_trainer_sparse_histogram_intersection dlib::svm_c_trainer_sparse_histogram_intersection::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_histogram_intersection").create() -> <dlib.svm_c_trainer_sparse_histogram_intersection object>
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_histogram_intersection")() -> <dlib.svm_c_trainer_sparse_histogram_intersection object>
+```
+
+### dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::set\_c
 
 ```cpp
 void dlib::svm_c_trainer_sparse_histogram_intersection::set_c( double c );
@@ -5032,7 +8470,7 @@ AutoIt:
     $osvm_c_trainer_sparse_histogram_intersection.set_c( $c ) -> None
 ```
 
-### dlib::svm_c_trainer_sparse_histogram_intersection::train
+### dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::train
 
 ```cpp
 dlib::_decision_function_sparse_histogram_intersection dlib::svm_c_trainer_sparse_histogram_intersection::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
@@ -5041,17 +8479,74 @@ AutoIt:
     $osvm_c_trainer_sparse_histogram_intersection.train( $samples, $labels ) -> retval
 ```
 
-## dlib::svm_c_trainer_linear
+## dlib::svm\_c\_trainer\_linear
 
-### dlib::svm_c_trainer_linear::create
+### svm\_c\_trainer\_linear.epsilon
 
 ```cpp
-static dlib::svm_c_trainer_linear dlib::svm_c_trainer_linear::create();
+double dlib::svm_c_trainer_linear::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.svm_c_trainer_linear").create() -> <dlib.svm_c_trainer_linear object>
+    [propget propput] $osvm_c_trainer_linear.epsilon
 ```
 
-### dlib::svm_c_trainer_linear::be_quiet
+### svm\_c\_trainer\_linear.c\_class1
+
+```cpp
+double dlib::svm_c_trainer_linear::c_class1
+AutoIt:
+    [propget propput] $osvm_c_trainer_linear.c_class1
+```
+
+### svm\_c\_trainer\_linear.c\_class2
+
+```cpp
+double dlib::svm_c_trainer_linear::c_class2
+AutoIt:
+    [propget propput] $osvm_c_trainer_linear.c_class2
+```
+
+### svm\_c\_trainer\_linear.max\_iterations
+
+```cpp
+ULONG dlib::svm_c_trainer_linear::max_iterations
+AutoIt:
+    [propget propput] $osvm_c_trainer_linear.max_iterations
+```
+
+### svm\_c\_trainer\_linear.force\_last\_weight\_to\_1
+
+```cpp
+bool dlib::svm_c_trainer_linear::force_last_weight_to_1
+AutoIt:
+    [propget propput] $osvm_c_trainer_linear.force_last_weight_to_1
+```
+
+### svm\_c\_trainer\_linear.learns\_nonnegative\_weights
+
+```cpp
+bool dlib::svm_c_trainer_linear::learns_nonnegative_weights
+AutoIt:
+    [propget propput] $osvm_c_trainer_linear.learns_nonnegative_weights
+```
+
+### svm\_c\_trainer\_linear.has\_prior
+
+```cpp
+bool dlib::svm_c_trainer_linear::has_prior()
+AutoIt:
+    [propget] $osvm_c_trainer_linear.has_prior
+```
+
+### dlib::svm\_c\_trainer\_linear::get\_create
+
+```cpp
+static dlib::svm_c_trainer_linear dlib::svm_c_trainer_linear::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_linear").create() -> <dlib.svm_c_trainer_linear object>
+    _Dlib_ObjCreate("dlib.svm_c_trainer_linear")() -> <dlib.svm_c_trainer_linear object>
+```
+
+### dlib::svm\_c\_trainer\_linear::be\_quiet
 
 ```cpp
 void dlib::svm_c_trainer_linear::be_quiet();
@@ -5059,7 +8554,7 @@ AutoIt:
     $osvm_c_trainer_linear.be_quiet() -> None
 ```
 
-### dlib::svm_c_trainer_linear::be_verbose
+### dlib::svm\_c\_trainer\_linear::be\_verbose
 
 ```cpp
 void dlib::svm_c_trainer_linear::be_verbose();
@@ -5067,7 +8562,7 @@ AutoIt:
     $osvm_c_trainer_linear.be_verbose() -> None
 ```
 
-### dlib::svm_c_trainer_linear::set_c
+### dlib::svm\_c\_trainer\_linear::set\_c
 
 ```cpp
 void dlib::svm_c_trainer_linear::set_c( double c );
@@ -5075,7 +8570,7 @@ AutoIt:
     $osvm_c_trainer_linear.set_c( $c ) -> None
 ```
 
-### dlib::svm_c_trainer_linear::set_prior
+### dlib::svm\_c\_trainer\_linear::set\_prior
 
 ```cpp
 void dlib::svm_c_trainer_linear::set_prior( dlib::_decision_function_linear prior_ );
@@ -5083,7 +8578,7 @@ AutoIt:
     $osvm_c_trainer_linear.set_prior( $prior_ ) -> None
 ```
 
-### dlib::svm_c_trainer_linear::train
+### dlib::svm\_c\_trainer\_linear::train
 
 ```cpp
 dlib::_decision_function_linear dlib::svm_c_trainer_linear::train( std::vector<dlib::SpaceVector> samples,
@@ -5092,17 +8587,74 @@ AutoIt:
     $osvm_c_trainer_linear.train( $samples, $labels ) -> retval
 ```
 
-## dlib::svm_c_trainer_sparse_linear
+## dlib::svm\_c\_trainer\_sparse\_linear
 
-### dlib::svm_c_trainer_sparse_linear::create
+### svm\_c\_trainer\_sparse\_linear.epsilon
 
 ```cpp
-static dlib::svm_c_trainer_sparse_linear dlib::svm_c_trainer_sparse_linear::create();
+double dlib::svm_c_trainer_sparse_linear::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_linear").create() -> <dlib.svm_c_trainer_sparse_linear object>
+    [propget propput] $osvm_c_trainer_sparse_linear.epsilon
 ```
 
-### dlib::svm_c_trainer_sparse_linear::be_quiet
+### svm\_c\_trainer\_sparse\_linear.c\_class1
+
+```cpp
+double dlib::svm_c_trainer_sparse_linear::c_class1
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_linear.c_class1
+```
+
+### svm\_c\_trainer\_sparse\_linear.c\_class2
+
+```cpp
+double dlib::svm_c_trainer_sparse_linear::c_class2
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_linear.c_class2
+```
+
+### svm\_c\_trainer\_sparse\_linear.max\_iterations
+
+```cpp
+ULONG dlib::svm_c_trainer_sparse_linear::max_iterations
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_linear.max_iterations
+```
+
+### svm\_c\_trainer\_sparse\_linear.force\_last\_weight\_to\_1
+
+```cpp
+bool dlib::svm_c_trainer_sparse_linear::force_last_weight_to_1
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_linear.force_last_weight_to_1
+```
+
+### svm\_c\_trainer\_sparse\_linear.learns\_nonnegative\_weights
+
+```cpp
+bool dlib::svm_c_trainer_sparse_linear::learns_nonnegative_weights
+AutoIt:
+    [propget propput] $osvm_c_trainer_sparse_linear.learns_nonnegative_weights
+```
+
+### svm\_c\_trainer\_sparse\_linear.has\_prior
+
+```cpp
+bool dlib::svm_c_trainer_sparse_linear::has_prior()
+AutoIt:
+    [propget] $osvm_c_trainer_sparse_linear.has_prior
+```
+
+### dlib::svm\_c\_trainer\_sparse\_linear::get\_create
+
+```cpp
+static dlib::svm_c_trainer_sparse_linear dlib::svm_c_trainer_sparse_linear::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_linear").create() -> <dlib.svm_c_trainer_sparse_linear object>
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_linear")() -> <dlib.svm_c_trainer_sparse_linear object>
+```
+
+### dlib::svm\_c\_trainer\_sparse\_linear::be\_quiet
 
 ```cpp
 void dlib::svm_c_trainer_sparse_linear::be_quiet();
@@ -5110,7 +8662,7 @@ AutoIt:
     $osvm_c_trainer_sparse_linear.be_quiet() -> None
 ```
 
-### dlib::svm_c_trainer_sparse_linear::be_verbose
+### dlib::svm\_c\_trainer\_sparse\_linear::be\_verbose
 
 ```cpp
 void dlib::svm_c_trainer_sparse_linear::be_verbose();
@@ -5118,7 +8670,7 @@ AutoIt:
     $osvm_c_trainer_sparse_linear.be_verbose() -> None
 ```
 
-### dlib::svm_c_trainer_sparse_linear::set_c
+### dlib::svm\_c\_trainer\_sparse\_linear::set\_c
 
 ```cpp
 void dlib::svm_c_trainer_sparse_linear::set_c( double c );
@@ -5126,7 +8678,7 @@ AutoIt:
     $osvm_c_trainer_sparse_linear.set_c( $c ) -> None
 ```
 
-### dlib::svm_c_trainer_sparse_linear::set_prior
+### dlib::svm\_c\_trainer\_sparse\_linear::set\_prior
 
 ```cpp
 void dlib::svm_c_trainer_sparse_linear::set_prior( dlib::_decision_function_sparse_linear prior_ );
@@ -5134,7 +8686,7 @@ AutoIt:
     $osvm_c_trainer_sparse_linear.set_prior( $prior_ ) -> None
 ```
 
-### dlib::svm_c_trainer_sparse_linear::train
+### dlib::svm\_c\_trainer\_sparse\_linear::train
 
 ```cpp
 dlib::_decision_function_sparse_linear dlib::svm_c_trainer_sparse_linear::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
@@ -5143,17 +8695,34 @@ AutoIt:
     $osvm_c_trainer_sparse_linear.train( $samples, $labels ) -> retval
 ```
 
-## dlib::rvm_trainer_radial_basis
+## dlib::rvm\_trainer\_radial\_basis
 
-### dlib::rvm_trainer_radial_basis::create
+### rvm\_trainer\_radial\_basis.epsilon
 
 ```cpp
-static dlib::rvm_trainer_radial_basis dlib::rvm_trainer_radial_basis::create();
+double dlib::rvm_trainer_radial_basis::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.rvm_trainer_radial_basis").create() -> <dlib.rvm_trainer_radial_basis object>
+    [propget propput] $orvm_trainer_radial_basis.epsilon
 ```
 
-### dlib::rvm_trainer_radial_basis::train
+### rvm\_trainer\_radial\_basis.gamma
+
+```cpp
+double dlib::rvm_trainer_radial_basis::gamma
+AutoIt:
+    [propget propput] $orvm_trainer_radial_basis.gamma
+```
+
+### dlib::rvm\_trainer\_radial\_basis::get\_create
+
+```cpp
+static dlib::rvm_trainer_radial_basis dlib::rvm_trainer_radial_basis::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_radial_basis").create() -> <dlib.rvm_trainer_radial_basis object>
+    _Dlib_ObjCreate("dlib.rvm_trainer_radial_basis")() -> <dlib.rvm_trainer_radial_basis object>
+```
+
+### dlib::rvm\_trainer\_radial\_basis::train
 
 ```cpp
 dlib::_decision_function_radial_basis dlib::rvm_trainer_radial_basis::train( std::vector<dlib::SpaceVector> samples,
@@ -5162,17 +8731,34 @@ AutoIt:
     $orvm_trainer_radial_basis.train( $samples, $labels ) -> retval
 ```
 
-## dlib::rvm_trainer_sparse_radial_basis
+## dlib::rvm\_trainer\_sparse\_radial\_basis
 
-### dlib::rvm_trainer_sparse_radial_basis::create
+### rvm\_trainer\_sparse\_radial\_basis.epsilon
 
 ```cpp
-static dlib::rvm_trainer_sparse_radial_basis dlib::rvm_trainer_sparse_radial_basis::create();
+double dlib::rvm_trainer_sparse_radial_basis::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_radial_basis").create() -> <dlib.rvm_trainer_sparse_radial_basis object>
+    [propget propput] $orvm_trainer_sparse_radial_basis.epsilon
 ```
 
-### dlib::rvm_trainer_sparse_radial_basis::train
+### rvm\_trainer\_sparse\_radial\_basis.gamma
+
+```cpp
+double dlib::rvm_trainer_sparse_radial_basis::gamma
+AutoIt:
+    [propget propput] $orvm_trainer_sparse_radial_basis.gamma
+```
+
+### dlib::rvm\_trainer\_sparse\_radial\_basis::get\_create
+
+```cpp
+static dlib::rvm_trainer_sparse_radial_basis dlib::rvm_trainer_sparse_radial_basis::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_radial_basis").create() -> <dlib.rvm_trainer_sparse_radial_basis object>
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_radial_basis")() -> <dlib.rvm_trainer_sparse_radial_basis object>
+```
+
+### dlib::rvm\_trainer\_sparse\_radial\_basis::train
 
 ```cpp
 dlib::_decision_function_sparse_radial_basis dlib::rvm_trainer_sparse_radial_basis::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
@@ -5181,17 +8767,26 @@ AutoIt:
     $orvm_trainer_sparse_radial_basis.train( $samples, $labels ) -> retval
 ```
 
-## dlib::rvm_trainer_histogram_intersection
+## dlib::rvm\_trainer\_histogram\_intersection
 
-### dlib::rvm_trainer_histogram_intersection::create
+### rvm\_trainer\_histogram\_intersection.epsilon
 
 ```cpp
-static dlib::rvm_trainer_histogram_intersection dlib::rvm_trainer_histogram_intersection::create();
+double dlib::rvm_trainer_histogram_intersection::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.rvm_trainer_histogram_intersection").create() -> <dlib.rvm_trainer_histogram_intersection object>
+    [propget propput] $orvm_trainer_histogram_intersection.epsilon
 ```
 
-### dlib::rvm_trainer_histogram_intersection::train
+### dlib::rvm\_trainer\_histogram\_intersection::get\_create
+
+```cpp
+static dlib::rvm_trainer_histogram_intersection dlib::rvm_trainer_histogram_intersection::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_histogram_intersection").create() -> <dlib.rvm_trainer_histogram_intersection object>
+    _Dlib_ObjCreate("dlib.rvm_trainer_histogram_intersection")() -> <dlib.rvm_trainer_histogram_intersection object>
+```
+
+### dlib::rvm\_trainer\_histogram\_intersection::train
 
 ```cpp
 dlib::_decision_function_histogram_intersection dlib::rvm_trainer_histogram_intersection::train( std::vector<dlib::SpaceVector> samples,
@@ -5200,17 +8795,26 @@ AutoIt:
     $orvm_trainer_histogram_intersection.train( $samples, $labels ) -> retval
 ```
 
-## dlib::rvm_trainer_sparse_histogram_intersection
+## dlib::rvm\_trainer\_sparse\_histogram\_intersection
 
-### dlib::rvm_trainer_sparse_histogram_intersection::create
+### rvm\_trainer\_sparse\_histogram\_intersection.epsilon
 
 ```cpp
-static dlib::rvm_trainer_sparse_histogram_intersection dlib::rvm_trainer_sparse_histogram_intersection::create();
+double dlib::rvm_trainer_sparse_histogram_intersection::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_histogram_intersection").create() -> <dlib.rvm_trainer_sparse_histogram_intersection object>
+    [propget propput] $orvm_trainer_sparse_histogram_intersection.epsilon
 ```
 
-### dlib::rvm_trainer_sparse_histogram_intersection::train
+### dlib::rvm\_trainer\_sparse\_histogram\_intersection::get\_create
+
+```cpp
+static dlib::rvm_trainer_sparse_histogram_intersection dlib::rvm_trainer_sparse_histogram_intersection::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_histogram_intersection").create() -> <dlib.rvm_trainer_sparse_histogram_intersection object>
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_histogram_intersection")() -> <dlib.rvm_trainer_sparse_histogram_intersection object>
+```
+
+### dlib::rvm\_trainer\_sparse\_histogram\_intersection::train
 
 ```cpp
 dlib::_decision_function_sparse_histogram_intersection dlib::rvm_trainer_sparse_histogram_intersection::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
@@ -5219,17 +8823,26 @@ AutoIt:
     $orvm_trainer_sparse_histogram_intersection.train( $samples, $labels ) -> retval
 ```
 
-## dlib::rvm_trainer_linear
+## dlib::rvm\_trainer\_linear
 
-### dlib::rvm_trainer_linear::create
+### rvm\_trainer\_linear.epsilon
 
 ```cpp
-static dlib::rvm_trainer_linear dlib::rvm_trainer_linear::create();
+double dlib::rvm_trainer_linear::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.rvm_trainer_linear").create() -> <dlib.rvm_trainer_linear object>
+    [propget propput] $orvm_trainer_linear.epsilon
 ```
 
-### dlib::rvm_trainer_linear::train
+### dlib::rvm\_trainer\_linear::get\_create
+
+```cpp
+static dlib::rvm_trainer_linear dlib::rvm_trainer_linear::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_linear").create() -> <dlib.rvm_trainer_linear object>
+    _Dlib_ObjCreate("dlib.rvm_trainer_linear")() -> <dlib.rvm_trainer_linear object>
+```
+
+### dlib::rvm\_trainer\_linear::train
 
 ```cpp
 dlib::_decision_function_linear dlib::rvm_trainer_linear::train( std::vector<dlib::SpaceVector> samples,
@@ -5238,17 +8851,26 @@ AutoIt:
     $orvm_trainer_linear.train( $samples, $labels ) -> retval
 ```
 
-## dlib::rvm_trainer_sparse_linear
+## dlib::rvm\_trainer\_sparse\_linear
 
-### dlib::rvm_trainer_sparse_linear::create
+### rvm\_trainer\_sparse\_linear.epsilon
 
 ```cpp
-static dlib::rvm_trainer_sparse_linear dlib::rvm_trainer_sparse_linear::create();
+double dlib::rvm_trainer_sparse_linear::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_linear").create() -> <dlib.rvm_trainer_sparse_linear object>
+    [propget propput] $orvm_trainer_sparse_linear.epsilon
 ```
 
-### dlib::rvm_trainer_sparse_linear::train
+### dlib::rvm\_trainer\_sparse\_linear::get\_create
+
+```cpp
+static dlib::rvm_trainer_sparse_linear dlib::rvm_trainer_sparse_linear::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_linear").create() -> <dlib.rvm_trainer_sparse_linear object>
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_linear")() -> <dlib.rvm_trainer_sparse_linear object>
+```
+
+### dlib::rvm\_trainer\_sparse\_linear::train
 
 ```cpp
 dlib::_decision_function_sparse_linear dlib::rvm_trainer_sparse_linear::train( std::vector<std::vector<std::pair<ULONG, double>>> samples,
@@ -5257,51 +8879,136 @@ AutoIt:
     $orvm_trainer_sparse_linear.train( $samples, $labels ) -> retval
 ```
 
-## dlib::vec_ranking_pair
+## dlib::vec\_ranking\_pair
 
-### dlib::vec_ranking_pair::create
+### vec\_ranking\_pair.relevant
 
 ```cpp
-static dlib::vec_ranking_pair dlib::vec_ranking_pair::create();
+std::vector<dlib::SpaceVector> dlib::vec_ranking_pair::relevant
+AutoIt:
+    [propget propput] $ovec_ranking_pair.relevant
+```
+
+### vec\_ranking\_pair.nonrelevant
+
+```cpp
+std::vector<dlib::SpaceVector> dlib::vec_ranking_pair::nonrelevant
+AutoIt:
+    [propget propput] $ovec_ranking_pair.nonrelevant
+```
+
+### dlib::vec\_ranking\_pair::get\_create
+
+```cpp
+static dlib::vec_ranking_pair dlib::vec_ranking_pair::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_pair").create() -> <dlib.vec_ranking_pair object>
+    _Dlib_ObjCreate("dlib.ranking_pair")() -> <dlib.vec_ranking_pair object>
 ```
 
 ```cpp
-static dlib::vec_ranking_pair dlib::vec_ranking_pair::create( std::vector<dlib::SpaceVector> relevant,
-                                                              std::vector<dlib::SpaceVector> nonrelevant );
+static dlib::vec_ranking_pair dlib::vec_ranking_pair::get_create( std::vector<dlib::SpaceVector> relevant,
+                                                                  std::vector<dlib::SpaceVector> nonrelevant );
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_pair").create( $relevant, $nonrelevant ) -> <dlib.vec_ranking_pair object>
+    _Dlib_ObjCreate("dlib.ranking_pair")( $relevant, $nonrelevant ) -> <dlib.vec_ranking_pair object>
 ```
 
-## dlib::sparse_ranking_pair
+## dlib::sparse\_ranking\_pair
 
-### dlib::sparse_ranking_pair::create
+### sparse\_ranking\_pair.relevant
 
 ```cpp
-static dlib::sparse_ranking_pair dlib::sparse_ranking_pair::create();
+std::vector<std::vector<std::pair<ULONG, double>>> dlib::sparse_ranking_pair::relevant
+AutoIt:
+    [propget propput] $osparse_ranking_pair.relevant
+```
+
+### sparse\_ranking\_pair.nonrelevant
+
+```cpp
+std::vector<std::vector<std::pair<ULONG, double>>> dlib::sparse_ranking_pair::nonrelevant
+AutoIt:
+    [propget propput] $osparse_ranking_pair.nonrelevant
+```
+
+### dlib::sparse\_ranking\_pair::get\_create
+
+```cpp
+static dlib::sparse_ranking_pair dlib::sparse_ranking_pair::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.sparse_ranking_pair").create() -> <dlib.sparse_ranking_pair object>
+    _Dlib_ObjCreate("dlib.sparse_ranking_pair")() -> <dlib.sparse_ranking_pair object>
 ```
 
 ```cpp
-static dlib::sparse_ranking_pair dlib::sparse_ranking_pair::create( std::vector<std::vector<std::pair<ULONG, double>>> relevant,
-                                                                    std::vector<std::vector<std::pair<ULONG, double>>> nonrelevant );
+static dlib::sparse_ranking_pair dlib::sparse_ranking_pair::get_create( std::vector<std::vector<std::pair<ULONG, double>>> relevant,
+                                                                        std::vector<std::vector<std::pair<ULONG, double>>> nonrelevant );
 AutoIt:
     _Dlib_ObjCreate("dlib.sparse_ranking_pair").create( $relevant, $nonrelevant ) -> <dlib.sparse_ranking_pair object>
+    _Dlib_ObjCreate("dlib.sparse_ranking_pair")( $relevant, $nonrelevant ) -> <dlib.sparse_ranking_pair object>
 ```
 
-## dlib::vec_svm_rank_trainer
+## dlib::vec\_svm\_rank\_trainer
 
-### dlib::vec_svm_rank_trainer::create
+### vec\_svm\_rank\_trainer.epsilon
 
 ```cpp
-static dlib::vec_svm_rank_trainer dlib::vec_svm_rank_trainer::create();
+double dlib::vec_svm_rank_trainer::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.svm_rank_trainer").create() -> <dlib.vec_svm_rank_trainer object>
+    [propget propput] $ovec_svm_rank_trainer.epsilon
 ```
 
-### dlib::vec_svm_rank_trainer::be_quiet
+### vec\_svm\_rank\_trainer.c
+
+```cpp
+double dlib::vec_svm_rank_trainer::c
+AutoIt:
+    [propget propput] $ovec_svm_rank_trainer.c
+```
+
+### vec\_svm\_rank\_trainer.max\_iterations
+
+```cpp
+ULONG dlib::vec_svm_rank_trainer::max_iterations
+AutoIt:
+    [propget propput] $ovec_svm_rank_trainer.max_iterations
+```
+
+### vec\_svm\_rank\_trainer.force\_last\_weight\_to\_1
+
+```cpp
+bool dlib::vec_svm_rank_trainer::force_last_weight_to_1
+AutoIt:
+    [propget propput] $ovec_svm_rank_trainer.force_last_weight_to_1
+```
+
+### vec\_svm\_rank\_trainer.learns\_nonnegative\_weights
+
+```cpp
+bool dlib::vec_svm_rank_trainer::learns_nonnegative_weights
+AutoIt:
+    [propget propput] $ovec_svm_rank_trainer.learns_nonnegative_weights
+```
+
+### vec\_svm\_rank\_trainer.has\_prior
+
+```cpp
+bool dlib::vec_svm_rank_trainer::has_prior()
+AutoIt:
+    [propget] $ovec_svm_rank_trainer.has_prior
+```
+
+### dlib::vec\_svm\_rank\_trainer::get\_create
+
+```cpp
+static dlib::vec_svm_rank_trainer dlib::vec_svm_rank_trainer::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_rank_trainer").create() -> <dlib.vec_svm_rank_trainer object>
+    _Dlib_ObjCreate("dlib.svm_rank_trainer")() -> <dlib.vec_svm_rank_trainer object>
+```
+
+### dlib::vec\_svm\_rank\_trainer::be\_quiet
 
 ```cpp
 void dlib::vec_svm_rank_trainer::be_quiet();
@@ -5309,7 +9016,7 @@ AutoIt:
     $ovec_svm_rank_trainer.be_quiet() -> None
 ```
 
-### dlib::vec_svm_rank_trainer::be_verbose
+### dlib::vec\_svm\_rank\_trainer::be\_verbose
 
 ```cpp
 void dlib::vec_svm_rank_trainer::be_verbose();
@@ -5317,7 +9024,7 @@ AutoIt:
     $ovec_svm_rank_trainer.be_verbose() -> None
 ```
 
-### dlib::vec_svm_rank_trainer::set_prior
+### dlib::vec\_svm\_rank\_trainer::set\_prior
 
 ```cpp
 void dlib::vec_svm_rank_trainer::set_prior( dlib::_decision_function_linear prior_ );
@@ -5325,7 +9032,7 @@ AutoIt:
     $ovec_svm_rank_trainer.set_prior( $prior_ ) -> None
 ```
 
-### dlib::vec_svm_rank_trainer::train
+### dlib::vec\_svm\_rank\_trainer::train
 
 ```cpp
 dlib::_decision_function_linear dlib::vec_svm_rank_trainer::train( dlib::vec_ranking_pair sample );
@@ -5339,17 +9046,66 @@ AutoIt:
     $ovec_svm_rank_trainer.train( $samples ) -> retval
 ```
 
-## dlib::svm_rank_trainer_sparse
+## dlib::svm\_rank\_trainer\_sparse
 
-### dlib::svm_rank_trainer_sparse::create
+### svm\_rank\_trainer\_sparse.epsilon
 
 ```cpp
-static dlib::svm_rank_trainer_sparse dlib::svm_rank_trainer_sparse::create();
+double dlib::svm_rank_trainer_sparse::epsilon
 AutoIt:
-    _Dlib_ObjCreate("dlib.svm_rank_trainer_sparse").create() -> <dlib.svm_rank_trainer_sparse object>
+    [propget propput] $osvm_rank_trainer_sparse.epsilon
 ```
 
-### dlib::svm_rank_trainer_sparse::be_quiet
+### svm\_rank\_trainer\_sparse.c
+
+```cpp
+double dlib::svm_rank_trainer_sparse::c
+AutoIt:
+    [propget propput] $osvm_rank_trainer_sparse.c
+```
+
+### svm\_rank\_trainer\_sparse.max\_iterations
+
+```cpp
+ULONG dlib::svm_rank_trainer_sparse::max_iterations
+AutoIt:
+    [propget propput] $osvm_rank_trainer_sparse.max_iterations
+```
+
+### svm\_rank\_trainer\_sparse.force\_last\_weight\_to\_1
+
+```cpp
+bool dlib::svm_rank_trainer_sparse::force_last_weight_to_1
+AutoIt:
+    [propget propput] $osvm_rank_trainer_sparse.force_last_weight_to_1
+```
+
+### svm\_rank\_trainer\_sparse.learns\_nonnegative\_weights
+
+```cpp
+bool dlib::svm_rank_trainer_sparse::learns_nonnegative_weights
+AutoIt:
+    [propget propput] $osvm_rank_trainer_sparse.learns_nonnegative_weights
+```
+
+### svm\_rank\_trainer\_sparse.has\_prior
+
+```cpp
+bool dlib::svm_rank_trainer_sparse::has_prior()
+AutoIt:
+    [propget] $osvm_rank_trainer_sparse.has_prior
+```
+
+### dlib::svm\_rank\_trainer\_sparse::get\_create
+
+```cpp
+static dlib::svm_rank_trainer_sparse dlib::svm_rank_trainer_sparse::get_create();
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_rank_trainer_sparse").create() -> <dlib.svm_rank_trainer_sparse object>
+    _Dlib_ObjCreate("dlib.svm_rank_trainer_sparse")() -> <dlib.svm_rank_trainer_sparse object>
+```
+
+### dlib::svm\_rank\_trainer\_sparse::be\_quiet
 
 ```cpp
 void dlib::svm_rank_trainer_sparse::be_quiet();
@@ -5357,7 +9113,7 @@ AutoIt:
     $osvm_rank_trainer_sparse.be_quiet() -> None
 ```
 
-### dlib::svm_rank_trainer_sparse::be_verbose
+### dlib::svm\_rank\_trainer\_sparse::be\_verbose
 
 ```cpp
 void dlib::svm_rank_trainer_sparse::be_verbose();
@@ -5365,7 +9121,7 @@ AutoIt:
     $osvm_rank_trainer_sparse.be_verbose() -> None
 ```
 
-### dlib::svm_rank_trainer_sparse::set_prior
+### dlib::svm\_rank\_trainer\_sparse::set\_prior
 
 ```cpp
 void dlib::svm_rank_trainer_sparse::set_prior( dlib::_decision_function_sparse_linear prior_ );
@@ -5373,7 +9129,7 @@ AutoIt:
     $osvm_rank_trainer_sparse.set_prior( $prior_ ) -> None
 ```
 
-### dlib::svm_rank_trainer_sparse::train
+### dlib::svm\_rank\_trainer\_sparse::train
 
 ```cpp
 dlib::_decision_function_sparse_linear dlib::svm_rank_trainer_sparse::train( dlib::sparse_ranking_pair sample );
@@ -5388,6 +9144,14 @@ AutoIt:
 ```
 
 ## dlib::SpaceVector
+
+### SpaceVector.shape
+
+```cpp
+std::tuple<long, long> dlib::SpaceVector::shape
+AutoIt:
+    [propget] $oSpaceVector.shape
+```
 
 ### dlib::SpaceVector::create
 
@@ -5412,7 +9176,7 @@ AutoIt:
 ### dlib::SpaceVector::ToString
 
 ```cpp
-string dlib::SpaceVector::ToString();
+std::string dlib::SpaceVector::ToString();
 AutoIt:
     $oSpaceVector.ToString() -> retval
 ```
@@ -5425,16 +9189,16 @@ AutoIt:
     $oSpaceVector.get( $row ) -> retval
 ```
 
-### dlib::SpaceVector::get_Item
+### dlib::SpaceVector::get\_Item
 
 ```cpp
 double dlib::SpaceVector::get_Item( long row );
 AutoIt:
     $oSpaceVector.Item( $row ) -> retval
-    dlib.vector( $row ) -> retval
+    $oSpaceVector( $row ) -> retval
 ```
 
-### dlib::SpaceVector::put_Item
+### dlib::SpaceVector::put\_Item
 
 ```cpp
 void dlib::SpaceVector::put_Item( long   row,
@@ -5460,7 +9224,7 @@ AutoIt:
     $oSpaceVector.set( $row, $val ) -> None
 ```
 
-### dlib::SpaceVector::set_size
+### dlib::SpaceVector::set\_size
 
 ```cpp
 void dlib::SpaceVector::set_size( long rows );
@@ -5480,55 +9244,84 @@ AutoIt:
 
 ```cpp
 dlib::SpaceVector dlib::SpaceVector::slice( long start,
-                                            long stop = this->__self->get()->size(),
+                                            long stop = __self->get()->size(),
                                             long step = 1 );
 AutoIt:
     $oSpaceVector.slice( $start[, $stop[, $step]] ) -> retval
 ```
 
-## dlib::point_transform_projective
+## dlib::point\_transform\_projective
 
-### dlib::point_transform_projective::create
+### point\_transform\_projective.m
 
 ```cpp
-static dlib::point_transform_projective dlib::point_transform_projective::create();
+dlib::Matrix dlib::point_transform_projective::get_m()
+AutoIt:
+    [propget] $opoint_transform_projective.m
+```
+
+### dlib::point\_transform\_projective::get\_create
+
+```cpp
+static dlib::point_transform_projective dlib::point_transform_projective::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.point_transform_projective").create() -> <dlib.point_transform_projective object>
+    _Dlib_ObjCreate("dlib.point_transform_projective")() -> <dlib.point_transform_projective object>
 ```
 
 ```cpp
-std::shared_ptr<dlib::point_transform_projective> dlib::point_transform_projective::create( dlib::Matrix m );
+std::shared_ptr<dlib::point_transform_projective> dlib::point_transform_projective::get_create( dlib::Matrix m );
 AutoIt:
     $opoint_transform_projective.create( $m ) -> retval
+    $opoint_transform_projective( $m ) -> retval
 ```
 
 ```cpp
-std::shared_ptr<dlib::point_transform_projective> dlib::point_transform_projective::create( cv::Mat m );
+std::shared_ptr<dlib::point_transform_projective> dlib::point_transform_projective::get_create( cv::Mat m );
 AutoIt:
     $opoint_transform_projective.create( $m ) -> retval
+    $opoint_transform_projective( $m ) -> retval
 ```
 
 ## dlib::dpoint
 
-### dlib::dpoint::create
+### dpoint.x
 
 ```cpp
-static dlib::dpoint dlib::dpoint::create( double& x = 0,
-                                          double& y = 0 );
+double dlib::dpoint::x()
+AutoIt:
+    [propget propput] $odpoint.x
+```
+
+### dpoint.y
+
+```cpp
+double dlib::dpoint::y()
+AutoIt:
+    [propget propput] $odpoint.y
+```
+
+### dlib::dpoint::get\_create
+
+```cpp
+static dlib::dpoint dlib::dpoint::get_create( double& x = 0,
+                                              double& y = 0 );
 AutoIt:
     _Dlib_ObjCreate("dlib.dpoint").create( [$x[, $y]] ) -> <dlib.dpoint object>
+    _Dlib_ObjCreate("dlib.dpoint")( [$x[, $y]] ) -> <dlib.dpoint object>
 ```
 
 ```cpp
-static dlib::dpoint dlib::dpoint::create( dlib::point& p );
+static dlib::dpoint dlib::dpoint::get_create( dlib::point& p );
 AutoIt:
     _Dlib_ObjCreate("dlib.dpoint").create( $p ) -> <dlib.dpoint object>
+    _Dlib_ObjCreate("dlib.dpoint")( $p ) -> <dlib.dpoint object>
 ```
 
 ### dlib::dpoint::ToString
 
 ```cpp
-string dlib::dpoint::ToString();
+std::string dlib::dpoint::ToString();
 AutoIt:
     $odpoint.ToString() -> retval
 ```
@@ -5575,25 +9368,43 @@ AutoIt:
 
 ## dlib::point
 
-### dlib::point::create
+### point.x
 
 ```cpp
-static dlib::point dlib::point::create( long& x = 0,
-                                        long& y = 0 );
+long dlib::point::x()
+AutoIt:
+    [propget propput] $opoint.x
+```
+
+### point.y
+
+```cpp
+long dlib::point::y()
+AutoIt:
+    [propget propput] $opoint.y
+```
+
+### dlib::point::get\_create
+
+```cpp
+static dlib::point dlib::point::get_create( long& x = 0,
+                                            long& y = 0 );
 AutoIt:
     _Dlib_ObjCreate("dlib.point").create( [$x[, $y]] ) -> <dlib.point object>
+    _Dlib_ObjCreate("dlib.point")( [$x[, $y]] ) -> <dlib.point object>
 ```
 
 ```cpp
-static dlib::point dlib::point::create( dlib::dpoint& p );
+static dlib::point dlib::point::get_create( dlib::dpoint& p );
 AutoIt:
     _Dlib_ObjCreate("dlib.point").create( $p ) -> <dlib.point object>
+    _Dlib_ObjCreate("dlib.point")( $p ) -> <dlib.point object>
 ```
 
 ### dlib::point::ToString
 
 ```cpp
-string dlib::point::ToString();
+std::string dlib::point::ToString();
 AutoIt:
     $opoint.ToString() -> retval
 ```
@@ -5638,7 +9449,219 @@ AutoIt:
     $opoint.sub( $other ) -> retval
 ```
 
+## VectorOfString
+
+### VectorOfString.Count
+
+```cpp
+size_t VectorOfString::size()
+AutoIt:
+    [propget] $oVectorOfString.Count
+```
+
+### VectorOfString::create
+
+```cpp
+static VectorOfString VectorOfString::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfString").create() -> <VectorOfString object>
+```
+
+```cpp
+static VectorOfString VectorOfString::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfString").create( $size ) -> <VectorOfString object>
+```
+
+```cpp
+static VectorOfString VectorOfString::create( VectorOfString other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfString").create( $other ) -> <VectorOfString object>
+```
+
+### VectorOfString::Add
+
+```cpp
+void VectorOfString::Add( std::string value );
+AutoIt:
+    $oVectorOfString.Add( $value ) -> None
+```
+
+### VectorOfString::Items
+
+```cpp
+VectorOfString VectorOfString::Items();
+AutoIt:
+    $oVectorOfString.Items() -> retval
+```
+
+### VectorOfString::Keys
+
+```cpp
+std::vector<int> VectorOfString::Keys();
+AutoIt:
+    $oVectorOfString.Keys() -> retval
+```
+
+### VectorOfString::Remove
+
+```cpp
+void VectorOfString::Remove( size_t index );
+AutoIt:
+    $oVectorOfString.Remove( $index ) -> None
+```
+
+### VectorOfString::append
+
+```cpp
+void VectorOfString::append( std::string value );
+AutoIt:
+    $oVectorOfString.append( $value ) -> None
+```
+
+### VectorOfString::at
+
+```cpp
+std::string VectorOfString::at( size_t index );
+AutoIt:
+    $oVectorOfString.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfString::at( size_t      index,
+                         std::string value );
+AutoIt:
+    $oVectorOfString.at( $index, $value ) -> None
+```
+
+### VectorOfString::clear
+
+```cpp
+void VectorOfString::clear();
+AutoIt:
+    $oVectorOfString.clear() -> None
+```
+
+### VectorOfString::empty
+
+```cpp
+bool VectorOfString::empty();
+AutoIt:
+    $oVectorOfString.empty() -> retval
+```
+
+### VectorOfString::end
+
+```cpp
+void* VectorOfString::end();
+AutoIt:
+    $oVectorOfString.end() -> retval
+```
+
+### VectorOfString::get\_Item
+
+```cpp
+std::string VectorOfString::get_Item( size_t index );
+AutoIt:
+    $oVectorOfString.Item( $index ) -> retval
+    $oVectorOfString( $index ) -> retval
+```
+
+### VectorOfString::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfString::get__NewEnum();
+AutoIt:
+    $oVectorOfString._NewEnum() -> retval
+```
+
+### VectorOfString::push\_back
+
+```cpp
+void VectorOfString::push_back( std::string value );
+AutoIt:
+    $oVectorOfString.push_back( $value ) -> None
+```
+
+### VectorOfString::push\_vector
+
+```cpp
+void VectorOfString::push_vector( VectorOfString other );
+AutoIt:
+    $oVectorOfString.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfString::push_vector( VectorOfString other,
+                                  size_t         count,
+                                  size_t         start = 0 );
+AutoIt:
+    $oVectorOfString.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfString::put\_Item
+
+```cpp
+void VectorOfString::put_Item( size_t      index,
+                               std::string item );
+AutoIt:
+    $oVectorOfString.Item( $index ) = $item
+```
+
+### VectorOfString::size
+
+```cpp
+size_t VectorOfString::size();
+AutoIt:
+    $oVectorOfString.size() -> retval
+```
+
+### VectorOfString::slice
+
+```cpp
+VectorOfString VectorOfString::slice( size_t start = 0,
+                                      size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfString.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfString::sort
+
+```cpp
+void VectorOfString::sort( void*  comparator,
+                           size_t start = 0,
+                           size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfString.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfString::sort\_variant
+
+```cpp
+void VectorOfString::sort_variant( void*  comparator,
+                                   size_t start = 0,
+                                   size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfString.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfString::start
+
+```cpp
+void* VectorOfString::start();
+AutoIt:
+    $oVectorOfString.start() -> retval
+```
+
 ## VectorOfVariant
+
+### VectorOfVariant.Count
+
+```cpp
+size_t VectorOfVariant::size()
+AutoIt:
+    [propget] $oVectorOfVariant.Count
+```
 
 ### VectorOfVariant::create
 
@@ -5692,6 +9715,14 @@ AutoIt:
     $oVectorOfVariant.Remove( $index ) -> None
 ```
 
+### VectorOfVariant::append
+
+```cpp
+void VectorOfVariant::append( _variant_t value );
+AutoIt:
+    $oVectorOfVariant.append( $value ) -> None
+```
+
 ### VectorOfVariant::at
 
 ```cpp
@@ -5731,7 +9762,24 @@ AutoIt:
     $oVectorOfVariant.end() -> retval
 ```
 
-### VectorOfVariant::push_back
+### VectorOfVariant::get\_Item
+
+```cpp
+_variant_t VectorOfVariant::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVariant.Item( $index ) -> retval
+    $oVectorOfVariant( $index ) -> retval
+```
+
+### VectorOfVariant::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVariant::get__NewEnum();
+AutoIt:
+    $oVectorOfVariant._NewEnum() -> retval
+```
+
+### VectorOfVariant::push\_back
 
 ```cpp
 void VectorOfVariant::push_back( _variant_t value );
@@ -5739,7 +9787,7 @@ AutoIt:
     $oVectorOfVariant.push_back( $value ) -> None
 ```
 
-### VectorOfVariant::push_vector
+### VectorOfVariant::push\_vector
 
 ```cpp
 void VectorOfVariant::push_vector( VectorOfVariant other );
@@ -5755,6 +9803,15 @@ AutoIt:
     $oVectorOfVariant.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfVariant::put\_Item
+
+```cpp
+void VectorOfVariant::put_Item( size_t     index,
+                                _variant_t item );
+AutoIt:
+    $oVectorOfVariant.Item( $index ) = $item
+```
+
 ### VectorOfVariant::size
 
 ```cpp
@@ -5767,7 +9824,7 @@ AutoIt:
 
 ```cpp
 VectorOfVariant VectorOfVariant::slice( size_t start = 0,
-                                        size_t count = this->__self->get()->size() );
+                                        size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVariant.slice( [$start[, $count]] ) -> retval
 ```
@@ -5777,17 +9834,17 @@ AutoIt:
 ```cpp
 void VectorOfVariant::sort( void*  comparator,
                             size_t start = 0,
-                            size_t count = this->__self->get()->size() );
+                            size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVariant.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVariant::sort_variant
+### VectorOfVariant::sort\_variant
 
 ```cpp
 void VectorOfVariant::sort_variant( void*  comparator,
                                     size_t start = 0,
-                                    size_t count = this->__self->get()->size() );
+                                    size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVariant.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -5800,25 +9857,15 @@ AutoIt:
     $oVectorOfVariant.start() -> retval
 ```
 
-### VectorOfVariant::get_Item
-
-```cpp
-_variant_t VectorOfVariant::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfVariant.Item( $vIndex ) -> retval
-    VectorOfVariant( $vIndex ) -> retval
-```
-
-### VectorOfVariant::put_Item
-
-```cpp
-void VectorOfVariant::put_Item( size_t     vIndex,
-                                _variant_t vItem );
-AutoIt:
-    $oVectorOfVariant.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfPairOfULONGAndDouble
+
+### VectorOfPairOfULONGAndDouble.Count
+
+```cpp
+size_t VectorOfPairOfULONGAndDouble::size()
+AutoIt:
+    [propget] $oVectorOfPairOfULONGAndDouble.Count
+```
 
 ### VectorOfPairOfULONGAndDouble::create
 
@@ -5872,6 +9919,14 @@ AutoIt:
     $oVectorOfPairOfULONGAndDouble.Remove( $index ) -> None
 ```
 
+### VectorOfPairOfULONGAndDouble::append
+
+```cpp
+void VectorOfPairOfULONGAndDouble::append( std::pair<ULONG, double> value );
+AutoIt:
+    $oVectorOfPairOfULONGAndDouble.append( $value ) -> None
+```
+
 ### VectorOfPairOfULONGAndDouble::at
 
 ```cpp
@@ -5911,7 +9966,24 @@ AutoIt:
     $oVectorOfPairOfULONGAndDouble.end() -> retval
 ```
 
-### VectorOfPairOfULONGAndDouble::push_back
+### VectorOfPairOfULONGAndDouble::get\_Item
+
+```cpp
+std::pair<ULONG, double> VectorOfPairOfULONGAndDouble::get_Item( size_t index );
+AutoIt:
+    $oVectorOfPairOfULONGAndDouble.Item( $index ) -> retval
+    $oVectorOfPairOfULONGAndDouble( $index ) -> retval
+```
+
+### VectorOfPairOfULONGAndDouble::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfPairOfULONGAndDouble::get__NewEnum();
+AutoIt:
+    $oVectorOfPairOfULONGAndDouble._NewEnum() -> retval
+```
+
+### VectorOfPairOfULONGAndDouble::push\_back
 
 ```cpp
 void VectorOfPairOfULONGAndDouble::push_back( std::pair<ULONG, double> value );
@@ -5919,7 +9991,7 @@ AutoIt:
     $oVectorOfPairOfULONGAndDouble.push_back( $value ) -> None
 ```
 
-### VectorOfPairOfULONGAndDouble::push_vector
+### VectorOfPairOfULONGAndDouble::push\_vector
 
 ```cpp
 void VectorOfPairOfULONGAndDouble::push_vector( VectorOfPairOfULONGAndDouble other );
@@ -5935,6 +10007,15 @@ AutoIt:
     $oVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfPairOfULONGAndDouble::put\_Item
+
+```cpp
+void VectorOfPairOfULONGAndDouble::put_Item( size_t                   index,
+                                             std::pair<ULONG, double> item );
+AutoIt:
+    $oVectorOfPairOfULONGAndDouble.Item( $index ) = $item
+```
+
 ### VectorOfPairOfULONGAndDouble::size
 
 ```cpp
@@ -5947,7 +10028,7 @@ AutoIt:
 
 ```cpp
 VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::slice( size_t start = 0,
-                                                                  size_t count = this->__self->get()->size() );
+                                                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -5957,17 +10038,17 @@ AutoIt:
 ```cpp
 void VectorOfPairOfULONGAndDouble::sort( void*  comparator,
                                          size_t start = 0,
-                                         size_t count = this->__self->get()->size() );
+                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfPairOfULONGAndDouble::sort_variant
+### VectorOfPairOfULONGAndDouble::sort\_variant
 
 ```cpp
 void VectorOfPairOfULONGAndDouble::sort_variant( void*  comparator,
                                                  size_t start = 0,
-                                                 size_t count = this->__self->get()->size() );
+                                                 size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -5980,25 +10061,15 @@ AutoIt:
     $oVectorOfPairOfULONGAndDouble.start() -> retval
 ```
 
-### VectorOfPairOfULONGAndDouble::get_Item
-
-```cpp
-std::pair<ULONG, double> VectorOfPairOfULONGAndDouble::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfPairOfULONGAndDouble.Item( $vIndex ) -> retval
-    VectorOfPairOfULONGAndDouble( $vIndex ) -> retval
-```
-
-### VectorOfPairOfULONGAndDouble::put_Item
-
-```cpp
-void VectorOfPairOfULONGAndDouble::put_Item( size_t                   vIndex,
-                                             std::pair<ULONG, double> vItem );
-AutoIt:
-    $oVectorOfPairOfULONGAndDouble.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfLong
+
+### VectorOfLong.Count
+
+```cpp
+size_t VectorOfLong::size()
+AutoIt:
+    [propget] $oVectorOfLong.Count
+```
 
 ### VectorOfLong::create
 
@@ -6052,6 +10123,14 @@ AutoIt:
     $oVectorOfLong.Remove( $index ) -> None
 ```
 
+### VectorOfLong::append
+
+```cpp
+void VectorOfLong::append( long value );
+AutoIt:
+    $oVectorOfLong.append( $value ) -> None
+```
+
 ### VectorOfLong::at
 
 ```cpp
@@ -6091,7 +10170,24 @@ AutoIt:
     $oVectorOfLong.end() -> retval
 ```
 
-### VectorOfLong::push_back
+### VectorOfLong::get\_Item
+
+```cpp
+long VectorOfLong::get_Item( size_t index );
+AutoIt:
+    $oVectorOfLong.Item( $index ) -> retval
+    $oVectorOfLong( $index ) -> retval
+```
+
+### VectorOfLong::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfLong::get__NewEnum();
+AutoIt:
+    $oVectorOfLong._NewEnum() -> retval
+```
+
+### VectorOfLong::push\_back
 
 ```cpp
 void VectorOfLong::push_back( long value );
@@ -6099,7 +10195,7 @@ AutoIt:
     $oVectorOfLong.push_back( $value ) -> None
 ```
 
-### VectorOfLong::push_vector
+### VectorOfLong::push\_vector
 
 ```cpp
 void VectorOfLong::push_vector( VectorOfLong other );
@@ -6115,6 +10211,15 @@ AutoIt:
     $oVectorOfLong.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfLong::put\_Item
+
+```cpp
+void VectorOfLong::put_Item( size_t index,
+                             long   item );
+AutoIt:
+    $oVectorOfLong.Item( $index ) = $item
+```
+
 ### VectorOfLong::size
 
 ```cpp
@@ -6127,7 +10232,7 @@ AutoIt:
 
 ```cpp
 VectorOfLong VectorOfLong::slice( size_t start = 0,
-                                  size_t count = this->__self->get()->size() );
+                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfLong.slice( [$start[, $count]] ) -> retval
 ```
@@ -6137,17 +10242,17 @@ AutoIt:
 ```cpp
 void VectorOfLong::sort( void*  comparator,
                          size_t start = 0,
-                         size_t count = this->__self->get()->size() );
+                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfLong.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfLong::sort_variant
+### VectorOfLong::sort\_variant
 
 ```cpp
 void VectorOfLong::sort_variant( void*  comparator,
                                  size_t start = 0,
-                                 size_t count = this->__self->get()->size() );
+                                 size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfLong.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6160,25 +10265,15 @@ AutoIt:
     $oVectorOfLong.start() -> retval
 ```
 
-### VectorOfLong::get_Item
-
-```cpp
-long VectorOfLong::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfLong.Item( $vIndex ) -> retval
-    VectorOfLong( $vIndex ) -> retval
-```
-
-### VectorOfLong::put_Item
-
-```cpp
-void VectorOfLong::put_Item( size_t vIndex,
-                             long   vItem );
-AutoIt:
-    $oVectorOfLong.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfSpaceVector
+
+### VectorOfSpaceVector.Count
+
+```cpp
+size_t VectorOfSpaceVector::size()
+AutoIt:
+    [propget] $oVectorOfSpaceVector.Count
+```
 
 ### VectorOfSpaceVector::create
 
@@ -6232,6 +10327,14 @@ AutoIt:
     $oVectorOfSpaceVector.Remove( $index ) -> None
 ```
 
+### VectorOfSpaceVector::append
+
+```cpp
+void VectorOfSpaceVector::append( dlib::SpaceVector value );
+AutoIt:
+    $oVectorOfSpaceVector.append( $value ) -> None
+```
+
 ### VectorOfSpaceVector::at
 
 ```cpp
@@ -6271,7 +10374,24 @@ AutoIt:
     $oVectorOfSpaceVector.end() -> retval
 ```
 
-### VectorOfSpaceVector::push_back
+### VectorOfSpaceVector::get\_Item
+
+```cpp
+dlib::SpaceVector VectorOfSpaceVector::get_Item( size_t index );
+AutoIt:
+    $oVectorOfSpaceVector.Item( $index ) -> retval
+    $oVectorOfSpaceVector( $index ) -> retval
+```
+
+### VectorOfSpaceVector::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfSpaceVector::get__NewEnum();
+AutoIt:
+    $oVectorOfSpaceVector._NewEnum() -> retval
+```
+
+### VectorOfSpaceVector::push\_back
 
 ```cpp
 void VectorOfSpaceVector::push_back( dlib::SpaceVector value );
@@ -6279,7 +10399,7 @@ AutoIt:
     $oVectorOfSpaceVector.push_back( $value ) -> None
 ```
 
-### VectorOfSpaceVector::push_vector
+### VectorOfSpaceVector::push\_vector
 
 ```cpp
 void VectorOfSpaceVector::push_vector( VectorOfSpaceVector other );
@@ -6295,6 +10415,15 @@ AutoIt:
     $oVectorOfSpaceVector.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfSpaceVector::put\_Item
+
+```cpp
+void VectorOfSpaceVector::put_Item( size_t            index,
+                                    dlib::SpaceVector item );
+AutoIt:
+    $oVectorOfSpaceVector.Item( $index ) = $item
+```
+
 ### VectorOfSpaceVector::size
 
 ```cpp
@@ -6307,7 +10436,7 @@ AutoIt:
 
 ```cpp
 VectorOfSpaceVector VectorOfSpaceVector::slice( size_t start = 0,
-                                                size_t count = this->__self->get()->size() );
+                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSpaceVector.slice( [$start[, $count]] ) -> retval
 ```
@@ -6317,17 +10446,17 @@ AutoIt:
 ```cpp
 void VectorOfSpaceVector::sort( void*  comparator,
                                 size_t start = 0,
-                                size_t count = this->__self->get()->size() );
+                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSpaceVector.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfSpaceVector::sort_variant
+### VectorOfSpaceVector::sort\_variant
 
 ```cpp
 void VectorOfSpaceVector::sort_variant( void*  comparator,
                                         size_t start = 0,
-                                        size_t count = this->__self->get()->size() );
+                                        size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSpaceVector.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6340,25 +10469,15 @@ AutoIt:
     $oVectorOfSpaceVector.start() -> retval
 ```
 
-### VectorOfSpaceVector::get_Item
-
-```cpp
-dlib::SpaceVector VectorOfSpaceVector::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfSpaceVector.Item( $vIndex ) -> retval
-    VectorOfSpaceVector( $vIndex ) -> retval
-```
-
-### VectorOfSpaceVector::put_Item
-
-```cpp
-void VectorOfSpaceVector::put_Item( size_t            vIndex,
-                                    dlib::SpaceVector vItem );
-AutoIt:
-    $oVectorOfSpaceVector.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfDouble
+
+### VectorOfDouble.Count
+
+```cpp
+size_t VectorOfDouble::size()
+AutoIt:
+    [propget] $oVectorOfDouble.Count
+```
 
 ### VectorOfDouble::create
 
@@ -6412,6 +10531,14 @@ AutoIt:
     $oVectorOfDouble.Remove( $index ) -> None
 ```
 
+### VectorOfDouble::append
+
+```cpp
+void VectorOfDouble::append( double value );
+AutoIt:
+    $oVectorOfDouble.append( $value ) -> None
+```
+
 ### VectorOfDouble::at
 
 ```cpp
@@ -6451,7 +10578,24 @@ AutoIt:
     $oVectorOfDouble.end() -> retval
 ```
 
-### VectorOfDouble::push_back
+### VectorOfDouble::get\_Item
+
+```cpp
+double VectorOfDouble::get_Item( size_t index );
+AutoIt:
+    $oVectorOfDouble.Item( $index ) -> retval
+    $oVectorOfDouble( $index ) -> retval
+```
+
+### VectorOfDouble::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfDouble::get__NewEnum();
+AutoIt:
+    $oVectorOfDouble._NewEnum() -> retval
+```
+
+### VectorOfDouble::push\_back
 
 ```cpp
 void VectorOfDouble::push_back( double value );
@@ -6459,7 +10603,7 @@ AutoIt:
     $oVectorOfDouble.push_back( $value ) -> None
 ```
 
-### VectorOfDouble::push_vector
+### VectorOfDouble::push\_vector
 
 ```cpp
 void VectorOfDouble::push_vector( VectorOfDouble other );
@@ -6475,6 +10619,15 @@ AutoIt:
     $oVectorOfDouble.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfDouble::put\_Item
+
+```cpp
+void VectorOfDouble::put_Item( size_t index,
+                               double item );
+AutoIt:
+    $oVectorOfDouble.Item( $index ) = $item
+```
+
 ### VectorOfDouble::size
 
 ```cpp
@@ -6487,7 +10640,7 @@ AutoIt:
 
 ```cpp
 VectorOfDouble VectorOfDouble::slice( size_t start = 0,
-                                      size_t count = this->__self->get()->size() );
+                                      size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -6497,17 +10650,17 @@ AutoIt:
 ```cpp
 void VectorOfDouble::sort( void*  comparator,
                            size_t start = 0,
-                           size_t count = this->__self->get()->size() );
+                           size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfDouble::sort_variant
+### VectorOfDouble::sort\_variant
 
 ```cpp
 void VectorOfDouble::sort_variant( void*  comparator,
                                    size_t start = 0,
-                                   size_t count = this->__self->get()->size() );
+                                   size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6520,25 +10673,15 @@ AutoIt:
     $oVectorOfDouble.start() -> retval
 ```
 
-### VectorOfDouble::get_Item
-
-```cpp
-double VectorOfDouble::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfDouble.Item( $vIndex ) -> retval
-    VectorOfDouble( $vIndex ) -> retval
-```
-
-### VectorOfDouble::put_Item
-
-```cpp
-void VectorOfDouble::put_Item( size_t vIndex,
-                               double vItem );
-AutoIt:
-    $oVectorOfDouble.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfVectorOfPairOfULONGAndDouble
+
+### VectorOfVectorOfPairOfULONGAndDouble.Count
+
+```cpp
+size_t VectorOfVectorOfPairOfULONGAndDouble::size()
+AutoIt:
+    [propget] $oVectorOfVectorOfPairOfULONGAndDouble.Count
+```
 
 ### VectorOfVectorOfPairOfULONGAndDouble::create
 
@@ -6592,6 +10735,14 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.Remove( $index ) -> None
 ```
 
+### VectorOfVectorOfPairOfULONGAndDouble::append
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndDouble::append( std::vector<std::pair<ULONG, double>> value );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.append( $value ) -> None
+```
+
 ### VectorOfVectorOfPairOfULONGAndDouble::at
 
 ```cpp
@@ -6631,7 +10782,24 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.end() -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::push_back
+### VectorOfVectorOfPairOfULONGAndDouble::get\_Item
+
+```cpp
+std::vector<std::pair<ULONG, double>> VectorOfVectorOfPairOfULONGAndDouble::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.Item( $index ) -> retval
+    $oVectorOfVectorOfPairOfULONGAndDouble( $index ) -> retval
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfPairOfULONGAndDouble::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble._NewEnum() -> retval
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::push\_back
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::push_back( std::vector<std::pair<ULONG, double>> value );
@@ -6639,7 +10807,7 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.push_back( $value ) -> None
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::push_vector
+### VectorOfVectorOfPairOfULONGAndDouble::push\_vector
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfPairOfULONGAndDouble other );
@@ -6655,6 +10823,15 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfVectorOfPairOfULONGAndDouble::put\_Item
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndDouble::put_Item( size_t                                index,
+                                                     std::vector<std::pair<ULONG, double>> item );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.Item( $index ) = $item
+```
+
 ### VectorOfVectorOfPairOfULONGAndDouble::size
 
 ```cpp
@@ -6667,7 +10844,7 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
-                                                                                  size_t count = this->__self->get()->size() );
+                                                                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -6677,17 +10854,17 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::sort( void*  comparator,
                                                  size_t start = 0,
-                                                 size_t count = this->__self->get()->size() );
+                                                 size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::sort_variant
+### VectorOfVectorOfPairOfULONGAndDouble::sort\_variant
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndDouble::sort_variant( void*  comparator,
                                                          size_t start = 0,
-                                                         size_t count = this->__self->get()->size() );
+                                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6700,25 +10877,15 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.start() -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::get_Item
-
-```cpp
-std::vector<std::pair<ULONG, double>> VectorOfVectorOfPairOfULONGAndDouble::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.Item( $vIndex ) -> retval
-    VectorOfVectorOfPairOfULONGAndDouble( $vIndex ) -> retval
-```
-
-### VectorOfVectorOfPairOfULONGAndDouble::put_Item
-
-```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::put_Item( size_t                                vIndex,
-                                                     std::vector<std::pair<ULONG, double>> vItem );
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfPoint
+
+### VectorOfPoint.Count
+
+```cpp
+size_t VectorOfPoint::size()
+AutoIt:
+    [propget] $oVectorOfPoint.Count
+```
 
 ### VectorOfPoint::create
 
@@ -6772,6 +10939,14 @@ AutoIt:
     $oVectorOfPoint.Remove( $index ) -> None
 ```
 
+### VectorOfPoint::append
+
+```cpp
+void VectorOfPoint::append( dlib::point value );
+AutoIt:
+    $oVectorOfPoint.append( $value ) -> None
+```
+
 ### VectorOfPoint::at
 
 ```cpp
@@ -6811,7 +10986,24 @@ AutoIt:
     $oVectorOfPoint.end() -> retval
 ```
 
-### VectorOfPoint::push_back
+### VectorOfPoint::get\_Item
+
+```cpp
+dlib::point VectorOfPoint::get_Item( size_t index );
+AutoIt:
+    $oVectorOfPoint.Item( $index ) -> retval
+    $oVectorOfPoint( $index ) -> retval
+```
+
+### VectorOfPoint::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfPoint::get__NewEnum();
+AutoIt:
+    $oVectorOfPoint._NewEnum() -> retval
+```
+
+### VectorOfPoint::push\_back
 
 ```cpp
 void VectorOfPoint::push_back( dlib::point value );
@@ -6819,7 +11011,7 @@ AutoIt:
     $oVectorOfPoint.push_back( $value ) -> None
 ```
 
-### VectorOfPoint::push_vector
+### VectorOfPoint::push\_vector
 
 ```cpp
 void VectorOfPoint::push_vector( VectorOfPoint other );
@@ -6835,6 +11027,15 @@ AutoIt:
     $oVectorOfPoint.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfPoint::put\_Item
+
+```cpp
+void VectorOfPoint::put_Item( size_t      index,
+                              dlib::point item );
+AutoIt:
+    $oVectorOfPoint.Item( $index ) = $item
+```
+
 ### VectorOfPoint::size
 
 ```cpp
@@ -6847,7 +11048,7 @@ AutoIt:
 
 ```cpp
 VectorOfPoint VectorOfPoint::slice( size_t start = 0,
-                                    size_t count = this->__self->get()->size() );
+                                    size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPoint.slice( [$start[, $count]] ) -> retval
 ```
@@ -6857,17 +11058,17 @@ AutoIt:
 ```cpp
 void VectorOfPoint::sort( void*  comparator,
                           size_t start = 0,
-                          size_t count = this->__self->get()->size() );
+                          size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPoint.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfPoint::sort_variant
+### VectorOfPoint::sort\_variant
 
 ```cpp
 void VectorOfPoint::sort_variant( void*  comparator,
                                   size_t start = 0,
-                                  size_t count = this->__self->get()->size() );
+                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPoint.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -6880,25 +11081,15 @@ AutoIt:
     $oVectorOfPoint.start() -> retval
 ```
 
-### VectorOfPoint::get_Item
-
-```cpp
-dlib::point VectorOfPoint::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfPoint.Item( $vIndex ) -> retval
-    VectorOfPoint( $vIndex ) -> retval
-```
-
-### VectorOfPoint::put_Item
-
-```cpp
-void VectorOfPoint::put_Item( size_t      vIndex,
-                              dlib::point vItem );
-AutoIt:
-    $oVectorOfPoint.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfRectangle
+
+### VectorOfRectangle.Count
+
+```cpp
+size_t VectorOfRectangle::size()
+AutoIt:
+    [propget] $oVectorOfRectangle.Count
+```
 
 ### VectorOfRectangle::create
 
@@ -6952,6 +11143,14 @@ AutoIt:
     $oVectorOfRectangle.Remove( $index ) -> None
 ```
 
+### VectorOfRectangle::append
+
+```cpp
+void VectorOfRectangle::append( dlib::rectangle value );
+AutoIt:
+    $oVectorOfRectangle.append( $value ) -> None
+```
+
 ### VectorOfRectangle::at
 
 ```cpp
@@ -6991,7 +11190,24 @@ AutoIt:
     $oVectorOfRectangle.end() -> retval
 ```
 
-### VectorOfRectangle::push_back
+### VectorOfRectangle::get\_Item
+
+```cpp
+dlib::rectangle VectorOfRectangle::get_Item( size_t index );
+AutoIt:
+    $oVectorOfRectangle.Item( $index ) -> retval
+    $oVectorOfRectangle( $index ) -> retval
+```
+
+### VectorOfRectangle::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfRectangle::get__NewEnum();
+AutoIt:
+    $oVectorOfRectangle._NewEnum() -> retval
+```
+
+### VectorOfRectangle::push\_back
 
 ```cpp
 void VectorOfRectangle::push_back( dlib::rectangle value );
@@ -6999,7 +11215,7 @@ AutoIt:
     $oVectorOfRectangle.push_back( $value ) -> None
 ```
 
-### VectorOfRectangle::push_vector
+### VectorOfRectangle::push\_vector
 
 ```cpp
 void VectorOfRectangle::push_vector( VectorOfRectangle other );
@@ -7015,6 +11231,15 @@ AutoIt:
     $oVectorOfRectangle.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfRectangle::put\_Item
+
+```cpp
+void VectorOfRectangle::put_Item( size_t          index,
+                                  dlib::rectangle item );
+AutoIt:
+    $oVectorOfRectangle.Item( $index ) = $item
+```
+
 ### VectorOfRectangle::size
 
 ```cpp
@@ -7027,7 +11252,7 @@ AutoIt:
 
 ```cpp
 VectorOfRectangle VectorOfRectangle::slice( size_t start = 0,
-                                            size_t count = this->__self->get()->size() );
+                                            size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfRectangle.slice( [$start[, $count]] ) -> retval
 ```
@@ -7037,17 +11262,17 @@ AutoIt:
 ```cpp
 void VectorOfRectangle::sort( void*  comparator,
                               size_t start = 0,
-                              size_t count = this->__self->get()->size() );
+                              size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfRectangle.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfRectangle::sort_variant
+### VectorOfRectangle::sort\_variant
 
 ```cpp
 void VectorOfRectangle::sort_variant( void*  comparator,
                                       size_t start = 0,
-                                      size_t count = this->__self->get()->size() );
+                                      size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfRectangle.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7060,25 +11285,15 @@ AutoIt:
     $oVectorOfRectangle.start() -> retval
 ```
 
-### VectorOfRectangle::get_Item
-
-```cpp
-dlib::rectangle VectorOfRectangle::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfRectangle.Item( $vIndex ) -> retval
-    VectorOfRectangle( $vIndex ) -> retval
-```
-
-### VectorOfRectangle::put_Item
-
-```cpp
-void VectorOfRectangle::put_Item( size_t          vIndex,
-                                  dlib::rectangle vItem );
-AutoIt:
-    $oVectorOfRectangle.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfULONG
+
+### VectorOfULONG.Count
+
+```cpp
+size_t VectorOfULONG::size()
+AutoIt:
+    [propget] $oVectorOfULONG.Count
+```
 
 ### VectorOfULONG::create
 
@@ -7132,6 +11347,14 @@ AutoIt:
     $oVectorOfULONG.Remove( $index ) -> None
 ```
 
+### VectorOfULONG::append
+
+```cpp
+void VectorOfULONG::append( ULONG value );
+AutoIt:
+    $oVectorOfULONG.append( $value ) -> None
+```
+
 ### VectorOfULONG::at
 
 ```cpp
@@ -7171,7 +11394,24 @@ AutoIt:
     $oVectorOfULONG.end() -> retval
 ```
 
-### VectorOfULONG::push_back
+### VectorOfULONG::get\_Item
+
+```cpp
+ULONG VectorOfULONG::get_Item( size_t index );
+AutoIt:
+    $oVectorOfULONG.Item( $index ) -> retval
+    $oVectorOfULONG( $index ) -> retval
+```
+
+### VectorOfULONG::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfULONG::get__NewEnum();
+AutoIt:
+    $oVectorOfULONG._NewEnum() -> retval
+```
+
+### VectorOfULONG::push\_back
 
 ```cpp
 void VectorOfULONG::push_back( ULONG value );
@@ -7179,7 +11419,7 @@ AutoIt:
     $oVectorOfULONG.push_back( $value ) -> None
 ```
 
-### VectorOfULONG::push_vector
+### VectorOfULONG::push\_vector
 
 ```cpp
 void VectorOfULONG::push_vector( VectorOfULONG other );
@@ -7195,6 +11435,15 @@ AutoIt:
     $oVectorOfULONG.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfULONG::put\_Item
+
+```cpp
+void VectorOfULONG::put_Item( size_t index,
+                              ULONG  item );
+AutoIt:
+    $oVectorOfULONG.Item( $index ) = $item
+```
+
 ### VectorOfULONG::size
 
 ```cpp
@@ -7207,7 +11456,7 @@ AutoIt:
 
 ```cpp
 VectorOfULONG VectorOfULONG::slice( size_t start = 0,
-                                    size_t count = this->__self->get()->size() );
+                                    size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfULONG.slice( [$start[, $count]] ) -> retval
 ```
@@ -7217,17 +11466,17 @@ AutoIt:
 ```cpp
 void VectorOfULONG::sort( void*  comparator,
                           size_t start = 0,
-                          size_t count = this->__self->get()->size() );
+                          size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfULONG.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfULONG::sort_variant
+### VectorOfULONG::sort\_variant
 
 ```cpp
 void VectorOfULONG::sort_variant( void*  comparator,
                                   size_t start = 0,
-                                  size_t count = this->__self->get()->size() );
+                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7240,25 +11489,15 @@ AutoIt:
     $oVectorOfULONG.start() -> retval
 ```
 
-### VectorOfULONG::get_Item
-
-```cpp
-ULONG VectorOfULONG::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfULONG.Item( $vIndex ) -> retval
-    VectorOfULONG( $vIndex ) -> retval
-```
-
-### VectorOfULONG::put_Item
-
-```cpp
-void VectorOfULONG::put_Item( size_t vIndex,
-                              ULONG  vItem );
-AutoIt:
-    $oVectorOfULONG.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfDpoint
+
+### VectorOfDpoint.Count
+
+```cpp
+size_t VectorOfDpoint::size()
+AutoIt:
+    [propget] $oVectorOfDpoint.Count
+```
 
 ### VectorOfDpoint::create
 
@@ -7312,6 +11551,14 @@ AutoIt:
     $oVectorOfDpoint.Remove( $index ) -> None
 ```
 
+### VectorOfDpoint::append
+
+```cpp
+void VectorOfDpoint::append( dlib::dpoint value );
+AutoIt:
+    $oVectorOfDpoint.append( $value ) -> None
+```
+
 ### VectorOfDpoint::at
 
 ```cpp
@@ -7351,7 +11598,24 @@ AutoIt:
     $oVectorOfDpoint.end() -> retval
 ```
 
-### VectorOfDpoint::push_back
+### VectorOfDpoint::get\_Item
+
+```cpp
+dlib::dpoint VectorOfDpoint::get_Item( size_t index );
+AutoIt:
+    $oVectorOfDpoint.Item( $index ) -> retval
+    $oVectorOfDpoint( $index ) -> retval
+```
+
+### VectorOfDpoint::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfDpoint::get__NewEnum();
+AutoIt:
+    $oVectorOfDpoint._NewEnum() -> retval
+```
+
+### VectorOfDpoint::push\_back
 
 ```cpp
 void VectorOfDpoint::push_back( dlib::dpoint value );
@@ -7359,7 +11623,7 @@ AutoIt:
     $oVectorOfDpoint.push_back( $value ) -> None
 ```
 
-### VectorOfDpoint::push_vector
+### VectorOfDpoint::push\_vector
 
 ```cpp
 void VectorOfDpoint::push_vector( VectorOfDpoint other );
@@ -7375,6 +11639,15 @@ AutoIt:
     $oVectorOfDpoint.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfDpoint::put\_Item
+
+```cpp
+void VectorOfDpoint::put_Item( size_t       index,
+                               dlib::dpoint item );
+AutoIt:
+    $oVectorOfDpoint.Item( $index ) = $item
+```
+
 ### VectorOfDpoint::size
 
 ```cpp
@@ -7387,7 +11660,7 @@ AutoIt:
 
 ```cpp
 VectorOfDpoint VectorOfDpoint::slice( size_t start = 0,
-                                      size_t count = this->__self->get()->size() );
+                                      size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfDpoint.slice( [$start[, $count]] ) -> retval
 ```
@@ -7397,17 +11670,17 @@ AutoIt:
 ```cpp
 void VectorOfDpoint::sort( void*  comparator,
                            size_t start = 0,
-                           size_t count = this->__self->get()->size() );
+                           size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfDpoint.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfDpoint::sort_variant
+### VectorOfDpoint::sort\_variant
 
 ```cpp
 void VectorOfDpoint::sort_variant( void*  comparator,
                                    size_t start = 0,
-                                   size_t count = this->__self->get()->size() );
+                                   size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfDpoint.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7420,27 +11693,17 @@ AutoIt:
     $oVectorOfDpoint.start() -> retval
 ```
 
-### VectorOfDpoint::get_Item
+## VectorOfVec\_ranking\_pair
+
+### VectorOfVec\_ranking\_pair.Count
 
 ```cpp
-dlib::dpoint VectorOfDpoint::get_Item( size_t vIndex );
+size_t VectorOfVec_ranking_pair::size()
 AutoIt:
-    $oVectorOfDpoint.Item( $vIndex ) -> retval
-    VectorOfDpoint( $vIndex ) -> retval
+    [propget] $oVectorOfVec_ranking_pair.Count
 ```
 
-### VectorOfDpoint::put_Item
-
-```cpp
-void VectorOfDpoint::put_Item( size_t       vIndex,
-                               dlib::dpoint vItem );
-AutoIt:
-    $oVectorOfDpoint.Item( $vIndex ) = $vItem
-```
-
-## VectorOfVec_ranking_pair
-
-### VectorOfVec_ranking_pair::create
+### VectorOfVec\_ranking\_pair::create
 
 ```cpp
 static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create();
@@ -7460,7 +11723,7 @@ AutoIt:
     _Dlib_ObjCreate("VectorOfVec_ranking_pair").create( $other ) -> <VectorOfVec_ranking_pair object>
 ```
 
-### VectorOfVec_ranking_pair::Add
+### VectorOfVec\_ranking\_pair::Add
 
 ```cpp
 void VectorOfVec_ranking_pair::Add( dlib::vec_ranking_pair value );
@@ -7468,7 +11731,7 @@ AutoIt:
     $oVectorOfVec_ranking_pair.Add( $value ) -> None
 ```
 
-### VectorOfVec_ranking_pair::Items
+### VectorOfVec\_ranking\_pair::Items
 
 ```cpp
 VectorOfVec_ranking_pair VectorOfVec_ranking_pair::Items();
@@ -7476,7 +11739,7 @@ AutoIt:
     $oVectorOfVec_ranking_pair.Items() -> retval
 ```
 
-### VectorOfVec_ranking_pair::Keys
+### VectorOfVec\_ranking\_pair::Keys
 
 ```cpp
 std::vector<int> VectorOfVec_ranking_pair::Keys();
@@ -7484,7 +11747,7 @@ AutoIt:
     $oVectorOfVec_ranking_pair.Keys() -> retval
 ```
 
-### VectorOfVec_ranking_pair::Remove
+### VectorOfVec\_ranking\_pair::Remove
 
 ```cpp
 void VectorOfVec_ranking_pair::Remove( size_t index );
@@ -7492,7 +11755,15 @@ AutoIt:
     $oVectorOfVec_ranking_pair.Remove( $index ) -> None
 ```
 
-### VectorOfVec_ranking_pair::at
+### VectorOfVec\_ranking\_pair::append
+
+```cpp
+void VectorOfVec_ranking_pair::append( dlib::vec_ranking_pair value );
+AutoIt:
+    $oVectorOfVec_ranking_pair.append( $value ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::at
 
 ```cpp
 dlib::vec_ranking_pair VectorOfVec_ranking_pair::at( size_t index );
@@ -7507,7 +11778,7 @@ AutoIt:
     $oVectorOfVec_ranking_pair.at( $index, $value ) -> None
 ```
 
-### VectorOfVec_ranking_pair::clear
+### VectorOfVec\_ranking\_pair::clear
 
 ```cpp
 void VectorOfVec_ranking_pair::clear();
@@ -7515,7 +11786,7 @@ AutoIt:
     $oVectorOfVec_ranking_pair.clear() -> None
 ```
 
-### VectorOfVec_ranking_pair::empty
+### VectorOfVec\_ranking\_pair::empty
 
 ```cpp
 bool VectorOfVec_ranking_pair::empty();
@@ -7523,7 +11794,7 @@ AutoIt:
     $oVectorOfVec_ranking_pair.empty() -> retval
 ```
 
-### VectorOfVec_ranking_pair::end
+### VectorOfVec\_ranking\_pair::end
 
 ```cpp
 void* VectorOfVec_ranking_pair::end();
@@ -7531,7 +11802,24 @@ AutoIt:
     $oVectorOfVec_ranking_pair.end() -> retval
 ```
 
-### VectorOfVec_ranking_pair::push_back
+### VectorOfVec\_ranking\_pair::get\_Item
+
+```cpp
+dlib::vec_ranking_pair VectorOfVec_ranking_pair::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec_ranking_pair.Item( $index ) -> retval
+    $oVectorOfVec_ranking_pair( $index ) -> retval
+```
+
+### VectorOfVec\_ranking\_pair::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec_ranking_pair::get__NewEnum();
+AutoIt:
+    $oVectorOfVec_ranking_pair._NewEnum() -> retval
+```
+
+### VectorOfVec\_ranking\_pair::push\_back
 
 ```cpp
 void VectorOfVec_ranking_pair::push_back( dlib::vec_ranking_pair value );
@@ -7539,7 +11827,7 @@ AutoIt:
     $oVectorOfVec_ranking_pair.push_back( $value ) -> None
 ```
 
-### VectorOfVec_ranking_pair::push_vector
+### VectorOfVec\_ranking\_pair::push\_vector
 
 ```cpp
 void VectorOfVec_ranking_pair::push_vector( VectorOfVec_ranking_pair other );
@@ -7555,7 +11843,16 @@ AutoIt:
     $oVectorOfVec_ranking_pair.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfVec_ranking_pair::size
+### VectorOfVec\_ranking\_pair::put\_Item
+
+```cpp
+void VectorOfVec_ranking_pair::put_Item( size_t                 index,
+                                         dlib::vec_ranking_pair item );
+AutoIt:
+    $oVectorOfVec_ranking_pair.Item( $index ) = $item
+```
+
+### VectorOfVec\_ranking\_pair::size
 
 ```cpp
 size_t VectorOfVec_ranking_pair::size();
@@ -7563,36 +11860,36 @@ AutoIt:
     $oVectorOfVec_ranking_pair.size() -> retval
 ```
 
-### VectorOfVec_ranking_pair::slice
+### VectorOfVec\_ranking\_pair::slice
 
 ```cpp
 VectorOfVec_ranking_pair VectorOfVec_ranking_pair::slice( size_t start = 0,
-                                                          size_t count = this->__self->get()->size() );
+                                                          size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec_ranking_pair.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfVec_ranking_pair::sort
+### VectorOfVec\_ranking\_pair::sort
 
 ```cpp
 void VectorOfVec_ranking_pair::sort( void*  comparator,
                                      size_t start = 0,
-                                     size_t count = this->__self->get()->size() );
+                                     size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec_ranking_pair.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec_ranking_pair::sort_variant
+### VectorOfVec\_ranking\_pair::sort\_variant
 
 ```cpp
 void VectorOfVec_ranking_pair::sort_variant( void*  comparator,
                                              size_t start = 0,
-                                             size_t count = this->__self->get()->size() );
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec_ranking_pair.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec_ranking_pair::start
+### VectorOfVec\_ranking\_pair::start
 
 ```cpp
 void* VectorOfVec_ranking_pair::start();
@@ -7600,27 +11897,17 @@ AutoIt:
     $oVectorOfVec_ranking_pair.start() -> retval
 ```
 
-### VectorOfVec_ranking_pair::get_Item
+## VectorOfSparse\_ranking\_pair
+
+### VectorOfSparse\_ranking\_pair.Count
 
 ```cpp
-dlib::vec_ranking_pair VectorOfVec_ranking_pair::get_Item( size_t vIndex );
+size_t VectorOfSparse_ranking_pair::size()
 AutoIt:
-    $oVectorOfVec_ranking_pair.Item( $vIndex ) -> retval
-    VectorOfVec_ranking_pair( $vIndex ) -> retval
+    [propget] $oVectorOfSparse_ranking_pair.Count
 ```
 
-### VectorOfVec_ranking_pair::put_Item
-
-```cpp
-void VectorOfVec_ranking_pair::put_Item( size_t                 vIndex,
-                                         dlib::vec_ranking_pair vItem );
-AutoIt:
-    $oVectorOfVec_ranking_pair.Item( $vIndex ) = $vItem
-```
-
-## VectorOfSparse_ranking_pair
-
-### VectorOfSparse_ranking_pair::create
+### VectorOfSparse\_ranking\_pair::create
 
 ```cpp
 static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create();
@@ -7640,7 +11927,7 @@ AutoIt:
     _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create( $other ) -> <VectorOfSparse_ranking_pair object>
 ```
 
-### VectorOfSparse_ranking_pair::Add
+### VectorOfSparse\_ranking\_pair::Add
 
 ```cpp
 void VectorOfSparse_ranking_pair::Add( dlib::sparse_ranking_pair value );
@@ -7648,7 +11935,7 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.Add( $value ) -> None
 ```
 
-### VectorOfSparse_ranking_pair::Items
+### VectorOfSparse\_ranking\_pair::Items
 
 ```cpp
 VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::Items();
@@ -7656,7 +11943,7 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.Items() -> retval
 ```
 
-### VectorOfSparse_ranking_pair::Keys
+### VectorOfSparse\_ranking\_pair::Keys
 
 ```cpp
 std::vector<int> VectorOfSparse_ranking_pair::Keys();
@@ -7664,7 +11951,7 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.Keys() -> retval
 ```
 
-### VectorOfSparse_ranking_pair::Remove
+### VectorOfSparse\_ranking\_pair::Remove
 
 ```cpp
 void VectorOfSparse_ranking_pair::Remove( size_t index );
@@ -7672,7 +11959,15 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.Remove( $index ) -> None
 ```
 
-### VectorOfSparse_ranking_pair::at
+### VectorOfSparse\_ranking\_pair::append
+
+```cpp
+void VectorOfSparse_ranking_pair::append( dlib::sparse_ranking_pair value );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.append( $value ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::at
 
 ```cpp
 dlib::sparse_ranking_pair VectorOfSparse_ranking_pair::at( size_t index );
@@ -7687,7 +11982,7 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.at( $index, $value ) -> None
 ```
 
-### VectorOfSparse_ranking_pair::clear
+### VectorOfSparse\_ranking\_pair::clear
 
 ```cpp
 void VectorOfSparse_ranking_pair::clear();
@@ -7695,7 +11990,7 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.clear() -> None
 ```
 
-### VectorOfSparse_ranking_pair::empty
+### VectorOfSparse\_ranking\_pair::empty
 
 ```cpp
 bool VectorOfSparse_ranking_pair::empty();
@@ -7703,7 +11998,7 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.empty() -> retval
 ```
 
-### VectorOfSparse_ranking_pair::end
+### VectorOfSparse\_ranking\_pair::end
 
 ```cpp
 void* VectorOfSparse_ranking_pair::end();
@@ -7711,7 +12006,24 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.end() -> retval
 ```
 
-### VectorOfSparse_ranking_pair::push_back
+### VectorOfSparse\_ranking\_pair::get\_Item
+
+```cpp
+dlib::sparse_ranking_pair VectorOfSparse_ranking_pair::get_Item( size_t index );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.Item( $index ) -> retval
+    $oVectorOfSparse_ranking_pair( $index ) -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfSparse_ranking_pair::get__NewEnum();
+AutoIt:
+    $oVectorOfSparse_ranking_pair._NewEnum() -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::push\_back
 
 ```cpp
 void VectorOfSparse_ranking_pair::push_back( dlib::sparse_ranking_pair value );
@@ -7719,7 +12031,7 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.push_back( $value ) -> None
 ```
 
-### VectorOfSparse_ranking_pair::push_vector
+### VectorOfSparse\_ranking\_pair::push\_vector
 
 ```cpp
 void VectorOfSparse_ranking_pair::push_vector( VectorOfSparse_ranking_pair other );
@@ -7735,7 +12047,16 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfSparse_ranking_pair::size
+### VectorOfSparse\_ranking\_pair::put\_Item
+
+```cpp
+void VectorOfSparse_ranking_pair::put_Item( size_t                    index,
+                                            dlib::sparse_ranking_pair item );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.Item( $index ) = $item
+```
+
+### VectorOfSparse\_ranking\_pair::size
 
 ```cpp
 size_t VectorOfSparse_ranking_pair::size();
@@ -7743,36 +12064,36 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.size() -> retval
 ```
 
-### VectorOfSparse_ranking_pair::slice
+### VectorOfSparse\_ranking\_pair::slice
 
 ```cpp
 VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::slice( size_t start = 0,
-                                                                size_t count = this->__self->get()->size() );
+                                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSparse_ranking_pair.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfSparse_ranking_pair::sort
+### VectorOfSparse\_ranking\_pair::sort
 
 ```cpp
 void VectorOfSparse_ranking_pair::sort( void*  comparator,
                                         size_t start = 0,
-                                        size_t count = this->__self->get()->size() );
+                                        size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSparse_ranking_pair.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfSparse_ranking_pair::sort_variant
+### VectorOfSparse\_ranking\_pair::sort\_variant
 
 ```cpp
 void VectorOfSparse_ranking_pair::sort_variant( void*  comparator,
                                                 size_t start = 0,
-                                                size_t count = this->__self->get()->size() );
+                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSparse_ranking_pair.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfSparse_ranking_pair::start
+### VectorOfSparse\_ranking\_pair::start
 
 ```cpp
 void* VectorOfSparse_ranking_pair::start();
@@ -7780,25 +12101,15 @@ AutoIt:
     $oVectorOfSparse_ranking_pair.start() -> retval
 ```
 
-### VectorOfSparse_ranking_pair::get_Item
-
-```cpp
-dlib::sparse_ranking_pair VectorOfSparse_ranking_pair::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.Item( $vIndex ) -> retval
-    VectorOfSparse_ranking_pair( $vIndex ) -> retval
-```
-
-### VectorOfSparse_ranking_pair::put_Item
-
-```cpp
-void VectorOfSparse_ranking_pair::put_Item( size_t                    vIndex,
-                                            dlib::sparse_ranking_pair vItem );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfVectorOfSpaceVector
+
+### VectorOfVectorOfSpaceVector.Count
+
+```cpp
+size_t VectorOfVectorOfSpaceVector::size()
+AutoIt:
+    [propget] $oVectorOfVectorOfSpaceVector.Count
+```
 
 ### VectorOfVectorOfSpaceVector::create
 
@@ -7852,6 +12163,14 @@ AutoIt:
     $oVectorOfVectorOfSpaceVector.Remove( $index ) -> None
 ```
 
+### VectorOfVectorOfSpaceVector::append
+
+```cpp
+void VectorOfVectorOfSpaceVector::append( std::vector<dlib::SpaceVector> value );
+AutoIt:
+    $oVectorOfVectorOfSpaceVector.append( $value ) -> None
+```
+
 ### VectorOfVectorOfSpaceVector::at
 
 ```cpp
@@ -7891,7 +12210,24 @@ AutoIt:
     $oVectorOfVectorOfSpaceVector.end() -> retval
 ```
 
-### VectorOfVectorOfSpaceVector::push_back
+### VectorOfVectorOfSpaceVector::get\_Item
+
+```cpp
+std::vector<dlib::SpaceVector> VectorOfVectorOfSpaceVector::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfSpaceVector.Item( $index ) -> retval
+    $oVectorOfVectorOfSpaceVector( $index ) -> retval
+```
+
+### VectorOfVectorOfSpaceVector::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfSpaceVector::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfSpaceVector._NewEnum() -> retval
+```
+
+### VectorOfVectorOfSpaceVector::push\_back
 
 ```cpp
 void VectorOfVectorOfSpaceVector::push_back( std::vector<dlib::SpaceVector> value );
@@ -7899,7 +12235,7 @@ AutoIt:
     $oVectorOfVectorOfSpaceVector.push_back( $value ) -> None
 ```
 
-### VectorOfVectorOfSpaceVector::push_vector
+### VectorOfVectorOfSpaceVector::push\_vector
 
 ```cpp
 void VectorOfVectorOfSpaceVector::push_vector( VectorOfVectorOfSpaceVector other );
@@ -7915,6 +12251,15 @@ AutoIt:
     $oVectorOfVectorOfSpaceVector.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfVectorOfSpaceVector::put\_Item
+
+```cpp
+void VectorOfVectorOfSpaceVector::put_Item( size_t                         index,
+                                            std::vector<dlib::SpaceVector> item );
+AutoIt:
+    $oVectorOfVectorOfSpaceVector.Item( $index ) = $item
+```
+
 ### VectorOfVectorOfSpaceVector::size
 
 ```cpp
@@ -7927,7 +12272,7 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::slice( size_t start = 0,
-                                                                size_t count = this->__self->get()->size() );
+                                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfSpaceVector.slice( [$start[, $count]] ) -> retval
 ```
@@ -7937,17 +12282,17 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfSpaceVector::sort( void*  comparator,
                                         size_t start = 0,
-                                        size_t count = this->__self->get()->size() );
+                                        size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfSpaceVector.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfSpaceVector::sort_variant
+### VectorOfVectorOfSpaceVector::sort\_variant
 
 ```cpp
 void VectorOfVectorOfSpaceVector::sort_variant( void*  comparator,
                                                 size_t start = 0,
-                                                size_t count = this->__self->get()->size() );
+                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfSpaceVector.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -7960,25 +12305,15 @@ AutoIt:
     $oVectorOfVectorOfSpaceVector.start() -> retval
 ```
 
-### VectorOfVectorOfSpaceVector::get_Item
-
-```cpp
-std::vector<dlib::SpaceVector> VectorOfVectorOfSpaceVector::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfVectorOfSpaceVector.Item( $vIndex ) -> retval
-    VectorOfVectorOfSpaceVector( $vIndex ) -> retval
-```
-
-### VectorOfVectorOfSpaceVector::put_Item
-
-```cpp
-void VectorOfVectorOfSpaceVector::put_Item( size_t                         vIndex,
-                                            std::vector<dlib::SpaceVector> vItem );
-AutoIt:
-    $oVectorOfVectorOfSpaceVector.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfPairOfULONGAndULONG
+
+### VectorOfPairOfULONGAndULONG.Count
+
+```cpp
+size_t VectorOfPairOfULONGAndULONG::size()
+AutoIt:
+    [propget] $oVectorOfPairOfULONGAndULONG.Count
+```
 
 ### VectorOfPairOfULONGAndULONG::create
 
@@ -8032,6 +12367,14 @@ AutoIt:
     $oVectorOfPairOfULONGAndULONG.Remove( $index ) -> None
 ```
 
+### VectorOfPairOfULONGAndULONG::append
+
+```cpp
+void VectorOfPairOfULONGAndULONG::append( std::pair<ULONG, ULONG> value );
+AutoIt:
+    $oVectorOfPairOfULONGAndULONG.append( $value ) -> None
+```
+
 ### VectorOfPairOfULONGAndULONG::at
 
 ```cpp
@@ -8071,7 +12414,24 @@ AutoIt:
     $oVectorOfPairOfULONGAndULONG.end() -> retval
 ```
 
-### VectorOfPairOfULONGAndULONG::push_back
+### VectorOfPairOfULONGAndULONG::get\_Item
+
+```cpp
+std::pair<ULONG, ULONG> VectorOfPairOfULONGAndULONG::get_Item( size_t index );
+AutoIt:
+    $oVectorOfPairOfULONGAndULONG.Item( $index ) -> retval
+    $oVectorOfPairOfULONGAndULONG( $index ) -> retval
+```
+
+### VectorOfPairOfULONGAndULONG::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfPairOfULONGAndULONG::get__NewEnum();
+AutoIt:
+    $oVectorOfPairOfULONGAndULONG._NewEnum() -> retval
+```
+
+### VectorOfPairOfULONGAndULONG::push\_back
 
 ```cpp
 void VectorOfPairOfULONGAndULONG::push_back( std::pair<ULONG, ULONG> value );
@@ -8079,7 +12439,7 @@ AutoIt:
     $oVectorOfPairOfULONGAndULONG.push_back( $value ) -> None
 ```
 
-### VectorOfPairOfULONGAndULONG::push_vector
+### VectorOfPairOfULONGAndULONG::push\_vector
 
 ```cpp
 void VectorOfPairOfULONGAndULONG::push_vector( VectorOfPairOfULONGAndULONG other );
@@ -8095,6 +12455,15 @@ AutoIt:
     $oVectorOfPairOfULONGAndULONG.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfPairOfULONGAndULONG::put\_Item
+
+```cpp
+void VectorOfPairOfULONGAndULONG::put_Item( size_t                  index,
+                                            std::pair<ULONG, ULONG> item );
+AutoIt:
+    $oVectorOfPairOfULONGAndULONG.Item( $index ) = $item
+```
+
 ### VectorOfPairOfULONGAndULONG::size
 
 ```cpp
@@ -8107,7 +12476,7 @@ AutoIt:
 
 ```cpp
 VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::slice( size_t start = 0,
-                                                                size_t count = this->__self->get()->size() );
+                                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.slice( [$start[, $count]] ) -> retval
 ```
@@ -8117,17 +12486,17 @@ AutoIt:
 ```cpp
 void VectorOfPairOfULONGAndULONG::sort( void*  comparator,
                                         size_t start = 0,
-                                        size_t count = this->__self->get()->size() );
+                                        size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfPairOfULONGAndULONG::sort_variant
+### VectorOfPairOfULONGAndULONG::sort\_variant
 
 ```cpp
 void VectorOfPairOfULONGAndULONG::sort_variant( void*  comparator,
                                                 size_t start = 0,
-                                                size_t count = this->__self->get()->size() );
+                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8140,25 +12509,15 @@ AutoIt:
     $oVectorOfPairOfULONGAndULONG.start() -> retval
 ```
 
-### VectorOfPairOfULONGAndULONG::get_Item
-
-```cpp
-std::pair<ULONG, ULONG> VectorOfPairOfULONGAndULONG::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfPairOfULONGAndULONG.Item( $vIndex ) -> retval
-    VectorOfPairOfULONGAndULONG( $vIndex ) -> retval
-```
-
-### VectorOfPairOfULONGAndULONG::put_Item
-
-```cpp
-void VectorOfPairOfULONGAndULONG::put_Item( size_t                  vIndex,
-                                            std::pair<ULONG, ULONG> vItem );
-AutoIt:
-    $oVectorOfPairOfULONGAndULONG.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfVectorOfPairOfULONGAndULONG
+
+### VectorOfVectorOfPairOfULONGAndULONG.Count
+
+```cpp
+size_t VectorOfVectorOfPairOfULONGAndULONG::size()
+AutoIt:
+    [propget] $oVectorOfVectorOfPairOfULONGAndULONG.Count
+```
 
 ### VectorOfVectorOfPairOfULONGAndULONG::create
 
@@ -8212,6 +12571,14 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.Remove( $index ) -> None
 ```
 
+### VectorOfVectorOfPairOfULONGAndULONG::append
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndULONG::append( std::vector<std::pair<ULONG, ULONG>> value );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndULONG.append( $value ) -> None
+```
+
 ### VectorOfVectorOfPairOfULONGAndULONG::at
 
 ```cpp
@@ -8251,7 +12618,24 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.end() -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndULONG::push_back
+### VectorOfVectorOfPairOfULONGAndULONG::get\_Item
+
+```cpp
+std::vector<std::pair<ULONG, ULONG>> VectorOfVectorOfPairOfULONGAndULONG::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndULONG.Item( $index ) -> retval
+    $oVectorOfVectorOfPairOfULONGAndULONG( $index ) -> retval
+```
+
+### VectorOfVectorOfPairOfULONGAndULONG::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfPairOfULONGAndULONG::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndULONG._NewEnum() -> retval
+```
+
+### VectorOfVectorOfPairOfULONGAndULONG::push\_back
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::push_back( std::vector<std::pair<ULONG, ULONG>> value );
@@ -8259,7 +12643,7 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.push_back( $value ) -> None
 ```
 
-### VectorOfVectorOfPairOfULONGAndULONG::push_vector
+### VectorOfVectorOfPairOfULONGAndULONG::push\_vector
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::push_vector( VectorOfVectorOfPairOfULONGAndULONG other );
@@ -8275,6 +12659,15 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfVectorOfPairOfULONGAndULONG::put\_Item
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndULONG::put_Item( size_t                               index,
+                                                    std::vector<std::pair<ULONG, ULONG>> item );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndULONG.Item( $index ) = $item
+```
+
 ### VectorOfVectorOfPairOfULONGAndULONG::size
 
 ```cpp
@@ -8287,7 +12680,7 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::slice( size_t start = 0,
-                                                                                size_t count = this->__self->get()->size() );
+                                                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.slice( [$start[, $count]] ) -> retval
 ```
@@ -8297,17 +12690,17 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::sort( void*  comparator,
                                                 size_t start = 0,
-                                                size_t count = this->__self->get()->size() );
+                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfPairOfULONGAndULONG::sort_variant
+### VectorOfVectorOfPairOfULONGAndULONG::sort\_variant
 
 ```cpp
 void VectorOfVectorOfPairOfULONGAndULONG::sort_variant( void*  comparator,
                                                         size_t start = 0,
-                                                        size_t count = this->__self->get()->size() );
+                                                        size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8320,25 +12713,15 @@ AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.start() -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndULONG::get_Item
-
-```cpp
-std::vector<std::pair<ULONG, ULONG>> VectorOfVectorOfPairOfULONGAndULONG::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndULONG.Item( $vIndex ) -> retval
-    VectorOfVectorOfPairOfULONGAndULONG( $vIndex ) -> retval
-```
-
-### VectorOfVectorOfPairOfULONGAndULONG::put_Item
-
-```cpp
-void VectorOfVectorOfPairOfULONGAndULONG::put_Item( size_t                               vIndex,
-                                                    std::vector<std::pair<ULONG, ULONG>> vItem );
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndULONG.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfVectorOfVectorOfPairOfULONGAndDouble
+
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble.Count
+
+```cpp
+size_t VectorOfVectorOfVectorOfPairOfULONGAndDouble::size()
+AutoIt:
+    [propget] $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Count
+```
 
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::create
 
@@ -8392,6 +12775,14 @@ AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Remove( $index ) -> None
 ```
 
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble::append
+
+```cpp
+void VectorOfVectorOfVectorOfPairOfULONGAndDouble::append( std::vector<std::vector<std::pair<ULONG, double>>> value );
+AutoIt:
+    $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.append( $value ) -> None
+```
+
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::at
 
 ```cpp
@@ -8431,7 +12822,24 @@ AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.end() -> retval
 ```
 
-### VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_back
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble::get\_Item
+
+```cpp
+std::vector<std::vector<std::pair<ULONG, double>>> VectorOfVectorOfVectorOfPairOfULONGAndDouble::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Item( $index ) -> retval
+    $oVectorOfVectorOfVectorOfPairOfULONGAndDouble( $index ) -> retval
+```
+
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfVectorOfPairOfULONGAndDouble::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfVectorOfPairOfULONGAndDouble._NewEnum() -> retval
+```
+
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble::push\_back
 
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_back( std::vector<std::vector<std::pair<ULONG, double>>> value );
@@ -8439,7 +12847,7 @@ AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.push_back( $value ) -> None
 ```
 
-### VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_vector
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble::push\_vector
 
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfVectorOfPairOfULONGAndDouble other );
@@ -8455,6 +12863,15 @@ AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble::put\_Item
+
+```cpp
+void VectorOfVectorOfVectorOfPairOfULONGAndDouble::put_Item( size_t                                             index,
+                                                             std::vector<std::vector<std::pair<ULONG, double>>> item );
+AutoIt:
+    $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Item( $index ) = $item
+```
+
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::size
 
 ```cpp
@@ -8467,7 +12884,7 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
-                                                                                                  size_t count = this->__self->get()->size() );
+                                                                                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -8477,17 +12894,17 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort( void*  comparator,
                                                          size_t start = 0,
-                                                         size_t count = this->__self->get()->size() );
+                                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort_variant
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort\_variant
 
 ```cpp
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort_variant( void*  comparator,
                                                                  size_t start = 0,
-                                                                 size_t count = this->__self->get()->size() );
+                                                                 size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8500,25 +12917,15 @@ AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.start() -> retval
 ```
 
-### VectorOfVectorOfVectorOfPairOfULONGAndDouble::get_Item
-
-```cpp
-std::vector<std::vector<std::pair<ULONG, double>>> VectorOfVectorOfVectorOfPairOfULONGAndDouble::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Item( $vIndex ) -> retval
-    VectorOfVectorOfVectorOfPairOfULONGAndDouble( $vIndex ) -> retval
-```
-
-### VectorOfVectorOfVectorOfPairOfULONGAndDouble::put_Item
-
-```cpp
-void VectorOfVectorOfVectorOfPairOfULONGAndDouble::put_Item( size_t                                             vIndex,
-                                                             std::vector<std::vector<std::pair<ULONG, double>>> vItem );
-AutoIt:
-    $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfBool
+
+### VectorOfBool.Count
+
+```cpp
+size_t VectorOfBool::size()
+AutoIt:
+    [propget] $oVectorOfBool.Count
+```
 
 ### VectorOfBool::create
 
@@ -8572,6 +12979,14 @@ AutoIt:
     $oVectorOfBool.Remove( $index ) -> None
 ```
 
+### VectorOfBool::append
+
+```cpp
+void VectorOfBool::append( bool value );
+AutoIt:
+    $oVectorOfBool.append( $value ) -> None
+```
+
 ### VectorOfBool::at
 
 ```cpp
@@ -8611,7 +13026,24 @@ AutoIt:
     $oVectorOfBool.end() -> retval
 ```
 
-### VectorOfBool::push_back
+### VectorOfBool::get\_Item
+
+```cpp
+bool VectorOfBool::get_Item( size_t index );
+AutoIt:
+    $oVectorOfBool.Item( $index ) -> retval
+    $oVectorOfBool( $index ) -> retval
+```
+
+### VectorOfBool::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfBool::get__NewEnum();
+AutoIt:
+    $oVectorOfBool._NewEnum() -> retval
+```
+
+### VectorOfBool::push\_back
 
 ```cpp
 void VectorOfBool::push_back( bool value );
@@ -8619,7 +13051,7 @@ AutoIt:
     $oVectorOfBool.push_back( $value ) -> None
 ```
 
-### VectorOfBool::push_vector
+### VectorOfBool::push\_vector
 
 ```cpp
 void VectorOfBool::push_vector( VectorOfBool other );
@@ -8635,6 +13067,15 @@ AutoIt:
     $oVectorOfBool.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfBool::put\_Item
+
+```cpp
+void VectorOfBool::put_Item( size_t index,
+                             bool   item );
+AutoIt:
+    $oVectorOfBool.Item( $index ) = $item
+```
+
 ### VectorOfBool::size
 
 ```cpp
@@ -8647,7 +13088,7 @@ AutoIt:
 
 ```cpp
 VectorOfBool VectorOfBool::slice( size_t start = 0,
-                                  size_t count = this->__self->get()->size() );
+                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfBool.slice( [$start[, $count]] ) -> retval
 ```
@@ -8657,17 +13098,17 @@ AutoIt:
 ```cpp
 void VectorOfBool::sort( void*  comparator,
                          size_t start = 0,
-                         size_t count = this->__self->get()->size() );
+                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfBool.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfBool::sort_variant
+### VectorOfBool::sort\_variant
 
 ```cpp
 void VectorOfBool::sort_variant( void*  comparator,
                                  size_t start = 0,
-                                 size_t count = this->__self->get()->size() );
+                                 size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfBool.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -8680,27 +13121,17 @@ AutoIt:
     $oVectorOfBool.start() -> retval
 ```
 
-### VectorOfBool::get_Item
+## VectorOfFull\_object\_detection
+
+### VectorOfFull\_object\_detection.Count
 
 ```cpp
-bool VectorOfBool::get_Item( size_t vIndex );
+size_t VectorOfFull_object_detection::size()
 AutoIt:
-    $oVectorOfBool.Item( $vIndex ) -> retval
-    VectorOfBool( $vIndex ) -> retval
+    [propget] $oVectorOfFull_object_detection.Count
 ```
 
-### VectorOfBool::put_Item
-
-```cpp
-void VectorOfBool::put_Item( size_t vIndex,
-                             bool   vItem );
-AutoIt:
-    $oVectorOfBool.Item( $vIndex ) = $vItem
-```
-
-## VectorOfFull_object_detection
-
-### VectorOfFull_object_detection::create
+### VectorOfFull\_object\_detection::create
 
 ```cpp
 static VectorOfFull_object_detection VectorOfFull_object_detection::create();
@@ -8720,7 +13151,7 @@ AutoIt:
     _Dlib_ObjCreate("VectorOfFull_object_detection").create( $other ) -> <VectorOfFull_object_detection object>
 ```
 
-### VectorOfFull_object_detection::Add
+### VectorOfFull\_object\_detection::Add
 
 ```cpp
 void VectorOfFull_object_detection::Add( dlib::full_object_detection value );
@@ -8728,7 +13159,7 @@ AutoIt:
     $oVectorOfFull_object_detection.Add( $value ) -> None
 ```
 
-### VectorOfFull_object_detection::Items
+### VectorOfFull\_object\_detection::Items
 
 ```cpp
 VectorOfFull_object_detection VectorOfFull_object_detection::Items();
@@ -8736,7 +13167,7 @@ AutoIt:
     $oVectorOfFull_object_detection.Items() -> retval
 ```
 
-### VectorOfFull_object_detection::Keys
+### VectorOfFull\_object\_detection::Keys
 
 ```cpp
 std::vector<int> VectorOfFull_object_detection::Keys();
@@ -8744,7 +13175,7 @@ AutoIt:
     $oVectorOfFull_object_detection.Keys() -> retval
 ```
 
-### VectorOfFull_object_detection::Remove
+### VectorOfFull\_object\_detection::Remove
 
 ```cpp
 void VectorOfFull_object_detection::Remove( size_t index );
@@ -8752,7 +13183,15 @@ AutoIt:
     $oVectorOfFull_object_detection.Remove( $index ) -> None
 ```
 
-### VectorOfFull_object_detection::at
+### VectorOfFull\_object\_detection::append
+
+```cpp
+void VectorOfFull_object_detection::append( dlib::full_object_detection value );
+AutoIt:
+    $oVectorOfFull_object_detection.append( $value ) -> None
+```
+
+### VectorOfFull\_object\_detection::at
 
 ```cpp
 dlib::full_object_detection VectorOfFull_object_detection::at( size_t index );
@@ -8767,7 +13206,7 @@ AutoIt:
     $oVectorOfFull_object_detection.at( $index, $value ) -> None
 ```
 
-### VectorOfFull_object_detection::clear
+### VectorOfFull\_object\_detection::clear
 
 ```cpp
 void VectorOfFull_object_detection::clear();
@@ -8775,7 +13214,7 @@ AutoIt:
     $oVectorOfFull_object_detection.clear() -> None
 ```
 
-### VectorOfFull_object_detection::empty
+### VectorOfFull\_object\_detection::empty
 
 ```cpp
 bool VectorOfFull_object_detection::empty();
@@ -8783,7 +13222,7 @@ AutoIt:
     $oVectorOfFull_object_detection.empty() -> retval
 ```
 
-### VectorOfFull_object_detection::end
+### VectorOfFull\_object\_detection::end
 
 ```cpp
 void* VectorOfFull_object_detection::end();
@@ -8791,7 +13230,24 @@ AutoIt:
     $oVectorOfFull_object_detection.end() -> retval
 ```
 
-### VectorOfFull_object_detection::push_back
+### VectorOfFull\_object\_detection::get\_Item
+
+```cpp
+dlib::full_object_detection VectorOfFull_object_detection::get_Item( size_t index );
+AutoIt:
+    $oVectorOfFull_object_detection.Item( $index ) -> retval
+    $oVectorOfFull_object_detection( $index ) -> retval
+```
+
+### VectorOfFull\_object\_detection::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfFull_object_detection::get__NewEnum();
+AutoIt:
+    $oVectorOfFull_object_detection._NewEnum() -> retval
+```
+
+### VectorOfFull\_object\_detection::push\_back
 
 ```cpp
 void VectorOfFull_object_detection::push_back( dlib::full_object_detection value );
@@ -8799,7 +13255,7 @@ AutoIt:
     $oVectorOfFull_object_detection.push_back( $value ) -> None
 ```
 
-### VectorOfFull_object_detection::push_vector
+### VectorOfFull\_object\_detection::push\_vector
 
 ```cpp
 void VectorOfFull_object_detection::push_vector( VectorOfFull_object_detection other );
@@ -8815,7 +13271,16 @@ AutoIt:
     $oVectorOfFull_object_detection.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfFull_object_detection::size
+### VectorOfFull\_object\_detection::put\_Item
+
+```cpp
+void VectorOfFull_object_detection::put_Item( size_t                      index,
+                                              dlib::full_object_detection item );
+AutoIt:
+    $oVectorOfFull_object_detection.Item( $index ) = $item
+```
+
+### VectorOfFull\_object\_detection::size
 
 ```cpp
 size_t VectorOfFull_object_detection::size();
@@ -8823,36 +13288,36 @@ AutoIt:
     $oVectorOfFull_object_detection.size() -> retval
 ```
 
-### VectorOfFull_object_detection::slice
+### VectorOfFull\_object\_detection::slice
 
 ```cpp
 VectorOfFull_object_detection VectorOfFull_object_detection::slice( size_t start = 0,
-                                                                    size_t count = this->__self->get()->size() );
+                                                                    size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFull_object_detection.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfFull_object_detection::sort
+### VectorOfFull\_object\_detection::sort
 
 ```cpp
 void VectorOfFull_object_detection::sort( void*  comparator,
                                           size_t start = 0,
-                                          size_t count = this->__self->get()->size() );
+                                          size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFull_object_detection.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfFull_object_detection::sort_variant
+### VectorOfFull\_object\_detection::sort\_variant
 
 ```cpp
 void VectorOfFull_object_detection::sort_variant( void*  comparator,
                                                   size_t start = 0,
-                                                  size_t count = this->__self->get()->size() );
+                                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFull_object_detection.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfFull_object_detection::start
+### VectorOfFull\_object\_detection::start
 
 ```cpp
 void* VectorOfFull_object_detection::start();
@@ -8860,25 +13325,15 @@ AutoIt:
     $oVectorOfFull_object_detection.start() -> retval
 ```
 
-### VectorOfFull_object_detection::get_Item
-
-```cpp
-dlib::full_object_detection VectorOfFull_object_detection::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfFull_object_detection.Item( $vIndex ) -> retval
-    VectorOfFull_object_detection( $vIndex ) -> retval
-```
-
-### VectorOfFull_object_detection::put_Item
-
-```cpp
-void VectorOfFull_object_detection::put_Item( size_t                      vIndex,
-                                              dlib::full_object_detection vItem );
-AutoIt:
-    $oVectorOfFull_object_detection.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfMat
+
+### VectorOfMat.Count
+
+```cpp
+size_t VectorOfMat::size()
+AutoIt:
+    [propget] $oVectorOfMat.Count
+```
 
 ### VectorOfMat::create
 
@@ -8932,6 +13387,14 @@ AutoIt:
     $oVectorOfMat.Remove( $index ) -> None
 ```
 
+### VectorOfMat::append
+
+```cpp
+void VectorOfMat::append( cv::Mat value );
+AutoIt:
+    $oVectorOfMat.append( $value ) -> None
+```
+
 ### VectorOfMat::at
 
 ```cpp
@@ -8971,7 +13434,24 @@ AutoIt:
     $oVectorOfMat.end() -> retval
 ```
 
-### VectorOfMat::push_back
+### VectorOfMat::get\_Item
+
+```cpp
+cv::Mat VectorOfMat::get_Item( size_t index );
+AutoIt:
+    $oVectorOfMat.Item( $index ) -> retval
+    $oVectorOfMat( $index ) -> retval
+```
+
+### VectorOfMat::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfMat::get__NewEnum();
+AutoIt:
+    $oVectorOfMat._NewEnum() -> retval
+```
+
+### VectorOfMat::push\_back
 
 ```cpp
 void VectorOfMat::push_back( cv::Mat value );
@@ -8979,7 +13459,7 @@ AutoIt:
     $oVectorOfMat.push_back( $value ) -> None
 ```
 
-### VectorOfMat::push_vector
+### VectorOfMat::push\_vector
 
 ```cpp
 void VectorOfMat::push_vector( VectorOfMat other );
@@ -8995,6 +13475,15 @@ AutoIt:
     $oVectorOfMat.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfMat::put\_Item
+
+```cpp
+void VectorOfMat::put_Item( size_t  index,
+                            cv::Mat item );
+AutoIt:
+    $oVectorOfMat.Item( $index ) = $item
+```
+
 ### VectorOfMat::size
 
 ```cpp
@@ -9007,7 +13496,7 @@ AutoIt:
 
 ```cpp
 VectorOfMat VectorOfMat::slice( size_t start = 0,
-                                size_t count = this->__self->get()->size() );
+                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfMat.slice( [$start[, $count]] ) -> retval
 ```
@@ -9017,17 +13506,17 @@ AutoIt:
 ```cpp
 void VectorOfMat::sort( void*  comparator,
                         size_t start = 0,
-                        size_t count = this->__self->get()->size() );
+                        size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfMat.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfMat::sort_variant
+### VectorOfMat::sort\_variant
 
 ```cpp
 void VectorOfMat::sort_variant( void*  comparator,
                                 size_t start = 0,
-                                size_t count = this->__self->get()->size() );
+                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfMat.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9040,27 +13529,17 @@ AutoIt:
     $oVectorOfMat.start() -> retval
 ```
 
-### VectorOfMat::get_Item
+## VectorOfVectorOfFull\_object\_detection
+
+### VectorOfVectorOfFull\_object\_detection.Count
 
 ```cpp
-cv::Mat VectorOfMat::get_Item( size_t vIndex );
+size_t VectorOfVectorOfFull_object_detection::size()
 AutoIt:
-    $oVectorOfMat.Item( $vIndex ) -> retval
-    VectorOfMat( $vIndex ) -> retval
+    [propget] $oVectorOfVectorOfFull_object_detection.Count
 ```
 
-### VectorOfMat::put_Item
-
-```cpp
-void VectorOfMat::put_Item( size_t  vIndex,
-                            cv::Mat vItem );
-AutoIt:
-    $oVectorOfMat.Item( $vIndex ) = $vItem
-```
-
-## VectorOfVectorOfFull_object_detection
-
-### VectorOfVectorOfFull_object_detection::create
+### VectorOfVectorOfFull\_object\_detection::create
 
 ```cpp
 static VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::create();
@@ -9080,7 +13559,7 @@ AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").create( $other ) -> <VectorOfVectorOfFull_object_detection object>
 ```
 
-### VectorOfVectorOfFull_object_detection::Add
+### VectorOfVectorOfFull\_object\_detection::Add
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::Add( std::vector<dlib::full_object_detection> value );
@@ -9088,7 +13567,7 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.Add( $value ) -> None
 ```
 
-### VectorOfVectorOfFull_object_detection::Items
+### VectorOfVectorOfFull\_object\_detection::Items
 
 ```cpp
 VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::Items();
@@ -9096,7 +13575,7 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.Items() -> retval
 ```
 
-### VectorOfVectorOfFull_object_detection::Keys
+### VectorOfVectorOfFull\_object\_detection::Keys
 
 ```cpp
 std::vector<int> VectorOfVectorOfFull_object_detection::Keys();
@@ -9104,7 +13583,7 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.Keys() -> retval
 ```
 
-### VectorOfVectorOfFull_object_detection::Remove
+### VectorOfVectorOfFull\_object\_detection::Remove
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::Remove( size_t index );
@@ -9112,7 +13591,15 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.Remove( $index ) -> None
 ```
 
-### VectorOfVectorOfFull_object_detection::at
+### VectorOfVectorOfFull\_object\_detection::append
+
+```cpp
+void VectorOfVectorOfFull_object_detection::append( std::vector<dlib::full_object_detection> value );
+AutoIt:
+    $oVectorOfVectorOfFull_object_detection.append( $value ) -> None
+```
+
+### VectorOfVectorOfFull\_object\_detection::at
 
 ```cpp
 std::vector<dlib::full_object_detection> VectorOfVectorOfFull_object_detection::at( size_t index );
@@ -9127,7 +13614,7 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.at( $index, $value ) -> None
 ```
 
-### VectorOfVectorOfFull_object_detection::clear
+### VectorOfVectorOfFull\_object\_detection::clear
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::clear();
@@ -9135,7 +13622,7 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.clear() -> None
 ```
 
-### VectorOfVectorOfFull_object_detection::empty
+### VectorOfVectorOfFull\_object\_detection::empty
 
 ```cpp
 bool VectorOfVectorOfFull_object_detection::empty();
@@ -9143,7 +13630,7 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.empty() -> retval
 ```
 
-### VectorOfVectorOfFull_object_detection::end
+### VectorOfVectorOfFull\_object\_detection::end
 
 ```cpp
 void* VectorOfVectorOfFull_object_detection::end();
@@ -9151,7 +13638,24 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.end() -> retval
 ```
 
-### VectorOfVectorOfFull_object_detection::push_back
+### VectorOfVectorOfFull\_object\_detection::get\_Item
+
+```cpp
+std::vector<dlib::full_object_detection> VectorOfVectorOfFull_object_detection::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfFull_object_detection.Item( $index ) -> retval
+    $oVectorOfVectorOfFull_object_detection( $index ) -> retval
+```
+
+### VectorOfVectorOfFull\_object\_detection::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfFull_object_detection::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfFull_object_detection._NewEnum() -> retval
+```
+
+### VectorOfVectorOfFull\_object\_detection::push\_back
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::push_back( std::vector<dlib::full_object_detection> value );
@@ -9159,7 +13663,7 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.push_back( $value ) -> None
 ```
 
-### VectorOfVectorOfFull_object_detection::push_vector
+### VectorOfVectorOfFull\_object\_detection::push\_vector
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::push_vector( VectorOfVectorOfFull_object_detection other );
@@ -9175,7 +13679,16 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfVectorOfFull_object_detection::size
+### VectorOfVectorOfFull\_object\_detection::put\_Item
+
+```cpp
+void VectorOfVectorOfFull_object_detection::put_Item( size_t                                   index,
+                                                      std::vector<dlib::full_object_detection> item );
+AutoIt:
+    $oVectorOfVectorOfFull_object_detection.Item( $index ) = $item
+```
+
+### VectorOfVectorOfFull\_object\_detection::size
 
 ```cpp
 size_t VectorOfVectorOfFull_object_detection::size();
@@ -9183,36 +13696,36 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.size() -> retval
 ```
 
-### VectorOfVectorOfFull_object_detection::slice
+### VectorOfVectorOfFull\_object\_detection::slice
 
 ```cpp
 VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::slice( size_t start = 0,
-                                                                                    size_t count = this->__self->get()->size() );
+                                                                                    size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfVectorOfFull_object_detection::sort
+### VectorOfVectorOfFull\_object\_detection::sort
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::sort( void*  comparator,
                                                   size_t start = 0,
-                                                  size_t count = this->__self->get()->size() );
+                                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfFull_object_detection::sort_variant
+### VectorOfVectorOfFull\_object\_detection::sort\_variant
 
 ```cpp
 void VectorOfVectorOfFull_object_detection::sort_variant( void*  comparator,
                                                           size_t start = 0,
-                                                          size_t count = this->__self->get()->size() );
+                                                          size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfFull_object_detection::start
+### VectorOfVectorOfFull\_object\_detection::start
 
 ```cpp
 void* VectorOfVectorOfFull_object_detection::start();
@@ -9220,25 +13733,15 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.start() -> retval
 ```
 
-### VectorOfVectorOfFull_object_detection::get_Item
-
-```cpp
-std::vector<dlib::full_object_detection> VectorOfVectorOfFull_object_detection::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfVectorOfFull_object_detection.Item( $vIndex ) -> retval
-    VectorOfVectorOfFull_object_detection( $vIndex ) -> retval
-```
-
-### VectorOfVectorOfFull_object_detection::put_Item
-
-```cpp
-void VectorOfVectorOfFull_object_detection::put_Item( size_t                                   vIndex,
-                                                      std::vector<dlib::full_object_detection> vItem );
-AutoIt:
-    $oVectorOfVectorOfFull_object_detection.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfVectorOfDouble
+
+### VectorOfVectorOfDouble.Count
+
+```cpp
+size_t VectorOfVectorOfDouble::size()
+AutoIt:
+    [propget] $oVectorOfVectorOfDouble.Count
+```
 
 ### VectorOfVectorOfDouble::create
 
@@ -9292,6 +13795,14 @@ AutoIt:
     $oVectorOfVectorOfDouble.Remove( $index ) -> None
 ```
 
+### VectorOfVectorOfDouble::append
+
+```cpp
+void VectorOfVectorOfDouble::append( std::vector<double> value );
+AutoIt:
+    $oVectorOfVectorOfDouble.append( $value ) -> None
+```
+
 ### VectorOfVectorOfDouble::at
 
 ```cpp
@@ -9331,7 +13842,24 @@ AutoIt:
     $oVectorOfVectorOfDouble.end() -> retval
 ```
 
-### VectorOfVectorOfDouble::push_back
+### VectorOfVectorOfDouble::get\_Item
+
+```cpp
+std::vector<double> VectorOfVectorOfDouble::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfDouble.Item( $index ) -> retval
+    $oVectorOfVectorOfDouble( $index ) -> retval
+```
+
+### VectorOfVectorOfDouble::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfDouble::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfDouble._NewEnum() -> retval
+```
+
+### VectorOfVectorOfDouble::push\_back
 
 ```cpp
 void VectorOfVectorOfDouble::push_back( std::vector<double> value );
@@ -9339,7 +13867,7 @@ AutoIt:
     $oVectorOfVectorOfDouble.push_back( $value ) -> None
 ```
 
-### VectorOfVectorOfDouble::push_vector
+### VectorOfVectorOfDouble::push\_vector
 
 ```cpp
 void VectorOfVectorOfDouble::push_vector( VectorOfVectorOfDouble other );
@@ -9355,6 +13883,15 @@ AutoIt:
     $oVectorOfVectorOfDouble.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfVectorOfDouble::put\_Item
+
+```cpp
+void VectorOfVectorOfDouble::put_Item( size_t              index,
+                                       std::vector<double> item );
+AutoIt:
+    $oVectorOfVectorOfDouble.Item( $index ) = $item
+```
+
 ### VectorOfVectorOfDouble::size
 
 ```cpp
@@ -9367,7 +13904,7 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfDouble VectorOfVectorOfDouble::slice( size_t start = 0,
-                                                      size_t count = this->__self->get()->size() );
+                                                      size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -9377,17 +13914,17 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfDouble::sort( void*  comparator,
                                    size_t start = 0,
-                                   size_t count = this->__self->get()->size() );
+                                   size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfDouble.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfDouble::sort_variant
+### VectorOfVectorOfDouble::sort\_variant
 
 ```cpp
 void VectorOfVectorOfDouble::sort_variant( void*  comparator,
                                            size_t start = 0,
-                                           size_t count = this->__self->get()->size() );
+                                           size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9400,25 +13937,15 @@ AutoIt:
     $oVectorOfVectorOfDouble.start() -> retval
 ```
 
-### VectorOfVectorOfDouble::get_Item
-
-```cpp
-std::vector<double> VectorOfVectorOfDouble::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfVectorOfDouble.Item( $vIndex ) -> retval
-    VectorOfVectorOfDouble( $vIndex ) -> retval
-```
-
-### VectorOfVectorOfDouble::put_Item
-
-```cpp
-void VectorOfVectorOfDouble::put_Item( size_t              vIndex,
-                                       std::vector<double> vItem );
-AutoIt:
-    $oVectorOfVectorOfDouble.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfVectorOfRectangle
+
+### VectorOfVectorOfRectangle.Count
+
+```cpp
+size_t VectorOfVectorOfRectangle::size()
+AutoIt:
+    [propget] $oVectorOfVectorOfRectangle.Count
+```
 
 ### VectorOfVectorOfRectangle::create
 
@@ -9472,6 +13999,14 @@ AutoIt:
     $oVectorOfVectorOfRectangle.Remove( $index ) -> None
 ```
 
+### VectorOfVectorOfRectangle::append
+
+```cpp
+void VectorOfVectorOfRectangle::append( std::vector<dlib::rectangle> value );
+AutoIt:
+    $oVectorOfVectorOfRectangle.append( $value ) -> None
+```
+
 ### VectorOfVectorOfRectangle::at
 
 ```cpp
@@ -9511,7 +14046,24 @@ AutoIt:
     $oVectorOfVectorOfRectangle.end() -> retval
 ```
 
-### VectorOfVectorOfRectangle::push_back
+### VectorOfVectorOfRectangle::get\_Item
+
+```cpp
+std::vector<dlib::rectangle> VectorOfVectorOfRectangle::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfRectangle.Item( $index ) -> retval
+    $oVectorOfVectorOfRectangle( $index ) -> retval
+```
+
+### VectorOfVectorOfRectangle::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfRectangle::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfRectangle._NewEnum() -> retval
+```
+
+### VectorOfVectorOfRectangle::push\_back
 
 ```cpp
 void VectorOfVectorOfRectangle::push_back( std::vector<dlib::rectangle> value );
@@ -9519,7 +14071,7 @@ AutoIt:
     $oVectorOfVectorOfRectangle.push_back( $value ) -> None
 ```
 
-### VectorOfVectorOfRectangle::push_vector
+### VectorOfVectorOfRectangle::push\_vector
 
 ```cpp
 void VectorOfVectorOfRectangle::push_vector( VectorOfVectorOfRectangle other );
@@ -9535,6 +14087,15 @@ AutoIt:
     $oVectorOfVectorOfRectangle.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfVectorOfRectangle::put\_Item
+
+```cpp
+void VectorOfVectorOfRectangle::put_Item( size_t                       index,
+                                          std::vector<dlib::rectangle> item );
+AutoIt:
+    $oVectorOfVectorOfRectangle.Item( $index ) = $item
+```
+
 ### VectorOfVectorOfRectangle::size
 
 ```cpp
@@ -9547,7 +14108,7 @@ AutoIt:
 
 ```cpp
 VectorOfVectorOfRectangle VectorOfVectorOfRectangle::slice( size_t start = 0,
-                                                            size_t count = this->__self->get()->size() );
+                                                            size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfRectangle.slice( [$start[, $count]] ) -> retval
 ```
@@ -9557,17 +14118,17 @@ AutoIt:
 ```cpp
 void VectorOfVectorOfRectangle::sort( void*  comparator,
                                       size_t start = 0,
-                                      size_t count = this->__self->get()->size() );
+                                      size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfRectangle.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfRectangle::sort_variant
+### VectorOfVectorOfRectangle::sort\_variant
 
 ```cpp
 void VectorOfVectorOfRectangle::sort_variant( void*  comparator,
                                               size_t start = 0,
-                                              size_t count = this->__self->get()->size() );
+                                              size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfRectangle.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -9580,27 +14141,17 @@ AutoIt:
     $oVectorOfVectorOfRectangle.start() -> retval
 ```
 
-### VectorOfVectorOfRectangle::get_Item
+## VectorOfMmod\_rect
+
+### VectorOfMmod\_rect.Count
 
 ```cpp
-std::vector<dlib::rectangle> VectorOfVectorOfRectangle::get_Item( size_t vIndex );
+size_t VectorOfMmod_rect::size()
 AutoIt:
-    $oVectorOfVectorOfRectangle.Item( $vIndex ) -> retval
-    VectorOfVectorOfRectangle( $vIndex ) -> retval
+    [propget] $oVectorOfMmod_rect.Count
 ```
 
-### VectorOfVectorOfRectangle::put_Item
-
-```cpp
-void VectorOfVectorOfRectangle::put_Item( size_t                       vIndex,
-                                          std::vector<dlib::rectangle> vItem );
-AutoIt:
-    $oVectorOfVectorOfRectangle.Item( $vIndex ) = $vItem
-```
-
-## VectorOfMmod_rect
-
-### VectorOfMmod_rect::create
+### VectorOfMmod\_rect::create
 
 ```cpp
 static VectorOfMmod_rect VectorOfMmod_rect::create();
@@ -9620,7 +14171,7 @@ AutoIt:
     _Dlib_ObjCreate("VectorOfMmod_rect").create( $other ) -> <VectorOfMmod_rect object>
 ```
 
-### VectorOfMmod_rect::Add
+### VectorOfMmod\_rect::Add
 
 ```cpp
 void VectorOfMmod_rect::Add( dlib::mmod_rect value );
@@ -9628,7 +14179,7 @@ AutoIt:
     $oVectorOfMmod_rect.Add( $value ) -> None
 ```
 
-### VectorOfMmod_rect::Items
+### VectorOfMmod\_rect::Items
 
 ```cpp
 VectorOfMmod_rect VectorOfMmod_rect::Items();
@@ -9636,7 +14187,7 @@ AutoIt:
     $oVectorOfMmod_rect.Items() -> retval
 ```
 
-### VectorOfMmod_rect::Keys
+### VectorOfMmod\_rect::Keys
 
 ```cpp
 std::vector<int> VectorOfMmod_rect::Keys();
@@ -9644,7 +14195,7 @@ AutoIt:
     $oVectorOfMmod_rect.Keys() -> retval
 ```
 
-### VectorOfMmod_rect::Remove
+### VectorOfMmod\_rect::Remove
 
 ```cpp
 void VectorOfMmod_rect::Remove( size_t index );
@@ -9652,7 +14203,15 @@ AutoIt:
     $oVectorOfMmod_rect.Remove( $index ) -> None
 ```
 
-### VectorOfMmod_rect::at
+### VectorOfMmod\_rect::append
+
+```cpp
+void VectorOfMmod_rect::append( dlib::mmod_rect value );
+AutoIt:
+    $oVectorOfMmod_rect.append( $value ) -> None
+```
+
+### VectorOfMmod\_rect::at
 
 ```cpp
 dlib::mmod_rect VectorOfMmod_rect::at( size_t index );
@@ -9667,7 +14226,7 @@ AutoIt:
     $oVectorOfMmod_rect.at( $index, $value ) -> None
 ```
 
-### VectorOfMmod_rect::clear
+### VectorOfMmod\_rect::clear
 
 ```cpp
 void VectorOfMmod_rect::clear();
@@ -9675,7 +14234,7 @@ AutoIt:
     $oVectorOfMmod_rect.clear() -> None
 ```
 
-### VectorOfMmod_rect::empty
+### VectorOfMmod\_rect::empty
 
 ```cpp
 bool VectorOfMmod_rect::empty();
@@ -9683,7 +14242,7 @@ AutoIt:
     $oVectorOfMmod_rect.empty() -> retval
 ```
 
-### VectorOfMmod_rect::end
+### VectorOfMmod\_rect::end
 
 ```cpp
 void* VectorOfMmod_rect::end();
@@ -9691,7 +14250,24 @@ AutoIt:
     $oVectorOfMmod_rect.end() -> retval
 ```
 
-### VectorOfMmod_rect::push_back
+### VectorOfMmod\_rect::get\_Item
+
+```cpp
+dlib::mmod_rect VectorOfMmod_rect::get_Item( size_t index );
+AutoIt:
+    $oVectorOfMmod_rect.Item( $index ) -> retval
+    $oVectorOfMmod_rect( $index ) -> retval
+```
+
+### VectorOfMmod\_rect::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfMmod_rect::get__NewEnum();
+AutoIt:
+    $oVectorOfMmod_rect._NewEnum() -> retval
+```
+
+### VectorOfMmod\_rect::push\_back
 
 ```cpp
 void VectorOfMmod_rect::push_back( dlib::mmod_rect value );
@@ -9699,7 +14275,7 @@ AutoIt:
     $oVectorOfMmod_rect.push_back( $value ) -> None
 ```
 
-### VectorOfMmod_rect::push_vector
+### VectorOfMmod\_rect::push\_vector
 
 ```cpp
 void VectorOfMmod_rect::push_vector( VectorOfMmod_rect other );
@@ -9715,7 +14291,16 @@ AutoIt:
     $oVectorOfMmod_rect.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfMmod_rect::size
+### VectorOfMmod\_rect::put\_Item
+
+```cpp
+void VectorOfMmod_rect::put_Item( size_t          index,
+                                  dlib::mmod_rect item );
+AutoIt:
+    $oVectorOfMmod_rect.Item( $index ) = $item
+```
+
+### VectorOfMmod\_rect::size
 
 ```cpp
 size_t VectorOfMmod_rect::size();
@@ -9723,36 +14308,36 @@ AutoIt:
     $oVectorOfMmod_rect.size() -> retval
 ```
 
-### VectorOfMmod_rect::slice
+### VectorOfMmod\_rect::slice
 
 ```cpp
 VectorOfMmod_rect VectorOfMmod_rect::slice( size_t start = 0,
-                                            size_t count = this->__self->get()->size() );
+                                            size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfMmod_rect.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfMmod_rect::sort
+### VectorOfMmod\_rect::sort
 
 ```cpp
 void VectorOfMmod_rect::sort( void*  comparator,
                               size_t start = 0,
-                              size_t count = this->__self->get()->size() );
+                              size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfMmod_rect.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfMmod_rect::sort_variant
+### VectorOfMmod\_rect::sort\_variant
 
 ```cpp
 void VectorOfMmod_rect::sort_variant( void*  comparator,
                                       size_t start = 0,
-                                      size_t count = this->__self->get()->size() );
+                                      size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfMmod_rect.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfMmod_rect::start
+### VectorOfMmod\_rect::start
 
 ```cpp
 void* VectorOfMmod_rect::start();
@@ -9760,27 +14345,17 @@ AutoIt:
     $oVectorOfMmod_rect.start() -> retval
 ```
 
-### VectorOfMmod_rect::get_Item
+## VectorOfVectorOfMmod\_rect
+
+### VectorOfVectorOfMmod\_rect.Count
 
 ```cpp
-dlib::mmod_rect VectorOfMmod_rect::get_Item( size_t vIndex );
+size_t VectorOfVectorOfMmod_rect::size()
 AutoIt:
-    $oVectorOfMmod_rect.Item( $vIndex ) -> retval
-    VectorOfMmod_rect( $vIndex ) -> retval
+    [propget] $oVectorOfVectorOfMmod_rect.Count
 ```
 
-### VectorOfMmod_rect::put_Item
-
-```cpp
-void VectorOfMmod_rect::put_Item( size_t          vIndex,
-                                  dlib::mmod_rect vItem );
-AutoIt:
-    $oVectorOfMmod_rect.Item( $vIndex ) = $vItem
-```
-
-## VectorOfVectorOfMmod_rect
-
-### VectorOfVectorOfMmod_rect::create
+### VectorOfVectorOfMmod\_rect::create
 
 ```cpp
 static VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::create();
@@ -9800,7 +14375,7 @@ AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").create( $other ) -> <VectorOfVectorOfMmod_rect object>
 ```
 
-### VectorOfVectorOfMmod_rect::Add
+### VectorOfVectorOfMmod\_rect::Add
 
 ```cpp
 void VectorOfVectorOfMmod_rect::Add( std::vector<dlib::mmod_rect> value );
@@ -9808,7 +14383,7 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.Add( $value ) -> None
 ```
 
-### VectorOfVectorOfMmod_rect::Items
+### VectorOfVectorOfMmod\_rect::Items
 
 ```cpp
 VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::Items();
@@ -9816,7 +14391,7 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.Items() -> retval
 ```
 
-### VectorOfVectorOfMmod_rect::Keys
+### VectorOfVectorOfMmod\_rect::Keys
 
 ```cpp
 std::vector<int> VectorOfVectorOfMmod_rect::Keys();
@@ -9824,7 +14399,7 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.Keys() -> retval
 ```
 
-### VectorOfVectorOfMmod_rect::Remove
+### VectorOfVectorOfMmod\_rect::Remove
 
 ```cpp
 void VectorOfVectorOfMmod_rect::Remove( size_t index );
@@ -9832,7 +14407,15 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.Remove( $index ) -> None
 ```
 
-### VectorOfVectorOfMmod_rect::at
+### VectorOfVectorOfMmod\_rect::append
+
+```cpp
+void VectorOfVectorOfMmod_rect::append( std::vector<dlib::mmod_rect> value );
+AutoIt:
+    $oVectorOfVectorOfMmod_rect.append( $value ) -> None
+```
+
+### VectorOfVectorOfMmod\_rect::at
 
 ```cpp
 std::vector<dlib::mmod_rect> VectorOfVectorOfMmod_rect::at( size_t index );
@@ -9847,7 +14430,7 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.at( $index, $value ) -> None
 ```
 
-### VectorOfVectorOfMmod_rect::clear
+### VectorOfVectorOfMmod\_rect::clear
 
 ```cpp
 void VectorOfVectorOfMmod_rect::clear();
@@ -9855,7 +14438,7 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.clear() -> None
 ```
 
-### VectorOfVectorOfMmod_rect::empty
+### VectorOfVectorOfMmod\_rect::empty
 
 ```cpp
 bool VectorOfVectorOfMmod_rect::empty();
@@ -9863,7 +14446,7 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.empty() -> retval
 ```
 
-### VectorOfVectorOfMmod_rect::end
+### VectorOfVectorOfMmod\_rect::end
 
 ```cpp
 void* VectorOfVectorOfMmod_rect::end();
@@ -9871,7 +14454,24 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.end() -> retval
 ```
 
-### VectorOfVectorOfMmod_rect::push_back
+### VectorOfVectorOfMmod\_rect::get\_Item
+
+```cpp
+std::vector<dlib::mmod_rect> VectorOfVectorOfMmod_rect::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfMmod_rect.Item( $index ) -> retval
+    $oVectorOfVectorOfMmod_rect( $index ) -> retval
+```
+
+### VectorOfVectorOfMmod\_rect::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfMmod_rect::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfMmod_rect._NewEnum() -> retval
+```
+
+### VectorOfVectorOfMmod\_rect::push\_back
 
 ```cpp
 void VectorOfVectorOfMmod_rect::push_back( std::vector<dlib::mmod_rect> value );
@@ -9879,7 +14479,7 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.push_back( $value ) -> None
 ```
 
-### VectorOfVectorOfMmod_rect::push_vector
+### VectorOfVectorOfMmod\_rect::push\_vector
 
 ```cpp
 void VectorOfVectorOfMmod_rect::push_vector( VectorOfVectorOfMmod_rect other );
@@ -9895,7 +14495,16 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfVectorOfMmod_rect::size
+### VectorOfVectorOfMmod\_rect::put\_Item
+
+```cpp
+void VectorOfVectorOfMmod_rect::put_Item( size_t                       index,
+                                          std::vector<dlib::mmod_rect> item );
+AutoIt:
+    $oVectorOfVectorOfMmod_rect.Item( $index ) = $item
+```
+
+### VectorOfVectorOfMmod\_rect::size
 
 ```cpp
 size_t VectorOfVectorOfMmod_rect::size();
@@ -9903,36 +14512,36 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.size() -> retval
 ```
 
-### VectorOfVectorOfMmod_rect::slice
+### VectorOfVectorOfMmod\_rect::slice
 
 ```cpp
 VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::slice( size_t start = 0,
-                                                            size_t count = this->__self->get()->size() );
+                                                            size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfMmod_rect.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfVectorOfMmod_rect::sort
+### VectorOfVectorOfMmod\_rect::sort
 
 ```cpp
 void VectorOfVectorOfMmod_rect::sort( void*  comparator,
                                       size_t start = 0,
-                                      size_t count = this->__self->get()->size() );
+                                      size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfMmod_rect.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfMmod_rect::sort_variant
+### VectorOfVectorOfMmod\_rect::sort\_variant
 
 ```cpp
 void VectorOfVectorOfMmod_rect::sort_variant( void*  comparator,
                                               size_t start = 0,
-                                              size_t count = this->__self->get()->size() );
+                                              size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfMmod_rect.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVectorOfMmod_rect::start
+### VectorOfVectorOfMmod\_rect::start
 
 ```cpp
 void* VectorOfVectorOfMmod_rect::start();
@@ -9940,27 +14549,17 @@ AutoIt:
     $oVectorOfVectorOfMmod_rect.start() -> retval
 ```
 
-### VectorOfVectorOfMmod_rect::get_Item
+## VectorOfSimple\_object\_detector\_com
+
+### VectorOfSimple\_object\_detector\_com.Count
 
 ```cpp
-std::vector<dlib::mmod_rect> VectorOfVectorOfMmod_rect::get_Item( size_t vIndex );
+size_t VectorOfSimple_object_detector_com::size()
 AutoIt:
-    $oVectorOfVectorOfMmod_rect.Item( $vIndex ) -> retval
-    VectorOfVectorOfMmod_rect( $vIndex ) -> retval
+    [propget] $oVectorOfSimple_object_detector_com.Count
 ```
 
-### VectorOfVectorOfMmod_rect::put_Item
-
-```cpp
-void VectorOfVectorOfMmod_rect::put_Item( size_t                       vIndex,
-                                          std::vector<dlib::mmod_rect> vItem );
-AutoIt:
-    $oVectorOfVectorOfMmod_rect.Item( $vIndex ) = $vItem
-```
-
-## VectorOfSimple_object_detector_com
-
-### VectorOfSimple_object_detector_com::create
+### VectorOfSimple\_object\_detector\_com::create
 
 ```cpp
 static VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::create();
@@ -9980,7 +14579,7 @@ AutoIt:
     _Dlib_ObjCreate("VectorOfSimple_object_detector_com").create( $other ) -> <VectorOfSimple_object_detector_com object>
 ```
 
-### VectorOfSimple_object_detector_com::Add
+### VectorOfSimple\_object\_detector\_com::Add
 
 ```cpp
 void VectorOfSimple_object_detector_com::Add( dlib::simple_object_detector_com value );
@@ -9988,7 +14587,7 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.Add( $value ) -> None
 ```
 
-### VectorOfSimple_object_detector_com::Items
+### VectorOfSimple\_object\_detector\_com::Items
 
 ```cpp
 VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::Items();
@@ -9996,7 +14595,7 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.Items() -> retval
 ```
 
-### VectorOfSimple_object_detector_com::Keys
+### VectorOfSimple\_object\_detector\_com::Keys
 
 ```cpp
 std::vector<int> VectorOfSimple_object_detector_com::Keys();
@@ -10004,7 +14603,7 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.Keys() -> retval
 ```
 
-### VectorOfSimple_object_detector_com::Remove
+### VectorOfSimple\_object\_detector\_com::Remove
 
 ```cpp
 void VectorOfSimple_object_detector_com::Remove( size_t index );
@@ -10012,7 +14611,15 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.Remove( $index ) -> None
 ```
 
-### VectorOfSimple_object_detector_com::at
+### VectorOfSimple\_object\_detector\_com::append
+
+```cpp
+void VectorOfSimple_object_detector_com::append( dlib::simple_object_detector_com value );
+AutoIt:
+    $oVectorOfSimple_object_detector_com.append( $value ) -> None
+```
+
+### VectorOfSimple\_object\_detector\_com::at
 
 ```cpp
 dlib::simple_object_detector_com VectorOfSimple_object_detector_com::at( size_t index );
@@ -10027,7 +14634,7 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.at( $index, $value ) -> None
 ```
 
-### VectorOfSimple_object_detector_com::clear
+### VectorOfSimple\_object\_detector\_com::clear
 
 ```cpp
 void VectorOfSimple_object_detector_com::clear();
@@ -10035,7 +14642,7 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.clear() -> None
 ```
 
-### VectorOfSimple_object_detector_com::empty
+### VectorOfSimple\_object\_detector\_com::empty
 
 ```cpp
 bool VectorOfSimple_object_detector_com::empty();
@@ -10043,7 +14650,7 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.empty() -> retval
 ```
 
-### VectorOfSimple_object_detector_com::end
+### VectorOfSimple\_object\_detector\_com::end
 
 ```cpp
 void* VectorOfSimple_object_detector_com::end();
@@ -10051,7 +14658,24 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.end() -> retval
 ```
 
-### VectorOfSimple_object_detector_com::push_back
+### VectorOfSimple\_object\_detector\_com::get\_Item
+
+```cpp
+dlib::simple_object_detector_com VectorOfSimple_object_detector_com::get_Item( size_t index );
+AutoIt:
+    $oVectorOfSimple_object_detector_com.Item( $index ) -> retval
+    $oVectorOfSimple_object_detector_com( $index ) -> retval
+```
+
+### VectorOfSimple\_object\_detector\_com::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfSimple_object_detector_com::get__NewEnum();
+AutoIt:
+    $oVectorOfSimple_object_detector_com._NewEnum() -> retval
+```
+
+### VectorOfSimple\_object\_detector\_com::push\_back
 
 ```cpp
 void VectorOfSimple_object_detector_com::push_back( dlib::simple_object_detector_com value );
@@ -10059,7 +14683,7 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.push_back( $value ) -> None
 ```
 
-### VectorOfSimple_object_detector_com::push_vector
+### VectorOfSimple\_object\_detector\_com::push\_vector
 
 ```cpp
 void VectorOfSimple_object_detector_com::push_vector( VectorOfSimple_object_detector_com other );
@@ -10075,7 +14699,16 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfSimple_object_detector_com::size
+### VectorOfSimple\_object\_detector\_com::put\_Item
+
+```cpp
+void VectorOfSimple_object_detector_com::put_Item( size_t                           index,
+                                                   dlib::simple_object_detector_com item );
+AutoIt:
+    $oVectorOfSimple_object_detector_com.Item( $index ) = $item
+```
+
+### VectorOfSimple\_object\_detector\_com::size
 
 ```cpp
 size_t VectorOfSimple_object_detector_com::size();
@@ -10083,36 +14716,36 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.size() -> retval
 ```
 
-### VectorOfSimple_object_detector_com::slice
+### VectorOfSimple\_object\_detector\_com::slice
 
 ```cpp
 VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::slice( size_t start = 0,
-                                                                              size_t count = this->__self->get()->size() );
+                                                                              size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSimple_object_detector_com.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfSimple_object_detector_com::sort
+### VectorOfSimple\_object\_detector\_com::sort
 
 ```cpp
 void VectorOfSimple_object_detector_com::sort( void*  comparator,
                                                size_t start = 0,
-                                               size_t count = this->__self->get()->size() );
+                                               size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSimple_object_detector_com.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfSimple_object_detector_com::sort_variant
+### VectorOfSimple\_object\_detector\_com::sort\_variant
 
 ```cpp
 void VectorOfSimple_object_detector_com::sort_variant( void*  comparator,
                                                        size_t start = 0,
-                                                       size_t count = this->__self->get()->size() );
+                                                       size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSimple_object_detector_com.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfSimple_object_detector_com::start
+### VectorOfSimple\_object\_detector\_com::start
 
 ```cpp
 void* VectorOfSimple_object_detector_com::start();
@@ -10120,27 +14753,17 @@ AutoIt:
     $oVectorOfSimple_object_detector_com.start() -> retval
 ```
 
-### VectorOfSimple_object_detector_com::get_Item
+## VectorOfFhog\_object\_detector
+
+### VectorOfFhog\_object\_detector.Count
 
 ```cpp
-dlib::simple_object_detector_com VectorOfSimple_object_detector_com::get_Item( size_t vIndex );
+size_t VectorOfFhog_object_detector::size()
 AutoIt:
-    $oVectorOfSimple_object_detector_com.Item( $vIndex ) -> retval
-    VectorOfSimple_object_detector_com( $vIndex ) -> retval
+    [propget] $oVectorOfFhog_object_detector.Count
 ```
 
-### VectorOfSimple_object_detector_com::put_Item
-
-```cpp
-void VectorOfSimple_object_detector_com::put_Item( size_t                           vIndex,
-                                                   dlib::simple_object_detector_com vItem );
-AutoIt:
-    $oVectorOfSimple_object_detector_com.Item( $vIndex ) = $vItem
-```
-
-## VectorOfFhog_object_detector
-
-### VectorOfFhog_object_detector::create
+### VectorOfFhog\_object\_detector::create
 
 ```cpp
 static VectorOfFhog_object_detector VectorOfFhog_object_detector::create();
@@ -10160,7 +14783,7 @@ AutoIt:
     _Dlib_ObjCreate("VectorOfFhog_object_detector").create( $other ) -> <VectorOfFhog_object_detector object>
 ```
 
-### VectorOfFhog_object_detector::Add
+### VectorOfFhog\_object\_detector::Add
 
 ```cpp
 void VectorOfFhog_object_detector::Add( dlib::fhog_object_detector value );
@@ -10168,7 +14791,7 @@ AutoIt:
     $oVectorOfFhog_object_detector.Add( $value ) -> None
 ```
 
-### VectorOfFhog_object_detector::Items
+### VectorOfFhog\_object\_detector::Items
 
 ```cpp
 VectorOfFhog_object_detector VectorOfFhog_object_detector::Items();
@@ -10176,7 +14799,7 @@ AutoIt:
     $oVectorOfFhog_object_detector.Items() -> retval
 ```
 
-### VectorOfFhog_object_detector::Keys
+### VectorOfFhog\_object\_detector::Keys
 
 ```cpp
 std::vector<int> VectorOfFhog_object_detector::Keys();
@@ -10184,7 +14807,7 @@ AutoIt:
     $oVectorOfFhog_object_detector.Keys() -> retval
 ```
 
-### VectorOfFhog_object_detector::Remove
+### VectorOfFhog\_object\_detector::Remove
 
 ```cpp
 void VectorOfFhog_object_detector::Remove( size_t index );
@@ -10192,7 +14815,15 @@ AutoIt:
     $oVectorOfFhog_object_detector.Remove( $index ) -> None
 ```
 
-### VectorOfFhog_object_detector::at
+### VectorOfFhog\_object\_detector::append
+
+```cpp
+void VectorOfFhog_object_detector::append( dlib::fhog_object_detector value );
+AutoIt:
+    $oVectorOfFhog_object_detector.append( $value ) -> None
+```
+
+### VectorOfFhog\_object\_detector::at
 
 ```cpp
 dlib::fhog_object_detector VectorOfFhog_object_detector::at( size_t index );
@@ -10207,7 +14838,7 @@ AutoIt:
     $oVectorOfFhog_object_detector.at( $index, $value ) -> None
 ```
 
-### VectorOfFhog_object_detector::clear
+### VectorOfFhog\_object\_detector::clear
 
 ```cpp
 void VectorOfFhog_object_detector::clear();
@@ -10215,7 +14846,7 @@ AutoIt:
     $oVectorOfFhog_object_detector.clear() -> None
 ```
 
-### VectorOfFhog_object_detector::empty
+### VectorOfFhog\_object\_detector::empty
 
 ```cpp
 bool VectorOfFhog_object_detector::empty();
@@ -10223,7 +14854,7 @@ AutoIt:
     $oVectorOfFhog_object_detector.empty() -> retval
 ```
 
-### VectorOfFhog_object_detector::end
+### VectorOfFhog\_object\_detector::end
 
 ```cpp
 void* VectorOfFhog_object_detector::end();
@@ -10231,7 +14862,24 @@ AutoIt:
     $oVectorOfFhog_object_detector.end() -> retval
 ```
 
-### VectorOfFhog_object_detector::push_back
+### VectorOfFhog\_object\_detector::get\_Item
+
+```cpp
+dlib::fhog_object_detector VectorOfFhog_object_detector::get_Item( size_t index );
+AutoIt:
+    $oVectorOfFhog_object_detector.Item( $index ) -> retval
+    $oVectorOfFhog_object_detector( $index ) -> retval
+```
+
+### VectorOfFhog\_object\_detector::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfFhog_object_detector::get__NewEnum();
+AutoIt:
+    $oVectorOfFhog_object_detector._NewEnum() -> retval
+```
+
+### VectorOfFhog\_object\_detector::push\_back
 
 ```cpp
 void VectorOfFhog_object_detector::push_back( dlib::fhog_object_detector value );
@@ -10239,7 +14887,7 @@ AutoIt:
     $oVectorOfFhog_object_detector.push_back( $value ) -> None
 ```
 
-### VectorOfFhog_object_detector::push_vector
+### VectorOfFhog\_object\_detector::push\_vector
 
 ```cpp
 void VectorOfFhog_object_detector::push_vector( VectorOfFhog_object_detector other );
@@ -10255,7 +14903,16 @@ AutoIt:
     $oVectorOfFhog_object_detector.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfFhog_object_detector::size
+### VectorOfFhog\_object\_detector::put\_Item
+
+```cpp
+void VectorOfFhog_object_detector::put_Item( size_t                     index,
+                                             dlib::fhog_object_detector item );
+AutoIt:
+    $oVectorOfFhog_object_detector.Item( $index ) = $item
+```
+
+### VectorOfFhog\_object\_detector::size
 
 ```cpp
 size_t VectorOfFhog_object_detector::size();
@@ -10263,36 +14920,36 @@ AutoIt:
     $oVectorOfFhog_object_detector.size() -> retval
 ```
 
-### VectorOfFhog_object_detector::slice
+### VectorOfFhog\_object\_detector::slice
 
 ```cpp
 VectorOfFhog_object_detector VectorOfFhog_object_detector::slice( size_t start = 0,
-                                                                  size_t count = this->__self->get()->size() );
+                                                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFhog_object_detector.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfFhog_object_detector::sort
+### VectorOfFhog\_object\_detector::sort
 
 ```cpp
 void VectorOfFhog_object_detector::sort( void*  comparator,
                                          size_t start = 0,
-                                         size_t count = this->__self->get()->size() );
+                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFhog_object_detector.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfFhog_object_detector::sort_variant
+### VectorOfFhog\_object\_detector::sort\_variant
 
 ```cpp
 void VectorOfFhog_object_detector::sort_variant( void*  comparator,
                                                  size_t start = 0,
-                                                 size_t count = this->__self->get()->size() );
+                                                 size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFhog_object_detector.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfFhog_object_detector::start
+### VectorOfFhog\_object\_detector::start
 
 ```cpp
 void* VectorOfFhog_object_detector::start();
@@ -10300,745 +14957,15 @@ AutoIt:
     $oVectorOfFhog_object_detector.start() -> retval
 ```
 
-### VectorOfFhog_object_detector::get_Item
-
-```cpp
-dlib::fhog_object_detector VectorOfFhog_object_detector::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfFhog_object_detector.Item( $vIndex ) -> retval
-    VectorOfFhog_object_detector( $vIndex ) -> retval
-```
-
-### VectorOfFhog_object_detector::put_Item
-
-```cpp
-void VectorOfFhog_object_detector::put_Item( size_t                     vIndex,
-                                             dlib::fhog_object_detector vItem );
-AutoIt:
-    $oVectorOfFhog_object_detector.Item( $vIndex ) = $vItem
-```
-
-## VectorOfFunction_spec
-
-### VectorOfFunction_spec::create
-
-```cpp
-static VectorOfFunction_spec VectorOfFunction_spec::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfFunction_spec").create() -> <VectorOfFunction_spec object>
-```
-
-```cpp
-static VectorOfFunction_spec VectorOfFunction_spec::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfFunction_spec").create( $size ) -> <VectorOfFunction_spec object>
-```
-
-```cpp
-static VectorOfFunction_spec VectorOfFunction_spec::create( VectorOfFunction_spec other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfFunction_spec").create( $other ) -> <VectorOfFunction_spec object>
-```
-
-### VectorOfFunction_spec::Add
-
-```cpp
-void VectorOfFunction_spec::Add( dlib::function_spec value );
-AutoIt:
-    $oVectorOfFunction_spec.Add( $value ) -> None
-```
-
-### VectorOfFunction_spec::Items
-
-```cpp
-VectorOfFunction_spec VectorOfFunction_spec::Items();
-AutoIt:
-    $oVectorOfFunction_spec.Items() -> retval
-```
-
-### VectorOfFunction_spec::Keys
-
-```cpp
-std::vector<int> VectorOfFunction_spec::Keys();
-AutoIt:
-    $oVectorOfFunction_spec.Keys() -> retval
-```
-
-### VectorOfFunction_spec::Remove
-
-```cpp
-void VectorOfFunction_spec::Remove( size_t index );
-AutoIt:
-    $oVectorOfFunction_spec.Remove( $index ) -> None
-```
-
-### VectorOfFunction_spec::at
-
-```cpp
-dlib::function_spec VectorOfFunction_spec::at( size_t index );
-AutoIt:
-    $oVectorOfFunction_spec.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfFunction_spec::at( size_t              index,
-                                dlib::function_spec value );
-AutoIt:
-    $oVectorOfFunction_spec.at( $index, $value ) -> None
-```
-
-### VectorOfFunction_spec::clear
-
-```cpp
-void VectorOfFunction_spec::clear();
-AutoIt:
-    $oVectorOfFunction_spec.clear() -> None
-```
-
-### VectorOfFunction_spec::empty
-
-```cpp
-bool VectorOfFunction_spec::empty();
-AutoIt:
-    $oVectorOfFunction_spec.empty() -> retval
-```
-
-### VectorOfFunction_spec::end
-
-```cpp
-void* VectorOfFunction_spec::end();
-AutoIt:
-    $oVectorOfFunction_spec.end() -> retval
-```
-
-### VectorOfFunction_spec::push_back
-
-```cpp
-void VectorOfFunction_spec::push_back( dlib::function_spec value );
-AutoIt:
-    $oVectorOfFunction_spec.push_back( $value ) -> None
-```
-
-### VectorOfFunction_spec::push_vector
-
-```cpp
-void VectorOfFunction_spec::push_vector( VectorOfFunction_spec other );
-AutoIt:
-    $oVectorOfFunction_spec.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfFunction_spec::push_vector( VectorOfFunction_spec other,
-                                         size_t                count,
-                                         size_t                start = 0 );
-AutoIt:
-    $oVectorOfFunction_spec.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfFunction_spec::size
-
-```cpp
-size_t VectorOfFunction_spec::size();
-AutoIt:
-    $oVectorOfFunction_spec.size() -> retval
-```
-
-### VectorOfFunction_spec::slice
-
-```cpp
-VectorOfFunction_spec VectorOfFunction_spec::slice( size_t start = 0,
-                                                    size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfFunction_spec.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfFunction_spec::sort
-
-```cpp
-void VectorOfFunction_spec::sort( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfFunction_spec.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfFunction_spec::sort_variant
-
-```cpp
-void VectorOfFunction_spec::sort_variant( void*  comparator,
-                                          size_t start = 0,
-                                          size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfFunction_spec.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfFunction_spec::start
-
-```cpp
-void* VectorOfFunction_spec::start();
-AutoIt:
-    $oVectorOfFunction_spec.start() -> retval
-```
-
-### VectorOfFunction_spec::get_Item
-
-```cpp
-dlib::function_spec VectorOfFunction_spec::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfFunction_spec.Item( $vIndex ) -> retval
-    VectorOfFunction_spec( $vIndex ) -> retval
-```
-
-### VectorOfFunction_spec::put_Item
-
-```cpp
-void VectorOfFunction_spec::put_Item( size_t              vIndex,
-                                      dlib::function_spec vItem );
-AutoIt:
-    $oVectorOfFunction_spec.Item( $vIndex ) = $vItem
-```
-
-## VectorOfFunction_evaluation
-
-### VectorOfFunction_evaluation::create
-
-```cpp
-static VectorOfFunction_evaluation VectorOfFunction_evaluation::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfFunction_evaluation").create() -> <VectorOfFunction_evaluation object>
-```
-
-```cpp
-static VectorOfFunction_evaluation VectorOfFunction_evaluation::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfFunction_evaluation").create( $size ) -> <VectorOfFunction_evaluation object>
-```
-
-```cpp
-static VectorOfFunction_evaluation VectorOfFunction_evaluation::create( VectorOfFunction_evaluation other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfFunction_evaluation").create( $other ) -> <VectorOfFunction_evaluation object>
-```
-
-### VectorOfFunction_evaluation::Add
-
-```cpp
-void VectorOfFunction_evaluation::Add( dlib::function_evaluation value );
-AutoIt:
-    $oVectorOfFunction_evaluation.Add( $value ) -> None
-```
-
-### VectorOfFunction_evaluation::Items
-
-```cpp
-VectorOfFunction_evaluation VectorOfFunction_evaluation::Items();
-AutoIt:
-    $oVectorOfFunction_evaluation.Items() -> retval
-```
-
-### VectorOfFunction_evaluation::Keys
-
-```cpp
-std::vector<int> VectorOfFunction_evaluation::Keys();
-AutoIt:
-    $oVectorOfFunction_evaluation.Keys() -> retval
-```
-
-### VectorOfFunction_evaluation::Remove
-
-```cpp
-void VectorOfFunction_evaluation::Remove( size_t index );
-AutoIt:
-    $oVectorOfFunction_evaluation.Remove( $index ) -> None
-```
-
-### VectorOfFunction_evaluation::at
-
-```cpp
-dlib::function_evaluation VectorOfFunction_evaluation::at( size_t index );
-AutoIt:
-    $oVectorOfFunction_evaluation.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfFunction_evaluation::at( size_t                    index,
-                                      dlib::function_evaluation value );
-AutoIt:
-    $oVectorOfFunction_evaluation.at( $index, $value ) -> None
-```
-
-### VectorOfFunction_evaluation::clear
-
-```cpp
-void VectorOfFunction_evaluation::clear();
-AutoIt:
-    $oVectorOfFunction_evaluation.clear() -> None
-```
-
-### VectorOfFunction_evaluation::empty
-
-```cpp
-bool VectorOfFunction_evaluation::empty();
-AutoIt:
-    $oVectorOfFunction_evaluation.empty() -> retval
-```
-
-### VectorOfFunction_evaluation::end
-
-```cpp
-void* VectorOfFunction_evaluation::end();
-AutoIt:
-    $oVectorOfFunction_evaluation.end() -> retval
-```
-
-### VectorOfFunction_evaluation::push_back
-
-```cpp
-void VectorOfFunction_evaluation::push_back( dlib::function_evaluation value );
-AutoIt:
-    $oVectorOfFunction_evaluation.push_back( $value ) -> None
-```
-
-### VectorOfFunction_evaluation::push_vector
-
-```cpp
-void VectorOfFunction_evaluation::push_vector( VectorOfFunction_evaluation other );
-AutoIt:
-    $oVectorOfFunction_evaluation.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfFunction_evaluation::push_vector( VectorOfFunction_evaluation other,
-                                               size_t                      count,
-                                               size_t                      start = 0 );
-AutoIt:
-    $oVectorOfFunction_evaluation.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfFunction_evaluation::size
-
-```cpp
-size_t VectorOfFunction_evaluation::size();
-AutoIt:
-    $oVectorOfFunction_evaluation.size() -> retval
-```
-
-### VectorOfFunction_evaluation::slice
-
-```cpp
-VectorOfFunction_evaluation VectorOfFunction_evaluation::slice( size_t start = 0,
-                                                                size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfFunction_evaluation.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfFunction_evaluation::sort
-
-```cpp
-void VectorOfFunction_evaluation::sort( void*  comparator,
-                                        size_t start = 0,
-                                        size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfFunction_evaluation.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfFunction_evaluation::sort_variant
-
-```cpp
-void VectorOfFunction_evaluation::sort_variant( void*  comparator,
-                                                size_t start = 0,
-                                                size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfFunction_evaluation.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfFunction_evaluation::start
-
-```cpp
-void* VectorOfFunction_evaluation::start();
-AutoIt:
-    $oVectorOfFunction_evaluation.start() -> retval
-```
-
-### VectorOfFunction_evaluation::get_Item
-
-```cpp
-dlib::function_evaluation VectorOfFunction_evaluation::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfFunction_evaluation.Item( $vIndex ) -> retval
-    VectorOfFunction_evaluation( $vIndex ) -> retval
-```
-
-### VectorOfFunction_evaluation::put_Item
-
-```cpp
-void VectorOfFunction_evaluation::put_Item( size_t                    vIndex,
-                                            dlib::function_evaluation vItem );
-AutoIt:
-    $oVectorOfFunction_evaluation.Item( $vIndex ) = $vItem
-```
-
-## VectorOfVectorOfFunction_evaluation
-
-### VectorOfVectorOfFunction_evaluation::create
-
-```cpp
-static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create() -> <VectorOfVectorOfFunction_evaluation object>
-```
-
-```cpp
-static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create( $size ) -> <VectorOfVectorOfFunction_evaluation object>
-```
-
-```cpp
-static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create( VectorOfVectorOfFunction_evaluation other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create( $other ) -> <VectorOfVectorOfFunction_evaluation object>
-```
-
-### VectorOfVectorOfFunction_evaluation::Add
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::Add( std::vector<dlib::function_evaluation> value );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.Add( $value ) -> None
-```
-
-### VectorOfVectorOfFunction_evaluation::Items
-
-```cpp
-VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::Items();
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.Items() -> retval
-```
-
-### VectorOfVectorOfFunction_evaluation::Keys
-
-```cpp
-std::vector<int> VectorOfVectorOfFunction_evaluation::Keys();
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.Keys() -> retval
-```
-
-### VectorOfVectorOfFunction_evaluation::Remove
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::Remove( size_t index );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.Remove( $index ) -> None
-```
-
-### VectorOfVectorOfFunction_evaluation::at
-
-```cpp
-std::vector<dlib::function_evaluation> VectorOfVectorOfFunction_evaluation::at( size_t index );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::at( size_t                                 index,
-                                              std::vector<dlib::function_evaluation> value );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.at( $index, $value ) -> None
-```
-
-### VectorOfVectorOfFunction_evaluation::clear
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::clear();
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.clear() -> None
-```
-
-### VectorOfVectorOfFunction_evaluation::empty
-
-```cpp
-bool VectorOfVectorOfFunction_evaluation::empty();
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.empty() -> retval
-```
-
-### VectorOfVectorOfFunction_evaluation::end
-
-```cpp
-void* VectorOfVectorOfFunction_evaluation::end();
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.end() -> retval
-```
-
-### VectorOfVectorOfFunction_evaluation::push_back
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::push_back( std::vector<dlib::function_evaluation> value );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.push_back( $value ) -> None
-```
-
-### VectorOfVectorOfFunction_evaluation::push_vector
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::push_vector( VectorOfVectorOfFunction_evaluation other );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::push_vector( VectorOfVectorOfFunction_evaluation other,
-                                                       size_t                              count,
-                                                       size_t                              start = 0 );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVectorOfFunction_evaluation::size
-
-```cpp
-size_t VectorOfVectorOfFunction_evaluation::size();
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.size() -> retval
-```
-
-### VectorOfVectorOfFunction_evaluation::slice
-
-```cpp
-VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::slice( size_t start = 0,
-                                                                                size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVectorOfFunction_evaluation::sort
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::sort( void*  comparator,
-                                                size_t start = 0,
-                                                size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVectorOfFunction_evaluation::sort_variant
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::sort_variant( void*  comparator,
-                                                        size_t start = 0,
-                                                        size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVectorOfFunction_evaluation::start
-
-```cpp
-void* VectorOfVectorOfFunction_evaluation::start();
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.start() -> retval
-```
-
-### VectorOfVectorOfFunction_evaluation::get_Item
-
-```cpp
-std::vector<dlib::function_evaluation> VectorOfVectorOfFunction_evaluation::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.Item( $vIndex ) -> retval
-    VectorOfVectorOfFunction_evaluation( $vIndex ) -> retval
-```
-
-### VectorOfVectorOfFunction_evaluation::put_Item
-
-```cpp
-void VectorOfVectorOfFunction_evaluation::put_Item( size_t                                 vIndex,
-                                                    std::vector<dlib::function_evaluation> vItem );
-AutoIt:
-    $oVectorOfVectorOfFunction_evaluation.Item( $vIndex ) = $vItem
-```
-
-## VectorOfDrectangle
-
-### VectorOfDrectangle::create
-
-```cpp
-static VectorOfDrectangle VectorOfDrectangle::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfDrectangle").create() -> <VectorOfDrectangle object>
-```
-
-```cpp
-static VectorOfDrectangle VectorOfDrectangle::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfDrectangle").create( $size ) -> <VectorOfDrectangle object>
-```
-
-```cpp
-static VectorOfDrectangle VectorOfDrectangle::create( VectorOfDrectangle other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfDrectangle").create( $other ) -> <VectorOfDrectangle object>
-```
-
-### VectorOfDrectangle::Add
-
-```cpp
-void VectorOfDrectangle::Add( dlib::drectangle value );
-AutoIt:
-    $oVectorOfDrectangle.Add( $value ) -> None
-```
-
-### VectorOfDrectangle::Items
-
-```cpp
-VectorOfDrectangle VectorOfDrectangle::Items();
-AutoIt:
-    $oVectorOfDrectangle.Items() -> retval
-```
-
-### VectorOfDrectangle::Keys
-
-```cpp
-std::vector<int> VectorOfDrectangle::Keys();
-AutoIt:
-    $oVectorOfDrectangle.Keys() -> retval
-```
-
-### VectorOfDrectangle::Remove
-
-```cpp
-void VectorOfDrectangle::Remove( size_t index );
-AutoIt:
-    $oVectorOfDrectangle.Remove( $index ) -> None
-```
-
-### VectorOfDrectangle::at
-
-```cpp
-dlib::drectangle VectorOfDrectangle::at( size_t index );
-AutoIt:
-    $oVectorOfDrectangle.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfDrectangle::at( size_t           index,
-                             dlib::drectangle value );
-AutoIt:
-    $oVectorOfDrectangle.at( $index, $value ) -> None
-```
-
-### VectorOfDrectangle::clear
-
-```cpp
-void VectorOfDrectangle::clear();
-AutoIt:
-    $oVectorOfDrectangle.clear() -> None
-```
-
-### VectorOfDrectangle::empty
-
-```cpp
-bool VectorOfDrectangle::empty();
-AutoIt:
-    $oVectorOfDrectangle.empty() -> retval
-```
-
-### VectorOfDrectangle::end
-
-```cpp
-void* VectorOfDrectangle::end();
-AutoIt:
-    $oVectorOfDrectangle.end() -> retval
-```
-
-### VectorOfDrectangle::push_back
-
-```cpp
-void VectorOfDrectangle::push_back( dlib::drectangle value );
-AutoIt:
-    $oVectorOfDrectangle.push_back( $value ) -> None
-```
-
-### VectorOfDrectangle::push_vector
-
-```cpp
-void VectorOfDrectangle::push_vector( VectorOfDrectangle other );
-AutoIt:
-    $oVectorOfDrectangle.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfDrectangle::push_vector( VectorOfDrectangle other,
-                                      size_t             count,
-                                      size_t             start = 0 );
-AutoIt:
-    $oVectorOfDrectangle.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfDrectangle::size
-
-```cpp
-size_t VectorOfDrectangle::size();
-AutoIt:
-    $oVectorOfDrectangle.size() -> retval
-```
-
-### VectorOfDrectangle::slice
-
-```cpp
-VectorOfDrectangle VectorOfDrectangle::slice( size_t start = 0,
-                                              size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfDrectangle.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfDrectangle::sort
-
-```cpp
-void VectorOfDrectangle::sort( void*  comparator,
-                               size_t start = 0,
-                               size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfDrectangle.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfDrectangle::sort_variant
-
-```cpp
-void VectorOfDrectangle::sort_variant( void*  comparator,
-                                       size_t start = 0,
-                                       size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfDrectangle.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfDrectangle::start
-
-```cpp
-void* VectorOfDrectangle::start();
-AutoIt:
-    $oVectorOfDrectangle.start() -> retval
-```
-
-### VectorOfDrectangle::get_Item
-
-```cpp
-dlib::drectangle VectorOfDrectangle::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfDrectangle.Item( $vIndex ) -> retval
-    VectorOfDrectangle( $vIndex ) -> retval
-```
-
-### VectorOfDrectangle::put_Item
-
-```cpp
-void VectorOfDrectangle::put_Item( size_t           vIndex,
-                                   dlib::drectangle vItem );
-AutoIt:
-    $oVectorOfDrectangle.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfInt
+
+### VectorOfInt.Count
+
+```cpp
+size_t VectorOfInt::size()
+AutoIt:
+    [propget] $oVectorOfInt.Count
+```
 
 ### VectorOfInt::create
 
@@ -11092,6 +15019,14 @@ AutoIt:
     $oVectorOfInt.Remove( $index ) -> None
 ```
 
+### VectorOfInt::append
+
+```cpp
+void VectorOfInt::append( int value );
+AutoIt:
+    $oVectorOfInt.append( $value ) -> None
+```
+
 ### VectorOfInt::at
 
 ```cpp
@@ -11131,7 +15066,24 @@ AutoIt:
     $oVectorOfInt.end() -> retval
 ```
 
-### VectorOfInt::push_back
+### VectorOfInt::get\_Item
+
+```cpp
+int VectorOfInt::get_Item( size_t index );
+AutoIt:
+    $oVectorOfInt.Item( $index ) -> retval
+    $oVectorOfInt( $index ) -> retval
+```
+
+### VectorOfInt::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfInt::get__NewEnum();
+AutoIt:
+    $oVectorOfInt._NewEnum() -> retval
+```
+
+### VectorOfInt::push\_back
 
 ```cpp
 void VectorOfInt::push_back( int value );
@@ -11139,7 +15091,7 @@ AutoIt:
     $oVectorOfInt.push_back( $value ) -> None
 ```
 
-### VectorOfInt::push_vector
+### VectorOfInt::push\_vector
 
 ```cpp
 void VectorOfInt::push_vector( VectorOfInt other );
@@ -11155,6 +15107,15 @@ AutoIt:
     $oVectorOfInt.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfInt::put\_Item
+
+```cpp
+void VectorOfInt::put_Item( size_t index,
+                            int    item );
+AutoIt:
+    $oVectorOfInt.Item( $index ) = $item
+```
+
 ### VectorOfInt::size
 
 ```cpp
@@ -11167,7 +15128,7 @@ AutoIt:
 
 ```cpp
 VectorOfInt VectorOfInt::slice( size_t start = 0,
-                                size_t count = this->__self->get()->size() );
+                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfInt.slice( [$start[, $count]] ) -> retval
 ```
@@ -11177,17 +15138,17 @@ AutoIt:
 ```cpp
 void VectorOfInt::sort( void*  comparator,
                         size_t start = 0,
-                        size_t count = this->__self->get()->size() );
+                        size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfInt.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfInt::sort_variant
+### VectorOfInt::sort\_variant
 
 ```cpp
 void VectorOfInt::sort_variant( void*  comparator,
                                 size_t start = 0,
-                                size_t count = this->__self->get()->size() );
+                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfInt.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11200,25 +15161,15 @@ AutoIt:
     $oVectorOfInt.start() -> retval
 ```
 
-### VectorOfInt::get_Item
-
-```cpp
-int VectorOfInt::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfInt.Item( $vIndex ) -> retval
-    VectorOfInt( $vIndex ) -> retval
-```
-
-### VectorOfInt::put_Item
-
-```cpp
-void VectorOfInt::put_Item( size_t vIndex,
-                            int    vItem );
-AutoIt:
-    $oVectorOfInt.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfUchar
+
+### VectorOfUchar.Count
+
+```cpp
+size_t VectorOfUchar::size()
+AutoIt:
+    [propget] $oVectorOfUchar.Count
+```
 
 ### VectorOfUchar::create
 
@@ -11272,6 +15223,14 @@ AutoIt:
     $oVectorOfUchar.Remove( $index ) -> None
 ```
 
+### VectorOfUchar::append
+
+```cpp
+void VectorOfUchar::append( uchar value );
+AutoIt:
+    $oVectorOfUchar.append( $value ) -> None
+```
+
 ### VectorOfUchar::at
 
 ```cpp
@@ -11311,7 +15270,24 @@ AutoIt:
     $oVectorOfUchar.end() -> retval
 ```
 
-### VectorOfUchar::push_back
+### VectorOfUchar::get\_Item
+
+```cpp
+uchar VectorOfUchar::get_Item( size_t index );
+AutoIt:
+    $oVectorOfUchar.Item( $index ) -> retval
+    $oVectorOfUchar( $index ) -> retval
+```
+
+### VectorOfUchar::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfUchar::get__NewEnum();
+AutoIt:
+    $oVectorOfUchar._NewEnum() -> retval
+```
+
+### VectorOfUchar::push\_back
 
 ```cpp
 void VectorOfUchar::push_back( uchar value );
@@ -11319,7 +15295,7 @@ AutoIt:
     $oVectorOfUchar.push_back( $value ) -> None
 ```
 
-### VectorOfUchar::push_vector
+### VectorOfUchar::push\_vector
 
 ```cpp
 void VectorOfUchar::push_vector( VectorOfUchar other );
@@ -11335,6 +15311,15 @@ AutoIt:
     $oVectorOfUchar.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfUchar::put\_Item
+
+```cpp
+void VectorOfUchar::put_Item( size_t index,
+                              uchar  item );
+AutoIt:
+    $oVectorOfUchar.Item( $index ) = $item
+```
+
 ### VectorOfUchar::size
 
 ```cpp
@@ -11347,7 +15332,7 @@ AutoIt:
 
 ```cpp
 VectorOfUchar VectorOfUchar::slice( size_t start = 0,
-                                    size_t count = this->__self->get()->size() );
+                                    size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfUchar.slice( [$start[, $count]] ) -> retval
 ```
@@ -11357,17 +15342,17 @@ AutoIt:
 ```cpp
 void VectorOfUchar::sort( void*  comparator,
                           size_t start = 0,
-                          size_t count = this->__self->get()->size() );
+                          size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfUchar.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfUchar::sort_variant
+### VectorOfUchar::sort\_variant
 
 ```cpp
 void VectorOfUchar::sort_variant( void*  comparator,
                                   size_t start = 0,
-                                  size_t count = this->__self->get()->size() );
+                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfUchar.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -11380,22 +15365,1024 @@ AutoIt:
     $oVectorOfUchar.start() -> retval
 ```
 
-### VectorOfUchar::get_Item
+## VectorOfFunction\_spec
+
+### VectorOfFunction\_spec.Count
 
 ```cpp
-uchar VectorOfUchar::get_Item( size_t vIndex );
+size_t VectorOfFunction_spec::size()
 AutoIt:
-    $oVectorOfUchar.Item( $vIndex ) -> retval
-    VectorOfUchar( $vIndex ) -> retval
+    [propget] $oVectorOfFunction_spec.Count
 ```
 
-### VectorOfUchar::put_Item
+### VectorOfFunction\_spec::create
 
 ```cpp
-void VectorOfUchar::put_Item( size_t vIndex,
-                              uchar  vItem );
+static VectorOfFunction_spec VectorOfFunction_spec::create();
 AutoIt:
-    $oVectorOfUchar.Item( $vIndex ) = $vItem
+    _Dlib_ObjCreate("VectorOfFunction_spec").create() -> <VectorOfFunction_spec object>
+```
+
+```cpp
+static VectorOfFunction_spec VectorOfFunction_spec::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFunction_spec").create( $size ) -> <VectorOfFunction_spec object>
+```
+
+```cpp
+static VectorOfFunction_spec VectorOfFunction_spec::create( VectorOfFunction_spec other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFunction_spec").create( $other ) -> <VectorOfFunction_spec object>
+```
+
+### VectorOfFunction\_spec::Add
+
+```cpp
+void VectorOfFunction_spec::Add( dlib::function_spec value );
+AutoIt:
+    $oVectorOfFunction_spec.Add( $value ) -> None
+```
+
+### VectorOfFunction\_spec::Items
+
+```cpp
+VectorOfFunction_spec VectorOfFunction_spec::Items();
+AutoIt:
+    $oVectorOfFunction_spec.Items() -> retval
+```
+
+### VectorOfFunction\_spec::Keys
+
+```cpp
+std::vector<int> VectorOfFunction_spec::Keys();
+AutoIt:
+    $oVectorOfFunction_spec.Keys() -> retval
+```
+
+### VectorOfFunction\_spec::Remove
+
+```cpp
+void VectorOfFunction_spec::Remove( size_t index );
+AutoIt:
+    $oVectorOfFunction_spec.Remove( $index ) -> None
+```
+
+### VectorOfFunction\_spec::append
+
+```cpp
+void VectorOfFunction_spec::append( dlib::function_spec value );
+AutoIt:
+    $oVectorOfFunction_spec.append( $value ) -> None
+```
+
+### VectorOfFunction\_spec::at
+
+```cpp
+dlib::function_spec VectorOfFunction_spec::at( size_t index );
+AutoIt:
+    $oVectorOfFunction_spec.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfFunction_spec::at( size_t              index,
+                                dlib::function_spec value );
+AutoIt:
+    $oVectorOfFunction_spec.at( $index, $value ) -> None
+```
+
+### VectorOfFunction\_spec::clear
+
+```cpp
+void VectorOfFunction_spec::clear();
+AutoIt:
+    $oVectorOfFunction_spec.clear() -> None
+```
+
+### VectorOfFunction\_spec::empty
+
+```cpp
+bool VectorOfFunction_spec::empty();
+AutoIt:
+    $oVectorOfFunction_spec.empty() -> retval
+```
+
+### VectorOfFunction\_spec::end
+
+```cpp
+void* VectorOfFunction_spec::end();
+AutoIt:
+    $oVectorOfFunction_spec.end() -> retval
+```
+
+### VectorOfFunction\_spec::get\_Item
+
+```cpp
+dlib::function_spec VectorOfFunction_spec::get_Item( size_t index );
+AutoIt:
+    $oVectorOfFunction_spec.Item( $index ) -> retval
+    $oVectorOfFunction_spec( $index ) -> retval
+```
+
+### VectorOfFunction\_spec::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfFunction_spec::get__NewEnum();
+AutoIt:
+    $oVectorOfFunction_spec._NewEnum() -> retval
+```
+
+### VectorOfFunction\_spec::push\_back
+
+```cpp
+void VectorOfFunction_spec::push_back( dlib::function_spec value );
+AutoIt:
+    $oVectorOfFunction_spec.push_back( $value ) -> None
+```
+
+### VectorOfFunction\_spec::push\_vector
+
+```cpp
+void VectorOfFunction_spec::push_vector( VectorOfFunction_spec other );
+AutoIt:
+    $oVectorOfFunction_spec.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfFunction_spec::push_vector( VectorOfFunction_spec other,
+                                         size_t                count,
+                                         size_t                start = 0 );
+AutoIt:
+    $oVectorOfFunction_spec.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfFunction\_spec::put\_Item
+
+```cpp
+void VectorOfFunction_spec::put_Item( size_t              index,
+                                      dlib::function_spec item );
+AutoIt:
+    $oVectorOfFunction_spec.Item( $index ) = $item
+```
+
+### VectorOfFunction\_spec::size
+
+```cpp
+size_t VectorOfFunction_spec::size();
+AutoIt:
+    $oVectorOfFunction_spec.size() -> retval
+```
+
+### VectorOfFunction\_spec::slice
+
+```cpp
+VectorOfFunction_spec VectorOfFunction_spec::slice( size_t start = 0,
+                                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFunction_spec.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfFunction\_spec::sort
+
+```cpp
+void VectorOfFunction_spec::sort( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFunction_spec.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfFunction\_spec::sort\_variant
+
+```cpp
+void VectorOfFunction_spec::sort_variant( void*  comparator,
+                                          size_t start = 0,
+                                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFunction_spec.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfFunction\_spec::start
+
+```cpp
+void* VectorOfFunction_spec::start();
+AutoIt:
+    $oVectorOfFunction_spec.start() -> retval
+```
+
+## VectorOfFunction\_evaluation
+
+### VectorOfFunction\_evaluation.Count
+
+```cpp
+size_t VectorOfFunction_evaluation::size()
+AutoIt:
+    [propget] $oVectorOfFunction_evaluation.Count
+```
+
+### VectorOfFunction\_evaluation::create
+
+```cpp
+static VectorOfFunction_evaluation VectorOfFunction_evaluation::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFunction_evaluation").create() -> <VectorOfFunction_evaluation object>
+```
+
+```cpp
+static VectorOfFunction_evaluation VectorOfFunction_evaluation::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFunction_evaluation").create( $size ) -> <VectorOfFunction_evaluation object>
+```
+
+```cpp
+static VectorOfFunction_evaluation VectorOfFunction_evaluation::create( VectorOfFunction_evaluation other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFunction_evaluation").create( $other ) -> <VectorOfFunction_evaluation object>
+```
+
+### VectorOfFunction\_evaluation::Add
+
+```cpp
+void VectorOfFunction_evaluation::Add( dlib::function_evaluation value );
+AutoIt:
+    $oVectorOfFunction_evaluation.Add( $value ) -> None
+```
+
+### VectorOfFunction\_evaluation::Items
+
+```cpp
+VectorOfFunction_evaluation VectorOfFunction_evaluation::Items();
+AutoIt:
+    $oVectorOfFunction_evaluation.Items() -> retval
+```
+
+### VectorOfFunction\_evaluation::Keys
+
+```cpp
+std::vector<int> VectorOfFunction_evaluation::Keys();
+AutoIt:
+    $oVectorOfFunction_evaluation.Keys() -> retval
+```
+
+### VectorOfFunction\_evaluation::Remove
+
+```cpp
+void VectorOfFunction_evaluation::Remove( size_t index );
+AutoIt:
+    $oVectorOfFunction_evaluation.Remove( $index ) -> None
+```
+
+### VectorOfFunction\_evaluation::append
+
+```cpp
+void VectorOfFunction_evaluation::append( dlib::function_evaluation value );
+AutoIt:
+    $oVectorOfFunction_evaluation.append( $value ) -> None
+```
+
+### VectorOfFunction\_evaluation::at
+
+```cpp
+dlib::function_evaluation VectorOfFunction_evaluation::at( size_t index );
+AutoIt:
+    $oVectorOfFunction_evaluation.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfFunction_evaluation::at( size_t                    index,
+                                      dlib::function_evaluation value );
+AutoIt:
+    $oVectorOfFunction_evaluation.at( $index, $value ) -> None
+```
+
+### VectorOfFunction\_evaluation::clear
+
+```cpp
+void VectorOfFunction_evaluation::clear();
+AutoIt:
+    $oVectorOfFunction_evaluation.clear() -> None
+```
+
+### VectorOfFunction\_evaluation::empty
+
+```cpp
+bool VectorOfFunction_evaluation::empty();
+AutoIt:
+    $oVectorOfFunction_evaluation.empty() -> retval
+```
+
+### VectorOfFunction\_evaluation::end
+
+```cpp
+void* VectorOfFunction_evaluation::end();
+AutoIt:
+    $oVectorOfFunction_evaluation.end() -> retval
+```
+
+### VectorOfFunction\_evaluation::get\_Item
+
+```cpp
+dlib::function_evaluation VectorOfFunction_evaluation::get_Item( size_t index );
+AutoIt:
+    $oVectorOfFunction_evaluation.Item( $index ) -> retval
+    $oVectorOfFunction_evaluation( $index ) -> retval
+```
+
+### VectorOfFunction\_evaluation::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfFunction_evaluation::get__NewEnum();
+AutoIt:
+    $oVectorOfFunction_evaluation._NewEnum() -> retval
+```
+
+### VectorOfFunction\_evaluation::push\_back
+
+```cpp
+void VectorOfFunction_evaluation::push_back( dlib::function_evaluation value );
+AutoIt:
+    $oVectorOfFunction_evaluation.push_back( $value ) -> None
+```
+
+### VectorOfFunction\_evaluation::push\_vector
+
+```cpp
+void VectorOfFunction_evaluation::push_vector( VectorOfFunction_evaluation other );
+AutoIt:
+    $oVectorOfFunction_evaluation.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfFunction_evaluation::push_vector( VectorOfFunction_evaluation other,
+                                               size_t                      count,
+                                               size_t                      start = 0 );
+AutoIt:
+    $oVectorOfFunction_evaluation.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfFunction\_evaluation::put\_Item
+
+```cpp
+void VectorOfFunction_evaluation::put_Item( size_t                    index,
+                                            dlib::function_evaluation item );
+AutoIt:
+    $oVectorOfFunction_evaluation.Item( $index ) = $item
+```
+
+### VectorOfFunction\_evaluation::size
+
+```cpp
+size_t VectorOfFunction_evaluation::size();
+AutoIt:
+    $oVectorOfFunction_evaluation.size() -> retval
+```
+
+### VectorOfFunction\_evaluation::slice
+
+```cpp
+VectorOfFunction_evaluation VectorOfFunction_evaluation::slice( size_t start = 0,
+                                                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFunction_evaluation.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfFunction\_evaluation::sort
+
+```cpp
+void VectorOfFunction_evaluation::sort( void*  comparator,
+                                        size_t start = 0,
+                                        size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFunction_evaluation.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfFunction\_evaluation::sort\_variant
+
+```cpp
+void VectorOfFunction_evaluation::sort_variant( void*  comparator,
+                                                size_t start = 0,
+                                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFunction_evaluation.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfFunction\_evaluation::start
+
+```cpp
+void* VectorOfFunction_evaluation::start();
+AutoIt:
+    $oVectorOfFunction_evaluation.start() -> retval
+```
+
+## VectorOfVectorOfFunction\_evaluation
+
+### VectorOfVectorOfFunction\_evaluation.Count
+
+```cpp
+size_t VectorOfVectorOfFunction_evaluation::size()
+AutoIt:
+    [propget] $oVectorOfVectorOfFunction_evaluation.Count
+```
+
+### VectorOfVectorOfFunction\_evaluation::create
+
+```cpp
+static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create() -> <VectorOfVectorOfFunction_evaluation object>
+```
+
+```cpp
+static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create( $size ) -> <VectorOfVectorOfFunction_evaluation object>
+```
+
+```cpp
+static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create( VectorOfVectorOfFunction_evaluation other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create( $other ) -> <VectorOfVectorOfFunction_evaluation object>
+```
+
+### VectorOfVectorOfFunction\_evaluation::Add
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::Add( std::vector<dlib::function_evaluation> value );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.Add( $value ) -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::Items
+
+```cpp
+VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::Items();
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.Items() -> retval
+```
+
+### VectorOfVectorOfFunction\_evaluation::Keys
+
+```cpp
+std::vector<int> VectorOfVectorOfFunction_evaluation::Keys();
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.Keys() -> retval
+```
+
+### VectorOfVectorOfFunction\_evaluation::Remove
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::Remove( size_t index );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.Remove( $index ) -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::append
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::append( std::vector<dlib::function_evaluation> value );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.append( $value ) -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::at
+
+```cpp
+std::vector<dlib::function_evaluation> VectorOfVectorOfFunction_evaluation::at( size_t index );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::at( size_t                                 index,
+                                              std::vector<dlib::function_evaluation> value );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.at( $index, $value ) -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::clear
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::clear();
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.clear() -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::empty
+
+```cpp
+bool VectorOfVectorOfFunction_evaluation::empty();
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.empty() -> retval
+```
+
+### VectorOfVectorOfFunction\_evaluation::end
+
+```cpp
+void* VectorOfVectorOfFunction_evaluation::end();
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.end() -> retval
+```
+
+### VectorOfVectorOfFunction\_evaluation::get\_Item
+
+```cpp
+std::vector<dlib::function_evaluation> VectorOfVectorOfFunction_evaluation::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.Item( $index ) -> retval
+    $oVectorOfVectorOfFunction_evaluation( $index ) -> retval
+```
+
+### VectorOfVectorOfFunction\_evaluation::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfFunction_evaluation::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation._NewEnum() -> retval
+```
+
+### VectorOfVectorOfFunction\_evaluation::push\_back
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::push_back( std::vector<dlib::function_evaluation> value );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.push_back( $value ) -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::push\_vector
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::push_vector( VectorOfVectorOfFunction_evaluation other );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::push_vector( VectorOfVectorOfFunction_evaluation other,
+                                                       size_t                              count,
+                                                       size_t                              start = 0 );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::put\_Item
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::put_Item( size_t                                 index,
+                                                    std::vector<dlib::function_evaluation> item );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.Item( $index ) = $item
+```
+
+### VectorOfVectorOfFunction\_evaluation::size
+
+```cpp
+size_t VectorOfVectorOfFunction_evaluation::size();
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.size() -> retval
+```
+
+### VectorOfVectorOfFunction\_evaluation::slice
+
+```cpp
+VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::slice( size_t start = 0,
+                                                                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVectorOfFunction\_evaluation::sort
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::sort( void*  comparator,
+                                                size_t start = 0,
+                                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::sort\_variant
+
+```cpp
+void VectorOfVectorOfFunction_evaluation::sort_variant( void*  comparator,
+                                                        size_t start = 0,
+                                                        size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::start
+
+```cpp
+void* VectorOfVectorOfFunction_evaluation::start();
+AutoIt:
+    $oVectorOfVectorOfFunction_evaluation.start() -> retval
+```
+
+## VectorOfDrectangle
+
+### VectorOfDrectangle.Count
+
+```cpp
+size_t VectorOfDrectangle::size()
+AutoIt:
+    [propget] $oVectorOfDrectangle.Count
+```
+
+### VectorOfDrectangle::create
+
+```cpp
+static VectorOfDrectangle VectorOfDrectangle::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDrectangle").create() -> <VectorOfDrectangle object>
+```
+
+```cpp
+static VectorOfDrectangle VectorOfDrectangle::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDrectangle").create( $size ) -> <VectorOfDrectangle object>
+```
+
+```cpp
+static VectorOfDrectangle VectorOfDrectangle::create( VectorOfDrectangle other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDrectangle").create( $other ) -> <VectorOfDrectangle object>
+```
+
+### VectorOfDrectangle::Add
+
+```cpp
+void VectorOfDrectangle::Add( dlib::drectangle value );
+AutoIt:
+    $oVectorOfDrectangle.Add( $value ) -> None
+```
+
+### VectorOfDrectangle::Items
+
+```cpp
+VectorOfDrectangle VectorOfDrectangle::Items();
+AutoIt:
+    $oVectorOfDrectangle.Items() -> retval
+```
+
+### VectorOfDrectangle::Keys
+
+```cpp
+std::vector<int> VectorOfDrectangle::Keys();
+AutoIt:
+    $oVectorOfDrectangle.Keys() -> retval
+```
+
+### VectorOfDrectangle::Remove
+
+```cpp
+void VectorOfDrectangle::Remove( size_t index );
+AutoIt:
+    $oVectorOfDrectangle.Remove( $index ) -> None
+```
+
+### VectorOfDrectangle::append
+
+```cpp
+void VectorOfDrectangle::append( dlib::drectangle value );
+AutoIt:
+    $oVectorOfDrectangle.append( $value ) -> None
+```
+
+### VectorOfDrectangle::at
+
+```cpp
+dlib::drectangle VectorOfDrectangle::at( size_t index );
+AutoIt:
+    $oVectorOfDrectangle.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfDrectangle::at( size_t           index,
+                             dlib::drectangle value );
+AutoIt:
+    $oVectorOfDrectangle.at( $index, $value ) -> None
+```
+
+### VectorOfDrectangle::clear
+
+```cpp
+void VectorOfDrectangle::clear();
+AutoIt:
+    $oVectorOfDrectangle.clear() -> None
+```
+
+### VectorOfDrectangle::empty
+
+```cpp
+bool VectorOfDrectangle::empty();
+AutoIt:
+    $oVectorOfDrectangle.empty() -> retval
+```
+
+### VectorOfDrectangle::end
+
+```cpp
+void* VectorOfDrectangle::end();
+AutoIt:
+    $oVectorOfDrectangle.end() -> retval
+```
+
+### VectorOfDrectangle::get\_Item
+
+```cpp
+dlib::drectangle VectorOfDrectangle::get_Item( size_t index );
+AutoIt:
+    $oVectorOfDrectangle.Item( $index ) -> retval
+    $oVectorOfDrectangle( $index ) -> retval
+```
+
+### VectorOfDrectangle::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfDrectangle::get__NewEnum();
+AutoIt:
+    $oVectorOfDrectangle._NewEnum() -> retval
+```
+
+### VectorOfDrectangle::push\_back
+
+```cpp
+void VectorOfDrectangle::push_back( dlib::drectangle value );
+AutoIt:
+    $oVectorOfDrectangle.push_back( $value ) -> None
+```
+
+### VectorOfDrectangle::push\_vector
+
+```cpp
+void VectorOfDrectangle::push_vector( VectorOfDrectangle other );
+AutoIt:
+    $oVectorOfDrectangle.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfDrectangle::push_vector( VectorOfDrectangle other,
+                                      size_t             count,
+                                      size_t             start = 0 );
+AutoIt:
+    $oVectorOfDrectangle.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfDrectangle::put\_Item
+
+```cpp
+void VectorOfDrectangle::put_Item( size_t           index,
+                                   dlib::drectangle item );
+AutoIt:
+    $oVectorOfDrectangle.Item( $index ) = $item
+```
+
+### VectorOfDrectangle::size
+
+```cpp
+size_t VectorOfDrectangle::size();
+AutoIt:
+    $oVectorOfDrectangle.size() -> retval
+```
+
+### VectorOfDrectangle::slice
+
+```cpp
+VectorOfDrectangle VectorOfDrectangle::slice( size_t start = 0,
+                                              size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfDrectangle.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfDrectangle::sort
+
+```cpp
+void VectorOfDrectangle::sort( void*  comparator,
+                               size_t start = 0,
+                               size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfDrectangle.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfDrectangle::sort\_variant
+
+```cpp
+void VectorOfDrectangle::sort_variant( void*  comparator,
+                                       size_t start = 0,
+                                       size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfDrectangle.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfDrectangle::start
+
+```cpp
+void* VectorOfDrectangle::start();
+AutoIt:
+    $oVectorOfDrectangle.start() -> retval
+```
+
+## VectorOfImage\_window\_keyboard\_state\_masks
+
+### VectorOfImage\_window\_keyboard\_state\_masks.Count
+
+```cpp
+size_t VectorOfImage_window_keyboard_state_masks::size()
+AutoIt:
+    [propget] $oVectorOfImage_window_keyboard_state_masks.Count
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::create
+
+```cpp
+static VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_window_keyboard_state_masks").create() -> <VectorOfImage_window_keyboard_state_masks object>
+```
+
+```cpp
+static VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_window_keyboard_state_masks").create( $size ) -> <VectorOfImage_window_keyboard_state_masks object>
+```
+
+```cpp
+static VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::create( VectorOfImage_window_keyboard_state_masks other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_window_keyboard_state_masks").create( $other ) -> <VectorOfImage_window_keyboard_state_masks object>
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::Add
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::Add( dlib::image_window::keyboard_state_masks value );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.Add( $value ) -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::Items
+
+```cpp
+VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::Items();
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.Items() -> retval
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::Keys
+
+```cpp
+std::vector<int> VectorOfImage_window_keyboard_state_masks::Keys();
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.Keys() -> retval
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::Remove
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::Remove( size_t index );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.Remove( $index ) -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::append
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::append( dlib::image_window::keyboard_state_masks value );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.append( $value ) -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::at
+
+```cpp
+dlib::image_window::keyboard_state_masks VectorOfImage_window_keyboard_state_masks::at( size_t index );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::at( size_t                                   index,
+                                                    dlib::image_window::keyboard_state_masks value );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.at( $index, $value ) -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::clear
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::clear();
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.clear() -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::empty
+
+```cpp
+bool VectorOfImage_window_keyboard_state_masks::empty();
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.empty() -> retval
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::end
+
+```cpp
+void* VectorOfImage_window_keyboard_state_masks::end();
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.end() -> retval
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::get\_Item
+
+```cpp
+dlib::image_window::keyboard_state_masks VectorOfImage_window_keyboard_state_masks::get_Item( size_t index );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.Item( $index ) -> retval
+    $oVectorOfImage_window_keyboard_state_masks( $index ) -> retval
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfImage_window_keyboard_state_masks::get__NewEnum();
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks._NewEnum() -> retval
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::push\_back
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::push_back( dlib::image_window::keyboard_state_masks value );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.push_back( $value ) -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::push\_vector
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::push_vector( VectorOfImage_window_keyboard_state_masks other );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::push_vector( VectorOfImage_window_keyboard_state_masks other,
+                                                             size_t                                    count,
+                                                             size_t                                    start = 0 );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::put\_Item
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::put_Item( size_t                                   index,
+                                                          dlib::image_window::keyboard_state_masks item );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.Item( $index ) = $item
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::size
+
+```cpp
+size_t VectorOfImage_window_keyboard_state_masks::size();
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.size() -> retval
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::slice
+
+```cpp
+VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::slice( size_t start = 0,
+                                                                                            size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::sort
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::sort( void*  comparator,
+                                                      size_t start = 0,
+                                                      size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::sort\_variant
+
+```cpp
+void VectorOfImage_window_keyboard_state_masks::sort_variant( void*  comparator,
+                                                              size_t start = 0,
+                                                              size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::start
+
+```cpp
+void* VectorOfImage_window_keyboard_state_masks::start();
+AutoIt:
+    $oVectorOfImage_window_keyboard_state_masks.start() -> retval
 ```
 
 ## MapOfStringAndPoint
@@ -11409,7 +16396,7 @@ AutoIt:
 ```
 
 ```cpp
-static std::shared_ptr<MapOfStringAndPoint> MapOfStringAndPoint::create( std::vector<std::pair<string, dlib::point>> pairs );
+static std::shared_ptr<MapOfStringAndPoint> MapOfStringAndPoint::create( std::vector<std::pair<std::string, dlib::point>> pairs );
 AutoIt:
     _Dlib_ObjCreate("MapOfStringAndPoint").create( $pairs ) -> retval
 ```
@@ -11417,7 +16404,7 @@ AutoIt:
 ### MapOfStringAndPoint::Add
 
 ```cpp
-void MapOfStringAndPoint::Add( string      key,
+void MapOfStringAndPoint::Add( std::string key,
                                dlib::point value );
 AutoIt:
     $oMapOfStringAndPoint.Add( $key, $value ) -> None
@@ -11426,7 +16413,7 @@ AutoIt:
 ### MapOfStringAndPoint::Get
 
 ```cpp
-dlib::point MapOfStringAndPoint::Get( string key );
+dlib::point MapOfStringAndPoint::Get( std::string key );
 AutoIt:
     $oMapOfStringAndPoint.Get( $key ) -> retval
 ```
@@ -11442,7 +16429,7 @@ AutoIt:
 ### MapOfStringAndPoint::Keys
 
 ```cpp
-std::vector<string> MapOfStringAndPoint::Keys();
+std::vector<std::string> MapOfStringAndPoint::Keys();
 AutoIt:
     $oMapOfStringAndPoint.Keys() -> retval
 ```
@@ -11450,7 +16437,7 @@ AutoIt:
 ### MapOfStringAndPoint::Remove
 
 ```cpp
-size_t MapOfStringAndPoint::Remove( string key );
+size_t MapOfStringAndPoint::Remove( std::string key );
 AutoIt:
     $oMapOfStringAndPoint.Remove( $key ) -> retval
 ```
@@ -11466,7 +16453,7 @@ AutoIt:
 ### MapOfStringAndPoint::contains
 
 ```cpp
-bool MapOfStringAndPoint::contains( string key );
+bool MapOfStringAndPoint::contains( std::string key );
 AutoIt:
     $oMapOfStringAndPoint.contains( $key ) -> retval
 ```
@@ -11474,7 +16461,7 @@ AutoIt:
 ### MapOfStringAndPoint::count
 
 ```cpp
-size_t MapOfStringAndPoint::count( string key );
+size_t MapOfStringAndPoint::count( std::string key );
 AutoIt:
     $oMapOfStringAndPoint.count( $key ) -> retval
 ```
@@ -11490,20 +16477,37 @@ AutoIt:
 ### MapOfStringAndPoint::erase
 
 ```cpp
-size_t MapOfStringAndPoint::erase( string key );
+size_t MapOfStringAndPoint::erase( std::string key );
 AutoIt:
     $oMapOfStringAndPoint.erase( $key ) -> retval
+```
+
+### MapOfStringAndPoint::get\_Item
+
+```cpp
+dlib::point MapOfStringAndPoint::get_Item( std::string key );
+AutoIt:
+    $oMapOfStringAndPoint.Item( $key ) -> retval
+    $oMapOfStringAndPoint( $key ) -> retval
+```
+
+### MapOfStringAndPoint::get\_\_NewEnum
+
+```cpp
+IUnknown* MapOfStringAndPoint::get__NewEnum();
+AutoIt:
+    $oMapOfStringAndPoint._NewEnum() -> retval
 ```
 
 ### MapOfStringAndPoint::has
 
 ```cpp
-bool MapOfStringAndPoint::has( string key );
+bool MapOfStringAndPoint::has( std::string key );
 AutoIt:
     $oMapOfStringAndPoint.has( $key ) -> retval
 ```
 
-### MapOfStringAndPoint::max_size
+### MapOfStringAndPoint::max\_size
 
 ```cpp
 size_t MapOfStringAndPoint::max_size();
@@ -11519,6 +16523,15 @@ AutoIt:
     $oMapOfStringAndPoint.merge( $other ) -> None
 ```
 
+### MapOfStringAndPoint::put\_Item
+
+```cpp
+void MapOfStringAndPoint::put_Item( std::string key,
+                                    dlib::point item );
+AutoIt:
+    $oMapOfStringAndPoint.Item( $key ) = $item
+```
+
 ### MapOfStringAndPoint::size
 
 ```cpp
@@ -11527,565 +16540,15 @@ AutoIt:
     $oMapOfStringAndPoint.size() -> retval
 ```
 
-### MapOfStringAndPoint::get_Item
-
-```cpp
-dlib::point MapOfStringAndPoint::get_Item( string vKey );
-AutoIt:
-    $oMapOfStringAndPoint.Item( $vKey ) -> retval
-    MapOfStringAndPoint( $vKey ) -> retval
-```
-
-### MapOfStringAndPoint::put_Item
-
-```cpp
-void MapOfStringAndPoint::put_Item( string      vKey,
-                                    dlib::point vItem );
-AutoIt:
-    $oMapOfStringAndPoint.Item( $vKey ) = $vItem
-```
-
-## VectorOfBox
-
-### VectorOfBox::create
-
-```cpp
-static VectorOfBox VectorOfBox::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfBox").create() -> <VectorOfBox object>
-```
-
-```cpp
-static VectorOfBox VectorOfBox::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfBox").create( $size ) -> <VectorOfBox object>
-```
-
-```cpp
-static VectorOfBox VectorOfBox::create( VectorOfBox other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfBox").create( $other ) -> <VectorOfBox object>
-```
-
-### VectorOfBox::Add
-
-```cpp
-void VectorOfBox::Add( dlib::image_dataset_metadata::box value );
-AutoIt:
-    $oVectorOfBox.Add( $value ) -> None
-```
-
-### VectorOfBox::Items
-
-```cpp
-VectorOfBox VectorOfBox::Items();
-AutoIt:
-    $oVectorOfBox.Items() -> retval
-```
-
-### VectorOfBox::Keys
-
-```cpp
-std::vector<int> VectorOfBox::Keys();
-AutoIt:
-    $oVectorOfBox.Keys() -> retval
-```
-
-### VectorOfBox::Remove
-
-```cpp
-void VectorOfBox::Remove( size_t index );
-AutoIt:
-    $oVectorOfBox.Remove( $index ) -> None
-```
-
-### VectorOfBox::at
-
-```cpp
-dlib::image_dataset_metadata::box VectorOfBox::at( size_t index );
-AutoIt:
-    $oVectorOfBox.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfBox::at( size_t                            index,
-                      dlib::image_dataset_metadata::box value );
-AutoIt:
-    $oVectorOfBox.at( $index, $value ) -> None
-```
-
-### VectorOfBox::clear
-
-```cpp
-void VectorOfBox::clear();
-AutoIt:
-    $oVectorOfBox.clear() -> None
-```
-
-### VectorOfBox::empty
-
-```cpp
-bool VectorOfBox::empty();
-AutoIt:
-    $oVectorOfBox.empty() -> retval
-```
-
-### VectorOfBox::end
-
-```cpp
-void* VectorOfBox::end();
-AutoIt:
-    $oVectorOfBox.end() -> retval
-```
-
-### VectorOfBox::push_back
-
-```cpp
-void VectorOfBox::push_back( dlib::image_dataset_metadata::box value );
-AutoIt:
-    $oVectorOfBox.push_back( $value ) -> None
-```
-
-### VectorOfBox::push_vector
-
-```cpp
-void VectorOfBox::push_vector( VectorOfBox other );
-AutoIt:
-    $oVectorOfBox.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfBox::push_vector( VectorOfBox other,
-                               size_t      count,
-                               size_t      start = 0 );
-AutoIt:
-    $oVectorOfBox.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfBox::size
-
-```cpp
-size_t VectorOfBox::size();
-AutoIt:
-    $oVectorOfBox.size() -> retval
-```
-
-### VectorOfBox::slice
-
-```cpp
-VectorOfBox VectorOfBox::slice( size_t start = 0,
-                                size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfBox.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfBox::sort
-
-```cpp
-void VectorOfBox::sort( void*  comparator,
-                        size_t start = 0,
-                        size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfBox.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfBox::sort_variant
-
-```cpp
-void VectorOfBox::sort_variant( void*  comparator,
-                                size_t start = 0,
-                                size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfBox.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfBox::start
-
-```cpp
-void* VectorOfBox::start();
-AutoIt:
-    $oVectorOfBox.start() -> retval
-```
-
-### VectorOfBox::get_Item
-
-```cpp
-dlib::image_dataset_metadata::box VectorOfBox::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfBox.Item( $vIndex ) -> retval
-    VectorOfBox( $vIndex ) -> retval
-```
-
-### VectorOfBox::put_Item
-
-```cpp
-void VectorOfBox::put_Item( size_t                            vIndex,
-                            dlib::image_dataset_metadata::box vItem );
-AutoIt:
-    $oVectorOfBox.Item( $vIndex ) = $vItem
-```
-
-## VectorOfImage
-
-### VectorOfImage::create
-
-```cpp
-static VectorOfImage VectorOfImage::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfImage").create() -> <VectorOfImage object>
-```
-
-```cpp
-static VectorOfImage VectorOfImage::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfImage").create( $size ) -> <VectorOfImage object>
-```
-
-```cpp
-static VectorOfImage VectorOfImage::create( VectorOfImage other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfImage").create( $other ) -> <VectorOfImage object>
-```
-
-### VectorOfImage::Add
-
-```cpp
-void VectorOfImage::Add( dlib::image_dataset_metadata::image value );
-AutoIt:
-    $oVectorOfImage.Add( $value ) -> None
-```
-
-### VectorOfImage::Items
-
-```cpp
-VectorOfImage VectorOfImage::Items();
-AutoIt:
-    $oVectorOfImage.Items() -> retval
-```
-
-### VectorOfImage::Keys
-
-```cpp
-std::vector<int> VectorOfImage::Keys();
-AutoIt:
-    $oVectorOfImage.Keys() -> retval
-```
-
-### VectorOfImage::Remove
-
-```cpp
-void VectorOfImage::Remove( size_t index );
-AutoIt:
-    $oVectorOfImage.Remove( $index ) -> None
-```
-
-### VectorOfImage::at
-
-```cpp
-dlib::image_dataset_metadata::image VectorOfImage::at( size_t index );
-AutoIt:
-    $oVectorOfImage.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfImage::at( size_t                              index,
-                        dlib::image_dataset_metadata::image value );
-AutoIt:
-    $oVectorOfImage.at( $index, $value ) -> None
-```
-
-### VectorOfImage::clear
-
-```cpp
-void VectorOfImage::clear();
-AutoIt:
-    $oVectorOfImage.clear() -> None
-```
-
-### VectorOfImage::empty
-
-```cpp
-bool VectorOfImage::empty();
-AutoIt:
-    $oVectorOfImage.empty() -> retval
-```
-
-### VectorOfImage::end
-
-```cpp
-void* VectorOfImage::end();
-AutoIt:
-    $oVectorOfImage.end() -> retval
-```
-
-### VectorOfImage::push_back
-
-```cpp
-void VectorOfImage::push_back( dlib::image_dataset_metadata::image value );
-AutoIt:
-    $oVectorOfImage.push_back( $value ) -> None
-```
-
-### VectorOfImage::push_vector
-
-```cpp
-void VectorOfImage::push_vector( VectorOfImage other );
-AutoIt:
-    $oVectorOfImage.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfImage::push_vector( VectorOfImage other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfImage.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfImage::size
-
-```cpp
-size_t VectorOfImage::size();
-AutoIt:
-    $oVectorOfImage.size() -> retval
-```
-
-### VectorOfImage::slice
-
-```cpp
-VectorOfImage VectorOfImage::slice( size_t start = 0,
-                                    size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfImage.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfImage::sort
-
-```cpp
-void VectorOfImage::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfImage.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfImage::sort_variant
-
-```cpp
-void VectorOfImage::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfImage.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfImage::start
-
-```cpp
-void* VectorOfImage::start();
-AutoIt:
-    $oVectorOfImage.start() -> retval
-```
-
-### VectorOfImage::get_Item
-
-```cpp
-dlib::image_dataset_metadata::image VectorOfImage::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfImage.Item( $vIndex ) -> retval
-    VectorOfImage( $vIndex ) -> retval
-```
-
-### VectorOfImage::put_Item
-
-```cpp
-void VectorOfImage::put_Item( size_t                              vIndex,
-                              dlib::image_dataset_metadata::image vItem );
-AutoIt:
-    $oVectorOfImage.Item( $vIndex ) = $vItem
-```
-
-## VectorOfString
-
-### VectorOfString::create
-
-```cpp
-static VectorOfString VectorOfString::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfString").create() -> <VectorOfString object>
-```
-
-```cpp
-static VectorOfString VectorOfString::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfString").create( $size ) -> <VectorOfString object>
-```
-
-```cpp
-static VectorOfString VectorOfString::create( VectorOfString other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfString").create( $other ) -> <VectorOfString object>
-```
-
-### VectorOfString::Add
-
-```cpp
-void VectorOfString::Add( string value );
-AutoIt:
-    $oVectorOfString.Add( $value ) -> None
-```
-
-### VectorOfString::Items
-
-```cpp
-VectorOfString VectorOfString::Items();
-AutoIt:
-    $oVectorOfString.Items() -> retval
-```
-
-### VectorOfString::Keys
-
-```cpp
-std::vector<int> VectorOfString::Keys();
-AutoIt:
-    $oVectorOfString.Keys() -> retval
-```
-
-### VectorOfString::Remove
-
-```cpp
-void VectorOfString::Remove( size_t index );
-AutoIt:
-    $oVectorOfString.Remove( $index ) -> None
-```
-
-### VectorOfString::at
-
-```cpp
-string VectorOfString::at( size_t index );
-AutoIt:
-    $oVectorOfString.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfString::at( size_t index,
-                         string value );
-AutoIt:
-    $oVectorOfString.at( $index, $value ) -> None
-```
-
-### VectorOfString::clear
-
-```cpp
-void VectorOfString::clear();
-AutoIt:
-    $oVectorOfString.clear() -> None
-```
-
-### VectorOfString::empty
-
-```cpp
-bool VectorOfString::empty();
-AutoIt:
-    $oVectorOfString.empty() -> retval
-```
-
-### VectorOfString::end
-
-```cpp
-void* VectorOfString::end();
-AutoIt:
-    $oVectorOfString.end() -> retval
-```
-
-### VectorOfString::push_back
-
-```cpp
-void VectorOfString::push_back( string value );
-AutoIt:
-    $oVectorOfString.push_back( $value ) -> None
-```
-
-### VectorOfString::push_vector
-
-```cpp
-void VectorOfString::push_vector( VectorOfString other );
-AutoIt:
-    $oVectorOfString.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfString::push_vector( VectorOfString other,
-                                  size_t         count,
-                                  size_t         start = 0 );
-AutoIt:
-    $oVectorOfString.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfString::size
-
-```cpp
-size_t VectorOfString::size();
-AutoIt:
-    $oVectorOfString.size() -> retval
-```
-
-### VectorOfString::slice
-
-```cpp
-VectorOfString VectorOfString::slice( size_t start = 0,
-                                      size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfString.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfString::sort
-
-```cpp
-void VectorOfString::sort( void*  comparator,
-                           size_t start = 0,
-                           size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfString.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfString::sort_variant
-
-```cpp
-void VectorOfString::sort_variant( void*  comparator,
-                                   size_t start = 0,
-                                   size_t count = this->__self->get()->size() );
-AutoIt:
-    $oVectorOfString.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfString::start
-
-```cpp
-void* VectorOfString::start();
-AutoIt:
-    $oVectorOfString.start() -> retval
-```
-
-### VectorOfString::get_Item
-
-```cpp
-string VectorOfString::get_Item( size_t vIndex );
-AutoIt:
-    $oVectorOfString.Item( $vIndex ) -> retval
-    VectorOfString( $vIndex ) -> retval
-```
-
-### VectorOfString::put_Item
-
-```cpp
-void VectorOfString::put_Item( size_t vIndex,
-                               string vItem );
-AutoIt:
-    $oVectorOfString.Item( $vIndex ) = $vItem
-```
-
 ## VectorOfPairOfStringAndPoint
+
+### VectorOfPairOfStringAndPoint.Count
+
+```cpp
+size_t VectorOfPairOfStringAndPoint::size()
+AutoIt:
+    [propget] $oVectorOfPairOfStringAndPoint.Count
+```
 
 ### VectorOfPairOfStringAndPoint::create
 
@@ -12110,7 +16573,7 @@ AutoIt:
 ### VectorOfPairOfStringAndPoint::Add
 
 ```cpp
-void VectorOfPairOfStringAndPoint::Add( std::pair<string, dlib::point> value );
+void VectorOfPairOfStringAndPoint::Add( std::pair<std::string, dlib::point> value );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.Add( $value ) -> None
 ```
@@ -12139,17 +16602,25 @@ AutoIt:
     $oVectorOfPairOfStringAndPoint.Remove( $index ) -> None
 ```
 
+### VectorOfPairOfStringAndPoint::append
+
+```cpp
+void VectorOfPairOfStringAndPoint::append( std::pair<std::string, dlib::point> value );
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.append( $value ) -> None
+```
+
 ### VectorOfPairOfStringAndPoint::at
 
 ```cpp
-std::pair<string, dlib::point> VectorOfPairOfStringAndPoint::at( size_t index );
+std::pair<std::string, dlib::point> VectorOfPairOfStringAndPoint::at( size_t index );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.at( $index ) -> retval
 ```
 
 ```cpp
-void VectorOfPairOfStringAndPoint::at( size_t                         index,
-                                       std::pair<string, dlib::point> value );
+void VectorOfPairOfStringAndPoint::at( size_t                              index,
+                                       std::pair<std::string, dlib::point> value );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.at( $index, $value ) -> None
 ```
@@ -12178,15 +16649,32 @@ AutoIt:
     $oVectorOfPairOfStringAndPoint.end() -> retval
 ```
 
-### VectorOfPairOfStringAndPoint::push_back
+### VectorOfPairOfStringAndPoint::get\_Item
 
 ```cpp
-void VectorOfPairOfStringAndPoint::push_back( std::pair<string, dlib::point> value );
+std::pair<std::string, dlib::point> VectorOfPairOfStringAndPoint::get_Item( size_t index );
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.Item( $index ) -> retval
+    $oVectorOfPairOfStringAndPoint( $index ) -> retval
+```
+
+### VectorOfPairOfStringAndPoint::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfPairOfStringAndPoint::get__NewEnum();
+AutoIt:
+    $oVectorOfPairOfStringAndPoint._NewEnum() -> retval
+```
+
+### VectorOfPairOfStringAndPoint::push\_back
+
+```cpp
+void VectorOfPairOfStringAndPoint::push_back( std::pair<std::string, dlib::point> value );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.push_back( $value ) -> None
 ```
 
-### VectorOfPairOfStringAndPoint::push_vector
+### VectorOfPairOfStringAndPoint::push\_vector
 
 ```cpp
 void VectorOfPairOfStringAndPoint::push_vector( VectorOfPairOfStringAndPoint other );
@@ -12202,6 +16690,15 @@ AutoIt:
     $oVectorOfPairOfStringAndPoint.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfPairOfStringAndPoint::put\_Item
+
+```cpp
+void VectorOfPairOfStringAndPoint::put_Item( size_t                              index,
+                                             std::pair<std::string, dlib::point> item );
+AutoIt:
+    $oVectorOfPairOfStringAndPoint.Item( $index ) = $item
+```
+
 ### VectorOfPairOfStringAndPoint::size
 
 ```cpp
@@ -12214,7 +16711,7 @@ AutoIt:
 
 ```cpp
 VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::slice( size_t start = 0,
-                                                                  size_t count = this->__self->get()->size() );
+                                                                  size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.slice( [$start[, $count]] ) -> retval
 ```
@@ -12224,17 +16721,17 @@ AutoIt:
 ```cpp
 void VectorOfPairOfStringAndPoint::sort( void*  comparator,
                                          size_t start = 0,
-                                         size_t count = this->__self->get()->size() );
+                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfPairOfStringAndPoint::sort_variant
+### VectorOfPairOfStringAndPoint::sort\_variant
 
 ```cpp
 void VectorOfPairOfStringAndPoint::sort_variant( void*  comparator,
                                                  size_t start = 0,
-                                                 size_t count = this->__self->get()->size() );
+                                                 size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
@@ -12247,20 +16744,614 @@ AutoIt:
     $oVectorOfPairOfStringAndPoint.start() -> retval
 ```
 
-### VectorOfPairOfStringAndPoint::get_Item
+## VectorOfImage\_dataset\_metadata\_box
+
+### VectorOfImage\_dataset\_metadata\_box.Count
 
 ```cpp
-std::pair<string, dlib::point> VectorOfPairOfStringAndPoint::get_Item( size_t vIndex );
+size_t VectorOfImage_dataset_metadata_box::size()
 AutoIt:
-    $oVectorOfPairOfStringAndPoint.Item( $vIndex ) -> retval
-    VectorOfPairOfStringAndPoint( $vIndex ) -> retval
+    [propget] $oVectorOfImage_dataset_metadata_box.Count
 ```
 
-### VectorOfPairOfStringAndPoint::put_Item
+### VectorOfImage\_dataset\_metadata\_box::create
 
 ```cpp
-void VectorOfPairOfStringAndPoint::put_Item( size_t                         vIndex,
-                                             std::pair<string, dlib::point> vItem );
+static VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::create();
 AutoIt:
-    $oVectorOfPairOfStringAndPoint.Item( $vIndex ) = $vItem
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_box").create() -> <VectorOfImage_dataset_metadata_box object>
+```
+
+```cpp
+static VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_box").create( $size ) -> <VectorOfImage_dataset_metadata_box object>
+```
+
+```cpp
+static VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::create( VectorOfImage_dataset_metadata_box other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_box").create( $other ) -> <VectorOfImage_dataset_metadata_box object>
+```
+
+### VectorOfImage\_dataset\_metadata\_box::Add
+
+```cpp
+void VectorOfImage_dataset_metadata_box::Add( dlib::image_dataset_metadata::box value );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.Add( $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::Items
+
+```cpp
+VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::Items();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.Items() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_box::Keys
+
+```cpp
+std::vector<int> VectorOfImage_dataset_metadata_box::Keys();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.Keys() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_box::Remove
+
+```cpp
+void VectorOfImage_dataset_metadata_box::Remove( size_t index );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.Remove( $index ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::append
+
+```cpp
+void VectorOfImage_dataset_metadata_box::append( dlib::image_dataset_metadata::box value );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.append( $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::at
+
+```cpp
+dlib::image_dataset_metadata::box VectorOfImage_dataset_metadata_box::at( size_t index );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfImage_dataset_metadata_box::at( size_t                            index,
+                                             dlib::image_dataset_metadata::box value );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.at( $index, $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::clear
+
+```cpp
+void VectorOfImage_dataset_metadata_box::clear();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.clear() -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::empty
+
+```cpp
+bool VectorOfImage_dataset_metadata_box::empty();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.empty() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_box::end
+
+```cpp
+void* VectorOfImage_dataset_metadata_box::end();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.end() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_box::get\_Item
+
+```cpp
+dlib::image_dataset_metadata::box VectorOfImage_dataset_metadata_box::get_Item( size_t index );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.Item( $index ) -> retval
+    $oVectorOfImage_dataset_metadata_box( $index ) -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_box::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfImage_dataset_metadata_box::get__NewEnum();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box._NewEnum() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_box::push\_back
+
+```cpp
+void VectorOfImage_dataset_metadata_box::push_back( dlib::image_dataset_metadata::box value );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.push_back( $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::push\_vector
+
+```cpp
+void VectorOfImage_dataset_metadata_box::push_vector( VectorOfImage_dataset_metadata_box other );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfImage_dataset_metadata_box::push_vector( VectorOfImage_dataset_metadata_box other,
+                                                      size_t                             count,
+                                                      size_t                             start = 0 );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::put\_Item
+
+```cpp
+void VectorOfImage_dataset_metadata_box::put_Item( size_t                            index,
+                                                   dlib::image_dataset_metadata::box item );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.Item( $index ) = $item
+```
+
+### VectorOfImage\_dataset\_metadata\_box::size
+
+```cpp
+size_t VectorOfImage_dataset_metadata_box::size();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.size() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_box::slice
+
+```cpp
+VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::slice( size_t start = 0,
+                                                                              size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_box::sort
+
+```cpp
+void VectorOfImage_dataset_metadata_box::sort( void*  comparator,
+                                               size_t start = 0,
+                                               size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::sort\_variant
+
+```cpp
+void VectorOfImage_dataset_metadata_box::sort_variant( void*  comparator,
+                                                       size_t start = 0,
+                                                       size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::start
+
+```cpp
+void* VectorOfImage_dataset_metadata_box::start();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_box.start() -> retval
+```
+
+## VectorOfImage\_dataset\_metadata\_image
+
+### VectorOfImage\_dataset\_metadata\_image.Count
+
+```cpp
+size_t VectorOfImage_dataset_metadata_image::size()
+AutoIt:
+    [propget] $oVectorOfImage_dataset_metadata_image.Count
+```
+
+### VectorOfImage\_dataset\_metadata\_image::create
+
+```cpp
+static VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_image").create() -> <VectorOfImage_dataset_metadata_image object>
+```
+
+```cpp
+static VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_image").create( $size ) -> <VectorOfImage_dataset_metadata_image object>
+```
+
+```cpp
+static VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::create( VectorOfImage_dataset_metadata_image other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_image").create( $other ) -> <VectorOfImage_dataset_metadata_image object>
+```
+
+### VectorOfImage\_dataset\_metadata\_image::Add
+
+```cpp
+void VectorOfImage_dataset_metadata_image::Add( dlib::image_dataset_metadata::image value );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.Add( $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::Items
+
+```cpp
+VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::Items();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.Items() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_image::Keys
+
+```cpp
+std::vector<int> VectorOfImage_dataset_metadata_image::Keys();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.Keys() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_image::Remove
+
+```cpp
+void VectorOfImage_dataset_metadata_image::Remove( size_t index );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.Remove( $index ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::append
+
+```cpp
+void VectorOfImage_dataset_metadata_image::append( dlib::image_dataset_metadata::image value );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.append( $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::at
+
+```cpp
+dlib::image_dataset_metadata::image VectorOfImage_dataset_metadata_image::at( size_t index );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfImage_dataset_metadata_image::at( size_t                              index,
+                                               dlib::image_dataset_metadata::image value );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.at( $index, $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::clear
+
+```cpp
+void VectorOfImage_dataset_metadata_image::clear();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.clear() -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::empty
+
+```cpp
+bool VectorOfImage_dataset_metadata_image::empty();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.empty() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_image::end
+
+```cpp
+void* VectorOfImage_dataset_metadata_image::end();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.end() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_image::get\_Item
+
+```cpp
+dlib::image_dataset_metadata::image VectorOfImage_dataset_metadata_image::get_Item( size_t index );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.Item( $index ) -> retval
+    $oVectorOfImage_dataset_metadata_image( $index ) -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_image::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfImage_dataset_metadata_image::get__NewEnum();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image._NewEnum() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_image::push\_back
+
+```cpp
+void VectorOfImage_dataset_metadata_image::push_back( dlib::image_dataset_metadata::image value );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.push_back( $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::push\_vector
+
+```cpp
+void VectorOfImage_dataset_metadata_image::push_vector( VectorOfImage_dataset_metadata_image other );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfImage_dataset_metadata_image::push_vector( VectorOfImage_dataset_metadata_image other,
+                                                        size_t                               count,
+                                                        size_t                               start = 0 );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::put\_Item
+
+```cpp
+void VectorOfImage_dataset_metadata_image::put_Item( size_t                              index,
+                                                     dlib::image_dataset_metadata::image item );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.Item( $index ) = $item
+```
+
+### VectorOfImage\_dataset\_metadata\_image::size
+
+```cpp
+size_t VectorOfImage_dataset_metadata_image::size();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.size() -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_image::slice
+
+```cpp
+VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::slice( size_t start = 0,
+                                                                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfImage\_dataset\_metadata\_image::sort
+
+```cpp
+void VectorOfImage_dataset_metadata_image::sort( void*  comparator,
+                                                 size_t start = 0,
+                                                 size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::sort\_variant
+
+```cpp
+void VectorOfImage_dataset_metadata_image::sort_variant( void*  comparator,
+                                                         size_t start = 0,
+                                                         size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::start
+
+```cpp
+void* VectorOfImage_dataset_metadata_image::start();
+AutoIt:
+    $oVectorOfImage_dataset_metadata_image.start() -> retval
+```
+
+## VectorOfFloat
+
+### VectorOfFloat.Count
+
+```cpp
+size_t VectorOfFloat::size()
+AutoIt:
+    [propget] $oVectorOfFloat.Count
+```
+
+### VectorOfFloat::create
+
+```cpp
+static VectorOfFloat VectorOfFloat::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFloat").create() -> <VectorOfFloat object>
+```
+
+```cpp
+static VectorOfFloat VectorOfFloat::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFloat").create( $size ) -> <VectorOfFloat object>
+```
+
+```cpp
+static VectorOfFloat VectorOfFloat::create( VectorOfFloat other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFloat").create( $other ) -> <VectorOfFloat object>
+```
+
+### VectorOfFloat::Add
+
+```cpp
+void VectorOfFloat::Add( float value );
+AutoIt:
+    $oVectorOfFloat.Add( $value ) -> None
+```
+
+### VectorOfFloat::Items
+
+```cpp
+VectorOfFloat VectorOfFloat::Items();
+AutoIt:
+    $oVectorOfFloat.Items() -> retval
+```
+
+### VectorOfFloat::Keys
+
+```cpp
+std::vector<int> VectorOfFloat::Keys();
+AutoIt:
+    $oVectorOfFloat.Keys() -> retval
+```
+
+### VectorOfFloat::Remove
+
+```cpp
+void VectorOfFloat::Remove( size_t index );
+AutoIt:
+    $oVectorOfFloat.Remove( $index ) -> None
+```
+
+### VectorOfFloat::append
+
+```cpp
+void VectorOfFloat::append( float value );
+AutoIt:
+    $oVectorOfFloat.append( $value ) -> None
+```
+
+### VectorOfFloat::at
+
+```cpp
+float VectorOfFloat::at( size_t index );
+AutoIt:
+    $oVectorOfFloat.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfFloat::at( size_t index,
+                        float  value );
+AutoIt:
+    $oVectorOfFloat.at( $index, $value ) -> None
+```
+
+### VectorOfFloat::clear
+
+```cpp
+void VectorOfFloat::clear();
+AutoIt:
+    $oVectorOfFloat.clear() -> None
+```
+
+### VectorOfFloat::empty
+
+```cpp
+bool VectorOfFloat::empty();
+AutoIt:
+    $oVectorOfFloat.empty() -> retval
+```
+
+### VectorOfFloat::end
+
+```cpp
+void* VectorOfFloat::end();
+AutoIt:
+    $oVectorOfFloat.end() -> retval
+```
+
+### VectorOfFloat::get\_Item
+
+```cpp
+float VectorOfFloat::get_Item( size_t index );
+AutoIt:
+    $oVectorOfFloat.Item( $index ) -> retval
+    $oVectorOfFloat( $index ) -> retval
+```
+
+### VectorOfFloat::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfFloat::get__NewEnum();
+AutoIt:
+    $oVectorOfFloat._NewEnum() -> retval
+```
+
+### VectorOfFloat::push\_back
+
+```cpp
+void VectorOfFloat::push_back( float value );
+AutoIt:
+    $oVectorOfFloat.push_back( $value ) -> None
+```
+
+### VectorOfFloat::push\_vector
+
+```cpp
+void VectorOfFloat::push_vector( VectorOfFloat other );
+AutoIt:
+    $oVectorOfFloat.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfFloat::push_vector( VectorOfFloat other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfFloat.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfFloat::put\_Item
+
+```cpp
+void VectorOfFloat::put_Item( size_t index,
+                              float  item );
+AutoIt:
+    $oVectorOfFloat.Item( $index ) = $item
+```
+
+### VectorOfFloat::size
+
+```cpp
+size_t VectorOfFloat::size();
+AutoIt:
+    $oVectorOfFloat.size() -> retval
+```
+
+### VectorOfFloat::slice
+
+```cpp
+VectorOfFloat VectorOfFloat::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFloat.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfFloat::sort
+
+```cpp
+void VectorOfFloat::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFloat.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfFloat::sort\_variant
+
+```cpp
+void VectorOfFloat::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFloat.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfFloat::start
+
+```cpp
+void* VectorOfFloat::start();
+AutoIt:
+    $oVectorOfFloat.start() -> retval
 ```

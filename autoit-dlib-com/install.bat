@@ -49,8 +49,8 @@
 @IF NOT [%install%%uninstall%%install_user%%uninstall_user%] == [0000] GOTO MAIN
 
 @CLS
-@TITLE AutoIt OpenCV COM
-@ECHO. AutoIt OpenCV COM
+@TITLE AutoIt Dlib COM
+@ECHO. AutoIt Dlib COM
 @ECHO.
 @ECHO. VERSION: 1.1.0
 @ECHO. DLLNAME: %DLLNAME%

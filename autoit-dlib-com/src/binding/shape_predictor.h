@@ -5,8 +5,6 @@
 #include <dlib/image_processing.h>
 #include "base.h"
 
-using namespace std;
-
 namespace dlib
 {
 

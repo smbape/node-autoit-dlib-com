@@ -52,6 +52,20 @@ const parseArguments = PROJECT_DIR => {
         includes: [sysPath.join(PROJECT_DIR, "src")],
         output: sysPath.join(PROJECT_DIR, "generated"),
         toc: true,
+        onClass: (generator, coclass, opts) => {
+            const {fqn, name} = coclass;
+
+            if (!fqn.includes("::")) {
+                return;
+            }
+
+            // expose a ${ name } property like in mediapipe python
+            const parts = fqn.split("::");
+            parts[parts.length - 1] = "";
+            generator.add_func([parts.join("."), "", ["/Properties"], [
+                [fqn, name, "", ["/R", "=this"]],
+            ], "", ""]);
+        },
     };
 
     for (const opt of ["iface", "hdr", "impl", "idl", "rgs", "res", "save"]) {

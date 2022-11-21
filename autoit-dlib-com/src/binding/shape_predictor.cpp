@@ -88,7 +88,7 @@ void dlib::deserialize(shape_predictor_training_options& item, std::istream& in)
 
 const std::vector<point> CDlib_Full_object_detection_Object::parts(HRESULT& hr) {
 	hr = S_OK;
-	auto& detection = *this->__self->get();
+	auto& detection = *__self->get();
 
 	const unsigned long num_parts = detection.num_parts();
 	std::vector<point> parts(num_parts);

@@ -1,4 +1,8 @@
 {
+    "NamedParameters": {
+        "iid": "fc5b1343-cf9a-4b57-8132-e17574422fe3",
+        "clsid": "61ae257b-e92b-4ec7-ab19-4a38f885f1a4"
+    },
     "dlib": {
         "iid": "6da340df-3340-4528-9541-e8b2d01c51e2",
         "clsid": "78e9bdb4-c82a-40d5-8786-55c1ead737b1"
@@ -62,6 +66,10 @@
     "dlib::simple_structural_svm_problem": {
         "iid": "11be4089-ebfe-49cf-bf5d-d1dadcdcb4c4",
         "clsid": "10c06029-805a-461c-8aa2-6ee4ed37e58e"
+    },
+    "cv": {
+        "iid": "0b819f3b-3b35-463d-a5c0-b6775efd06a1",
+        "clsid": "9cea8efe-eb52-4a5a-a113-ab24bbdb2c37"
     },
     "dlib::mmod_rect": {
         "iid": "bd303f87-b6f6-4c87-bcc4-66028da60f00",
@@ -151,14 +159,6 @@
         "iid": "b40ed55e-d0fe-4de4-90de-a30261cc0dda",
         "clsid": "ecb85f62-4c30-486e-bdcf-1779c0b2db39"
     },
-    "cv": {
-        "iid": "0b819f3b-3b35-463d-a5c0-b6775efd06a1",
-        "clsid": "9cea8efe-eb52-4a5a-a113-ab24bbdb2c37"
-    },
-    "cv::Mat": {
-        "iid": "a13967b1-fc83-4d52-b438-9781c40fe7e1",
-        "clsid": "176510ad-0df5-42f9-870b-842a293807c2"
-    },
     "dlib::image_dataset_metadata": {
         "iid": "9ee62f96-9ad7-47bf-8dea-9f4900138da2",
         "clsid": "7e6fe2fd-add9-44b8-9dc0-9064af33b4de"
@@ -179,6 +179,10 @@
         "iid": "cd971489-2500-4bf6-9222-14244090c1dc",
         "clsid": "5c001285-c1b2-4104-ae64-d59ad09b32fc"
     },
+    "cv::Mat": {
+        "iid": "a13967b1-fc83-4d52-b438-9781c40fe7e1",
+        "clsid": "176510ad-0df5-42f9-870b-842a293807c2"
+    },
     "dlib::Matrix": {
         "iid": "f1dfa1a2-5bc4-4b41-b4bc-19c6a1f88fa0",
         "clsid": "6a87105e-277e-4a70-9003-9cf74c499530"
@@ -186,6 +190,10 @@
     "dlib::fhog_object_detector": {
         "iid": "3b462e7e-12c2-406d-8001-d11b081eab63",
         "clsid": "c6faf6a8-a747-48ef-9030-dd2f270b3d07"
+    },
+    "cv::Range": {
+        "iid": "332b65d4-65b8-4ff9-8da0-cbe0e4cae9a4",
+        "clsid": "37f227f2-0967-48a3-bbff-51a5b0a09176"
     },
     "dlib::rect_filter": {
         "iid": "9779915e-acbd-482f-a458-f5ce04bd79b6",
@@ -287,13 +295,21 @@
         "iid": "8cf1f174-ccdf-45fd-a462-19329e0b843e",
         "clsid": "cbf825ad-da59-4539-9d6d-79776bdbd79e"
     },
-    "VectorOfVariant": {
-        "iid": "a4dd8496-bd68-43fb-9e5c-d62b74aa6523",
-        "clsid": "02edcce5-cb64-4dfe-99e6-2d0b3db82034"
-    },
     "MapOfStringAndVariant": {
         "iid": "515c4b61-b396-4701-a2bd-3bd772c6c344",
         "clsid": "4e1e09c1-2188-4d31-8c2b-738be68f5d67"
+    },
+    "VectorOfPairOfStringAndVariant": {
+        "iid": "911844da-be45-453c-9c39-4c95e70f956f",
+        "clsid": "4be064ca-81fd-45c4-9983-39ce4e4f61b3"
+    },
+    "VectorOfString": {
+        "iid": "3351f398-e483-436e-920c-4d3b320356e3",
+        "clsid": "7835f787-333a-428c-b5b1-d5a6b47d6f63"
+    },
+    "VectorOfVariant": {
+        "iid": "a4dd8496-bd68-43fb-9e5c-d62b74aa6523",
+        "clsid": "02edcce5-cb64-4dfe-99e6-2d0b3db82034"
     },
     "VectorOfPairOfULONGAndDouble": {
         "iid": "6c4d593f-e582-4c36-9c5b-2d3b7e6b5e14",
@@ -395,6 +411,14 @@
         "iid": "64c28de0-0cd3-4824-bece-a495cd853e5e",
         "clsid": "12e600e1-e004-4e2f-8530-c60cfeebbac9"
     },
+    "VectorOfInt": {
+        "iid": "558d6542-a68e-4199-9972-d1754f33db41",
+        "clsid": "7b9d8766-9403-4200-a081-c39ac4823549"
+    },
+    "VectorOfUchar": {
+        "iid": "5bf12b4e-8d0f-4f1c-91d5-ab1556e7d33d",
+        "clsid": "be4e14b8-efab-4927-be9e-77acbadadcba"
+    },
     "VectorOfFunction_spec": {
         "iid": "05d6072e-2191-4a85-a4a2-7d2188948f3d",
         "clsid": "80c039df-9e39-470f-9c27-21a5b750162c"
@@ -411,36 +435,28 @@
         "iid": "eb5aecbe-6e0b-421c-896d-0ad60f0a00e9",
         "clsid": "80858e5a-eb07-494c-b0cb-f37c22e56140"
     },
-    "VectorOfInt": {
-        "iid": "558d6542-a68e-4199-9972-d1754f33db41",
-        "clsid": "7b9d8766-9403-4200-a081-c39ac4823549"
-    },
-    "VectorOfUchar": {
-        "iid": "5bf12b4e-8d0f-4f1c-91d5-ab1556e7d33d",
-        "clsid": "be4e14b8-efab-4927-be9e-77acbadadcba"
+    "VectorOfImage_window_keyboard_state_masks": {
+        "iid": "9fa926bb-53d1-4257-aa4f-061d1b4f333f",
+        "clsid": "1becae44-812a-41c5-a048-d8e08f080607"
     },
     "MapOfStringAndPoint": {
         "iid": "b590dcd0-b6af-4fe9-828b-87df725edb10",
         "clsid": "3eeb2ed7-186c-42fa-a3fe-92d402334680"
     },
-    "VectorOfBox": {
-        "iid": "9e5591d8-58e3-488d-b64f-3c8791ba8f3e",
-        "clsid": "50e84e5f-1c58-47c5-a8e6-b5744751d939"
-    },
-    "VectorOfImage": {
-        "iid": "945ff88d-70e4-4169-a15c-f001fc222902",
-        "clsid": "82f4dbf5-6292-40e8-a59b-24ba0490a00b"
-    },
-    "VectorOfPairOfStringAndVariant": {
-        "iid": "911844da-be45-453c-9c39-4c95e70f956f",
-        "clsid": "4be064ca-81fd-45c4-9983-39ce4e4f61b3"
-    },
-    "VectorOfString": {
-        "iid": "3351f398-e483-436e-920c-4d3b320356e3",
-        "clsid": "7835f787-333a-428c-b5b1-d5a6b47d6f63"
-    },
     "VectorOfPairOfStringAndPoint": {
         "iid": "998b9372-7f41-4ead-90ef-8db9086473be",
         "clsid": "2daf235a-e990-487f-bd5e-b961700ceb4e"
+    },
+    "VectorOfImage_dataset_metadata_box": {
+        "iid": "f803c688-870c-4a6d-a8ee-7dddda78d5bd",
+        "clsid": "38642edb-c14e-4ac2-b02b-cec0dc7e51ff"
+    },
+    "VectorOfImage_dataset_metadata_image": {
+        "iid": "01225681-a708-4be0-867a-90e0e40b3d45",
+        "clsid": "31fca97a-9c78-4fc3-becc-5b8e2b403e58"
+    },
+    "VectorOfFloat": {
+        "iid": "c84459f3-254e-4ad7-af0d-3591667c0b39",
+        "clsid": "5892eae4-02e5-4f80-96ce-6e54cce71dfa"
     }
 }

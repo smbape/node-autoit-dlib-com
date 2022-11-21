@@ -4,6 +4,7 @@
 #include "svm_struct.h"
 
 using namespace dlib;
+using namespace std;
 
 template <class T> struct TInfo;
 

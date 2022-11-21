@@ -7,8 +7,6 @@
 #include <dlib/statistics/running_gradient.h>
 #include "base.h"
 
-using namespace std;
-
 namespace dlib {
 	CV_EXPORTS_AS(max_cost_assignment) std::vector<long> _max_cost_assignment(const matrix<double>& cost);
 	CV_EXPORTS_AS(assignment_cost) double _assignment_cost(const matrix<double>& cost, std::vector<long>& assignment);

@@ -4,8 +4,6 @@
 #include "autoit_bridge_common.h"
 #include "conversion.h"
 
-using std::string;
-
 namespace dlib {
 	// ----------------------------------------------------------------------------------------
 

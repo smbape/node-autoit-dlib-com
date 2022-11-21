@@ -7,8 +7,6 @@
 #include <dlib/image_transforms.h>
 #include "base.h"
 
-using namespace std;
-
 namespace dlib {
 	class CV_EXPORTS_W cnn_face_detection_model_v1
 	{

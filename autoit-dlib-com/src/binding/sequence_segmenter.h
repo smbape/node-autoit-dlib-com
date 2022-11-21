@@ -3,8 +3,6 @@
 #include <dlib/svm_threaded.h>
 #include "base.h"
 
-using namespace std;
-
 namespace dlib {
 	// ----------------------------------------------------------------------------------------
 

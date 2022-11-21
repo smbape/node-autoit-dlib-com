@@ -158,8 +158,8 @@ module.exports = [
     ], "", ""],
 
     ["dlib.image_window.get_next_keypress", "bool", ["/External"], [
-        ["char*", "key", "", ["/Ref", "/O"]],
-        ["bool*", "is_printable", "", ["/Ref", "/O"]],
+        ["char*", "key", "", ["/O"]],
+        ["bool*", "is_printable", "", ["/O"]],
         ["vector_keyboard_state_masks", "mods", "", ["/O"]],
         ["bool", "get_keyboard_modifiers", "false", []],
     ], "", ""],

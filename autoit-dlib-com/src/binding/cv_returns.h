@@ -5,8 +5,6 @@
 #include <dlib/image_io.h>
 #include "base.h"
 
-using namespace std;
-
 namespace dlib {
 	CV_EXPORTS_W cv::Mat load_rgb_image(const std::string& path);
 

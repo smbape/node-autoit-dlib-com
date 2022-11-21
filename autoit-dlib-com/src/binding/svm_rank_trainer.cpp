@@ -5,28 +5,28 @@
 using namespace dlib;
 
 const _decision_function_linear CDlib_Vec_svm_rank_trainer_Object::train(vec_ranking_pair& sample, HRESULT& hr) {
-	auto& trainer = *this->__self->get();
+	auto& trainer = *__self->get();
 	AUTOIT_ASSERT_THROW(is_ranking_problem(std::vector<vec_ranking_pair>(1, sample)), "Invalid inputs");
 	hr = S_OK;
 	return trainer.train(sample);
 }
 
 const _decision_function_linear CDlib_Vec_svm_rank_trainer_Object::train(std::vector<vec_ranking_pair>& samples, HRESULT& hr) {
-	auto& trainer = *this->__self->get();
+	auto& trainer = *__self->get();
 	AUTOIT_ASSERT_THROW(is_ranking_problem(samples), "Invalid inputs");
 	hr = S_OK;
 	return trainer.train(samples);
 }
 
 const _decision_function_sparse_linear CDlib_Svm_rank_trainer_sparse_Object::train(sparse_ranking_pair& sample, HRESULT& hr) {
-	auto& trainer = *this->__self->get();
+	auto& trainer = *__self->get();
 	AUTOIT_ASSERT_THROW(is_ranking_problem(std::vector<sparse_ranking_pair>(1, sample)), "Invalid inputs");
 	hr = S_OK;
 	return trainer.train(sample);
 }
 
 const _decision_function_sparse_linear CDlib_Svm_rank_trainer_sparse_Object::train(std::vector<sparse_ranking_pair>& samples, HRESULT& hr) {
-	auto& trainer = *this->__self->get();
+	auto& trainer = *__self->get();
 	AUTOIT_ASSERT_THROW(is_ranking_problem(samples), "Invalid inputs");
 	hr = S_OK;
 	return trainer.train(samples);

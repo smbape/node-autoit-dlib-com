@@ -5,24 +5,24 @@ const add_linear_df = (impl, function_type, sample_type, idltype) => {
         #include "Dlib_${ function_type }_Object.h"
 
         STDMETHODIMP CDlib_${ function_type }_Object::get_weights(${ idltype }* pVal) {
-            if (this->__self) {
-                auto& df = *this->__self->get();
+            if (__self) {
+                auto& df = *__self->get();
                 return autoit_from(_get_weights<${ function_type }>(df), pVal);
             }
             return E_FAIL;
         }
 
         STDMETHODIMP CDlib_${ function_type }_Object::get_bias(DOUBLE* pVal) {
-            if (this->__self) {
-                auto& df = *this->__self->get();
+            if (__self) {
+                auto& df = *__self->get();
                 return autoit_from(_get_bias<${ function_type }>(df), pVal);
             }
             return E_FAIL;
         }
 
         STDMETHODIMP CDlib_${ function_type }_Object::put_bias(DOUBLE newVal) {
-            if (this->__self) {
-                auto& df = *this->__self->get();
+            if (__self) {
+                auto& df = *__self->get();
                 _set_bias<${ function_type }>(df, newVal);
                 return S_OK;
             }
@@ -31,7 +31,7 @@ const add_linear_df = (impl, function_type, sample_type, idltype) => {
 
         const double CDlib_${ function_type }_Object::call(${ sample_type }& sample, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *this->__self->get();
+            auto& df = *__self->get();
             return _predict<${ function_type }>(df, sample);
         }
     `.trim().replace(/^ {8}/mg, ""));
@@ -42,8 +42,8 @@ const add_df = (impl, function_type, sample_type) => {
         #include "Dlib_${ function_type }_Object.h"
 
         STDMETHODIMP CDlib_${ function_type }_Object::get_basis_vectors(VARIANT* pVal) {
-            if (this->__self) {
-                auto& df = *this->__self->get();
+            if (__self) {
+                auto& df = *__self->get();
                 std::vector<sample_type> temp;
                 for (long i = 0; i < df.basis_vectors.size(); ++i)
                     temp.push_back(sparse_to_dense(df.basis_vectors(i)));
@@ -54,7 +54,7 @@ const add_df = (impl, function_type, sample_type) => {
 
         const double CDlib_${ function_type }_Object::call(${ sample_type }& sample, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *this->__self->get();
+            auto& df = *__self->get();
             return _predict<${ function_type }>(df, sample);
         }
     `.trim().replace(/^ {8}/mg, ""));
@@ -65,8 +65,8 @@ const add_normalized_df = (impl, function_type, sample_type) => {
         #include "Dlib_${ function_type }_Object.h"
 
         STDMETHODIMP CDlib_${ function_type }_Object::get_basis_vectors(VARIANT* pVal) {
-            if (this->__self) {
-                auto& df = this->__self->get()->function;
+            if (__self) {
+                auto& df = __self->get()->function;
                 std::vector<sample_type> temp;
                 for (long i = 0; i < df.basis_vectors.size(); ++i)
                     temp.push_back(sparse_to_dense(df.basis_vectors(i)));
@@ -77,19 +77,19 @@ const add_normalized_df = (impl, function_type, sample_type) => {
 
         const double CDlib_${ function_type }_Object::call(${ sample_type }& sample, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *this->__self->get();
+            auto& df = *__self->get();
             return normalized_predict<${ function_type }>(df, sample);
         }
 
         const std::vector<double> CDlib_${ function_type }_Object::batch_predict(std::vector<${ sample_type }>& samples, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *this->__self->get();
+            auto& df = *__self->get();
             return normalized_predict_vec<${ function_type }>(df, samples);
         }
 
         const std::vector<double> CDlib_${ function_type }_Object::batch_predict(cv::Mat& samples, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *this->__self->get();
+            auto& df = *__self->get();
             return normalized_predict_vec<${ function_type }>(df, Mat_to_vector_sample_type(samples));
         }
     `.trim().replace(/^ {8}/mg, ""));

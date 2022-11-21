@@ -16,17 +16,87 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(PROJECT_BUILD_STEPS_FILE "${CMAKE_CURRENT_SOURCE_DIR}/project_build_steps.cmake")
-
 add_compile_options(/MP)
 
-# Tell cmake we will need dlib. These command will pull in dlib.
+# https://github.com/scivision/cmake-patch-file/blob/main/cmake/PatchFile.cmake
+if(WIN32)
+  # prioritize Git Patch on Windows as other Patches may be very old and incompatible.
+  find_package(Git)
+  if(Git_FOUND)
+    get_filename_component(GIT_DIR ${GIT_EXECUTABLE} DIRECTORY)
+    get_filename_component(GIT_DIR ${GIT_DIR} DIRECTORY)
+  endif()
+endif()
+
+find_program(PATCH
+  NAMES patch
+  HINTS ${GIT_DIR}
+  PATH_SUFFIXES usr/bin
+)
+
+if(NOT PATCH)
+  message(FATAL_ERROR "Did not find GNU Patch")
+endif()
+
+# Tell cmake that we will need opencv.
+get_filename_component(OPENCV_DOWNLOAD_DIR "${CMAKE_CURRENT_SOURCE_DIR}" DIRECTORY)
+set(OPENCV_VERSION 4.6.0)
+set(OPENCV_DOWNLOAD_NAME  opencv-${OPENCV_VERSION}-vc14_vc15.exe)
+set(OPENCV_URL            https://github.com/opencv/opencv/releases/download/${OPENCV_VERSION}/${OPENCV_DOWNLOAD_NAME})
+set(OPENCV_URL_HASH       SHA256=3fb046e14dc5b50719a86ea0395b5b1e3299e2343111ebd2e31828aa31d6d477)
+
+include(FetchContent)
+FetchContent_Declare(opencv
+  URL                 ${OPENCV_URL}
+  URL_HASH            ${OPENCV_URL_HASH}
+  DOWNLOAD_NO_EXTRACT TRUE
+  DOWNLOAD_DIR        "${OPENCV_DOWNLOAD_DIR}"
+  SOURCE_DIR          "${OPENCV_DOWNLOAD_DIR}"
+  PATCH_COMMAND       "<DOWNLOAD_DIR>/${OPENCV_DOWNLOAD_NAME}" "-o<DOWNLOAD_DIR>/opencv-${OPENCV_VERSION}-vc14_vc15" -y
+)
+
+include(FetchContent)
+FetchContent_Declare(opencv-patch
+  URL                 ${OPENCV_URL}
+  URL_HASH            ${OPENCV_URL_HASH}
+  DOWNLOAD_NO_EXTRACT TRUE
+  DOWNLOAD_DIR        "${OPENCV_DOWNLOAD_DIR}"
+  SOURCE_DIR          "${OPENCV_DOWNLOAD_DIR}"
+  PATCH_COMMAND       "${PATCH}" -p 1 -d "<DOWNLOAD_DIR>/opencv-${OPENCV_VERSION}-vc14_vc15/opencv/sources/"
+                        -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-opencv-src.patch"
+)
+
+# Tell cmake that we will need dlib. These command will pull in dlib.
 include(FetchContent)
 FetchContent_Declare(dlib
-   GIT_REPOSITORY https://github.com/davisking/dlib.git
-   GIT_TAG        v19.24
-   PATCH_COMMAND  "${CMAKE_COMMAND}" -DBUILD_STEP=patch "-DPATCH_FILE=${CMAKE_CURRENT_SOURCE_DIR}/patches/001-dlib-src.patch" -P "${PROJECT_BUILD_STEPS_FILE}"
+  GIT_REPOSITORY https://github.com/davisking/dlib.git
+  GIT_TAG        v19.24
+
+  # PATCH_COMMAND is run once for each BUILD_TYPE
+  # however, source download is only done once when it is a git repository
+  # use a custom patch command to perform patch only once
+  PATCH_COMMAND "${CMAKE_COMMAND}"
+                  -DBUILD_STEP=patch
+                  "-DGIT_EXECUTABLE=${GIT_EXECUTABLE}"
+                  "-DPATCH_FILE=${CMAKE_CURRENT_SOURCE_DIR}/patches/001-dlib-src.patch"
+                  -P "${CMAKE_CURRENT_SOURCE_DIR}/project_build_steps.cmake"
 )
+
+# Tell cmake that we will need autoit-opencv-com.
+include(ExternalProject)
+ExternalProject_Add(autoit-opencv-com
+  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.2.0/autoit-opencv-${OPENCV_VERSION}-com-v2.2.0.7z
+  URL_HASH          SHA256=88ecb37405e4ef6935388548b75d997785edf4cd6b106d45d2b19eb96f10b8c2
+  DOWNLOAD_NO_EXTRACT TRUE
+  DOWNLOAD_DIR      "${OPENCV_DOWNLOAD_DIR}"
+  SOURCE_DIR        "${OPENCV_DOWNLOAD_DIR}"
+  CONFIGURE_COMMAND ""
+  BUILD_COMMAND     ""
+  INSTALL_COMMAND   7z x "<DOWNLOAD_DIR>/autoit-opencv-${OPENCV_VERSION}-com-v2.2.0.7z" -aoa "-o<DOWNLOAD_DIR>/autoit-opencv-com" -y
+)
+
+FetchContent_Populate(opencv)
+FetchContent_Populate(opencv-patch)
 FetchContent_Populate(dlib)
 
 if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../examples/faces")
@@ -41,54 +111,24 @@ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../examples/data")
   file(MAKE_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../examples/data")
 endif()
 
-add_subdirectory(${dlib_SOURCE_DIR}/dlib ${dlib_BINARY_DIR})
-add_definitions(-DDLIB_VERSION=${DLIB_VERSION})
-add_definitions(-DCVAPI_EXPORTS)
-
-set(OPENCV_DOWNLOAD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
-
-# Tell cmake we will need opencv.
-include(ExternalProject)
-ExternalProject_Add(opencv
-  URL               https://github.com/opencv/opencv/releases/download/4.6.0/opencv-4.6.0-vc14_vc15.exe
-  URL_HASH          SHA256=3fb046e14dc5b50719a86ea0395b5b1e3299e2343111ebd2e31828aa31d6d477
-  DOWNLOAD_NO_EXTRACT TRUE
-  DOWNLOAD_DIR      "${OPENCV_DOWNLOAD_DIR}"
-  CONFIGURE_COMMAND "${OPENCV_DOWNLOAD_DIR}/opencv-4.6.0-vc14_vc15.exe" "-o${OPENCV_DOWNLOAD_DIR}/opencv-4.6.0-vc14_vc15" -y
-  BUILD_COMMAND     patch -p 1 -d "${OPENCV_DOWNLOAD_DIR}/opencv-4.6.0-vc14_vc15/opencv/sources/" -i "${CMAKE_CURRENT_SOURCE_DIR}/patches/001-opencv-src.patch"
-  INSTALL_COMMAND   ""
-)
-
-# Tell cmake we will need autoit-opencv-com.
-include(ExternalProject)
-ExternalProject_Add(autoit-opencv-com
-  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.1.0/autoit-opencv-4.6.0-com-v2.1.0.7z
-  URL_HASH          SHA256=e6f70b1ea79be92db72e4a93b9ec07926ef0db3752af308cd0448572c009ab8f
-  DOWNLOAD_NO_EXTRACT TRUE
-  DOWNLOAD_DIR      "${OPENCV_DOWNLOAD_DIR}"
-  CONFIGURE_COMMAND ""
-  BUILD_COMMAND     ""
-  INSTALL_COMMAND   7z x "${OPENCV_DOWNLOAD_DIR}/autoit-opencv-4.6.0-com-v2.1.0.7z" -aoa "-o${OPENCV_DOWNLOAD_DIR}/autoit-opencv-com" -y
-)
-
-# Library directories
-set(OpenCV_DIR "")
-file(GLOB __OpenCV_ROOT_DIR "../opencv-4.*")
-foreach(f ${__OpenCV_ROOT_DIR})
-  get_filename_component(__f "${f}/opencv/build" REALPATH)
-  if(EXISTS "${__f}")
-    set(OpenCV_DIR "${__f}")
-    break()
-  endif()
-endforeach()
-unset(__f)
-
-if(EXISTS "${OpenCV_DIR}")
-  find_package(OpenCV REQUIRED)
-endif()
+get_filename_component(OpenCV_DIR "${opencv_SOURCE_DIR}/opencv-${OPENCV_VERSION}-vc14_vc15/opencv/build" REALPATH)
+set(opencv_SOURCE_DIR "${opencv_SOURCE_DIR}/opencv-${OPENCV_VERSION}-vc14_vc15/opencv/sources")
 
 get_filename_component(OpenCV_BINARY_DIR "${OpenCV_DIR}/x64/vc15/bin" REALPATH)
 file(TO_NATIVE_PATH "${OpenCV_BINARY_DIR}" OpenCV_BINARY_DIR)
+
+find_package(OpenCV REQUIRED)
+
+execute_process(
+  COMMAND node --unhandled-rejections=strict --trace-uncaught --trace-warnings src/gen.js --skip=vs
+  WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/.."
+  COMMAND_ECHO STDERR
+  COMMAND_ERROR_IS_FATAL ANY
+)
+
+add_subdirectory(${dlib_SOURCE_DIR}/dlib ${dlib_BINARY_DIR})
+add_definitions(-DDLIB_VERSION=${DLIB_VERSION})
+add_definitions(-DCVAPI_EXPORTS)
 
 file(GLOB_RECURSE project_source_resources "src/*.rc" "src/*.rgs")
 file(GLOB_RECURSE project_source_headers "src/*.h*")
@@ -119,7 +159,7 @@ set(SRC_FILES
 # Build a shared library named as the project
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES})
 target_precompile_headers(${PROJECT_NAME} PRIVATE
-  "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_CURRENT_SOURCE_DIR}/src/autoit_bridge.h>"
+  "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_CURRENT_SOURCE_DIR}/generated/autoit_bridge_generated_pch.h>"
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE dlib::dlib ${OpenCV_LIBS})
@@ -138,7 +178,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 target_include_directories(${PROJECT_NAME} PUBLIC "src")
 target_include_directories(${PROJECT_NAME} PUBLIC "generated")
-target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.dir/${CMAKE_CFG_INTDIR}")
 
 # /Zc:__cplusplus is required to make __cplusplus accurate
 # /Zc:__cplusplus is available starting with Visual Studio 2017 version 15.7
@@ -149,7 +188,16 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_BINARY_DIR}/$
 # (according to https://cmake.org/cmake/help/latest/variable/MSVC_VERSION.html#variable:MSVC_VERSION)
 if ((MSVC) AND (MSVC_VERSION GREATER_EQUAL 1914))
   target_compile_options(${PROJECT_NAME} PRIVATE "/Zc:__cplusplus")
+  target_compile_options(${PROJECT_NAME} PRIVATE "/bigobj")
 endif()
+
+IF ((WIN32) AND CMAKE_GENERATOR STREQUAL Ninja)
+  target_compile_options(${PROJECT_NAME} PRIVATE "/Zc:__cplusplus")
+  target_compile_options(${PROJECT_NAME} PRIVATE "/bigobj")
+  target_compile_definitions(${PROJECT_NAME} PRIVATE WIN32)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE _WINDOWS)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE _WINDLL)
+ENDIF()
 
 # ===============
 # cpp_test target

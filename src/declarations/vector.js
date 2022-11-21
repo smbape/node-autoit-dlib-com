@@ -44,7 +44,7 @@ const declarations = [
 
     ["dlib.SpaceVector.slice", "SpaceVector", ["/External"], [
         ["long", "start", "", []],
-        ["long", "stop", "this->__self->get()->size()", []],
+        ["long", "stop", "__self->get()->size()", []],
         ["long", "step", "1", []],
     ], "", ""],
 

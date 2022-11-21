@@ -169,11 +169,11 @@ curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.1.0
 # extract the content of autoit-dlib-19.24.0-opencv-4.6.0-com-v1.1.0.7z into a folder named autoit-dlib-com
 7z x autoit-dlib-19.24.0-opencv-4.6.0-com-v1.1.0.7z -aoa -oautoit-dlib-com
 
-# download autoit-opencv-4.6.0-com-v2.1.0.7z
-curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.1.0/autoit-opencv-4.6.0-com-v2.1.0.7z' -o autoit-opencv-4.6.0-com-v2.1.0.7z
+# download autoit-opencv-4.6.0-com-v2.2.0.7z
+curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.2.0/autoit-opencv-4.6.0-com-v2.2.0.7z' -o autoit-opencv-4.6.0-com-v2.2.0.7z
 
-# extract the content of autoit-opencv-4.6.0-com-v2.1.0.7z into a folder named autoit-opencv-com
-7z x autoit-opencv-4.6.0-com-v2.1.0.7z -aoa -oautoit-opencv-com
+# extract the content of autoit-opencv-4.6.0-com-v2.2.0.7z into a folder named autoit-opencv-com
+7z x autoit-opencv-4.6.0-com-v2.2.0.7z -aoa -oautoit-opencv-com
 
 # download opencv-4.6.0-vc14_vc15.exe
 curl -L 'https://github.com/opencv/opencv/releases/download/4.6.0/opencv-4.6.0-vc14_vc15.exe' -o opencv-4.6.0-vc14_vc15.exe
