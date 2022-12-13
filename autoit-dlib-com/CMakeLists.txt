@@ -85,14 +85,14 @@ FetchContent_Declare(dlib
 # Tell cmake that we will need autoit-opencv-com.
 include(ExternalProject)
 ExternalProject_Add(autoit-opencv-com
-  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.2.0/autoit-opencv-${OPENCV_VERSION}-com-v2.2.0.7z
-  URL_HASH          SHA256=88ecb37405e4ef6935388548b75d997785edf4cd6b106d45d2b19eb96f10b8c2
+  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.2.1/autoit-opencv-${OPENCV_VERSION}-com-v2.2.1.7z
+  URL_HASH          SHA256=26235cee7ef6cd272442b8a0b8bdac0daa6261aa6028e55d59164afb9a946067
   DOWNLOAD_NO_EXTRACT TRUE
   DOWNLOAD_DIR      "${OPENCV_DOWNLOAD_DIR}"
   SOURCE_DIR        "${OPENCV_DOWNLOAD_DIR}"
   CONFIGURE_COMMAND ""
   BUILD_COMMAND     ""
-  INSTALL_COMMAND   7z x "<DOWNLOAD_DIR>/autoit-opencv-${OPENCV_VERSION}-com-v2.2.0.7z" -aoa "-o<DOWNLOAD_DIR>/autoit-opencv-com" -y
+  INSTALL_COMMAND   7z x "<DOWNLOAD_DIR>/autoit-opencv-${OPENCV_VERSION}-com-v2.2.1.7z" -aoa "-o<DOWNLOAD_DIR>/autoit-opencv-com" -y
 )
 
 FetchContent_Populate(opencv)

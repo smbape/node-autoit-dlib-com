@@ -28,14 +28,13 @@ Func _Dlib_FindFiles($aParts, $sDir = Default, $iFlag = Default, $bReturnPath = 
 	Local $aFileList[0]
 	Local $aNextFileList[0]
 	Local $iParts = UBound($aParts)
-	Local $iFound = 0, $iNextFound = 0
 	Local $iLen = StringLen($sDir)
-	Local $sPath = "", $iiFlags = 0
+	Local $iLastPart = $iParts - 1, $iFound = 0, $iNextFound = 0, $sPath = "", $iiFlags = 0
 
-	For $i = 0 To $iParts - 1
+	For $i = 0 To $iLastPart
 		$bFound = False
 
-		If ($iFlag == $FLTA_FILESFOLDERS Or $i <> $iParts - 1) And StringInStr($aParts[$i], "?") == 0 And StringInStr($aParts[$i], "*") == 0 Then
+		If ($iFlag == $FLTA_FILESFOLDERS Or $i <> $iLastPart) And StringInStr($aParts[$i], "?") == 0 And StringInStr($aParts[$i], "*") == 0 Then
 			_Dlib_DebugMsg("Looking for " & $sDir & "\" & $aParts[$i])
 			$bFound = FileExists($sDir & "\" & $aParts[$i])
 			If Not $bFound Then
@@ -47,12 +46,12 @@ Func _Dlib_FindFiles($aParts, $sDir = Default, $iFlag = Default, $bReturnPath = 
 		EndIf
 
 		_Dlib_DebugMsg("Listing " & $sDir & "\=" & $aParts[$i])
-		$iiFlags = $i == $iParts - 1 ? $iFlag : $FLTA_FILESFOLDERS
+		$iiFlags = $i == $iLastPart ? $iFlag : $FLTA_FILESFOLDERS
 
 		$aFileList = _FileListToArray($sDir, $aParts[$i], $iiFlags, $bReturnPath)
 		If @error Then ExitLoop
 
-		If $i == $iParts - 1 Then
+		If $i == $iLastPart Then
 			ReDim $aMatches[$aFileList[0]]
 
 			For $j = 1 To $aFileList[0]
@@ -69,7 +68,7 @@ Func _Dlib_FindFiles($aParts, $sDir = Default, $iFlag = Default, $bReturnPath = 
 		EndIf
 
 		ReDim $aNextParts[$iParts - $i - 1]
-		For $j = $i + 1 To $iParts - 1
+		For $j = $i + 1 To $iLastPart
 			$aNextParts[$j - $i - 1] = $aParts[$j]
 		Next
 
@@ -179,7 +178,9 @@ Func _Dlib_FindDLL($sFile, $sFilter = Default, $sDir = Default, $bReverse = Defa
 			"build_x64\" & $sBuildType, _
 			"build", _
 			"build\x64", _
+			"build\x64\vc17\bin", _
 			"build\x64\vc15\bin", _
+			"build\x64\vc14\bin", _
 			"autoit-dlib-com", _
 			"autoit-dlib-com\build_x64", _
 			"autoit-dlib-com\build_x64\" & $sBuildType _
