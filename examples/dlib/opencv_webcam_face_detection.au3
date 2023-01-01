@@ -6,14 +6,14 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/master/python_examples/opencv_webcam_face_detection.py
+;~     https://github.com/davisking/dlib/blob/v19.24/python_examples/opencv_webcam_face_detection.py
 
 #include <Misc.au3>
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 #include "..\..\autoit-opencv-com\udf\opencv_udf_utils.au3"
 
-_Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
-_OpenCV_Open_And_Register(_OpenCV_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _OpenCV_FindDLL("autoit_opencv_com4*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world470*"), _Dlib_FindDLL("autoit_dlib_com-*-470*"))
+_OpenCV_Open(_OpenCV_FindDLL("opencv_world470*"), _OpenCV_FindDLL("autoit_opencv_com470*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -26,7 +26,7 @@ Func Example()
 	If Not IsObj($cv) Then Return
 
 	Local $detector = $dlib.get_frontal_face_detector()
-	Local $cam = _OpenCV_ObjCreate("VideoCapture").create(0)
+	Local $cam = $cv.VideoCapture(0)
 	Local $color_green = _OpenCV_Tuple(0, 255, 0)
 	Local $line_width = 3
 	Local $dets
@@ -55,6 +55,6 @@ Func Example()
 EndFunc   ;==>Example
 
 Func _OnAutoItExit()
-	_OpenCV_Unregister_And_Close()
-	_Dlib_Unregister_And_Close()
+	_OpenCV_Close()
+	_Dlib_Close()
 EndFunc   ;==>_OnAutoItExit

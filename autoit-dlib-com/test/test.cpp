@@ -2,8 +2,6 @@
 #include <semaphore>
 #include <numbers>
 
-#import "dlibCOM.tlb"
-
 #include <opencv2/core/core.hpp>
 #include <binding/simple_object_detector.h>
 // #include <tools/python/src/simple_object_detector.h>
@@ -201,31 +199,32 @@ private:
 };
 
 #ifdef _DEBUG
-#define RELEASE_TYPE "Debug"
-#define DLL_SUFFFIX "d"
+#define BUILD_TYPE "Debug"
+#define DEBUG_POSTFIX "d"
 #else
-#define RELEASE_TYPE "Release"
-#define DLL_SUFFFIX ""
+#define BUILD_TYPE "Release"
+#define DEBUG_POSTFIX ""
 #endif
 
-#define DLL_FILE RELEASE_TYPE "\\autoit_dlib_com-19.24.0-455" DLL_SUFFFIX ".dll"
-
-class DllInstallInitializer {
+class ActCtxInitializer {
 public:
-	typedef HRESULT(*DllInstall_t)(BOOL bInstall, _In_opt_ LPCWSTR pszCmdLine);
+	typedef BOOL(*DLLActivateActCtx_t)();
+	typedef BOOL(*DLLDeactivateActCtx_t)();
 
-	DllInstallInitializer() {
-		m_lib = LoadLibrary(DLL_FILE);
+	ActCtxInitializer() {
+		m_lib = LoadLibrary("bin\\" BUILD_TYPE "\\autoit_dlib_com-19.24-470" DEBUG_POSTFIX ".dll");
 		CV_Assert(m_lib != 0);
 
-		m_DllInstall = (DllInstall_t)GetProcAddress(m_lib, "DllInstall");
-		m_hr = m_DllInstall(true, L"user");
-		CV_Assert(SUCCEEDED(m_hr));
+		m_DLLActivateActCtx = (DLLActivateActCtx_t)GetProcAddress(m_lib, "DLLActivateActCtx");
+		m_Activated = m_DLLActivateActCtx();
+		CV_Assert(m_Activated);
+
+		m_DLLDeactivateActCtx = (DLLDeactivateActCtx_t)GetProcAddress(m_lib, "DLLDeactivateActCtx");
 	}
 
-	~DllInstallInitializer() {
-		if (SUCCEEDED(m_hr)) {
-			m_DllInstall(false, L"user");
+	~ActCtxInitializer() {
+		if (m_Activated) {
+			CV_Assert(m_DLLDeactivateActCtx());
 		}
 
 		if (m_lib != 0) {
@@ -234,13 +233,14 @@ public:
 	}
 private:
 	HMODULE m_lib = 0;
-	HRESULT m_hr = E_FAIL;
-	DllInstall_t m_DllInstall;
+	BOOL m_Activated = false;
+	DLLActivateActCtx_t m_DLLActivateActCtx;
+	DLLDeactivateActCtx_t m_DLLDeactivateActCtx;
 };
 
 int main(int argc, char* argv[])
 {
 	CoInitializer coInitializer;
-	DllInstallInitializer dllInstallInitializer;
+	ActCtxInitializer ActCtxInitializer;
 	return perform();
 }

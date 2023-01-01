@@ -6,13 +6,13 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/master/python_examples/cnn_face_detector.py
+;~     https://github.com/davisking/dlib/blob/v19.24/python_examples/cnn_face_detector.py
 
 #include <InetConstants.au3>
 #include <Misc.au3>
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world470*"), _Dlib_FindDLL("autoit_dlib_com-*-470*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -25,7 +25,7 @@ Func Example()
 
 	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\mmod_human_face_detector.dat", _
 			$AUTOIT_SAMPLES_DATA_PATH & "\mmod_human_face_detector.dat.bz2", _
-			"http://dlib.net/files/mmod_human_face_detector.dat.bz2")
+			"https://github.com/davisking/dlib-models/raw/master/mmod_human_face_detector.dat.bz2")
 
 	Local $cnn_face_detector = _Dlib_ObjCreate("cnn_face_detection_model_v1").create($AUTOIT_SAMPLES_DATA_PATH & "\mmod_human_face_detector.dat")
 	Local $win = _Dlib_ObjCreate("image_window")
@@ -113,5 +113,5 @@ Func hit_to_continue()
 EndFunc   ;==>hit_to_continue
 
 Func _OnAutoItExit()
-	_Dlib_Unregister_And_Close()
+	_Dlib_Close()
 EndFunc   ;==>_OnAutoItExit

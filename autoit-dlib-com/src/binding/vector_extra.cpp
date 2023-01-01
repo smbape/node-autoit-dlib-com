@@ -11,6 +11,8 @@ using std::ostringstream;
 // SpaceVector
 
 STDMETHODIMP CDlib_SpaceVector_Object::get_shape(VARIANT* pVal) {
+	CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
+
 	if (__self) {
 		auto& m = *__self->get();
 		autoit_from(std::make_tuple(m.nr(), m.nc()), pVal);

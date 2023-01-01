@@ -6,13 +6,13 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/master/python_examples/face_landmark_detection.py
+;~     https://github.com/davisking/dlib/blob/v19.24/python_examples/face_landmark_detection.py
 
 #include <InetConstants.au3>
 #include <Misc.au3>
 #include "..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world470*"), _Dlib_FindDLL("autoit_dlib_com-*-470*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -24,7 +24,7 @@ Func Example()
 
 	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_68_face_landmarks.dat", _
 			$AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_68_face_landmarks.dat.bz2", _
-			"http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2")
+			"https://github.com/davisking/dlib-models/raw/master/shape_predictor_68_face_landmarks.dat.bz2")
 
 	Local $predictor_path = $AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_68_face_landmarks.dat"
 
@@ -97,5 +97,5 @@ Func hit_to_continue()
 EndFunc   ;==>hit_to_continue
 
 Func _OnAutoItExit()
-	_Dlib_Unregister_And_Close()
+	_Dlib_Close()
 EndFunc   ;==>_OnAutoItExit

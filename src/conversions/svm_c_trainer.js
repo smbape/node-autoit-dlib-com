@@ -7,6 +7,8 @@ const setup_trainer = (impl, trainer_type) => {
         #include "Dlib_${ trainer_type_obj }_Object.h"
 
         STDMETHODIMP CDlib_${ trainer_type_obj }_Object::get_gamma(DOUBLE* pVal) {
+            CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
+
             AUTOIT_ASSERT(__self->get() != NULL);
             auto& trainer = *__self->get();
             *pVal = trainer.get_kernel().gamma;
@@ -14,6 +16,8 @@ const setup_trainer = (impl, trainer_type) => {
         }
 
         STDMETHODIMP CDlib_${ trainer_type_obj }_Object::put_gamma(DOUBLE gamma) {
+            CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
+
             AUTOIT_ASSERT(__self->get() != NULL);
             AUTOIT_ASSERT(gamma > 0);
             auto& trainer = *__self->get();

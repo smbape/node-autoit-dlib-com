@@ -16,8 +16,8 @@
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 #include "..\..\autoit-opencv-com\udf\opencv_udf_utils.au3"
 
-_Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
-_OpenCV_Open_And_Register(_OpenCV_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _OpenCV_FindDLL("autoit_opencv_com4*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world470*"), _Dlib_FindDLL("autoit_dlib_com-*-470*"))
+_OpenCV_Open(_OpenCV_FindDLL("opencv_world470*"), _OpenCV_FindDLL("autoit_opencv_com470*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Global Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")
@@ -201,6 +201,6 @@ Func visualize_facial_landmarks($image, $shape, $colors = Default, $alpha = 0.75
 EndFunc   ;==>visualize_facial_landmarks
 
 Func _OnAutoItExit()
-	_OpenCV_Unregister_And_Close()
-	_Dlib_Unregister_And_Close()
+	_OpenCV_Close()
+	_Dlib_Close()
 EndFunc   ;==>_OnAutoItExit

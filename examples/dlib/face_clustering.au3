@@ -6,13 +6,13 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/master/python_examples/face_clustering.py
+;~     https://github.com/davisking/dlib/blob/v19.24/python_examples/face_clustering.py
 
 #include <InetConstants.au3>
 #include <Misc.au3>
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world470*"), _Dlib_FindDLL("autoit_dlib_com-*-470*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -25,11 +25,11 @@ Func Example()
 
 	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat", _
 			$AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat.bz2", _
-			"http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2")
+			"https://github.com/davisking/dlib-models/raw/master/shape_predictor_5_face_landmarks.dat.bz2")
 
 	_DownloadAndUnpackData($AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat", _
 			$AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat.bz2", _
-			"http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2")
+			"https://github.com/davisking/dlib-models/raw/master/dlib_face_recognition_resnet_model_v1.dat.bz2")
 
 	Local $predictor_path = $AUTOIT_SAMPLES_DATA_PATH & "\shape_predictor_5_face_landmarks.dat"
 	Local $face_rec_model_path = $AUTOIT_SAMPLES_DATA_PATH & "\dlib_face_recognition_resnet_model_v1.dat"
@@ -152,5 +152,5 @@ Func _DownloadAndUnpackData($sFilePath, $sArchive, $sUrl)
 EndFunc   ;==>_DownloadAndUnpackData
 
 Func _OnAutoItExit()
-	_Dlib_Unregister_And_Close()
+	_Dlib_Close()
 EndFunc   ;==>_OnAutoItExit

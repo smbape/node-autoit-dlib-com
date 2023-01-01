@@ -2,37 +2,28 @@
 #include "dlib_interface.au3"
 #include "dlib_enums.au3"
 
-Global $_dlib_build_type = EnvGet("DLIB_BUILD_TYPE")
-Global $_dlib_debug = Number(EnvGet("DLIB_DEBUG"))
-
 Global $h_dlib_world_dll = -1
+Global $h_dlib_ffmpeg_dll = -1
 Global $h_autoit_dlib_com_dll = -1
 
-Func _Dlib_ObjCreate($sClassname, $sFilename = Default)
-	Local Static $s_autoit_dlib_com_dll = ""
-	If $s_autoit_dlib_com_dll == "" Or $sFilename <> Default Then $s_autoit_dlib_com_dll = $sFilename
-	If $sFilename == Default Then $sFilename = $s_autoit_dlib_com_dll
+Func _Dlib_ObjCreate($sClassname)
+	_Dlib_ActivateActCtx()
 
-	Local Const $namespaces[] = ["", "Dlib.", "Dlib.dlib."]
+	Local Static $namespaces[] = ["", "Dlib.", "Dlib.dlib."]
 	Local $siClassname, $oObj
 
 	For $i = 0 To UBound($namespaces) - 1
 		$siClassname = $namespaces[$i] & $sClassname
 		_Dlib_DebugMsg("Try ObjCreate " & $siClassname)
 
-		$oObj = ObjGet($s_autoit_dlib_com_dll, $siClassname)
-		If IsObj($oObj) Then
-			_Dlib_DebugMsg("ObjCreate " & $siClassname)
-			Return $oObj
-		EndIf
-
 		$oObj = ObjCreate($siClassname)
 		If IsObj($oObj) Then
 			_Dlib_DebugMsg("ObjCreate " & $siClassname)
-			Return $oObj
+			ExitLoop
 		EndIf
 	Next
 
+	_Dlib_DeactivateActCtx()
 	Return $oObj
 EndFunc   ;==>_Dlib_ObjCreate
 
@@ -60,8 +51,8 @@ Func _Dlib_Unregister_And_Close($bUser = Default)
 EndFunc   ;==>_Dlib_Unregister_And_Close
 
 Func _Dlib_Install($s_dlib_world_dll = Default, $s_autoit_dlib_com_dll = Default, $bUser = Default, $bOpen = True, $bClose = True, $bInstall = False, $bUninstall = False)
-	If $s_dlib_world_dll == Default Then $s_dlib_world_dll = "opencv_world460.dll"
-	If $s_autoit_dlib_com_dll == Default Then $s_autoit_dlib_com_dll = "autoit_dlib_com-19.24.0-460.dll"
+	If $s_dlib_world_dll == Default Then $s_dlib_world_dll = "opencv_world470.dll"
+	If $s_autoit_dlib_com_dll == Default Then $s_autoit_dlib_com_dll = "autoit_dlib_com-19.24-470.dll"
 	If $bUser == Default Then $bUser = Not IsAdmin()
 
 	If $bClose And $h_dlib_world_dll <> -1 Then DllClose($h_dlib_world_dll)
@@ -70,11 +61,24 @@ Func _Dlib_Install($s_dlib_world_dll = Default, $s_autoit_dlib_com_dll = Default
 		If $h_dlib_world_dll == -1 Then Return SetError(@error, 0, False)
 	EndIf
 
-	If $bClose And $h_autoit_dlib_com_dll <> -1 Then DllClose($h_autoit_dlib_com_dll)
+	; ffmpeg is looked on PATH when loaded in debug mode, not relatively to opencv_world470d.dll
+	; this is a work around to load ffmpeg relatively to opencv_world470d.dll
+	If $bClose And $h_dlib_ffmpeg_dll <> -1 Then DllClose($h_dlib_ffmpeg_dll)
+	If $bOpen And EnvGet("OPENCV_BUILD_TYPE") == "Debug" Then
+		$h_dlib_ffmpeg_dll = _Dlib_LoadDLL(StringReplace($s_dlib_world_dll, "opencv_world470d.dll", "opencv_videoio_ffmpeg470_64.dll"))
+		If $h_dlib_ffmpeg_dll == -1 Then Return SetError(@error, 0, False)
+	EndIf
+
+	If $bClose Then
+		If $h_autoit_dlib_com_dll <> -1 Then
+			DllClose($h_autoit_dlib_com_dll)
+			$h_autoit_dlib_com_dll = -1
+		EndIf
+	EndIf
+
 	If $bOpen Then
 		$h_autoit_dlib_com_dll = _Dlib_LoadDLL($s_autoit_dlib_com_dll)
 		If $h_autoit_dlib_com_dll == -1 Then Return SetError(@error, 0, False)
-		_Dlib_ObjCreate("dlib", $s_autoit_dlib_com_dll)
 	EndIf
 
 	Local $hresult
@@ -104,7 +108,6 @@ EndFunc   ;==>_Dlib_Open
 
 Func _Dlib_Close()
 	_Dlib_get(0)
-	_Dlib_ObjCreate("dlib", "")
 	Return _Dlib_Install(Default, Default, Default, False)
 EndFunc   ;==>_Dlib_Close
 
@@ -116,7 +119,16 @@ Func _Dlib_Unregister($bUser = Default)
 	Return _Dlib_Install(Default, Default, $bUser, False, False, False, True)
 EndFunc   ;==>_Dlib_Unregister
 
+Func _Dlib_ActivateActCtx()
+	Return _Dlib_DllCall($h_autoit_dlib_com_dll, "BOOL", "DLLActivateActCtx")
+EndFunc   ;==>_Dlib_ActivateActCtx
+
+Func _Dlib_DeactivateActCtx()
+	Return _Dlib_DllCall($h_autoit_dlib_com_dll, "BOOL", "DLLDeactivateActCtx")
+EndFunc   ;==>_Dlib_DeactivateActCtx
+
 Func _Dlib_DebugMsg($msg)
+	Local $_dlib_debug = Number(EnvGet("OPENCV_DEBUG"))
 	If BitAND($_dlib_debug, 1) Then
 		ConsoleWrite($msg & @CRLF)
 	EndIf
@@ -236,12 +248,13 @@ Func _Dlib_DllCall($dll, $return_type, $function, $type1 = Default, $param1 = De
 	EndSwitch
 
 	Local $error = @error
+	Local $extended = @extended
 
 	_Dlib_DebugMsg('Called ' & $function)
 
 	If $error Then
 		_Dlib_PrintDLLError($error, $function)
-		Return -1
+		Return SetError($error, $extended, -1)
 	EndIf
 
 	Return $_aResult[0]
@@ -501,3 +514,4 @@ Func _Dlib_Map($sKeyType, $sValueType, $sKey1 = Default, $vVal1 = Default, $sKey
 			Return SetError(1, 0, -1)
 	EndSwitch
 EndFunc   ;==>_Dlib_Map
+

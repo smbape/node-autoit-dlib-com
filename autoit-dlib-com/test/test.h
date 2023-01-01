@@ -22,3 +22,5 @@
 #include <windows.h>
 #include <dshow.h>
 #include <locale>
+
+#import "dlibCOM.tlb"

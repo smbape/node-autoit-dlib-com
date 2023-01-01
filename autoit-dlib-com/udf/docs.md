@@ -5,7 +5,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [NamedParameters](#namedparameters)
   - [NamedParameters::create](#namedparameterscreate)
   - [NamedParameters::Add](#namedparametersadd)
@@ -45,6 +44,7 @@
   - [dlib.simple\_object\_detector\_com](#dlibsimple%5C_object%5C_detector%5C_com)
   - [dlib.simple\_structural\_svm\_problem](#dlibsimple%5C_structural%5C_svm%5C_problem)
   - [dlib.mmod\_rect](#dlibmmod%5C_rect)
+  - [dlib.cuda](#dlibcuda)
   - [dlib.correlation\_tracker](#dlibcorrelation%5C_tracker)
   - [dlib.\_radial\_basis\_kernel](#dlib%5C_radial%5C_basis%5C_kernel)
   - [dlib.\_linear\_kernel](#dlib%5C_linear%5C_kernel)
@@ -73,6 +73,7 @@
   - [dlib.global\_function\_search](#dlibglobal%5C_function%5C_search)
   - [dlib.image\_window](#dlibimage%5C_window)
   - [dlib.rgb\_pixel](#dlibrgb%5C_pixel)
+  - [dlib.image\_dataset\_metadata](#dlibimage%5C_dataset%5C_metadata)
   - [dlib.line](#dlibline)
   - [dlib.Matrix](#dlibmatrix)
   - [dlib.fhog\_object\_detector](#dlibfhog%5C_object%5C_detector)
@@ -1836,7 +1837,7 @@ AutoIt:
 ### dlib.binary\_test
 
 ```cpp
-static dlib::binary_test dlib::this
+static dlib::binary_test
 AutoIt:
     [propget] $odlib.binary_test
 ```
@@ -1844,7 +1845,7 @@ AutoIt:
 ### dlib.regression\_test
 
 ```cpp
-static dlib::regression_test dlib::this
+static dlib::regression_test
 AutoIt:
     [propget] $odlib.regression_test
 ```
@@ -1852,7 +1853,7 @@ AutoIt:
 ### dlib.ranking\_test
 
 ```cpp
-static dlib::ranking_test dlib::this
+static dlib::ranking_test
 AutoIt:
     [propget] $odlib.ranking_test
 ```
@@ -1860,7 +1861,7 @@ AutoIt:
 ### dlib.cca\_outputs
 
 ```cpp
-static dlib::cca_outputs dlib::this
+static dlib::cca_outputs
 AutoIt:
     [propget] $odlib.cca_outputs
 ```
@@ -1868,7 +1869,7 @@ AutoIt:
 ### dlib.cnn\_face\_detection\_model\_v1
 
 ```cpp
-static dlib::cnn_face_detection_model_v1 dlib::this
+static dlib::cnn_face_detection_model_v1
 AutoIt:
     [propget] $odlib.cnn_face_detection_model_v1
 ```
@@ -1876,7 +1877,7 @@ AutoIt:
 ### dlib.face\_recognition\_model\_v1
 
 ```cpp
-static dlib::face_recognition_model_v1 dlib::this
+static dlib::face_recognition_model_v1
 AutoIt:
     [propget] $odlib.face_recognition_model_v1
 ```
@@ -1884,7 +1885,7 @@ AutoIt:
 ### dlib.\_row
 
 ```cpp
-static dlib::_row dlib::this
+static dlib::_row
 AutoIt:
     [propget] $odlib._row
 ```
@@ -1892,7 +1893,7 @@ AutoIt:
 ### dlib.segmenter\_type
 
 ```cpp
-static dlib::segmenter_type dlib::this
+static dlib::segmenter_type
 AutoIt:
     [propget] $odlib.segmenter_type
 ```
@@ -1900,7 +1901,7 @@ AutoIt:
 ### dlib.segmenter\_params
 
 ```cpp
-static dlib::segmenter_params dlib::this
+static dlib::segmenter_params
 AutoIt:
     [propget] $odlib.segmenter_params
 ```
@@ -1908,7 +1909,7 @@ AutoIt:
 ### dlib.segmenter\_test
 
 ```cpp
-static dlib::segmenter_test dlib::this
+static dlib::segmenter_test
 AutoIt:
     [propget] $odlib.segmenter_test
 ```
@@ -1916,7 +1917,7 @@ AutoIt:
 ### dlib.shape\_predictor\_training\_options
 
 ```cpp
-static dlib::shape_predictor_training_options dlib::this
+static dlib::shape_predictor_training_options
 AutoIt:
     [propget] $odlib.shape_predictor_training_options
 ```
@@ -1924,7 +1925,7 @@ AutoIt:
 ### dlib.simple\_object\_detector\_training\_options
 
 ```cpp
-static dlib::simple_object_detector_training_options dlib::this
+static dlib::simple_object_detector_training_options
 AutoIt:
     [propget] $odlib.simple_object_detector_training_options
 ```
@@ -1932,7 +1933,7 @@ AutoIt:
 ### dlib.simple\_test\_results
 
 ```cpp
-static dlib::simple_test_results dlib::this
+static dlib::simple_test_results
 AutoIt:
     [propget] $odlib.simple_test_results
 ```
@@ -1940,7 +1941,7 @@ AutoIt:
 ### dlib.simple\_object\_detector\_com
 
 ```cpp
-static dlib::simple_object_detector_com dlib::this
+static dlib::simple_object_detector_com
 AutoIt:
     [propget] $odlib.simple_object_detector_com
 ```
@@ -1948,7 +1949,7 @@ AutoIt:
 ### dlib.simple\_structural\_svm\_problem
 
 ```cpp
-static dlib::simple_structural_svm_problem dlib::this
+static dlib::simple_structural_svm_problem
 AutoIt:
     [propget] $odlib.simple_structural_svm_problem
 ```
@@ -1956,15 +1957,23 @@ AutoIt:
 ### dlib.mmod\_rect
 
 ```cpp
-static dlib::mmod_rect dlib::this
+static dlib::mmod_rect
 AutoIt:
     [propget] $odlib.mmod_rect
+```
+
+### dlib.cuda
+
+```cpp
+static dlib::cuda
+AutoIt:
+    [propget] $odlib.cuda
 ```
 
 ### dlib.correlation\_tracker
 
 ```cpp
-static dlib::correlation_tracker dlib::this
+static dlib::correlation_tracker
 AutoIt:
     [propget] $odlib.correlation_tracker
 ```
@@ -1972,7 +1981,7 @@ AutoIt:
 ### dlib.\_radial\_basis\_kernel
 
 ```cpp
-static dlib::_radial_basis_kernel dlib::this
+static dlib::_radial_basis_kernel
 AutoIt:
     [propget] $odlib._radial_basis_kernel
 ```
@@ -1980,7 +1989,7 @@ AutoIt:
 ### dlib.\_linear\_kernel
 
 ```cpp
-static dlib::_linear_kernel dlib::this
+static dlib::_linear_kernel
 AutoIt:
     [propget] $odlib._linear_kernel
 ```
@@ -1988,7 +1997,7 @@ AutoIt:
 ### dlib.\_decision\_function\_linear
 
 ```cpp
-static dlib::_decision_function_linear dlib::this
+static dlib::_decision_function_linear
 AutoIt:
     [propget] $odlib._decision_function_linear
 ```
@@ -1996,7 +2005,7 @@ AutoIt:
 ### dlib.\_decision\_function\_sparse\_linear
 
 ```cpp
-static dlib::_decision_function_sparse_linear dlib::this
+static dlib::_decision_function_sparse_linear
 AutoIt:
     [propget] $odlib._decision_function_sparse_linear
 ```
@@ -2004,7 +2013,7 @@ AutoIt:
 ### dlib.\_decision\_function\_histogram\_intersection
 
 ```cpp
-static dlib::_decision_function_histogram_intersection dlib::this
+static dlib::_decision_function_histogram_intersection
 AutoIt:
     [propget] $odlib._decision_function_histogram_intersection
 ```
@@ -2012,7 +2021,7 @@ AutoIt:
 ### dlib.\_decision\_function\_sparse\_histogram\_intersection
 
 ```cpp
-static dlib::_decision_function_sparse_histogram_intersection dlib::this
+static dlib::_decision_function_sparse_histogram_intersection
 AutoIt:
     [propget] $odlib._decision_function_sparse_histogram_intersection
 ```
@@ -2020,7 +2029,7 @@ AutoIt:
 ### dlib.\_decision\_function\_polynomial
 
 ```cpp
-static dlib::_decision_function_polynomial dlib::this
+static dlib::_decision_function_polynomial
 AutoIt:
     [propget] $odlib._decision_function_polynomial
 ```
@@ -2028,7 +2037,7 @@ AutoIt:
 ### dlib.\_decision\_function\_sparse\_polynomial
 
 ```cpp
-static dlib::_decision_function_sparse_polynomial dlib::this
+static dlib::_decision_function_sparse_polynomial
 AutoIt:
     [propget] $odlib._decision_function_sparse_polynomial
 ```
@@ -2036,7 +2045,7 @@ AutoIt:
 ### dlib.\_decision\_function\_radial\_basis
 
 ```cpp
-static dlib::_decision_function_radial_basis dlib::this
+static dlib::_decision_function_radial_basis
 AutoIt:
     [propget] $odlib._decision_function_radial_basis
 ```
@@ -2044,7 +2053,7 @@ AutoIt:
 ### dlib.\_decision\_function\_sparse\_radial\_basis
 
 ```cpp
-static dlib::_decision_function_sparse_radial_basis dlib::this
+static dlib::_decision_function_sparse_radial_basis
 AutoIt:
     [propget] $odlib._decision_function_sparse_radial_basis
 ```
@@ -2052,7 +2061,7 @@ AutoIt:
 ### dlib.\_decision\_function\_sigmoid
 
 ```cpp
-static dlib::_decision_function_sigmoid dlib::this
+static dlib::_decision_function_sigmoid
 AutoIt:
     [propget] $odlib._decision_function_sigmoid
 ```
@@ -2060,7 +2069,7 @@ AutoIt:
 ### dlib.\_decision\_function\_sparse\_sigmoid
 
 ```cpp
-static dlib::_decision_function_sparse_sigmoid dlib::this
+static dlib::_decision_function_sparse_sigmoid
 AutoIt:
     [propget] $odlib._decision_function_sparse_sigmoid
 ```
@@ -2068,7 +2077,7 @@ AutoIt:
 ### dlib.\_normalized\_decision\_function\_radial\_basis
 
 ```cpp
-static dlib::_normalized_decision_function_radial_basis dlib::this
+static dlib::_normalized_decision_function_radial_basis
 AutoIt:
     [propget] $odlib._normalized_decision_function_radial_basis
 ```
@@ -2140,7 +2149,7 @@ AutoIt:
 ### dlib.function\_evaluation
 
 ```cpp
-static dlib::function_evaluation dlib::this
+static dlib::function_evaluation
 AutoIt:
     [propget] $odlib.function_evaluation
 ```
@@ -2148,7 +2157,7 @@ AutoIt:
 ### dlib.function\_spec
 
 ```cpp
-static dlib::function_spec dlib::this
+static dlib::function_spec
 AutoIt:
     [propget] $odlib.function_spec
 ```
@@ -2156,7 +2165,7 @@ AutoIt:
 ### dlib.function\_evaluation\_request
 
 ```cpp
-static dlib::function_evaluation_request dlib::this
+static dlib::function_evaluation_request
 AutoIt:
     [propget] $odlib.function_evaluation_request
 ```
@@ -2164,7 +2173,7 @@ AutoIt:
 ### dlib.global\_function\_search
 
 ```cpp
-static dlib::global_function_search dlib::this
+static dlib::global_function_search
 AutoIt:
     [propget] $odlib.global_function_search
 ```
@@ -2172,7 +2181,7 @@ AutoIt:
 ### dlib.image\_window
 
 ```cpp
-static dlib::image_window dlib::this
+static dlib::image_window
 AutoIt:
     [propget] $odlib.image_window
 ```
@@ -2180,15 +2189,23 @@ AutoIt:
 ### dlib.rgb\_pixel
 
 ```cpp
-static dlib::rgb_pixel dlib::this
+static dlib::rgb_pixel
 AutoIt:
     [propget] $odlib.rgb_pixel
+```
+
+### dlib.image\_dataset\_metadata
+
+```cpp
+static dlib::image_dataset_metadata
+AutoIt:
+    [propget] $odlib.image_dataset_metadata
 ```
 
 ### dlib.line
 
 ```cpp
-static dlib::line dlib::this
+static dlib::line
 AutoIt:
     [propget] $odlib.line
 ```
@@ -2196,7 +2213,7 @@ AutoIt:
 ### dlib.Matrix
 
 ```cpp
-static dlib::Matrix dlib::this
+static dlib::Matrix
 AutoIt:
     [propget] $odlib.Matrix
 ```
@@ -2204,7 +2221,7 @@ AutoIt:
 ### dlib.fhog\_object\_detector
 
 ```cpp
-static dlib::fhog_object_detector dlib::this
+static dlib::fhog_object_detector
 AutoIt:
     [propget] $odlib.fhog_object_detector
 ```
@@ -2212,7 +2229,7 @@ AutoIt:
 ### dlib.rect\_filter
 
 ```cpp
-static dlib::rect_filter dlib::this
+static dlib::rect_filter
 AutoIt:
     [propget] $odlib.rect_filter
 ```
@@ -2220,7 +2237,7 @@ AutoIt:
 ### dlib.rectangle
 
 ```cpp
-static dlib::rectangle dlib::this
+static dlib::rectangle
 AutoIt:
     [propget] $odlib.rectangle
 ```
@@ -2228,7 +2245,7 @@ AutoIt:
 ### dlib.drectangle
 
 ```cpp
-static dlib::drectangle dlib::this
+static dlib::drectangle
 AutoIt:
     [propget] $odlib.drectangle
 ```
@@ -2236,7 +2253,7 @@ AutoIt:
 ### dlib.full\_object\_detection
 
 ```cpp
-static dlib::full_object_detection dlib::this
+static dlib::full_object_detection
 AutoIt:
     [propget] $odlib.full_object_detection
 ```
@@ -2244,7 +2261,7 @@ AutoIt:
 ### dlib.shape\_predictor
 
 ```cpp
-static dlib::shape_predictor dlib::this
+static dlib::shape_predictor
 AutoIt:
     [propget] $odlib.shape_predictor
 ```
@@ -2252,7 +2269,7 @@ AutoIt:
 ### dlib.svm\_c\_trainer\_radial\_basis
 
 ```cpp
-static dlib::svm_c_trainer_radial_basis dlib::this
+static dlib::svm_c_trainer_radial_basis
 AutoIt:
     [propget] $odlib.svm_c_trainer_radial_basis
 ```
@@ -2260,7 +2277,7 @@ AutoIt:
 ### dlib.svm\_c\_trainer\_sparse\_radial\_basis
 
 ```cpp
-static dlib::svm_c_trainer_sparse_radial_basis dlib::this
+static dlib::svm_c_trainer_sparse_radial_basis
 AutoIt:
     [propget] $odlib.svm_c_trainer_sparse_radial_basis
 ```
@@ -2268,7 +2285,7 @@ AutoIt:
 ### dlib.svm\_c\_trainer\_histogram\_intersection
 
 ```cpp
-static dlib::svm_c_trainer_histogram_intersection dlib::this
+static dlib::svm_c_trainer_histogram_intersection
 AutoIt:
     [propget] $odlib.svm_c_trainer_histogram_intersection
 ```
@@ -2276,7 +2293,7 @@ AutoIt:
 ### dlib.svm\_c\_trainer\_sparse\_histogram\_intersection
 
 ```cpp
-static dlib::svm_c_trainer_sparse_histogram_intersection dlib::this
+static dlib::svm_c_trainer_sparse_histogram_intersection
 AutoIt:
     [propget] $odlib.svm_c_trainer_sparse_histogram_intersection
 ```
@@ -2284,7 +2301,7 @@ AutoIt:
 ### dlib.svm\_c\_trainer\_linear
 
 ```cpp
-static dlib::svm_c_trainer_linear dlib::this
+static dlib::svm_c_trainer_linear
 AutoIt:
     [propget] $odlib.svm_c_trainer_linear
 ```
@@ -2292,7 +2309,7 @@ AutoIt:
 ### dlib.svm\_c\_trainer\_sparse\_linear
 
 ```cpp
-static dlib::svm_c_trainer_sparse_linear dlib::this
+static dlib::svm_c_trainer_sparse_linear
 AutoIt:
     [propget] $odlib.svm_c_trainer_sparse_linear
 ```
@@ -2300,7 +2317,7 @@ AutoIt:
 ### dlib.rvm\_trainer\_radial\_basis
 
 ```cpp
-static dlib::rvm_trainer_radial_basis dlib::this
+static dlib::rvm_trainer_radial_basis
 AutoIt:
     [propget] $odlib.rvm_trainer_radial_basis
 ```
@@ -2308,7 +2325,7 @@ AutoIt:
 ### dlib.rvm\_trainer\_sparse\_radial\_basis
 
 ```cpp
-static dlib::rvm_trainer_sparse_radial_basis dlib::this
+static dlib::rvm_trainer_sparse_radial_basis
 AutoIt:
     [propget] $odlib.rvm_trainer_sparse_radial_basis
 ```
@@ -2316,7 +2333,7 @@ AutoIt:
 ### dlib.rvm\_trainer\_histogram\_intersection
 
 ```cpp
-static dlib::rvm_trainer_histogram_intersection dlib::this
+static dlib::rvm_trainer_histogram_intersection
 AutoIt:
     [propget] $odlib.rvm_trainer_histogram_intersection
 ```
@@ -2324,7 +2341,7 @@ AutoIt:
 ### dlib.rvm\_trainer\_sparse\_histogram\_intersection
 
 ```cpp
-static dlib::rvm_trainer_sparse_histogram_intersection dlib::this
+static dlib::rvm_trainer_sparse_histogram_intersection
 AutoIt:
     [propget] $odlib.rvm_trainer_sparse_histogram_intersection
 ```
@@ -2332,7 +2349,7 @@ AutoIt:
 ### dlib.rvm\_trainer\_linear
 
 ```cpp
-static dlib::rvm_trainer_linear dlib::this
+static dlib::rvm_trainer_linear
 AutoIt:
     [propget] $odlib.rvm_trainer_linear
 ```
@@ -2340,7 +2357,7 @@ AutoIt:
 ### dlib.rvm\_trainer\_sparse\_linear
 
 ```cpp
-static dlib::rvm_trainer_sparse_linear dlib::this
+static dlib::rvm_trainer_sparse_linear
 AutoIt:
     [propget] $odlib.rvm_trainer_sparse_linear
 ```
@@ -2348,7 +2365,7 @@ AutoIt:
 ### dlib.vec\_ranking\_pair
 
 ```cpp
-static dlib::vec_ranking_pair dlib::this
+static dlib::vec_ranking_pair
 AutoIt:
     [propget] $odlib.vec_ranking_pair
 ```
@@ -2356,7 +2373,7 @@ AutoIt:
 ### dlib.sparse\_ranking\_pair
 
 ```cpp
-static dlib::sparse_ranking_pair dlib::this
+static dlib::sparse_ranking_pair
 AutoIt:
     [propget] $odlib.sparse_ranking_pair
 ```
@@ -2364,7 +2381,7 @@ AutoIt:
 ### dlib.vec\_svm\_rank\_trainer
 
 ```cpp
-static dlib::vec_svm_rank_trainer dlib::this
+static dlib::vec_svm_rank_trainer
 AutoIt:
     [propget] $odlib.vec_svm_rank_trainer
 ```
@@ -2372,7 +2389,7 @@ AutoIt:
 ### dlib.svm\_rank\_trainer\_sparse
 
 ```cpp
-static dlib::svm_rank_trainer_sparse dlib::this
+static dlib::svm_rank_trainer_sparse
 AutoIt:
     [propget] $odlib.svm_rank_trainer_sparse
 ```
@@ -2380,7 +2397,7 @@ AutoIt:
 ### dlib.SpaceVector
 
 ```cpp
-static dlib::SpaceVector dlib::this
+static dlib::SpaceVector
 AutoIt:
     [propget] $odlib.SpaceVector
 ```
@@ -2388,7 +2405,7 @@ AutoIt:
 ### dlib.point\_transform\_projective
 
 ```cpp
-static dlib::point_transform_projective dlib::this
+static dlib::point_transform_projective
 AutoIt:
     [propget] $odlib.point_transform_projective
 ```
@@ -2396,7 +2413,7 @@ AutoIt:
 ### dlib.dpoint
 
 ```cpp
-static dlib::dpoint dlib::this
+static dlib::dpoint
 AutoIt:
     [propget] $odlib.dpoint
 ```
@@ -2404,7 +2421,7 @@ AutoIt:
 ### dlib.point
 
 ```cpp
-static dlib::point dlib::this
+static dlib::point
 AutoIt:
     [propget] $odlib.point
 ```
@@ -3835,7 +3852,7 @@ AutoIt:
 ```cpp
 double dlib::binary_test::class1_accuracy
 AutoIt:
-    [propget propput] $obinary_test.class1_accuracy
+    [propget, propput] $obinary_test.class1_accuracy
 ```
 
 ### binary\_test.class2\_accuracy
@@ -3843,7 +3860,7 @@ AutoIt:
 ```cpp
 double dlib::binary_test::class2_accuracy
 AutoIt:
-    [propget propput] $obinary_test.class2_accuracy
+    [propget, propput] $obinary_test.class2_accuracy
 ```
 
 ### dlib::binary\_test::get\_create
@@ -3852,7 +3869,6 @@ AutoIt:
 static dlib::binary_test dlib::binary_test::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.binary_test").create() -> <dlib.binary_test object>
-    _Dlib_ObjCreate("dlib.binary_test")() -> <dlib.binary_test object>
 ```
 
 ### dlib::binary\_test::ToString
@@ -3870,7 +3886,7 @@ AutoIt:
 ```cpp
 double dlib::regression_test::mean_squared_error
 AutoIt:
-    [propget propput] $oregression_test.mean_squared_error
+    [propget, propput] $oregression_test.mean_squared_error
 ```
 
 ### regression\_test.R\_squared
@@ -3878,7 +3894,7 @@ AutoIt:
 ```cpp
 double dlib::regression_test::R_squared
 AutoIt:
-    [propget propput] $oregression_test.R_squared
+    [propget, propput] $oregression_test.R_squared
 ```
 
 ### regression\_test.mean\_average\_error
@@ -3886,7 +3902,7 @@ AutoIt:
 ```cpp
 double dlib::regression_test::mean_average_error
 AutoIt:
-    [propget propput] $oregression_test.mean_average_error
+    [propget, propput] $oregression_test.mean_average_error
 ```
 
 ### regression\_test.mean\_error\_stddev
@@ -3894,7 +3910,7 @@ AutoIt:
 ```cpp
 double dlib::regression_test::mean_error_stddev
 AutoIt:
-    [propget propput] $oregression_test.mean_error_stddev
+    [propget, propput] $oregression_test.mean_error_stddev
 ```
 
 ### dlib::regression\_test::get\_create
@@ -3903,7 +3919,6 @@ AutoIt:
 static dlib::regression_test dlib::regression_test::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.regression_test").create() -> <dlib.regression_test object>
-    _Dlib_ObjCreate("dlib.regression_test")() -> <dlib.regression_test object>
 ```
 
 ### dlib::regression\_test::ToString
@@ -3921,7 +3936,7 @@ AutoIt:
 ```cpp
 double dlib::ranking_test::ranking_accuracy
 AutoIt:
-    [propget propput] $oranking_test.ranking_accuracy
+    [propget, propput] $oranking_test.ranking_accuracy
 ```
 
 ### ranking\_test.mean\_ap
@@ -3929,7 +3944,7 @@ AutoIt:
 ```cpp
 double dlib::ranking_test::mean_ap
 AutoIt:
-    [propget propput] $oranking_test.mean_ap
+    [propget, propput] $oranking_test.mean_ap
 ```
 
 ### dlib::ranking\_test::get\_create
@@ -3938,7 +3953,6 @@ AutoIt:
 static dlib::ranking_test dlib::ranking_test::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_test").create() -> <dlib.ranking_test object>
-    _Dlib_ObjCreate("dlib.ranking_test")() -> <dlib.ranking_test object>
 ```
 
 ### dlib::ranking\_test::ToString
@@ -3956,7 +3970,7 @@ AutoIt:
 ```cpp
 dlib::SpaceVector dlib::cca_outputs::correlations
 AutoIt:
-    [propget propput] $occa_outputs.correlations
+    [propget, propput] $occa_outputs.correlations
 ```
 
 ### cca\_outputs.Ltrans
@@ -3964,7 +3978,7 @@ AutoIt:
 ```cpp
 dlib::Matrix dlib::cca_outputs::Ltrans
 AutoIt:
-    [propget propput] $occa_outputs.Ltrans
+    [propget, propput] $occa_outputs.Ltrans
 ```
 
 ### cca\_outputs.Rtrans
@@ -3972,7 +3986,7 @@ AutoIt:
 ```cpp
 dlib::Matrix dlib::cca_outputs::Rtrans
 AutoIt:
-    [propget propput] $occa_outputs.Rtrans
+    [propget, propput] $occa_outputs.Rtrans
 ```
 
 ### dlib::cca\_outputs::get\_create
@@ -3981,7 +3995,6 @@ AutoIt:
 static dlib::cca_outputs dlib::cca_outputs::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.cca_outputs").create() -> <dlib.cca_outputs object>
-    _Dlib_ObjCreate("dlib.cca_outputs")() -> <dlib.cca_outputs object>
 ```
 
 ## dlib::cnn\_face\_detection\_model\_v1
@@ -4040,7 +4053,7 @@ AutoIt:
 static dlib::face_recognition_model_v1 dlib::face_recognition_model_v1::get_create( const std::string& model_filename );
 AutoIt:
     _Dlib_ObjCreate("dlib.face_recognition_model_v1").create( $model_filename ) -> <dlib.face_recognition_model_v1 object>
-    _Dlib_ObjCreate("dlib.face_recognition_model_v1")( $model_filename ) -> <dlib.face_recognition_model_v1 object>
+    $oface_recognition_model_v1( $model_filename ) -> <dlib.face_recognition_model_v1 object>
 ```
 
 ### dlib::face\_recognition\_model\_v1::compute\_face\_descriptor
@@ -4094,7 +4107,6 @@ AutoIt:
 static dlib::_row dlib::_row::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib._row").create() -> <dlib._row object>
-    _Dlib_ObjCreate("dlib._row")() -> <dlib._row object>
 ```
 
 ```cpp
@@ -4102,7 +4114,7 @@ static dlib::_row dlib::_row::get_create( double* data_,
                                           long    size_ );
 AutoIt:
     _Dlib_ObjCreate("dlib._row").create( $size_[, $data_] ) -> <dlib._row object>
-    _Dlib_ObjCreate("dlib._row")( $size_[, $data_] ) -> <dlib._row object>
+    $o_row( $size_[, $data_] ) -> <dlib._row object>
 ```
 
 ### dlib::\_row::ToString
@@ -4171,7 +4183,7 @@ AutoIt:
 ```cpp
 bool dlib::segmenter_params::use_BIO_model
 AutoIt:
-    [propget propput] $osegmenter_params.use_BIO_model
+    [propget, propput] $osegmenter_params.use_BIO_model
 ```
 
 ### segmenter\_params.use\_high\_order\_features
@@ -4179,7 +4191,7 @@ AutoIt:
 ```cpp
 bool dlib::segmenter_params::use_high_order_features
 AutoIt:
-    [propget propput] $osegmenter_params.use_high_order_features
+    [propget, propput] $osegmenter_params.use_high_order_features
 ```
 
 ### segmenter\_params.allow\_negative\_weights
@@ -4187,7 +4199,7 @@ AutoIt:
 ```cpp
 bool dlib::segmenter_params::allow_negative_weights
 AutoIt:
-    [propget propput] $osegmenter_params.allow_negative_weights
+    [propget, propput] $osegmenter_params.allow_negative_weights
 ```
 
 ### segmenter\_params.window\_size
@@ -4195,7 +4207,7 @@ AutoIt:
 ```cpp
 ULONG dlib::segmenter_params::window_size
 AutoIt:
-    [propget propput] $osegmenter_params.window_size
+    [propget, propput] $osegmenter_params.window_size
 ```
 
 ### segmenter\_params.num\_threads
@@ -4203,7 +4215,7 @@ AutoIt:
 ```cpp
 ULONG dlib::segmenter_params::num_threads
 AutoIt:
-    [propget propput] $osegmenter_params.num_threads
+    [propget, propput] $osegmenter_params.num_threads
 ```
 
 ### segmenter\_params.epsilon
@@ -4211,7 +4223,7 @@ AutoIt:
 ```cpp
 double dlib::segmenter_params::epsilon
 AutoIt:
-    [propget propput] $osegmenter_params.epsilon
+    [propget, propput] $osegmenter_params.epsilon
 ```
 
 ### segmenter\_params.max\_cache\_size
@@ -4219,7 +4231,7 @@ AutoIt:
 ```cpp
 ULONG dlib::segmenter_params::max_cache_size
 AutoIt:
-    [propget propput] $osegmenter_params.max_cache_size
+    [propget, propput] $osegmenter_params.max_cache_size
 ```
 
 ### segmenter\_params.be\_verbose
@@ -4227,7 +4239,7 @@ AutoIt:
 ```cpp
 bool dlib::segmenter_params::be_verbose
 AutoIt:
-    [propget propput] $osegmenter_params.be_verbose
+    [propget, propput] $osegmenter_params.be_verbose
 ```
 
 ### segmenter\_params.C
@@ -4235,7 +4247,7 @@ AutoIt:
 ```cpp
 double dlib::segmenter_params::C
 AutoIt:
-    [propget propput] $osegmenter_params.C
+    [propget, propput] $osegmenter_params.C
 ```
 
 ### dlib::segmenter\_params::get\_create
@@ -4244,7 +4256,6 @@ AutoIt:
 static dlib::segmenter_params dlib::segmenter_params::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_params").create() -> <dlib.segmenter_params object>
-    _Dlib_ObjCreate("dlib.segmenter_params")() -> <dlib.segmenter_params object>
 ```
 
 ### dlib::segmenter\_params::ToString
@@ -4262,7 +4273,7 @@ AutoIt:
 ```cpp
 double dlib::segmenter_test::precision
 AutoIt:
-    [propget propput] $osegmenter_test.precision
+    [propget, propput] $osegmenter_test.precision
 ```
 
 ### segmenter\_test.recall
@@ -4270,7 +4281,7 @@ AutoIt:
 ```cpp
 double dlib::segmenter_test::recall
 AutoIt:
-    [propget propput] $osegmenter_test.recall
+    [propget, propput] $osegmenter_test.recall
 ```
 
 ### segmenter\_test.f1
@@ -4278,7 +4289,7 @@ AutoIt:
 ```cpp
 double dlib::segmenter_test::f1
 AutoIt:
-    [propget propput] $osegmenter_test.f1
+    [propget, propput] $osegmenter_test.f1
 ```
 
 ### dlib::segmenter\_test::get\_create
@@ -4287,7 +4298,6 @@ AutoIt:
 static dlib::segmenter_test dlib::segmenter_test::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_test").create() -> <dlib.segmenter_test object>
-    _Dlib_ObjCreate("dlib.segmenter_test")() -> <dlib.segmenter_test object>
 ```
 
 ### dlib::segmenter\_test::ToString
@@ -4305,7 +4315,7 @@ AutoIt:
 ```cpp
 bool dlib::shape_predictor_training_options::be_verbose
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.be_verbose
+    [propget, propput] $oshape_predictor_training_options.be_verbose
 ```
 
 ### shape\_predictor\_training\_options.cascade\_depth
@@ -4313,7 +4323,7 @@ AutoIt:
 ```cpp
 ULONG dlib::shape_predictor_training_options::cascade_depth
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.cascade_depth
+    [propget, propput] $oshape_predictor_training_options.cascade_depth
 ```
 
 ### shape\_predictor\_training\_options.tree\_depth
@@ -4321,7 +4331,7 @@ AutoIt:
 ```cpp
 ULONG dlib::shape_predictor_training_options::tree_depth
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.tree_depth
+    [propget, propput] $oshape_predictor_training_options.tree_depth
 ```
 
 ### shape\_predictor\_training\_options.num\_trees\_per\_cascade\_level
@@ -4329,7 +4339,7 @@ AutoIt:
 ```cpp
 ULONG dlib::shape_predictor_training_options::num_trees_per_cascade_level
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.num_trees_per_cascade_level
+    [propget, propput] $oshape_predictor_training_options.num_trees_per_cascade_level
 ```
 
 ### shape\_predictor\_training\_options.nu
@@ -4337,7 +4347,7 @@ AutoIt:
 ```cpp
 double dlib::shape_predictor_training_options::nu
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.nu
+    [propget, propput] $oshape_predictor_training_options.nu
 ```
 
 ### shape\_predictor\_training\_options.oversampling\_amount
@@ -4345,7 +4355,7 @@ AutoIt:
 ```cpp
 ULONG dlib::shape_predictor_training_options::oversampling_amount
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.oversampling_amount
+    [propget, propput] $oshape_predictor_training_options.oversampling_amount
 ```
 
 ### shape\_predictor\_training\_options.oversampling\_translation\_jitter
@@ -4353,7 +4363,7 @@ AutoIt:
 ```cpp
 double dlib::shape_predictor_training_options::oversampling_translation_jitter
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.oversampling_translation_jitter
+    [propget, propput] $oshape_predictor_training_options.oversampling_translation_jitter
 ```
 
 ### shape\_predictor\_training\_options.feature\_pool\_size
@@ -4361,7 +4371,7 @@ AutoIt:
 ```cpp
 ULONG dlib::shape_predictor_training_options::feature_pool_size
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.feature_pool_size
+    [propget, propput] $oshape_predictor_training_options.feature_pool_size
 ```
 
 ### shape\_predictor\_training\_options.lambda\_param
@@ -4369,7 +4379,7 @@ AutoIt:
 ```cpp
 double dlib::shape_predictor_training_options::lambda_param
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.lambda_param
+    [propget, propput] $oshape_predictor_training_options.lambda_param
 ```
 
 ### shape\_predictor\_training\_options.num\_test\_splits
@@ -4377,7 +4387,7 @@ AutoIt:
 ```cpp
 ULONG dlib::shape_predictor_training_options::num_test_splits
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.num_test_splits
+    [propget, propput] $oshape_predictor_training_options.num_test_splits
 ```
 
 ### shape\_predictor\_training\_options.feature\_pool\_region\_padding
@@ -4385,7 +4395,7 @@ AutoIt:
 ```cpp
 double dlib::shape_predictor_training_options::feature_pool_region_padding
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.feature_pool_region_padding
+    [propget, propput] $oshape_predictor_training_options.feature_pool_region_padding
 ```
 
 ### shape\_predictor\_training\_options.random\_seed
@@ -4393,7 +4403,7 @@ AutoIt:
 ```cpp
 std::string dlib::shape_predictor_training_options::random_seed
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.random_seed
+    [propget, propput] $oshape_predictor_training_options.random_seed
 ```
 
 ### shape\_predictor\_training\_options.landmark\_relative\_padding\_mode
@@ -4401,7 +4411,7 @@ AutoIt:
 ```cpp
 bool dlib::shape_predictor_training_options::landmark_relative_padding_mode
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.landmark_relative_padding_mode
+    [propget, propput] $oshape_predictor_training_options.landmark_relative_padding_mode
 ```
 
 ### shape\_predictor\_training\_options.num\_threads
@@ -4409,7 +4419,7 @@ AutoIt:
 ```cpp
 ULONG dlib::shape_predictor_training_options::num_threads
 AutoIt:
-    [propget propput] $oshape_predictor_training_options.num_threads
+    [propget, propput] $oshape_predictor_training_options.num_threads
 ```
 
 ### dlib::shape\_predictor\_training\_options::get\_create
@@ -4418,7 +4428,6 @@ AutoIt:
 static dlib::shape_predictor_training_options dlib::shape_predictor_training_options::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.shape_predictor_training_options").create() -> <dlib.shape_predictor_training_options object>
-    _Dlib_ObjCreate("dlib.shape_predictor_training_options")() -> <dlib.shape_predictor_training_options object>
 ```
 
 ### dlib::shape\_predictor\_training\_options::ToString
@@ -4436,7 +4445,7 @@ AutoIt:
 ```cpp
 bool dlib::simple_object_detector_training_options::be_verbose
 AutoIt:
-    [propget propput] $osimple_object_detector_training_options.be_verbose
+    [propget, propput] $osimple_object_detector_training_options.be_verbose
 ```
 
 ### simple\_object\_detector\_training\_options.add\_left\_right\_image\_flips
@@ -4444,7 +4453,7 @@ AutoIt:
 ```cpp
 bool dlib::simple_object_detector_training_options::add_left_right_image_flips
 AutoIt:
-    [propget propput] $osimple_object_detector_training_options.add_left_right_image_flips
+    [propget, propput] $osimple_object_detector_training_options.add_left_right_image_flips
 ```
 
 ### simple\_object\_detector\_training\_options.num\_threads
@@ -4452,7 +4461,7 @@ AutoIt:
 ```cpp
 ULONG dlib::simple_object_detector_training_options::num_threads
 AutoIt:
-    [propget propput] $osimple_object_detector_training_options.num_threads
+    [propget, propput] $osimple_object_detector_training_options.num_threads
 ```
 
 ### simple\_object\_detector\_training\_options.detection\_window\_size
@@ -4460,7 +4469,7 @@ AutoIt:
 ```cpp
 ULONG dlib::simple_object_detector_training_options::detection_window_size
 AutoIt:
-    [propget propput] $osimple_object_detector_training_options.detection_window_size
+    [propget, propput] $osimple_object_detector_training_options.detection_window_size
 ```
 
 ### simple\_object\_detector\_training\_options.C
@@ -4468,7 +4477,7 @@ AutoIt:
 ```cpp
 double dlib::simple_object_detector_training_options::C
 AutoIt:
-    [propget propput] $osimple_object_detector_training_options.C
+    [propget, propput] $osimple_object_detector_training_options.C
 ```
 
 ### simple\_object\_detector\_training\_options.epsilon
@@ -4476,7 +4485,7 @@ AutoIt:
 ```cpp
 double dlib::simple_object_detector_training_options::epsilon
 AutoIt:
-    [propget propput] $osimple_object_detector_training_options.epsilon
+    [propget, propput] $osimple_object_detector_training_options.epsilon
 ```
 
 ### simple\_object\_detector\_training\_options.upsample\_limit
@@ -4484,7 +4493,7 @@ AutoIt:
 ```cpp
 ULONG dlib::simple_object_detector_training_options::upsample_limit
 AutoIt:
-    [propget propput] $osimple_object_detector_training_options.upsample_limit
+    [propget, propput] $osimple_object_detector_training_options.upsample_limit
 ```
 
 ### simple\_object\_detector\_training\_options.nuclear\_norm\_regularization\_strength
@@ -4492,7 +4501,7 @@ AutoIt:
 ```cpp
 double dlib::simple_object_detector_training_options::nuclear_norm_regularization_strength
 AutoIt:
-    [propget propput] $osimple_object_detector_training_options.nuclear_norm_regularization_strength
+    [propget, propput] $osimple_object_detector_training_options.nuclear_norm_regularization_strength
 ```
 
 ### simple\_object\_detector\_training\_options.max\_runtime\_seconds
@@ -4500,7 +4509,7 @@ AutoIt:
 ```cpp
 double dlib::simple_object_detector_training_options::max_runtime_seconds
 AutoIt:
-    [propget propput] $osimple_object_detector_training_options.max_runtime_seconds
+    [propget, propput] $osimple_object_detector_training_options.max_runtime_seconds
 ```
 
 ### dlib::simple\_object\_detector\_training\_options::get\_create
@@ -4509,7 +4518,6 @@ AutoIt:
 static dlib::simple_object_detector_training_options dlib::simple_object_detector_training_options::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector_training_options").create() -> <dlib.simple_object_detector_training_options object>
-    _Dlib_ObjCreate("dlib.simple_object_detector_training_options")() -> <dlib.simple_object_detector_training_options object>
 ```
 
 ### dlib::simple\_object\_detector\_training\_options::ToString
@@ -4527,7 +4535,7 @@ AutoIt:
 ```cpp
 double dlib::simple_test_results::precision
 AutoIt:
-    [propget propput] $osimple_test_results.precision
+    [propget, propput] $osimple_test_results.precision
 ```
 
 ### simple\_test\_results.recall
@@ -4535,7 +4543,7 @@ AutoIt:
 ```cpp
 double dlib::simple_test_results::recall
 AutoIt:
-    [propget propput] $osimple_test_results.recall
+    [propget, propput] $osimple_test_results.recall
 ```
 
 ### simple\_test\_results.average\_precision
@@ -4543,7 +4551,7 @@ AutoIt:
 ```cpp
 double dlib::simple_test_results::average_precision
 AutoIt:
-    [propget propput] $osimple_test_results.average_precision
+    [propget, propput] $osimple_test_results.average_precision
 ```
 
 ### dlib::simple\_test\_results::get\_create
@@ -4552,7 +4560,6 @@ AutoIt:
 static dlib::simple_test_results dlib::simple_test_results::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_test_results").create() -> <dlib.simple_test_results object>
-    _Dlib_ObjCreate("dlib.simple_test_results")() -> <dlib.simple_test_results object>
 ```
 
 ### dlib::simple\_test\_results::ToString
@@ -4570,7 +4577,7 @@ AutoIt:
 ```cpp
 dlib::fhog_object_detector dlib::simple_object_detector_com::detector
 AutoIt:
-    [propget propput] $osimple_object_detector_com.detector
+    [propget, propput] $osimple_object_detector_com.detector
 ```
 
 ### simple\_object\_detector\_com.upsampling\_amount
@@ -4578,7 +4585,7 @@ AutoIt:
 ```cpp
 uint dlib::simple_object_detector_com::upsampling_amount
 AutoIt:
-    [propget propput] $osimple_object_detector_com.upsampling_amount
+    [propget, propput] $osimple_object_detector_com.upsampling_amount
 ```
 
 ### simple\_object\_detector\_com.detection\_window\_width
@@ -4682,7 +4689,7 @@ AutoIt:
 ```cpp
 double dlib::simple_structural_svm_problem::C
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.C
+    [propget, propput] $osimple_structural_svm_problem.C
 ```
 
 ### simple\_structural\_svm\_problem.num\_samples
@@ -4690,7 +4697,7 @@ AutoIt:
 ```cpp
 long dlib::simple_structural_svm_problem::num_samples
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.num_samples
+    [propget, propput] $osimple_structural_svm_problem.num_samples
 ```
 
 ### simple\_structural\_svm\_problem.num\_dimensions
@@ -4698,7 +4705,7 @@ AutoIt:
 ```cpp
 long dlib::simple_structural_svm_problem::num_dimensions
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.num_dimensions
+    [propget, propput] $osimple_structural_svm_problem.num_dimensions
 ```
 
 ### simple\_structural\_svm\_problem.get\_truth\_joint\_feature\_vector
@@ -4706,7 +4713,7 @@ AutoIt:
 ```cpp
 get_truth_joint_feature_vector_function dlib::simple_structural_svm_problem::get_truth_joint_feature_vector
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.get_truth_joint_feature_vector
+    [propget, propput] $osimple_structural_svm_problem.get_truth_joint_feature_vector
 ```
 
 ### simple\_structural\_svm\_problem.separation\_oracle
@@ -4714,7 +4721,7 @@ AutoIt:
 ```cpp
 separation_oracle_function dlib::simple_structural_svm_problem::separation_oracle
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.separation_oracle
+    [propget, propput] $osimple_structural_svm_problem.separation_oracle
 ```
 
 ### simple\_structural\_svm\_problem.epsilon
@@ -4722,7 +4729,7 @@ AutoIt:
 ```cpp
 double dlib::simple_structural_svm_problem::epsilon
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.epsilon
+    [propget, propput] $osimple_structural_svm_problem.epsilon
 ```
 
 ### simple\_structural\_svm\_problem.max\_cache\_size
@@ -4730,7 +4737,7 @@ AutoIt:
 ```cpp
 ULONG dlib::simple_structural_svm_problem::max_cache_size
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.max_cache_size
+    [propget, propput] $osimple_structural_svm_problem.max_cache_size
 ```
 
 ### simple\_structural\_svm\_problem.be\_verbose
@@ -4738,7 +4745,7 @@ AutoIt:
 ```cpp
 bool dlib::simple_structural_svm_problem::be_verbose
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.be_verbose
+    [propget, propput] $osimple_structural_svm_problem.be_verbose
 ```
 
 ### simple\_structural\_svm\_problem.use\_sparse\_feature\_vectors
@@ -4746,7 +4753,7 @@ AutoIt:
 ```cpp
 bool dlib::simple_structural_svm_problem::use_sparse_feature_vectors
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.use_sparse_feature_vectors
+    [propget, propput] $osimple_structural_svm_problem.use_sparse_feature_vectors
 ```
 
 ### simple\_structural\_svm\_problem.learns\_nonnegative\_weights
@@ -4754,7 +4761,7 @@ AutoIt:
 ```cpp
 bool dlib::simple_structural_svm_problem::learns_nonnegative_weights
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.learns_nonnegative_weights
+    [propget, propput] $osimple_structural_svm_problem.learns_nonnegative_weights
 ```
 
 ### simple\_structural\_svm\_problem.result
@@ -4762,7 +4769,7 @@ AutoIt:
 ```cpp
 _variant_t dlib::simple_structural_svm_problem::result
 AutoIt:
-    [propget propput] $osimple_structural_svm_problem.result
+    [propget, propput] $osimple_structural_svm_problem.result
 ```
 
 ### dlib::simple\_structural\_svm\_problem::get\_create
@@ -4771,7 +4778,6 @@ AutoIt:
 static dlib::simple_structural_svm_problem dlib::simple_structural_svm_problem::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.structural_svm_problem").create() -> <dlib.simple_structural_svm_problem object>
-    _Dlib_ObjCreate("dlib.structural_svm_problem")() -> <dlib.simple_structural_svm_problem object>
 ```
 
 ## cv
@@ -4779,7 +4785,7 @@ AutoIt:
 ### cv.Mat
 
 ```cpp
-static cv::Mat cv::this
+static cv::Mat
 AutoIt:
     [propget] $ocv.Mat
 ```
@@ -4787,7 +4793,7 @@ AutoIt:
 ### cv.Range
 
 ```cpp
-static cv::Range cv::this
+static cv::Range
 AutoIt:
     [propget] $ocv.Range
 ```
@@ -4902,7 +4908,7 @@ AutoIt:
 ```cpp
 dlib::rectangle dlib::mmod_rect::rect
 AutoIt:
-    [propget propput] $ommod_rect.rect
+    [propget, propput] $ommod_rect.rect
 ```
 
 ### mmod\_rect.confidence
@@ -4910,7 +4916,7 @@ AutoIt:
 ```cpp
 double dlib::mmod_rect::detection_confidence
 AutoIt:
-    [propget propput] $ommod_rect.confidence
+    [propget, propput] $ommod_rect.confidence
 ```
 
 ### mmod\_rect.label
@@ -4918,7 +4924,7 @@ AutoIt:
 ```cpp
 std::string dlib::mmod_rect::label
 AutoIt:
-    [propget propput] $ommod_rect.label
+    [propget, propput] $ommod_rect.label
 ```
 
 ### mmod\_rect.ignore
@@ -4926,7 +4932,7 @@ AutoIt:
 ```cpp
 bool dlib::mmod_rect::ignore
 AutoIt:
-    [propget propput] $ommod_rect.ignore
+    [propget, propput] $ommod_rect.ignore
 ```
 
 ### dlib::mmod\_rect::get\_create
@@ -4937,7 +4943,7 @@ static dlib::mmod_rect dlib::mmod_rect::get_create( dlib::rectangle rect = recta
                                                     std::string     label = string() );
 AutoIt:
     _Dlib_ObjCreate("dlib.mmod_rectangle").create( [$rect[, $detection_confidence[, $label]]] ) -> <dlib.mmod_rect object>
-    _Dlib_ObjCreate("dlib.mmod_rectangle")( [$rect[, $detection_confidence[, $label]]] ) -> <dlib.mmod_rect object>
+    $ommod_rect( [$rect[, $detection_confidence[, $label]]] ) -> <dlib.mmod_rect object>
 ```
 
 ## dlib::cuda
@@ -4999,7 +5005,6 @@ AutoIt:
 static dlib::correlation_tracker dlib::correlation_tracker::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.correlation_tracker").create() -> <dlib.correlation_tracker object>
-    _Dlib_ObjCreate("dlib.correlation_tracker")() -> <dlib.correlation_tracker object>
 ```
 
 ### dlib::correlation\_tracker::get\_position
@@ -5064,7 +5069,6 @@ AutoIt:
 static dlib::_radial_basis_kernel dlib::_radial_basis_kernel::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib._radial_basis_kernel").create() -> <dlib._radial_basis_kernel object>
-    _Dlib_ObjCreate("dlib._radial_basis_kernel")() -> <dlib._radial_basis_kernel object>
 ```
 
 ## dlib::\_linear\_kernel
@@ -5075,7 +5079,6 @@ AutoIt:
 static dlib::_linear_kernel dlib::_linear_kernel::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib._linear_kernel").create() -> <dlib._linear_kernel object>
-    _Dlib_ObjCreate("dlib._linear_kernel")() -> <dlib._linear_kernel object>
 ```
 
 ## dlib::\_decision\_function\_linear
@@ -5093,7 +5096,7 @@ AutoIt:
 ```cpp
 double dlib::_decision_function_linear::bias
 AutoIt:
-    [propget propput] $o_decision_function_linear.bias
+    [propget, propput] $o_decision_function_linear.bias
 ```
 
 ### dlib::\_decision\_function\_linear::create
@@ -5128,7 +5131,7 @@ AutoIt:
 ```cpp
 double dlib::_decision_function_sparse_linear::bias
 AutoIt:
-    [propget propput] $o_decision_function_sparse_linear.bias
+    [propget, propput] $o_decision_function_sparse_linear.bias
 ```
 
 ### dlib::\_decision\_function\_sparse\_linear::create
@@ -5589,7 +5592,6 @@ AutoIt:
 static dlib::function_evaluation dlib::function_evaluation::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create() -> <dlib.function_evaluation object>
-    _Dlib_ObjCreate("dlib.function_evaluation")() -> <dlib.function_evaluation object>
 ```
 
 ```cpp
@@ -5597,7 +5599,7 @@ static dlib::function_evaluation dlib::function_evaluation::get_create( dlib::Sp
                                                                         double            y );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create( $x, $y ) -> <dlib.function_evaluation object>
-    _Dlib_ObjCreate("dlib.function_evaluation")( $x, $y ) -> <dlib.function_evaluation object>
+    $ofunction_evaluation( $x, $y ) -> <dlib.function_evaluation object>
 ```
 
 ```cpp
@@ -5605,7 +5607,7 @@ static dlib::function_evaluation dlib::function_evaluation::get_create( std::vec
                                                                         double              y );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create( $x, $y ) -> <dlib.function_evaluation object>
-    _Dlib_ObjCreate("dlib.function_evaluation")( $x, $y ) -> <dlib.function_evaluation object>
+    $ofunction_evaluation( $x, $y ) -> <dlib.function_evaluation object>
 ```
 
 ## dlib::function\_spec
@@ -5641,7 +5643,7 @@ static dlib::function_spec dlib::function_spec::get_create( dlib::SpaceVector bo
                                                             dlib::SpaceVector bound2 );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
-    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2 ) -> <dlib.function_spec object>
+    $ofunction_spec( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
 
 ```cpp
@@ -5650,7 +5652,7 @@ static dlib::function_spec dlib::function_spec::get_create( dlib::SpaceVector bo
                                                             std::vector<bool> is_integer );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
-    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
+    $ofunction_spec( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
 
 ```cpp
@@ -5658,7 +5660,7 @@ static dlib::function_spec dlib::function_spec::get_create( std::vector<double> 
                                                             dlib::SpaceVector   bound2 );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
-    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2 ) -> <dlib.function_spec object>
+    $ofunction_spec( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
 
 ```cpp
@@ -5667,7 +5669,7 @@ static dlib::function_spec dlib::function_spec::get_create( std::vector<double> 
                                                             std::vector<bool>   is_integer );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
-    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
+    $ofunction_spec( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
 
 ```cpp
@@ -5675,7 +5677,7 @@ static dlib::function_spec dlib::function_spec::get_create( dlib::SpaceVector   
                                                             std::vector<double> bound2 );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
-    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2 ) -> <dlib.function_spec object>
+    $ofunction_spec( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
 
 ```cpp
@@ -5684,7 +5686,7 @@ static dlib::function_spec dlib::function_spec::get_create( dlib::SpaceVector   
                                                             std::vector<bool>   is_integer );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
-    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
+    $ofunction_spec( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
 
 ```cpp
@@ -5692,7 +5694,7 @@ static dlib::function_spec dlib::function_spec::get_create( std::vector<double> 
                                                             std::vector<double> bound2 );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2 ) -> <dlib.function_spec object>
-    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2 ) -> <dlib.function_spec object>
+    $ofunction_spec( $bound1, $bound2 ) -> <dlib.function_spec object>
 ```
 
 ```cpp
@@ -5701,7 +5703,7 @@ static dlib::function_spec dlib::function_spec::get_create( std::vector<double> 
                                                             std::vector<bool>   is_integer );
 AutoIt:
     _Dlib_ObjCreate("dlib.function_spec").create( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
-    _Dlib_ObjCreate("dlib.function_spec")( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
+    $ofunction_spec( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
 
 ## dlib::function\_evaluation\_request
@@ -5746,14 +5748,14 @@ AutoIt:
 static dlib::global_function_search dlib::global_function_search::get_create( dlib::function_spec& function );
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $function ) -> <dlib.global_function_search object>
-    _Dlib_ObjCreate("dlib.global_function_search")( $function ) -> <dlib.global_function_search object>
+    $oglobal_function_search( $function ) -> <dlib.global_function_search object>
 ```
 
 ```cpp
 static dlib::global_function_search dlib::global_function_search::get_create( std::vector<dlib::function_spec>& functions );
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $functions ) -> <dlib.global_function_search object>
-    _Dlib_ObjCreate("dlib.global_function_search")( $functions ) -> <dlib.global_function_search object>
+    $oglobal_function_search( $functions ) -> <dlib.global_function_search object>
 ```
 
 ```cpp
@@ -5762,7 +5764,7 @@ static dlib::global_function_search dlib::global_function_search::get_create( st
                                                                               double                                              relative_noise_magnitude = 0.001 );
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $functions, $initial_function_evals[, $relative_noise_magnitude] ) -> <dlib.global_function_search object>
-    _Dlib_ObjCreate("dlib.global_function_search")( $functions, $initial_function_evals[, $relative_noise_magnitude] ) -> <dlib.global_function_search object>
+    $oglobal_function_search( $functions, $initial_function_evals[, $relative_noise_magnitude] ) -> <dlib.global_function_search object>
 ```
 
 ### dlib::global\_function\_search::get\_best\_function\_eval
@@ -5880,7 +5882,6 @@ AutoIt:
 static dlib::image_window dlib::image_window::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.image_window").create() -> <dlib.image_window object>
-    _Dlib_ObjCreate("dlib.image_window")() -> <dlib.image_window object>
 ```
 
 ```cpp
@@ -6458,7 +6459,7 @@ AutoIt:
 ```cpp
 uchar dlib::rgb_pixel::red
 AutoIt:
-    [propget propput] $orgb_pixel.red
+    [propget, propput] $orgb_pixel.red
 ```
 
 ### rgb\_pixel.blue
@@ -6466,7 +6467,7 @@ AutoIt:
 ```cpp
 uchar dlib::rgb_pixel::blue
 AutoIt:
-    [propget propput] $orgb_pixel.blue
+    [propget, propput] $orgb_pixel.blue
 ```
 
 ### rgb\_pixel.green
@@ -6474,7 +6475,7 @@ AutoIt:
 ```cpp
 uchar dlib::rgb_pixel::green
 AutoIt:
-    [propget propput] $orgb_pixel.green
+    [propget, propput] $orgb_pixel.green
 ```
 
 ### dlib::rgb\_pixel::get\_create
@@ -6485,14 +6486,13 @@ static dlib::rgb_pixel dlib::rgb_pixel::get_create( uchar red,
                                                     uchar green );
 AutoIt:
     _Dlib_ObjCreate("dlib.rgb_pixel").create( $red, $blue, $green ) -> <dlib.rgb_pixel object>
-    _Dlib_ObjCreate("dlib.rgb_pixel")( $red, $blue, $green ) -> <dlib.rgb_pixel object>
+    $orgb_pixel( $red, $blue, $green ) -> <dlib.rgb_pixel object>
 ```
 
 ```cpp
 static dlib::rgb_pixel dlib::rgb_pixel::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rgb_pixel").create() -> <dlib.rgb_pixel object>
-    _Dlib_ObjCreate("dlib.rgb_pixel")() -> <dlib.rgb_pixel object>
 ```
 
 ## dlib::image\_dataset\_metadata
@@ -6500,7 +6500,7 @@ AutoIt:
 ### image\_dataset\_metadata.box
 
 ```cpp
-static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::this
+static dlib::image_dataset_metadata::box
 AutoIt:
     [propget] $oimage_dataset_metadata.box
 ```
@@ -6508,7 +6508,7 @@ AutoIt:
 ### image\_dataset\_metadata.image
 
 ```cpp
-static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::this
+static dlib::image_dataset_metadata::image
 AutoIt:
     [propget] $oimage_dataset_metadata.image
 ```
@@ -6516,7 +6516,7 @@ AutoIt:
 ### image\_dataset\_metadata.dataset
 
 ```cpp
-static dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::this
+static dlib::image_dataset_metadata::dataset
 AutoIt:
     [propget] $oimage_dataset_metadata.dataset
 ```
@@ -6579,7 +6579,7 @@ AutoIt:
 ```cpp
 dlib::rectangle dlib::image_dataset_metadata::box::rect
 AutoIt:
-    [propget propput] $obox.rect
+    [propget, propput] $obox.rect
 ```
 
 ### box.parts
@@ -6587,7 +6587,7 @@ AutoIt:
 ```cpp
 std::map<std::string, dlib::point> dlib::image_dataset_metadata::box::parts
 AutoIt:
-    [propget propput] $obox.parts
+    [propget, propput] $obox.parts
 ```
 
 ### box.label
@@ -6595,7 +6595,7 @@ AutoIt:
 ```cpp
 std::string dlib::image_dataset_metadata::box::label
 AutoIt:
-    [propget propput] $obox.label
+    [propget, propput] $obox.label
 ```
 
 ### box.difficult
@@ -6603,7 +6603,7 @@ AutoIt:
 ```cpp
 bool dlib::image_dataset_metadata::box::difficult
 AutoIt:
-    [propget propput] $obox.difficult
+    [propget, propput] $obox.difficult
 ```
 
 ### box.truncated
@@ -6611,7 +6611,7 @@ AutoIt:
 ```cpp
 bool dlib::image_dataset_metadata::box::truncated
 AutoIt:
-    [propget propput] $obox.truncated
+    [propget, propput] $obox.truncated
 ```
 
 ### box.occluded
@@ -6619,7 +6619,7 @@ AutoIt:
 ```cpp
 bool dlib::image_dataset_metadata::box::occluded
 AutoIt:
-    [propget propput] $obox.occluded
+    [propget, propput] $obox.occluded
 ```
 
 ### box.ignore
@@ -6627,7 +6627,7 @@ AutoIt:
 ```cpp
 bool dlib::image_dataset_metadata::box::ignore
 AutoIt:
-    [propget propput] $obox.ignore
+    [propget, propput] $obox.ignore
 ```
 
 ### box.pose
@@ -6635,7 +6635,7 @@ AutoIt:
 ```cpp
 double dlib::image_dataset_metadata::box::pose
 AutoIt:
-    [propget propput] $obox.pose
+    [propget, propput] $obox.pose
 ```
 
 ### box.detection\_score
@@ -6643,7 +6643,7 @@ AutoIt:
 ```cpp
 double dlib::image_dataset_metadata::box::detection_score
 AutoIt:
-    [propget propput] $obox.detection_score
+    [propget, propput] $obox.detection_score
 ```
 
 ### box.angle
@@ -6651,7 +6651,7 @@ AutoIt:
 ```cpp
 double dlib::image_dataset_metadata::box::angle
 AutoIt:
-    [propget propput] $obox.angle
+    [propget, propput] $obox.angle
 ```
 
 ### box.gender
@@ -6659,7 +6659,7 @@ AutoIt:
 ```cpp
 dlib::image_dataset_metadata::gender_t dlib::image_dataset_metadata::box::gender
 AutoIt:
-    [propget propput] $obox.gender
+    [propget, propput] $obox.gender
 ```
 
 ### box.age
@@ -6667,7 +6667,7 @@ AutoIt:
 ```cpp
 double dlib::image_dataset_metadata::box::age
 AutoIt:
-    [propget propput] $obox.age
+    [propget, propput] $obox.age
 ```
 
 ### dlib::image\_dataset\_metadata::box::get\_create
@@ -6676,14 +6676,13 @@ AutoIt:
 static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::box::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.box").create() -> <dlib.image_dataset_metadata.box object>
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.box")() -> <dlib.image_dataset_metadata.box object>
 ```
 
 ```cpp
 static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::box::get_create( dlib::rectangle rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.box").create( $rect ) -> <dlib.image_dataset_metadata.box object>
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.box")( $rect ) -> <dlib.image_dataset_metadata.box object>
+    $obox( $rect ) -> <dlib.image_dataset_metadata.box object>
 ```
 
 ### dlib::image\_dataset\_metadata::box::has\_label
@@ -6701,7 +6700,7 @@ AutoIt:
 ```cpp
 std::string dlib::image_dataset_metadata::image::filename
 AutoIt:
-    [propget propput] $oimage.filename
+    [propget, propput] $oimage.filename
 ```
 
 ### image.boxes
@@ -6709,7 +6708,7 @@ AutoIt:
 ```cpp
 std::vector<dlib::image_dataset_metadata::box> dlib::image_dataset_metadata::image::boxes
 AutoIt:
-    [propget propput] $oimage.boxes
+    [propget, propput] $oimage.boxes
 ```
 
 ### dlib::image\_dataset\_metadata::image::get\_create
@@ -6718,14 +6717,13 @@ AutoIt:
 static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::image::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.image").create() -> <dlib.image_dataset_metadata.image object>
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.image")() -> <dlib.image_dataset_metadata.image object>
 ```
 
 ```cpp
 static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::image::get_create( std::string filename );
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.image").create( $filename ) -> <dlib.image_dataset_metadata.image object>
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.image")( $filename ) -> <dlib.image_dataset_metadata.image object>
+    $oimage( $filename ) -> <dlib.image_dataset_metadata.image object>
 ```
 
 ## dlib::image\_dataset\_metadata::dataset
@@ -6735,7 +6733,7 @@ AutoIt:
 ```cpp
 std::vector<dlib::image_dataset_metadata::image> dlib::image_dataset_metadata::dataset::images
 AutoIt:
-    [propget propput] $odataset.images
+    [propget, propput] $odataset.images
 ```
 
 ### dataset.comment
@@ -6743,7 +6741,7 @@ AutoIt:
 ```cpp
 std::string dlib::image_dataset_metadata::dataset::comment
 AutoIt:
-    [propget propput] $odataset.comment
+    [propget, propput] $odataset.comment
 ```
 
 ### dataset.name
@@ -6751,7 +6749,7 @@ AutoIt:
 ```cpp
 std::string dlib::image_dataset_metadata::dataset::name
 AutoIt:
-    [propget propput] $odataset.name
+    [propget, propput] $odataset.name
 ```
 
 ### dlib::image\_dataset\_metadata::dataset::get\_create
@@ -6760,7 +6758,6 @@ AutoIt:
 static dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::dataset::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.dataset").create() -> <dlib.image_dataset_metadata.dataset object>
-    _Dlib_ObjCreate("dlib.image_dataset_metadata.dataset")() -> <dlib.image_dataset_metadata.dataset object>
 ```
 
 ## dlib::line
@@ -6795,7 +6792,6 @@ AutoIt:
 static dlib::line dlib::line::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.line").create() -> <dlib.line object>
-    _Dlib_ObjCreate("dlib.line")() -> <dlib.line object>
 ```
 
 ```cpp
@@ -6803,7 +6799,7 @@ static dlib::line dlib::line::get_create( dlib::dpoint a,
                                           dlib::dpoint b );
 AutoIt:
     _Dlib_ObjCreate("dlib.line").create( $a, $b ) -> <dlib.line object>
-    _Dlib_ObjCreate("dlib.line")( $a, $b ) -> <dlib.line object>
+    $oline( $a, $b ) -> <dlib.line object>
 ```
 
 ```cpp
@@ -6811,7 +6807,7 @@ static dlib::line dlib::line::get_create( dlib::point a,
                                           dlib::point b );
 AutoIt:
     _Dlib_ObjCreate("dlib.line").create( $a, $b ) -> <dlib.line object>
-    _Dlib_ObjCreate("dlib.line")( $a, $b ) -> <dlib.line object>
+    $oline( $a, $b ) -> <dlib.line object>
 ```
 
 ## cv::Mat
@@ -6821,7 +6817,7 @@ AutoIt:
 ```cpp
 int cv::Mat::flags
 AutoIt:
-    [propget propput] $oMat.flags
+    [propget, propput] $oMat.flags
 ```
 
 ### Mat.dims
@@ -6829,7 +6825,7 @@ AutoIt:
 ```cpp
 int cv::Mat::dims
 AutoIt:
-    [propget propput] $oMat.dims
+    [propget, propput] $oMat.dims
 ```
 
 ### Mat.rows
@@ -6837,7 +6833,7 @@ AutoIt:
 ```cpp
 int cv::Mat::rows
 AutoIt:
-    [propget propput] $oMat.rows
+    [propget, propput] $oMat.rows
 ```
 
 ### Mat.cols
@@ -6845,7 +6841,7 @@ AutoIt:
 ```cpp
 int cv::Mat::cols
 AutoIt:
-    [propget propput] $oMat.cols
+    [propget, propput] $oMat.cols
 ```
 
 ### Mat.data
@@ -6853,7 +6849,7 @@ AutoIt:
 ```cpp
 uchar* cv::Mat::data
 AutoIt:
-    [propget propput] $oMat.data
+    [propget, propput] $oMat.data
 ```
 
 ### Mat.step
@@ -6861,7 +6857,7 @@ AutoIt:
 ```cpp
 size_t cv::Mat::step
 AutoIt:
-    [propget propput] $oMat.step
+    [propget, propput] $oMat.step
 ```
 
 ### Mat.width
@@ -6869,7 +6865,7 @@ AutoIt:
 ```cpp
 int cv::Mat::cols
 AutoIt:
-    [propget propput] $oMat.width
+    [propget, propput] $oMat.width
 ```
 
 ### Mat.height
@@ -6877,7 +6873,7 @@ AutoIt:
 ```cpp
 int cv::Mat::rows
 AutoIt:
-    [propget propput] $oMat.height
+    [propget, propput] $oMat.height
 ```
 
 ### Mat.shape
@@ -7492,7 +7488,6 @@ AutoIt:
 static dlib::Matrix dlib::Matrix::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.matrix").create() -> <dlib.Matrix object>
-    _Dlib_ObjCreate("dlib.matrix")() -> <dlib.Matrix object>
 ```
 
 ```cpp
@@ -7682,7 +7677,7 @@ AutoIt:
 ```cpp
 int cv::Range::start
 AutoIt:
-    [propget propput] $oRange.start
+    [propget, propput] $oRange.start
 ```
 
 ### Range.end
@@ -7690,7 +7685,7 @@ AutoIt:
 ```cpp
 int cv::Range::end
 AutoIt:
-    [propget propput] $oRange.end
+    [propget, propput] $oRange.end
 ```
 
 ### cv::Range::get\_create
@@ -7699,7 +7694,6 @@ AutoIt:
 static cv::Range cv::Range::get_create();
 AutoIt:
     _Dlib_ObjCreate("cv.Range").create() -> <cv.Range object>
-    _Dlib_ObjCreate("cv.Range")() -> <cv.Range object>
 ```
 
 ```cpp
@@ -7707,7 +7701,7 @@ static cv::Range cv::Range::get_create( int start,
                                         int end );
 AutoIt:
     _Dlib_ObjCreate("cv.Range").create( $start, $end ) -> <cv.Range object>
-    _Dlib_ObjCreate("cv.Range")( $start, $end ) -> <cv.Range object>
+    $oRange( $start, $end ) -> <cv.Range object>
 ```
 
 ### cv::Range::all
@@ -7800,7 +7794,6 @@ AutoIt:
 static dlib::rectangle dlib::rectangle::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create() -> <dlib.rectangle object>
-    _Dlib_ObjCreate("dlib.rectangle")() -> <dlib.rectangle object>
 ```
 
 ```cpp
@@ -7810,21 +7803,21 @@ static dlib::rectangle dlib::rectangle::get_create( long& left,
                                                     long& bottom );
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $left, $top, $right, $bottom ) -> <dlib.rectangle object>
-    _Dlib_ObjCreate("dlib.rectangle")( $left, $top, $right, $bottom ) -> <dlib.rectangle object>
+    $orectangle( $left, $top, $right, $bottom ) -> <dlib.rectangle object>
 ```
 
 ```cpp
 static dlib::rectangle dlib::rectangle::get_create( dlib::drectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $rect ) -> <dlib.rectangle object>
-    _Dlib_ObjCreate("dlib.rectangle")( $rect ) -> <dlib.rectangle object>
+    $orectangle( $rect ) -> <dlib.rectangle object>
 ```
 
 ```cpp
 static dlib::rectangle dlib::rectangle::get_create( dlib::rectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $rect ) -> <dlib.rectangle object>
-    _Dlib_ObjCreate("dlib.rectangle")( $rect ) -> <dlib.rectangle object>
+    $orectangle( $rect ) -> <dlib.rectangle object>
 ```
 
 ### dlib::rectangle::ToString
@@ -7990,7 +7983,6 @@ AutoIt:
 static dlib::drectangle dlib::drectangle::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create() -> <dlib.drectangle object>
-    _Dlib_ObjCreate("dlib.drectangle")() -> <dlib.drectangle object>
 ```
 
 ```cpp
@@ -8000,21 +7992,21 @@ static dlib::drectangle dlib::drectangle::get_create( double& left,
                                                       double& bottom );
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $left, $top, $right, $bottom ) -> <dlib.drectangle object>
-    _Dlib_ObjCreate("dlib.drectangle")( $left, $top, $right, $bottom ) -> <dlib.drectangle object>
+    $odrectangle( $left, $top, $right, $bottom ) -> <dlib.drectangle object>
 ```
 
 ```cpp
 static dlib::drectangle dlib::drectangle::get_create( dlib::drectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $rect ) -> <dlib.drectangle object>
-    _Dlib_ObjCreate("dlib.drectangle")( $rect ) -> <dlib.drectangle object>
+    $odrectangle( $rect ) -> <dlib.drectangle object>
 ```
 
 ```cpp
 static dlib::drectangle dlib::drectangle::get_create( dlib::rectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $rect ) -> <dlib.drectangle object>
-    _Dlib_ObjCreate("dlib.drectangle")( $rect ) -> <dlib.drectangle object>
+    $odrectangle( $rect ) -> <dlib.drectangle object>
 ```
 
 ### dlib::drectangle::ToString
@@ -8196,7 +8188,6 @@ AutoIt:
 static dlib::full_object_detection dlib::full_object_detection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.full_object_detection").create() -> <dlib.full_object_detection object>
-    _Dlib_ObjCreate("dlib.full_object_detection")() -> <dlib.full_object_detection object>
 ```
 
 ```cpp
@@ -8204,7 +8195,7 @@ static dlib::full_object_detection dlib::full_object_detection::get_create( dlib
                                                                             std::vector<dlib::point> parts );
 AutoIt:
     _Dlib_ObjCreate("dlib.full_object_detection").create( $rect, $parts ) -> <dlib.full_object_detection object>
-    _Dlib_ObjCreate("dlib.full_object_detection")( $rect, $parts ) -> <dlib.full_object_detection object>
+    $ofull_object_detection( $rect, $parts ) -> <dlib.full_object_detection object>
 ```
 
 ### dlib::full\_object\_detection::part
@@ -8264,7 +8255,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_radial_basis::epsilon
 AutoIt:
-    [propget propput] $osvm_c_trainer_radial_basis.epsilon
+    [propget, propput] $osvm_c_trainer_radial_basis.epsilon
 ```
 
 ### svm\_c\_trainer\_radial\_basis.c\_class1
@@ -8272,7 +8263,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_radial_basis::c_class1
 AutoIt:
-    [propget propput] $osvm_c_trainer_radial_basis.c_class1
+    [propget, propput] $osvm_c_trainer_radial_basis.c_class1
 ```
 
 ### svm\_c\_trainer\_radial\_basis.c\_class2
@@ -8280,7 +8271,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_radial_basis::c_class2
 AutoIt:
-    [propget propput] $osvm_c_trainer_radial_basis.c_class2
+    [propget, propput] $osvm_c_trainer_radial_basis.c_class2
 ```
 
 ### svm\_c\_trainer\_radial\_basis.cache\_size
@@ -8288,7 +8279,7 @@ AutoIt:
 ```cpp
 long dlib::svm_c_trainer_radial_basis::cache_size
 AutoIt:
-    [propget propput] $osvm_c_trainer_radial_basis.cache_size
+    [propget, propput] $osvm_c_trainer_radial_basis.cache_size
 ```
 
 ### svm\_c\_trainer\_radial\_basis.gamma
@@ -8296,7 +8287,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_radial_basis::gamma
 AutoIt:
-    [propget propput] $osvm_c_trainer_radial_basis.gamma
+    [propget, propput] $osvm_c_trainer_radial_basis.gamma
 ```
 
 ### dlib::svm\_c\_trainer\_radial\_basis::get\_create
@@ -8305,7 +8296,6 @@ AutoIt:
 static dlib::svm_c_trainer_radial_basis dlib::svm_c_trainer_radial_basis::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_radial_basis").create() -> <dlib.svm_c_trainer_radial_basis object>
-    _Dlib_ObjCreate("dlib.svm_c_trainer_radial_basis")() -> <dlib.svm_c_trainer_radial_basis object>
 ```
 
 ### dlib::svm\_c\_trainer\_radial\_basis::set\_c
@@ -8332,7 +8322,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_radial_basis::epsilon
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_radial_basis.epsilon
+    [propget, propput] $osvm_c_trainer_sparse_radial_basis.epsilon
 ```
 
 ### svm\_c\_trainer\_sparse\_radial\_basis.c\_class1
@@ -8340,7 +8330,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_radial_basis::c_class1
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_radial_basis.c_class1
+    [propget, propput] $osvm_c_trainer_sparse_radial_basis.c_class1
 ```
 
 ### svm\_c\_trainer\_sparse\_radial\_basis.c\_class2
@@ -8348,7 +8338,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_radial_basis::c_class2
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_radial_basis.c_class2
+    [propget, propput] $osvm_c_trainer_sparse_radial_basis.c_class2
 ```
 
 ### svm\_c\_trainer\_sparse\_radial\_basis.cache\_size
@@ -8356,7 +8346,7 @@ AutoIt:
 ```cpp
 long dlib::svm_c_trainer_sparse_radial_basis::cache_size
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_radial_basis.cache_size
+    [propget, propput] $osvm_c_trainer_sparse_radial_basis.cache_size
 ```
 
 ### svm\_c\_trainer\_sparse\_radial\_basis.gamma
@@ -8364,7 +8354,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_radial_basis::gamma
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_radial_basis.gamma
+    [propget, propput] $osvm_c_trainer_sparse_radial_basis.gamma
 ```
 
 ### dlib::svm\_c\_trainer\_sparse\_radial\_basis::get\_create
@@ -8373,7 +8363,6 @@ AutoIt:
 static dlib::svm_c_trainer_sparse_radial_basis dlib::svm_c_trainer_sparse_radial_basis::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_radial_basis").create() -> <dlib.svm_c_trainer_sparse_radial_basis object>
-    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_radial_basis")() -> <dlib.svm_c_trainer_sparse_radial_basis object>
 ```
 
 ### dlib::svm\_c\_trainer\_sparse\_radial\_basis::set\_c
@@ -8400,7 +8389,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_histogram_intersection::epsilon
 AutoIt:
-    [propget propput] $osvm_c_trainer_histogram_intersection.epsilon
+    [propget, propput] $osvm_c_trainer_histogram_intersection.epsilon
 ```
 
 ### svm\_c\_trainer\_histogram\_intersection.c\_class1
@@ -8408,7 +8397,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_histogram_intersection::c_class1
 AutoIt:
-    [propget propput] $osvm_c_trainer_histogram_intersection.c_class1
+    [propget, propput] $osvm_c_trainer_histogram_intersection.c_class1
 ```
 
 ### svm\_c\_trainer\_histogram\_intersection.c\_class2
@@ -8416,7 +8405,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_histogram_intersection::c_class2
 AutoIt:
-    [propget propput] $osvm_c_trainer_histogram_intersection.c_class2
+    [propget, propput] $osvm_c_trainer_histogram_intersection.c_class2
 ```
 
 ### svm\_c\_trainer\_histogram\_intersection.cache\_size
@@ -8424,7 +8413,7 @@ AutoIt:
 ```cpp
 long dlib::svm_c_trainer_histogram_intersection::cache_size
 AutoIt:
-    [propget propput] $osvm_c_trainer_histogram_intersection.cache_size
+    [propget, propput] $osvm_c_trainer_histogram_intersection.cache_size
 ```
 
 ### dlib::svm\_c\_trainer\_histogram\_intersection::get\_create
@@ -8433,7 +8422,6 @@ AutoIt:
 static dlib::svm_c_trainer_histogram_intersection dlib::svm_c_trainer_histogram_intersection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_histogram_intersection").create() -> <dlib.svm_c_trainer_histogram_intersection object>
-    _Dlib_ObjCreate("dlib.svm_c_trainer_histogram_intersection")() -> <dlib.svm_c_trainer_histogram_intersection object>
 ```
 
 ### dlib::svm\_c\_trainer\_histogram\_intersection::set\_c
@@ -8460,7 +8448,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_histogram_intersection::epsilon
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_histogram_intersection.epsilon
+    [propget, propput] $osvm_c_trainer_sparse_histogram_intersection.epsilon
 ```
 
 ### svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class1
@@ -8468,7 +8456,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_histogram_intersection::c_class1
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_histogram_intersection.c_class1
+    [propget, propput] $osvm_c_trainer_sparse_histogram_intersection.c_class1
 ```
 
 ### svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class2
@@ -8476,7 +8464,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_histogram_intersection::c_class2
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_histogram_intersection.c_class2
+    [propget, propput] $osvm_c_trainer_sparse_histogram_intersection.c_class2
 ```
 
 ### svm\_c\_trainer\_sparse\_histogram\_intersection.cache\_size
@@ -8484,7 +8472,7 @@ AutoIt:
 ```cpp
 long dlib::svm_c_trainer_sparse_histogram_intersection::cache_size
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_histogram_intersection.cache_size
+    [propget, propput] $osvm_c_trainer_sparse_histogram_intersection.cache_size
 ```
 
 ### dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::get\_create
@@ -8493,7 +8481,6 @@ AutoIt:
 static dlib::svm_c_trainer_sparse_histogram_intersection dlib::svm_c_trainer_sparse_histogram_intersection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_histogram_intersection").create() -> <dlib.svm_c_trainer_sparse_histogram_intersection object>
-    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_histogram_intersection")() -> <dlib.svm_c_trainer_sparse_histogram_intersection object>
 ```
 
 ### dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::set\_c
@@ -8520,7 +8507,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_linear::epsilon
 AutoIt:
-    [propget propput] $osvm_c_trainer_linear.epsilon
+    [propget, propput] $osvm_c_trainer_linear.epsilon
 ```
 
 ### svm\_c\_trainer\_linear.c\_class1
@@ -8528,7 +8515,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_linear::c_class1
 AutoIt:
-    [propget propput] $osvm_c_trainer_linear.c_class1
+    [propget, propput] $osvm_c_trainer_linear.c_class1
 ```
 
 ### svm\_c\_trainer\_linear.c\_class2
@@ -8536,7 +8523,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_linear::c_class2
 AutoIt:
-    [propget propput] $osvm_c_trainer_linear.c_class2
+    [propget, propput] $osvm_c_trainer_linear.c_class2
 ```
 
 ### svm\_c\_trainer\_linear.max\_iterations
@@ -8544,7 +8531,7 @@ AutoIt:
 ```cpp
 ULONG dlib::svm_c_trainer_linear::max_iterations
 AutoIt:
-    [propget propput] $osvm_c_trainer_linear.max_iterations
+    [propget, propput] $osvm_c_trainer_linear.max_iterations
 ```
 
 ### svm\_c\_trainer\_linear.force\_last\_weight\_to\_1
@@ -8552,7 +8539,7 @@ AutoIt:
 ```cpp
 bool dlib::svm_c_trainer_linear::force_last_weight_to_1
 AutoIt:
-    [propget propput] $osvm_c_trainer_linear.force_last_weight_to_1
+    [propget, propput] $osvm_c_trainer_linear.force_last_weight_to_1
 ```
 
 ### svm\_c\_trainer\_linear.learns\_nonnegative\_weights
@@ -8560,7 +8547,7 @@ AutoIt:
 ```cpp
 bool dlib::svm_c_trainer_linear::learns_nonnegative_weights
 AutoIt:
-    [propget propput] $osvm_c_trainer_linear.learns_nonnegative_weights
+    [propget, propput] $osvm_c_trainer_linear.learns_nonnegative_weights
 ```
 
 ### svm\_c\_trainer\_linear.has\_prior
@@ -8577,7 +8564,6 @@ AutoIt:
 static dlib::svm_c_trainer_linear dlib::svm_c_trainer_linear::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_linear").create() -> <dlib.svm_c_trainer_linear object>
-    _Dlib_ObjCreate("dlib.svm_c_trainer_linear")() -> <dlib.svm_c_trainer_linear object>
 ```
 
 ### dlib::svm\_c\_trainer\_linear::be\_quiet
@@ -8628,7 +8614,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_linear::epsilon
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_linear.epsilon
+    [propget, propput] $osvm_c_trainer_sparse_linear.epsilon
 ```
 
 ### svm\_c\_trainer\_sparse\_linear.c\_class1
@@ -8636,7 +8622,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_linear::c_class1
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_linear.c_class1
+    [propget, propput] $osvm_c_trainer_sparse_linear.c_class1
 ```
 
 ### svm\_c\_trainer\_sparse\_linear.c\_class2
@@ -8644,7 +8630,7 @@ AutoIt:
 ```cpp
 double dlib::svm_c_trainer_sparse_linear::c_class2
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_linear.c_class2
+    [propget, propput] $osvm_c_trainer_sparse_linear.c_class2
 ```
 
 ### svm\_c\_trainer\_sparse\_linear.max\_iterations
@@ -8652,7 +8638,7 @@ AutoIt:
 ```cpp
 ULONG dlib::svm_c_trainer_sparse_linear::max_iterations
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_linear.max_iterations
+    [propget, propput] $osvm_c_trainer_sparse_linear.max_iterations
 ```
 
 ### svm\_c\_trainer\_sparse\_linear.force\_last\_weight\_to\_1
@@ -8660,7 +8646,7 @@ AutoIt:
 ```cpp
 bool dlib::svm_c_trainer_sparse_linear::force_last_weight_to_1
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_linear.force_last_weight_to_1
+    [propget, propput] $osvm_c_trainer_sparse_linear.force_last_weight_to_1
 ```
 
 ### svm\_c\_trainer\_sparse\_linear.learns\_nonnegative\_weights
@@ -8668,7 +8654,7 @@ AutoIt:
 ```cpp
 bool dlib::svm_c_trainer_sparse_linear::learns_nonnegative_weights
 AutoIt:
-    [propget propput] $osvm_c_trainer_sparse_linear.learns_nonnegative_weights
+    [propget, propput] $osvm_c_trainer_sparse_linear.learns_nonnegative_weights
 ```
 
 ### svm\_c\_trainer\_sparse\_linear.has\_prior
@@ -8685,7 +8671,6 @@ AutoIt:
 static dlib::svm_c_trainer_sparse_linear dlib::svm_c_trainer_sparse_linear::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_linear").create() -> <dlib.svm_c_trainer_sparse_linear object>
-    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_linear")() -> <dlib.svm_c_trainer_sparse_linear object>
 ```
 
 ### dlib::svm\_c\_trainer\_sparse\_linear::be\_quiet
@@ -8736,7 +8721,7 @@ AutoIt:
 ```cpp
 double dlib::rvm_trainer_radial_basis::epsilon
 AutoIt:
-    [propget propput] $orvm_trainer_radial_basis.epsilon
+    [propget, propput] $orvm_trainer_radial_basis.epsilon
 ```
 
 ### rvm\_trainer\_radial\_basis.gamma
@@ -8744,7 +8729,7 @@ AutoIt:
 ```cpp
 double dlib::rvm_trainer_radial_basis::gamma
 AutoIt:
-    [propget propput] $orvm_trainer_radial_basis.gamma
+    [propget, propput] $orvm_trainer_radial_basis.gamma
 ```
 
 ### dlib::rvm\_trainer\_radial\_basis::get\_create
@@ -8753,7 +8738,6 @@ AutoIt:
 static dlib::rvm_trainer_radial_basis dlib::rvm_trainer_radial_basis::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_radial_basis").create() -> <dlib.rvm_trainer_radial_basis object>
-    _Dlib_ObjCreate("dlib.rvm_trainer_radial_basis")() -> <dlib.rvm_trainer_radial_basis object>
 ```
 
 ### dlib::rvm\_trainer\_radial\_basis::train
@@ -8772,7 +8756,7 @@ AutoIt:
 ```cpp
 double dlib::rvm_trainer_sparse_radial_basis::epsilon
 AutoIt:
-    [propget propput] $orvm_trainer_sparse_radial_basis.epsilon
+    [propget, propput] $orvm_trainer_sparse_radial_basis.epsilon
 ```
 
 ### rvm\_trainer\_sparse\_radial\_basis.gamma
@@ -8780,7 +8764,7 @@ AutoIt:
 ```cpp
 double dlib::rvm_trainer_sparse_radial_basis::gamma
 AutoIt:
-    [propget propput] $orvm_trainer_sparse_radial_basis.gamma
+    [propget, propput] $orvm_trainer_sparse_radial_basis.gamma
 ```
 
 ### dlib::rvm\_trainer\_sparse\_radial\_basis::get\_create
@@ -8789,7 +8773,6 @@ AutoIt:
 static dlib::rvm_trainer_sparse_radial_basis dlib::rvm_trainer_sparse_radial_basis::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_sparse_radial_basis").create() -> <dlib.rvm_trainer_sparse_radial_basis object>
-    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_radial_basis")() -> <dlib.rvm_trainer_sparse_radial_basis object>
 ```
 
 ### dlib::rvm\_trainer\_sparse\_radial\_basis::train
@@ -8808,7 +8791,7 @@ AutoIt:
 ```cpp
 double dlib::rvm_trainer_histogram_intersection::epsilon
 AutoIt:
-    [propget propput] $orvm_trainer_histogram_intersection.epsilon
+    [propget, propput] $orvm_trainer_histogram_intersection.epsilon
 ```
 
 ### dlib::rvm\_trainer\_histogram\_intersection::get\_create
@@ -8817,7 +8800,6 @@ AutoIt:
 static dlib::rvm_trainer_histogram_intersection dlib::rvm_trainer_histogram_intersection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_histogram_intersection").create() -> <dlib.rvm_trainer_histogram_intersection object>
-    _Dlib_ObjCreate("dlib.rvm_trainer_histogram_intersection")() -> <dlib.rvm_trainer_histogram_intersection object>
 ```
 
 ### dlib::rvm\_trainer\_histogram\_intersection::train
@@ -8836,7 +8818,7 @@ AutoIt:
 ```cpp
 double dlib::rvm_trainer_sparse_histogram_intersection::epsilon
 AutoIt:
-    [propget propput] $orvm_trainer_sparse_histogram_intersection.epsilon
+    [propget, propput] $orvm_trainer_sparse_histogram_intersection.epsilon
 ```
 
 ### dlib::rvm\_trainer\_sparse\_histogram\_intersection::get\_create
@@ -8845,7 +8827,6 @@ AutoIt:
 static dlib::rvm_trainer_sparse_histogram_intersection dlib::rvm_trainer_sparse_histogram_intersection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_sparse_histogram_intersection").create() -> <dlib.rvm_trainer_sparse_histogram_intersection object>
-    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_histogram_intersection")() -> <dlib.rvm_trainer_sparse_histogram_intersection object>
 ```
 
 ### dlib::rvm\_trainer\_sparse\_histogram\_intersection::train
@@ -8864,7 +8845,7 @@ AutoIt:
 ```cpp
 double dlib::rvm_trainer_linear::epsilon
 AutoIt:
-    [propget propput] $orvm_trainer_linear.epsilon
+    [propget, propput] $orvm_trainer_linear.epsilon
 ```
 
 ### dlib::rvm\_trainer\_linear::get\_create
@@ -8873,7 +8854,6 @@ AutoIt:
 static dlib::rvm_trainer_linear dlib::rvm_trainer_linear::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_linear").create() -> <dlib.rvm_trainer_linear object>
-    _Dlib_ObjCreate("dlib.rvm_trainer_linear")() -> <dlib.rvm_trainer_linear object>
 ```
 
 ### dlib::rvm\_trainer\_linear::train
@@ -8892,7 +8872,7 @@ AutoIt:
 ```cpp
 double dlib::rvm_trainer_sparse_linear::epsilon
 AutoIt:
-    [propget propput] $orvm_trainer_sparse_linear.epsilon
+    [propget, propput] $orvm_trainer_sparse_linear.epsilon
 ```
 
 ### dlib::rvm\_trainer\_sparse\_linear::get\_create
@@ -8901,7 +8881,6 @@ AutoIt:
 static dlib::rvm_trainer_sparse_linear dlib::rvm_trainer_sparse_linear::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_sparse_linear").create() -> <dlib.rvm_trainer_sparse_linear object>
-    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_linear")() -> <dlib.rvm_trainer_sparse_linear object>
 ```
 
 ### dlib::rvm\_trainer\_sparse\_linear::train
@@ -8920,7 +8899,7 @@ AutoIt:
 ```cpp
 std::vector<dlib::SpaceVector> dlib::vec_ranking_pair::relevant
 AutoIt:
-    [propget propput] $ovec_ranking_pair.relevant
+    [propget, propput] $ovec_ranking_pair.relevant
 ```
 
 ### vec\_ranking\_pair.nonrelevant
@@ -8928,7 +8907,7 @@ AutoIt:
 ```cpp
 std::vector<dlib::SpaceVector> dlib::vec_ranking_pair::nonrelevant
 AutoIt:
-    [propget propput] $ovec_ranking_pair.nonrelevant
+    [propget, propput] $ovec_ranking_pair.nonrelevant
 ```
 
 ### dlib::vec\_ranking\_pair::get\_create
@@ -8937,7 +8916,6 @@ AutoIt:
 static dlib::vec_ranking_pair dlib::vec_ranking_pair::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_pair").create() -> <dlib.vec_ranking_pair object>
-    _Dlib_ObjCreate("dlib.ranking_pair")() -> <dlib.vec_ranking_pair object>
 ```
 
 ```cpp
@@ -8945,7 +8923,7 @@ static dlib::vec_ranking_pair dlib::vec_ranking_pair::get_create( std::vector<dl
                                                                   std::vector<dlib::SpaceVector> nonrelevant );
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_pair").create( $relevant, $nonrelevant ) -> <dlib.vec_ranking_pair object>
-    _Dlib_ObjCreate("dlib.ranking_pair")( $relevant, $nonrelevant ) -> <dlib.vec_ranking_pair object>
+    $ovec_ranking_pair( $relevant, $nonrelevant ) -> <dlib.vec_ranking_pair object>
 ```
 
 ## dlib::sparse\_ranking\_pair
@@ -8955,7 +8933,7 @@ AutoIt:
 ```cpp
 std::vector<std::vector<std::pair<ULONG, double>>> dlib::sparse_ranking_pair::relevant
 AutoIt:
-    [propget propput] $osparse_ranking_pair.relevant
+    [propget, propput] $osparse_ranking_pair.relevant
 ```
 
 ### sparse\_ranking\_pair.nonrelevant
@@ -8963,7 +8941,7 @@ AutoIt:
 ```cpp
 std::vector<std::vector<std::pair<ULONG, double>>> dlib::sparse_ranking_pair::nonrelevant
 AutoIt:
-    [propget propput] $osparse_ranking_pair.nonrelevant
+    [propget, propput] $osparse_ranking_pair.nonrelevant
 ```
 
 ### dlib::sparse\_ranking\_pair::get\_create
@@ -8972,7 +8950,6 @@ AutoIt:
 static dlib::sparse_ranking_pair dlib::sparse_ranking_pair::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.sparse_ranking_pair").create() -> <dlib.sparse_ranking_pair object>
-    _Dlib_ObjCreate("dlib.sparse_ranking_pair")() -> <dlib.sparse_ranking_pair object>
 ```
 
 ```cpp
@@ -8980,7 +8957,7 @@ static dlib::sparse_ranking_pair dlib::sparse_ranking_pair::get_create( std::vec
                                                                         std::vector<std::vector<std::pair<ULONG, double>>> nonrelevant );
 AutoIt:
     _Dlib_ObjCreate("dlib.sparse_ranking_pair").create( $relevant, $nonrelevant ) -> <dlib.sparse_ranking_pair object>
-    _Dlib_ObjCreate("dlib.sparse_ranking_pair")( $relevant, $nonrelevant ) -> <dlib.sparse_ranking_pair object>
+    $osparse_ranking_pair( $relevant, $nonrelevant ) -> <dlib.sparse_ranking_pair object>
 ```
 
 ## dlib::vec\_svm\_rank\_trainer
@@ -8990,7 +8967,7 @@ AutoIt:
 ```cpp
 double dlib::vec_svm_rank_trainer::epsilon
 AutoIt:
-    [propget propput] $ovec_svm_rank_trainer.epsilon
+    [propget, propput] $ovec_svm_rank_trainer.epsilon
 ```
 
 ### vec\_svm\_rank\_trainer.c
@@ -8998,7 +8975,7 @@ AutoIt:
 ```cpp
 double dlib::vec_svm_rank_trainer::c
 AutoIt:
-    [propget propput] $ovec_svm_rank_trainer.c
+    [propget, propput] $ovec_svm_rank_trainer.c
 ```
 
 ### vec\_svm\_rank\_trainer.max\_iterations
@@ -9006,7 +8983,7 @@ AutoIt:
 ```cpp
 ULONG dlib::vec_svm_rank_trainer::max_iterations
 AutoIt:
-    [propget propput] $ovec_svm_rank_trainer.max_iterations
+    [propget, propput] $ovec_svm_rank_trainer.max_iterations
 ```
 
 ### vec\_svm\_rank\_trainer.force\_last\_weight\_to\_1
@@ -9014,7 +8991,7 @@ AutoIt:
 ```cpp
 bool dlib::vec_svm_rank_trainer::force_last_weight_to_1
 AutoIt:
-    [propget propput] $ovec_svm_rank_trainer.force_last_weight_to_1
+    [propget, propput] $ovec_svm_rank_trainer.force_last_weight_to_1
 ```
 
 ### vec\_svm\_rank\_trainer.learns\_nonnegative\_weights
@@ -9022,7 +8999,7 @@ AutoIt:
 ```cpp
 bool dlib::vec_svm_rank_trainer::learns_nonnegative_weights
 AutoIt:
-    [propget propput] $ovec_svm_rank_trainer.learns_nonnegative_weights
+    [propget, propput] $ovec_svm_rank_trainer.learns_nonnegative_weights
 ```
 
 ### vec\_svm\_rank\_trainer.has\_prior
@@ -9039,7 +9016,6 @@ AutoIt:
 static dlib::vec_svm_rank_trainer dlib::vec_svm_rank_trainer::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_rank_trainer").create() -> <dlib.vec_svm_rank_trainer object>
-    _Dlib_ObjCreate("dlib.svm_rank_trainer")() -> <dlib.vec_svm_rank_trainer object>
 ```
 
 ### dlib::vec\_svm\_rank\_trainer::be\_quiet
@@ -9087,7 +9063,7 @@ AutoIt:
 ```cpp
 double dlib::svm_rank_trainer_sparse::epsilon
 AutoIt:
-    [propget propput] $osvm_rank_trainer_sparse.epsilon
+    [propget, propput] $osvm_rank_trainer_sparse.epsilon
 ```
 
 ### svm\_rank\_trainer\_sparse.c
@@ -9095,7 +9071,7 @@ AutoIt:
 ```cpp
 double dlib::svm_rank_trainer_sparse::c
 AutoIt:
-    [propget propput] $osvm_rank_trainer_sparse.c
+    [propget, propput] $osvm_rank_trainer_sparse.c
 ```
 
 ### svm\_rank\_trainer\_sparse.max\_iterations
@@ -9103,7 +9079,7 @@ AutoIt:
 ```cpp
 ULONG dlib::svm_rank_trainer_sparse::max_iterations
 AutoIt:
-    [propget propput] $osvm_rank_trainer_sparse.max_iterations
+    [propget, propput] $osvm_rank_trainer_sparse.max_iterations
 ```
 
 ### svm\_rank\_trainer\_sparse.force\_last\_weight\_to\_1
@@ -9111,7 +9087,7 @@ AutoIt:
 ```cpp
 bool dlib::svm_rank_trainer_sparse::force_last_weight_to_1
 AutoIt:
-    [propget propput] $osvm_rank_trainer_sparse.force_last_weight_to_1
+    [propget, propput] $osvm_rank_trainer_sparse.force_last_weight_to_1
 ```
 
 ### svm\_rank\_trainer\_sparse.learns\_nonnegative\_weights
@@ -9119,7 +9095,7 @@ AutoIt:
 ```cpp
 bool dlib::svm_rank_trainer_sparse::learns_nonnegative_weights
 AutoIt:
-    [propget propput] $osvm_rank_trainer_sparse.learns_nonnegative_weights
+    [propget, propput] $osvm_rank_trainer_sparse.learns_nonnegative_weights
 ```
 
 ### svm\_rank\_trainer\_sparse.has\_prior
@@ -9136,7 +9112,6 @@ AutoIt:
 static dlib::svm_rank_trainer_sparse dlib::svm_rank_trainer_sparse::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_rank_trainer_sparse").create() -> <dlib.svm_rank_trainer_sparse object>
-    _Dlib_ObjCreate("dlib.svm_rank_trainer_sparse")() -> <dlib.svm_rank_trainer_sparse object>
 ```
 
 ### dlib::svm\_rank\_trainer\_sparse::be\_quiet
@@ -9300,7 +9275,6 @@ AutoIt:
 static dlib::point_transform_projective dlib::point_transform_projective::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.point_transform_projective").create() -> <dlib.point_transform_projective object>
-    _Dlib_ObjCreate("dlib.point_transform_projective")() -> <dlib.point_transform_projective object>
 ```
 
 ```cpp
@@ -9324,7 +9298,7 @@ AutoIt:
 ```cpp
 double dlib::dpoint::x()
 AutoIt:
-    [propget propput] $odpoint.x
+    [propget, propput] $odpoint.x
 ```
 
 ### dpoint.y
@@ -9332,7 +9306,7 @@ AutoIt:
 ```cpp
 double dlib::dpoint::y()
 AutoIt:
-    [propget propput] $odpoint.y
+    [propget, propput] $odpoint.y
 ```
 
 ### dlib::dpoint::get\_create
@@ -9342,14 +9316,14 @@ static dlib::dpoint dlib::dpoint::get_create( double& x = 0,
                                               double& y = 0 );
 AutoIt:
     _Dlib_ObjCreate("dlib.dpoint").create( [$x[, $y]] ) -> <dlib.dpoint object>
-    _Dlib_ObjCreate("dlib.dpoint")( [$x[, $y]] ) -> <dlib.dpoint object>
+    $odpoint( [$x[, $y]] ) -> <dlib.dpoint object>
 ```
 
 ```cpp
 static dlib::dpoint dlib::dpoint::get_create( dlib::point& p );
 AutoIt:
     _Dlib_ObjCreate("dlib.dpoint").create( $p ) -> <dlib.dpoint object>
-    _Dlib_ObjCreate("dlib.dpoint")( $p ) -> <dlib.dpoint object>
+    $odpoint( $p ) -> <dlib.dpoint object>
 ```
 
 ### dlib::dpoint::ToString
@@ -9407,7 +9381,7 @@ AutoIt:
 ```cpp
 long dlib::point::x()
 AutoIt:
-    [propget propput] $opoint.x
+    [propget, propput] $opoint.x
 ```
 
 ### point.y
@@ -9415,7 +9389,7 @@ AutoIt:
 ```cpp
 long dlib::point::y()
 AutoIt:
-    [propget propput] $opoint.y
+    [propget, propput] $opoint.y
 ```
 
 ### dlib::point::get\_create
@@ -9425,14 +9399,14 @@ static dlib::point dlib::point::get_create( long& x = 0,
                                             long& y = 0 );
 AutoIt:
     _Dlib_ObjCreate("dlib.point").create( [$x[, $y]] ) -> <dlib.point object>
-    _Dlib_ObjCreate("dlib.point")( [$x[, $y]] ) -> <dlib.point object>
+    $opoint( [$x[, $y]] ) -> <dlib.point object>
 ```
 
 ```cpp
 static dlib::point dlib::point::get_create( dlib::dpoint& p );
 AutoIt:
     _Dlib_ObjCreate("dlib.point").create( $p ) -> <dlib.point object>
-    _Dlib_ObjCreate("dlib.point")( $p ) -> <dlib.point object>
+    $opoint( $p ) -> <dlib.point object>
 ```
 
 ### dlib::point::ToString

@@ -6,11 +6,11 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/master/python_examples/svm_rank.py
+;~     https://github.com/davisking/dlib/blob/v19.24/python_examples/svm_rank.py
 
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open_And_Register(_Dlib_FindDLL("opencv_world4*", "opencv-4.*\opencv"), _Dlib_FindDLL("autoit_dlib_com-*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world470*"), _Dlib_FindDLL("autoit_dlib_com-*-470*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -141,5 +141,5 @@ Func Example()
 EndFunc   ;==>Example
 
 Func _OnAutoItExit()
-	_Dlib_Unregister_And_Close()
+	_Dlib_Close()
 EndFunc   ;==>_OnAutoItExit

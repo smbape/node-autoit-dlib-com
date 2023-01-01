@@ -9,6 +9,10 @@ const mkdirp = require("mkdirp");
 const waterfall = require("async/waterfall");
 const {explore} = require("fs-explorer");
 
+const OpenCV_VERSION = "opencv-4.7.0";
+const OpenCV_DLLVERSION = OpenCV_VERSION.slice("opencv-".length).replaceAll(".", "");
+const DLIB_VERSION = "19.24";
+
 const progids = new Map([
     ["dlib.simple_object_detector", "dlib.fhog_object_detector"],
     ["dlib.simple_object_detector_com", "dlib.simple_object_detector"],
@@ -26,6 +30,9 @@ const parseArguments = PROJECT_DIR => {
         APP_NAME: "Dlib",
         LIB_UID: "a7599799-48f5-4569-b79e-7eff77460ede",
         LIBRARY: "dlibCOM",
+        OUTPUT_NAME: `autoit_dlib_com-${ DLIB_VERSION }-${ OpenCV_DLLVERSION }`,
+        OUTPUT_DIRECTORY_DEBUG: `${ PROJECT_DIR }/build_x64/bin/Debug`,
+        OUTPUT_DIRECTORY_RELEASE: `${ PROJECT_DIR }/build_x64/bin/Release`,
         namespace: "dlib",
         shared_ptr: "std::shared_ptr",
         make_shared: "std::make_shared",
@@ -48,27 +55,23 @@ const parseArguments = PROJECT_DIR => {
         build: new Set(),
         notest: new Set(),
         skip: new Set(),
-        make: sysPath.join(PROJECT_DIR, "build.bat"),
         includes: [sysPath.join(PROJECT_DIR, "src")],
         output: sysPath.join(PROJECT_DIR, "generated"),
         toc: true,
-        onClass: (generator, coclass, opts) => {
-            const {fqn, name} = coclass;
+        onCoClass: (generator, coclass, opts) => {
+            const {fqn} = coclass;
 
-            if (!fqn.includes("::")) {
-                return;
-            }
-
-            // expose a ${ name } property like in mediapipe python
             const parts = fqn.split("::");
-            parts[parts.length - 1] = "";
-            generator.add_func([parts.join("."), "", ["/Properties"], [
-                [fqn, name, "", ["/R", "=this"]],
-            ], "", ""]);
+
+            for (let i = 1; i < parts.length; i++) {
+                generator.add_func([`${ parts.slice(0, i).join(".") }.`, "", ["/Properties"], [
+                    [parts.slice(0, i + 1).join("::"), parts[i], "", ["/R", "/S", "=this"]],
+                ], "", ""]);
+            }
         },
     };
 
-    for (const opt of ["iface", "hdr", "impl", "idl", "rgs", "res", "save"]) {
+    for (const opt of ["iface", "hdr", "impl", "idl", "manifest", "rgs", "res", "save"]) {
         options[opt] = !process.argv.includes(`--no-${ opt }`);
     }
 
@@ -104,27 +107,15 @@ const {
 } = require("./constants");
 
 const {replaceAliases} = require("./alias");
-
+const {findFile} = require("./FileUtils");
 const custom_declarations = require("./custom_declarations");
 const AutoItGenerator = require("./AutoItGenerator");
 
 const PROJECT_DIR = sysPath.resolve(__dirname, "../autoit-dlib-com");
 const SRC_DIR = sysPath.join(PROJECT_DIR, "src");
+const opencv_SOURCE_DIR = findFile(`${ OpenCV_VERSION }-*/opencv/sources`, sysPath.resolve(__dirname, ".."));
 
-const candidates = fs.readdirSync(sysPath.join(__dirname, "..")).filter(path => {
-    if (!path.startsWith("opencv-4.")) {
-        return false;
-    }
-
-    try {
-        fs.accessSync(sysPath.join(__dirname, "..", path, "opencv"), fs.constants.R_OK);
-        return true;
-    } catch (err) {
-        return false;
-    }
-});
-
-const src2 = sysPath.resolve(__dirname, "..", candidates[0], "opencv/sources/modules/python/src2");
+const src2 = sysPath.resolve(opencv_SOURCE_DIR, "modules/python/src2");
 
 const hdr_parser = fs.readFileSync(sysPath.join(src2, "hdr_parser.py")).toString();
 const hdr_parser_start = hdr_parser.indexOf("class CppHeaderParser");

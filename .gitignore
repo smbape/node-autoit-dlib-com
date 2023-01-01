@@ -10,6 +10,12 @@
 /examples/faces
 /examples/video_frames
 /node_modules
+/opencv/__build__
+/opencv/build
+/opencv/download
+/opencv/install
+/opencv/opencv
+/opencv/opencv_contrib
 /opencv-*
 BackUp
 generated

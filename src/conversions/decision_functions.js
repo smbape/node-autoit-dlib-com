@@ -5,6 +5,8 @@ const add_linear_df = (impl, function_type, sample_type, idltype) => {
         #include "Dlib_${ function_type }_Object.h"
 
         STDMETHODIMP CDlib_${ function_type }_Object::get_weights(${ idltype }* pVal) {
+            CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
+
             if (__self) {
                 auto& df = *__self->get();
                 return autoit_from(_get_weights<${ function_type }>(df), pVal);
@@ -13,6 +15,8 @@ const add_linear_df = (impl, function_type, sample_type, idltype) => {
         }
 
         STDMETHODIMP CDlib_${ function_type }_Object::get_bias(DOUBLE* pVal) {
+            CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
+
             if (__self) {
                 auto& df = *__self->get();
                 return autoit_from(_get_bias<${ function_type }>(df), pVal);
@@ -21,6 +25,8 @@ const add_linear_df = (impl, function_type, sample_type, idltype) => {
         }
 
         STDMETHODIMP CDlib_${ function_type }_Object::put_bias(DOUBLE newVal) {
+            CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
+
             if (__self) {
                 auto& df = *__self->get();
                 _set_bias<${ function_type }>(df, newVal);
@@ -42,6 +48,8 @@ const add_df = (impl, function_type, sample_type) => {
         #include "Dlib_${ function_type }_Object.h"
 
         STDMETHODIMP CDlib_${ function_type }_Object::get_basis_vectors(VARIANT* pVal) {
+            CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
+
             if (__self) {
                 auto& df = *__self->get();
                 std::vector<sample_type> temp;
@@ -65,6 +73,8 @@ const add_normalized_df = (impl, function_type, sample_type) => {
         #include "Dlib_${ function_type }_Object.h"
 
         STDMETHODIMP CDlib_${ function_type }_Object::get_basis_vectors(VARIANT* pVal) {
+            CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
+
             if (__self) {
                 auto& df = __self->get()->function;
                 std::vector<sample_type> temp;
