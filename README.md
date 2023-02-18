@@ -169,11 +169,11 @@ curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.3.0
 # extract the content of autoit-dlib-19.24-opencv-4.7.0-com-v1.3.0.7z into a folder named autoit-dlib-com
 7z x autoit-dlib-19.24-opencv-4.7.0-com-v1.3.0.7z -aoa -oautoit-dlib-com
 
-# download autoit-opencv-4.7.0-com-v2.3.0.7z
-curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.3.0/autoit-opencv-4.7.0-com-v2.3.0.7z' -o autoit-opencv-4.7.0-com-v2.3.0.7z
+# download autoit-opencv-4.7.0-com-v2.3.1.7z
+curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.3.1/autoit-opencv-4.7.0-com-v2.3.1.7z' -o autoit-opencv-4.7.0-com-v2.3.1.7z
 
-# extract the content of autoit-opencv-4.7.0-com-v2.3.0.7z into a folder named autoit-opencv-com
-7z x autoit-opencv-4.7.0-com-v2.3.0.7z -aoa -oautoit-opencv-com
+# extract the content of autoit-opencv-4.7.0-com-v2.3.1.7z into a folder named autoit-opencv-com
+7z x autoit-opencv-4.7.0-com-v2.3.1.7z -aoa -oautoit-opencv-com
 
 # download opencv-4.7.0-windows.zip
 curl -L 'https://github.com/opencv/opencv/releases/download4.7.0opencv-4.7.0-windows.zip' -o opencv-4.7.0-windows.zip

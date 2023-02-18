@@ -7,7 +7,7 @@ Global $h_dlib_ffmpeg_dll = -1
 Global $h_autoit_dlib_com_dll = -1
 
 Func _Dlib_ObjCreate($sClassname)
-	_Dlib_ActivateActCtx()
+	_Dlib_ActivateManifest()
 
 	Local Static $namespaces[] = ["", "Dlib.", "Dlib.dlib."]
 	Local $siClassname, $oObj
@@ -119,12 +119,13 @@ Func _Dlib_Unregister($bUser = Default)
 	Return _Dlib_Install(Default, Default, $bUser, False, False, False, True)
 EndFunc   ;==>_Dlib_Unregister
 
-Func _Dlib_ActivateActCtx()
-	Return _Dlib_DllCall($h_autoit_dlib_com_dll, "BOOL", "DLLActivateActCtx")
-EndFunc   ;==>_Dlib_ActivateActCtx
+Func _Dlib_ActivateManifest($sManifest = Default)
+	If $sManifest == Default Then $sManifest = EnvGet("DLIB_ACTCTX_MANIFEST")
+	Return _Dlib_DllCall($h_autoit_dlib_com_dll, "BOOL", "DllActivateManifest", "wstr", $sManifest)
+EndFunc   ;==>_Dlib_ActivateManifest
 
 Func _Dlib_DeactivateActCtx()
-	Return _Dlib_DllCall($h_autoit_dlib_com_dll, "BOOL", "DLLDeactivateActCtx")
+	Return _Dlib_DllCall($h_autoit_dlib_com_dll, "BOOL", "DllDeactivateActCtx")
 EndFunc   ;==>_Dlib_DeactivateActCtx
 
 Func _Dlib_DebugMsg($msg)

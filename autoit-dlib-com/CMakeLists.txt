@@ -22,6 +22,9 @@ if(WIN32 AND MSVC)
   add_compile_options(/MP)
 endif()
 
+include(cmake/RequireOpenCV.cmake)
+include(cmake/vcpkg_regex_replace_string.cmake)
+
 set(DLIB_VERSION 19.24 CACHE STRING "Choose the dlib version.")
 set_property(CACHE DLIB_VERSION PROPERTY STRINGS "19.24" "19.23")
 
@@ -42,21 +45,23 @@ FetchContent_Declare(dlib
 FetchContent_Populate(dlib)
 
 # Tell cmake that we will need autoit-opencv-com.
-set(opencv_com_VERSION 2.3.0)
+set(opencv_com_VERSION 2.3.1)
 include(ExternalProject)
-ExternalProject_Add(autoit-opencv-com
+ExternalProject_Add(autoit_opencv_com
   URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v${opencv_com_VERSION}/autoit-opencv-${OpenCV_VERSION}-com-v${opencv_com_VERSION}.7z
-  URL_HASH          SHA256=cf297ba161c5c5536f604f02ca347828837b3631eef993082d301dde5ecc583d
+  URL_HASH          SHA256=950b02da3c7c0a5f8691b11d904039bbb2170bf8525cf7f861207e07732fd277
   DOWNLOAD_NO_EXTRACT TRUE
-  DOWNLOAD_DIR      "${OPENCV_DOWNLOAD_DIR}"
-  SOURCE_DIR        "${OPENCV_DOWNLOAD_DIR}"
+  DOWNLOAD_DIR      "${CMAKE_CURRENT_SOURCE_DIR}/.."
+  SOURCE_DIR        "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com"
   CONFIGURE_COMMAND ""
   BUILD_COMMAND     ""
-  INSTALL_COMMAND   7z x "<DOWNLOAD_DIR>/autoit-opencv-${OpenCV_VERSION}-com-v${opencv_com_VERSION}.7z" -aoa "-o<DOWNLOAD_DIR>/autoit-opencv-com" -y
+  INSTALL_COMMAND   7z x "<DOWNLOAD_DIR>/autoit-opencv-${OpenCV_VERSION}-com-v${opencv_com_VERSION}.7z" -aoa "-o<SOURCE_DIR>" -y
 )
-
-include(cmake/RequireOpenCV.cmake)
-include(cmake/vcpkg_regex_replace_string.cmake)
+ExternalProject_Get_property(autoit_opencv_com SOURCE_DIR)
+set(autoit_opencv_com_SOURCE_DIR ${SOURCE_DIR})
+unset(SOURCE_DIR)
+set(OpenCVCOM_ASSEMBLY_DLL "${autoit_opencv_com_SOURCE_DIR}/dotnet/OpenCV.InteropServices.dll")
+file(TO_NATIVE_PATH "${OpenCVCOM_ASSEMBLY_DLL}" OpenCVCOM_ASSEMBLY_DLL)
 
 # update version in files
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/install.bat" "autoit_dlib_com-[0-9]+\\.[0-9]+-[0-9]+" "autoit_dlib_com-${DLIB_VERSION}-${OpenCV_DLLVERSION}")
