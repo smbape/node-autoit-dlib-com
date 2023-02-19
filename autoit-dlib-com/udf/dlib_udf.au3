@@ -9,7 +9,7 @@ Global $h_autoit_dlib_com_dll = -1
 Func _Dlib_ObjCreate($sClassname)
 	_Dlib_ActivateManifest()
 
-	Local Static $namespaces[] = ["", "Dlib.", "Dlib.dlib."]
+	Local Static $namespaces[] = ["", "Dlib.", "Dlib.dlib.", "Dlib.com.", "Dlib.std."]
 	Local $siClassname, $oObj
 
 	For $i = 0 To UBound($namespaces) - 1

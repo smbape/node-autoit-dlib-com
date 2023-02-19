@@ -90,8 +90,8 @@ namespace dlib {
 
 		CV_WRAP static std::shared_ptr<simple_object_detector_com> create(const std::string & filename);
 
-		CV_WRAP_AS(get call) std::vector<rectangle> call(cv::Mat & img, const uint upsampling_amount_);
-		CV_WRAP_AS(get call) std::vector<rectangle> call(cv::Mat & img);
+		CV_WRAP_AS(get_default call) std::vector<rectangle> call(cv::Mat & img, const uint upsampling_amount_);
+		CV_WRAP_AS(get_default call) std::vector<rectangle> call(cv::Mat & img);
 
 		CV_PROP_RW fhog_object_detector detector;
 		CV_PROP_RW uint upsampling_amount = 0;

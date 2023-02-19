@@ -324,6 +324,7 @@ PTR_BRIDGE_IMPL(unsigned char*)
 PTR_BRIDGE_IMPL(HWND)
 
 const HRESULT autoit_from(VARIANT const& in_val, VARIANT*& out_val) {
+	VariantClear(out_val);
 	VariantInit(out_val);
 	return VariantCopy(out_val, &in_val);
 }
@@ -336,6 +337,7 @@ const HRESULT autoit_out(IDispatch*& in_val, VARIANT*& out_val) {
 }
 
 const HRESULT autoit_out(VARIANT const* const& in_val, VARIANT*& out_val) {
+	VariantClear(out_val);
 	VariantInit(out_val);
 	return VariantCopy(out_val, in_val);
 }
@@ -663,4 +665,40 @@ std::string autoit::findFile(
 	}
 
 	return found;
+}
+
+namespace com {
+	void Thread::start() {
+		if (m_func) {
+			m_thread = std::make_unique<std::thread>(m_func);
+		}
+	}
+
+	void Thread::join() {
+		if (m_thread) {
+			m_thread->join();
+		}
+	}
+
+	void ThreadSafeQueue::push(VARIANT* entry)
+	{
+		std::lock_guard<std::mutex> lock(m_mutex);
+		std::queue<VARIANT*>::push(entry);
+	};
+
+	VARIANT* ThreadSafeQueue::get()
+	{
+		std::lock_guard<std::mutex> lock(m_mutex);
+		VARIANT* entry = this->front();
+		this->pop();
+		return entry;
+	}
+
+	void ThreadSafeQueue::clear()
+	{
+		std::lock_guard<std::mutex> lock(m_mutex);
+		while (!this->empty()) {
+			this->pop();
+		}
+	}
 }

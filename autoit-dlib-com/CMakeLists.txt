@@ -45,17 +45,17 @@ FetchContent_Declare(dlib
 FetchContent_Populate(dlib)
 
 # Tell cmake that we will need autoit-opencv-com.
-set(opencv_com_VERSION 2.3.1)
+set(OPENCV_COM_VERSION 2.4.0)
 include(ExternalProject)
 ExternalProject_Add(autoit_opencv_com
-  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v${opencv_com_VERSION}/autoit-opencv-${OpenCV_VERSION}-com-v${opencv_com_VERSION}.7z
-  URL_HASH          SHA256=950b02da3c7c0a5f8691b11d904039bbb2170bf8525cf7f861207e07732fd277
+  URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v${OPENCV_COM_VERSION}/autoit-opencv-${OpenCV_VERSION}-com-v${OPENCV_COM_VERSION}.7z
+  URL_HASH          SHA256=94ef0c9e4105c808595f4fae135c912ca6776618c8734b2742bda76658bfc7be
   DOWNLOAD_NO_EXTRACT TRUE
   DOWNLOAD_DIR      "${CMAKE_CURRENT_SOURCE_DIR}/.."
   SOURCE_DIR        "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com"
   CONFIGURE_COMMAND ""
   BUILD_COMMAND     ""
-  INSTALL_COMMAND   7z x "<DOWNLOAD_DIR>/autoit-opencv-${OpenCV_VERSION}-com-v${opencv_com_VERSION}.7z" -aoa "-o<SOURCE_DIR>" -y
+  INSTALL_COMMAND   7z x "<DOWNLOAD_DIR>/autoit-opencv-${OpenCV_VERSION}-com-v${OPENCV_COM_VERSION}.7z" -aoa "-o<SOURCE_DIR>" -y
 )
 ExternalProject_Get_property(autoit_opencv_com SOURCE_DIR)
 set(autoit_opencv_com_SOURCE_DIR ${SOURCE_DIR})
@@ -65,7 +65,7 @@ file(TO_NATIVE_PATH "${OpenCVCOM_ASSEMBLY_DLL}" OpenCVCOM_ASSEMBLY_DLL)
 
 # update version in files
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/install.bat" "autoit_dlib_com-[0-9]+\\.[0-9]+-[0-9]+" "autoit_dlib_com-${DLIB_VERSION}-${OpenCV_DLLVERSION}")
-vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/install.bat" "opencv-[0-9]+\\.[0-9]+\\.[0-9]+-(vc14_vc15|windows)\\\\opencv\\\\build\\\\x64\\\\vc[^\\\\]*\\\\bin" "${OpenCV_RELATIVE_BINARY_DIR_ESC}")
+vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/install.bat" "\\\\x64\\\\vc[^\\\\]+\\\\bin" "\\\\${OpenCV_VC_PATH_ESC}\\\\bin")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/src/dlibCOM.rc" "autoit_dlib_com-[0-9]+\\.[0-9]+-[0-9]+" "autoit_dlib_com-${DLIB_VERSION}-${OpenCV_DLLVERSION}")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/test/test.cpp" "autoit_dlib_com-[0-9]+\\.[0-9]+-[0-9]+" "autoit_dlib_com-${DLIB_VERSION}-${OpenCV_DLLVERSION}")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/udf/dlib_udf.au3" "(opencv_world|opencv_videoio_ffmpeg)[0-9]+" "\\1${OpenCV_DLLVERSION}")
@@ -77,14 +77,16 @@ vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../scripts/build.js" "dl
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../src/gen.js" "opencv-[0-9]+\\.[0-9]+\\.[0-9]+" "opencv-${OpenCV_VERSION}")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../src/gen.js" "DLIB_VERSION = \"[0-9]+\\.[0-9]+\"" "DLIB_VERSION = \"${DLIB_VERSION}\"")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "autoit_dlib_com-[0-9]+\\.[0-9]+-[0-9]+" "autoit_dlib_com-${DLIB_VERSION}-${OpenCV_DLLVERSION}")
+vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "(opencv_world|autoit_opencv_com|opencv_videoio_ffmpeg)[0-9]+" "\\1${OpenCV_DLLVERSION}")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "opencv-[0-9]+\\.[0-9]+\\.[0-9]+-(vc14_vc15|windows)\\.(exe|zip)" "${OpenCV_DOWNLOAD_NAME}")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "opencv-[0-9]+\\.[0-9]+\\.[0-9]+-(vc14_vc15|windows)" "${OpenCV_OUTPUT_DIR}")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "opencv-[0-9]+\\.[0-9]+\\.[0-9]+" "opencv-${OpenCV_VERSION}")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "dlib-[0-9]+\\.[0-9]+" "dlib-${DLIB_VERSION}")
 vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "dlib-v[0-9]+\\.[0-9]+" "dlib-v${DLIB_VERSION}")
-vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "/[0-9]+\\.[0-9]+\\.[0-9]+/" "${OpenCV_VERSION}")
-vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "opencv_world[0-9]+" "opencv_world${OpenCV_DLLVERSION}")
-vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "(autoit-opencv-com/releases/download/|autoit-opencv-[0-9]+\\.[0-9]+\\.[0-9]+-com-)v[0-9]+\\.[0-9]+\\.[0-9]+" "\\1v${opencv_com_VERSION}")
+vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "/opencv/releases/download/[0-9]+\\.[0-9]+\\.[0-9]+/" "/opencv/releases/download/${OpenCV_VERSION}/")
+vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "\\\\x64\\\\vc[^\\\\]+\\\\bin" "\\\\${OpenCV_VC_PATH_ESC}\\\\bin")
+vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "\\\\\\\\x64\\\\\\\\vc[^\\\\]+\\\\\\\\bin" "\\\\\\\\${OpenCV_VC_PATH_ESC_ESC}\\\\\\\\bin")
+vcpkg_regex_replace_string("${CMAKE_CURRENT_SOURCE_DIR}/../README.md" "(autoit-opencv-com/releases/download/|autoit-opencv-[0-9]+\\.[0-9]+\\.[0-9]+-com-)v[0-9]+\\.[0-9]+\\.[0-9]+" "\\1v${OPENCV_COM_VERSION}")
 
 file(GLOB_RECURSE files_to_change "../examples/*.au3" "../examples/*.cs" "../examples/*.ps1")
 foreach(item ${files_to_change})
@@ -218,7 +220,7 @@ target_precompile_headers(cpp_test PRIVATE
 
 target_link_libraries(cpp_test PRIVATE ${PROJECT_NAME} dlib::dlib ${OpenCV_LIBS})
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT cpp_test)
-set_property(TARGET cpp_test PROPERTY VS_DEBUGGER_ENVIRONMENT "PATH=${OpenCV_BINARY_DIR};%PATH%")
+set_property(TARGET cpp_test PROPERTY VS_DEBUGGER_ENVIRONMENT "PATH=${OpenCV_BIN_NATIVE_PATH};%PATH%")
 
 target_include_directories(cpp_test PRIVATE ${dlib_SOURCE_DIR}/tools)
 

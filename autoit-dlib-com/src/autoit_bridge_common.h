@@ -7,11 +7,15 @@
 #include <atlctl.h>
 #include <atlsafe.h>
 #include <comutil.h>
+#include <chrono>
 #include <iostream>
 #include <map>
 #include <memory>
+#include <mutex>
 #include <numeric>
 #include <OleAuto.h>
+#include <optional>
+#include <queue>
 #include <sstream>
 #include <string>
 #include <tuple>
@@ -22,6 +26,10 @@
 #include <vector>
 
 #include "autoit_def.h"
+
+#ifndef CV_PROP_W
+#define CV_PROP_W
+#endif
 
 // import the .TLB that's compiled in scrrun.dll
 // needed to use ScriptingDictionary
@@ -248,6 +256,53 @@ const bool is_assignable_from(std::vector<_Tp>& out_val, VARIANT const* const& i
 	vArray.Detach();
 
 	return SUCCEEDED(hr);
+}
+
+template<typename _Ty1>
+const bool is_assignable_from(std::optional<_Ty1>& out_val, VARIANT const* const& in_val, bool is_optional) {
+	_Ty1 value;
+	return is_assignable_from(value, in_val, true);
+}
+
+template<typename _Ty1>
+const HRESULT autoit_to(VARIANT const* const& in_val, std::optional<_Ty1>& out_val) {
+	if (PARAMETER_MISSING(in_val)) {
+		out_val.reset();
+		return S_OK;
+	}
+
+	_Ty1 value;
+	HRESULT hr = autoit_to(in_val, out_val);
+	out_val.emplace(std::move(value));
+	return hr;
+}
+
+template<typename _Ty1>
+const HRESULT autoit_from(std::optional<_Ty1>& in_val, VARIANT*& out_val) {
+	if (in_val.has_value()) {
+		return autoit_from(in_val.value(), out_val);
+	}
+
+	VariantClear(out_val);
+	VariantInit(out_val);
+	V_VT(out_val) = VT_ERROR;
+	V_ERROR(out_val) = DISP_E_PARAMNOTFOUND;
+
+	return S_OK;
+}
+
+template<typename _Ty1>
+const HRESULT autoit_out(std::optional<_Ty1>& in_val, VARIANT*& out_val) {
+	if (in_val.has_value()) {
+		return autoit_out(in_val.value(), out_val);
+	}
+
+	VariantClear(out_val);
+	VariantInit(out_val);
+	V_VT(out_val) = VT_ERROR;
+	V_ERROR(out_val) = DISP_E_PARAMNOTFOUND;
+
+	return S_OK;
 }
 
 template<typename _Tp>
@@ -566,6 +621,7 @@ HRESULT autoit_from(const std::pair<_Ty1, _Ty2>& in_val, VARIANT*& out_val) {
 
 	VariantClear(&value);
 
+	VariantClear(out_val);
 	VariantInit(out_val);
 	V_VT(out_val) = VT_ARRAY | VT_VARIANT;
 	V_ARRAY(out_val) = vArray.Detach();
@@ -680,6 +736,7 @@ extern const HRESULT autoit_from(_Tp const& in_val, _Tp*& out_val) {
 
 #pragma push_macro("CV_EXPORTS_W_SIMPLE")
 #pragma push_macro("CV_EXPORTS_W")
+#pragma push_macro("CV_WRAP")
 #pragma push_macro("CV_OUT")
 #define MapOfStringAndVariant std::map<std::string, _variant_t>
 
@@ -693,12 +750,26 @@ extern const HRESULT autoit_from(_Tp const& in_val, _Tp*& out_val) {
 #endif
 #define CV_EXPORTS_W
 
+#ifdef CV_WRAP
+#undef CV_WRAP
+#endif
+#define CV_WRAP
+
 #ifdef CV_OUT
 #undef CV_OUT
 #endif
 #define CV_OUT
 
-class CV_EXPORTS_W_SIMPLE NamedParameters : public MapOfStringAndVariant {};
+class CV_EXPORTS_W_SIMPLE NamedParameters : public MapOfStringAndVariant {
+public:
+	CV_WRAP static bool isNamedParameters(const NamedParameters& value) {
+		return true;
+	}
+
+	CV_WRAP static bool isNamedParameters(VARIANT* value = nullptr) {
+		return false;
+	}
+};
 
 namespace autoit {
 	template <typename _Tp>
@@ -827,8 +898,34 @@ namespace autoit {
 	);
 }
 
+namespace com {
+	class CV_EXPORTS_W Thread {
+	public:
+		using Function = void (*)();
+
+		CV_WRAP Thread(void* func) : m_func(reinterpret_cast<Function>(func)) {}
+		CV_WRAP void start();
+		CV_WRAP void join();
+	private:
+		Function m_func = nullptr;
+		std::unique_ptr<std::thread> m_thread;
+	};
+
+	class CV_EXPORTS_W ThreadSafeQueue : public std::queue<VARIANT*>
+	{
+	public:
+		CV_WRAP ThreadSafeQueue() {}
+		CV_WRAP void push(VARIANT* entry);
+		CV_WRAP VARIANT* get();
+		CV_WRAP void clear();
+	private:
+		std::mutex m_mutex;
+	};
+}
+
 #pragma pop_macro("CV_EXPORTS_W_SIMPLE")
 #pragma pop_macro("CV_EXPORTS_W")
+#pragma pop_macro("CV_WRAP")
 #pragma pop_macro("CV_OUT")
 #undef MapOfStringAndVariant
 

@@ -28,7 +28,7 @@ Partial COM+ binding to [dlib](http://dlib.net/)
 
 ## Prerequisites
 
-  - Download and extract [opencv-4.7.0-windows.zip](https://sourceforge.net/projects/opencvlibrary/files4.7.0opencv-4.7.0-windows.zip/download) into a folder
+  - Download and extract [opencv-4.7.0-windows.exe](https://opencv.org/releases/) into a folder
   - Download and extract [autoit-dlib-19.24-opencv-4.7.0-com-v1.3.1.7z](https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.3.1/autoit-dlib-19.24-opencv-4.7.0-com-v1.3.1.7z) into a folder
 
 ## Usage
@@ -46,7 +46,7 @@ Partial COM+ binding to [dlib](http://dlib.net/)
 #include <Misc.au3>
 #include "autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open("opencv-4.7.0-windows\opencv\build\x64\vc15\bin\opencv_world470.dll", "autoit-dlib-com\autoit_dlib_com-19.24-470.dll")
+_Dlib_Open("opencv-4.7.0-windows\opencv\build\x64\vc16\bin\opencv_world470.dll", "autoit-dlib-com\autoit_dlib_com-19.24-470.dll")
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -95,6 +95,8 @@ EndFunc   ;==>_OnAutoItExit
 
 #### With opencv COM+ binding
 
+Download and extract [autoit-opencv-4.7.0-com-v2.4.0.7z](https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.4.0/autoit-opencv-4.7.0-com-v2.4.0.7z) into a folder
+
 ```autoit
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_UseX64=y
@@ -107,8 +109,8 @@ EndFunc   ;==>_OnAutoItExit
 #include "autoit-dlib-com\udf\dlib_udf_utils.au3"
 #include "autoit-opencv-com\udf\opencv_udf_utils.au3"
 
-_Dlib_Open("opencv-4.7.0-windows\opencv\build\x64\vc15\bin\opencv_world470.dll", "autoit-dlib-com\autoit_dlib_com-19.24-470.dll")
-_OpenCV_Open("opencv-4.7.0-windows\opencv\build\x64\vc15\bin\opencv_world470.dll", "autoit-opencv-com\autoit_opencv_com460.dll")
+_Dlib_Open("opencv-4.7.0-windows\opencv\build\x64\vc16\bin\opencv_world470.dll", "autoit-dlib-com\autoit_dlib_com-19.24-470.dll")
+_OpenCV_Open("opencv-4.7.0-windows\opencv\build\x64\vc16\bin\opencv_world470.dll", "autoit-opencv-com\autoit_opencv_com470.dll")
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -169,17 +171,17 @@ curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.3.1
 # extract the content of autoit-dlib-19.24-opencv-4.7.0-com-v1.3.1.7z into a folder named autoit-dlib-com
 7z x autoit-dlib-19.24-opencv-4.7.0-com-v1.3.1.7z -aoa -oautoit-dlib-com
 
-# download autoit-opencv-4.7.0-com-v2.3.1.7z
-curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.3.1/autoit-opencv-4.7.0-com-v2.3.1.7z' -o autoit-opencv-4.7.0-com-v2.3.1.7z
+# download autoit-opencv-4.7.0-com-v2.4.0.7z
+curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.4.0/autoit-opencv-4.7.0-com-v2.4.0.7z' -o autoit-opencv-4.7.0-com-v2.4.0.7z
 
-# extract the content of autoit-opencv-4.7.0-com-v2.3.1.7z into a folder named autoit-opencv-com
-7z x autoit-opencv-4.7.0-com-v2.3.1.7z -aoa -oautoit-opencv-com
+# extract the content of autoit-opencv-4.7.0-com-v2.4.0.7z into a folder named autoit-opencv-com
+7z x autoit-opencv-4.7.0-com-v2.4.0.7z -aoa -oautoit-opencv-com
 
-# download opencv-4.7.0-windows.zip
-curl -L 'https://github.com/opencv/opencv/releases/download4.7.0opencv-4.7.0-windows.zip' -o opencv-4.7.0-windows.zip
+# download opencv-4.7.0-windows.exe
+curl -L 'https://github.com/opencv/opencv/releases/download/4.7.0/opencv-4.7.0-windows.exe' -o opencv-4.7.0-windows.exe
 
-# extract the content of opencv-4.7.0-windows.zip into a folder named opencv-4.7.0-windows
-./opencv-4.7.0-windows.zip -oopencv-4.7.0-windows -y
+# extract the content of opencv-4.7.0-windows.exe into a folder named opencv-4.7.0-windows
+./opencv-4.7.0-windows.exe -oopencv-4.7.0-windows -y
 
 # download autoit-dlib-19.24-opencv-4.7.0-com-v1.3.1-src.zip
 curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.3.1.zip' -o autoit-dlib-19.24-opencv-4.7.0-com-v1.3.1-src.zip

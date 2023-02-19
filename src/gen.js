@@ -1,9 +1,9 @@
 /* eslint-disable no-magic-numbers */
 
-const fs = require("fs");
-const fsPromises = require("fs/promises");
-const sysPath = require("path");
-const {spawn} = require("child_process");
+const fs = require("node:fs");
+const fsPromises = require("node:fs/promises");
+const sysPath = require("node:path");
+const {spawn} = require("node:child_process");
 
 const mkdirp = require("mkdirp");
 const waterfall = require("async/waterfall");
@@ -52,12 +52,29 @@ const parseArguments = PROJECT_DIR => {
         other_namespaces: new Set([
             "dlib::image_dataset_metadata"
         ]),
+        remove_namespaces: new Set([
+            "cv(?!::Point)",
+            "dlib",
+            "std",
+        ]),
         build: new Set(),
         notest: new Set(),
         skip: new Set(),
         includes: [sysPath.join(PROJECT_DIR, "src")],
         output: sysPath.join(PROJECT_DIR, "generated"),
         toc: true,
+        globals: [
+            "$CV_ACCESS_READ",
+            "$CV_ACCESS_WRITE",
+            "$CV_ACCESS_RW",
+            "$CV_ACCESS_MASK",
+            "$CV_ACCESS_FAST",
+            "$CV_USAGE_DEFAULT",
+            "$CV_USAGE_ALLOCATE_HOST_MEMORY",
+            "$CV_USAGE_ALLOCATE_DEVICE_MEMORY",
+            "$CV_USAGE_ALLOCATE_SHARED_MEMORY",
+            "$CV___UMAT_USAGE_FLAGS_32BIT",
+        ],
         onCoClass: (generator, coclass, opts) => {
             const {fqn} = coclass;
 
@@ -106,7 +123,6 @@ const {
     CUSTOM_CLASSES,
 } = require("./constants");
 
-const {replaceAliases} = require("./alias");
 const {findFile} = require("./FileUtils");
 const custom_declarations = require("./custom_declarations");
 const AutoItGenerator = require("./AutoItGenerator");
@@ -165,10 +181,8 @@ waterfall([
 
             const buffer = Buffer.concat(buffers, nlen);
 
-            const json = JSON.parse(replaceAliases(buffer.toString(), options));
-            json.decls.push(...custom_declarations);
-
-            const configuration = JSON.parse(replaceAliases(JSON.stringify(json), options));
+            const configuration = JSON.parse(buffer.toString());
+            configuration.decls.push(...custom_declarations.load(options));
             configuration.generated_include = generated_include;
 
             for (const [name, modifiers] of CUSTOM_CLASSES) {

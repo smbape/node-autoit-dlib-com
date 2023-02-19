@@ -1,6 +1,13 @@
 #include-once
 #include "dlib_interface.au3"
 
+; cv::AccessFlag
+
+
+
+
+
+
 ; dlib::image_window::keyboard_state_masks
 Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_NONE = 0
 Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_SHIFT = 1
@@ -47,3 +54,5 @@ Global Const $DLIB_IMAGE_WINDOW_KEY_F12 = "F12"
 Global Const $DLIB_IMAGE_DATASET_METADATA_UNKNOWN = 0
 Global Const $DLIB_IMAGE_DATASET_METADATA_MALE = 1
 Global Const $DLIB_IMAGE_DATASET_METADATA_FEMALE = 2
+
+; cv::UMatUsageFlags

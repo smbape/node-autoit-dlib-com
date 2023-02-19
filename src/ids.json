@@ -7,6 +7,18 @@
         "iid": "459cc32e-5b6b-431b-9a3d-d3522d67d57e",
         "clsid": "7d952807-e092-4bb4-a18a-d0d45bce7066"
     },
+    "com": {
+        "iid": "1d8da40c-1ba7-4b18-acf0-aa5b275cc140",
+        "clsid": "eceedb08-a4b6-4774-9eda-bcf1a912650f"
+    },
+    "com::Thread": {
+        "iid": "fbef1999-e07b-4e06-9695-575268c48dba",
+        "clsid": "da6a7d6d-c412-4b6f-baa4-d103c9130bc4"
+    },
+    "com::ThreadSafeQueue": {
+        "iid": "23aaaaf1-6852-44c9-be73-29c6a1f1e3e7",
+        "clsid": "3237888e-640d-4a3f-851e-e2d5e655c715"
+    },
     "dlib": {
         "iid": "6da340df-3340-4528-9541-e8b2d01c51e2",
         "clsid": "78e9bdb4-c82a-40d5-8786-55c1ead737b1"
@@ -86,6 +98,14 @@
     "dlib::correlation_tracker": {
         "iid": "35f976bc-be73-4e1d-ae45-66c123bf1cb6",
         "clsid": "f3764c92-fd55-42c2-993a-9bad0dbc82b3"
+    },
+    "cv::cuda": {
+        "iid": "48adbeab-9554-404e-bbd1-11a2130c7e23",
+        "clsid": "bfa7b19e-ee94-401d-a094-6d06bff78774"
+    },
+    "cv::cuda::GpuMat": {
+        "iid": "5f46bd91-3119-4bc7-a893-5601c2018f93",
+        "clsid": "e0c85a4f-8201-41cb-8acf-d059cbd799b9"
     },
     "dlib::_radial_basis_kernel": {
         "iid": "7b04f016-de65-4153-a554-df2639c504aa",
@@ -183,6 +203,18 @@
         "iid": "cd971489-2500-4bf6-9222-14244090c1dc",
         "clsid": "5c001285-c1b2-4104-ae64-d59ad09b32fc"
     },
+    "cv::_InputArray": {
+        "iid": "134ecfac-d3da-4815-bcd9-1a963ef87e4e",
+        "clsid": "111b6fe4-aff8-4d2a-88ef-9fbed577452e"
+    },
+    "cv::_OutputArray": {
+        "iid": "39275656-b919-479d-8560-c15e2e1459d8",
+        "clsid": "41cda184-dbb2-42bf-9b5c-e821afcc0f9f"
+    },
+    "cv::_InputOutputArray": {
+        "iid": "e0bbb34c-2a20-4286-b15e-137925561d60",
+        "clsid": "8e04ce2c-fd58-4b56-b727-7c7b1e77faa5"
+    },
     "cv::Mat": {
         "iid": "a13967b1-fc83-4d52-b438-9781c40fe7e1",
         "clsid": "176510ad-0df5-42f9-870b-842a293807c2"
@@ -190,6 +222,18 @@
     "dlib::Matrix": {
         "iid": "f1dfa1a2-5bc4-4b41-b4bc-19c6a1f88fa0",
         "clsid": "6a87105e-277e-4a70-9003-9cf74c499530"
+    },
+    "std": {
+        "iid": "40e58eb0-e7ba-4b97-be3e-6760fc5686c1",
+        "clsid": "1fa11698-ead2-4f90-b9a8-06630868c447"
+    },
+    "std::mutex": {
+        "iid": "6d787fc4-35fc-4f20-80ec-d37ce6cc7203",
+        "clsid": "78aa9412-4ea5-4480-b21f-f5e5ce7888f5"
+    },
+    "std::timed_mutex": {
+        "iid": "6a8168a0-73a4-445a-9764-bed08a7a8f5e",
+        "clsid": "f8e0f88a-1df6-4f6a-a1f4-cc5a49df1a65"
     },
     "dlib::fhog_object_detector": {
         "iid": "3b462e7e-12c2-406d-8001-d11b081eab63",
@@ -282,6 +326,10 @@
     "dlib::svm_rank_trainer_sparse": {
         "iid": "6e47c368-97e6-41fc-8427-3aabdfa1ddce",
         "clsid": "ac543caf-1edc-43d5-a63a-eb93c53dcd0a"
+    },
+    "cv::UMat": {
+        "iid": "14513929-92ea-452e-84df-f5f779f44264",
+        "clsid": "a60f1365-5d92-4c40-ba18-97a5e172bacd"
     },
     "dlib::SpaceVector": {
         "iid": "c02733f5-4a55-4cf5-94a3-49f019ab7213",
@@ -459,8 +507,104 @@
         "iid": "01225681-a708-4be0-867a-90e0e40b3d45",
         "clsid": "31fca97a-9c78-4fc3-becc-5b8e2b403e58"
     },
+    "VectorOfSize_t": {
+        "iid": "3b695cb7-6359-4615-b39a-f9aca288c47d",
+        "clsid": "3064ecd1-9f8b-4ec6-adaa-7638e6320d33"
+    },
+    "VectorOfRange": {
+        "iid": "0bfc2659-9fee-46ec-81c4-071373233c87",
+        "clsid": "f3d5bb1a-4eac-4106-9ff4-a9db52d4ed1b"
+    },
     "VectorOfFloat": {
         "iid": "c84459f3-254e-4ad7-af0d-3591667c0b39",
         "clsid": "5892eae4-02e5-4f80-96ce-6e54cce71dfa"
+    },
+    "VectorOfVec2b": {
+        "iid": "5b9455fa-bb20-4151-b385-e1bdc42323e2",
+        "clsid": "e3bbcf63-f1a1-4c25-9a30-1532fcd26826"
+    },
+    "VectorOfVec2d": {
+        "iid": "d800821b-73b1-41c6-9aa8-86392d2bba55",
+        "clsid": "6876e154-bf2b-49b4-bb8b-772e48fd4112"
+    },
+    "VectorOfVec2f": {
+        "iid": "54b134fe-d777-4e15-8572-84d726b25d8c",
+        "clsid": "6ec707e2-bd23-4322-bdb8-ed60ef92a524"
+    },
+    "VectorOfVec2i": {
+        "iid": "d9c4f376-af27-4f8b-8892-defc714378c4",
+        "clsid": "50018b22-1376-48d2-acf8-197661be415a"
+    },
+    "VectorOfVec2s": {
+        "iid": "faca77f5-7b6e-43c3-83e3-7765501fb542",
+        "clsid": "28888133-f3a2-4cbf-b0c7-310c3c601a4f"
+    },
+    "VectorOfVec2w": {
+        "iid": "a07ef470-8451-45b5-92f3-8122c6bffdca",
+        "clsid": "f0b32c90-4ca1-4873-8363-f43967827a07"
+    },
+    "VectorOfVec3b": {
+        "iid": "01835d0f-11a1-4c0b-bdee-da5bc678345d",
+        "clsid": "a2e32502-a008-4d05-b26e-2637763a4f94"
+    },
+    "VectorOfVec3d": {
+        "iid": "09cc18da-9326-4928-ae35-21976d20c894",
+        "clsid": "51560971-5d6d-48ae-b7fd-908d00e167f7"
+    },
+    "VectorOfVec3f": {
+        "iid": "5f308efd-1399-46d8-9fb9-9dff932ca988",
+        "clsid": "d4b2052f-c6bf-4d4b-9872-2f521e1880a8"
+    },
+    "VectorOfVec3i": {
+        "iid": "66966cb0-732d-4c8c-a699-bf5e221c5d20",
+        "clsid": "6381c28c-8a3e-4ea7-999f-2e08c73bc8c9"
+    },
+    "VectorOfVec3s": {
+        "iid": "16efd989-dff5-4765-b245-2d0cd528d6f2",
+        "clsid": "567312a1-3fb7-48ef-8cd0-b1664eaab90b"
+    },
+    "VectorOfVec3w": {
+        "iid": "302cb6ca-8072-4a27-9899-85742d0d767e",
+        "clsid": "d88c1fcc-684d-420f-b8b8-442c54f48b47"
+    },
+    "VectorOfVec4b": {
+        "iid": "b9db48f0-9a87-457a-bf62-91506d8946fb",
+        "clsid": "0f1b7de9-b6a6-422e-83dd-bdf548ba7611"
+    },
+    "VectorOfVec4d": {
+        "iid": "a668c378-b7c4-4b2a-b1ef-d15e27b931cc",
+        "clsid": "a45e1692-63f5-4bbe-8896-f7a17adf3e41"
+    },
+    "VectorOfVec4f": {
+        "iid": "15fbe57f-7d08-4cda-9ebd-e17385a9d7cb",
+        "clsid": "f41eb83c-6ba8-49da-b0ce-ec4273ea1d9b"
+    },
+    "VectorOfVec4i": {
+        "iid": "512c6da9-8ca8-4bb2-8ab2-d4eb222041c9",
+        "clsid": "9f65420d-769f-4fdf-895b-366f974b9e63"
+    },
+    "VectorOfVec4s": {
+        "iid": "3aa6839c-788d-487e-812c-f923fc2afd82",
+        "clsid": "c8829697-5db1-4690-a9ea-2e080d6e3e04"
+    },
+    "VectorOfVec4w": {
+        "iid": "28d30a69-ebd4-4ede-912c-54126273caff",
+        "clsid": "3a7b43f0-7a2d-4fbc-a0c7-91b681d7a416"
+    },
+    "VectorOfVec6d": {
+        "iid": "8afb84bc-475a-4082-b715-69f7c474f89d",
+        "clsid": "934c1c8a-e20a-4e82-bda9-a12ff11370ee"
+    },
+    "VectorOfVec6f": {
+        "iid": "0474c085-11e7-4b8b-bebf-501eea9c233c",
+        "clsid": "4ef165ac-6afd-469a-ac40-4ff60b202ec2"
+    },
+    "VectorOfVec6i": {
+        "iid": "9e4e70e9-2ced-480d-9d2f-bdfc3a285818",
+        "clsid": "ff3d53b3-49b6-4f6c-a8a7-48134331d56a"
+    },
+    "VectorOfVec8i": {
+        "iid": "c1062fe0-bc58-48f8-b565-42b313d943d4",
+        "clsid": "84f3c84e-030d-4876-8ec5-e5c14a88febe"
     }
 }

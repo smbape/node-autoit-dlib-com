@@ -6,6 +6,8 @@ const {
     CLASS_PTR,
 } = require("./constants");
 
+const { getAlias } = require("./alias");
+
 const {hasOwnProperty: hasProp} = Object.prototype;
 
 const DISID_CONSTANTS = new Map([
@@ -18,6 +20,13 @@ const DISID_CONSTANTS = new Map([
     ["DISPID_UNKNOWN", -1],
     ["DISPID_VALUE", 0],
 ]);
+
+// avoid long names on windows
+// the files are no longer readable if the full path
+// exceeds 255 characters
+const getShortestName = (a, b, { maxFilenameLength }) => {
+    return maxFilenameLength > 0 && a.length > maxFilenameLength ? b : a;
+};
 
 // Visual studio gave me 106 as the first resource id
 // I just reused it since I don't know the impact of changing
@@ -103,7 +112,7 @@ class CoClass {
         }
 
         const descriptor = {
-            type: argtype,
+            type: getAlias(argtype),
             value: defval,
             modifiers: list_of_modifiers
         };
@@ -124,10 +133,16 @@ class CoClass {
     }
 
     addMethod(decl) {
+        decl[1] = getAlias(decl[1]); // return_type
+
         const [name, , list_of_modifiers, list_of_arguments] = decl;
         const path = name.split(".");
-
         let fname = path[path.length - 1];
+
+        for (const arg_decl of list_of_arguments) {
+            const [argtype] = arg_decl;
+            arg_decl[0] = getAlias(argtype);
+        }
 
         if (fname === this.name && (this.is_class || this.is_struct)) {
             fname = "create";
@@ -216,6 +231,14 @@ class CoClass {
 
     getObjectName() {
         return this.objectName;
+    }
+
+    getIDLFileName(options) {
+        return `i${ getShortestName(this.objectName, this.clsid, options) }.idl`;
+    }
+
+    getCPPFileName(options) {
+        return `${ getShortestName(this.className, this.clsid, options) }.cpp`;
     }
 }
 

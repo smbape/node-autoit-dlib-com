@@ -1,7 +1,7 @@
 #pragma once
 
-#include "autoit_bridge_common.h"
 #include "autoit_bridge_generated.h"
+#include "impl_mat.h"
 
 template<typename _Tp, long nr>
 const bool is_assignable_from(dlib::matrix<_Tp, nr, 1>& out_val, VARIANT const* const& in_val, bool is_optional) {
