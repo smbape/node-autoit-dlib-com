@@ -641,6 +641,7 @@
   - [cv::Mat::createFromVectorOfDouble](#cvmatcreatefromvectorofdouble)
   - [cv::Mat::createFromVectorOfFloat](#cvmatcreatefromvectoroffloat)
   - [cv::Mat::createFromVectorOfInt](#cvmatcreatefromvectorofint)
+  - [cv::Mat::createFromVectorOfMat](#cvmatcreatefromvectorofmat)
   - [cv::Mat::createFromVectorOfVec2b](#cvmatcreatefromvectorofvec2b)
   - [cv::Mat::createFromVectorOfVec2d](#cvmatcreatefromvectorofvec2d)
   - [cv::Mat::createFromVectorOfVec2f](#cvmatcreatefromvectorofvec2f)
@@ -1077,28 +1078,94 @@
   - [VectorOfPairOfULONGAndDouble::sort](#vectorofpairofulonganddoublesort)
   - [VectorOfPairOfULONGAndDouble::sort\_variant](#vectorofpairofulonganddoublesort%5C_variant)
   - [VectorOfPairOfULONGAndDouble::start](#vectorofpairofulonganddoublestart)
-- [VectorOfLong](#vectoroflong)
-  - [VectorOfLong.Count](#vectoroflongcount)
-  - [VectorOfLong::create](#vectoroflongcreate)
-  - [VectorOfLong::Add](#vectoroflongadd)
-  - [VectorOfLong::Items](#vectoroflongitems)
-  - [VectorOfLong::Keys](#vectoroflongkeys)
-  - [VectorOfLong::Remove](#vectoroflongremove)
-  - [VectorOfLong::append](#vectoroflongappend)
-  - [VectorOfLong::at](#vectoroflongat)
-  - [VectorOfLong::clear](#vectoroflongclear)
-  - [VectorOfLong::empty](#vectoroflongempty)
-  - [VectorOfLong::end](#vectoroflongend)
-  - [VectorOfLong::get\_Item](#vectoroflongget%5C_item)
-  - [VectorOfLong::get\_\_NewEnum](#vectoroflongget%5C_%5C_newenum)
-  - [VectorOfLong::push\_back](#vectoroflongpush%5C_back)
-  - [VectorOfLong::push\_vector](#vectoroflongpush%5C_vector)
-  - [VectorOfLong::put\_Item](#vectoroflongput%5C_item)
-  - [VectorOfLong::size](#vectoroflongsize)
-  - [VectorOfLong::slice](#vectoroflongslice)
-  - [VectorOfLong::sort](#vectoroflongsort)
-  - [VectorOfLong::sort\_variant](#vectoroflongsort%5C_variant)
-  - [VectorOfLong::start](#vectoroflongstart)
+- [VectorOfVectorOfPairOfULONGAndDouble](#vectorofvectorofpairofulonganddouble)
+  - [VectorOfVectorOfPairOfULONGAndDouble.Count](#vectorofvectorofpairofulonganddoublecount)
+  - [VectorOfVectorOfPairOfULONGAndDouble::create](#vectorofvectorofpairofulonganddoublecreate)
+  - [VectorOfVectorOfPairOfULONGAndDouble::Add](#vectorofvectorofpairofulonganddoubleadd)
+  - [VectorOfVectorOfPairOfULONGAndDouble::Items](#vectorofvectorofpairofulonganddoubleitems)
+  - [VectorOfVectorOfPairOfULONGAndDouble::Keys](#vectorofvectorofpairofulonganddoublekeys)
+  - [VectorOfVectorOfPairOfULONGAndDouble::Remove](#vectorofvectorofpairofulonganddoubleremove)
+  - [VectorOfVectorOfPairOfULONGAndDouble::append](#vectorofvectorofpairofulonganddoubleappend)
+  - [VectorOfVectorOfPairOfULONGAndDouble::at](#vectorofvectorofpairofulonganddoubleat)
+  - [VectorOfVectorOfPairOfULONGAndDouble::clear](#vectorofvectorofpairofulonganddoubleclear)
+  - [VectorOfVectorOfPairOfULONGAndDouble::empty](#vectorofvectorofpairofulonganddoubleempty)
+  - [VectorOfVectorOfPairOfULONGAndDouble::end](#vectorofvectorofpairofulonganddoubleend)
+  - [VectorOfVectorOfPairOfULONGAndDouble::get\_Item](#vectorofvectorofpairofulonganddoubleget%5C_item)
+  - [VectorOfVectorOfPairOfULONGAndDouble::get\_\_NewEnum](#vectorofvectorofpairofulonganddoubleget%5C_%5C_newenum)
+  - [VectorOfVectorOfPairOfULONGAndDouble::push\_back](#vectorofvectorofpairofulonganddoublepush%5C_back)
+  - [VectorOfVectorOfPairOfULONGAndDouble::push\_vector](#vectorofvectorofpairofulonganddoublepush%5C_vector)
+  - [VectorOfVectorOfPairOfULONGAndDouble::put\_Item](#vectorofvectorofpairofulonganddoubleput%5C_item)
+  - [VectorOfVectorOfPairOfULONGAndDouble::size](#vectorofvectorofpairofulonganddoublesize)
+  - [VectorOfVectorOfPairOfULONGAndDouble::slice](#vectorofvectorofpairofulonganddoubleslice)
+  - [VectorOfVectorOfPairOfULONGAndDouble::sort](#vectorofvectorofpairofulonganddoublesort)
+  - [VectorOfVectorOfPairOfULONGAndDouble::sort\_variant](#vectorofvectorofpairofulonganddoublesort%5C_variant)
+  - [VectorOfVectorOfPairOfULONGAndDouble::start](#vectorofvectorofpairofulonganddoublestart)
+- [VectorOfMat](#vectorofmat)
+  - [VectorOfMat.Count](#vectorofmatcount)
+  - [VectorOfMat::create](#vectorofmatcreate)
+  - [VectorOfMat::Add](#vectorofmatadd)
+  - [VectorOfMat::Items](#vectorofmatitems)
+  - [VectorOfMat::Keys](#vectorofmatkeys)
+  - [VectorOfMat::Remove](#vectorofmatremove)
+  - [VectorOfMat::append](#vectorofmatappend)
+  - [VectorOfMat::at](#vectorofmatat)
+  - [VectorOfMat::clear](#vectorofmatclear)
+  - [VectorOfMat::empty](#vectorofmatempty)
+  - [VectorOfMat::end](#vectorofmatend)
+  - [VectorOfMat::get\_Item](#vectorofmatget%5C_item)
+  - [VectorOfMat::get\_\_NewEnum](#vectorofmatget%5C_%5C_newenum)
+  - [VectorOfMat::push\_back](#vectorofmatpush%5C_back)
+  - [VectorOfMat::push\_vector](#vectorofmatpush%5C_vector)
+  - [VectorOfMat::put\_Item](#vectorofmatput%5C_item)
+  - [VectorOfMat::size](#vectorofmatsize)
+  - [VectorOfMat::slice](#vectorofmatslice)
+  - [VectorOfMat::sort](#vectorofmatsort)
+  - [VectorOfMat::sort\_variant](#vectorofmatsort%5C_variant)
+  - [VectorOfMat::start](#vectorofmatstart)
+- [VectorOfFull\_object\_detection](#vectoroffull%5C_object%5C_detection)
+  - [VectorOfFull\_object\_detection.Count](#vectoroffull%5C_object%5C_detectioncount)
+  - [VectorOfFull\_object\_detection::create](#vectoroffull%5C_object%5C_detectioncreate)
+  - [VectorOfFull\_object\_detection::Add](#vectoroffull%5C_object%5C_detectionadd)
+  - [VectorOfFull\_object\_detection::Items](#vectoroffull%5C_object%5C_detectionitems)
+  - [VectorOfFull\_object\_detection::Keys](#vectoroffull%5C_object%5C_detectionkeys)
+  - [VectorOfFull\_object\_detection::Remove](#vectoroffull%5C_object%5C_detectionremove)
+  - [VectorOfFull\_object\_detection::append](#vectoroffull%5C_object%5C_detectionappend)
+  - [VectorOfFull\_object\_detection::at](#vectoroffull%5C_object%5C_detectionat)
+  - [VectorOfFull\_object\_detection::clear](#vectoroffull%5C_object%5C_detectionclear)
+  - [VectorOfFull\_object\_detection::empty](#vectoroffull%5C_object%5C_detectionempty)
+  - [VectorOfFull\_object\_detection::end](#vectoroffull%5C_object%5C_detectionend)
+  - [VectorOfFull\_object\_detection::get\_Item](#vectoroffull%5C_object%5C_detectionget%5C_item)
+  - [VectorOfFull\_object\_detection::get\_\_NewEnum](#vectoroffull%5C_object%5C_detectionget%5C_%5C_newenum)
+  - [VectorOfFull\_object\_detection::push\_back](#vectoroffull%5C_object%5C_detectionpush%5C_back)
+  - [VectorOfFull\_object\_detection::push\_vector](#vectoroffull%5C_object%5C_detectionpush%5C_vector)
+  - [VectorOfFull\_object\_detection::put\_Item](#vectoroffull%5C_object%5C_detectionput%5C_item)
+  - [VectorOfFull\_object\_detection::size](#vectoroffull%5C_object%5C_detectionsize)
+  - [VectorOfFull\_object\_detection::slice](#vectoroffull%5C_object%5C_detectionslice)
+  - [VectorOfFull\_object\_detection::sort](#vectoroffull%5C_object%5C_detectionsort)
+  - [VectorOfFull\_object\_detection::sort\_variant](#vectoroffull%5C_object%5C_detectionsort%5C_variant)
+  - [VectorOfFull\_object\_detection::start](#vectoroffull%5C_object%5C_detectionstart)
+- [VectorOfULONG](#vectorofulong)
+  - [VectorOfULONG.Count](#vectorofulongcount)
+  - [VectorOfULONG::create](#vectorofulongcreate)
+  - [VectorOfULONG::Add](#vectorofulongadd)
+  - [VectorOfULONG::Items](#vectorofulongitems)
+  - [VectorOfULONG::Keys](#vectorofulongkeys)
+  - [VectorOfULONG::Remove](#vectorofulongremove)
+  - [VectorOfULONG::append](#vectorofulongappend)
+  - [VectorOfULONG::at](#vectorofulongat)
+  - [VectorOfULONG::clear](#vectorofulongclear)
+  - [VectorOfULONG::empty](#vectorofulongempty)
+  - [VectorOfULONG::end](#vectorofulongend)
+  - [VectorOfULONG::get\_Item](#vectorofulongget%5C_item)
+  - [VectorOfULONG::get\_\_NewEnum](#vectorofulongget%5C_%5C_newenum)
+  - [VectorOfULONG::push\_back](#vectorofulongpush%5C_back)
+  - [VectorOfULONG::push\_vector](#vectorofulongpush%5C_vector)
+  - [VectorOfULONG::put\_Item](#vectorofulongput%5C_item)
+  - [VectorOfULONG::size](#vectorofulongsize)
+  - [VectorOfULONG::slice](#vectorofulongslice)
+  - [VectorOfULONG::sort](#vectorofulongsort)
+  - [VectorOfULONG::sort\_variant](#vectorofulongsort%5C_variant)
+  - [VectorOfULONG::start](#vectorofulongstart)
 - [VectorOfSpaceVector](#vectorofspacevector)
   - [VectorOfSpaceVector.Count](#vectorofspacevectorcount)
   - [VectorOfSpaceVector::create](#vectorofspacevectorcreate)
@@ -1143,50 +1210,28 @@
   - [VectorOfDouble::sort](#vectorofdoublesort)
   - [VectorOfDouble::sort\_variant](#vectorofdoublesort%5C_variant)
   - [VectorOfDouble::start](#vectorofdoublestart)
-- [VectorOfVectorOfPairOfULONGAndDouble](#vectorofvectorofpairofulonganddouble)
-  - [VectorOfVectorOfPairOfULONGAndDouble.Count](#vectorofvectorofpairofulonganddoublecount)
-  - [VectorOfVectorOfPairOfULONGAndDouble::create](#vectorofvectorofpairofulonganddoublecreate)
-  - [VectorOfVectorOfPairOfULONGAndDouble::Add](#vectorofvectorofpairofulonganddoubleadd)
-  - [VectorOfVectorOfPairOfULONGAndDouble::Items](#vectorofvectorofpairofulonganddoubleitems)
-  - [VectorOfVectorOfPairOfULONGAndDouble::Keys](#vectorofvectorofpairofulonganddoublekeys)
-  - [VectorOfVectorOfPairOfULONGAndDouble::Remove](#vectorofvectorofpairofulonganddoubleremove)
-  - [VectorOfVectorOfPairOfULONGAndDouble::append](#vectorofvectorofpairofulonganddoubleappend)
-  - [VectorOfVectorOfPairOfULONGAndDouble::at](#vectorofvectorofpairofulonganddoubleat)
-  - [VectorOfVectorOfPairOfULONGAndDouble::clear](#vectorofvectorofpairofulonganddoubleclear)
-  - [VectorOfVectorOfPairOfULONGAndDouble::empty](#vectorofvectorofpairofulonganddoubleempty)
-  - [VectorOfVectorOfPairOfULONGAndDouble::end](#vectorofvectorofpairofulonganddoubleend)
-  - [VectorOfVectorOfPairOfULONGAndDouble::get\_Item](#vectorofvectorofpairofulonganddoubleget%5C_item)
-  - [VectorOfVectorOfPairOfULONGAndDouble::get\_\_NewEnum](#vectorofvectorofpairofulonganddoubleget%5C_%5C_newenum)
-  - [VectorOfVectorOfPairOfULONGAndDouble::push\_back](#vectorofvectorofpairofulonganddoublepush%5C_back)
-  - [VectorOfVectorOfPairOfULONGAndDouble::push\_vector](#vectorofvectorofpairofulonganddoublepush%5C_vector)
-  - [VectorOfVectorOfPairOfULONGAndDouble::put\_Item](#vectorofvectorofpairofulonganddoubleput%5C_item)
-  - [VectorOfVectorOfPairOfULONGAndDouble::size](#vectorofvectorofpairofulonganddoublesize)
-  - [VectorOfVectorOfPairOfULONGAndDouble::slice](#vectorofvectorofpairofulonganddoubleslice)
-  - [VectorOfVectorOfPairOfULONGAndDouble::sort](#vectorofvectorofpairofulonganddoublesort)
-  - [VectorOfVectorOfPairOfULONGAndDouble::sort\_variant](#vectorofvectorofpairofulonganddoublesort%5C_variant)
-  - [VectorOfVectorOfPairOfULONGAndDouble::start](#vectorofvectorofpairofulonganddoublestart)
-- [VectorOfPoint](#vectorofpoint)
-  - [VectorOfPoint.Count](#vectorofpointcount)
-  - [VectorOfPoint::create](#vectorofpointcreate)
-  - [VectorOfPoint::Add](#vectorofpointadd)
-  - [VectorOfPoint::Items](#vectorofpointitems)
-  - [VectorOfPoint::Keys](#vectorofpointkeys)
-  - [VectorOfPoint::Remove](#vectorofpointremove)
-  - [VectorOfPoint::append](#vectorofpointappend)
-  - [VectorOfPoint::at](#vectorofpointat)
-  - [VectorOfPoint::clear](#vectorofpointclear)
-  - [VectorOfPoint::empty](#vectorofpointempty)
-  - [VectorOfPoint::end](#vectorofpointend)
-  - [VectorOfPoint::get\_Item](#vectorofpointget%5C_item)
-  - [VectorOfPoint::get\_\_NewEnum](#vectorofpointget%5C_%5C_newenum)
-  - [VectorOfPoint::push\_back](#vectorofpointpush%5C_back)
-  - [VectorOfPoint::push\_vector](#vectorofpointpush%5C_vector)
-  - [VectorOfPoint::put\_Item](#vectorofpointput%5C_item)
-  - [VectorOfPoint::size](#vectorofpointsize)
-  - [VectorOfPoint::slice](#vectorofpointslice)
-  - [VectorOfPoint::sort](#vectorofpointsort)
-  - [VectorOfPoint::sort\_variant](#vectorofpointsort%5C_variant)
-  - [VectorOfPoint::start](#vectorofpointstart)
+- [VectorOfBool](#vectorofbool)
+  - [VectorOfBool.Count](#vectorofboolcount)
+  - [VectorOfBool::create](#vectorofboolcreate)
+  - [VectorOfBool::Add](#vectorofbooladd)
+  - [VectorOfBool::Items](#vectorofboolitems)
+  - [VectorOfBool::Keys](#vectorofboolkeys)
+  - [VectorOfBool::Remove](#vectorofboolremove)
+  - [VectorOfBool::append](#vectorofboolappend)
+  - [VectorOfBool::at](#vectorofboolat)
+  - [VectorOfBool::clear](#vectorofboolclear)
+  - [VectorOfBool::empty](#vectorofboolempty)
+  - [VectorOfBool::end](#vectorofboolend)
+  - [VectorOfBool::get\_Item](#vectorofboolget%5C_item)
+  - [VectorOfBool::get\_\_NewEnum](#vectorofboolget%5C_%5C_newenum)
+  - [VectorOfBool::push\_back](#vectorofboolpush%5C_back)
+  - [VectorOfBool::push\_vector](#vectorofboolpush%5C_vector)
+  - [VectorOfBool::put\_Item](#vectorofboolput%5C_item)
+  - [VectorOfBool::size](#vectorofboolsize)
+  - [VectorOfBool::slice](#vectorofboolslice)
+  - [VectorOfBool::sort](#vectorofboolsort)
+  - [VectorOfBool::sort\_variant](#vectorofboolsort%5C_variant)
+  - [VectorOfBool::start](#vectorofboolstart)
 - [VectorOfRectangle](#vectorofrectangle)
   - [VectorOfRectangle.Count](#vectorofrectanglecount)
   - [VectorOfRectangle::create](#vectorofrectanglecreate)
@@ -1209,94 +1254,28 @@
   - [VectorOfRectangle::sort](#vectorofrectanglesort)
   - [VectorOfRectangle::sort\_variant](#vectorofrectanglesort%5C_variant)
   - [VectorOfRectangle::start](#vectorofrectanglestart)
-- [VectorOfULONG](#vectorofulong)
-  - [VectorOfULONG.Count](#vectorofulongcount)
-  - [VectorOfULONG::create](#vectorofulongcreate)
-  - [VectorOfULONG::Add](#vectorofulongadd)
-  - [VectorOfULONG::Items](#vectorofulongitems)
-  - [VectorOfULONG::Keys](#vectorofulongkeys)
-  - [VectorOfULONG::Remove](#vectorofulongremove)
-  - [VectorOfULONG::append](#vectorofulongappend)
-  - [VectorOfULONG::at](#vectorofulongat)
-  - [VectorOfULONG::clear](#vectorofulongclear)
-  - [VectorOfULONG::empty](#vectorofulongempty)
-  - [VectorOfULONG::end](#vectorofulongend)
-  - [VectorOfULONG::get\_Item](#vectorofulongget%5C_item)
-  - [VectorOfULONG::get\_\_NewEnum](#vectorofulongget%5C_%5C_newenum)
-  - [VectorOfULONG::push\_back](#vectorofulongpush%5C_back)
-  - [VectorOfULONG::push\_vector](#vectorofulongpush%5C_vector)
-  - [VectorOfULONG::put\_Item](#vectorofulongput%5C_item)
-  - [VectorOfULONG::size](#vectorofulongsize)
-  - [VectorOfULONG::slice](#vectorofulongslice)
-  - [VectorOfULONG::sort](#vectorofulongsort)
-  - [VectorOfULONG::sort\_variant](#vectorofulongsort%5C_variant)
-  - [VectorOfULONG::start](#vectorofulongstart)
-- [VectorOfDpoint](#vectorofdpoint)
-  - [VectorOfDpoint.Count](#vectorofdpointcount)
-  - [VectorOfDpoint::create](#vectorofdpointcreate)
-  - [VectorOfDpoint::Add](#vectorofdpointadd)
-  - [VectorOfDpoint::Items](#vectorofdpointitems)
-  - [VectorOfDpoint::Keys](#vectorofdpointkeys)
-  - [VectorOfDpoint::Remove](#vectorofdpointremove)
-  - [VectorOfDpoint::append](#vectorofdpointappend)
-  - [VectorOfDpoint::at](#vectorofdpointat)
-  - [VectorOfDpoint::clear](#vectorofdpointclear)
-  - [VectorOfDpoint::empty](#vectorofdpointempty)
-  - [VectorOfDpoint::end](#vectorofdpointend)
-  - [VectorOfDpoint::get\_Item](#vectorofdpointget%5C_item)
-  - [VectorOfDpoint::get\_\_NewEnum](#vectorofdpointget%5C_%5C_newenum)
-  - [VectorOfDpoint::push\_back](#vectorofdpointpush%5C_back)
-  - [VectorOfDpoint::push\_vector](#vectorofdpointpush%5C_vector)
-  - [VectorOfDpoint::put\_Item](#vectorofdpointput%5C_item)
-  - [VectorOfDpoint::size](#vectorofdpointsize)
-  - [VectorOfDpoint::slice](#vectorofdpointslice)
-  - [VectorOfDpoint::sort](#vectorofdpointsort)
-  - [VectorOfDpoint::sort\_variant](#vectorofdpointsort%5C_variant)
-  - [VectorOfDpoint::start](#vectorofdpointstart)
-- [VectorOfVec\_ranking\_pair](#vectorofvec%5C_ranking%5C_pair)
-  - [VectorOfVec\_ranking\_pair.Count](#vectorofvec%5C_ranking%5C_paircount)
-  - [VectorOfVec\_ranking\_pair::create](#vectorofvec%5C_ranking%5C_paircreate)
-  - [VectorOfVec\_ranking\_pair::Add](#vectorofvec%5C_ranking%5C_pairadd)
-  - [VectorOfVec\_ranking\_pair::Items](#vectorofvec%5C_ranking%5C_pairitems)
-  - [VectorOfVec\_ranking\_pair::Keys](#vectorofvec%5C_ranking%5C_pairkeys)
-  - [VectorOfVec\_ranking\_pair::Remove](#vectorofvec%5C_ranking%5C_pairremove)
-  - [VectorOfVec\_ranking\_pair::append](#vectorofvec%5C_ranking%5C_pairappend)
-  - [VectorOfVec\_ranking\_pair::at](#vectorofvec%5C_ranking%5C_pairat)
-  - [VectorOfVec\_ranking\_pair::clear](#vectorofvec%5C_ranking%5C_pairclear)
-  - [VectorOfVec\_ranking\_pair::empty](#vectorofvec%5C_ranking%5C_pairempty)
-  - [VectorOfVec\_ranking\_pair::end](#vectorofvec%5C_ranking%5C_pairend)
-  - [VectorOfVec\_ranking\_pair::get\_Item](#vectorofvec%5C_ranking%5C_pairget%5C_item)
-  - [VectorOfVec\_ranking\_pair::get\_\_NewEnum](#vectorofvec%5C_ranking%5C_pairget%5C_%5C_newenum)
-  - [VectorOfVec\_ranking\_pair::push\_back](#vectorofvec%5C_ranking%5C_pairpush%5C_back)
-  - [VectorOfVec\_ranking\_pair::push\_vector](#vectorofvec%5C_ranking%5C_pairpush%5C_vector)
-  - [VectorOfVec\_ranking\_pair::put\_Item](#vectorofvec%5C_ranking%5C_pairput%5C_item)
-  - [VectorOfVec\_ranking\_pair::size](#vectorofvec%5C_ranking%5C_pairsize)
-  - [VectorOfVec\_ranking\_pair::slice](#vectorofvec%5C_ranking%5C_pairslice)
-  - [VectorOfVec\_ranking\_pair::sort](#vectorofvec%5C_ranking%5C_pairsort)
-  - [VectorOfVec\_ranking\_pair::sort\_variant](#vectorofvec%5C_ranking%5C_pairsort%5C_variant)
-  - [VectorOfVec\_ranking\_pair::start](#vectorofvec%5C_ranking%5C_pairstart)
-- [VectorOfSparse\_ranking\_pair](#vectorofsparse%5C_ranking%5C_pair)
-  - [VectorOfSparse\_ranking\_pair.Count](#vectorofsparse%5C_ranking%5C_paircount)
-  - [VectorOfSparse\_ranking\_pair::create](#vectorofsparse%5C_ranking%5C_paircreate)
-  - [VectorOfSparse\_ranking\_pair::Add](#vectorofsparse%5C_ranking%5C_pairadd)
-  - [VectorOfSparse\_ranking\_pair::Items](#vectorofsparse%5C_ranking%5C_pairitems)
-  - [VectorOfSparse\_ranking\_pair::Keys](#vectorofsparse%5C_ranking%5C_pairkeys)
-  - [VectorOfSparse\_ranking\_pair::Remove](#vectorofsparse%5C_ranking%5C_pairremove)
-  - [VectorOfSparse\_ranking\_pair::append](#vectorofsparse%5C_ranking%5C_pairappend)
-  - [VectorOfSparse\_ranking\_pair::at](#vectorofsparse%5C_ranking%5C_pairat)
-  - [VectorOfSparse\_ranking\_pair::clear](#vectorofsparse%5C_ranking%5C_pairclear)
-  - [VectorOfSparse\_ranking\_pair::empty](#vectorofsparse%5C_ranking%5C_pairempty)
-  - [VectorOfSparse\_ranking\_pair::end](#vectorofsparse%5C_ranking%5C_pairend)
-  - [VectorOfSparse\_ranking\_pair::get\_Item](#vectorofsparse%5C_ranking%5C_pairget%5C_item)
-  - [VectorOfSparse\_ranking\_pair::get\_\_NewEnum](#vectorofsparse%5C_ranking%5C_pairget%5C_%5C_newenum)
-  - [VectorOfSparse\_ranking\_pair::push\_back](#vectorofsparse%5C_ranking%5C_pairpush%5C_back)
-  - [VectorOfSparse\_ranking\_pair::push\_vector](#vectorofsparse%5C_ranking%5C_pairpush%5C_vector)
-  - [VectorOfSparse\_ranking\_pair::put\_Item](#vectorofsparse%5C_ranking%5C_pairput%5C_item)
-  - [VectorOfSparse\_ranking\_pair::size](#vectorofsparse%5C_ranking%5C_pairsize)
-  - [VectorOfSparse\_ranking\_pair::slice](#vectorofsparse%5C_ranking%5C_pairslice)
-  - [VectorOfSparse\_ranking\_pair::sort](#vectorofsparse%5C_ranking%5C_pairsort)
-  - [VectorOfSparse\_ranking\_pair::sort\_variant](#vectorofsparse%5C_ranking%5C_pairsort%5C_variant)
-  - [VectorOfSparse\_ranking\_pair::start](#vectorofsparse%5C_ranking%5C_pairstart)
+- [VectorOfLong](#vectoroflong)
+  - [VectorOfLong.Count](#vectoroflongcount)
+  - [VectorOfLong::create](#vectoroflongcreate)
+  - [VectorOfLong::Add](#vectoroflongadd)
+  - [VectorOfLong::Items](#vectoroflongitems)
+  - [VectorOfLong::Keys](#vectoroflongkeys)
+  - [VectorOfLong::Remove](#vectoroflongremove)
+  - [VectorOfLong::append](#vectoroflongappend)
+  - [VectorOfLong::at](#vectoroflongat)
+  - [VectorOfLong::clear](#vectoroflongclear)
+  - [VectorOfLong::empty](#vectoroflongempty)
+  - [VectorOfLong::end](#vectoroflongend)
+  - [VectorOfLong::get\_Item](#vectoroflongget%5C_item)
+  - [VectorOfLong::get\_\_NewEnum](#vectoroflongget%5C_%5C_newenum)
+  - [VectorOfLong::push\_back](#vectoroflongpush%5C_back)
+  - [VectorOfLong::push\_vector](#vectoroflongpush%5C_vector)
+  - [VectorOfLong::put\_Item](#vectoroflongput%5C_item)
+  - [VectorOfLong::size](#vectoroflongsize)
+  - [VectorOfLong::slice](#vectoroflongslice)
+  - [VectorOfLong::sort](#vectoroflongsort)
+  - [VectorOfLong::sort\_variant](#vectoroflongsort%5C_variant)
+  - [VectorOfLong::start](#vectoroflongstart)
 - [VectorOfVectorOfSpaceVector](#vectorofvectorofspacevector)
   - [VectorOfVectorOfSpaceVector.Count](#vectorofvectorofspacevectorcount)
   - [VectorOfVectorOfSpaceVector::create](#vectorofvectorofspacevectorcreate)
@@ -1385,72 +1364,6 @@
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort](#vectorofvectorofvectorofpairofulonganddoublesort)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::sort\_variant](#vectorofvectorofvectorofpairofulonganddoublesort%5C_variant)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::start](#vectorofvectorofvectorofpairofulonganddoublestart)
-- [VectorOfBool](#vectorofbool)
-  - [VectorOfBool.Count](#vectorofboolcount)
-  - [VectorOfBool::create](#vectorofboolcreate)
-  - [VectorOfBool::Add](#vectorofbooladd)
-  - [VectorOfBool::Items](#vectorofboolitems)
-  - [VectorOfBool::Keys](#vectorofboolkeys)
-  - [VectorOfBool::Remove](#vectorofboolremove)
-  - [VectorOfBool::append](#vectorofboolappend)
-  - [VectorOfBool::at](#vectorofboolat)
-  - [VectorOfBool::clear](#vectorofboolclear)
-  - [VectorOfBool::empty](#vectorofboolempty)
-  - [VectorOfBool::end](#vectorofboolend)
-  - [VectorOfBool::get\_Item](#vectorofboolget%5C_item)
-  - [VectorOfBool::get\_\_NewEnum](#vectorofboolget%5C_%5C_newenum)
-  - [VectorOfBool::push\_back](#vectorofboolpush%5C_back)
-  - [VectorOfBool::push\_vector](#vectorofboolpush%5C_vector)
-  - [VectorOfBool::put\_Item](#vectorofboolput%5C_item)
-  - [VectorOfBool::size](#vectorofboolsize)
-  - [VectorOfBool::slice](#vectorofboolslice)
-  - [VectorOfBool::sort](#vectorofboolsort)
-  - [VectorOfBool::sort\_variant](#vectorofboolsort%5C_variant)
-  - [VectorOfBool::start](#vectorofboolstart)
-- [VectorOfFull\_object\_detection](#vectoroffull%5C_object%5C_detection)
-  - [VectorOfFull\_object\_detection.Count](#vectoroffull%5C_object%5C_detectioncount)
-  - [VectorOfFull\_object\_detection::create](#vectoroffull%5C_object%5C_detectioncreate)
-  - [VectorOfFull\_object\_detection::Add](#vectoroffull%5C_object%5C_detectionadd)
-  - [VectorOfFull\_object\_detection::Items](#vectoroffull%5C_object%5C_detectionitems)
-  - [VectorOfFull\_object\_detection::Keys](#vectoroffull%5C_object%5C_detectionkeys)
-  - [VectorOfFull\_object\_detection::Remove](#vectoroffull%5C_object%5C_detectionremove)
-  - [VectorOfFull\_object\_detection::append](#vectoroffull%5C_object%5C_detectionappend)
-  - [VectorOfFull\_object\_detection::at](#vectoroffull%5C_object%5C_detectionat)
-  - [VectorOfFull\_object\_detection::clear](#vectoroffull%5C_object%5C_detectionclear)
-  - [VectorOfFull\_object\_detection::empty](#vectoroffull%5C_object%5C_detectionempty)
-  - [VectorOfFull\_object\_detection::end](#vectoroffull%5C_object%5C_detectionend)
-  - [VectorOfFull\_object\_detection::get\_Item](#vectoroffull%5C_object%5C_detectionget%5C_item)
-  - [VectorOfFull\_object\_detection::get\_\_NewEnum](#vectoroffull%5C_object%5C_detectionget%5C_%5C_newenum)
-  - [VectorOfFull\_object\_detection::push\_back](#vectoroffull%5C_object%5C_detectionpush%5C_back)
-  - [VectorOfFull\_object\_detection::push\_vector](#vectoroffull%5C_object%5C_detectionpush%5C_vector)
-  - [VectorOfFull\_object\_detection::put\_Item](#vectoroffull%5C_object%5C_detectionput%5C_item)
-  - [VectorOfFull\_object\_detection::size](#vectoroffull%5C_object%5C_detectionsize)
-  - [VectorOfFull\_object\_detection::slice](#vectoroffull%5C_object%5C_detectionslice)
-  - [VectorOfFull\_object\_detection::sort](#vectoroffull%5C_object%5C_detectionsort)
-  - [VectorOfFull\_object\_detection::sort\_variant](#vectoroffull%5C_object%5C_detectionsort%5C_variant)
-  - [VectorOfFull\_object\_detection::start](#vectoroffull%5C_object%5C_detectionstart)
-- [VectorOfMat](#vectorofmat)
-  - [VectorOfMat.Count](#vectorofmatcount)
-  - [VectorOfMat::create](#vectorofmatcreate)
-  - [VectorOfMat::Add](#vectorofmatadd)
-  - [VectorOfMat::Items](#vectorofmatitems)
-  - [VectorOfMat::Keys](#vectorofmatkeys)
-  - [VectorOfMat::Remove](#vectorofmatremove)
-  - [VectorOfMat::append](#vectorofmatappend)
-  - [VectorOfMat::at](#vectorofmatat)
-  - [VectorOfMat::clear](#vectorofmatclear)
-  - [VectorOfMat::empty](#vectorofmatempty)
-  - [VectorOfMat::end](#vectorofmatend)
-  - [VectorOfMat::get\_Item](#vectorofmatget%5C_item)
-  - [VectorOfMat::get\_\_NewEnum](#vectorofmatget%5C_%5C_newenum)
-  - [VectorOfMat::push\_back](#vectorofmatpush%5C_back)
-  - [VectorOfMat::push\_vector](#vectorofmatpush%5C_vector)
-  - [VectorOfMat::put\_Item](#vectorofmatput%5C_item)
-  - [VectorOfMat::size](#vectorofmatsize)
-  - [VectorOfMat::slice](#vectorofmatslice)
-  - [VectorOfMat::sort](#vectorofmatsort)
-  - [VectorOfMat::sort\_variant](#vectorofmatsort%5C_variant)
-  - [VectorOfMat::start](#vectorofmatstart)
 - [VectorOfVectorOfFull\_object\_detection](#vectorofvectoroffull%5C_object%5C_detection)
   - [VectorOfVectorOfFull\_object\_detection.Count](#vectorofvectoroffull%5C_object%5C_detectioncount)
   - [VectorOfVectorOfFull\_object\_detection::create](#vectorofvectoroffull%5C_object%5C_detectioncreate)
@@ -1473,28 +1386,6 @@
   - [VectorOfVectorOfFull\_object\_detection::sort](#vectorofvectoroffull%5C_object%5C_detectionsort)
   - [VectorOfVectorOfFull\_object\_detection::sort\_variant](#vectorofvectoroffull%5C_object%5C_detectionsort%5C_variant)
   - [VectorOfVectorOfFull\_object\_detection::start](#vectorofvectoroffull%5C_object%5C_detectionstart)
-- [VectorOfVectorOfDouble](#vectorofvectorofdouble)
-  - [VectorOfVectorOfDouble.Count](#vectorofvectorofdoublecount)
-  - [VectorOfVectorOfDouble::create](#vectorofvectorofdoublecreate)
-  - [VectorOfVectorOfDouble::Add](#vectorofvectorofdoubleadd)
-  - [VectorOfVectorOfDouble::Items](#vectorofvectorofdoubleitems)
-  - [VectorOfVectorOfDouble::Keys](#vectorofvectorofdoublekeys)
-  - [VectorOfVectorOfDouble::Remove](#vectorofvectorofdoubleremove)
-  - [VectorOfVectorOfDouble::append](#vectorofvectorofdoubleappend)
-  - [VectorOfVectorOfDouble::at](#vectorofvectorofdoubleat)
-  - [VectorOfVectorOfDouble::clear](#vectorofvectorofdoubleclear)
-  - [VectorOfVectorOfDouble::empty](#vectorofvectorofdoubleempty)
-  - [VectorOfVectorOfDouble::end](#vectorofvectorofdoubleend)
-  - [VectorOfVectorOfDouble::get\_Item](#vectorofvectorofdoubleget%5C_item)
-  - [VectorOfVectorOfDouble::get\_\_NewEnum](#vectorofvectorofdoubleget%5C_%5C_newenum)
-  - [VectorOfVectorOfDouble::push\_back](#vectorofvectorofdoublepush%5C_back)
-  - [VectorOfVectorOfDouble::push\_vector](#vectorofvectorofdoublepush%5C_vector)
-  - [VectorOfVectorOfDouble::put\_Item](#vectorofvectorofdoubleput%5C_item)
-  - [VectorOfVectorOfDouble::size](#vectorofvectorofdoublesize)
-  - [VectorOfVectorOfDouble::slice](#vectorofvectorofdoubleslice)
-  - [VectorOfVectorOfDouble::sort](#vectorofvectorofdoublesort)
-  - [VectorOfVectorOfDouble::sort\_variant](#vectorofvectorofdoublesort%5C_variant)
-  - [VectorOfVectorOfDouble::start](#vectorofvectorofdoublestart)
 - [VectorOfVectorOfRectangle](#vectorofvectorofrectangle)
   - [VectorOfVectorOfRectangle.Count](#vectorofvectorofrectanglecount)
   - [VectorOfVectorOfRectangle::create](#vectorofvectorofrectanglecreate)
@@ -1517,6 +1408,116 @@
   - [VectorOfVectorOfRectangle::sort](#vectorofvectorofrectanglesort)
   - [VectorOfVectorOfRectangle::sort\_variant](#vectorofvectorofrectanglesort%5C_variant)
   - [VectorOfVectorOfRectangle::start](#vectorofvectorofrectanglestart)
+- [VectorOfVec\_ranking\_pair](#vectorofvec%5C_ranking%5C_pair)
+  - [VectorOfVec\_ranking\_pair.Count](#vectorofvec%5C_ranking%5C_paircount)
+  - [VectorOfVec\_ranking\_pair::create](#vectorofvec%5C_ranking%5C_paircreate)
+  - [VectorOfVec\_ranking\_pair::Add](#vectorofvec%5C_ranking%5C_pairadd)
+  - [VectorOfVec\_ranking\_pair::Items](#vectorofvec%5C_ranking%5C_pairitems)
+  - [VectorOfVec\_ranking\_pair::Keys](#vectorofvec%5C_ranking%5C_pairkeys)
+  - [VectorOfVec\_ranking\_pair::Remove](#vectorofvec%5C_ranking%5C_pairremove)
+  - [VectorOfVec\_ranking\_pair::append](#vectorofvec%5C_ranking%5C_pairappend)
+  - [VectorOfVec\_ranking\_pair::at](#vectorofvec%5C_ranking%5C_pairat)
+  - [VectorOfVec\_ranking\_pair::clear](#vectorofvec%5C_ranking%5C_pairclear)
+  - [VectorOfVec\_ranking\_pair::empty](#vectorofvec%5C_ranking%5C_pairempty)
+  - [VectorOfVec\_ranking\_pair::end](#vectorofvec%5C_ranking%5C_pairend)
+  - [VectorOfVec\_ranking\_pair::get\_Item](#vectorofvec%5C_ranking%5C_pairget%5C_item)
+  - [VectorOfVec\_ranking\_pair::get\_\_NewEnum](#vectorofvec%5C_ranking%5C_pairget%5C_%5C_newenum)
+  - [VectorOfVec\_ranking\_pair::push\_back](#vectorofvec%5C_ranking%5C_pairpush%5C_back)
+  - [VectorOfVec\_ranking\_pair::push\_vector](#vectorofvec%5C_ranking%5C_pairpush%5C_vector)
+  - [VectorOfVec\_ranking\_pair::put\_Item](#vectorofvec%5C_ranking%5C_pairput%5C_item)
+  - [VectorOfVec\_ranking\_pair::size](#vectorofvec%5C_ranking%5C_pairsize)
+  - [VectorOfVec\_ranking\_pair::slice](#vectorofvec%5C_ranking%5C_pairslice)
+  - [VectorOfVec\_ranking\_pair::sort](#vectorofvec%5C_ranking%5C_pairsort)
+  - [VectorOfVec\_ranking\_pair::sort\_variant](#vectorofvec%5C_ranking%5C_pairsort%5C_variant)
+  - [VectorOfVec\_ranking\_pair::start](#vectorofvec%5C_ranking%5C_pairstart)
+- [VectorOfSparse\_ranking\_pair](#vectorofsparse%5C_ranking%5C_pair)
+  - [VectorOfSparse\_ranking\_pair.Count](#vectorofsparse%5C_ranking%5C_paircount)
+  - [VectorOfSparse\_ranking\_pair::create](#vectorofsparse%5C_ranking%5C_paircreate)
+  - [VectorOfSparse\_ranking\_pair::Add](#vectorofsparse%5C_ranking%5C_pairadd)
+  - [VectorOfSparse\_ranking\_pair::Items](#vectorofsparse%5C_ranking%5C_pairitems)
+  - [VectorOfSparse\_ranking\_pair::Keys](#vectorofsparse%5C_ranking%5C_pairkeys)
+  - [VectorOfSparse\_ranking\_pair::Remove](#vectorofsparse%5C_ranking%5C_pairremove)
+  - [VectorOfSparse\_ranking\_pair::append](#vectorofsparse%5C_ranking%5C_pairappend)
+  - [VectorOfSparse\_ranking\_pair::at](#vectorofsparse%5C_ranking%5C_pairat)
+  - [VectorOfSparse\_ranking\_pair::clear](#vectorofsparse%5C_ranking%5C_pairclear)
+  - [VectorOfSparse\_ranking\_pair::empty](#vectorofsparse%5C_ranking%5C_pairempty)
+  - [VectorOfSparse\_ranking\_pair::end](#vectorofsparse%5C_ranking%5C_pairend)
+  - [VectorOfSparse\_ranking\_pair::get\_Item](#vectorofsparse%5C_ranking%5C_pairget%5C_item)
+  - [VectorOfSparse\_ranking\_pair::get\_\_NewEnum](#vectorofsparse%5C_ranking%5C_pairget%5C_%5C_newenum)
+  - [VectorOfSparse\_ranking\_pair::push\_back](#vectorofsparse%5C_ranking%5C_pairpush%5C_back)
+  - [VectorOfSparse\_ranking\_pair::push\_vector](#vectorofsparse%5C_ranking%5C_pairpush%5C_vector)
+  - [VectorOfSparse\_ranking\_pair::put\_Item](#vectorofsparse%5C_ranking%5C_pairput%5C_item)
+  - [VectorOfSparse\_ranking\_pair::size](#vectorofsparse%5C_ranking%5C_pairsize)
+  - [VectorOfSparse\_ranking\_pair::slice](#vectorofsparse%5C_ranking%5C_pairslice)
+  - [VectorOfSparse\_ranking\_pair::sort](#vectorofsparse%5C_ranking%5C_pairsort)
+  - [VectorOfSparse\_ranking\_pair::sort\_variant](#vectorofsparse%5C_ranking%5C_pairsort%5C_variant)
+  - [VectorOfSparse\_ranking\_pair::start](#vectorofsparse%5C_ranking%5C_pairstart)
+- [VectorOfDpoint](#vectorofdpoint)
+  - [VectorOfDpoint.Count](#vectorofdpointcount)
+  - [VectorOfDpoint::create](#vectorofdpointcreate)
+  - [VectorOfDpoint::Add](#vectorofdpointadd)
+  - [VectorOfDpoint::Items](#vectorofdpointitems)
+  - [VectorOfDpoint::Keys](#vectorofdpointkeys)
+  - [VectorOfDpoint::Remove](#vectorofdpointremove)
+  - [VectorOfDpoint::append](#vectorofdpointappend)
+  - [VectorOfDpoint::at](#vectorofdpointat)
+  - [VectorOfDpoint::clear](#vectorofdpointclear)
+  - [VectorOfDpoint::empty](#vectorofdpointempty)
+  - [VectorOfDpoint::end](#vectorofdpointend)
+  - [VectorOfDpoint::get\_Item](#vectorofdpointget%5C_item)
+  - [VectorOfDpoint::get\_\_NewEnum](#vectorofdpointget%5C_%5C_newenum)
+  - [VectorOfDpoint::push\_back](#vectorofdpointpush%5C_back)
+  - [VectorOfDpoint::push\_vector](#vectorofdpointpush%5C_vector)
+  - [VectorOfDpoint::put\_Item](#vectorofdpointput%5C_item)
+  - [VectorOfDpoint::size](#vectorofdpointsize)
+  - [VectorOfDpoint::slice](#vectorofdpointslice)
+  - [VectorOfDpoint::sort](#vectorofdpointsort)
+  - [VectorOfDpoint::sort\_variant](#vectorofdpointsort%5C_variant)
+  - [VectorOfDpoint::start](#vectorofdpointstart)
+- [VectorOfPoint](#vectorofpoint)
+  - [VectorOfPoint.Count](#vectorofpointcount)
+  - [VectorOfPoint::create](#vectorofpointcreate)
+  - [VectorOfPoint::Add](#vectorofpointadd)
+  - [VectorOfPoint::Items](#vectorofpointitems)
+  - [VectorOfPoint::Keys](#vectorofpointkeys)
+  - [VectorOfPoint::Remove](#vectorofpointremove)
+  - [VectorOfPoint::append](#vectorofpointappend)
+  - [VectorOfPoint::at](#vectorofpointat)
+  - [VectorOfPoint::clear](#vectorofpointclear)
+  - [VectorOfPoint::empty](#vectorofpointempty)
+  - [VectorOfPoint::end](#vectorofpointend)
+  - [VectorOfPoint::get\_Item](#vectorofpointget%5C_item)
+  - [VectorOfPoint::get\_\_NewEnum](#vectorofpointget%5C_%5C_newenum)
+  - [VectorOfPoint::push\_back](#vectorofpointpush%5C_back)
+  - [VectorOfPoint::push\_vector](#vectorofpointpush%5C_vector)
+  - [VectorOfPoint::put\_Item](#vectorofpointput%5C_item)
+  - [VectorOfPoint::size](#vectorofpointsize)
+  - [VectorOfPoint::slice](#vectorofpointslice)
+  - [VectorOfPoint::sort](#vectorofpointsort)
+  - [VectorOfPoint::sort\_variant](#vectorofpointsort%5C_variant)
+  - [VectorOfPoint::start](#vectorofpointstart)
+- [VectorOfVectorOfDouble](#vectorofvectorofdouble)
+  - [VectorOfVectorOfDouble.Count](#vectorofvectorofdoublecount)
+  - [VectorOfVectorOfDouble::create](#vectorofvectorofdoublecreate)
+  - [VectorOfVectorOfDouble::Add](#vectorofvectorofdoubleadd)
+  - [VectorOfVectorOfDouble::Items](#vectorofvectorofdoubleitems)
+  - [VectorOfVectorOfDouble::Keys](#vectorofvectorofdoublekeys)
+  - [VectorOfVectorOfDouble::Remove](#vectorofvectorofdoubleremove)
+  - [VectorOfVectorOfDouble::append](#vectorofvectorofdoubleappend)
+  - [VectorOfVectorOfDouble::at](#vectorofvectorofdoubleat)
+  - [VectorOfVectorOfDouble::clear](#vectorofvectorofdoubleclear)
+  - [VectorOfVectorOfDouble::empty](#vectorofvectorofdoubleempty)
+  - [VectorOfVectorOfDouble::end](#vectorofvectorofdoubleend)
+  - [VectorOfVectorOfDouble::get\_Item](#vectorofvectorofdoubleget%5C_item)
+  - [VectorOfVectorOfDouble::get\_\_NewEnum](#vectorofvectorofdoubleget%5C_%5C_newenum)
+  - [VectorOfVectorOfDouble::push\_back](#vectorofvectorofdoublepush%5C_back)
+  - [VectorOfVectorOfDouble::push\_vector](#vectorofvectorofdoublepush%5C_vector)
+  - [VectorOfVectorOfDouble::put\_Item](#vectorofvectorofdoubleput%5C_item)
+  - [VectorOfVectorOfDouble::size](#vectorofvectorofdoublesize)
+  - [VectorOfVectorOfDouble::slice](#vectorofvectorofdoubleslice)
+  - [VectorOfVectorOfDouble::sort](#vectorofvectorofdoublesort)
+  - [VectorOfVectorOfDouble::sort\_variant](#vectorofvectorofdoublesort%5C_variant)
+  - [VectorOfVectorOfDouble::start](#vectorofvectorofdoublestart)
 - [VectorOfMmod\_rect](#vectorofmmod%5C_rect)
   - [VectorOfMmod\_rect.Count](#vectorofmmod%5C_rectcount)
   - [VectorOfMmod\_rect::create](#vectorofmmod%5C_rectcreate)
@@ -1605,28 +1606,6 @@
   - [VectorOfFhog\_object\_detector::sort](#vectoroffhog%5C_object%5C_detectorsort)
   - [VectorOfFhog\_object\_detector::sort\_variant](#vectoroffhog%5C_object%5C_detectorsort%5C_variant)
   - [VectorOfFhog\_object\_detector::start](#vectoroffhog%5C_object%5C_detectorstart)
-- [VectorOfInt](#vectorofint)
-  - [VectorOfInt.Count](#vectorofintcount)
-  - [VectorOfInt::create](#vectorofintcreate)
-  - [VectorOfInt::Add](#vectorofintadd)
-  - [VectorOfInt::Items](#vectorofintitems)
-  - [VectorOfInt::Keys](#vectorofintkeys)
-  - [VectorOfInt::Remove](#vectorofintremove)
-  - [VectorOfInt::append](#vectorofintappend)
-  - [VectorOfInt::at](#vectorofintat)
-  - [VectorOfInt::clear](#vectorofintclear)
-  - [VectorOfInt::empty](#vectorofintempty)
-  - [VectorOfInt::end](#vectorofintend)
-  - [VectorOfInt::get\_Item](#vectorofintget%5C_item)
-  - [VectorOfInt::get\_\_NewEnum](#vectorofintget%5C_%5C_newenum)
-  - [VectorOfInt::push\_back](#vectorofintpush%5C_back)
-  - [VectorOfInt::push\_vector](#vectorofintpush%5C_vector)
-  - [VectorOfInt::put\_Item](#vectorofintput%5C_item)
-  - [VectorOfInt::size](#vectorofintsize)
-  - [VectorOfInt::slice](#vectorofintslice)
-  - [VectorOfInt::sort](#vectorofintsort)
-  - [VectorOfInt::sort\_variant](#vectorofintsort%5C_variant)
-  - [VectorOfInt::start](#vectorofintstart)
 - [VectorOfUchar](#vectorofuchar)
   - [VectorOfUchar.Count](#vectorofucharcount)
   - [VectorOfUchar::create](#vectorofucharcreate)
@@ -1649,6 +1628,28 @@
   - [VectorOfUchar::sort](#vectorofucharsort)
   - [VectorOfUchar::sort\_variant](#vectorofucharsort%5C_variant)
   - [VectorOfUchar::start](#vectorofucharstart)
+- [VectorOfInt](#vectorofint)
+  - [VectorOfInt.Count](#vectorofintcount)
+  - [VectorOfInt::create](#vectorofintcreate)
+  - [VectorOfInt::Add](#vectorofintadd)
+  - [VectorOfInt::Items](#vectorofintitems)
+  - [VectorOfInt::Keys](#vectorofintkeys)
+  - [VectorOfInt::Remove](#vectorofintremove)
+  - [VectorOfInt::append](#vectorofintappend)
+  - [VectorOfInt::at](#vectorofintat)
+  - [VectorOfInt::clear](#vectorofintclear)
+  - [VectorOfInt::empty](#vectorofintempty)
+  - [VectorOfInt::end](#vectorofintend)
+  - [VectorOfInt::get\_Item](#vectorofintget%5C_item)
+  - [VectorOfInt::get\_\_NewEnum](#vectorofintget%5C_%5C_newenum)
+  - [VectorOfInt::push\_back](#vectorofintpush%5C_back)
+  - [VectorOfInt::push\_vector](#vectorofintpush%5C_vector)
+  - [VectorOfInt::put\_Item](#vectorofintput%5C_item)
+  - [VectorOfInt::size](#vectorofintsize)
+  - [VectorOfInt::slice](#vectorofintslice)
+  - [VectorOfInt::sort](#vectorofintsort)
+  - [VectorOfInt::sort\_variant](#vectorofintsort%5C_variant)
+  - [VectorOfInt::start](#vectorofintstart)
 - [VectorOfFunction\_spec](#vectoroffunction%5C_spec)
   - [VectorOfFunction\_spec.Count](#vectoroffunction%5C_speccount)
   - [VectorOfFunction\_spec::create](#vectoroffunction%5C_speccreate)
@@ -1932,116 +1933,6 @@
   - [VectorOfVec2b::sort](#vectorofvec2bsort)
   - [VectorOfVec2b::sort\_variant](#vectorofvec2bsort%5C_variant)
   - [VectorOfVec2b::start](#vectorofvec2bstart)
-- [VectorOfVec2d](#vectorofvec2d)
-  - [VectorOfVec2d.Count](#vectorofvec2dcount)
-  - [VectorOfVec2d::create](#vectorofvec2dcreate)
-  - [VectorOfVec2d::Add](#vectorofvec2dadd)
-  - [VectorOfVec2d::Items](#vectorofvec2ditems)
-  - [VectorOfVec2d::Keys](#vectorofvec2dkeys)
-  - [VectorOfVec2d::Remove](#vectorofvec2dremove)
-  - [VectorOfVec2d::append](#vectorofvec2dappend)
-  - [VectorOfVec2d::at](#vectorofvec2dat)
-  - [VectorOfVec2d::clear](#vectorofvec2dclear)
-  - [VectorOfVec2d::empty](#vectorofvec2dempty)
-  - [VectorOfVec2d::end](#vectorofvec2dend)
-  - [VectorOfVec2d::get\_Item](#vectorofvec2dget%5C_item)
-  - [VectorOfVec2d::get\_\_NewEnum](#vectorofvec2dget%5C_%5C_newenum)
-  - [VectorOfVec2d::push\_back](#vectorofvec2dpush%5C_back)
-  - [VectorOfVec2d::push\_vector](#vectorofvec2dpush%5C_vector)
-  - [VectorOfVec2d::put\_Item](#vectorofvec2dput%5C_item)
-  - [VectorOfVec2d::size](#vectorofvec2dsize)
-  - [VectorOfVec2d::slice](#vectorofvec2dslice)
-  - [VectorOfVec2d::sort](#vectorofvec2dsort)
-  - [VectorOfVec2d::sort\_variant](#vectorofvec2dsort%5C_variant)
-  - [VectorOfVec2d::start](#vectorofvec2dstart)
-- [VectorOfVec2f](#vectorofvec2f)
-  - [VectorOfVec2f.Count](#vectorofvec2fcount)
-  - [VectorOfVec2f::create](#vectorofvec2fcreate)
-  - [VectorOfVec2f::Add](#vectorofvec2fadd)
-  - [VectorOfVec2f::Items](#vectorofvec2fitems)
-  - [VectorOfVec2f::Keys](#vectorofvec2fkeys)
-  - [VectorOfVec2f::Remove](#vectorofvec2fremove)
-  - [VectorOfVec2f::append](#vectorofvec2fappend)
-  - [VectorOfVec2f::at](#vectorofvec2fat)
-  - [VectorOfVec2f::clear](#vectorofvec2fclear)
-  - [VectorOfVec2f::empty](#vectorofvec2fempty)
-  - [VectorOfVec2f::end](#vectorofvec2fend)
-  - [VectorOfVec2f::get\_Item](#vectorofvec2fget%5C_item)
-  - [VectorOfVec2f::get\_\_NewEnum](#vectorofvec2fget%5C_%5C_newenum)
-  - [VectorOfVec2f::push\_back](#vectorofvec2fpush%5C_back)
-  - [VectorOfVec2f::push\_vector](#vectorofvec2fpush%5C_vector)
-  - [VectorOfVec2f::put\_Item](#vectorofvec2fput%5C_item)
-  - [VectorOfVec2f::size](#vectorofvec2fsize)
-  - [VectorOfVec2f::slice](#vectorofvec2fslice)
-  - [VectorOfVec2f::sort](#vectorofvec2fsort)
-  - [VectorOfVec2f::sort\_variant](#vectorofvec2fsort%5C_variant)
-  - [VectorOfVec2f::start](#vectorofvec2fstart)
-- [VectorOfVec2i](#vectorofvec2i)
-  - [VectorOfVec2i.Count](#vectorofvec2icount)
-  - [VectorOfVec2i::create](#vectorofvec2icreate)
-  - [VectorOfVec2i::Add](#vectorofvec2iadd)
-  - [VectorOfVec2i::Items](#vectorofvec2iitems)
-  - [VectorOfVec2i::Keys](#vectorofvec2ikeys)
-  - [VectorOfVec2i::Remove](#vectorofvec2iremove)
-  - [VectorOfVec2i::append](#vectorofvec2iappend)
-  - [VectorOfVec2i::at](#vectorofvec2iat)
-  - [VectorOfVec2i::clear](#vectorofvec2iclear)
-  - [VectorOfVec2i::empty](#vectorofvec2iempty)
-  - [VectorOfVec2i::end](#vectorofvec2iend)
-  - [VectorOfVec2i::get\_Item](#vectorofvec2iget%5C_item)
-  - [VectorOfVec2i::get\_\_NewEnum](#vectorofvec2iget%5C_%5C_newenum)
-  - [VectorOfVec2i::push\_back](#vectorofvec2ipush%5C_back)
-  - [VectorOfVec2i::push\_vector](#vectorofvec2ipush%5C_vector)
-  - [VectorOfVec2i::put\_Item](#vectorofvec2iput%5C_item)
-  - [VectorOfVec2i::size](#vectorofvec2isize)
-  - [VectorOfVec2i::slice](#vectorofvec2islice)
-  - [VectorOfVec2i::sort](#vectorofvec2isort)
-  - [VectorOfVec2i::sort\_variant](#vectorofvec2isort%5C_variant)
-  - [VectorOfVec2i::start](#vectorofvec2istart)
-- [VectorOfVec2s](#vectorofvec2s)
-  - [VectorOfVec2s.Count](#vectorofvec2scount)
-  - [VectorOfVec2s::create](#vectorofvec2screate)
-  - [VectorOfVec2s::Add](#vectorofvec2sadd)
-  - [VectorOfVec2s::Items](#vectorofvec2sitems)
-  - [VectorOfVec2s::Keys](#vectorofvec2skeys)
-  - [VectorOfVec2s::Remove](#vectorofvec2sremove)
-  - [VectorOfVec2s::append](#vectorofvec2sappend)
-  - [VectorOfVec2s::at](#vectorofvec2sat)
-  - [VectorOfVec2s::clear](#vectorofvec2sclear)
-  - [VectorOfVec2s::empty](#vectorofvec2sempty)
-  - [VectorOfVec2s::end](#vectorofvec2send)
-  - [VectorOfVec2s::get\_Item](#vectorofvec2sget%5C_item)
-  - [VectorOfVec2s::get\_\_NewEnum](#vectorofvec2sget%5C_%5C_newenum)
-  - [VectorOfVec2s::push\_back](#vectorofvec2spush%5C_back)
-  - [VectorOfVec2s::push\_vector](#vectorofvec2spush%5C_vector)
-  - [VectorOfVec2s::put\_Item](#vectorofvec2sput%5C_item)
-  - [VectorOfVec2s::size](#vectorofvec2ssize)
-  - [VectorOfVec2s::slice](#vectorofvec2sslice)
-  - [VectorOfVec2s::sort](#vectorofvec2ssort)
-  - [VectorOfVec2s::sort\_variant](#vectorofvec2ssort%5C_variant)
-  - [VectorOfVec2s::start](#vectorofvec2sstart)
-- [VectorOfVec2w](#vectorofvec2w)
-  - [VectorOfVec2w.Count](#vectorofvec2wcount)
-  - [VectorOfVec2w::create](#vectorofvec2wcreate)
-  - [VectorOfVec2w::Add](#vectorofvec2wadd)
-  - [VectorOfVec2w::Items](#vectorofvec2witems)
-  - [VectorOfVec2w::Keys](#vectorofvec2wkeys)
-  - [VectorOfVec2w::Remove](#vectorofvec2wremove)
-  - [VectorOfVec2w::append](#vectorofvec2wappend)
-  - [VectorOfVec2w::at](#vectorofvec2wat)
-  - [VectorOfVec2w::clear](#vectorofvec2wclear)
-  - [VectorOfVec2w::empty](#vectorofvec2wempty)
-  - [VectorOfVec2w::end](#vectorofvec2wend)
-  - [VectorOfVec2w::get\_Item](#vectorofvec2wget%5C_item)
-  - [VectorOfVec2w::get\_\_NewEnum](#vectorofvec2wget%5C_%5C_newenum)
-  - [VectorOfVec2w::push\_back](#vectorofvec2wpush%5C_back)
-  - [VectorOfVec2w::push\_vector](#vectorofvec2wpush%5C_vector)
-  - [VectorOfVec2w::put\_Item](#vectorofvec2wput%5C_item)
-  - [VectorOfVec2w::size](#vectorofvec2wsize)
-  - [VectorOfVec2w::slice](#vectorofvec2wslice)
-  - [VectorOfVec2w::sort](#vectorofvec2wsort)
-  - [VectorOfVec2w::sort\_variant](#vectorofvec2wsort%5C_variant)
-  - [VectorOfVec2w::start](#vectorofvec2wstart)
 - [VectorOfVec3b](#vectorofvec3b)
   - [VectorOfVec3b.Count](#vectorofvec3bcount)
   - [VectorOfVec3b::create](#vectorofvec3bcreate)
@@ -2064,116 +1955,6 @@
   - [VectorOfVec3b::sort](#vectorofvec3bsort)
   - [VectorOfVec3b::sort\_variant](#vectorofvec3bsort%5C_variant)
   - [VectorOfVec3b::start](#vectorofvec3bstart)
-- [VectorOfVec3d](#vectorofvec3d)
-  - [VectorOfVec3d.Count](#vectorofvec3dcount)
-  - [VectorOfVec3d::create](#vectorofvec3dcreate)
-  - [VectorOfVec3d::Add](#vectorofvec3dadd)
-  - [VectorOfVec3d::Items](#vectorofvec3ditems)
-  - [VectorOfVec3d::Keys](#vectorofvec3dkeys)
-  - [VectorOfVec3d::Remove](#vectorofvec3dremove)
-  - [VectorOfVec3d::append](#vectorofvec3dappend)
-  - [VectorOfVec3d::at](#vectorofvec3dat)
-  - [VectorOfVec3d::clear](#vectorofvec3dclear)
-  - [VectorOfVec3d::empty](#vectorofvec3dempty)
-  - [VectorOfVec3d::end](#vectorofvec3dend)
-  - [VectorOfVec3d::get\_Item](#vectorofvec3dget%5C_item)
-  - [VectorOfVec3d::get\_\_NewEnum](#vectorofvec3dget%5C_%5C_newenum)
-  - [VectorOfVec3d::push\_back](#vectorofvec3dpush%5C_back)
-  - [VectorOfVec3d::push\_vector](#vectorofvec3dpush%5C_vector)
-  - [VectorOfVec3d::put\_Item](#vectorofvec3dput%5C_item)
-  - [VectorOfVec3d::size](#vectorofvec3dsize)
-  - [VectorOfVec3d::slice](#vectorofvec3dslice)
-  - [VectorOfVec3d::sort](#vectorofvec3dsort)
-  - [VectorOfVec3d::sort\_variant](#vectorofvec3dsort%5C_variant)
-  - [VectorOfVec3d::start](#vectorofvec3dstart)
-- [VectorOfVec3f](#vectorofvec3f)
-  - [VectorOfVec3f.Count](#vectorofvec3fcount)
-  - [VectorOfVec3f::create](#vectorofvec3fcreate)
-  - [VectorOfVec3f::Add](#vectorofvec3fadd)
-  - [VectorOfVec3f::Items](#vectorofvec3fitems)
-  - [VectorOfVec3f::Keys](#vectorofvec3fkeys)
-  - [VectorOfVec3f::Remove](#vectorofvec3fremove)
-  - [VectorOfVec3f::append](#vectorofvec3fappend)
-  - [VectorOfVec3f::at](#vectorofvec3fat)
-  - [VectorOfVec3f::clear](#vectorofvec3fclear)
-  - [VectorOfVec3f::empty](#vectorofvec3fempty)
-  - [VectorOfVec3f::end](#vectorofvec3fend)
-  - [VectorOfVec3f::get\_Item](#vectorofvec3fget%5C_item)
-  - [VectorOfVec3f::get\_\_NewEnum](#vectorofvec3fget%5C_%5C_newenum)
-  - [VectorOfVec3f::push\_back](#vectorofvec3fpush%5C_back)
-  - [VectorOfVec3f::push\_vector](#vectorofvec3fpush%5C_vector)
-  - [VectorOfVec3f::put\_Item](#vectorofvec3fput%5C_item)
-  - [VectorOfVec3f::size](#vectorofvec3fsize)
-  - [VectorOfVec3f::slice](#vectorofvec3fslice)
-  - [VectorOfVec3f::sort](#vectorofvec3fsort)
-  - [VectorOfVec3f::sort\_variant](#vectorofvec3fsort%5C_variant)
-  - [VectorOfVec3f::start](#vectorofvec3fstart)
-- [VectorOfVec3i](#vectorofvec3i)
-  - [VectorOfVec3i.Count](#vectorofvec3icount)
-  - [VectorOfVec3i::create](#vectorofvec3icreate)
-  - [VectorOfVec3i::Add](#vectorofvec3iadd)
-  - [VectorOfVec3i::Items](#vectorofvec3iitems)
-  - [VectorOfVec3i::Keys](#vectorofvec3ikeys)
-  - [VectorOfVec3i::Remove](#vectorofvec3iremove)
-  - [VectorOfVec3i::append](#vectorofvec3iappend)
-  - [VectorOfVec3i::at](#vectorofvec3iat)
-  - [VectorOfVec3i::clear](#vectorofvec3iclear)
-  - [VectorOfVec3i::empty](#vectorofvec3iempty)
-  - [VectorOfVec3i::end](#vectorofvec3iend)
-  - [VectorOfVec3i::get\_Item](#vectorofvec3iget%5C_item)
-  - [VectorOfVec3i::get\_\_NewEnum](#vectorofvec3iget%5C_%5C_newenum)
-  - [VectorOfVec3i::push\_back](#vectorofvec3ipush%5C_back)
-  - [VectorOfVec3i::push\_vector](#vectorofvec3ipush%5C_vector)
-  - [VectorOfVec3i::put\_Item](#vectorofvec3iput%5C_item)
-  - [VectorOfVec3i::size](#vectorofvec3isize)
-  - [VectorOfVec3i::slice](#vectorofvec3islice)
-  - [VectorOfVec3i::sort](#vectorofvec3isort)
-  - [VectorOfVec3i::sort\_variant](#vectorofvec3isort%5C_variant)
-  - [VectorOfVec3i::start](#vectorofvec3istart)
-- [VectorOfVec3s](#vectorofvec3s)
-  - [VectorOfVec3s.Count](#vectorofvec3scount)
-  - [VectorOfVec3s::create](#vectorofvec3screate)
-  - [VectorOfVec3s::Add](#vectorofvec3sadd)
-  - [VectorOfVec3s::Items](#vectorofvec3sitems)
-  - [VectorOfVec3s::Keys](#vectorofvec3skeys)
-  - [VectorOfVec3s::Remove](#vectorofvec3sremove)
-  - [VectorOfVec3s::append](#vectorofvec3sappend)
-  - [VectorOfVec3s::at](#vectorofvec3sat)
-  - [VectorOfVec3s::clear](#vectorofvec3sclear)
-  - [VectorOfVec3s::empty](#vectorofvec3sempty)
-  - [VectorOfVec3s::end](#vectorofvec3send)
-  - [VectorOfVec3s::get\_Item](#vectorofvec3sget%5C_item)
-  - [VectorOfVec3s::get\_\_NewEnum](#vectorofvec3sget%5C_%5C_newenum)
-  - [VectorOfVec3s::push\_back](#vectorofvec3spush%5C_back)
-  - [VectorOfVec3s::push\_vector](#vectorofvec3spush%5C_vector)
-  - [VectorOfVec3s::put\_Item](#vectorofvec3sput%5C_item)
-  - [VectorOfVec3s::size](#vectorofvec3ssize)
-  - [VectorOfVec3s::slice](#vectorofvec3sslice)
-  - [VectorOfVec3s::sort](#vectorofvec3ssort)
-  - [VectorOfVec3s::sort\_variant](#vectorofvec3ssort%5C_variant)
-  - [VectorOfVec3s::start](#vectorofvec3sstart)
-- [VectorOfVec3w](#vectorofvec3w)
-  - [VectorOfVec3w.Count](#vectorofvec3wcount)
-  - [VectorOfVec3w::create](#vectorofvec3wcreate)
-  - [VectorOfVec3w::Add](#vectorofvec3wadd)
-  - [VectorOfVec3w::Items](#vectorofvec3witems)
-  - [VectorOfVec3w::Keys](#vectorofvec3wkeys)
-  - [VectorOfVec3w::Remove](#vectorofvec3wremove)
-  - [VectorOfVec3w::append](#vectorofvec3wappend)
-  - [VectorOfVec3w::at](#vectorofvec3wat)
-  - [VectorOfVec3w::clear](#vectorofvec3wclear)
-  - [VectorOfVec3w::empty](#vectorofvec3wempty)
-  - [VectorOfVec3w::end](#vectorofvec3wend)
-  - [VectorOfVec3w::get\_Item](#vectorofvec3wget%5C_item)
-  - [VectorOfVec3w::get\_\_NewEnum](#vectorofvec3wget%5C_%5C_newenum)
-  - [VectorOfVec3w::push\_back](#vectorofvec3wpush%5C_back)
-  - [VectorOfVec3w::push\_vector](#vectorofvec3wpush%5C_vector)
-  - [VectorOfVec3w::put\_Item](#vectorofvec3wput%5C_item)
-  - [VectorOfVec3w::size](#vectorofvec3wsize)
-  - [VectorOfVec3w::slice](#vectorofvec3wslice)
-  - [VectorOfVec3w::sort](#vectorofvec3wsort)
-  - [VectorOfVec3w::sort\_variant](#vectorofvec3wsort%5C_variant)
-  - [VectorOfVec3w::start](#vectorofvec3wstart)
 - [VectorOfVec4b](#vectorofvec4b)
   - [VectorOfVec4b.Count](#vectorofvec4bcount)
   - [VectorOfVec4b::create](#vectorofvec4bcreate)
@@ -2196,72 +1977,50 @@
   - [VectorOfVec4b::sort](#vectorofvec4bsort)
   - [VectorOfVec4b::sort\_variant](#vectorofvec4bsort%5C_variant)
   - [VectorOfVec4b::start](#vectorofvec4bstart)
-- [VectorOfVec4d](#vectorofvec4d)
-  - [VectorOfVec4d.Count](#vectorofvec4dcount)
-  - [VectorOfVec4d::create](#vectorofvec4dcreate)
-  - [VectorOfVec4d::Add](#vectorofvec4dadd)
-  - [VectorOfVec4d::Items](#vectorofvec4ditems)
-  - [VectorOfVec4d::Keys](#vectorofvec4dkeys)
-  - [VectorOfVec4d::Remove](#vectorofvec4dremove)
-  - [VectorOfVec4d::append](#vectorofvec4dappend)
-  - [VectorOfVec4d::at](#vectorofvec4dat)
-  - [VectorOfVec4d::clear](#vectorofvec4dclear)
-  - [VectorOfVec4d::empty](#vectorofvec4dempty)
-  - [VectorOfVec4d::end](#vectorofvec4dend)
-  - [VectorOfVec4d::get\_Item](#vectorofvec4dget%5C_item)
-  - [VectorOfVec4d::get\_\_NewEnum](#vectorofvec4dget%5C_%5C_newenum)
-  - [VectorOfVec4d::push\_back](#vectorofvec4dpush%5C_back)
-  - [VectorOfVec4d::push\_vector](#vectorofvec4dpush%5C_vector)
-  - [VectorOfVec4d::put\_Item](#vectorofvec4dput%5C_item)
-  - [VectorOfVec4d::size](#vectorofvec4dsize)
-  - [VectorOfVec4d::slice](#vectorofvec4dslice)
-  - [VectorOfVec4d::sort](#vectorofvec4dsort)
-  - [VectorOfVec4d::sort\_variant](#vectorofvec4dsort%5C_variant)
-  - [VectorOfVec4d::start](#vectorofvec4dstart)
-- [VectorOfVec4f](#vectorofvec4f)
-  - [VectorOfVec4f.Count](#vectorofvec4fcount)
-  - [VectorOfVec4f::create](#vectorofvec4fcreate)
-  - [VectorOfVec4f::Add](#vectorofvec4fadd)
-  - [VectorOfVec4f::Items](#vectorofvec4fitems)
-  - [VectorOfVec4f::Keys](#vectorofvec4fkeys)
-  - [VectorOfVec4f::Remove](#vectorofvec4fremove)
-  - [VectorOfVec4f::append](#vectorofvec4fappend)
-  - [VectorOfVec4f::at](#vectorofvec4fat)
-  - [VectorOfVec4f::clear](#vectorofvec4fclear)
-  - [VectorOfVec4f::empty](#vectorofvec4fempty)
-  - [VectorOfVec4f::end](#vectorofvec4fend)
-  - [VectorOfVec4f::get\_Item](#vectorofvec4fget%5C_item)
-  - [VectorOfVec4f::get\_\_NewEnum](#vectorofvec4fget%5C_%5C_newenum)
-  - [VectorOfVec4f::push\_back](#vectorofvec4fpush%5C_back)
-  - [VectorOfVec4f::push\_vector](#vectorofvec4fpush%5C_vector)
-  - [VectorOfVec4f::put\_Item](#vectorofvec4fput%5C_item)
-  - [VectorOfVec4f::size](#vectorofvec4fsize)
-  - [VectorOfVec4f::slice](#vectorofvec4fslice)
-  - [VectorOfVec4f::sort](#vectorofvec4fsort)
-  - [VectorOfVec4f::sort\_variant](#vectorofvec4fsort%5C_variant)
-  - [VectorOfVec4f::start](#vectorofvec4fstart)
-- [VectorOfVec4i](#vectorofvec4i)
-  - [VectorOfVec4i.Count](#vectorofvec4icount)
-  - [VectorOfVec4i::create](#vectorofvec4icreate)
-  - [VectorOfVec4i::Add](#vectorofvec4iadd)
-  - [VectorOfVec4i::Items](#vectorofvec4iitems)
-  - [VectorOfVec4i::Keys](#vectorofvec4ikeys)
-  - [VectorOfVec4i::Remove](#vectorofvec4iremove)
-  - [VectorOfVec4i::append](#vectorofvec4iappend)
-  - [VectorOfVec4i::at](#vectorofvec4iat)
-  - [VectorOfVec4i::clear](#vectorofvec4iclear)
-  - [VectorOfVec4i::empty](#vectorofvec4iempty)
-  - [VectorOfVec4i::end](#vectorofvec4iend)
-  - [VectorOfVec4i::get\_Item](#vectorofvec4iget%5C_item)
-  - [VectorOfVec4i::get\_\_NewEnum](#vectorofvec4iget%5C_%5C_newenum)
-  - [VectorOfVec4i::push\_back](#vectorofvec4ipush%5C_back)
-  - [VectorOfVec4i::push\_vector](#vectorofvec4ipush%5C_vector)
-  - [VectorOfVec4i::put\_Item](#vectorofvec4iput%5C_item)
-  - [VectorOfVec4i::size](#vectorofvec4isize)
-  - [VectorOfVec4i::slice](#vectorofvec4islice)
-  - [VectorOfVec4i::sort](#vectorofvec4isort)
-  - [VectorOfVec4i::sort\_variant](#vectorofvec4isort%5C_variant)
-  - [VectorOfVec4i::start](#vectorofvec4istart)
+- [VectorOfVec2s](#vectorofvec2s)
+  - [VectorOfVec2s.Count](#vectorofvec2scount)
+  - [VectorOfVec2s::create](#vectorofvec2screate)
+  - [VectorOfVec2s::Add](#vectorofvec2sadd)
+  - [VectorOfVec2s::Items](#vectorofvec2sitems)
+  - [VectorOfVec2s::Keys](#vectorofvec2skeys)
+  - [VectorOfVec2s::Remove](#vectorofvec2sremove)
+  - [VectorOfVec2s::append](#vectorofvec2sappend)
+  - [VectorOfVec2s::at](#vectorofvec2sat)
+  - [VectorOfVec2s::clear](#vectorofvec2sclear)
+  - [VectorOfVec2s::empty](#vectorofvec2sempty)
+  - [VectorOfVec2s::end](#vectorofvec2send)
+  - [VectorOfVec2s::get\_Item](#vectorofvec2sget%5C_item)
+  - [VectorOfVec2s::get\_\_NewEnum](#vectorofvec2sget%5C_%5C_newenum)
+  - [VectorOfVec2s::push\_back](#vectorofvec2spush%5C_back)
+  - [VectorOfVec2s::push\_vector](#vectorofvec2spush%5C_vector)
+  - [VectorOfVec2s::put\_Item](#vectorofvec2sput%5C_item)
+  - [VectorOfVec2s::size](#vectorofvec2ssize)
+  - [VectorOfVec2s::slice](#vectorofvec2sslice)
+  - [VectorOfVec2s::sort](#vectorofvec2ssort)
+  - [VectorOfVec2s::sort\_variant](#vectorofvec2ssort%5C_variant)
+  - [VectorOfVec2s::start](#vectorofvec2sstart)
+- [VectorOfVec3s](#vectorofvec3s)
+  - [VectorOfVec3s.Count](#vectorofvec3scount)
+  - [VectorOfVec3s::create](#vectorofvec3screate)
+  - [VectorOfVec3s::Add](#vectorofvec3sadd)
+  - [VectorOfVec3s::Items](#vectorofvec3sitems)
+  - [VectorOfVec3s::Keys](#vectorofvec3skeys)
+  - [VectorOfVec3s::Remove](#vectorofvec3sremove)
+  - [VectorOfVec3s::append](#vectorofvec3sappend)
+  - [VectorOfVec3s::at](#vectorofvec3sat)
+  - [VectorOfVec3s::clear](#vectorofvec3sclear)
+  - [VectorOfVec3s::empty](#vectorofvec3sempty)
+  - [VectorOfVec3s::end](#vectorofvec3send)
+  - [VectorOfVec3s::get\_Item](#vectorofvec3sget%5C_item)
+  - [VectorOfVec3s::get\_\_NewEnum](#vectorofvec3sget%5C_%5C_newenum)
+  - [VectorOfVec3s::push\_back](#vectorofvec3spush%5C_back)
+  - [VectorOfVec3s::push\_vector](#vectorofvec3spush%5C_vector)
+  - [VectorOfVec3s::put\_Item](#vectorofvec3sput%5C_item)
+  - [VectorOfVec3s::size](#vectorofvec3ssize)
+  - [VectorOfVec3s::slice](#vectorofvec3sslice)
+  - [VectorOfVec3s::sort](#vectorofvec3ssort)
+  - [VectorOfVec3s::sort\_variant](#vectorofvec3ssort%5C_variant)
+  - [VectorOfVec3s::start](#vectorofvec3sstart)
 - [VectorOfVec4s](#vectorofvec4s)
   - [VectorOfVec4s.Count](#vectorofvec4scount)
   - [VectorOfVec4s::create](#vectorofvec4screate)
@@ -2284,6 +2043,50 @@
   - [VectorOfVec4s::sort](#vectorofvec4ssort)
   - [VectorOfVec4s::sort\_variant](#vectorofvec4ssort%5C_variant)
   - [VectorOfVec4s::start](#vectorofvec4sstart)
+- [VectorOfVec2w](#vectorofvec2w)
+  - [VectorOfVec2w.Count](#vectorofvec2wcount)
+  - [VectorOfVec2w::create](#vectorofvec2wcreate)
+  - [VectorOfVec2w::Add](#vectorofvec2wadd)
+  - [VectorOfVec2w::Items](#vectorofvec2witems)
+  - [VectorOfVec2w::Keys](#vectorofvec2wkeys)
+  - [VectorOfVec2w::Remove](#vectorofvec2wremove)
+  - [VectorOfVec2w::append](#vectorofvec2wappend)
+  - [VectorOfVec2w::at](#vectorofvec2wat)
+  - [VectorOfVec2w::clear](#vectorofvec2wclear)
+  - [VectorOfVec2w::empty](#vectorofvec2wempty)
+  - [VectorOfVec2w::end](#vectorofvec2wend)
+  - [VectorOfVec2w::get\_Item](#vectorofvec2wget%5C_item)
+  - [VectorOfVec2w::get\_\_NewEnum](#vectorofvec2wget%5C_%5C_newenum)
+  - [VectorOfVec2w::push\_back](#vectorofvec2wpush%5C_back)
+  - [VectorOfVec2w::push\_vector](#vectorofvec2wpush%5C_vector)
+  - [VectorOfVec2w::put\_Item](#vectorofvec2wput%5C_item)
+  - [VectorOfVec2w::size](#vectorofvec2wsize)
+  - [VectorOfVec2w::slice](#vectorofvec2wslice)
+  - [VectorOfVec2w::sort](#vectorofvec2wsort)
+  - [VectorOfVec2w::sort\_variant](#vectorofvec2wsort%5C_variant)
+  - [VectorOfVec2w::start](#vectorofvec2wstart)
+- [VectorOfVec3w](#vectorofvec3w)
+  - [VectorOfVec3w.Count](#vectorofvec3wcount)
+  - [VectorOfVec3w::create](#vectorofvec3wcreate)
+  - [VectorOfVec3w::Add](#vectorofvec3wadd)
+  - [VectorOfVec3w::Items](#vectorofvec3witems)
+  - [VectorOfVec3w::Keys](#vectorofvec3wkeys)
+  - [VectorOfVec3w::Remove](#vectorofvec3wremove)
+  - [VectorOfVec3w::append](#vectorofvec3wappend)
+  - [VectorOfVec3w::at](#vectorofvec3wat)
+  - [VectorOfVec3w::clear](#vectorofvec3wclear)
+  - [VectorOfVec3w::empty](#vectorofvec3wempty)
+  - [VectorOfVec3w::end](#vectorofvec3wend)
+  - [VectorOfVec3w::get\_Item](#vectorofvec3wget%5C_item)
+  - [VectorOfVec3w::get\_\_NewEnum](#vectorofvec3wget%5C_%5C_newenum)
+  - [VectorOfVec3w::push\_back](#vectorofvec3wpush%5C_back)
+  - [VectorOfVec3w::push\_vector](#vectorofvec3wpush%5C_vector)
+  - [VectorOfVec3w::put\_Item](#vectorofvec3wput%5C_item)
+  - [VectorOfVec3w::size](#vectorofvec3wsize)
+  - [VectorOfVec3w::slice](#vectorofvec3wslice)
+  - [VectorOfVec3w::sort](#vectorofvec3wsort)
+  - [VectorOfVec3w::sort\_variant](#vectorofvec3wsort%5C_variant)
+  - [VectorOfVec3w::start](#vectorofvec3wstart)
 - [VectorOfVec4w](#vectorofvec4w)
   - [VectorOfVec4w.Count](#vectorofvec4wcount)
   - [VectorOfVec4w::create](#vectorofvec4wcreate)
@@ -2306,50 +2109,72 @@
   - [VectorOfVec4w::sort](#vectorofvec4wsort)
   - [VectorOfVec4w::sort\_variant](#vectorofvec4wsort%5C_variant)
   - [VectorOfVec4w::start](#vectorofvec4wstart)
-- [VectorOfVec6d](#vectorofvec6d)
-  - [VectorOfVec6d.Count](#vectorofvec6dcount)
-  - [VectorOfVec6d::create](#vectorofvec6dcreate)
-  - [VectorOfVec6d::Add](#vectorofvec6dadd)
-  - [VectorOfVec6d::Items](#vectorofvec6ditems)
-  - [VectorOfVec6d::Keys](#vectorofvec6dkeys)
-  - [VectorOfVec6d::Remove](#vectorofvec6dremove)
-  - [VectorOfVec6d::append](#vectorofvec6dappend)
-  - [VectorOfVec6d::at](#vectorofvec6dat)
-  - [VectorOfVec6d::clear](#vectorofvec6dclear)
-  - [VectorOfVec6d::empty](#vectorofvec6dempty)
-  - [VectorOfVec6d::end](#vectorofvec6dend)
-  - [VectorOfVec6d::get\_Item](#vectorofvec6dget%5C_item)
-  - [VectorOfVec6d::get\_\_NewEnum](#vectorofvec6dget%5C_%5C_newenum)
-  - [VectorOfVec6d::push\_back](#vectorofvec6dpush%5C_back)
-  - [VectorOfVec6d::push\_vector](#vectorofvec6dpush%5C_vector)
-  - [VectorOfVec6d::put\_Item](#vectorofvec6dput%5C_item)
-  - [VectorOfVec6d::size](#vectorofvec6dsize)
-  - [VectorOfVec6d::slice](#vectorofvec6dslice)
-  - [VectorOfVec6d::sort](#vectorofvec6dsort)
-  - [VectorOfVec6d::sort\_variant](#vectorofvec6dsort%5C_variant)
-  - [VectorOfVec6d::start](#vectorofvec6dstart)
-- [VectorOfVec6f](#vectorofvec6f)
-  - [VectorOfVec6f.Count](#vectorofvec6fcount)
-  - [VectorOfVec6f::create](#vectorofvec6fcreate)
-  - [VectorOfVec6f::Add](#vectorofvec6fadd)
-  - [VectorOfVec6f::Items](#vectorofvec6fitems)
-  - [VectorOfVec6f::Keys](#vectorofvec6fkeys)
-  - [VectorOfVec6f::Remove](#vectorofvec6fremove)
-  - [VectorOfVec6f::append](#vectorofvec6fappend)
-  - [VectorOfVec6f::at](#vectorofvec6fat)
-  - [VectorOfVec6f::clear](#vectorofvec6fclear)
-  - [VectorOfVec6f::empty](#vectorofvec6fempty)
-  - [VectorOfVec6f::end](#vectorofvec6fend)
-  - [VectorOfVec6f::get\_Item](#vectorofvec6fget%5C_item)
-  - [VectorOfVec6f::get\_\_NewEnum](#vectorofvec6fget%5C_%5C_newenum)
-  - [VectorOfVec6f::push\_back](#vectorofvec6fpush%5C_back)
-  - [VectorOfVec6f::push\_vector](#vectorofvec6fpush%5C_vector)
-  - [VectorOfVec6f::put\_Item](#vectorofvec6fput%5C_item)
-  - [VectorOfVec6f::size](#vectorofvec6fsize)
-  - [VectorOfVec6f::slice](#vectorofvec6fslice)
-  - [VectorOfVec6f::sort](#vectorofvec6fsort)
-  - [VectorOfVec6f::sort\_variant](#vectorofvec6fsort%5C_variant)
-  - [VectorOfVec6f::start](#vectorofvec6fstart)
+- [VectorOfVec2i](#vectorofvec2i)
+  - [VectorOfVec2i.Count](#vectorofvec2icount)
+  - [VectorOfVec2i::create](#vectorofvec2icreate)
+  - [VectorOfVec2i::Add](#vectorofvec2iadd)
+  - [VectorOfVec2i::Items](#vectorofvec2iitems)
+  - [VectorOfVec2i::Keys](#vectorofvec2ikeys)
+  - [VectorOfVec2i::Remove](#vectorofvec2iremove)
+  - [VectorOfVec2i::append](#vectorofvec2iappend)
+  - [VectorOfVec2i::at](#vectorofvec2iat)
+  - [VectorOfVec2i::clear](#vectorofvec2iclear)
+  - [VectorOfVec2i::empty](#vectorofvec2iempty)
+  - [VectorOfVec2i::end](#vectorofvec2iend)
+  - [VectorOfVec2i::get\_Item](#vectorofvec2iget%5C_item)
+  - [VectorOfVec2i::get\_\_NewEnum](#vectorofvec2iget%5C_%5C_newenum)
+  - [VectorOfVec2i::push\_back](#vectorofvec2ipush%5C_back)
+  - [VectorOfVec2i::push\_vector](#vectorofvec2ipush%5C_vector)
+  - [VectorOfVec2i::put\_Item](#vectorofvec2iput%5C_item)
+  - [VectorOfVec2i::size](#vectorofvec2isize)
+  - [VectorOfVec2i::slice](#vectorofvec2islice)
+  - [VectorOfVec2i::sort](#vectorofvec2isort)
+  - [VectorOfVec2i::sort\_variant](#vectorofvec2isort%5C_variant)
+  - [VectorOfVec2i::start](#vectorofvec2istart)
+- [VectorOfVec3i](#vectorofvec3i)
+  - [VectorOfVec3i.Count](#vectorofvec3icount)
+  - [VectorOfVec3i::create](#vectorofvec3icreate)
+  - [VectorOfVec3i::Add](#vectorofvec3iadd)
+  - [VectorOfVec3i::Items](#vectorofvec3iitems)
+  - [VectorOfVec3i::Keys](#vectorofvec3ikeys)
+  - [VectorOfVec3i::Remove](#vectorofvec3iremove)
+  - [VectorOfVec3i::append](#vectorofvec3iappend)
+  - [VectorOfVec3i::at](#vectorofvec3iat)
+  - [VectorOfVec3i::clear](#vectorofvec3iclear)
+  - [VectorOfVec3i::empty](#vectorofvec3iempty)
+  - [VectorOfVec3i::end](#vectorofvec3iend)
+  - [VectorOfVec3i::get\_Item](#vectorofvec3iget%5C_item)
+  - [VectorOfVec3i::get\_\_NewEnum](#vectorofvec3iget%5C_%5C_newenum)
+  - [VectorOfVec3i::push\_back](#vectorofvec3ipush%5C_back)
+  - [VectorOfVec3i::push\_vector](#vectorofvec3ipush%5C_vector)
+  - [VectorOfVec3i::put\_Item](#vectorofvec3iput%5C_item)
+  - [VectorOfVec3i::size](#vectorofvec3isize)
+  - [VectorOfVec3i::slice](#vectorofvec3islice)
+  - [VectorOfVec3i::sort](#vectorofvec3isort)
+  - [VectorOfVec3i::sort\_variant](#vectorofvec3isort%5C_variant)
+  - [VectorOfVec3i::start](#vectorofvec3istart)
+- [VectorOfVec4i](#vectorofvec4i)
+  - [VectorOfVec4i.Count](#vectorofvec4icount)
+  - [VectorOfVec4i::create](#vectorofvec4icreate)
+  - [VectorOfVec4i::Add](#vectorofvec4iadd)
+  - [VectorOfVec4i::Items](#vectorofvec4iitems)
+  - [VectorOfVec4i::Keys](#vectorofvec4ikeys)
+  - [VectorOfVec4i::Remove](#vectorofvec4iremove)
+  - [VectorOfVec4i::append](#vectorofvec4iappend)
+  - [VectorOfVec4i::at](#vectorofvec4iat)
+  - [VectorOfVec4i::clear](#vectorofvec4iclear)
+  - [VectorOfVec4i::empty](#vectorofvec4iempty)
+  - [VectorOfVec4i::end](#vectorofvec4iend)
+  - [VectorOfVec4i::get\_Item](#vectorofvec4iget%5C_item)
+  - [VectorOfVec4i::get\_\_NewEnum](#vectorofvec4iget%5C_%5C_newenum)
+  - [VectorOfVec4i::push\_back](#vectorofvec4ipush%5C_back)
+  - [VectorOfVec4i::push\_vector](#vectorofvec4ipush%5C_vector)
+  - [VectorOfVec4i::put\_Item](#vectorofvec4iput%5C_item)
+  - [VectorOfVec4i::size](#vectorofvec4isize)
+  - [VectorOfVec4i::slice](#vectorofvec4islice)
+  - [VectorOfVec4i::sort](#vectorofvec4isort)
+  - [VectorOfVec4i::sort\_variant](#vectorofvec4isort%5C_variant)
+  - [VectorOfVec4i::start](#vectorofvec4istart)
 - [VectorOfVec6i](#vectorofvec6i)
   - [VectorOfVec6i.Count](#vectorofvec6icount)
   - [VectorOfVec6i::create](#vectorofvec6icreate)
@@ -2394,6 +2219,182 @@
   - [VectorOfVec8i::sort](#vectorofvec8isort)
   - [VectorOfVec8i::sort\_variant](#vectorofvec8isort%5C_variant)
   - [VectorOfVec8i::start](#vectorofvec8istart)
+- [VectorOfVec2f](#vectorofvec2f)
+  - [VectorOfVec2f.Count](#vectorofvec2fcount)
+  - [VectorOfVec2f::create](#vectorofvec2fcreate)
+  - [VectorOfVec2f::Add](#vectorofvec2fadd)
+  - [VectorOfVec2f::Items](#vectorofvec2fitems)
+  - [VectorOfVec2f::Keys](#vectorofvec2fkeys)
+  - [VectorOfVec2f::Remove](#vectorofvec2fremove)
+  - [VectorOfVec2f::append](#vectorofvec2fappend)
+  - [VectorOfVec2f::at](#vectorofvec2fat)
+  - [VectorOfVec2f::clear](#vectorofvec2fclear)
+  - [VectorOfVec2f::empty](#vectorofvec2fempty)
+  - [VectorOfVec2f::end](#vectorofvec2fend)
+  - [VectorOfVec2f::get\_Item](#vectorofvec2fget%5C_item)
+  - [VectorOfVec2f::get\_\_NewEnum](#vectorofvec2fget%5C_%5C_newenum)
+  - [VectorOfVec2f::push\_back](#vectorofvec2fpush%5C_back)
+  - [VectorOfVec2f::push\_vector](#vectorofvec2fpush%5C_vector)
+  - [VectorOfVec2f::put\_Item](#vectorofvec2fput%5C_item)
+  - [VectorOfVec2f::size](#vectorofvec2fsize)
+  - [VectorOfVec2f::slice](#vectorofvec2fslice)
+  - [VectorOfVec2f::sort](#vectorofvec2fsort)
+  - [VectorOfVec2f::sort\_variant](#vectorofvec2fsort%5C_variant)
+  - [VectorOfVec2f::start](#vectorofvec2fstart)
+- [VectorOfVec3f](#vectorofvec3f)
+  - [VectorOfVec3f.Count](#vectorofvec3fcount)
+  - [VectorOfVec3f::create](#vectorofvec3fcreate)
+  - [VectorOfVec3f::Add](#vectorofvec3fadd)
+  - [VectorOfVec3f::Items](#vectorofvec3fitems)
+  - [VectorOfVec3f::Keys](#vectorofvec3fkeys)
+  - [VectorOfVec3f::Remove](#vectorofvec3fremove)
+  - [VectorOfVec3f::append](#vectorofvec3fappend)
+  - [VectorOfVec3f::at](#vectorofvec3fat)
+  - [VectorOfVec3f::clear](#vectorofvec3fclear)
+  - [VectorOfVec3f::empty](#vectorofvec3fempty)
+  - [VectorOfVec3f::end](#vectorofvec3fend)
+  - [VectorOfVec3f::get\_Item](#vectorofvec3fget%5C_item)
+  - [VectorOfVec3f::get\_\_NewEnum](#vectorofvec3fget%5C_%5C_newenum)
+  - [VectorOfVec3f::push\_back](#vectorofvec3fpush%5C_back)
+  - [VectorOfVec3f::push\_vector](#vectorofvec3fpush%5C_vector)
+  - [VectorOfVec3f::put\_Item](#vectorofvec3fput%5C_item)
+  - [VectorOfVec3f::size](#vectorofvec3fsize)
+  - [VectorOfVec3f::slice](#vectorofvec3fslice)
+  - [VectorOfVec3f::sort](#vectorofvec3fsort)
+  - [VectorOfVec3f::sort\_variant](#vectorofvec3fsort%5C_variant)
+  - [VectorOfVec3f::start](#vectorofvec3fstart)
+- [VectorOfVec4f](#vectorofvec4f)
+  - [VectorOfVec4f.Count](#vectorofvec4fcount)
+  - [VectorOfVec4f::create](#vectorofvec4fcreate)
+  - [VectorOfVec4f::Add](#vectorofvec4fadd)
+  - [VectorOfVec4f::Items](#vectorofvec4fitems)
+  - [VectorOfVec4f::Keys](#vectorofvec4fkeys)
+  - [VectorOfVec4f::Remove](#vectorofvec4fremove)
+  - [VectorOfVec4f::append](#vectorofvec4fappend)
+  - [VectorOfVec4f::at](#vectorofvec4fat)
+  - [VectorOfVec4f::clear](#vectorofvec4fclear)
+  - [VectorOfVec4f::empty](#vectorofvec4fempty)
+  - [VectorOfVec4f::end](#vectorofvec4fend)
+  - [VectorOfVec4f::get\_Item](#vectorofvec4fget%5C_item)
+  - [VectorOfVec4f::get\_\_NewEnum](#vectorofvec4fget%5C_%5C_newenum)
+  - [VectorOfVec4f::push\_back](#vectorofvec4fpush%5C_back)
+  - [VectorOfVec4f::push\_vector](#vectorofvec4fpush%5C_vector)
+  - [VectorOfVec4f::put\_Item](#vectorofvec4fput%5C_item)
+  - [VectorOfVec4f::size](#vectorofvec4fsize)
+  - [VectorOfVec4f::slice](#vectorofvec4fslice)
+  - [VectorOfVec4f::sort](#vectorofvec4fsort)
+  - [VectorOfVec4f::sort\_variant](#vectorofvec4fsort%5C_variant)
+  - [VectorOfVec4f::start](#vectorofvec4fstart)
+- [VectorOfVec6f](#vectorofvec6f)
+  - [VectorOfVec6f.Count](#vectorofvec6fcount)
+  - [VectorOfVec6f::create](#vectorofvec6fcreate)
+  - [VectorOfVec6f::Add](#vectorofvec6fadd)
+  - [VectorOfVec6f::Items](#vectorofvec6fitems)
+  - [VectorOfVec6f::Keys](#vectorofvec6fkeys)
+  - [VectorOfVec6f::Remove](#vectorofvec6fremove)
+  - [VectorOfVec6f::append](#vectorofvec6fappend)
+  - [VectorOfVec6f::at](#vectorofvec6fat)
+  - [VectorOfVec6f::clear](#vectorofvec6fclear)
+  - [VectorOfVec6f::empty](#vectorofvec6fempty)
+  - [VectorOfVec6f::end](#vectorofvec6fend)
+  - [VectorOfVec6f::get\_Item](#vectorofvec6fget%5C_item)
+  - [VectorOfVec6f::get\_\_NewEnum](#vectorofvec6fget%5C_%5C_newenum)
+  - [VectorOfVec6f::push\_back](#vectorofvec6fpush%5C_back)
+  - [VectorOfVec6f::push\_vector](#vectorofvec6fpush%5C_vector)
+  - [VectorOfVec6f::put\_Item](#vectorofvec6fput%5C_item)
+  - [VectorOfVec6f::size](#vectorofvec6fsize)
+  - [VectorOfVec6f::slice](#vectorofvec6fslice)
+  - [VectorOfVec6f::sort](#vectorofvec6fsort)
+  - [VectorOfVec6f::sort\_variant](#vectorofvec6fsort%5C_variant)
+  - [VectorOfVec6f::start](#vectorofvec6fstart)
+- [VectorOfVec2d](#vectorofvec2d)
+  - [VectorOfVec2d.Count](#vectorofvec2dcount)
+  - [VectorOfVec2d::create](#vectorofvec2dcreate)
+  - [VectorOfVec2d::Add](#vectorofvec2dadd)
+  - [VectorOfVec2d::Items](#vectorofvec2ditems)
+  - [VectorOfVec2d::Keys](#vectorofvec2dkeys)
+  - [VectorOfVec2d::Remove](#vectorofvec2dremove)
+  - [VectorOfVec2d::append](#vectorofvec2dappend)
+  - [VectorOfVec2d::at](#vectorofvec2dat)
+  - [VectorOfVec2d::clear](#vectorofvec2dclear)
+  - [VectorOfVec2d::empty](#vectorofvec2dempty)
+  - [VectorOfVec2d::end](#vectorofvec2dend)
+  - [VectorOfVec2d::get\_Item](#vectorofvec2dget%5C_item)
+  - [VectorOfVec2d::get\_\_NewEnum](#vectorofvec2dget%5C_%5C_newenum)
+  - [VectorOfVec2d::push\_back](#vectorofvec2dpush%5C_back)
+  - [VectorOfVec2d::push\_vector](#vectorofvec2dpush%5C_vector)
+  - [VectorOfVec2d::put\_Item](#vectorofvec2dput%5C_item)
+  - [VectorOfVec2d::size](#vectorofvec2dsize)
+  - [VectorOfVec2d::slice](#vectorofvec2dslice)
+  - [VectorOfVec2d::sort](#vectorofvec2dsort)
+  - [VectorOfVec2d::sort\_variant](#vectorofvec2dsort%5C_variant)
+  - [VectorOfVec2d::start](#vectorofvec2dstart)
+- [VectorOfVec3d](#vectorofvec3d)
+  - [VectorOfVec3d.Count](#vectorofvec3dcount)
+  - [VectorOfVec3d::create](#vectorofvec3dcreate)
+  - [VectorOfVec3d::Add](#vectorofvec3dadd)
+  - [VectorOfVec3d::Items](#vectorofvec3ditems)
+  - [VectorOfVec3d::Keys](#vectorofvec3dkeys)
+  - [VectorOfVec3d::Remove](#vectorofvec3dremove)
+  - [VectorOfVec3d::append](#vectorofvec3dappend)
+  - [VectorOfVec3d::at](#vectorofvec3dat)
+  - [VectorOfVec3d::clear](#vectorofvec3dclear)
+  - [VectorOfVec3d::empty](#vectorofvec3dempty)
+  - [VectorOfVec3d::end](#vectorofvec3dend)
+  - [VectorOfVec3d::get\_Item](#vectorofvec3dget%5C_item)
+  - [VectorOfVec3d::get\_\_NewEnum](#vectorofvec3dget%5C_%5C_newenum)
+  - [VectorOfVec3d::push\_back](#vectorofvec3dpush%5C_back)
+  - [VectorOfVec3d::push\_vector](#vectorofvec3dpush%5C_vector)
+  - [VectorOfVec3d::put\_Item](#vectorofvec3dput%5C_item)
+  - [VectorOfVec3d::size](#vectorofvec3dsize)
+  - [VectorOfVec3d::slice](#vectorofvec3dslice)
+  - [VectorOfVec3d::sort](#vectorofvec3dsort)
+  - [VectorOfVec3d::sort\_variant](#vectorofvec3dsort%5C_variant)
+  - [VectorOfVec3d::start](#vectorofvec3dstart)
+- [VectorOfVec4d](#vectorofvec4d)
+  - [VectorOfVec4d.Count](#vectorofvec4dcount)
+  - [VectorOfVec4d::create](#vectorofvec4dcreate)
+  - [VectorOfVec4d::Add](#vectorofvec4dadd)
+  - [VectorOfVec4d::Items](#vectorofvec4ditems)
+  - [VectorOfVec4d::Keys](#vectorofvec4dkeys)
+  - [VectorOfVec4d::Remove](#vectorofvec4dremove)
+  - [VectorOfVec4d::append](#vectorofvec4dappend)
+  - [VectorOfVec4d::at](#vectorofvec4dat)
+  - [VectorOfVec4d::clear](#vectorofvec4dclear)
+  - [VectorOfVec4d::empty](#vectorofvec4dempty)
+  - [VectorOfVec4d::end](#vectorofvec4dend)
+  - [VectorOfVec4d::get\_Item](#vectorofvec4dget%5C_item)
+  - [VectorOfVec4d::get\_\_NewEnum](#vectorofvec4dget%5C_%5C_newenum)
+  - [VectorOfVec4d::push\_back](#vectorofvec4dpush%5C_back)
+  - [VectorOfVec4d::push\_vector](#vectorofvec4dpush%5C_vector)
+  - [VectorOfVec4d::put\_Item](#vectorofvec4dput%5C_item)
+  - [VectorOfVec4d::size](#vectorofvec4dsize)
+  - [VectorOfVec4d::slice](#vectorofvec4dslice)
+  - [VectorOfVec4d::sort](#vectorofvec4dsort)
+  - [VectorOfVec4d::sort\_variant](#vectorofvec4dsort%5C_variant)
+  - [VectorOfVec4d::start](#vectorofvec4dstart)
+- [VectorOfVec6d](#vectorofvec6d)
+  - [VectorOfVec6d.Count](#vectorofvec6dcount)
+  - [VectorOfVec6d::create](#vectorofvec6dcreate)
+  - [VectorOfVec6d::Add](#vectorofvec6dadd)
+  - [VectorOfVec6d::Items](#vectorofvec6ditems)
+  - [VectorOfVec6d::Keys](#vectorofvec6dkeys)
+  - [VectorOfVec6d::Remove](#vectorofvec6dremove)
+  - [VectorOfVec6d::append](#vectorofvec6dappend)
+  - [VectorOfVec6d::at](#vectorofvec6dat)
+  - [VectorOfVec6d::clear](#vectorofvec6dclear)
+  - [VectorOfVec6d::empty](#vectorofvec6dempty)
+  - [VectorOfVec6d::end](#vectorofvec6dend)
+  - [VectorOfVec6d::get\_Item](#vectorofvec6dget%5C_item)
+  - [VectorOfVec6d::get\_\_NewEnum](#vectorofvec6dget%5C_%5C_newenum)
+  - [VectorOfVec6d::push\_back](#vectorofvec6dpush%5C_back)
+  - [VectorOfVec6d::push\_vector](#vectorofvec6dpush%5C_vector)
+  - [VectorOfVec6d::put\_Item](#vectorofvec6dput%5C_item)
+  - [VectorOfVec6d::size](#vectorofvec6dsize)
+  - [VectorOfVec6d::slice](#vectorofvec6dslice)
+  - [VectorOfVec6d::sort](#vectorofvec6dsort)
+  - [VectorOfVec6d::sort\_variant](#vectorofvec6dsort%5C_variant)
+  - [VectorOfVec6d::start](#vectorofvec6dstart)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -10126,6 +10127,14 @@ AutoIt:
     _Dlib_ObjCreate("cv.Mat").createFromVectorOfInt( $vec ) -> <cv.Mat object>
 ```
 
+### cv::Mat::createFromVectorOfMat
+
+```cpp
+static std::shared_ptr<cv::Mat> cv::Mat::createFromVectorOfMat( std::vector<cv::Mat> vec );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").createFromVectorOfMat( $vec ) -> retval
+```
+
 ### cv::Mat::createFromVectorOfVec2b
 
 ```cpp
@@ -14566,208 +14575,820 @@ AutoIt:
     $oVectorOfPairOfULONGAndDouble.start() -> retval
 ```
 
-## VectorOfLong
+## VectorOfVectorOfPairOfULONGAndDouble
 
-### VectorOfLong.Count
+### VectorOfVectorOfPairOfULONGAndDouble.Count
 
 ```cpp
-size_t VectorOfLong::size()
+size_t VectorOfVectorOfPairOfULONGAndDouble::size()
 AutoIt:
-    [propget] $oVectorOfLong.Count
+    [propget] $oVectorOfVectorOfPairOfULONGAndDouble.Count
 ```
 
-### VectorOfLong::create
+### VectorOfVectorOfPairOfULONGAndDouble::create
 
 ```cpp
-static VectorOfLong VectorOfLong::create();
+static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create();
 AutoIt:
-    _Dlib_ObjCreate("VectorOfLong").create() -> <VectorOfLong object>
-```
-
-```cpp
-static VectorOfLong VectorOfLong::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfLong").create( $size ) -> <VectorOfLong object>
+    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create() -> <VectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
-static VectorOfLong VectorOfLong::create( VectorOfLong other );
+static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create( size_t size );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfLong").create( $other ) -> <VectorOfLong object>
-```
-
-### VectorOfLong::Add
-
-```cpp
-void VectorOfLong::Add( long value );
-AutoIt:
-    $oVectorOfLong.Add( $value ) -> None
-```
-
-### VectorOfLong::Items
-
-```cpp
-VectorOfLong VectorOfLong::Items();
-AutoIt:
-    $oVectorOfLong.Items() -> retval
-```
-
-### VectorOfLong::Keys
-
-```cpp
-std::vector<int> VectorOfLong::Keys();
-AutoIt:
-    $oVectorOfLong.Keys() -> retval
-```
-
-### VectorOfLong::Remove
-
-```cpp
-void VectorOfLong::Remove( size_t index );
-AutoIt:
-    $oVectorOfLong.Remove( $index ) -> None
-```
-
-### VectorOfLong::append
-
-```cpp
-void VectorOfLong::append( long value );
-AutoIt:
-    $oVectorOfLong.append( $value ) -> None
-```
-
-### VectorOfLong::at
-
-```cpp
-long VectorOfLong::at( size_t index );
-AutoIt:
-    $oVectorOfLong.at( $index ) -> retval
+    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create( $size ) -> <VectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
-void VectorOfLong::at( size_t index,
-                       long   value );
+static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create( VectorOfVectorOfPairOfULONGAndDouble other );
 AutoIt:
-    $oVectorOfLong.at( $index, $value ) -> None
+    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create( $other ) -> <VectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
-### VectorOfLong::clear
+### VectorOfVectorOfPairOfULONGAndDouble::Add
 
 ```cpp
-void VectorOfLong::clear();
+void VectorOfVectorOfPairOfULONGAndDouble::Add( std::vector<std::pair<ULONG, double>> value );
 AutoIt:
-    $oVectorOfLong.clear() -> None
+    $oVectorOfVectorOfPairOfULONGAndDouble.Add( $value ) -> None
 ```
 
-### VectorOfLong::empty
+### VectorOfVectorOfPairOfULONGAndDouble::Items
 
 ```cpp
-bool VectorOfLong::empty();
+VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::Items();
 AutoIt:
-    $oVectorOfLong.empty() -> retval
+    $oVectorOfVectorOfPairOfULONGAndDouble.Items() -> retval
 ```
 
-### VectorOfLong::end
+### VectorOfVectorOfPairOfULONGAndDouble::Keys
 
 ```cpp
-void* VectorOfLong::end();
+std::vector<int> VectorOfVectorOfPairOfULONGAndDouble::Keys();
 AutoIt:
-    $oVectorOfLong.end() -> retval
+    $oVectorOfVectorOfPairOfULONGAndDouble.Keys() -> retval
 ```
 
-### VectorOfLong::get\_Item
+### VectorOfVectorOfPairOfULONGAndDouble::Remove
 
 ```cpp
-long VectorOfLong::get_Item( size_t index );
+void VectorOfVectorOfPairOfULONGAndDouble::Remove( size_t index );
 AutoIt:
-    $oVectorOfLong.Item( $index ) -> retval
-    $oVectorOfLong( $index ) -> retval
+    $oVectorOfVectorOfPairOfULONGAndDouble.Remove( $index ) -> None
 ```
 
-### VectorOfLong::get\_\_NewEnum
+### VectorOfVectorOfPairOfULONGAndDouble::append
 
 ```cpp
-IUnknown* VectorOfLong::get__NewEnum();
+void VectorOfVectorOfPairOfULONGAndDouble::append( std::vector<std::pair<ULONG, double>> value );
 AutoIt:
-    $oVectorOfLong._NewEnum() -> retval
+    $oVectorOfVectorOfPairOfULONGAndDouble.append( $value ) -> None
 ```
 
-### VectorOfLong::push\_back
+### VectorOfVectorOfPairOfULONGAndDouble::at
 
 ```cpp
-void VectorOfLong::push_back( long value );
+std::vector<std::pair<ULONG, double>> VectorOfVectorOfPairOfULONGAndDouble::at( size_t index );
 AutoIt:
-    $oVectorOfLong.push_back( $value ) -> None
-```
-
-### VectorOfLong::push\_vector
-
-```cpp
-void VectorOfLong::push_vector( VectorOfLong other );
-AutoIt:
-    $oVectorOfLong.push_vector( $other ) -> None
+    $oVectorOfVectorOfPairOfULONGAndDouble.at( $index ) -> retval
 ```
 
 ```cpp
-void VectorOfLong::push_vector( VectorOfLong other,
-                                size_t       count,
-                                size_t       start = 0 );
+void VectorOfVectorOfPairOfULONGAndDouble::at( size_t                                index,
+                                               std::vector<std::pair<ULONG, double>> value );
 AutoIt:
-    $oVectorOfLong.push_vector( $other, $count[, $start] ) -> None
+    $oVectorOfVectorOfPairOfULONGAndDouble.at( $index, $value ) -> None
 ```
 
-### VectorOfLong::put\_Item
+### VectorOfVectorOfPairOfULONGAndDouble::clear
 
 ```cpp
-void VectorOfLong::put_Item( size_t index,
-                             long   item );
+void VectorOfVectorOfPairOfULONGAndDouble::clear();
 AutoIt:
-    $oVectorOfLong.Item( $index ) = $item
+    $oVectorOfVectorOfPairOfULONGAndDouble.clear() -> None
 ```
 
-### VectorOfLong::size
+### VectorOfVectorOfPairOfULONGAndDouble::empty
 
 ```cpp
-size_t VectorOfLong::size();
+bool VectorOfVectorOfPairOfULONGAndDouble::empty();
 AutoIt:
-    $oVectorOfLong.size() -> retval
+    $oVectorOfVectorOfPairOfULONGAndDouble.empty() -> retval
 ```
 
-### VectorOfLong::slice
+### VectorOfVectorOfPairOfULONGAndDouble::end
 
 ```cpp
-VectorOfLong VectorOfLong::slice( size_t start = 0,
+void* VectorOfVectorOfPairOfULONGAndDouble::end();
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.end() -> retval
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::get\_Item
+
+```cpp
+std::vector<std::pair<ULONG, double>> VectorOfVectorOfPairOfULONGAndDouble::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.Item( $index ) -> retval
+    $oVectorOfVectorOfPairOfULONGAndDouble( $index ) -> retval
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfPairOfULONGAndDouble::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble._NewEnum() -> retval
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::push\_back
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndDouble::push_back( std::vector<std::pair<ULONG, double>> value );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.push_back( $value ) -> None
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::push\_vector
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfPairOfULONGAndDouble other );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfPairOfULONGAndDouble other,
+                                                        size_t                               count,
+                                                        size_t                               start = 0 );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::put\_Item
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndDouble::put_Item( size_t                                index,
+                                                     std::vector<std::pair<ULONG, double>> item );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.Item( $index ) = $item
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::size
+
+```cpp
+size_t VectorOfVectorOfPairOfULONGAndDouble::size();
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.size() -> retval
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::slice
+
+```cpp
+VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
+                                                                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::sort
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndDouble::sort( void*  comparator,
+                                                 size_t start = 0,
+                                                 size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::sort\_variant
+
+```cpp
+void VectorOfVectorOfPairOfULONGAndDouble::sort_variant( void*  comparator,
+                                                         size_t start = 0,
+                                                         size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::start
+
+```cpp
+void* VectorOfVectorOfPairOfULONGAndDouble::start();
+AutoIt:
+    $oVectorOfVectorOfPairOfULONGAndDouble.start() -> retval
+```
+
+## VectorOfMat
+
+### VectorOfMat.Count
+
+```cpp
+size_t VectorOfMat::size()
+AutoIt:
+    [propget] $oVectorOfMat.Count
+```
+
+### VectorOfMat::create
+
+```cpp
+static VectorOfMat VectorOfMat::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfMat").create() -> <VectorOfMat object>
+```
+
+```cpp
+static VectorOfMat VectorOfMat::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfMat").create( $size ) -> <VectorOfMat object>
+```
+
+```cpp
+static VectorOfMat VectorOfMat::create( VectorOfMat other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfMat").create( $other ) -> <VectorOfMat object>
+```
+
+### VectorOfMat::Add
+
+```cpp
+void VectorOfMat::Add( cv::Mat value );
+AutoIt:
+    $oVectorOfMat.Add( $value ) -> None
+```
+
+### VectorOfMat::Items
+
+```cpp
+VectorOfMat VectorOfMat::Items();
+AutoIt:
+    $oVectorOfMat.Items() -> retval
+```
+
+### VectorOfMat::Keys
+
+```cpp
+std::vector<int> VectorOfMat::Keys();
+AutoIt:
+    $oVectorOfMat.Keys() -> retval
+```
+
+### VectorOfMat::Remove
+
+```cpp
+void VectorOfMat::Remove( size_t index );
+AutoIt:
+    $oVectorOfMat.Remove( $index ) -> None
+```
+
+### VectorOfMat::append
+
+```cpp
+void VectorOfMat::append( cv::Mat value );
+AutoIt:
+    $oVectorOfMat.append( $value ) -> None
+```
+
+### VectorOfMat::at
+
+```cpp
+cv::Mat VectorOfMat::at( size_t index );
+AutoIt:
+    $oVectorOfMat.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfMat::at( size_t  index,
+                      cv::Mat value );
+AutoIt:
+    $oVectorOfMat.at( $index, $value ) -> None
+```
+
+### VectorOfMat::clear
+
+```cpp
+void VectorOfMat::clear();
+AutoIt:
+    $oVectorOfMat.clear() -> None
+```
+
+### VectorOfMat::empty
+
+```cpp
+bool VectorOfMat::empty();
+AutoIt:
+    $oVectorOfMat.empty() -> retval
+```
+
+### VectorOfMat::end
+
+```cpp
+void* VectorOfMat::end();
+AutoIt:
+    $oVectorOfMat.end() -> retval
+```
+
+### VectorOfMat::get\_Item
+
+```cpp
+cv::Mat VectorOfMat::get_Item( size_t index );
+AutoIt:
+    $oVectorOfMat.Item( $index ) -> retval
+    $oVectorOfMat( $index ) -> retval
+```
+
+### VectorOfMat::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfMat::get__NewEnum();
+AutoIt:
+    $oVectorOfMat._NewEnum() -> retval
+```
+
+### VectorOfMat::push\_back
+
+```cpp
+void VectorOfMat::push_back( cv::Mat value );
+AutoIt:
+    $oVectorOfMat.push_back( $value ) -> None
+```
+
+### VectorOfMat::push\_vector
+
+```cpp
+void VectorOfMat::push_vector( VectorOfMat other );
+AutoIt:
+    $oVectorOfMat.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfMat::push_vector( VectorOfMat other,
+                               size_t      count,
+                               size_t      start = 0 );
+AutoIt:
+    $oVectorOfMat.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfMat::put\_Item
+
+```cpp
+void VectorOfMat::put_Item( size_t  index,
+                            cv::Mat item );
+AutoIt:
+    $oVectorOfMat.Item( $index ) = $item
+```
+
+### VectorOfMat::size
+
+```cpp
+size_t VectorOfMat::size();
+AutoIt:
+    $oVectorOfMat.size() -> retval
+```
+
+### VectorOfMat::slice
+
+```cpp
+VectorOfMat VectorOfMat::slice( size_t start = 0,
+                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfMat.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfMat::sort
+
+```cpp
+void VectorOfMat::sort( void*  comparator,
+                        size_t start = 0,
+                        size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfMat.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfMat::sort\_variant
+
+```cpp
+void VectorOfMat::sort_variant( void*  comparator,
+                                size_t start = 0,
+                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfMat.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfMat::start
+
+```cpp
+void* VectorOfMat::start();
+AutoIt:
+    $oVectorOfMat.start() -> retval
+```
+
+## VectorOfFull\_object\_detection
+
+### VectorOfFull\_object\_detection.Count
+
+```cpp
+size_t VectorOfFull_object_detection::size()
+AutoIt:
+    [propget] $oVectorOfFull_object_detection.Count
+```
+
+### VectorOfFull\_object\_detection::create
+
+```cpp
+static VectorOfFull_object_detection VectorOfFull_object_detection::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFull_object_detection").create() -> <VectorOfFull_object_detection object>
+```
+
+```cpp
+static VectorOfFull_object_detection VectorOfFull_object_detection::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFull_object_detection").create( $size ) -> <VectorOfFull_object_detection object>
+```
+
+```cpp
+static VectorOfFull_object_detection VectorOfFull_object_detection::create( VectorOfFull_object_detection other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFull_object_detection").create( $other ) -> <VectorOfFull_object_detection object>
+```
+
+### VectorOfFull\_object\_detection::Add
+
+```cpp
+void VectorOfFull_object_detection::Add( dlib::full_object_detection value );
+AutoIt:
+    $oVectorOfFull_object_detection.Add( $value ) -> None
+```
+
+### VectorOfFull\_object\_detection::Items
+
+```cpp
+VectorOfFull_object_detection VectorOfFull_object_detection::Items();
+AutoIt:
+    $oVectorOfFull_object_detection.Items() -> retval
+```
+
+### VectorOfFull\_object\_detection::Keys
+
+```cpp
+std::vector<int> VectorOfFull_object_detection::Keys();
+AutoIt:
+    $oVectorOfFull_object_detection.Keys() -> retval
+```
+
+### VectorOfFull\_object\_detection::Remove
+
+```cpp
+void VectorOfFull_object_detection::Remove( size_t index );
+AutoIt:
+    $oVectorOfFull_object_detection.Remove( $index ) -> None
+```
+
+### VectorOfFull\_object\_detection::append
+
+```cpp
+void VectorOfFull_object_detection::append( dlib::full_object_detection value );
+AutoIt:
+    $oVectorOfFull_object_detection.append( $value ) -> None
+```
+
+### VectorOfFull\_object\_detection::at
+
+```cpp
+dlib::full_object_detection VectorOfFull_object_detection::at( size_t index );
+AutoIt:
+    $oVectorOfFull_object_detection.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfFull_object_detection::at( size_t                      index,
+                                        dlib::full_object_detection value );
+AutoIt:
+    $oVectorOfFull_object_detection.at( $index, $value ) -> None
+```
+
+### VectorOfFull\_object\_detection::clear
+
+```cpp
+void VectorOfFull_object_detection::clear();
+AutoIt:
+    $oVectorOfFull_object_detection.clear() -> None
+```
+
+### VectorOfFull\_object\_detection::empty
+
+```cpp
+bool VectorOfFull_object_detection::empty();
+AutoIt:
+    $oVectorOfFull_object_detection.empty() -> retval
+```
+
+### VectorOfFull\_object\_detection::end
+
+```cpp
+void* VectorOfFull_object_detection::end();
+AutoIt:
+    $oVectorOfFull_object_detection.end() -> retval
+```
+
+### VectorOfFull\_object\_detection::get\_Item
+
+```cpp
+dlib::full_object_detection VectorOfFull_object_detection::get_Item( size_t index );
+AutoIt:
+    $oVectorOfFull_object_detection.Item( $index ) -> retval
+    $oVectorOfFull_object_detection( $index ) -> retval
+```
+
+### VectorOfFull\_object\_detection::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfFull_object_detection::get__NewEnum();
+AutoIt:
+    $oVectorOfFull_object_detection._NewEnum() -> retval
+```
+
+### VectorOfFull\_object\_detection::push\_back
+
+```cpp
+void VectorOfFull_object_detection::push_back( dlib::full_object_detection value );
+AutoIt:
+    $oVectorOfFull_object_detection.push_back( $value ) -> None
+```
+
+### VectorOfFull\_object\_detection::push\_vector
+
+```cpp
+void VectorOfFull_object_detection::push_vector( VectorOfFull_object_detection other );
+AutoIt:
+    $oVectorOfFull_object_detection.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfFull_object_detection::push_vector( VectorOfFull_object_detection other,
+                                                 size_t                        count,
+                                                 size_t                        start = 0 );
+AutoIt:
+    $oVectorOfFull_object_detection.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfFull\_object\_detection::put\_Item
+
+```cpp
+void VectorOfFull_object_detection::put_Item( size_t                      index,
+                                              dlib::full_object_detection item );
+AutoIt:
+    $oVectorOfFull_object_detection.Item( $index ) = $item
+```
+
+### VectorOfFull\_object\_detection::size
+
+```cpp
+size_t VectorOfFull_object_detection::size();
+AutoIt:
+    $oVectorOfFull_object_detection.size() -> retval
+```
+
+### VectorOfFull\_object\_detection::slice
+
+```cpp
+VectorOfFull_object_detection VectorOfFull_object_detection::slice( size_t start = 0,
+                                                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFull_object_detection.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfFull\_object\_detection::sort
+
+```cpp
+void VectorOfFull_object_detection::sort( void*  comparator,
+                                          size_t start = 0,
+                                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFull_object_detection.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfFull\_object\_detection::sort\_variant
+
+```cpp
+void VectorOfFull_object_detection::sort_variant( void*  comparator,
+                                                  size_t start = 0,
+                                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfFull_object_detection.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfFull\_object\_detection::start
+
+```cpp
+void* VectorOfFull_object_detection::start();
+AutoIt:
+    $oVectorOfFull_object_detection.start() -> retval
+```
+
+## VectorOfULONG
+
+### VectorOfULONG.Count
+
+```cpp
+size_t VectorOfULONG::size()
+AutoIt:
+    [propget] $oVectorOfULONG.Count
+```
+
+### VectorOfULONG::create
+
+```cpp
+static VectorOfULONG VectorOfULONG::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfULONG").create() -> <VectorOfULONG object>
+```
+
+```cpp
+static VectorOfULONG VectorOfULONG::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfULONG").create( $size ) -> <VectorOfULONG object>
+```
+
+```cpp
+static VectorOfULONG VectorOfULONG::create( VectorOfULONG other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfULONG").create( $other ) -> <VectorOfULONG object>
+```
+
+### VectorOfULONG::Add
+
+```cpp
+void VectorOfULONG::Add( ULONG value );
+AutoIt:
+    $oVectorOfULONG.Add( $value ) -> None
+```
+
+### VectorOfULONG::Items
+
+```cpp
+VectorOfULONG VectorOfULONG::Items();
+AutoIt:
+    $oVectorOfULONG.Items() -> retval
+```
+
+### VectorOfULONG::Keys
+
+```cpp
+std::vector<int> VectorOfULONG::Keys();
+AutoIt:
+    $oVectorOfULONG.Keys() -> retval
+```
+
+### VectorOfULONG::Remove
+
+```cpp
+void VectorOfULONG::Remove( size_t index );
+AutoIt:
+    $oVectorOfULONG.Remove( $index ) -> None
+```
+
+### VectorOfULONG::append
+
+```cpp
+void VectorOfULONG::append( ULONG value );
+AutoIt:
+    $oVectorOfULONG.append( $value ) -> None
+```
+
+### VectorOfULONG::at
+
+```cpp
+ULONG VectorOfULONG::at( size_t index );
+AutoIt:
+    $oVectorOfULONG.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfULONG::at( size_t index,
+                        ULONG  value );
+AutoIt:
+    $oVectorOfULONG.at( $index, $value ) -> None
+```
+
+### VectorOfULONG::clear
+
+```cpp
+void VectorOfULONG::clear();
+AutoIt:
+    $oVectorOfULONG.clear() -> None
+```
+
+### VectorOfULONG::empty
+
+```cpp
+bool VectorOfULONG::empty();
+AutoIt:
+    $oVectorOfULONG.empty() -> retval
+```
+
+### VectorOfULONG::end
+
+```cpp
+void* VectorOfULONG::end();
+AutoIt:
+    $oVectorOfULONG.end() -> retval
+```
+
+### VectorOfULONG::get\_Item
+
+```cpp
+ULONG VectorOfULONG::get_Item( size_t index );
+AutoIt:
+    $oVectorOfULONG.Item( $index ) -> retval
+    $oVectorOfULONG( $index ) -> retval
+```
+
+### VectorOfULONG::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfULONG::get__NewEnum();
+AutoIt:
+    $oVectorOfULONG._NewEnum() -> retval
+```
+
+### VectorOfULONG::push\_back
+
+```cpp
+void VectorOfULONG::push_back( ULONG value );
+AutoIt:
+    $oVectorOfULONG.push_back( $value ) -> None
+```
+
+### VectorOfULONG::push\_vector
+
+```cpp
+void VectorOfULONG::push_vector( VectorOfULONG other );
+AutoIt:
+    $oVectorOfULONG.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfULONG::push_vector( VectorOfULONG other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfULONG.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfULONG::put\_Item
+
+```cpp
+void VectorOfULONG::put_Item( size_t index,
+                              ULONG  item );
+AutoIt:
+    $oVectorOfULONG.Item( $index ) = $item
+```
+
+### VectorOfULONG::size
+
+```cpp
+size_t VectorOfULONG::size();
+AutoIt:
+    $oVectorOfULONG.size() -> retval
+```
+
+### VectorOfULONG::slice
+
+```cpp
+VectorOfULONG VectorOfULONG::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfULONG.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfULONG::sort
+
+```cpp
+void VectorOfULONG::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfULONG.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfULONG::sort\_variant
+
+```cpp
+void VectorOfULONG::sort_variant( void*  comparator,
+                                  size_t start = 0,
                                   size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfLong.slice( [$start[, $count]] ) -> retval
+    $oVectorOfULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfLong::sort
+### VectorOfULONG::start
 
 ```cpp
-void VectorOfLong::sort( void*  comparator,
-                         size_t start = 0,
-                         size_t count = __self->get()->size() );
+void* VectorOfULONG::start();
 AutoIt:
-    $oVectorOfLong.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfLong::sort\_variant
-
-```cpp
-void VectorOfLong::sort_variant( void*  comparator,
-                                 size_t start = 0,
-                                 size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfLong.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfLong::start
-
-```cpp
-void* VectorOfLong::start();
-AutoIt:
-    $oVectorOfLong.start() -> retval
+    $oVectorOfULONG.start() -> retval
 ```
 
 ## VectorOfSpaceVector
@@ -15178,412 +15799,208 @@ AutoIt:
     $oVectorOfDouble.start() -> retval
 ```
 
-## VectorOfVectorOfPairOfULONGAndDouble
+## VectorOfBool
 
-### VectorOfVectorOfPairOfULONGAndDouble.Count
+### VectorOfBool.Count
 
 ```cpp
-size_t VectorOfVectorOfPairOfULONGAndDouble::size()
+size_t VectorOfBool::size()
 AutoIt:
-    [propget] $oVectorOfVectorOfPairOfULONGAndDouble.Count
+    [propget] $oVectorOfBool.Count
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::create
+### VectorOfBool::create
 
 ```cpp
-static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create();
+static VectorOfBool VectorOfBool::create();
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create() -> <VectorOfVectorOfPairOfULONGAndDouble object>
-```
-
-```cpp
-static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create( $size ) -> <VectorOfVectorOfPairOfULONGAndDouble object>
+    _Dlib_ObjCreate("VectorOfBool").create() -> <VectorOfBool object>
 ```
 
 ```cpp
-static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create( VectorOfVectorOfPairOfULONGAndDouble other );
+static VectorOfBool VectorOfBool::create( size_t size );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create( $other ) -> <VectorOfVectorOfPairOfULONGAndDouble object>
-```
-
-### VectorOfVectorOfPairOfULONGAndDouble::Add
-
-```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::Add( std::vector<std::pair<ULONG, double>> value );
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.Add( $value ) -> None
-```
-
-### VectorOfVectorOfPairOfULONGAndDouble::Items
-
-```cpp
-VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::Items();
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.Items() -> retval
-```
-
-### VectorOfVectorOfPairOfULONGAndDouble::Keys
-
-```cpp
-std::vector<int> VectorOfVectorOfPairOfULONGAndDouble::Keys();
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.Keys() -> retval
-```
-
-### VectorOfVectorOfPairOfULONGAndDouble::Remove
-
-```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::Remove( size_t index );
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.Remove( $index ) -> None
-```
-
-### VectorOfVectorOfPairOfULONGAndDouble::append
-
-```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::append( std::vector<std::pair<ULONG, double>> value );
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.append( $value ) -> None
-```
-
-### VectorOfVectorOfPairOfULONGAndDouble::at
-
-```cpp
-std::vector<std::pair<ULONG, double>> VectorOfVectorOfPairOfULONGAndDouble::at( size_t index );
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.at( $index ) -> retval
+    _Dlib_ObjCreate("VectorOfBool").create( $size ) -> <VectorOfBool object>
 ```
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::at( size_t                                index,
-                                               std::vector<std::pair<ULONG, double>> value );
+static VectorOfBool VectorOfBool::create( VectorOfBool other );
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.at( $index, $value ) -> None
+    _Dlib_ObjCreate("VectorOfBool").create( $other ) -> <VectorOfBool object>
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::clear
+### VectorOfBool::Add
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::clear();
+void VectorOfBool::Add( bool value );
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.clear() -> None
+    $oVectorOfBool.Add( $value ) -> None
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::empty
+### VectorOfBool::Items
 
 ```cpp
-bool VectorOfVectorOfPairOfULONGAndDouble::empty();
+VectorOfBool VectorOfBool::Items();
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.empty() -> retval
+    $oVectorOfBool.Items() -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::end
+### VectorOfBool::Keys
 
 ```cpp
-void* VectorOfVectorOfPairOfULONGAndDouble::end();
+std::vector<int> VectorOfBool::Keys();
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.end() -> retval
+    $oVectorOfBool.Keys() -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::get\_Item
+### VectorOfBool::Remove
 
 ```cpp
-std::vector<std::pair<ULONG, double>> VectorOfVectorOfPairOfULONGAndDouble::get_Item( size_t index );
+void VectorOfBool::Remove( size_t index );
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.Item( $index ) -> retval
-    $oVectorOfVectorOfPairOfULONGAndDouble( $index ) -> retval
+    $oVectorOfBool.Remove( $index ) -> None
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::get\_\_NewEnum
+### VectorOfBool::append
 
 ```cpp
-IUnknown* VectorOfVectorOfPairOfULONGAndDouble::get__NewEnum();
+void VectorOfBool::append( bool value );
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble._NewEnum() -> retval
+    $oVectorOfBool.append( $value ) -> None
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::push\_back
+### VectorOfBool::at
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::push_back( std::vector<std::pair<ULONG, double>> value );
+bool VectorOfBool::at( size_t index );
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.push_back( $value ) -> None
-```
-
-### VectorOfVectorOfPairOfULONGAndDouble::push\_vector
-
-```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfPairOfULONGAndDouble other );
-AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other ) -> None
+    $oVectorOfBool.at( $index ) -> retval
 ```
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfPairOfULONGAndDouble other,
-                                                        size_t                               count,
-                                                        size_t                               start = 0 );
+void VectorOfBool::at( size_t index,
+                       bool   value );
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
+    $oVectorOfBool.at( $index, $value ) -> None
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::put\_Item
+### VectorOfBool::clear
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::put_Item( size_t                                index,
-                                                     std::vector<std::pair<ULONG, double>> item );
+void VectorOfBool::clear();
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.Item( $index ) = $item
+    $oVectorOfBool.clear() -> None
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::size
+### VectorOfBool::empty
 
 ```cpp
-size_t VectorOfVectorOfPairOfULONGAndDouble::size();
+bool VectorOfBool::empty();
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.size() -> retval
+    $oVectorOfBool.empty() -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::slice
+### VectorOfBool::end
 
 ```cpp
-VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
-                                                                                  size_t count = __self->get()->size() );
+void* VectorOfBool::end();
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
+    $oVectorOfBool.end() -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::sort
+### VectorOfBool::get\_Item
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::sort( void*  comparator,
-                                                 size_t start = 0,
-                                                 size_t count = __self->get()->size() );
+bool VectorOfBool::get_Item( size_t index );
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.sort( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfBool.Item( $index ) -> retval
+    $oVectorOfBool( $index ) -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::sort\_variant
+### VectorOfBool::get\_\_NewEnum
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::sort_variant( void*  comparator,
-                                                         size_t start = 0,
-                                                         size_t count = __self->get()->size() );
+IUnknown* VectorOfBool::get__NewEnum();
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfBool._NewEnum() -> retval
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble::start
+### VectorOfBool::push\_back
 
 ```cpp
-void* VectorOfVectorOfPairOfULONGAndDouble::start();
+void VectorOfBool::push_back( bool value );
 AutoIt:
-    $oVectorOfVectorOfPairOfULONGAndDouble.start() -> retval
+    $oVectorOfBool.push_back( $value ) -> None
 ```
 
-## VectorOfPoint
-
-### VectorOfPoint.Count
+### VectorOfBool::push\_vector
 
 ```cpp
-size_t VectorOfPoint::size()
+void VectorOfBool::push_vector( VectorOfBool other );
 AutoIt:
-    [propget] $oVectorOfPoint.Count
-```
-
-### VectorOfPoint::create
-
-```cpp
-static VectorOfPoint VectorOfPoint::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfPoint").create() -> <VectorOfPoint object>
+    $oVectorOfBool.push_vector( $other ) -> None
 ```
 
 ```cpp
-static VectorOfPoint VectorOfPoint::create( size_t size );
+void VectorOfBool::push_vector( VectorOfBool other,
+                                size_t       count,
+                                size_t       start = 0 );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfPoint").create( $size ) -> <VectorOfPoint object>
+    $oVectorOfBool.push_vector( $other, $count[, $start] ) -> None
 ```
 
+### VectorOfBool::put\_Item
+
 ```cpp
-static VectorOfPoint VectorOfPoint::create( VectorOfPoint other );
+void VectorOfBool::put_Item( size_t index,
+                             bool   item );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfPoint").create( $other ) -> <VectorOfPoint object>
+    $oVectorOfBool.Item( $index ) = $item
 ```
 
-### VectorOfPoint::Add
+### VectorOfBool::size
 
 ```cpp
-void VectorOfPoint::Add( dlib::point value );
+size_t VectorOfBool::size();
 AutoIt:
-    $oVectorOfPoint.Add( $value ) -> None
+    $oVectorOfBool.size() -> retval
 ```
 
-### VectorOfPoint::Items
+### VectorOfBool::slice
 
 ```cpp
-VectorOfPoint VectorOfPoint::Items();
-AutoIt:
-    $oVectorOfPoint.Items() -> retval
-```
-
-### VectorOfPoint::Keys
-
-```cpp
-std::vector<int> VectorOfPoint::Keys();
-AutoIt:
-    $oVectorOfPoint.Keys() -> retval
-```
-
-### VectorOfPoint::Remove
-
-```cpp
-void VectorOfPoint::Remove( size_t index );
-AutoIt:
-    $oVectorOfPoint.Remove( $index ) -> None
-```
-
-### VectorOfPoint::append
-
-```cpp
-void VectorOfPoint::append( dlib::point value );
-AutoIt:
-    $oVectorOfPoint.append( $value ) -> None
-```
-
-### VectorOfPoint::at
-
-```cpp
-dlib::point VectorOfPoint::at( size_t index );
-AutoIt:
-    $oVectorOfPoint.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfPoint::at( size_t      index,
-                        dlib::point value );
-AutoIt:
-    $oVectorOfPoint.at( $index, $value ) -> None
-```
-
-### VectorOfPoint::clear
-
-```cpp
-void VectorOfPoint::clear();
-AutoIt:
-    $oVectorOfPoint.clear() -> None
-```
-
-### VectorOfPoint::empty
-
-```cpp
-bool VectorOfPoint::empty();
-AutoIt:
-    $oVectorOfPoint.empty() -> retval
-```
-
-### VectorOfPoint::end
-
-```cpp
-void* VectorOfPoint::end();
-AutoIt:
-    $oVectorOfPoint.end() -> retval
-```
-
-### VectorOfPoint::get\_Item
-
-```cpp
-dlib::point VectorOfPoint::get_Item( size_t index );
-AutoIt:
-    $oVectorOfPoint.Item( $index ) -> retval
-    $oVectorOfPoint( $index ) -> retval
-```
-
-### VectorOfPoint::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfPoint::get__NewEnum();
-AutoIt:
-    $oVectorOfPoint._NewEnum() -> retval
-```
-
-### VectorOfPoint::push\_back
-
-```cpp
-void VectorOfPoint::push_back( dlib::point value );
-AutoIt:
-    $oVectorOfPoint.push_back( $value ) -> None
-```
-
-### VectorOfPoint::push\_vector
-
-```cpp
-void VectorOfPoint::push_vector( VectorOfPoint other );
-AutoIt:
-    $oVectorOfPoint.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfPoint::push_vector( VectorOfPoint other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfPoint.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfPoint::put\_Item
-
-```cpp
-void VectorOfPoint::put_Item( size_t      index,
-                              dlib::point item );
-AutoIt:
-    $oVectorOfPoint.Item( $index ) = $item
-```
-
-### VectorOfPoint::size
-
-```cpp
-size_t VectorOfPoint::size();
-AutoIt:
-    $oVectorOfPoint.size() -> retval
-```
-
-### VectorOfPoint::slice
-
-```cpp
-VectorOfPoint VectorOfPoint::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfPoint.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfPoint::sort
-
-```cpp
-void VectorOfPoint::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfPoint.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfPoint::sort\_variant
-
-```cpp
-void VectorOfPoint::sort_variant( void*  comparator,
-                                  size_t start = 0,
+VectorOfBool VectorOfBool::slice( size_t start = 0,
                                   size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfPoint.sort_variant( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfBool.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfPoint::start
+### VectorOfBool::sort
 
 ```cpp
-void* VectorOfPoint::start();
+void VectorOfBool::sort( void*  comparator,
+                         size_t start = 0,
+                         size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfPoint.start() -> retval
+    $oVectorOfBool.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfBool::sort\_variant
+
+```cpp
+void VectorOfBool::sort_variant( void*  comparator,
+                                 size_t start = 0,
+                                 size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfBool.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfBool::start
+
+```cpp
+void* VectorOfBool::start();
+AutoIt:
+    $oVectorOfBool.start() -> retval
 ```
 
 ## VectorOfRectangle
@@ -15790,820 +16207,208 @@ AutoIt:
     $oVectorOfRectangle.start() -> retval
 ```
 
-## VectorOfULONG
+## VectorOfLong
 
-### VectorOfULONG.Count
+### VectorOfLong.Count
 
 ```cpp
-size_t VectorOfULONG::size()
+size_t VectorOfLong::size()
 AutoIt:
-    [propget] $oVectorOfULONG.Count
+    [propget] $oVectorOfLong.Count
 ```
 
-### VectorOfULONG::create
+### VectorOfLong::create
 
 ```cpp
-static VectorOfULONG VectorOfULONG::create();
+static VectorOfLong VectorOfLong::create();
 AutoIt:
-    _Dlib_ObjCreate("VectorOfULONG").create() -> <VectorOfULONG object>
-```
-
-```cpp
-static VectorOfULONG VectorOfULONG::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfULONG").create( $size ) -> <VectorOfULONG object>
+    _Dlib_ObjCreate("VectorOfLong").create() -> <VectorOfLong object>
 ```
 
 ```cpp
-static VectorOfULONG VectorOfULONG::create( VectorOfULONG other );
+static VectorOfLong VectorOfLong::create( size_t size );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfULONG").create( $other ) -> <VectorOfULONG object>
-```
-
-### VectorOfULONG::Add
-
-```cpp
-void VectorOfULONG::Add( ULONG value );
-AutoIt:
-    $oVectorOfULONG.Add( $value ) -> None
-```
-
-### VectorOfULONG::Items
-
-```cpp
-VectorOfULONG VectorOfULONG::Items();
-AutoIt:
-    $oVectorOfULONG.Items() -> retval
-```
-
-### VectorOfULONG::Keys
-
-```cpp
-std::vector<int> VectorOfULONG::Keys();
-AutoIt:
-    $oVectorOfULONG.Keys() -> retval
-```
-
-### VectorOfULONG::Remove
-
-```cpp
-void VectorOfULONG::Remove( size_t index );
-AutoIt:
-    $oVectorOfULONG.Remove( $index ) -> None
-```
-
-### VectorOfULONG::append
-
-```cpp
-void VectorOfULONG::append( ULONG value );
-AutoIt:
-    $oVectorOfULONG.append( $value ) -> None
-```
-
-### VectorOfULONG::at
-
-```cpp
-ULONG VectorOfULONG::at( size_t index );
-AutoIt:
-    $oVectorOfULONG.at( $index ) -> retval
+    _Dlib_ObjCreate("VectorOfLong").create( $size ) -> <VectorOfLong object>
 ```
 
 ```cpp
-void VectorOfULONG::at( size_t index,
-                        ULONG  value );
+static VectorOfLong VectorOfLong::create( VectorOfLong other );
 AutoIt:
-    $oVectorOfULONG.at( $index, $value ) -> None
+    _Dlib_ObjCreate("VectorOfLong").create( $other ) -> <VectorOfLong object>
 ```
 
-### VectorOfULONG::clear
+### VectorOfLong::Add
 
 ```cpp
-void VectorOfULONG::clear();
+void VectorOfLong::Add( long value );
 AutoIt:
-    $oVectorOfULONG.clear() -> None
+    $oVectorOfLong.Add( $value ) -> None
 ```
 
-### VectorOfULONG::empty
+### VectorOfLong::Items
 
 ```cpp
-bool VectorOfULONG::empty();
+VectorOfLong VectorOfLong::Items();
 AutoIt:
-    $oVectorOfULONG.empty() -> retval
+    $oVectorOfLong.Items() -> retval
 ```
 
-### VectorOfULONG::end
+### VectorOfLong::Keys
 
 ```cpp
-void* VectorOfULONG::end();
+std::vector<int> VectorOfLong::Keys();
 AutoIt:
-    $oVectorOfULONG.end() -> retval
+    $oVectorOfLong.Keys() -> retval
 ```
 
-### VectorOfULONG::get\_Item
+### VectorOfLong::Remove
 
 ```cpp
-ULONG VectorOfULONG::get_Item( size_t index );
+void VectorOfLong::Remove( size_t index );
 AutoIt:
-    $oVectorOfULONG.Item( $index ) -> retval
-    $oVectorOfULONG( $index ) -> retval
+    $oVectorOfLong.Remove( $index ) -> None
 ```
 
-### VectorOfULONG::get\_\_NewEnum
+### VectorOfLong::append
 
 ```cpp
-IUnknown* VectorOfULONG::get__NewEnum();
+void VectorOfLong::append( long value );
 AutoIt:
-    $oVectorOfULONG._NewEnum() -> retval
+    $oVectorOfLong.append( $value ) -> None
 ```
 
-### VectorOfULONG::push\_back
+### VectorOfLong::at
 
 ```cpp
-void VectorOfULONG::push_back( ULONG value );
+long VectorOfLong::at( size_t index );
 AutoIt:
-    $oVectorOfULONG.push_back( $value ) -> None
-```
-
-### VectorOfULONG::push\_vector
-
-```cpp
-void VectorOfULONG::push_vector( VectorOfULONG other );
-AutoIt:
-    $oVectorOfULONG.push_vector( $other ) -> None
+    $oVectorOfLong.at( $index ) -> retval
 ```
 
 ```cpp
-void VectorOfULONG::push_vector( VectorOfULONG other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfLong::at( size_t index,
+                       long   value );
 AutoIt:
-    $oVectorOfULONG.push_vector( $other, $count[, $start] ) -> None
+    $oVectorOfLong.at( $index, $value ) -> None
 ```
 
-### VectorOfULONG::put\_Item
+### VectorOfLong::clear
 
 ```cpp
-void VectorOfULONG::put_Item( size_t index,
-                              ULONG  item );
+void VectorOfLong::clear();
 AutoIt:
-    $oVectorOfULONG.Item( $index ) = $item
+    $oVectorOfLong.clear() -> None
 ```
 
-### VectorOfULONG::size
+### VectorOfLong::empty
 
 ```cpp
-size_t VectorOfULONG::size();
+bool VectorOfLong::empty();
 AutoIt:
-    $oVectorOfULONG.size() -> retval
+    $oVectorOfLong.empty() -> retval
 ```
 
-### VectorOfULONG::slice
+### VectorOfLong::end
 
 ```cpp
-VectorOfULONG VectorOfULONG::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+void* VectorOfLong::end();
 AutoIt:
-    $oVectorOfULONG.slice( [$start[, $count]] ) -> retval
+    $oVectorOfLong.end() -> retval
 ```
 
-### VectorOfULONG::sort
+### VectorOfLong::get\_Item
 
 ```cpp
-void VectorOfULONG::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
+long VectorOfLong::get_Item( size_t index );
 AutoIt:
-    $oVectorOfULONG.sort( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfLong.Item( $index ) -> retval
+    $oVectorOfLong( $index ) -> retval
 ```
 
-### VectorOfULONG::sort\_variant
+### VectorOfLong::get\_\_NewEnum
 
 ```cpp
-void VectorOfULONG::sort_variant( void*  comparator,
-                                  size_t start = 0,
+IUnknown* VectorOfLong::get__NewEnum();
+AutoIt:
+    $oVectorOfLong._NewEnum() -> retval
+```
+
+### VectorOfLong::push\_back
+
+```cpp
+void VectorOfLong::push_back( long value );
+AutoIt:
+    $oVectorOfLong.push_back( $value ) -> None
+```
+
+### VectorOfLong::push\_vector
+
+```cpp
+void VectorOfLong::push_vector( VectorOfLong other );
+AutoIt:
+    $oVectorOfLong.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfLong::push_vector( VectorOfLong other,
+                                size_t       count,
+                                size_t       start = 0 );
+AutoIt:
+    $oVectorOfLong.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfLong::put\_Item
+
+```cpp
+void VectorOfLong::put_Item( size_t index,
+                             long   item );
+AutoIt:
+    $oVectorOfLong.Item( $index ) = $item
+```
+
+### VectorOfLong::size
+
+```cpp
+size_t VectorOfLong::size();
+AutoIt:
+    $oVectorOfLong.size() -> retval
+```
+
+### VectorOfLong::slice
+
+```cpp
+VectorOfLong VectorOfLong::slice( size_t start = 0,
                                   size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfLong.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfULONG::start
+### VectorOfLong::sort
 
 ```cpp
-void* VectorOfULONG::start();
+void VectorOfLong::sort( void*  comparator,
+                         size_t start = 0,
+                         size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfULONG.start() -> retval
+    $oVectorOfLong.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-## VectorOfDpoint
+### VectorOfLong::sort\_variant
 
-### VectorOfDpoint.Count
-
-```cpp
-size_t VectorOfDpoint::size()
-AutoIt:
-    [propget] $oVectorOfDpoint.Count
-```
-
-### VectorOfDpoint::create
-
-```cpp
-static VectorOfDpoint VectorOfDpoint::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfDpoint").create() -> <VectorOfDpoint object>
-```
-
-```cpp
-static VectorOfDpoint VectorOfDpoint::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfDpoint").create( $size ) -> <VectorOfDpoint object>
-```
-
-```cpp
-static VectorOfDpoint VectorOfDpoint::create( VectorOfDpoint other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfDpoint").create( $other ) -> <VectorOfDpoint object>
-```
-
-### VectorOfDpoint::Add
-
-```cpp
-void VectorOfDpoint::Add( dlib::dpoint value );
-AutoIt:
-    $oVectorOfDpoint.Add( $value ) -> None
-```
-
-### VectorOfDpoint::Items
-
-```cpp
-VectorOfDpoint VectorOfDpoint::Items();
-AutoIt:
-    $oVectorOfDpoint.Items() -> retval
-```
-
-### VectorOfDpoint::Keys
-
-```cpp
-std::vector<int> VectorOfDpoint::Keys();
-AutoIt:
-    $oVectorOfDpoint.Keys() -> retval
-```
-
-### VectorOfDpoint::Remove
-
-```cpp
-void VectorOfDpoint::Remove( size_t index );
-AutoIt:
-    $oVectorOfDpoint.Remove( $index ) -> None
-```
-
-### VectorOfDpoint::append
-
-```cpp
-void VectorOfDpoint::append( dlib::dpoint value );
-AutoIt:
-    $oVectorOfDpoint.append( $value ) -> None
-```
-
-### VectorOfDpoint::at
-
-```cpp
-dlib::dpoint VectorOfDpoint::at( size_t index );
-AutoIt:
-    $oVectorOfDpoint.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfDpoint::at( size_t       index,
-                         dlib::dpoint value );
-AutoIt:
-    $oVectorOfDpoint.at( $index, $value ) -> None
-```
-
-### VectorOfDpoint::clear
-
-```cpp
-void VectorOfDpoint::clear();
-AutoIt:
-    $oVectorOfDpoint.clear() -> None
-```
-
-### VectorOfDpoint::empty
-
-```cpp
-bool VectorOfDpoint::empty();
-AutoIt:
-    $oVectorOfDpoint.empty() -> retval
-```
-
-### VectorOfDpoint::end
-
-```cpp
-void* VectorOfDpoint::end();
-AutoIt:
-    $oVectorOfDpoint.end() -> retval
-```
-
-### VectorOfDpoint::get\_Item
-
-```cpp
-dlib::dpoint VectorOfDpoint::get_Item( size_t index );
-AutoIt:
-    $oVectorOfDpoint.Item( $index ) -> retval
-    $oVectorOfDpoint( $index ) -> retval
-```
-
-### VectorOfDpoint::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfDpoint::get__NewEnum();
-AutoIt:
-    $oVectorOfDpoint._NewEnum() -> retval
-```
-
-### VectorOfDpoint::push\_back
-
-```cpp
-void VectorOfDpoint::push_back( dlib::dpoint value );
-AutoIt:
-    $oVectorOfDpoint.push_back( $value ) -> None
-```
-
-### VectorOfDpoint::push\_vector
-
-```cpp
-void VectorOfDpoint::push_vector( VectorOfDpoint other );
-AutoIt:
-    $oVectorOfDpoint.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfDpoint::push_vector( VectorOfDpoint other,
-                                  size_t         count,
-                                  size_t         start = 0 );
-AutoIt:
-    $oVectorOfDpoint.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfDpoint::put\_Item
-
-```cpp
-void VectorOfDpoint::put_Item( size_t       index,
-                               dlib::dpoint item );
-AutoIt:
-    $oVectorOfDpoint.Item( $index ) = $item
-```
-
-### VectorOfDpoint::size
-
-```cpp
-size_t VectorOfDpoint::size();
-AutoIt:
-    $oVectorOfDpoint.size() -> retval
-```
-
-### VectorOfDpoint::slice
-
-```cpp
-VectorOfDpoint VectorOfDpoint::slice( size_t start = 0,
-                                      size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfDpoint.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfDpoint::sort
-
-```cpp
-void VectorOfDpoint::sort( void*  comparator,
-                           size_t start = 0,
-                           size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfDpoint.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfDpoint::sort\_variant
-
-```cpp
-void VectorOfDpoint::sort_variant( void*  comparator,
-                                   size_t start = 0,
-                                   size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfDpoint.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfDpoint::start
-
-```cpp
-void* VectorOfDpoint::start();
-AutoIt:
-    $oVectorOfDpoint.start() -> retval
-```
-
-## VectorOfVec\_ranking\_pair
-
-### VectorOfVec\_ranking\_pair.Count
-
-```cpp
-size_t VectorOfVec_ranking_pair::size()
-AutoIt:
-    [propget] $oVectorOfVec_ranking_pair.Count
-```
-
-### VectorOfVec\_ranking\_pair::create
-
-```cpp
-static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec_ranking_pair").create() -> <VectorOfVec_ranking_pair object>
-```
-
-```cpp
-static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec_ranking_pair").create( $size ) -> <VectorOfVec_ranking_pair object>
-```
-
-```cpp
-static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create( VectorOfVec_ranking_pair other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec_ranking_pair").create( $other ) -> <VectorOfVec_ranking_pair object>
-```
-
-### VectorOfVec\_ranking\_pair::Add
-
-```cpp
-void VectorOfVec_ranking_pair::Add( dlib::vec_ranking_pair value );
-AutoIt:
-    $oVectorOfVec_ranking_pair.Add( $value ) -> None
-```
-
-### VectorOfVec\_ranking\_pair::Items
-
-```cpp
-VectorOfVec_ranking_pair VectorOfVec_ranking_pair::Items();
-AutoIt:
-    $oVectorOfVec_ranking_pair.Items() -> retval
-```
-
-### VectorOfVec\_ranking\_pair::Keys
-
-```cpp
-std::vector<int> VectorOfVec_ranking_pair::Keys();
-AutoIt:
-    $oVectorOfVec_ranking_pair.Keys() -> retval
-```
-
-### VectorOfVec\_ranking\_pair::Remove
-
-```cpp
-void VectorOfVec_ranking_pair::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec_ranking_pair.Remove( $index ) -> None
-```
-
-### VectorOfVec\_ranking\_pair::append
-
-```cpp
-void VectorOfVec_ranking_pair::append( dlib::vec_ranking_pair value );
-AutoIt:
-    $oVectorOfVec_ranking_pair.append( $value ) -> None
-```
-
-### VectorOfVec\_ranking\_pair::at
-
-```cpp
-dlib::vec_ranking_pair VectorOfVec_ranking_pair::at( size_t index );
-AutoIt:
-    $oVectorOfVec_ranking_pair.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec_ranking_pair::at( size_t                 index,
-                                   dlib::vec_ranking_pair value );
-AutoIt:
-    $oVectorOfVec_ranking_pair.at( $index, $value ) -> None
-```
-
-### VectorOfVec\_ranking\_pair::clear
-
-```cpp
-void VectorOfVec_ranking_pair::clear();
-AutoIt:
-    $oVectorOfVec_ranking_pair.clear() -> None
-```
-
-### VectorOfVec\_ranking\_pair::empty
-
-```cpp
-bool VectorOfVec_ranking_pair::empty();
-AutoIt:
-    $oVectorOfVec_ranking_pair.empty() -> retval
-```
-
-### VectorOfVec\_ranking\_pair::end
-
-```cpp
-void* VectorOfVec_ranking_pair::end();
-AutoIt:
-    $oVectorOfVec_ranking_pair.end() -> retval
-```
-
-### VectorOfVec\_ranking\_pair::get\_Item
-
-```cpp
-dlib::vec_ranking_pair VectorOfVec_ranking_pair::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec_ranking_pair.Item( $index ) -> retval
-    $oVectorOfVec_ranking_pair( $index ) -> retval
-```
-
-### VectorOfVec\_ranking\_pair::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec_ranking_pair::get__NewEnum();
-AutoIt:
-    $oVectorOfVec_ranking_pair._NewEnum() -> retval
-```
-
-### VectorOfVec\_ranking\_pair::push\_back
-
-```cpp
-void VectorOfVec_ranking_pair::push_back( dlib::vec_ranking_pair value );
-AutoIt:
-    $oVectorOfVec_ranking_pair.push_back( $value ) -> None
-```
-
-### VectorOfVec\_ranking\_pair::push\_vector
-
-```cpp
-void VectorOfVec_ranking_pair::push_vector( VectorOfVec_ranking_pair other );
-AutoIt:
-    $oVectorOfVec_ranking_pair.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec_ranking_pair::push_vector( VectorOfVec_ranking_pair other,
-                                            size_t                   count,
-                                            size_t                   start = 0 );
-AutoIt:
-    $oVectorOfVec_ranking_pair.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec\_ranking\_pair::put\_Item
-
-```cpp
-void VectorOfVec_ranking_pair::put_Item( size_t                 index,
-                                         dlib::vec_ranking_pair item );
-AutoIt:
-    $oVectorOfVec_ranking_pair.Item( $index ) = $item
-```
-
-### VectorOfVec\_ranking\_pair::size
-
-```cpp
-size_t VectorOfVec_ranking_pair::size();
-AutoIt:
-    $oVectorOfVec_ranking_pair.size() -> retval
-```
-
-### VectorOfVec\_ranking\_pair::slice
-
-```cpp
-VectorOfVec_ranking_pair VectorOfVec_ranking_pair::slice( size_t start = 0,
-                                                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec_ranking_pair.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec\_ranking\_pair::sort
-
-```cpp
-void VectorOfVec_ranking_pair::sort( void*  comparator,
-                                     size_t start = 0,
-                                     size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec_ranking_pair.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec\_ranking\_pair::sort\_variant
-
-```cpp
-void VectorOfVec_ranking_pair::sort_variant( void*  comparator,
-                                             size_t start = 0,
-                                             size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec_ranking_pair.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec\_ranking\_pair::start
-
-```cpp
-void* VectorOfVec_ranking_pair::start();
-AutoIt:
-    $oVectorOfVec_ranking_pair.start() -> retval
-```
-
-## VectorOfSparse\_ranking\_pair
-
-### VectorOfSparse\_ranking\_pair.Count
-
-```cpp
-size_t VectorOfSparse_ranking_pair::size()
-AutoIt:
-    [propget] $oVectorOfSparse_ranking_pair.Count
-```
-
-### VectorOfSparse\_ranking\_pair::create
-
-```cpp
-static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create() -> <VectorOfSparse_ranking_pair object>
-```
-
-```cpp
-static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create( $size ) -> <VectorOfSparse_ranking_pair object>
-```
-
-```cpp
-static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create( VectorOfSparse_ranking_pair other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create( $other ) -> <VectorOfSparse_ranking_pair object>
-```
-
-### VectorOfSparse\_ranking\_pair::Add
-
-```cpp
-void VectorOfSparse_ranking_pair::Add( dlib::sparse_ranking_pair value );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.Add( $value ) -> None
-```
-
-### VectorOfSparse\_ranking\_pair::Items
-
-```cpp
-VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::Items();
-AutoIt:
-    $oVectorOfSparse_ranking_pair.Items() -> retval
-```
-
-### VectorOfSparse\_ranking\_pair::Keys
-
-```cpp
-std::vector<int> VectorOfSparse_ranking_pair::Keys();
-AutoIt:
-    $oVectorOfSparse_ranking_pair.Keys() -> retval
-```
-
-### VectorOfSparse\_ranking\_pair::Remove
-
-```cpp
-void VectorOfSparse_ranking_pair::Remove( size_t index );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.Remove( $index ) -> None
-```
-
-### VectorOfSparse\_ranking\_pair::append
-
-```cpp
-void VectorOfSparse_ranking_pair::append( dlib::sparse_ranking_pair value );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.append( $value ) -> None
-```
-
-### VectorOfSparse\_ranking\_pair::at
-
-```cpp
-dlib::sparse_ranking_pair VectorOfSparse_ranking_pair::at( size_t index );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfSparse_ranking_pair::at( size_t                    index,
-                                      dlib::sparse_ranking_pair value );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.at( $index, $value ) -> None
-```
-
-### VectorOfSparse\_ranking\_pair::clear
-
-```cpp
-void VectorOfSparse_ranking_pair::clear();
-AutoIt:
-    $oVectorOfSparse_ranking_pair.clear() -> None
-```
-
-### VectorOfSparse\_ranking\_pair::empty
-
-```cpp
-bool VectorOfSparse_ranking_pair::empty();
-AutoIt:
-    $oVectorOfSparse_ranking_pair.empty() -> retval
-```
-
-### VectorOfSparse\_ranking\_pair::end
-
-```cpp
-void* VectorOfSparse_ranking_pair::end();
-AutoIt:
-    $oVectorOfSparse_ranking_pair.end() -> retval
-```
-
-### VectorOfSparse\_ranking\_pair::get\_Item
-
-```cpp
-dlib::sparse_ranking_pair VectorOfSparse_ranking_pair::get_Item( size_t index );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.Item( $index ) -> retval
-    $oVectorOfSparse_ranking_pair( $index ) -> retval
-```
-
-### VectorOfSparse\_ranking\_pair::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfSparse_ranking_pair::get__NewEnum();
-AutoIt:
-    $oVectorOfSparse_ranking_pair._NewEnum() -> retval
-```
-
-### VectorOfSparse\_ranking\_pair::push\_back
-
-```cpp
-void VectorOfSparse_ranking_pair::push_back( dlib::sparse_ranking_pair value );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.push_back( $value ) -> None
-```
-
-### VectorOfSparse\_ranking\_pair::push\_vector
-
-```cpp
-void VectorOfSparse_ranking_pair::push_vector( VectorOfSparse_ranking_pair other );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfSparse_ranking_pair::push_vector( VectorOfSparse_ranking_pair other,
-                                               size_t                      count,
-                                               size_t                      start = 0 );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfSparse\_ranking\_pair::put\_Item
-
-```cpp
-void VectorOfSparse_ranking_pair::put_Item( size_t                    index,
-                                            dlib::sparse_ranking_pair item );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.Item( $index ) = $item
-```
-
-### VectorOfSparse\_ranking\_pair::size
-
-```cpp
-size_t VectorOfSparse_ranking_pair::size();
-AutoIt:
-    $oVectorOfSparse_ranking_pair.size() -> retval
-```
-
-### VectorOfSparse\_ranking\_pair::slice
-
-```cpp
-VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::slice( size_t start = 0,
-                                                                size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfSparse\_ranking\_pair::sort
-
-```cpp
-void VectorOfSparse_ranking_pair::sort( void*  comparator,
-                                        size_t start = 0,
-                                        size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfSparse_ranking_pair.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfSparse\_ranking\_pair::sort\_variant
-
 ```cpp
-void VectorOfSparse_ranking_pair::sort_variant( void*  comparator,
-                                                size_t start = 0,
-                                                size_t count = __self->get()->size() );
+void VectorOfLong::sort_variant( void*  comparator,
+                                 size_t start = 0,
+                                 size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfSparse_ranking_pair.sort_variant( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfLong.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfSparse\_ranking\_pair::start
+### VectorOfLong::start
 
 ```cpp
-void* VectorOfSparse_ranking_pair::start();
+void* VectorOfLong::start();
 AutoIt:
-    $oVectorOfSparse_ranking_pair.start() -> retval
+    $oVectorOfLong.start() -> retval
 ```
 
 ## VectorOfVectorOfSpaceVector
@@ -17422,618 +17227,6 @@ AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.start() -> retval
 ```
 
-## VectorOfBool
-
-### VectorOfBool.Count
-
-```cpp
-size_t VectorOfBool::size()
-AutoIt:
-    [propget] $oVectorOfBool.Count
-```
-
-### VectorOfBool::create
-
-```cpp
-static VectorOfBool VectorOfBool::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfBool").create() -> <VectorOfBool object>
-```
-
-```cpp
-static VectorOfBool VectorOfBool::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfBool").create( $size ) -> <VectorOfBool object>
-```
-
-```cpp
-static VectorOfBool VectorOfBool::create( VectorOfBool other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfBool").create( $other ) -> <VectorOfBool object>
-```
-
-### VectorOfBool::Add
-
-```cpp
-void VectorOfBool::Add( bool value );
-AutoIt:
-    $oVectorOfBool.Add( $value ) -> None
-```
-
-### VectorOfBool::Items
-
-```cpp
-VectorOfBool VectorOfBool::Items();
-AutoIt:
-    $oVectorOfBool.Items() -> retval
-```
-
-### VectorOfBool::Keys
-
-```cpp
-std::vector<int> VectorOfBool::Keys();
-AutoIt:
-    $oVectorOfBool.Keys() -> retval
-```
-
-### VectorOfBool::Remove
-
-```cpp
-void VectorOfBool::Remove( size_t index );
-AutoIt:
-    $oVectorOfBool.Remove( $index ) -> None
-```
-
-### VectorOfBool::append
-
-```cpp
-void VectorOfBool::append( bool value );
-AutoIt:
-    $oVectorOfBool.append( $value ) -> None
-```
-
-### VectorOfBool::at
-
-```cpp
-bool VectorOfBool::at( size_t index );
-AutoIt:
-    $oVectorOfBool.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfBool::at( size_t index,
-                       bool   value );
-AutoIt:
-    $oVectorOfBool.at( $index, $value ) -> None
-```
-
-### VectorOfBool::clear
-
-```cpp
-void VectorOfBool::clear();
-AutoIt:
-    $oVectorOfBool.clear() -> None
-```
-
-### VectorOfBool::empty
-
-```cpp
-bool VectorOfBool::empty();
-AutoIt:
-    $oVectorOfBool.empty() -> retval
-```
-
-### VectorOfBool::end
-
-```cpp
-void* VectorOfBool::end();
-AutoIt:
-    $oVectorOfBool.end() -> retval
-```
-
-### VectorOfBool::get\_Item
-
-```cpp
-bool VectorOfBool::get_Item( size_t index );
-AutoIt:
-    $oVectorOfBool.Item( $index ) -> retval
-    $oVectorOfBool( $index ) -> retval
-```
-
-### VectorOfBool::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfBool::get__NewEnum();
-AutoIt:
-    $oVectorOfBool._NewEnum() -> retval
-```
-
-### VectorOfBool::push\_back
-
-```cpp
-void VectorOfBool::push_back( bool value );
-AutoIt:
-    $oVectorOfBool.push_back( $value ) -> None
-```
-
-### VectorOfBool::push\_vector
-
-```cpp
-void VectorOfBool::push_vector( VectorOfBool other );
-AutoIt:
-    $oVectorOfBool.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfBool::push_vector( VectorOfBool other,
-                                size_t       count,
-                                size_t       start = 0 );
-AutoIt:
-    $oVectorOfBool.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfBool::put\_Item
-
-```cpp
-void VectorOfBool::put_Item( size_t index,
-                             bool   item );
-AutoIt:
-    $oVectorOfBool.Item( $index ) = $item
-```
-
-### VectorOfBool::size
-
-```cpp
-size_t VectorOfBool::size();
-AutoIt:
-    $oVectorOfBool.size() -> retval
-```
-
-### VectorOfBool::slice
-
-```cpp
-VectorOfBool VectorOfBool::slice( size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfBool.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfBool::sort
-
-```cpp
-void VectorOfBool::sort( void*  comparator,
-                         size_t start = 0,
-                         size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfBool.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfBool::sort\_variant
-
-```cpp
-void VectorOfBool::sort_variant( void*  comparator,
-                                 size_t start = 0,
-                                 size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfBool.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfBool::start
-
-```cpp
-void* VectorOfBool::start();
-AutoIt:
-    $oVectorOfBool.start() -> retval
-```
-
-## VectorOfFull\_object\_detection
-
-### VectorOfFull\_object\_detection.Count
-
-```cpp
-size_t VectorOfFull_object_detection::size()
-AutoIt:
-    [propget] $oVectorOfFull_object_detection.Count
-```
-
-### VectorOfFull\_object\_detection::create
-
-```cpp
-static VectorOfFull_object_detection VectorOfFull_object_detection::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfFull_object_detection").create() -> <VectorOfFull_object_detection object>
-```
-
-```cpp
-static VectorOfFull_object_detection VectorOfFull_object_detection::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfFull_object_detection").create( $size ) -> <VectorOfFull_object_detection object>
-```
-
-```cpp
-static VectorOfFull_object_detection VectorOfFull_object_detection::create( VectorOfFull_object_detection other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfFull_object_detection").create( $other ) -> <VectorOfFull_object_detection object>
-```
-
-### VectorOfFull\_object\_detection::Add
-
-```cpp
-void VectorOfFull_object_detection::Add( dlib::full_object_detection value );
-AutoIt:
-    $oVectorOfFull_object_detection.Add( $value ) -> None
-```
-
-### VectorOfFull\_object\_detection::Items
-
-```cpp
-VectorOfFull_object_detection VectorOfFull_object_detection::Items();
-AutoIt:
-    $oVectorOfFull_object_detection.Items() -> retval
-```
-
-### VectorOfFull\_object\_detection::Keys
-
-```cpp
-std::vector<int> VectorOfFull_object_detection::Keys();
-AutoIt:
-    $oVectorOfFull_object_detection.Keys() -> retval
-```
-
-### VectorOfFull\_object\_detection::Remove
-
-```cpp
-void VectorOfFull_object_detection::Remove( size_t index );
-AutoIt:
-    $oVectorOfFull_object_detection.Remove( $index ) -> None
-```
-
-### VectorOfFull\_object\_detection::append
-
-```cpp
-void VectorOfFull_object_detection::append( dlib::full_object_detection value );
-AutoIt:
-    $oVectorOfFull_object_detection.append( $value ) -> None
-```
-
-### VectorOfFull\_object\_detection::at
-
-```cpp
-dlib::full_object_detection VectorOfFull_object_detection::at( size_t index );
-AutoIt:
-    $oVectorOfFull_object_detection.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfFull_object_detection::at( size_t                      index,
-                                        dlib::full_object_detection value );
-AutoIt:
-    $oVectorOfFull_object_detection.at( $index, $value ) -> None
-```
-
-### VectorOfFull\_object\_detection::clear
-
-```cpp
-void VectorOfFull_object_detection::clear();
-AutoIt:
-    $oVectorOfFull_object_detection.clear() -> None
-```
-
-### VectorOfFull\_object\_detection::empty
-
-```cpp
-bool VectorOfFull_object_detection::empty();
-AutoIt:
-    $oVectorOfFull_object_detection.empty() -> retval
-```
-
-### VectorOfFull\_object\_detection::end
-
-```cpp
-void* VectorOfFull_object_detection::end();
-AutoIt:
-    $oVectorOfFull_object_detection.end() -> retval
-```
-
-### VectorOfFull\_object\_detection::get\_Item
-
-```cpp
-dlib::full_object_detection VectorOfFull_object_detection::get_Item( size_t index );
-AutoIt:
-    $oVectorOfFull_object_detection.Item( $index ) -> retval
-    $oVectorOfFull_object_detection( $index ) -> retval
-```
-
-### VectorOfFull\_object\_detection::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfFull_object_detection::get__NewEnum();
-AutoIt:
-    $oVectorOfFull_object_detection._NewEnum() -> retval
-```
-
-### VectorOfFull\_object\_detection::push\_back
-
-```cpp
-void VectorOfFull_object_detection::push_back( dlib::full_object_detection value );
-AutoIt:
-    $oVectorOfFull_object_detection.push_back( $value ) -> None
-```
-
-### VectorOfFull\_object\_detection::push\_vector
-
-```cpp
-void VectorOfFull_object_detection::push_vector( VectorOfFull_object_detection other );
-AutoIt:
-    $oVectorOfFull_object_detection.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfFull_object_detection::push_vector( VectorOfFull_object_detection other,
-                                                 size_t                        count,
-                                                 size_t                        start = 0 );
-AutoIt:
-    $oVectorOfFull_object_detection.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfFull\_object\_detection::put\_Item
-
-```cpp
-void VectorOfFull_object_detection::put_Item( size_t                      index,
-                                              dlib::full_object_detection item );
-AutoIt:
-    $oVectorOfFull_object_detection.Item( $index ) = $item
-```
-
-### VectorOfFull\_object\_detection::size
-
-```cpp
-size_t VectorOfFull_object_detection::size();
-AutoIt:
-    $oVectorOfFull_object_detection.size() -> retval
-```
-
-### VectorOfFull\_object\_detection::slice
-
-```cpp
-VectorOfFull_object_detection VectorOfFull_object_detection::slice( size_t start = 0,
-                                                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfFull_object_detection.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfFull\_object\_detection::sort
-
-```cpp
-void VectorOfFull_object_detection::sort( void*  comparator,
-                                          size_t start = 0,
-                                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfFull_object_detection.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfFull\_object\_detection::sort\_variant
-
-```cpp
-void VectorOfFull_object_detection::sort_variant( void*  comparator,
-                                                  size_t start = 0,
-                                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfFull_object_detection.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfFull\_object\_detection::start
-
-```cpp
-void* VectorOfFull_object_detection::start();
-AutoIt:
-    $oVectorOfFull_object_detection.start() -> retval
-```
-
-## VectorOfMat
-
-### VectorOfMat.Count
-
-```cpp
-size_t VectorOfMat::size()
-AutoIt:
-    [propget] $oVectorOfMat.Count
-```
-
-### VectorOfMat::create
-
-```cpp
-static VectorOfMat VectorOfMat::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfMat").create() -> <VectorOfMat object>
-```
-
-```cpp
-static VectorOfMat VectorOfMat::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfMat").create( $size ) -> <VectorOfMat object>
-```
-
-```cpp
-static VectorOfMat VectorOfMat::create( VectorOfMat other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfMat").create( $other ) -> <VectorOfMat object>
-```
-
-### VectorOfMat::Add
-
-```cpp
-void VectorOfMat::Add( cv::Mat value );
-AutoIt:
-    $oVectorOfMat.Add( $value ) -> None
-```
-
-### VectorOfMat::Items
-
-```cpp
-VectorOfMat VectorOfMat::Items();
-AutoIt:
-    $oVectorOfMat.Items() -> retval
-```
-
-### VectorOfMat::Keys
-
-```cpp
-std::vector<int> VectorOfMat::Keys();
-AutoIt:
-    $oVectorOfMat.Keys() -> retval
-```
-
-### VectorOfMat::Remove
-
-```cpp
-void VectorOfMat::Remove( size_t index );
-AutoIt:
-    $oVectorOfMat.Remove( $index ) -> None
-```
-
-### VectorOfMat::append
-
-```cpp
-void VectorOfMat::append( cv::Mat value );
-AutoIt:
-    $oVectorOfMat.append( $value ) -> None
-```
-
-### VectorOfMat::at
-
-```cpp
-cv::Mat VectorOfMat::at( size_t index );
-AutoIt:
-    $oVectorOfMat.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfMat::at( size_t  index,
-                      cv::Mat value );
-AutoIt:
-    $oVectorOfMat.at( $index, $value ) -> None
-```
-
-### VectorOfMat::clear
-
-```cpp
-void VectorOfMat::clear();
-AutoIt:
-    $oVectorOfMat.clear() -> None
-```
-
-### VectorOfMat::empty
-
-```cpp
-bool VectorOfMat::empty();
-AutoIt:
-    $oVectorOfMat.empty() -> retval
-```
-
-### VectorOfMat::end
-
-```cpp
-void* VectorOfMat::end();
-AutoIt:
-    $oVectorOfMat.end() -> retval
-```
-
-### VectorOfMat::get\_Item
-
-```cpp
-cv::Mat VectorOfMat::get_Item( size_t index );
-AutoIt:
-    $oVectorOfMat.Item( $index ) -> retval
-    $oVectorOfMat( $index ) -> retval
-```
-
-### VectorOfMat::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfMat::get__NewEnum();
-AutoIt:
-    $oVectorOfMat._NewEnum() -> retval
-```
-
-### VectorOfMat::push\_back
-
-```cpp
-void VectorOfMat::push_back( cv::Mat value );
-AutoIt:
-    $oVectorOfMat.push_back( $value ) -> None
-```
-
-### VectorOfMat::push\_vector
-
-```cpp
-void VectorOfMat::push_vector( VectorOfMat other );
-AutoIt:
-    $oVectorOfMat.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfMat::push_vector( VectorOfMat other,
-                               size_t      count,
-                               size_t      start = 0 );
-AutoIt:
-    $oVectorOfMat.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfMat::put\_Item
-
-```cpp
-void VectorOfMat::put_Item( size_t  index,
-                            cv::Mat item );
-AutoIt:
-    $oVectorOfMat.Item( $index ) = $item
-```
-
-### VectorOfMat::size
-
-```cpp
-size_t VectorOfMat::size();
-AutoIt:
-    $oVectorOfMat.size() -> retval
-```
-
-### VectorOfMat::slice
-
-```cpp
-VectorOfMat VectorOfMat::slice( size_t start = 0,
-                                size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfMat.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfMat::sort
-
-```cpp
-void VectorOfMat::sort( void*  comparator,
-                        size_t start = 0,
-                        size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfMat.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfMat::sort\_variant
-
-```cpp
-void VectorOfMat::sort_variant( void*  comparator,
-                                size_t start = 0,
-                                size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfMat.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfMat::start
-
-```cpp
-void* VectorOfMat::start();
-AutoIt:
-    $oVectorOfMat.start() -> retval
-```
-
 ## VectorOfVectorOfFull\_object\_detection
 
 ### VectorOfVectorOfFull\_object\_detection.Count
@@ -18238,210 +17431,6 @@ AutoIt:
     $oVectorOfVectorOfFull_object_detection.start() -> retval
 ```
 
-## VectorOfVectorOfDouble
-
-### VectorOfVectorOfDouble.Count
-
-```cpp
-size_t VectorOfVectorOfDouble::size()
-AutoIt:
-    [propget] $oVectorOfVectorOfDouble.Count
-```
-
-### VectorOfVectorOfDouble::create
-
-```cpp
-static VectorOfVectorOfDouble VectorOfVectorOfDouble::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVectorOfDouble").create() -> <VectorOfVectorOfDouble object>
-```
-
-```cpp
-static VectorOfVectorOfDouble VectorOfVectorOfDouble::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVectorOfDouble").create( $size ) -> <VectorOfVectorOfDouble object>
-```
-
-```cpp
-static VectorOfVectorOfDouble VectorOfVectorOfDouble::create( VectorOfVectorOfDouble other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVectorOfDouble").create( $other ) -> <VectorOfVectorOfDouble object>
-```
-
-### VectorOfVectorOfDouble::Add
-
-```cpp
-void VectorOfVectorOfDouble::Add( std::vector<double> value );
-AutoIt:
-    $oVectorOfVectorOfDouble.Add( $value ) -> None
-```
-
-### VectorOfVectorOfDouble::Items
-
-```cpp
-VectorOfVectorOfDouble VectorOfVectorOfDouble::Items();
-AutoIt:
-    $oVectorOfVectorOfDouble.Items() -> retval
-```
-
-### VectorOfVectorOfDouble::Keys
-
-```cpp
-std::vector<int> VectorOfVectorOfDouble::Keys();
-AutoIt:
-    $oVectorOfVectorOfDouble.Keys() -> retval
-```
-
-### VectorOfVectorOfDouble::Remove
-
-```cpp
-void VectorOfVectorOfDouble::Remove( size_t index );
-AutoIt:
-    $oVectorOfVectorOfDouble.Remove( $index ) -> None
-```
-
-### VectorOfVectorOfDouble::append
-
-```cpp
-void VectorOfVectorOfDouble::append( std::vector<double> value );
-AutoIt:
-    $oVectorOfVectorOfDouble.append( $value ) -> None
-```
-
-### VectorOfVectorOfDouble::at
-
-```cpp
-std::vector<double> VectorOfVectorOfDouble::at( size_t index );
-AutoIt:
-    $oVectorOfVectorOfDouble.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVectorOfDouble::at( size_t              index,
-                                 std::vector<double> value );
-AutoIt:
-    $oVectorOfVectorOfDouble.at( $index, $value ) -> None
-```
-
-### VectorOfVectorOfDouble::clear
-
-```cpp
-void VectorOfVectorOfDouble::clear();
-AutoIt:
-    $oVectorOfVectorOfDouble.clear() -> None
-```
-
-### VectorOfVectorOfDouble::empty
-
-```cpp
-bool VectorOfVectorOfDouble::empty();
-AutoIt:
-    $oVectorOfVectorOfDouble.empty() -> retval
-```
-
-### VectorOfVectorOfDouble::end
-
-```cpp
-void* VectorOfVectorOfDouble::end();
-AutoIt:
-    $oVectorOfVectorOfDouble.end() -> retval
-```
-
-### VectorOfVectorOfDouble::get\_Item
-
-```cpp
-std::vector<double> VectorOfVectorOfDouble::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVectorOfDouble.Item( $index ) -> retval
-    $oVectorOfVectorOfDouble( $index ) -> retval
-```
-
-### VectorOfVectorOfDouble::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVectorOfDouble::get__NewEnum();
-AutoIt:
-    $oVectorOfVectorOfDouble._NewEnum() -> retval
-```
-
-### VectorOfVectorOfDouble::push\_back
-
-```cpp
-void VectorOfVectorOfDouble::push_back( std::vector<double> value );
-AutoIt:
-    $oVectorOfVectorOfDouble.push_back( $value ) -> None
-```
-
-### VectorOfVectorOfDouble::push\_vector
-
-```cpp
-void VectorOfVectorOfDouble::push_vector( VectorOfVectorOfDouble other );
-AutoIt:
-    $oVectorOfVectorOfDouble.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVectorOfDouble::push_vector( VectorOfVectorOfDouble other,
-                                          size_t                 count,
-                                          size_t                 start = 0 );
-AutoIt:
-    $oVectorOfVectorOfDouble.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVectorOfDouble::put\_Item
-
-```cpp
-void VectorOfVectorOfDouble::put_Item( size_t              index,
-                                       std::vector<double> item );
-AutoIt:
-    $oVectorOfVectorOfDouble.Item( $index ) = $item
-```
-
-### VectorOfVectorOfDouble::size
-
-```cpp
-size_t VectorOfVectorOfDouble::size();
-AutoIt:
-    $oVectorOfVectorOfDouble.size() -> retval
-```
-
-### VectorOfVectorOfDouble::slice
-
-```cpp
-VectorOfVectorOfDouble VectorOfVectorOfDouble::slice( size_t start = 0,
-                                                      size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVectorOfDouble.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVectorOfDouble::sort
-
-```cpp
-void VectorOfVectorOfDouble::sort( void*  comparator,
-                                   size_t start = 0,
-                                   size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVectorOfDouble.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVectorOfDouble::sort\_variant
-
-```cpp
-void VectorOfVectorOfDouble::sort_variant( void*  comparator,
-                                           size_t start = 0,
-                                           size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVectorOfDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVectorOfDouble::start
-
-```cpp
-void* VectorOfVectorOfDouble::start();
-AutoIt:
-    $oVectorOfVectorOfDouble.start() -> retval
-```
-
 ## VectorOfVectorOfRectangle
 
 ### VectorOfVectorOfRectangle.Count
@@ -18644,6 +17633,1026 @@ AutoIt:
 void* VectorOfVectorOfRectangle::start();
 AutoIt:
     $oVectorOfVectorOfRectangle.start() -> retval
+```
+
+## VectorOfVec\_ranking\_pair
+
+### VectorOfVec\_ranking\_pair.Count
+
+```cpp
+size_t VectorOfVec_ranking_pair::size()
+AutoIt:
+    [propget] $oVectorOfVec_ranking_pair.Count
+```
+
+### VectorOfVec\_ranking\_pair::create
+
+```cpp
+static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec_ranking_pair").create() -> <VectorOfVec_ranking_pair object>
+```
+
+```cpp
+static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec_ranking_pair").create( $size ) -> <VectorOfVec_ranking_pair object>
+```
+
+```cpp
+static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create( VectorOfVec_ranking_pair other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec_ranking_pair").create( $other ) -> <VectorOfVec_ranking_pair object>
+```
+
+### VectorOfVec\_ranking\_pair::Add
+
+```cpp
+void VectorOfVec_ranking_pair::Add( dlib::vec_ranking_pair value );
+AutoIt:
+    $oVectorOfVec_ranking_pair.Add( $value ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::Items
+
+```cpp
+VectorOfVec_ranking_pair VectorOfVec_ranking_pair::Items();
+AutoIt:
+    $oVectorOfVec_ranking_pair.Items() -> retval
+```
+
+### VectorOfVec\_ranking\_pair::Keys
+
+```cpp
+std::vector<int> VectorOfVec_ranking_pair::Keys();
+AutoIt:
+    $oVectorOfVec_ranking_pair.Keys() -> retval
+```
+
+### VectorOfVec\_ranking\_pair::Remove
+
+```cpp
+void VectorOfVec_ranking_pair::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec_ranking_pair.Remove( $index ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::append
+
+```cpp
+void VectorOfVec_ranking_pair::append( dlib::vec_ranking_pair value );
+AutoIt:
+    $oVectorOfVec_ranking_pair.append( $value ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::at
+
+```cpp
+dlib::vec_ranking_pair VectorOfVec_ranking_pair::at( size_t index );
+AutoIt:
+    $oVectorOfVec_ranking_pair.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec_ranking_pair::at( size_t                 index,
+                                   dlib::vec_ranking_pair value );
+AutoIt:
+    $oVectorOfVec_ranking_pair.at( $index, $value ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::clear
+
+```cpp
+void VectorOfVec_ranking_pair::clear();
+AutoIt:
+    $oVectorOfVec_ranking_pair.clear() -> None
+```
+
+### VectorOfVec\_ranking\_pair::empty
+
+```cpp
+bool VectorOfVec_ranking_pair::empty();
+AutoIt:
+    $oVectorOfVec_ranking_pair.empty() -> retval
+```
+
+### VectorOfVec\_ranking\_pair::end
+
+```cpp
+void* VectorOfVec_ranking_pair::end();
+AutoIt:
+    $oVectorOfVec_ranking_pair.end() -> retval
+```
+
+### VectorOfVec\_ranking\_pair::get\_Item
+
+```cpp
+dlib::vec_ranking_pair VectorOfVec_ranking_pair::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec_ranking_pair.Item( $index ) -> retval
+    $oVectorOfVec_ranking_pair( $index ) -> retval
+```
+
+### VectorOfVec\_ranking\_pair::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec_ranking_pair::get__NewEnum();
+AutoIt:
+    $oVectorOfVec_ranking_pair._NewEnum() -> retval
+```
+
+### VectorOfVec\_ranking\_pair::push\_back
+
+```cpp
+void VectorOfVec_ranking_pair::push_back( dlib::vec_ranking_pair value );
+AutoIt:
+    $oVectorOfVec_ranking_pair.push_back( $value ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::push\_vector
+
+```cpp
+void VectorOfVec_ranking_pair::push_vector( VectorOfVec_ranking_pair other );
+AutoIt:
+    $oVectorOfVec_ranking_pair.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec_ranking_pair::push_vector( VectorOfVec_ranking_pair other,
+                                            size_t                   count,
+                                            size_t                   start = 0 );
+AutoIt:
+    $oVectorOfVec_ranking_pair.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::put\_Item
+
+```cpp
+void VectorOfVec_ranking_pair::put_Item( size_t                 index,
+                                         dlib::vec_ranking_pair item );
+AutoIt:
+    $oVectorOfVec_ranking_pair.Item( $index ) = $item
+```
+
+### VectorOfVec\_ranking\_pair::size
+
+```cpp
+size_t VectorOfVec_ranking_pair::size();
+AutoIt:
+    $oVectorOfVec_ranking_pair.size() -> retval
+```
+
+### VectorOfVec\_ranking\_pair::slice
+
+```cpp
+VectorOfVec_ranking_pair VectorOfVec_ranking_pair::slice( size_t start = 0,
+                                                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec_ranking_pair.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec\_ranking\_pair::sort
+
+```cpp
+void VectorOfVec_ranking_pair::sort( void*  comparator,
+                                     size_t start = 0,
+                                     size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec_ranking_pair.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::sort\_variant
+
+```cpp
+void VectorOfVec_ranking_pair::sort_variant( void*  comparator,
+                                             size_t start = 0,
+                                             size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec_ranking_pair.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::start
+
+```cpp
+void* VectorOfVec_ranking_pair::start();
+AutoIt:
+    $oVectorOfVec_ranking_pair.start() -> retval
+```
+
+## VectorOfSparse\_ranking\_pair
+
+### VectorOfSparse\_ranking\_pair.Count
+
+```cpp
+size_t VectorOfSparse_ranking_pair::size()
+AutoIt:
+    [propget] $oVectorOfSparse_ranking_pair.Count
+```
+
+### VectorOfSparse\_ranking\_pair::create
+
+```cpp
+static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create() -> <VectorOfSparse_ranking_pair object>
+```
+
+```cpp
+static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create( $size ) -> <VectorOfSparse_ranking_pair object>
+```
+
+```cpp
+static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create( VectorOfSparse_ranking_pair other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create( $other ) -> <VectorOfSparse_ranking_pair object>
+```
+
+### VectorOfSparse\_ranking\_pair::Add
+
+```cpp
+void VectorOfSparse_ranking_pair::Add( dlib::sparse_ranking_pair value );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.Add( $value ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::Items
+
+```cpp
+VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::Items();
+AutoIt:
+    $oVectorOfSparse_ranking_pair.Items() -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::Keys
+
+```cpp
+std::vector<int> VectorOfSparse_ranking_pair::Keys();
+AutoIt:
+    $oVectorOfSparse_ranking_pair.Keys() -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::Remove
+
+```cpp
+void VectorOfSparse_ranking_pair::Remove( size_t index );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.Remove( $index ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::append
+
+```cpp
+void VectorOfSparse_ranking_pair::append( dlib::sparse_ranking_pair value );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.append( $value ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::at
+
+```cpp
+dlib::sparse_ranking_pair VectorOfSparse_ranking_pair::at( size_t index );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfSparse_ranking_pair::at( size_t                    index,
+                                      dlib::sparse_ranking_pair value );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.at( $index, $value ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::clear
+
+```cpp
+void VectorOfSparse_ranking_pair::clear();
+AutoIt:
+    $oVectorOfSparse_ranking_pair.clear() -> None
+```
+
+### VectorOfSparse\_ranking\_pair::empty
+
+```cpp
+bool VectorOfSparse_ranking_pair::empty();
+AutoIt:
+    $oVectorOfSparse_ranking_pair.empty() -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::end
+
+```cpp
+void* VectorOfSparse_ranking_pair::end();
+AutoIt:
+    $oVectorOfSparse_ranking_pair.end() -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::get\_Item
+
+```cpp
+dlib::sparse_ranking_pair VectorOfSparse_ranking_pair::get_Item( size_t index );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.Item( $index ) -> retval
+    $oVectorOfSparse_ranking_pair( $index ) -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfSparse_ranking_pair::get__NewEnum();
+AutoIt:
+    $oVectorOfSparse_ranking_pair._NewEnum() -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::push\_back
+
+```cpp
+void VectorOfSparse_ranking_pair::push_back( dlib::sparse_ranking_pair value );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.push_back( $value ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::push\_vector
+
+```cpp
+void VectorOfSparse_ranking_pair::push_vector( VectorOfSparse_ranking_pair other );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfSparse_ranking_pair::push_vector( VectorOfSparse_ranking_pair other,
+                                               size_t                      count,
+                                               size_t                      start = 0 );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::put\_Item
+
+```cpp
+void VectorOfSparse_ranking_pair::put_Item( size_t                    index,
+                                            dlib::sparse_ranking_pair item );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.Item( $index ) = $item
+```
+
+### VectorOfSparse\_ranking\_pair::size
+
+```cpp
+size_t VectorOfSparse_ranking_pair::size();
+AutoIt:
+    $oVectorOfSparse_ranking_pair.size() -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::slice
+
+```cpp
+VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::slice( size_t start = 0,
+                                                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfSparse\_ranking\_pair::sort
+
+```cpp
+void VectorOfSparse_ranking_pair::sort( void*  comparator,
+                                        size_t start = 0,
+                                        size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::sort\_variant
+
+```cpp
+void VectorOfSparse_ranking_pair::sort_variant( void*  comparator,
+                                                size_t start = 0,
+                                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfSparse_ranking_pair.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::start
+
+```cpp
+void* VectorOfSparse_ranking_pair::start();
+AutoIt:
+    $oVectorOfSparse_ranking_pair.start() -> retval
+```
+
+## VectorOfDpoint
+
+### VectorOfDpoint.Count
+
+```cpp
+size_t VectorOfDpoint::size()
+AutoIt:
+    [propget] $oVectorOfDpoint.Count
+```
+
+### VectorOfDpoint::create
+
+```cpp
+static VectorOfDpoint VectorOfDpoint::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDpoint").create() -> <VectorOfDpoint object>
+```
+
+```cpp
+static VectorOfDpoint VectorOfDpoint::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDpoint").create( $size ) -> <VectorOfDpoint object>
+```
+
+```cpp
+static VectorOfDpoint VectorOfDpoint::create( VectorOfDpoint other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDpoint").create( $other ) -> <VectorOfDpoint object>
+```
+
+### VectorOfDpoint::Add
+
+```cpp
+void VectorOfDpoint::Add( dlib::dpoint value );
+AutoIt:
+    $oVectorOfDpoint.Add( $value ) -> None
+```
+
+### VectorOfDpoint::Items
+
+```cpp
+VectorOfDpoint VectorOfDpoint::Items();
+AutoIt:
+    $oVectorOfDpoint.Items() -> retval
+```
+
+### VectorOfDpoint::Keys
+
+```cpp
+std::vector<int> VectorOfDpoint::Keys();
+AutoIt:
+    $oVectorOfDpoint.Keys() -> retval
+```
+
+### VectorOfDpoint::Remove
+
+```cpp
+void VectorOfDpoint::Remove( size_t index );
+AutoIt:
+    $oVectorOfDpoint.Remove( $index ) -> None
+```
+
+### VectorOfDpoint::append
+
+```cpp
+void VectorOfDpoint::append( dlib::dpoint value );
+AutoIt:
+    $oVectorOfDpoint.append( $value ) -> None
+```
+
+### VectorOfDpoint::at
+
+```cpp
+dlib::dpoint VectorOfDpoint::at( size_t index );
+AutoIt:
+    $oVectorOfDpoint.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfDpoint::at( size_t       index,
+                         dlib::dpoint value );
+AutoIt:
+    $oVectorOfDpoint.at( $index, $value ) -> None
+```
+
+### VectorOfDpoint::clear
+
+```cpp
+void VectorOfDpoint::clear();
+AutoIt:
+    $oVectorOfDpoint.clear() -> None
+```
+
+### VectorOfDpoint::empty
+
+```cpp
+bool VectorOfDpoint::empty();
+AutoIt:
+    $oVectorOfDpoint.empty() -> retval
+```
+
+### VectorOfDpoint::end
+
+```cpp
+void* VectorOfDpoint::end();
+AutoIt:
+    $oVectorOfDpoint.end() -> retval
+```
+
+### VectorOfDpoint::get\_Item
+
+```cpp
+dlib::dpoint VectorOfDpoint::get_Item( size_t index );
+AutoIt:
+    $oVectorOfDpoint.Item( $index ) -> retval
+    $oVectorOfDpoint( $index ) -> retval
+```
+
+### VectorOfDpoint::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfDpoint::get__NewEnum();
+AutoIt:
+    $oVectorOfDpoint._NewEnum() -> retval
+```
+
+### VectorOfDpoint::push\_back
+
+```cpp
+void VectorOfDpoint::push_back( dlib::dpoint value );
+AutoIt:
+    $oVectorOfDpoint.push_back( $value ) -> None
+```
+
+### VectorOfDpoint::push\_vector
+
+```cpp
+void VectorOfDpoint::push_vector( VectorOfDpoint other );
+AutoIt:
+    $oVectorOfDpoint.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfDpoint::push_vector( VectorOfDpoint other,
+                                  size_t         count,
+                                  size_t         start = 0 );
+AutoIt:
+    $oVectorOfDpoint.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfDpoint::put\_Item
+
+```cpp
+void VectorOfDpoint::put_Item( size_t       index,
+                               dlib::dpoint item );
+AutoIt:
+    $oVectorOfDpoint.Item( $index ) = $item
+```
+
+### VectorOfDpoint::size
+
+```cpp
+size_t VectorOfDpoint::size();
+AutoIt:
+    $oVectorOfDpoint.size() -> retval
+```
+
+### VectorOfDpoint::slice
+
+```cpp
+VectorOfDpoint VectorOfDpoint::slice( size_t start = 0,
+                                      size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfDpoint.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfDpoint::sort
+
+```cpp
+void VectorOfDpoint::sort( void*  comparator,
+                           size_t start = 0,
+                           size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfDpoint.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfDpoint::sort\_variant
+
+```cpp
+void VectorOfDpoint::sort_variant( void*  comparator,
+                                   size_t start = 0,
+                                   size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfDpoint.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfDpoint::start
+
+```cpp
+void* VectorOfDpoint::start();
+AutoIt:
+    $oVectorOfDpoint.start() -> retval
+```
+
+## VectorOfPoint
+
+### VectorOfPoint.Count
+
+```cpp
+size_t VectorOfPoint::size()
+AutoIt:
+    [propget] $oVectorOfPoint.Count
+```
+
+### VectorOfPoint::create
+
+```cpp
+static VectorOfPoint VectorOfPoint::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPoint").create() -> <VectorOfPoint object>
+```
+
+```cpp
+static VectorOfPoint VectorOfPoint::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPoint").create( $size ) -> <VectorOfPoint object>
+```
+
+```cpp
+static VectorOfPoint VectorOfPoint::create( VectorOfPoint other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPoint").create( $other ) -> <VectorOfPoint object>
+```
+
+### VectorOfPoint::Add
+
+```cpp
+void VectorOfPoint::Add( dlib::point value );
+AutoIt:
+    $oVectorOfPoint.Add( $value ) -> None
+```
+
+### VectorOfPoint::Items
+
+```cpp
+VectorOfPoint VectorOfPoint::Items();
+AutoIt:
+    $oVectorOfPoint.Items() -> retval
+```
+
+### VectorOfPoint::Keys
+
+```cpp
+std::vector<int> VectorOfPoint::Keys();
+AutoIt:
+    $oVectorOfPoint.Keys() -> retval
+```
+
+### VectorOfPoint::Remove
+
+```cpp
+void VectorOfPoint::Remove( size_t index );
+AutoIt:
+    $oVectorOfPoint.Remove( $index ) -> None
+```
+
+### VectorOfPoint::append
+
+```cpp
+void VectorOfPoint::append( dlib::point value );
+AutoIt:
+    $oVectorOfPoint.append( $value ) -> None
+```
+
+### VectorOfPoint::at
+
+```cpp
+dlib::point VectorOfPoint::at( size_t index );
+AutoIt:
+    $oVectorOfPoint.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfPoint::at( size_t      index,
+                        dlib::point value );
+AutoIt:
+    $oVectorOfPoint.at( $index, $value ) -> None
+```
+
+### VectorOfPoint::clear
+
+```cpp
+void VectorOfPoint::clear();
+AutoIt:
+    $oVectorOfPoint.clear() -> None
+```
+
+### VectorOfPoint::empty
+
+```cpp
+bool VectorOfPoint::empty();
+AutoIt:
+    $oVectorOfPoint.empty() -> retval
+```
+
+### VectorOfPoint::end
+
+```cpp
+void* VectorOfPoint::end();
+AutoIt:
+    $oVectorOfPoint.end() -> retval
+```
+
+### VectorOfPoint::get\_Item
+
+```cpp
+dlib::point VectorOfPoint::get_Item( size_t index );
+AutoIt:
+    $oVectorOfPoint.Item( $index ) -> retval
+    $oVectorOfPoint( $index ) -> retval
+```
+
+### VectorOfPoint::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfPoint::get__NewEnum();
+AutoIt:
+    $oVectorOfPoint._NewEnum() -> retval
+```
+
+### VectorOfPoint::push\_back
+
+```cpp
+void VectorOfPoint::push_back( dlib::point value );
+AutoIt:
+    $oVectorOfPoint.push_back( $value ) -> None
+```
+
+### VectorOfPoint::push\_vector
+
+```cpp
+void VectorOfPoint::push_vector( VectorOfPoint other );
+AutoIt:
+    $oVectorOfPoint.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfPoint::push_vector( VectorOfPoint other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfPoint.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfPoint::put\_Item
+
+```cpp
+void VectorOfPoint::put_Item( size_t      index,
+                              dlib::point item );
+AutoIt:
+    $oVectorOfPoint.Item( $index ) = $item
+```
+
+### VectorOfPoint::size
+
+```cpp
+size_t VectorOfPoint::size();
+AutoIt:
+    $oVectorOfPoint.size() -> retval
+```
+
+### VectorOfPoint::slice
+
+```cpp
+VectorOfPoint VectorOfPoint::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfPoint.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfPoint::sort
+
+```cpp
+void VectorOfPoint::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfPoint.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfPoint::sort\_variant
+
+```cpp
+void VectorOfPoint::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfPoint.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfPoint::start
+
+```cpp
+void* VectorOfPoint::start();
+AutoIt:
+    $oVectorOfPoint.start() -> retval
+```
+
+## VectorOfVectorOfDouble
+
+### VectorOfVectorOfDouble.Count
+
+```cpp
+size_t VectorOfVectorOfDouble::size()
+AutoIt:
+    [propget] $oVectorOfVectorOfDouble.Count
+```
+
+### VectorOfVectorOfDouble::create
+
+```cpp
+static VectorOfVectorOfDouble VectorOfVectorOfDouble::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfDouble").create() -> <VectorOfVectorOfDouble object>
+```
+
+```cpp
+static VectorOfVectorOfDouble VectorOfVectorOfDouble::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfDouble").create( $size ) -> <VectorOfVectorOfDouble object>
+```
+
+```cpp
+static VectorOfVectorOfDouble VectorOfVectorOfDouble::create( VectorOfVectorOfDouble other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfDouble").create( $other ) -> <VectorOfVectorOfDouble object>
+```
+
+### VectorOfVectorOfDouble::Add
+
+```cpp
+void VectorOfVectorOfDouble::Add( std::vector<double> value );
+AutoIt:
+    $oVectorOfVectorOfDouble.Add( $value ) -> None
+```
+
+### VectorOfVectorOfDouble::Items
+
+```cpp
+VectorOfVectorOfDouble VectorOfVectorOfDouble::Items();
+AutoIt:
+    $oVectorOfVectorOfDouble.Items() -> retval
+```
+
+### VectorOfVectorOfDouble::Keys
+
+```cpp
+std::vector<int> VectorOfVectorOfDouble::Keys();
+AutoIt:
+    $oVectorOfVectorOfDouble.Keys() -> retval
+```
+
+### VectorOfVectorOfDouble::Remove
+
+```cpp
+void VectorOfVectorOfDouble::Remove( size_t index );
+AutoIt:
+    $oVectorOfVectorOfDouble.Remove( $index ) -> None
+```
+
+### VectorOfVectorOfDouble::append
+
+```cpp
+void VectorOfVectorOfDouble::append( std::vector<double> value );
+AutoIt:
+    $oVectorOfVectorOfDouble.append( $value ) -> None
+```
+
+### VectorOfVectorOfDouble::at
+
+```cpp
+std::vector<double> VectorOfVectorOfDouble::at( size_t index );
+AutoIt:
+    $oVectorOfVectorOfDouble.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVectorOfDouble::at( size_t              index,
+                                 std::vector<double> value );
+AutoIt:
+    $oVectorOfVectorOfDouble.at( $index, $value ) -> None
+```
+
+### VectorOfVectorOfDouble::clear
+
+```cpp
+void VectorOfVectorOfDouble::clear();
+AutoIt:
+    $oVectorOfVectorOfDouble.clear() -> None
+```
+
+### VectorOfVectorOfDouble::empty
+
+```cpp
+bool VectorOfVectorOfDouble::empty();
+AutoIt:
+    $oVectorOfVectorOfDouble.empty() -> retval
+```
+
+### VectorOfVectorOfDouble::end
+
+```cpp
+void* VectorOfVectorOfDouble::end();
+AutoIt:
+    $oVectorOfVectorOfDouble.end() -> retval
+```
+
+### VectorOfVectorOfDouble::get\_Item
+
+```cpp
+std::vector<double> VectorOfVectorOfDouble::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVectorOfDouble.Item( $index ) -> retval
+    $oVectorOfVectorOfDouble( $index ) -> retval
+```
+
+### VectorOfVectorOfDouble::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVectorOfDouble::get__NewEnum();
+AutoIt:
+    $oVectorOfVectorOfDouble._NewEnum() -> retval
+```
+
+### VectorOfVectorOfDouble::push\_back
+
+```cpp
+void VectorOfVectorOfDouble::push_back( std::vector<double> value );
+AutoIt:
+    $oVectorOfVectorOfDouble.push_back( $value ) -> None
+```
+
+### VectorOfVectorOfDouble::push\_vector
+
+```cpp
+void VectorOfVectorOfDouble::push_vector( VectorOfVectorOfDouble other );
+AutoIt:
+    $oVectorOfVectorOfDouble.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVectorOfDouble::push_vector( VectorOfVectorOfDouble other,
+                                          size_t                 count,
+                                          size_t                 start = 0 );
+AutoIt:
+    $oVectorOfVectorOfDouble.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVectorOfDouble::put\_Item
+
+```cpp
+void VectorOfVectorOfDouble::put_Item( size_t              index,
+                                       std::vector<double> item );
+AutoIt:
+    $oVectorOfVectorOfDouble.Item( $index ) = $item
+```
+
+### VectorOfVectorOfDouble::size
+
+```cpp
+size_t VectorOfVectorOfDouble::size();
+AutoIt:
+    $oVectorOfVectorOfDouble.size() -> retval
+```
+
+### VectorOfVectorOfDouble::slice
+
+```cpp
+VectorOfVectorOfDouble VectorOfVectorOfDouble::slice( size_t start = 0,
+                                                      size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVectorOfDouble.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVectorOfDouble::sort
+
+```cpp
+void VectorOfVectorOfDouble::sort( void*  comparator,
+                                   size_t start = 0,
+                                   size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVectorOfDouble.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVectorOfDouble::sort\_variant
+
+```cpp
+void VectorOfVectorOfDouble::sort_variant( void*  comparator,
+                                           size_t start = 0,
+                                           size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVectorOfDouble.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVectorOfDouble::start
+
+```cpp
+void* VectorOfVectorOfDouble::start();
+AutoIt:
+    $oVectorOfVectorOfDouble.start() -> retval
 ```
 
 ## VectorOfMmod\_rect
@@ -19462,210 +19471,6 @@ AutoIt:
     $oVectorOfFhog_object_detector.start() -> retval
 ```
 
-## VectorOfInt
-
-### VectorOfInt.Count
-
-```cpp
-size_t VectorOfInt::size()
-AutoIt:
-    [propget] $oVectorOfInt.Count
-```
-
-### VectorOfInt::create
-
-```cpp
-static VectorOfInt VectorOfInt::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfInt").create() -> <VectorOfInt object>
-```
-
-```cpp
-static VectorOfInt VectorOfInt::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfInt").create( $size ) -> <VectorOfInt object>
-```
-
-```cpp
-static VectorOfInt VectorOfInt::create( VectorOfInt other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfInt").create( $other ) -> <VectorOfInt object>
-```
-
-### VectorOfInt::Add
-
-```cpp
-void VectorOfInt::Add( int value );
-AutoIt:
-    $oVectorOfInt.Add( $value ) -> None
-```
-
-### VectorOfInt::Items
-
-```cpp
-VectorOfInt VectorOfInt::Items();
-AutoIt:
-    $oVectorOfInt.Items() -> retval
-```
-
-### VectorOfInt::Keys
-
-```cpp
-std::vector<int> VectorOfInt::Keys();
-AutoIt:
-    $oVectorOfInt.Keys() -> retval
-```
-
-### VectorOfInt::Remove
-
-```cpp
-void VectorOfInt::Remove( size_t index );
-AutoIt:
-    $oVectorOfInt.Remove( $index ) -> None
-```
-
-### VectorOfInt::append
-
-```cpp
-void VectorOfInt::append( int value );
-AutoIt:
-    $oVectorOfInt.append( $value ) -> None
-```
-
-### VectorOfInt::at
-
-```cpp
-int VectorOfInt::at( size_t index );
-AutoIt:
-    $oVectorOfInt.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfInt::at( size_t index,
-                      int    value );
-AutoIt:
-    $oVectorOfInt.at( $index, $value ) -> None
-```
-
-### VectorOfInt::clear
-
-```cpp
-void VectorOfInt::clear();
-AutoIt:
-    $oVectorOfInt.clear() -> None
-```
-
-### VectorOfInt::empty
-
-```cpp
-bool VectorOfInt::empty();
-AutoIt:
-    $oVectorOfInt.empty() -> retval
-```
-
-### VectorOfInt::end
-
-```cpp
-void* VectorOfInt::end();
-AutoIt:
-    $oVectorOfInt.end() -> retval
-```
-
-### VectorOfInt::get\_Item
-
-```cpp
-int VectorOfInt::get_Item( size_t index );
-AutoIt:
-    $oVectorOfInt.Item( $index ) -> retval
-    $oVectorOfInt( $index ) -> retval
-```
-
-### VectorOfInt::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfInt::get__NewEnum();
-AutoIt:
-    $oVectorOfInt._NewEnum() -> retval
-```
-
-### VectorOfInt::push\_back
-
-```cpp
-void VectorOfInt::push_back( int value );
-AutoIt:
-    $oVectorOfInt.push_back( $value ) -> None
-```
-
-### VectorOfInt::push\_vector
-
-```cpp
-void VectorOfInt::push_vector( VectorOfInt other );
-AutoIt:
-    $oVectorOfInt.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfInt::push_vector( VectorOfInt other,
-                               size_t      count,
-                               size_t      start = 0 );
-AutoIt:
-    $oVectorOfInt.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfInt::put\_Item
-
-```cpp
-void VectorOfInt::put_Item( size_t index,
-                            int    item );
-AutoIt:
-    $oVectorOfInt.Item( $index ) = $item
-```
-
-### VectorOfInt::size
-
-```cpp
-size_t VectorOfInt::size();
-AutoIt:
-    $oVectorOfInt.size() -> retval
-```
-
-### VectorOfInt::slice
-
-```cpp
-VectorOfInt VectorOfInt::slice( size_t start = 0,
-                                size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfInt.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfInt::sort
-
-```cpp
-void VectorOfInt::sort( void*  comparator,
-                        size_t start = 0,
-                        size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfInt.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfInt::sort\_variant
-
-```cpp
-void VectorOfInt::sort_variant( void*  comparator,
-                                size_t start = 0,
-                                size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfInt.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfInt::start
-
-```cpp
-void* VectorOfInt::start();
-AutoIt:
-    $oVectorOfInt.start() -> retval
-```
-
 ## VectorOfUchar
 
 ### VectorOfUchar.Count
@@ -19868,6 +19673,210 @@ AutoIt:
 void* VectorOfUchar::start();
 AutoIt:
     $oVectorOfUchar.start() -> retval
+```
+
+## VectorOfInt
+
+### VectorOfInt.Count
+
+```cpp
+size_t VectorOfInt::size()
+AutoIt:
+    [propget] $oVectorOfInt.Count
+```
+
+### VectorOfInt::create
+
+```cpp
+static VectorOfInt VectorOfInt::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfInt").create() -> <VectorOfInt object>
+```
+
+```cpp
+static VectorOfInt VectorOfInt::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfInt").create( $size ) -> <VectorOfInt object>
+```
+
+```cpp
+static VectorOfInt VectorOfInt::create( VectorOfInt other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfInt").create( $other ) -> <VectorOfInt object>
+```
+
+### VectorOfInt::Add
+
+```cpp
+void VectorOfInt::Add( int value );
+AutoIt:
+    $oVectorOfInt.Add( $value ) -> None
+```
+
+### VectorOfInt::Items
+
+```cpp
+VectorOfInt VectorOfInt::Items();
+AutoIt:
+    $oVectorOfInt.Items() -> retval
+```
+
+### VectorOfInt::Keys
+
+```cpp
+std::vector<int> VectorOfInt::Keys();
+AutoIt:
+    $oVectorOfInt.Keys() -> retval
+```
+
+### VectorOfInt::Remove
+
+```cpp
+void VectorOfInt::Remove( size_t index );
+AutoIt:
+    $oVectorOfInt.Remove( $index ) -> None
+```
+
+### VectorOfInt::append
+
+```cpp
+void VectorOfInt::append( int value );
+AutoIt:
+    $oVectorOfInt.append( $value ) -> None
+```
+
+### VectorOfInt::at
+
+```cpp
+int VectorOfInt::at( size_t index );
+AutoIt:
+    $oVectorOfInt.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfInt::at( size_t index,
+                      int    value );
+AutoIt:
+    $oVectorOfInt.at( $index, $value ) -> None
+```
+
+### VectorOfInt::clear
+
+```cpp
+void VectorOfInt::clear();
+AutoIt:
+    $oVectorOfInt.clear() -> None
+```
+
+### VectorOfInt::empty
+
+```cpp
+bool VectorOfInt::empty();
+AutoIt:
+    $oVectorOfInt.empty() -> retval
+```
+
+### VectorOfInt::end
+
+```cpp
+void* VectorOfInt::end();
+AutoIt:
+    $oVectorOfInt.end() -> retval
+```
+
+### VectorOfInt::get\_Item
+
+```cpp
+int VectorOfInt::get_Item( size_t index );
+AutoIt:
+    $oVectorOfInt.Item( $index ) -> retval
+    $oVectorOfInt( $index ) -> retval
+```
+
+### VectorOfInt::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfInt::get__NewEnum();
+AutoIt:
+    $oVectorOfInt._NewEnum() -> retval
+```
+
+### VectorOfInt::push\_back
+
+```cpp
+void VectorOfInt::push_back( int value );
+AutoIt:
+    $oVectorOfInt.push_back( $value ) -> None
+```
+
+### VectorOfInt::push\_vector
+
+```cpp
+void VectorOfInt::push_vector( VectorOfInt other );
+AutoIt:
+    $oVectorOfInt.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfInt::push_vector( VectorOfInt other,
+                               size_t      count,
+                               size_t      start = 0 );
+AutoIt:
+    $oVectorOfInt.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfInt::put\_Item
+
+```cpp
+void VectorOfInt::put_Item( size_t index,
+                            int    item );
+AutoIt:
+    $oVectorOfInt.Item( $index ) = $item
+```
+
+### VectorOfInt::size
+
+```cpp
+size_t VectorOfInt::size();
+AutoIt:
+    $oVectorOfInt.size() -> retval
+```
+
+### VectorOfInt::slice
+
+```cpp
+VectorOfInt VectorOfInt::slice( size_t start = 0,
+                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfInt.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfInt::sort
+
+```cpp
+void VectorOfInt::sort( void*  comparator,
+                        size_t start = 0,
+                        size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfInt.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfInt::sort\_variant
+
+```cpp
+void VectorOfInt::sort_variant( void*  comparator,
+                                size_t start = 0,
+                                size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfInt.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfInt::start
+
+```cpp
+void* VectorOfInt::start();
+AutoIt:
+    $oVectorOfInt.start() -> retval
 ```
 
 ## VectorOfFunction\_spec
@@ -22473,1026 +22482,6 @@ AutoIt:
     $oVectorOfVec2b.start() -> retval
 ```
 
-## VectorOfVec2d
-
-### VectorOfVec2d.Count
-
-```cpp
-size_t VectorOfVec2d::size()
-AutoIt:
-    [propget] $oVectorOfVec2d.Count
-```
-
-### VectorOfVec2d::create
-
-```cpp
-static VectorOfVec2d VectorOfVec2d::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2d").create() -> <VectorOfVec2d object>
-```
-
-```cpp
-static VectorOfVec2d VectorOfVec2d::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2d").create( $size ) -> <VectorOfVec2d object>
-```
-
-```cpp
-static VectorOfVec2d VectorOfVec2d::create( VectorOfVec2d other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2d").create( $other ) -> <VectorOfVec2d object>
-```
-
-### VectorOfVec2d::Add
-
-```cpp
-void VectorOfVec2d::Add( cv::Vec2d value );
-AutoIt:
-    $oVectorOfVec2d.Add( $value ) -> None
-```
-
-### VectorOfVec2d::Items
-
-```cpp
-VectorOfVec2d VectorOfVec2d::Items();
-AutoIt:
-    $oVectorOfVec2d.Items() -> retval
-```
-
-### VectorOfVec2d::Keys
-
-```cpp
-std::vector<int> VectorOfVec2d::Keys();
-AutoIt:
-    $oVectorOfVec2d.Keys() -> retval
-```
-
-### VectorOfVec2d::Remove
-
-```cpp
-void VectorOfVec2d::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec2d.Remove( $index ) -> None
-```
-
-### VectorOfVec2d::append
-
-```cpp
-void VectorOfVec2d::append( cv::Vec2d value );
-AutoIt:
-    $oVectorOfVec2d.append( $value ) -> None
-```
-
-### VectorOfVec2d::at
-
-```cpp
-cv::Vec2d VectorOfVec2d::at( size_t index );
-AutoIt:
-    $oVectorOfVec2d.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec2d::at( size_t    index,
-                        cv::Vec2d value );
-AutoIt:
-    $oVectorOfVec2d.at( $index, $value ) -> None
-```
-
-### VectorOfVec2d::clear
-
-```cpp
-void VectorOfVec2d::clear();
-AutoIt:
-    $oVectorOfVec2d.clear() -> None
-```
-
-### VectorOfVec2d::empty
-
-```cpp
-bool VectorOfVec2d::empty();
-AutoIt:
-    $oVectorOfVec2d.empty() -> retval
-```
-
-### VectorOfVec2d::end
-
-```cpp
-void* VectorOfVec2d::end();
-AutoIt:
-    $oVectorOfVec2d.end() -> retval
-```
-
-### VectorOfVec2d::get\_Item
-
-```cpp
-cv::Vec2d VectorOfVec2d::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec2d.Item( $index ) -> retval
-    $oVectorOfVec2d( $index ) -> retval
-```
-
-### VectorOfVec2d::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec2d::get__NewEnum();
-AutoIt:
-    $oVectorOfVec2d._NewEnum() -> retval
-```
-
-### VectorOfVec2d::push\_back
-
-```cpp
-void VectorOfVec2d::push_back( cv::Vec2d value );
-AutoIt:
-    $oVectorOfVec2d.push_back( $value ) -> None
-```
-
-### VectorOfVec2d::push\_vector
-
-```cpp
-void VectorOfVec2d::push_vector( VectorOfVec2d other );
-AutoIt:
-    $oVectorOfVec2d.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec2d::push_vector( VectorOfVec2d other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec2d.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec2d::put\_Item
-
-```cpp
-void VectorOfVec2d::put_Item( size_t    index,
-                              cv::Vec2d item );
-AutoIt:
-    $oVectorOfVec2d.Item( $index ) = $item
-```
-
-### VectorOfVec2d::size
-
-```cpp
-size_t VectorOfVec2d::size();
-AutoIt:
-    $oVectorOfVec2d.size() -> retval
-```
-
-### VectorOfVec2d::slice
-
-```cpp
-VectorOfVec2d VectorOfVec2d::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2d.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec2d::sort
-
-```cpp
-void VectorOfVec2d::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2d.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2d::sort\_variant
-
-```cpp
-void VectorOfVec2d::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2d.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2d::start
-
-```cpp
-void* VectorOfVec2d::start();
-AutoIt:
-    $oVectorOfVec2d.start() -> retval
-```
-
-## VectorOfVec2f
-
-### VectorOfVec2f.Count
-
-```cpp
-size_t VectorOfVec2f::size()
-AutoIt:
-    [propget] $oVectorOfVec2f.Count
-```
-
-### VectorOfVec2f::create
-
-```cpp
-static VectorOfVec2f VectorOfVec2f::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2f").create() -> <VectorOfVec2f object>
-```
-
-```cpp
-static VectorOfVec2f VectorOfVec2f::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2f").create( $size ) -> <VectorOfVec2f object>
-```
-
-```cpp
-static VectorOfVec2f VectorOfVec2f::create( VectorOfVec2f other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2f").create( $other ) -> <VectorOfVec2f object>
-```
-
-### VectorOfVec2f::Add
-
-```cpp
-void VectorOfVec2f::Add( cv::Vec2f value );
-AutoIt:
-    $oVectorOfVec2f.Add( $value ) -> None
-```
-
-### VectorOfVec2f::Items
-
-```cpp
-VectorOfVec2f VectorOfVec2f::Items();
-AutoIt:
-    $oVectorOfVec2f.Items() -> retval
-```
-
-### VectorOfVec2f::Keys
-
-```cpp
-std::vector<int> VectorOfVec2f::Keys();
-AutoIt:
-    $oVectorOfVec2f.Keys() -> retval
-```
-
-### VectorOfVec2f::Remove
-
-```cpp
-void VectorOfVec2f::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec2f.Remove( $index ) -> None
-```
-
-### VectorOfVec2f::append
-
-```cpp
-void VectorOfVec2f::append( cv::Vec2f value );
-AutoIt:
-    $oVectorOfVec2f.append( $value ) -> None
-```
-
-### VectorOfVec2f::at
-
-```cpp
-cv::Vec2f VectorOfVec2f::at( size_t index );
-AutoIt:
-    $oVectorOfVec2f.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec2f::at( size_t    index,
-                        cv::Vec2f value );
-AutoIt:
-    $oVectorOfVec2f.at( $index, $value ) -> None
-```
-
-### VectorOfVec2f::clear
-
-```cpp
-void VectorOfVec2f::clear();
-AutoIt:
-    $oVectorOfVec2f.clear() -> None
-```
-
-### VectorOfVec2f::empty
-
-```cpp
-bool VectorOfVec2f::empty();
-AutoIt:
-    $oVectorOfVec2f.empty() -> retval
-```
-
-### VectorOfVec2f::end
-
-```cpp
-void* VectorOfVec2f::end();
-AutoIt:
-    $oVectorOfVec2f.end() -> retval
-```
-
-### VectorOfVec2f::get\_Item
-
-```cpp
-cv::Vec2f VectorOfVec2f::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec2f.Item( $index ) -> retval
-    $oVectorOfVec2f( $index ) -> retval
-```
-
-### VectorOfVec2f::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec2f::get__NewEnum();
-AutoIt:
-    $oVectorOfVec2f._NewEnum() -> retval
-```
-
-### VectorOfVec2f::push\_back
-
-```cpp
-void VectorOfVec2f::push_back( cv::Vec2f value );
-AutoIt:
-    $oVectorOfVec2f.push_back( $value ) -> None
-```
-
-### VectorOfVec2f::push\_vector
-
-```cpp
-void VectorOfVec2f::push_vector( VectorOfVec2f other );
-AutoIt:
-    $oVectorOfVec2f.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec2f::push_vector( VectorOfVec2f other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec2f.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec2f::put\_Item
-
-```cpp
-void VectorOfVec2f::put_Item( size_t    index,
-                              cv::Vec2f item );
-AutoIt:
-    $oVectorOfVec2f.Item( $index ) = $item
-```
-
-### VectorOfVec2f::size
-
-```cpp
-size_t VectorOfVec2f::size();
-AutoIt:
-    $oVectorOfVec2f.size() -> retval
-```
-
-### VectorOfVec2f::slice
-
-```cpp
-VectorOfVec2f VectorOfVec2f::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2f.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec2f::sort
-
-```cpp
-void VectorOfVec2f::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2f.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2f::sort\_variant
-
-```cpp
-void VectorOfVec2f::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2f.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2f::start
-
-```cpp
-void* VectorOfVec2f::start();
-AutoIt:
-    $oVectorOfVec2f.start() -> retval
-```
-
-## VectorOfVec2i
-
-### VectorOfVec2i.Count
-
-```cpp
-size_t VectorOfVec2i::size()
-AutoIt:
-    [propget] $oVectorOfVec2i.Count
-```
-
-### VectorOfVec2i::create
-
-```cpp
-static VectorOfVec2i VectorOfVec2i::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2i").create() -> <VectorOfVec2i object>
-```
-
-```cpp
-static VectorOfVec2i VectorOfVec2i::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2i").create( $size ) -> <VectorOfVec2i object>
-```
-
-```cpp
-static VectorOfVec2i VectorOfVec2i::create( VectorOfVec2i other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2i").create( $other ) -> <VectorOfVec2i object>
-```
-
-### VectorOfVec2i::Add
-
-```cpp
-void VectorOfVec2i::Add( cv::Vec2i value );
-AutoIt:
-    $oVectorOfVec2i.Add( $value ) -> None
-```
-
-### VectorOfVec2i::Items
-
-```cpp
-VectorOfVec2i VectorOfVec2i::Items();
-AutoIt:
-    $oVectorOfVec2i.Items() -> retval
-```
-
-### VectorOfVec2i::Keys
-
-```cpp
-std::vector<int> VectorOfVec2i::Keys();
-AutoIt:
-    $oVectorOfVec2i.Keys() -> retval
-```
-
-### VectorOfVec2i::Remove
-
-```cpp
-void VectorOfVec2i::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec2i.Remove( $index ) -> None
-```
-
-### VectorOfVec2i::append
-
-```cpp
-void VectorOfVec2i::append( cv::Vec2i value );
-AutoIt:
-    $oVectorOfVec2i.append( $value ) -> None
-```
-
-### VectorOfVec2i::at
-
-```cpp
-cv::Vec2i VectorOfVec2i::at( size_t index );
-AutoIt:
-    $oVectorOfVec2i.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec2i::at( size_t    index,
-                        cv::Vec2i value );
-AutoIt:
-    $oVectorOfVec2i.at( $index, $value ) -> None
-```
-
-### VectorOfVec2i::clear
-
-```cpp
-void VectorOfVec2i::clear();
-AutoIt:
-    $oVectorOfVec2i.clear() -> None
-```
-
-### VectorOfVec2i::empty
-
-```cpp
-bool VectorOfVec2i::empty();
-AutoIt:
-    $oVectorOfVec2i.empty() -> retval
-```
-
-### VectorOfVec2i::end
-
-```cpp
-void* VectorOfVec2i::end();
-AutoIt:
-    $oVectorOfVec2i.end() -> retval
-```
-
-### VectorOfVec2i::get\_Item
-
-```cpp
-cv::Vec2i VectorOfVec2i::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec2i.Item( $index ) -> retval
-    $oVectorOfVec2i( $index ) -> retval
-```
-
-### VectorOfVec2i::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec2i::get__NewEnum();
-AutoIt:
-    $oVectorOfVec2i._NewEnum() -> retval
-```
-
-### VectorOfVec2i::push\_back
-
-```cpp
-void VectorOfVec2i::push_back( cv::Vec2i value );
-AutoIt:
-    $oVectorOfVec2i.push_back( $value ) -> None
-```
-
-### VectorOfVec2i::push\_vector
-
-```cpp
-void VectorOfVec2i::push_vector( VectorOfVec2i other );
-AutoIt:
-    $oVectorOfVec2i.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec2i::push_vector( VectorOfVec2i other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec2i.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec2i::put\_Item
-
-```cpp
-void VectorOfVec2i::put_Item( size_t    index,
-                              cv::Vec2i item );
-AutoIt:
-    $oVectorOfVec2i.Item( $index ) = $item
-```
-
-### VectorOfVec2i::size
-
-```cpp
-size_t VectorOfVec2i::size();
-AutoIt:
-    $oVectorOfVec2i.size() -> retval
-```
-
-### VectorOfVec2i::slice
-
-```cpp
-VectorOfVec2i VectorOfVec2i::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2i.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec2i::sort
-
-```cpp
-void VectorOfVec2i::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2i.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2i::sort\_variant
-
-```cpp
-void VectorOfVec2i::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2i.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2i::start
-
-```cpp
-void* VectorOfVec2i::start();
-AutoIt:
-    $oVectorOfVec2i.start() -> retval
-```
-
-## VectorOfVec2s
-
-### VectorOfVec2s.Count
-
-```cpp
-size_t VectorOfVec2s::size()
-AutoIt:
-    [propget] $oVectorOfVec2s.Count
-```
-
-### VectorOfVec2s::create
-
-```cpp
-static VectorOfVec2s VectorOfVec2s::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2s").create() -> <VectorOfVec2s object>
-```
-
-```cpp
-static VectorOfVec2s VectorOfVec2s::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2s").create( $size ) -> <VectorOfVec2s object>
-```
-
-```cpp
-static VectorOfVec2s VectorOfVec2s::create( VectorOfVec2s other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2s").create( $other ) -> <VectorOfVec2s object>
-```
-
-### VectorOfVec2s::Add
-
-```cpp
-void VectorOfVec2s::Add( cv::Vec2s value );
-AutoIt:
-    $oVectorOfVec2s.Add( $value ) -> None
-```
-
-### VectorOfVec2s::Items
-
-```cpp
-VectorOfVec2s VectorOfVec2s::Items();
-AutoIt:
-    $oVectorOfVec2s.Items() -> retval
-```
-
-### VectorOfVec2s::Keys
-
-```cpp
-std::vector<int> VectorOfVec2s::Keys();
-AutoIt:
-    $oVectorOfVec2s.Keys() -> retval
-```
-
-### VectorOfVec2s::Remove
-
-```cpp
-void VectorOfVec2s::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec2s.Remove( $index ) -> None
-```
-
-### VectorOfVec2s::append
-
-```cpp
-void VectorOfVec2s::append( cv::Vec2s value );
-AutoIt:
-    $oVectorOfVec2s.append( $value ) -> None
-```
-
-### VectorOfVec2s::at
-
-```cpp
-cv::Vec2s VectorOfVec2s::at( size_t index );
-AutoIt:
-    $oVectorOfVec2s.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec2s::at( size_t    index,
-                        cv::Vec2s value );
-AutoIt:
-    $oVectorOfVec2s.at( $index, $value ) -> None
-```
-
-### VectorOfVec2s::clear
-
-```cpp
-void VectorOfVec2s::clear();
-AutoIt:
-    $oVectorOfVec2s.clear() -> None
-```
-
-### VectorOfVec2s::empty
-
-```cpp
-bool VectorOfVec2s::empty();
-AutoIt:
-    $oVectorOfVec2s.empty() -> retval
-```
-
-### VectorOfVec2s::end
-
-```cpp
-void* VectorOfVec2s::end();
-AutoIt:
-    $oVectorOfVec2s.end() -> retval
-```
-
-### VectorOfVec2s::get\_Item
-
-```cpp
-cv::Vec2s VectorOfVec2s::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec2s.Item( $index ) -> retval
-    $oVectorOfVec2s( $index ) -> retval
-```
-
-### VectorOfVec2s::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec2s::get__NewEnum();
-AutoIt:
-    $oVectorOfVec2s._NewEnum() -> retval
-```
-
-### VectorOfVec2s::push\_back
-
-```cpp
-void VectorOfVec2s::push_back( cv::Vec2s value );
-AutoIt:
-    $oVectorOfVec2s.push_back( $value ) -> None
-```
-
-### VectorOfVec2s::push\_vector
-
-```cpp
-void VectorOfVec2s::push_vector( VectorOfVec2s other );
-AutoIt:
-    $oVectorOfVec2s.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec2s::push_vector( VectorOfVec2s other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec2s.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec2s::put\_Item
-
-```cpp
-void VectorOfVec2s::put_Item( size_t    index,
-                              cv::Vec2s item );
-AutoIt:
-    $oVectorOfVec2s.Item( $index ) = $item
-```
-
-### VectorOfVec2s::size
-
-```cpp
-size_t VectorOfVec2s::size();
-AutoIt:
-    $oVectorOfVec2s.size() -> retval
-```
-
-### VectorOfVec2s::slice
-
-```cpp
-VectorOfVec2s VectorOfVec2s::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2s.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec2s::sort
-
-```cpp
-void VectorOfVec2s::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2s.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2s::sort\_variant
-
-```cpp
-void VectorOfVec2s::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2s.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2s::start
-
-```cpp
-void* VectorOfVec2s::start();
-AutoIt:
-    $oVectorOfVec2s.start() -> retval
-```
-
-## VectorOfVec2w
-
-### VectorOfVec2w.Count
-
-```cpp
-size_t VectorOfVec2w::size()
-AutoIt:
-    [propget] $oVectorOfVec2w.Count
-```
-
-### VectorOfVec2w::create
-
-```cpp
-static VectorOfVec2w VectorOfVec2w::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2w").create() -> <VectorOfVec2w object>
-```
-
-```cpp
-static VectorOfVec2w VectorOfVec2w::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2w").create( $size ) -> <VectorOfVec2w object>
-```
-
-```cpp
-static VectorOfVec2w VectorOfVec2w::create( VectorOfVec2w other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec2w").create( $other ) -> <VectorOfVec2w object>
-```
-
-### VectorOfVec2w::Add
-
-```cpp
-void VectorOfVec2w::Add( cv::Vec2w value );
-AutoIt:
-    $oVectorOfVec2w.Add( $value ) -> None
-```
-
-### VectorOfVec2w::Items
-
-```cpp
-VectorOfVec2w VectorOfVec2w::Items();
-AutoIt:
-    $oVectorOfVec2w.Items() -> retval
-```
-
-### VectorOfVec2w::Keys
-
-```cpp
-std::vector<int> VectorOfVec2w::Keys();
-AutoIt:
-    $oVectorOfVec2w.Keys() -> retval
-```
-
-### VectorOfVec2w::Remove
-
-```cpp
-void VectorOfVec2w::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec2w.Remove( $index ) -> None
-```
-
-### VectorOfVec2w::append
-
-```cpp
-void VectorOfVec2w::append( cv::Vec2w value );
-AutoIt:
-    $oVectorOfVec2w.append( $value ) -> None
-```
-
-### VectorOfVec2w::at
-
-```cpp
-cv::Vec2w VectorOfVec2w::at( size_t index );
-AutoIt:
-    $oVectorOfVec2w.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec2w::at( size_t    index,
-                        cv::Vec2w value );
-AutoIt:
-    $oVectorOfVec2w.at( $index, $value ) -> None
-```
-
-### VectorOfVec2w::clear
-
-```cpp
-void VectorOfVec2w::clear();
-AutoIt:
-    $oVectorOfVec2w.clear() -> None
-```
-
-### VectorOfVec2w::empty
-
-```cpp
-bool VectorOfVec2w::empty();
-AutoIt:
-    $oVectorOfVec2w.empty() -> retval
-```
-
-### VectorOfVec2w::end
-
-```cpp
-void* VectorOfVec2w::end();
-AutoIt:
-    $oVectorOfVec2w.end() -> retval
-```
-
-### VectorOfVec2w::get\_Item
-
-```cpp
-cv::Vec2w VectorOfVec2w::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec2w.Item( $index ) -> retval
-    $oVectorOfVec2w( $index ) -> retval
-```
-
-### VectorOfVec2w::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec2w::get__NewEnum();
-AutoIt:
-    $oVectorOfVec2w._NewEnum() -> retval
-```
-
-### VectorOfVec2w::push\_back
-
-```cpp
-void VectorOfVec2w::push_back( cv::Vec2w value );
-AutoIt:
-    $oVectorOfVec2w.push_back( $value ) -> None
-```
-
-### VectorOfVec2w::push\_vector
-
-```cpp
-void VectorOfVec2w::push_vector( VectorOfVec2w other );
-AutoIt:
-    $oVectorOfVec2w.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec2w::push_vector( VectorOfVec2w other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec2w.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec2w::put\_Item
-
-```cpp
-void VectorOfVec2w::put_Item( size_t    index,
-                              cv::Vec2w item );
-AutoIt:
-    $oVectorOfVec2w.Item( $index ) = $item
-```
-
-### VectorOfVec2w::size
-
-```cpp
-size_t VectorOfVec2w::size();
-AutoIt:
-    $oVectorOfVec2w.size() -> retval
-```
-
-### VectorOfVec2w::slice
-
-```cpp
-VectorOfVec2w VectorOfVec2w::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2w.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec2w::sort
-
-```cpp
-void VectorOfVec2w::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2w.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2w::sort\_variant
-
-```cpp
-void VectorOfVec2w::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec2w.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec2w::start
-
-```cpp
-void* VectorOfVec2w::start();
-AutoIt:
-    $oVectorOfVec2w.start() -> retval
-```
-
 ## VectorOfVec3b
 
 ### VectorOfVec3b.Count
@@ -23695,1026 +22684,6 @@ AutoIt:
 void* VectorOfVec3b::start();
 AutoIt:
     $oVectorOfVec3b.start() -> retval
-```
-
-## VectorOfVec3d
-
-### VectorOfVec3d.Count
-
-```cpp
-size_t VectorOfVec3d::size()
-AutoIt:
-    [propget] $oVectorOfVec3d.Count
-```
-
-### VectorOfVec3d::create
-
-```cpp
-static VectorOfVec3d VectorOfVec3d::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3d").create() -> <VectorOfVec3d object>
-```
-
-```cpp
-static VectorOfVec3d VectorOfVec3d::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3d").create( $size ) -> <VectorOfVec3d object>
-```
-
-```cpp
-static VectorOfVec3d VectorOfVec3d::create( VectorOfVec3d other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3d").create( $other ) -> <VectorOfVec3d object>
-```
-
-### VectorOfVec3d::Add
-
-```cpp
-void VectorOfVec3d::Add( cv::Vec3d value );
-AutoIt:
-    $oVectorOfVec3d.Add( $value ) -> None
-```
-
-### VectorOfVec3d::Items
-
-```cpp
-VectorOfVec3d VectorOfVec3d::Items();
-AutoIt:
-    $oVectorOfVec3d.Items() -> retval
-```
-
-### VectorOfVec3d::Keys
-
-```cpp
-std::vector<int> VectorOfVec3d::Keys();
-AutoIt:
-    $oVectorOfVec3d.Keys() -> retval
-```
-
-### VectorOfVec3d::Remove
-
-```cpp
-void VectorOfVec3d::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec3d.Remove( $index ) -> None
-```
-
-### VectorOfVec3d::append
-
-```cpp
-void VectorOfVec3d::append( cv::Vec3d value );
-AutoIt:
-    $oVectorOfVec3d.append( $value ) -> None
-```
-
-### VectorOfVec3d::at
-
-```cpp
-cv::Vec3d VectorOfVec3d::at( size_t index );
-AutoIt:
-    $oVectorOfVec3d.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec3d::at( size_t    index,
-                        cv::Vec3d value );
-AutoIt:
-    $oVectorOfVec3d.at( $index, $value ) -> None
-```
-
-### VectorOfVec3d::clear
-
-```cpp
-void VectorOfVec3d::clear();
-AutoIt:
-    $oVectorOfVec3d.clear() -> None
-```
-
-### VectorOfVec3d::empty
-
-```cpp
-bool VectorOfVec3d::empty();
-AutoIt:
-    $oVectorOfVec3d.empty() -> retval
-```
-
-### VectorOfVec3d::end
-
-```cpp
-void* VectorOfVec3d::end();
-AutoIt:
-    $oVectorOfVec3d.end() -> retval
-```
-
-### VectorOfVec3d::get\_Item
-
-```cpp
-cv::Vec3d VectorOfVec3d::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec3d.Item( $index ) -> retval
-    $oVectorOfVec3d( $index ) -> retval
-```
-
-### VectorOfVec3d::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec3d::get__NewEnum();
-AutoIt:
-    $oVectorOfVec3d._NewEnum() -> retval
-```
-
-### VectorOfVec3d::push\_back
-
-```cpp
-void VectorOfVec3d::push_back( cv::Vec3d value );
-AutoIt:
-    $oVectorOfVec3d.push_back( $value ) -> None
-```
-
-### VectorOfVec3d::push\_vector
-
-```cpp
-void VectorOfVec3d::push_vector( VectorOfVec3d other );
-AutoIt:
-    $oVectorOfVec3d.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec3d::push_vector( VectorOfVec3d other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec3d.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec3d::put\_Item
-
-```cpp
-void VectorOfVec3d::put_Item( size_t    index,
-                              cv::Vec3d item );
-AutoIt:
-    $oVectorOfVec3d.Item( $index ) = $item
-```
-
-### VectorOfVec3d::size
-
-```cpp
-size_t VectorOfVec3d::size();
-AutoIt:
-    $oVectorOfVec3d.size() -> retval
-```
-
-### VectorOfVec3d::slice
-
-```cpp
-VectorOfVec3d VectorOfVec3d::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3d.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec3d::sort
-
-```cpp
-void VectorOfVec3d::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3d.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3d::sort\_variant
-
-```cpp
-void VectorOfVec3d::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3d.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3d::start
-
-```cpp
-void* VectorOfVec3d::start();
-AutoIt:
-    $oVectorOfVec3d.start() -> retval
-```
-
-## VectorOfVec3f
-
-### VectorOfVec3f.Count
-
-```cpp
-size_t VectorOfVec3f::size()
-AutoIt:
-    [propget] $oVectorOfVec3f.Count
-```
-
-### VectorOfVec3f::create
-
-```cpp
-static VectorOfVec3f VectorOfVec3f::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3f").create() -> <VectorOfVec3f object>
-```
-
-```cpp
-static VectorOfVec3f VectorOfVec3f::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3f").create( $size ) -> <VectorOfVec3f object>
-```
-
-```cpp
-static VectorOfVec3f VectorOfVec3f::create( VectorOfVec3f other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3f").create( $other ) -> <VectorOfVec3f object>
-```
-
-### VectorOfVec3f::Add
-
-```cpp
-void VectorOfVec3f::Add( cv::Vec3f value );
-AutoIt:
-    $oVectorOfVec3f.Add( $value ) -> None
-```
-
-### VectorOfVec3f::Items
-
-```cpp
-VectorOfVec3f VectorOfVec3f::Items();
-AutoIt:
-    $oVectorOfVec3f.Items() -> retval
-```
-
-### VectorOfVec3f::Keys
-
-```cpp
-std::vector<int> VectorOfVec3f::Keys();
-AutoIt:
-    $oVectorOfVec3f.Keys() -> retval
-```
-
-### VectorOfVec3f::Remove
-
-```cpp
-void VectorOfVec3f::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec3f.Remove( $index ) -> None
-```
-
-### VectorOfVec3f::append
-
-```cpp
-void VectorOfVec3f::append( cv::Vec3f value );
-AutoIt:
-    $oVectorOfVec3f.append( $value ) -> None
-```
-
-### VectorOfVec3f::at
-
-```cpp
-cv::Vec3f VectorOfVec3f::at( size_t index );
-AutoIt:
-    $oVectorOfVec3f.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec3f::at( size_t    index,
-                        cv::Vec3f value );
-AutoIt:
-    $oVectorOfVec3f.at( $index, $value ) -> None
-```
-
-### VectorOfVec3f::clear
-
-```cpp
-void VectorOfVec3f::clear();
-AutoIt:
-    $oVectorOfVec3f.clear() -> None
-```
-
-### VectorOfVec3f::empty
-
-```cpp
-bool VectorOfVec3f::empty();
-AutoIt:
-    $oVectorOfVec3f.empty() -> retval
-```
-
-### VectorOfVec3f::end
-
-```cpp
-void* VectorOfVec3f::end();
-AutoIt:
-    $oVectorOfVec3f.end() -> retval
-```
-
-### VectorOfVec3f::get\_Item
-
-```cpp
-cv::Vec3f VectorOfVec3f::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec3f.Item( $index ) -> retval
-    $oVectorOfVec3f( $index ) -> retval
-```
-
-### VectorOfVec3f::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec3f::get__NewEnum();
-AutoIt:
-    $oVectorOfVec3f._NewEnum() -> retval
-```
-
-### VectorOfVec3f::push\_back
-
-```cpp
-void VectorOfVec3f::push_back( cv::Vec3f value );
-AutoIt:
-    $oVectorOfVec3f.push_back( $value ) -> None
-```
-
-### VectorOfVec3f::push\_vector
-
-```cpp
-void VectorOfVec3f::push_vector( VectorOfVec3f other );
-AutoIt:
-    $oVectorOfVec3f.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec3f::push_vector( VectorOfVec3f other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec3f.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec3f::put\_Item
-
-```cpp
-void VectorOfVec3f::put_Item( size_t    index,
-                              cv::Vec3f item );
-AutoIt:
-    $oVectorOfVec3f.Item( $index ) = $item
-```
-
-### VectorOfVec3f::size
-
-```cpp
-size_t VectorOfVec3f::size();
-AutoIt:
-    $oVectorOfVec3f.size() -> retval
-```
-
-### VectorOfVec3f::slice
-
-```cpp
-VectorOfVec3f VectorOfVec3f::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3f.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec3f::sort
-
-```cpp
-void VectorOfVec3f::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3f.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3f::sort\_variant
-
-```cpp
-void VectorOfVec3f::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3f.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3f::start
-
-```cpp
-void* VectorOfVec3f::start();
-AutoIt:
-    $oVectorOfVec3f.start() -> retval
-```
-
-## VectorOfVec3i
-
-### VectorOfVec3i.Count
-
-```cpp
-size_t VectorOfVec3i::size()
-AutoIt:
-    [propget] $oVectorOfVec3i.Count
-```
-
-### VectorOfVec3i::create
-
-```cpp
-static VectorOfVec3i VectorOfVec3i::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3i").create() -> <VectorOfVec3i object>
-```
-
-```cpp
-static VectorOfVec3i VectorOfVec3i::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3i").create( $size ) -> <VectorOfVec3i object>
-```
-
-```cpp
-static VectorOfVec3i VectorOfVec3i::create( VectorOfVec3i other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3i").create( $other ) -> <VectorOfVec3i object>
-```
-
-### VectorOfVec3i::Add
-
-```cpp
-void VectorOfVec3i::Add( cv::Vec3i value );
-AutoIt:
-    $oVectorOfVec3i.Add( $value ) -> None
-```
-
-### VectorOfVec3i::Items
-
-```cpp
-VectorOfVec3i VectorOfVec3i::Items();
-AutoIt:
-    $oVectorOfVec3i.Items() -> retval
-```
-
-### VectorOfVec3i::Keys
-
-```cpp
-std::vector<int> VectorOfVec3i::Keys();
-AutoIt:
-    $oVectorOfVec3i.Keys() -> retval
-```
-
-### VectorOfVec3i::Remove
-
-```cpp
-void VectorOfVec3i::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec3i.Remove( $index ) -> None
-```
-
-### VectorOfVec3i::append
-
-```cpp
-void VectorOfVec3i::append( cv::Vec3i value );
-AutoIt:
-    $oVectorOfVec3i.append( $value ) -> None
-```
-
-### VectorOfVec3i::at
-
-```cpp
-cv::Vec3i VectorOfVec3i::at( size_t index );
-AutoIt:
-    $oVectorOfVec3i.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec3i::at( size_t    index,
-                        cv::Vec3i value );
-AutoIt:
-    $oVectorOfVec3i.at( $index, $value ) -> None
-```
-
-### VectorOfVec3i::clear
-
-```cpp
-void VectorOfVec3i::clear();
-AutoIt:
-    $oVectorOfVec3i.clear() -> None
-```
-
-### VectorOfVec3i::empty
-
-```cpp
-bool VectorOfVec3i::empty();
-AutoIt:
-    $oVectorOfVec3i.empty() -> retval
-```
-
-### VectorOfVec3i::end
-
-```cpp
-void* VectorOfVec3i::end();
-AutoIt:
-    $oVectorOfVec3i.end() -> retval
-```
-
-### VectorOfVec3i::get\_Item
-
-```cpp
-cv::Vec3i VectorOfVec3i::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec3i.Item( $index ) -> retval
-    $oVectorOfVec3i( $index ) -> retval
-```
-
-### VectorOfVec3i::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec3i::get__NewEnum();
-AutoIt:
-    $oVectorOfVec3i._NewEnum() -> retval
-```
-
-### VectorOfVec3i::push\_back
-
-```cpp
-void VectorOfVec3i::push_back( cv::Vec3i value );
-AutoIt:
-    $oVectorOfVec3i.push_back( $value ) -> None
-```
-
-### VectorOfVec3i::push\_vector
-
-```cpp
-void VectorOfVec3i::push_vector( VectorOfVec3i other );
-AutoIt:
-    $oVectorOfVec3i.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec3i::push_vector( VectorOfVec3i other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec3i.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec3i::put\_Item
-
-```cpp
-void VectorOfVec3i::put_Item( size_t    index,
-                              cv::Vec3i item );
-AutoIt:
-    $oVectorOfVec3i.Item( $index ) = $item
-```
-
-### VectorOfVec3i::size
-
-```cpp
-size_t VectorOfVec3i::size();
-AutoIt:
-    $oVectorOfVec3i.size() -> retval
-```
-
-### VectorOfVec3i::slice
-
-```cpp
-VectorOfVec3i VectorOfVec3i::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3i.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec3i::sort
-
-```cpp
-void VectorOfVec3i::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3i.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3i::sort\_variant
-
-```cpp
-void VectorOfVec3i::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3i.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3i::start
-
-```cpp
-void* VectorOfVec3i::start();
-AutoIt:
-    $oVectorOfVec3i.start() -> retval
-```
-
-## VectorOfVec3s
-
-### VectorOfVec3s.Count
-
-```cpp
-size_t VectorOfVec3s::size()
-AutoIt:
-    [propget] $oVectorOfVec3s.Count
-```
-
-### VectorOfVec3s::create
-
-```cpp
-static VectorOfVec3s VectorOfVec3s::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3s").create() -> <VectorOfVec3s object>
-```
-
-```cpp
-static VectorOfVec3s VectorOfVec3s::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3s").create( $size ) -> <VectorOfVec3s object>
-```
-
-```cpp
-static VectorOfVec3s VectorOfVec3s::create( VectorOfVec3s other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3s").create( $other ) -> <VectorOfVec3s object>
-```
-
-### VectorOfVec3s::Add
-
-```cpp
-void VectorOfVec3s::Add( cv::Vec3s value );
-AutoIt:
-    $oVectorOfVec3s.Add( $value ) -> None
-```
-
-### VectorOfVec3s::Items
-
-```cpp
-VectorOfVec3s VectorOfVec3s::Items();
-AutoIt:
-    $oVectorOfVec3s.Items() -> retval
-```
-
-### VectorOfVec3s::Keys
-
-```cpp
-std::vector<int> VectorOfVec3s::Keys();
-AutoIt:
-    $oVectorOfVec3s.Keys() -> retval
-```
-
-### VectorOfVec3s::Remove
-
-```cpp
-void VectorOfVec3s::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec3s.Remove( $index ) -> None
-```
-
-### VectorOfVec3s::append
-
-```cpp
-void VectorOfVec3s::append( cv::Vec3s value );
-AutoIt:
-    $oVectorOfVec3s.append( $value ) -> None
-```
-
-### VectorOfVec3s::at
-
-```cpp
-cv::Vec3s VectorOfVec3s::at( size_t index );
-AutoIt:
-    $oVectorOfVec3s.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec3s::at( size_t    index,
-                        cv::Vec3s value );
-AutoIt:
-    $oVectorOfVec3s.at( $index, $value ) -> None
-```
-
-### VectorOfVec3s::clear
-
-```cpp
-void VectorOfVec3s::clear();
-AutoIt:
-    $oVectorOfVec3s.clear() -> None
-```
-
-### VectorOfVec3s::empty
-
-```cpp
-bool VectorOfVec3s::empty();
-AutoIt:
-    $oVectorOfVec3s.empty() -> retval
-```
-
-### VectorOfVec3s::end
-
-```cpp
-void* VectorOfVec3s::end();
-AutoIt:
-    $oVectorOfVec3s.end() -> retval
-```
-
-### VectorOfVec3s::get\_Item
-
-```cpp
-cv::Vec3s VectorOfVec3s::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec3s.Item( $index ) -> retval
-    $oVectorOfVec3s( $index ) -> retval
-```
-
-### VectorOfVec3s::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec3s::get__NewEnum();
-AutoIt:
-    $oVectorOfVec3s._NewEnum() -> retval
-```
-
-### VectorOfVec3s::push\_back
-
-```cpp
-void VectorOfVec3s::push_back( cv::Vec3s value );
-AutoIt:
-    $oVectorOfVec3s.push_back( $value ) -> None
-```
-
-### VectorOfVec3s::push\_vector
-
-```cpp
-void VectorOfVec3s::push_vector( VectorOfVec3s other );
-AutoIt:
-    $oVectorOfVec3s.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec3s::push_vector( VectorOfVec3s other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec3s.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec3s::put\_Item
-
-```cpp
-void VectorOfVec3s::put_Item( size_t    index,
-                              cv::Vec3s item );
-AutoIt:
-    $oVectorOfVec3s.Item( $index ) = $item
-```
-
-### VectorOfVec3s::size
-
-```cpp
-size_t VectorOfVec3s::size();
-AutoIt:
-    $oVectorOfVec3s.size() -> retval
-```
-
-### VectorOfVec3s::slice
-
-```cpp
-VectorOfVec3s VectorOfVec3s::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3s.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec3s::sort
-
-```cpp
-void VectorOfVec3s::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3s.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3s::sort\_variant
-
-```cpp
-void VectorOfVec3s::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3s.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3s::start
-
-```cpp
-void* VectorOfVec3s::start();
-AutoIt:
-    $oVectorOfVec3s.start() -> retval
-```
-
-## VectorOfVec3w
-
-### VectorOfVec3w.Count
-
-```cpp
-size_t VectorOfVec3w::size()
-AutoIt:
-    [propget] $oVectorOfVec3w.Count
-```
-
-### VectorOfVec3w::create
-
-```cpp
-static VectorOfVec3w VectorOfVec3w::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3w").create() -> <VectorOfVec3w object>
-```
-
-```cpp
-static VectorOfVec3w VectorOfVec3w::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3w").create( $size ) -> <VectorOfVec3w object>
-```
-
-```cpp
-static VectorOfVec3w VectorOfVec3w::create( VectorOfVec3w other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec3w").create( $other ) -> <VectorOfVec3w object>
-```
-
-### VectorOfVec3w::Add
-
-```cpp
-void VectorOfVec3w::Add( cv::Vec3w value );
-AutoIt:
-    $oVectorOfVec3w.Add( $value ) -> None
-```
-
-### VectorOfVec3w::Items
-
-```cpp
-VectorOfVec3w VectorOfVec3w::Items();
-AutoIt:
-    $oVectorOfVec3w.Items() -> retval
-```
-
-### VectorOfVec3w::Keys
-
-```cpp
-std::vector<int> VectorOfVec3w::Keys();
-AutoIt:
-    $oVectorOfVec3w.Keys() -> retval
-```
-
-### VectorOfVec3w::Remove
-
-```cpp
-void VectorOfVec3w::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec3w.Remove( $index ) -> None
-```
-
-### VectorOfVec3w::append
-
-```cpp
-void VectorOfVec3w::append( cv::Vec3w value );
-AutoIt:
-    $oVectorOfVec3w.append( $value ) -> None
-```
-
-### VectorOfVec3w::at
-
-```cpp
-cv::Vec3w VectorOfVec3w::at( size_t index );
-AutoIt:
-    $oVectorOfVec3w.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec3w::at( size_t    index,
-                        cv::Vec3w value );
-AutoIt:
-    $oVectorOfVec3w.at( $index, $value ) -> None
-```
-
-### VectorOfVec3w::clear
-
-```cpp
-void VectorOfVec3w::clear();
-AutoIt:
-    $oVectorOfVec3w.clear() -> None
-```
-
-### VectorOfVec3w::empty
-
-```cpp
-bool VectorOfVec3w::empty();
-AutoIt:
-    $oVectorOfVec3w.empty() -> retval
-```
-
-### VectorOfVec3w::end
-
-```cpp
-void* VectorOfVec3w::end();
-AutoIt:
-    $oVectorOfVec3w.end() -> retval
-```
-
-### VectorOfVec3w::get\_Item
-
-```cpp
-cv::Vec3w VectorOfVec3w::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec3w.Item( $index ) -> retval
-    $oVectorOfVec3w( $index ) -> retval
-```
-
-### VectorOfVec3w::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec3w::get__NewEnum();
-AutoIt:
-    $oVectorOfVec3w._NewEnum() -> retval
-```
-
-### VectorOfVec3w::push\_back
-
-```cpp
-void VectorOfVec3w::push_back( cv::Vec3w value );
-AutoIt:
-    $oVectorOfVec3w.push_back( $value ) -> None
-```
-
-### VectorOfVec3w::push\_vector
-
-```cpp
-void VectorOfVec3w::push_vector( VectorOfVec3w other );
-AutoIt:
-    $oVectorOfVec3w.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec3w::push_vector( VectorOfVec3w other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec3w.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec3w::put\_Item
-
-```cpp
-void VectorOfVec3w::put_Item( size_t    index,
-                              cv::Vec3w item );
-AutoIt:
-    $oVectorOfVec3w.Item( $index ) = $item
-```
-
-### VectorOfVec3w::size
-
-```cpp
-size_t VectorOfVec3w::size();
-AutoIt:
-    $oVectorOfVec3w.size() -> retval
-```
-
-### VectorOfVec3w::slice
-
-```cpp
-VectorOfVec3w VectorOfVec3w::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3w.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec3w::sort
-
-```cpp
-void VectorOfVec3w::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3w.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3w::sort\_variant
-
-```cpp
-void VectorOfVec3w::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec3w.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec3w::start
-
-```cpp
-void* VectorOfVec3w::start();
-AutoIt:
-    $oVectorOfVec3w.start() -> retval
 ```
 
 ## VectorOfVec4b
@@ -24921,616 +22890,412 @@ AutoIt:
     $oVectorOfVec4b.start() -> retval
 ```
 
-## VectorOfVec4d
+## VectorOfVec2s
 
-### VectorOfVec4d.Count
+### VectorOfVec2s.Count
 
 ```cpp
-size_t VectorOfVec4d::size()
+size_t VectorOfVec2s::size()
 AutoIt:
-    [propget] $oVectorOfVec4d.Count
+    [propget] $oVectorOfVec2s.Count
 ```
 
-### VectorOfVec4d::create
+### VectorOfVec2s::create
 
 ```cpp
-static VectorOfVec4d VectorOfVec4d::create();
+static VectorOfVec2s VectorOfVec2s::create();
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec4d").create() -> <VectorOfVec4d object>
-```
-
-```cpp
-static VectorOfVec4d VectorOfVec4d::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec4d").create( $size ) -> <VectorOfVec4d object>
+    _Dlib_ObjCreate("VectorOfVec2s").create() -> <VectorOfVec2s object>
 ```
 
 ```cpp
-static VectorOfVec4d VectorOfVec4d::create( VectorOfVec4d other );
+static VectorOfVec2s VectorOfVec2s::create( size_t size );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec4d").create( $other ) -> <VectorOfVec4d object>
-```
-
-### VectorOfVec4d::Add
-
-```cpp
-void VectorOfVec4d::Add( cv::Vec4d value );
-AutoIt:
-    $oVectorOfVec4d.Add( $value ) -> None
-```
-
-### VectorOfVec4d::Items
-
-```cpp
-VectorOfVec4d VectorOfVec4d::Items();
-AutoIt:
-    $oVectorOfVec4d.Items() -> retval
-```
-
-### VectorOfVec4d::Keys
-
-```cpp
-std::vector<int> VectorOfVec4d::Keys();
-AutoIt:
-    $oVectorOfVec4d.Keys() -> retval
-```
-
-### VectorOfVec4d::Remove
-
-```cpp
-void VectorOfVec4d::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec4d.Remove( $index ) -> None
-```
-
-### VectorOfVec4d::append
-
-```cpp
-void VectorOfVec4d::append( cv::Vec4d value );
-AutoIt:
-    $oVectorOfVec4d.append( $value ) -> None
-```
-
-### VectorOfVec4d::at
-
-```cpp
-cv::Vec4d VectorOfVec4d::at( size_t index );
-AutoIt:
-    $oVectorOfVec4d.at( $index ) -> retval
+    _Dlib_ObjCreate("VectorOfVec2s").create( $size ) -> <VectorOfVec2s object>
 ```
 
 ```cpp
-void VectorOfVec4d::at( size_t    index,
-                        cv::Vec4d value );
+static VectorOfVec2s VectorOfVec2s::create( VectorOfVec2s other );
 AutoIt:
-    $oVectorOfVec4d.at( $index, $value ) -> None
+    _Dlib_ObjCreate("VectorOfVec2s").create( $other ) -> <VectorOfVec2s object>
 ```
 
-### VectorOfVec4d::clear
+### VectorOfVec2s::Add
 
 ```cpp
-void VectorOfVec4d::clear();
+void VectorOfVec2s::Add( cv::Vec2s value );
 AutoIt:
-    $oVectorOfVec4d.clear() -> None
+    $oVectorOfVec2s.Add( $value ) -> None
 ```
 
-### VectorOfVec4d::empty
+### VectorOfVec2s::Items
 
 ```cpp
-bool VectorOfVec4d::empty();
+VectorOfVec2s VectorOfVec2s::Items();
 AutoIt:
-    $oVectorOfVec4d.empty() -> retval
+    $oVectorOfVec2s.Items() -> retval
 ```
 
-### VectorOfVec4d::end
+### VectorOfVec2s::Keys
 
 ```cpp
-void* VectorOfVec4d::end();
+std::vector<int> VectorOfVec2s::Keys();
 AutoIt:
-    $oVectorOfVec4d.end() -> retval
+    $oVectorOfVec2s.Keys() -> retval
 ```
 
-### VectorOfVec4d::get\_Item
+### VectorOfVec2s::Remove
 
 ```cpp
-cv::Vec4d VectorOfVec4d::get_Item( size_t index );
+void VectorOfVec2s::Remove( size_t index );
 AutoIt:
-    $oVectorOfVec4d.Item( $index ) -> retval
-    $oVectorOfVec4d( $index ) -> retval
+    $oVectorOfVec2s.Remove( $index ) -> None
 ```
 
-### VectorOfVec4d::get\_\_NewEnum
+### VectorOfVec2s::append
 
 ```cpp
-IUnknown* VectorOfVec4d::get__NewEnum();
+void VectorOfVec2s::append( cv::Vec2s value );
 AutoIt:
-    $oVectorOfVec4d._NewEnum() -> retval
+    $oVectorOfVec2s.append( $value ) -> None
 ```
 
-### VectorOfVec4d::push\_back
+### VectorOfVec2s::at
 
 ```cpp
-void VectorOfVec4d::push_back( cv::Vec4d value );
+cv::Vec2s VectorOfVec2s::at( size_t index );
 AutoIt:
-    $oVectorOfVec4d.push_back( $value ) -> None
-```
-
-### VectorOfVec4d::push\_vector
-
-```cpp
-void VectorOfVec4d::push_vector( VectorOfVec4d other );
-AutoIt:
-    $oVectorOfVec4d.push_vector( $other ) -> None
+    $oVectorOfVec2s.at( $index ) -> retval
 ```
 
 ```cpp
-void VectorOfVec4d::push_vector( VectorOfVec4d other,
+void VectorOfVec2s::at( size_t    index,
+                        cv::Vec2s value );
+AutoIt:
+    $oVectorOfVec2s.at( $index, $value ) -> None
+```
+
+### VectorOfVec2s::clear
+
+```cpp
+void VectorOfVec2s::clear();
+AutoIt:
+    $oVectorOfVec2s.clear() -> None
+```
+
+### VectorOfVec2s::empty
+
+```cpp
+bool VectorOfVec2s::empty();
+AutoIt:
+    $oVectorOfVec2s.empty() -> retval
+```
+
+### VectorOfVec2s::end
+
+```cpp
+void* VectorOfVec2s::end();
+AutoIt:
+    $oVectorOfVec2s.end() -> retval
+```
+
+### VectorOfVec2s::get\_Item
+
+```cpp
+cv::Vec2s VectorOfVec2s::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec2s.Item( $index ) -> retval
+    $oVectorOfVec2s( $index ) -> retval
+```
+
+### VectorOfVec2s::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec2s::get__NewEnum();
+AutoIt:
+    $oVectorOfVec2s._NewEnum() -> retval
+```
+
+### VectorOfVec2s::push\_back
+
+```cpp
+void VectorOfVec2s::push_back( cv::Vec2s value );
+AutoIt:
+    $oVectorOfVec2s.push_back( $value ) -> None
+```
+
+### VectorOfVec2s::push\_vector
+
+```cpp
+void VectorOfVec2s::push_vector( VectorOfVec2s other );
+AutoIt:
+    $oVectorOfVec2s.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec2s::push_vector( VectorOfVec2s other,
                                  size_t        count,
                                  size_t        start = 0 );
 AutoIt:
-    $oVectorOfVec4d.push_vector( $other, $count[, $start] ) -> None
+    $oVectorOfVec2s.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfVec4d::put\_Item
+### VectorOfVec2s::put\_Item
 
 ```cpp
-void VectorOfVec4d::put_Item( size_t    index,
-                              cv::Vec4d item );
+void VectorOfVec2s::put_Item( size_t    index,
+                              cv::Vec2s item );
 AutoIt:
-    $oVectorOfVec4d.Item( $index ) = $item
+    $oVectorOfVec2s.Item( $index ) = $item
 ```
 
-### VectorOfVec4d::size
+### VectorOfVec2s::size
 
 ```cpp
-size_t VectorOfVec4d::size();
+size_t VectorOfVec2s::size();
 AutoIt:
-    $oVectorOfVec4d.size() -> retval
+    $oVectorOfVec2s.size() -> retval
 ```
 
-### VectorOfVec4d::slice
+### VectorOfVec2s::slice
 
 ```cpp
-VectorOfVec4d VectorOfVec4d::slice( size_t start = 0,
+VectorOfVec2s VectorOfVec2s::slice( size_t start = 0,
                                     size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec4d.slice( [$start[, $count]] ) -> retval
+    $oVectorOfVec2s.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfVec4d::sort
+### VectorOfVec2s::sort
 
 ```cpp
-void VectorOfVec4d::sort( void*  comparator,
+void VectorOfVec2s::sort( void*  comparator,
                           size_t start = 0,
                           size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec4d.sort( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfVec2s.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec4d::sort\_variant
+### VectorOfVec2s::sort\_variant
 
 ```cpp
-void VectorOfVec4d::sort_variant( void*  comparator,
+void VectorOfVec2s::sort_variant( void*  comparator,
                                   size_t start = 0,
                                   size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec4d.sort_variant( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfVec2s.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec4d::start
+### VectorOfVec2s::start
 
 ```cpp
-void* VectorOfVec4d::start();
+void* VectorOfVec2s::start();
 AutoIt:
-    $oVectorOfVec4d.start() -> retval
+    $oVectorOfVec2s.start() -> retval
 ```
 
-## VectorOfVec4f
+## VectorOfVec3s
 
-### VectorOfVec4f.Count
+### VectorOfVec3s.Count
 
 ```cpp
-size_t VectorOfVec4f::size()
+size_t VectorOfVec3s::size()
 AutoIt:
-    [propget] $oVectorOfVec4f.Count
+    [propget] $oVectorOfVec3s.Count
 ```
 
-### VectorOfVec4f::create
+### VectorOfVec3s::create
 
 ```cpp
-static VectorOfVec4f VectorOfVec4f::create();
+static VectorOfVec3s VectorOfVec3s::create();
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec4f").create() -> <VectorOfVec4f object>
+    _Dlib_ObjCreate("VectorOfVec3s").create() -> <VectorOfVec3s object>
 ```
 
 ```cpp
-static VectorOfVec4f VectorOfVec4f::create( size_t size );
+static VectorOfVec3s VectorOfVec3s::create( size_t size );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec4f").create( $size ) -> <VectorOfVec4f object>
+    _Dlib_ObjCreate("VectorOfVec3s").create( $size ) -> <VectorOfVec3s object>
 ```
 
 ```cpp
-static VectorOfVec4f VectorOfVec4f::create( VectorOfVec4f other );
+static VectorOfVec3s VectorOfVec3s::create( VectorOfVec3s other );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec4f").create( $other ) -> <VectorOfVec4f object>
+    _Dlib_ObjCreate("VectorOfVec3s").create( $other ) -> <VectorOfVec3s object>
 ```
 
-### VectorOfVec4f::Add
+### VectorOfVec3s::Add
 
 ```cpp
-void VectorOfVec4f::Add( cv::Vec4f value );
+void VectorOfVec3s::Add( cv::Vec3s value );
 AutoIt:
-    $oVectorOfVec4f.Add( $value ) -> None
+    $oVectorOfVec3s.Add( $value ) -> None
 ```
 
-### VectorOfVec4f::Items
+### VectorOfVec3s::Items
 
 ```cpp
-VectorOfVec4f VectorOfVec4f::Items();
+VectorOfVec3s VectorOfVec3s::Items();
 AutoIt:
-    $oVectorOfVec4f.Items() -> retval
+    $oVectorOfVec3s.Items() -> retval
 ```
 
-### VectorOfVec4f::Keys
+### VectorOfVec3s::Keys
 
 ```cpp
-std::vector<int> VectorOfVec4f::Keys();
+std::vector<int> VectorOfVec3s::Keys();
 AutoIt:
-    $oVectorOfVec4f.Keys() -> retval
+    $oVectorOfVec3s.Keys() -> retval
 ```
 
-### VectorOfVec4f::Remove
+### VectorOfVec3s::Remove
 
 ```cpp
-void VectorOfVec4f::Remove( size_t index );
+void VectorOfVec3s::Remove( size_t index );
 AutoIt:
-    $oVectorOfVec4f.Remove( $index ) -> None
+    $oVectorOfVec3s.Remove( $index ) -> None
 ```
 
-### VectorOfVec4f::append
+### VectorOfVec3s::append
 
 ```cpp
-void VectorOfVec4f::append( cv::Vec4f value );
+void VectorOfVec3s::append( cv::Vec3s value );
 AutoIt:
-    $oVectorOfVec4f.append( $value ) -> None
+    $oVectorOfVec3s.append( $value ) -> None
 ```
 
-### VectorOfVec4f::at
+### VectorOfVec3s::at
 
 ```cpp
-cv::Vec4f VectorOfVec4f::at( size_t index );
+cv::Vec3s VectorOfVec3s::at( size_t index );
 AutoIt:
-    $oVectorOfVec4f.at( $index ) -> retval
+    $oVectorOfVec3s.at( $index ) -> retval
 ```
 
 ```cpp
-void VectorOfVec4f::at( size_t    index,
-                        cv::Vec4f value );
+void VectorOfVec3s::at( size_t    index,
+                        cv::Vec3s value );
 AutoIt:
-    $oVectorOfVec4f.at( $index, $value ) -> None
+    $oVectorOfVec3s.at( $index, $value ) -> None
 ```
 
-### VectorOfVec4f::clear
+### VectorOfVec3s::clear
 
 ```cpp
-void VectorOfVec4f::clear();
+void VectorOfVec3s::clear();
 AutoIt:
-    $oVectorOfVec4f.clear() -> None
+    $oVectorOfVec3s.clear() -> None
 ```
 
-### VectorOfVec4f::empty
+### VectorOfVec3s::empty
 
 ```cpp
-bool VectorOfVec4f::empty();
+bool VectorOfVec3s::empty();
 AutoIt:
-    $oVectorOfVec4f.empty() -> retval
+    $oVectorOfVec3s.empty() -> retval
 ```
 
-### VectorOfVec4f::end
+### VectorOfVec3s::end
 
 ```cpp
-void* VectorOfVec4f::end();
+void* VectorOfVec3s::end();
 AutoIt:
-    $oVectorOfVec4f.end() -> retval
+    $oVectorOfVec3s.end() -> retval
 ```
 
-### VectorOfVec4f::get\_Item
+### VectorOfVec3s::get\_Item
 
 ```cpp
-cv::Vec4f VectorOfVec4f::get_Item( size_t index );
+cv::Vec3s VectorOfVec3s::get_Item( size_t index );
 AutoIt:
-    $oVectorOfVec4f.Item( $index ) -> retval
-    $oVectorOfVec4f( $index ) -> retval
+    $oVectorOfVec3s.Item( $index ) -> retval
+    $oVectorOfVec3s( $index ) -> retval
 ```
 
-### VectorOfVec4f::get\_\_NewEnum
+### VectorOfVec3s::get\_\_NewEnum
 
 ```cpp
-IUnknown* VectorOfVec4f::get__NewEnum();
+IUnknown* VectorOfVec3s::get__NewEnum();
 AutoIt:
-    $oVectorOfVec4f._NewEnum() -> retval
+    $oVectorOfVec3s._NewEnum() -> retval
 ```
 
-### VectorOfVec4f::push\_back
+### VectorOfVec3s::push\_back
 
 ```cpp
-void VectorOfVec4f::push_back( cv::Vec4f value );
+void VectorOfVec3s::push_back( cv::Vec3s value );
 AutoIt:
-    $oVectorOfVec4f.push_back( $value ) -> None
+    $oVectorOfVec3s.push_back( $value ) -> None
 ```
 
-### VectorOfVec4f::push\_vector
+### VectorOfVec3s::push\_vector
 
 ```cpp
-void VectorOfVec4f::push_vector( VectorOfVec4f other );
+void VectorOfVec3s::push_vector( VectorOfVec3s other );
 AutoIt:
-    $oVectorOfVec4f.push_vector( $other ) -> None
+    $oVectorOfVec3s.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec4f::push_vector( VectorOfVec4f other,
+void VectorOfVec3s::push_vector( VectorOfVec3s other,
                                  size_t        count,
                                  size_t        start = 0 );
 AutoIt:
-    $oVectorOfVec4f.push_vector( $other, $count[, $start] ) -> None
+    $oVectorOfVec3s.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfVec4f::put\_Item
+### VectorOfVec3s::put\_Item
 
 ```cpp
-void VectorOfVec4f::put_Item( size_t    index,
-                              cv::Vec4f item );
+void VectorOfVec3s::put_Item( size_t    index,
+                              cv::Vec3s item );
 AutoIt:
-    $oVectorOfVec4f.Item( $index ) = $item
+    $oVectorOfVec3s.Item( $index ) = $item
 ```
 
-### VectorOfVec4f::size
+### VectorOfVec3s::size
 
 ```cpp
-size_t VectorOfVec4f::size();
+size_t VectorOfVec3s::size();
 AutoIt:
-    $oVectorOfVec4f.size() -> retval
+    $oVectorOfVec3s.size() -> retval
 ```
 
-### VectorOfVec4f::slice
+### VectorOfVec3s::slice
 
 ```cpp
-VectorOfVec4f VectorOfVec4f::slice( size_t start = 0,
+VectorOfVec3s VectorOfVec3s::slice( size_t start = 0,
                                     size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec4f.slice( [$start[, $count]] ) -> retval
+    $oVectorOfVec3s.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfVec4f::sort
+### VectorOfVec3s::sort
 
 ```cpp
-void VectorOfVec4f::sort( void*  comparator,
+void VectorOfVec3s::sort( void*  comparator,
                           size_t start = 0,
                           size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec4f.sort( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfVec3s.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec4f::sort\_variant
+### VectorOfVec3s::sort\_variant
 
 ```cpp
-void VectorOfVec4f::sort_variant( void*  comparator,
+void VectorOfVec3s::sort_variant( void*  comparator,
                                   size_t start = 0,
                                   size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec4f.sort_variant( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfVec3s.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec4f::start
+### VectorOfVec3s::start
 
 ```cpp
-void* VectorOfVec4f::start();
+void* VectorOfVec3s::start();
 AutoIt:
-    $oVectorOfVec4f.start() -> retval
-```
-
-## VectorOfVec4i
-
-### VectorOfVec4i.Count
-
-```cpp
-size_t VectorOfVec4i::size()
-AutoIt:
-    [propget] $oVectorOfVec4i.Count
-```
-
-### VectorOfVec4i::create
-
-```cpp
-static VectorOfVec4i VectorOfVec4i::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec4i").create() -> <VectorOfVec4i object>
-```
-
-```cpp
-static VectorOfVec4i VectorOfVec4i::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec4i").create( $size ) -> <VectorOfVec4i object>
-```
-
-```cpp
-static VectorOfVec4i VectorOfVec4i::create( VectorOfVec4i other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec4i").create( $other ) -> <VectorOfVec4i object>
-```
-
-### VectorOfVec4i::Add
-
-```cpp
-void VectorOfVec4i::Add( cv::Vec4i value );
-AutoIt:
-    $oVectorOfVec4i.Add( $value ) -> None
-```
-
-### VectorOfVec4i::Items
-
-```cpp
-VectorOfVec4i VectorOfVec4i::Items();
-AutoIt:
-    $oVectorOfVec4i.Items() -> retval
-```
-
-### VectorOfVec4i::Keys
-
-```cpp
-std::vector<int> VectorOfVec4i::Keys();
-AutoIt:
-    $oVectorOfVec4i.Keys() -> retval
-```
-
-### VectorOfVec4i::Remove
-
-```cpp
-void VectorOfVec4i::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec4i.Remove( $index ) -> None
-```
-
-### VectorOfVec4i::append
-
-```cpp
-void VectorOfVec4i::append( cv::Vec4i value );
-AutoIt:
-    $oVectorOfVec4i.append( $value ) -> None
-```
-
-### VectorOfVec4i::at
-
-```cpp
-cv::Vec4i VectorOfVec4i::at( size_t index );
-AutoIt:
-    $oVectorOfVec4i.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfVec4i::at( size_t    index,
-                        cv::Vec4i value );
-AutoIt:
-    $oVectorOfVec4i.at( $index, $value ) -> None
-```
-
-### VectorOfVec4i::clear
-
-```cpp
-void VectorOfVec4i::clear();
-AutoIt:
-    $oVectorOfVec4i.clear() -> None
-```
-
-### VectorOfVec4i::empty
-
-```cpp
-bool VectorOfVec4i::empty();
-AutoIt:
-    $oVectorOfVec4i.empty() -> retval
-```
-
-### VectorOfVec4i::end
-
-```cpp
-void* VectorOfVec4i::end();
-AutoIt:
-    $oVectorOfVec4i.end() -> retval
-```
-
-### VectorOfVec4i::get\_Item
-
-```cpp
-cv::Vec4i VectorOfVec4i::get_Item( size_t index );
-AutoIt:
-    $oVectorOfVec4i.Item( $index ) -> retval
-    $oVectorOfVec4i( $index ) -> retval
-```
-
-### VectorOfVec4i::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfVec4i::get__NewEnum();
-AutoIt:
-    $oVectorOfVec4i._NewEnum() -> retval
-```
-
-### VectorOfVec4i::push\_back
-
-```cpp
-void VectorOfVec4i::push_back( cv::Vec4i value );
-AutoIt:
-    $oVectorOfVec4i.push_back( $value ) -> None
-```
-
-### VectorOfVec4i::push\_vector
-
-```cpp
-void VectorOfVec4i::push_vector( VectorOfVec4i other );
-AutoIt:
-    $oVectorOfVec4i.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfVec4i::push_vector( VectorOfVec4i other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfVec4i.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfVec4i::put\_Item
-
-```cpp
-void VectorOfVec4i::put_Item( size_t    index,
-                              cv::Vec4i item );
-AutoIt:
-    $oVectorOfVec4i.Item( $index ) = $item
-```
-
-### VectorOfVec4i::size
-
-```cpp
-size_t VectorOfVec4i::size();
-AutoIt:
-    $oVectorOfVec4i.size() -> retval
-```
-
-### VectorOfVec4i::slice
-
-```cpp
-VectorOfVec4i VectorOfVec4i::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec4i.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfVec4i::sort
-
-```cpp
-void VectorOfVec4i::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec4i.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec4i::sort\_variant
-
-```cpp
-void VectorOfVec4i::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfVec4i.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfVec4i::start
-
-```cpp
-void* VectorOfVec4i::start();
-AutoIt:
-    $oVectorOfVec4i.start() -> retval
+    $oVectorOfVec3s.start() -> retval
 ```
 
 ## VectorOfVec4s
@@ -25737,6 +23502,414 @@ AutoIt:
     $oVectorOfVec4s.start() -> retval
 ```
 
+## VectorOfVec2w
+
+### VectorOfVec2w.Count
+
+```cpp
+size_t VectorOfVec2w::size()
+AutoIt:
+    [propget] $oVectorOfVec2w.Count
+```
+
+### VectorOfVec2w::create
+
+```cpp
+static VectorOfVec2w VectorOfVec2w::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2w").create() -> <VectorOfVec2w object>
+```
+
+```cpp
+static VectorOfVec2w VectorOfVec2w::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2w").create( $size ) -> <VectorOfVec2w object>
+```
+
+```cpp
+static VectorOfVec2w VectorOfVec2w::create( VectorOfVec2w other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2w").create( $other ) -> <VectorOfVec2w object>
+```
+
+### VectorOfVec2w::Add
+
+```cpp
+void VectorOfVec2w::Add( cv::Vec2w value );
+AutoIt:
+    $oVectorOfVec2w.Add( $value ) -> None
+```
+
+### VectorOfVec2w::Items
+
+```cpp
+VectorOfVec2w VectorOfVec2w::Items();
+AutoIt:
+    $oVectorOfVec2w.Items() -> retval
+```
+
+### VectorOfVec2w::Keys
+
+```cpp
+std::vector<int> VectorOfVec2w::Keys();
+AutoIt:
+    $oVectorOfVec2w.Keys() -> retval
+```
+
+### VectorOfVec2w::Remove
+
+```cpp
+void VectorOfVec2w::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec2w.Remove( $index ) -> None
+```
+
+### VectorOfVec2w::append
+
+```cpp
+void VectorOfVec2w::append( cv::Vec2w value );
+AutoIt:
+    $oVectorOfVec2w.append( $value ) -> None
+```
+
+### VectorOfVec2w::at
+
+```cpp
+cv::Vec2w VectorOfVec2w::at( size_t index );
+AutoIt:
+    $oVectorOfVec2w.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec2w::at( size_t    index,
+                        cv::Vec2w value );
+AutoIt:
+    $oVectorOfVec2w.at( $index, $value ) -> None
+```
+
+### VectorOfVec2w::clear
+
+```cpp
+void VectorOfVec2w::clear();
+AutoIt:
+    $oVectorOfVec2w.clear() -> None
+```
+
+### VectorOfVec2w::empty
+
+```cpp
+bool VectorOfVec2w::empty();
+AutoIt:
+    $oVectorOfVec2w.empty() -> retval
+```
+
+### VectorOfVec2w::end
+
+```cpp
+void* VectorOfVec2w::end();
+AutoIt:
+    $oVectorOfVec2w.end() -> retval
+```
+
+### VectorOfVec2w::get\_Item
+
+```cpp
+cv::Vec2w VectorOfVec2w::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec2w.Item( $index ) -> retval
+    $oVectorOfVec2w( $index ) -> retval
+```
+
+### VectorOfVec2w::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec2w::get__NewEnum();
+AutoIt:
+    $oVectorOfVec2w._NewEnum() -> retval
+```
+
+### VectorOfVec2w::push\_back
+
+```cpp
+void VectorOfVec2w::push_back( cv::Vec2w value );
+AutoIt:
+    $oVectorOfVec2w.push_back( $value ) -> None
+```
+
+### VectorOfVec2w::push\_vector
+
+```cpp
+void VectorOfVec2w::push_vector( VectorOfVec2w other );
+AutoIt:
+    $oVectorOfVec2w.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec2w::push_vector( VectorOfVec2w other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec2w.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec2w::put\_Item
+
+```cpp
+void VectorOfVec2w::put_Item( size_t    index,
+                              cv::Vec2w item );
+AutoIt:
+    $oVectorOfVec2w.Item( $index ) = $item
+```
+
+### VectorOfVec2w::size
+
+```cpp
+size_t VectorOfVec2w::size();
+AutoIt:
+    $oVectorOfVec2w.size() -> retval
+```
+
+### VectorOfVec2w::slice
+
+```cpp
+VectorOfVec2w VectorOfVec2w::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec2w.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec2w::sort
+
+```cpp
+void VectorOfVec2w::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec2w.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec2w::sort\_variant
+
+```cpp
+void VectorOfVec2w::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec2w.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec2w::start
+
+```cpp
+void* VectorOfVec2w::start();
+AutoIt:
+    $oVectorOfVec2w.start() -> retval
+```
+
+## VectorOfVec3w
+
+### VectorOfVec3w.Count
+
+```cpp
+size_t VectorOfVec3w::size()
+AutoIt:
+    [propget] $oVectorOfVec3w.Count
+```
+
+### VectorOfVec3w::create
+
+```cpp
+static VectorOfVec3w VectorOfVec3w::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3w").create() -> <VectorOfVec3w object>
+```
+
+```cpp
+static VectorOfVec3w VectorOfVec3w::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3w").create( $size ) -> <VectorOfVec3w object>
+```
+
+```cpp
+static VectorOfVec3w VectorOfVec3w::create( VectorOfVec3w other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3w").create( $other ) -> <VectorOfVec3w object>
+```
+
+### VectorOfVec3w::Add
+
+```cpp
+void VectorOfVec3w::Add( cv::Vec3w value );
+AutoIt:
+    $oVectorOfVec3w.Add( $value ) -> None
+```
+
+### VectorOfVec3w::Items
+
+```cpp
+VectorOfVec3w VectorOfVec3w::Items();
+AutoIt:
+    $oVectorOfVec3w.Items() -> retval
+```
+
+### VectorOfVec3w::Keys
+
+```cpp
+std::vector<int> VectorOfVec3w::Keys();
+AutoIt:
+    $oVectorOfVec3w.Keys() -> retval
+```
+
+### VectorOfVec3w::Remove
+
+```cpp
+void VectorOfVec3w::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec3w.Remove( $index ) -> None
+```
+
+### VectorOfVec3w::append
+
+```cpp
+void VectorOfVec3w::append( cv::Vec3w value );
+AutoIt:
+    $oVectorOfVec3w.append( $value ) -> None
+```
+
+### VectorOfVec3w::at
+
+```cpp
+cv::Vec3w VectorOfVec3w::at( size_t index );
+AutoIt:
+    $oVectorOfVec3w.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec3w::at( size_t    index,
+                        cv::Vec3w value );
+AutoIt:
+    $oVectorOfVec3w.at( $index, $value ) -> None
+```
+
+### VectorOfVec3w::clear
+
+```cpp
+void VectorOfVec3w::clear();
+AutoIt:
+    $oVectorOfVec3w.clear() -> None
+```
+
+### VectorOfVec3w::empty
+
+```cpp
+bool VectorOfVec3w::empty();
+AutoIt:
+    $oVectorOfVec3w.empty() -> retval
+```
+
+### VectorOfVec3w::end
+
+```cpp
+void* VectorOfVec3w::end();
+AutoIt:
+    $oVectorOfVec3w.end() -> retval
+```
+
+### VectorOfVec3w::get\_Item
+
+```cpp
+cv::Vec3w VectorOfVec3w::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec3w.Item( $index ) -> retval
+    $oVectorOfVec3w( $index ) -> retval
+```
+
+### VectorOfVec3w::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec3w::get__NewEnum();
+AutoIt:
+    $oVectorOfVec3w._NewEnum() -> retval
+```
+
+### VectorOfVec3w::push\_back
+
+```cpp
+void VectorOfVec3w::push_back( cv::Vec3w value );
+AutoIt:
+    $oVectorOfVec3w.push_back( $value ) -> None
+```
+
+### VectorOfVec3w::push\_vector
+
+```cpp
+void VectorOfVec3w::push_vector( VectorOfVec3w other );
+AutoIt:
+    $oVectorOfVec3w.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec3w::push_vector( VectorOfVec3w other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec3w.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec3w::put\_Item
+
+```cpp
+void VectorOfVec3w::put_Item( size_t    index,
+                              cv::Vec3w item );
+AutoIt:
+    $oVectorOfVec3w.Item( $index ) = $item
+```
+
+### VectorOfVec3w::size
+
+```cpp
+size_t VectorOfVec3w::size();
+AutoIt:
+    $oVectorOfVec3w.size() -> retval
+```
+
+### VectorOfVec3w::slice
+
+```cpp
+VectorOfVec3w VectorOfVec3w::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec3w.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec3w::sort
+
+```cpp
+void VectorOfVec3w::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec3w.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec3w::sort\_variant
+
+```cpp
+void VectorOfVec3w::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec3w.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec3w::start
+
+```cpp
+void* VectorOfVec3w::start();
+AutoIt:
+    $oVectorOfVec3w.start() -> retval
+```
+
 ## VectorOfVec4w
 
 ### VectorOfVec4w.Count
@@ -25941,412 +24114,616 @@ AutoIt:
     $oVectorOfVec4w.start() -> retval
 ```
 
-## VectorOfVec6d
+## VectorOfVec2i
 
-### VectorOfVec6d.Count
+### VectorOfVec2i.Count
 
 ```cpp
-size_t VectorOfVec6d::size()
+size_t VectorOfVec2i::size()
 AutoIt:
-    [propget] $oVectorOfVec6d.Count
+    [propget] $oVectorOfVec2i.Count
 ```
 
-### VectorOfVec6d::create
+### VectorOfVec2i::create
 
 ```cpp
-static VectorOfVec6d VectorOfVec6d::create();
+static VectorOfVec2i VectorOfVec2i::create();
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec6d").create() -> <VectorOfVec6d object>
-```
-
-```cpp
-static VectorOfVec6d VectorOfVec6d::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfVec6d").create( $size ) -> <VectorOfVec6d object>
+    _Dlib_ObjCreate("VectorOfVec2i").create() -> <VectorOfVec2i object>
 ```
 
 ```cpp
-static VectorOfVec6d VectorOfVec6d::create( VectorOfVec6d other );
+static VectorOfVec2i VectorOfVec2i::create( size_t size );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec6d").create( $other ) -> <VectorOfVec6d object>
-```
-
-### VectorOfVec6d::Add
-
-```cpp
-void VectorOfVec6d::Add( cv::Vec6d value );
-AutoIt:
-    $oVectorOfVec6d.Add( $value ) -> None
-```
-
-### VectorOfVec6d::Items
-
-```cpp
-VectorOfVec6d VectorOfVec6d::Items();
-AutoIt:
-    $oVectorOfVec6d.Items() -> retval
-```
-
-### VectorOfVec6d::Keys
-
-```cpp
-std::vector<int> VectorOfVec6d::Keys();
-AutoIt:
-    $oVectorOfVec6d.Keys() -> retval
-```
-
-### VectorOfVec6d::Remove
-
-```cpp
-void VectorOfVec6d::Remove( size_t index );
-AutoIt:
-    $oVectorOfVec6d.Remove( $index ) -> None
-```
-
-### VectorOfVec6d::append
-
-```cpp
-void VectorOfVec6d::append( cv::Vec6d value );
-AutoIt:
-    $oVectorOfVec6d.append( $value ) -> None
-```
-
-### VectorOfVec6d::at
-
-```cpp
-cv::Vec6d VectorOfVec6d::at( size_t index );
-AutoIt:
-    $oVectorOfVec6d.at( $index ) -> retval
+    _Dlib_ObjCreate("VectorOfVec2i").create( $size ) -> <VectorOfVec2i object>
 ```
 
 ```cpp
-void VectorOfVec6d::at( size_t    index,
-                        cv::Vec6d value );
+static VectorOfVec2i VectorOfVec2i::create( VectorOfVec2i other );
 AutoIt:
-    $oVectorOfVec6d.at( $index, $value ) -> None
+    _Dlib_ObjCreate("VectorOfVec2i").create( $other ) -> <VectorOfVec2i object>
 ```
 
-### VectorOfVec6d::clear
+### VectorOfVec2i::Add
 
 ```cpp
-void VectorOfVec6d::clear();
+void VectorOfVec2i::Add( cv::Vec2i value );
 AutoIt:
-    $oVectorOfVec6d.clear() -> None
+    $oVectorOfVec2i.Add( $value ) -> None
 ```
 
-### VectorOfVec6d::empty
+### VectorOfVec2i::Items
 
 ```cpp
-bool VectorOfVec6d::empty();
+VectorOfVec2i VectorOfVec2i::Items();
 AutoIt:
-    $oVectorOfVec6d.empty() -> retval
+    $oVectorOfVec2i.Items() -> retval
 ```
 
-### VectorOfVec6d::end
+### VectorOfVec2i::Keys
 
 ```cpp
-void* VectorOfVec6d::end();
+std::vector<int> VectorOfVec2i::Keys();
 AutoIt:
-    $oVectorOfVec6d.end() -> retval
+    $oVectorOfVec2i.Keys() -> retval
 ```
 
-### VectorOfVec6d::get\_Item
+### VectorOfVec2i::Remove
 
 ```cpp
-cv::Vec6d VectorOfVec6d::get_Item( size_t index );
+void VectorOfVec2i::Remove( size_t index );
 AutoIt:
-    $oVectorOfVec6d.Item( $index ) -> retval
-    $oVectorOfVec6d( $index ) -> retval
+    $oVectorOfVec2i.Remove( $index ) -> None
 ```
 
-### VectorOfVec6d::get\_\_NewEnum
+### VectorOfVec2i::append
 
 ```cpp
-IUnknown* VectorOfVec6d::get__NewEnum();
+void VectorOfVec2i::append( cv::Vec2i value );
 AutoIt:
-    $oVectorOfVec6d._NewEnum() -> retval
+    $oVectorOfVec2i.append( $value ) -> None
 ```
 
-### VectorOfVec6d::push\_back
+### VectorOfVec2i::at
 
 ```cpp
-void VectorOfVec6d::push_back( cv::Vec6d value );
+cv::Vec2i VectorOfVec2i::at( size_t index );
 AutoIt:
-    $oVectorOfVec6d.push_back( $value ) -> None
-```
-
-### VectorOfVec6d::push\_vector
-
-```cpp
-void VectorOfVec6d::push_vector( VectorOfVec6d other );
-AutoIt:
-    $oVectorOfVec6d.push_vector( $other ) -> None
+    $oVectorOfVec2i.at( $index ) -> retval
 ```
 
 ```cpp
-void VectorOfVec6d::push_vector( VectorOfVec6d other,
+void VectorOfVec2i::at( size_t    index,
+                        cv::Vec2i value );
+AutoIt:
+    $oVectorOfVec2i.at( $index, $value ) -> None
+```
+
+### VectorOfVec2i::clear
+
+```cpp
+void VectorOfVec2i::clear();
+AutoIt:
+    $oVectorOfVec2i.clear() -> None
+```
+
+### VectorOfVec2i::empty
+
+```cpp
+bool VectorOfVec2i::empty();
+AutoIt:
+    $oVectorOfVec2i.empty() -> retval
+```
+
+### VectorOfVec2i::end
+
+```cpp
+void* VectorOfVec2i::end();
+AutoIt:
+    $oVectorOfVec2i.end() -> retval
+```
+
+### VectorOfVec2i::get\_Item
+
+```cpp
+cv::Vec2i VectorOfVec2i::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec2i.Item( $index ) -> retval
+    $oVectorOfVec2i( $index ) -> retval
+```
+
+### VectorOfVec2i::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec2i::get__NewEnum();
+AutoIt:
+    $oVectorOfVec2i._NewEnum() -> retval
+```
+
+### VectorOfVec2i::push\_back
+
+```cpp
+void VectorOfVec2i::push_back( cv::Vec2i value );
+AutoIt:
+    $oVectorOfVec2i.push_back( $value ) -> None
+```
+
+### VectorOfVec2i::push\_vector
+
+```cpp
+void VectorOfVec2i::push_vector( VectorOfVec2i other );
+AutoIt:
+    $oVectorOfVec2i.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec2i::push_vector( VectorOfVec2i other,
                                  size_t        count,
                                  size_t        start = 0 );
 AutoIt:
-    $oVectorOfVec6d.push_vector( $other, $count[, $start] ) -> None
+    $oVectorOfVec2i.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfVec6d::put\_Item
+### VectorOfVec2i::put\_Item
 
 ```cpp
-void VectorOfVec6d::put_Item( size_t    index,
-                              cv::Vec6d item );
+void VectorOfVec2i::put_Item( size_t    index,
+                              cv::Vec2i item );
 AutoIt:
-    $oVectorOfVec6d.Item( $index ) = $item
+    $oVectorOfVec2i.Item( $index ) = $item
 ```
 
-### VectorOfVec6d::size
+### VectorOfVec2i::size
 
 ```cpp
-size_t VectorOfVec6d::size();
+size_t VectorOfVec2i::size();
 AutoIt:
-    $oVectorOfVec6d.size() -> retval
+    $oVectorOfVec2i.size() -> retval
 ```
 
-### VectorOfVec6d::slice
+### VectorOfVec2i::slice
 
 ```cpp
-VectorOfVec6d VectorOfVec6d::slice( size_t start = 0,
+VectorOfVec2i VectorOfVec2i::slice( size_t start = 0,
                                     size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec6d.slice( [$start[, $count]] ) -> retval
+    $oVectorOfVec2i.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfVec6d::sort
+### VectorOfVec2i::sort
 
 ```cpp
-void VectorOfVec6d::sort( void*  comparator,
+void VectorOfVec2i::sort( void*  comparator,
                           size_t start = 0,
                           size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec6d.sort( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfVec2i.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec6d::sort\_variant
+### VectorOfVec2i::sort\_variant
 
 ```cpp
-void VectorOfVec6d::sort_variant( void*  comparator,
+void VectorOfVec2i::sort_variant( void*  comparator,
                                   size_t start = 0,
                                   size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec6d.sort_variant( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfVec2i.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec6d::start
+### VectorOfVec2i::start
 
 ```cpp
-void* VectorOfVec6d::start();
+void* VectorOfVec2i::start();
 AutoIt:
-    $oVectorOfVec6d.start() -> retval
+    $oVectorOfVec2i.start() -> retval
 ```
 
-## VectorOfVec6f
+## VectorOfVec3i
 
-### VectorOfVec6f.Count
+### VectorOfVec3i.Count
 
 ```cpp
-size_t VectorOfVec6f::size()
+size_t VectorOfVec3i::size()
 AutoIt:
-    [propget] $oVectorOfVec6f.Count
+    [propget] $oVectorOfVec3i.Count
 ```
 
-### VectorOfVec6f::create
+### VectorOfVec3i::create
 
 ```cpp
-static VectorOfVec6f VectorOfVec6f::create();
+static VectorOfVec3i VectorOfVec3i::create();
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec6f").create() -> <VectorOfVec6f object>
+    _Dlib_ObjCreate("VectorOfVec3i").create() -> <VectorOfVec3i object>
 ```
 
 ```cpp
-static VectorOfVec6f VectorOfVec6f::create( size_t size );
+static VectorOfVec3i VectorOfVec3i::create( size_t size );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec6f").create( $size ) -> <VectorOfVec6f object>
+    _Dlib_ObjCreate("VectorOfVec3i").create( $size ) -> <VectorOfVec3i object>
 ```
 
 ```cpp
-static VectorOfVec6f VectorOfVec6f::create( VectorOfVec6f other );
+static VectorOfVec3i VectorOfVec3i::create( VectorOfVec3i other );
 AutoIt:
-    _Dlib_ObjCreate("VectorOfVec6f").create( $other ) -> <VectorOfVec6f object>
+    _Dlib_ObjCreate("VectorOfVec3i").create( $other ) -> <VectorOfVec3i object>
 ```
 
-### VectorOfVec6f::Add
+### VectorOfVec3i::Add
 
 ```cpp
-void VectorOfVec6f::Add( cv::Vec6f value );
+void VectorOfVec3i::Add( cv::Vec3i value );
 AutoIt:
-    $oVectorOfVec6f.Add( $value ) -> None
+    $oVectorOfVec3i.Add( $value ) -> None
 ```
 
-### VectorOfVec6f::Items
+### VectorOfVec3i::Items
 
 ```cpp
-VectorOfVec6f VectorOfVec6f::Items();
+VectorOfVec3i VectorOfVec3i::Items();
 AutoIt:
-    $oVectorOfVec6f.Items() -> retval
+    $oVectorOfVec3i.Items() -> retval
 ```
 
-### VectorOfVec6f::Keys
+### VectorOfVec3i::Keys
 
 ```cpp
-std::vector<int> VectorOfVec6f::Keys();
+std::vector<int> VectorOfVec3i::Keys();
 AutoIt:
-    $oVectorOfVec6f.Keys() -> retval
+    $oVectorOfVec3i.Keys() -> retval
 ```
 
-### VectorOfVec6f::Remove
+### VectorOfVec3i::Remove
 
 ```cpp
-void VectorOfVec6f::Remove( size_t index );
+void VectorOfVec3i::Remove( size_t index );
 AutoIt:
-    $oVectorOfVec6f.Remove( $index ) -> None
+    $oVectorOfVec3i.Remove( $index ) -> None
 ```
 
-### VectorOfVec6f::append
+### VectorOfVec3i::append
 
 ```cpp
-void VectorOfVec6f::append( cv::Vec6f value );
+void VectorOfVec3i::append( cv::Vec3i value );
 AutoIt:
-    $oVectorOfVec6f.append( $value ) -> None
+    $oVectorOfVec3i.append( $value ) -> None
 ```
 
-### VectorOfVec6f::at
+### VectorOfVec3i::at
 
 ```cpp
-cv::Vec6f VectorOfVec6f::at( size_t index );
+cv::Vec3i VectorOfVec3i::at( size_t index );
 AutoIt:
-    $oVectorOfVec6f.at( $index ) -> retval
+    $oVectorOfVec3i.at( $index ) -> retval
 ```
 
 ```cpp
-void VectorOfVec6f::at( size_t    index,
-                        cv::Vec6f value );
+void VectorOfVec3i::at( size_t    index,
+                        cv::Vec3i value );
 AutoIt:
-    $oVectorOfVec6f.at( $index, $value ) -> None
+    $oVectorOfVec3i.at( $index, $value ) -> None
 ```
 
-### VectorOfVec6f::clear
+### VectorOfVec3i::clear
 
 ```cpp
-void VectorOfVec6f::clear();
+void VectorOfVec3i::clear();
 AutoIt:
-    $oVectorOfVec6f.clear() -> None
+    $oVectorOfVec3i.clear() -> None
 ```
 
-### VectorOfVec6f::empty
+### VectorOfVec3i::empty
 
 ```cpp
-bool VectorOfVec6f::empty();
+bool VectorOfVec3i::empty();
 AutoIt:
-    $oVectorOfVec6f.empty() -> retval
+    $oVectorOfVec3i.empty() -> retval
 ```
 
-### VectorOfVec6f::end
+### VectorOfVec3i::end
 
 ```cpp
-void* VectorOfVec6f::end();
+void* VectorOfVec3i::end();
 AutoIt:
-    $oVectorOfVec6f.end() -> retval
+    $oVectorOfVec3i.end() -> retval
 ```
 
-### VectorOfVec6f::get\_Item
+### VectorOfVec3i::get\_Item
 
 ```cpp
-cv::Vec6f VectorOfVec6f::get_Item( size_t index );
+cv::Vec3i VectorOfVec3i::get_Item( size_t index );
 AutoIt:
-    $oVectorOfVec6f.Item( $index ) -> retval
-    $oVectorOfVec6f( $index ) -> retval
+    $oVectorOfVec3i.Item( $index ) -> retval
+    $oVectorOfVec3i( $index ) -> retval
 ```
 
-### VectorOfVec6f::get\_\_NewEnum
+### VectorOfVec3i::get\_\_NewEnum
 
 ```cpp
-IUnknown* VectorOfVec6f::get__NewEnum();
+IUnknown* VectorOfVec3i::get__NewEnum();
 AutoIt:
-    $oVectorOfVec6f._NewEnum() -> retval
+    $oVectorOfVec3i._NewEnum() -> retval
 ```
 
-### VectorOfVec6f::push\_back
+### VectorOfVec3i::push\_back
 
 ```cpp
-void VectorOfVec6f::push_back( cv::Vec6f value );
+void VectorOfVec3i::push_back( cv::Vec3i value );
 AutoIt:
-    $oVectorOfVec6f.push_back( $value ) -> None
+    $oVectorOfVec3i.push_back( $value ) -> None
 ```
 
-### VectorOfVec6f::push\_vector
+### VectorOfVec3i::push\_vector
 
 ```cpp
-void VectorOfVec6f::push_vector( VectorOfVec6f other );
+void VectorOfVec3i::push_vector( VectorOfVec3i other );
 AutoIt:
-    $oVectorOfVec6f.push_vector( $other ) -> None
+    $oVectorOfVec3i.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec6f::push_vector( VectorOfVec6f other,
+void VectorOfVec3i::push_vector( VectorOfVec3i other,
                                  size_t        count,
                                  size_t        start = 0 );
 AutoIt:
-    $oVectorOfVec6f.push_vector( $other, $count[, $start] ) -> None
+    $oVectorOfVec3i.push_vector( $other, $count[, $start] ) -> None
 ```
 
-### VectorOfVec6f::put\_Item
+### VectorOfVec3i::put\_Item
 
 ```cpp
-void VectorOfVec6f::put_Item( size_t    index,
-                              cv::Vec6f item );
+void VectorOfVec3i::put_Item( size_t    index,
+                              cv::Vec3i item );
 AutoIt:
-    $oVectorOfVec6f.Item( $index ) = $item
+    $oVectorOfVec3i.Item( $index ) = $item
 ```
 
-### VectorOfVec6f::size
+### VectorOfVec3i::size
 
 ```cpp
-size_t VectorOfVec6f::size();
+size_t VectorOfVec3i::size();
 AutoIt:
-    $oVectorOfVec6f.size() -> retval
+    $oVectorOfVec3i.size() -> retval
 ```
 
-### VectorOfVec6f::slice
+### VectorOfVec3i::slice
 
 ```cpp
-VectorOfVec6f VectorOfVec6f::slice( size_t start = 0,
+VectorOfVec3i VectorOfVec3i::slice( size_t start = 0,
                                     size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec6f.slice( [$start[, $count]] ) -> retval
+    $oVectorOfVec3i.slice( [$start[, $count]] ) -> retval
 ```
 
-### VectorOfVec6f::sort
+### VectorOfVec3i::sort
 
 ```cpp
-void VectorOfVec6f::sort( void*  comparator,
+void VectorOfVec3i::sort( void*  comparator,
                           size_t start = 0,
                           size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec6f.sort( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfVec3i.sort( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec6f::sort\_variant
+### VectorOfVec3i::sort\_variant
 
 ```cpp
-void VectorOfVec6f::sort_variant( void*  comparator,
+void VectorOfVec3i::sort_variant( void*  comparator,
                                   size_t start = 0,
                                   size_t count = __self->get()->size() );
 AutoIt:
-    $oVectorOfVec6f.sort_variant( $comparator[, $start[, $count]] ) -> None
+    $oVectorOfVec3i.sort_variant( $comparator[, $start[, $count]] ) -> None
 ```
 
-### VectorOfVec6f::start
+### VectorOfVec3i::start
 
 ```cpp
-void* VectorOfVec6f::start();
+void* VectorOfVec3i::start();
 AutoIt:
-    $oVectorOfVec6f.start() -> retval
+    $oVectorOfVec3i.start() -> retval
+```
+
+## VectorOfVec4i
+
+### VectorOfVec4i.Count
+
+```cpp
+size_t VectorOfVec4i::size()
+AutoIt:
+    [propget] $oVectorOfVec4i.Count
+```
+
+### VectorOfVec4i::create
+
+```cpp
+static VectorOfVec4i VectorOfVec4i::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4i").create() -> <VectorOfVec4i object>
+```
+
+```cpp
+static VectorOfVec4i VectorOfVec4i::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4i").create( $size ) -> <VectorOfVec4i object>
+```
+
+```cpp
+static VectorOfVec4i VectorOfVec4i::create( VectorOfVec4i other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4i").create( $other ) -> <VectorOfVec4i object>
+```
+
+### VectorOfVec4i::Add
+
+```cpp
+void VectorOfVec4i::Add( cv::Vec4i value );
+AutoIt:
+    $oVectorOfVec4i.Add( $value ) -> None
+```
+
+### VectorOfVec4i::Items
+
+```cpp
+VectorOfVec4i VectorOfVec4i::Items();
+AutoIt:
+    $oVectorOfVec4i.Items() -> retval
+```
+
+### VectorOfVec4i::Keys
+
+```cpp
+std::vector<int> VectorOfVec4i::Keys();
+AutoIt:
+    $oVectorOfVec4i.Keys() -> retval
+```
+
+### VectorOfVec4i::Remove
+
+```cpp
+void VectorOfVec4i::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec4i.Remove( $index ) -> None
+```
+
+### VectorOfVec4i::append
+
+```cpp
+void VectorOfVec4i::append( cv::Vec4i value );
+AutoIt:
+    $oVectorOfVec4i.append( $value ) -> None
+```
+
+### VectorOfVec4i::at
+
+```cpp
+cv::Vec4i VectorOfVec4i::at( size_t index );
+AutoIt:
+    $oVectorOfVec4i.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec4i::at( size_t    index,
+                        cv::Vec4i value );
+AutoIt:
+    $oVectorOfVec4i.at( $index, $value ) -> None
+```
+
+### VectorOfVec4i::clear
+
+```cpp
+void VectorOfVec4i::clear();
+AutoIt:
+    $oVectorOfVec4i.clear() -> None
+```
+
+### VectorOfVec4i::empty
+
+```cpp
+bool VectorOfVec4i::empty();
+AutoIt:
+    $oVectorOfVec4i.empty() -> retval
+```
+
+### VectorOfVec4i::end
+
+```cpp
+void* VectorOfVec4i::end();
+AutoIt:
+    $oVectorOfVec4i.end() -> retval
+```
+
+### VectorOfVec4i::get\_Item
+
+```cpp
+cv::Vec4i VectorOfVec4i::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec4i.Item( $index ) -> retval
+    $oVectorOfVec4i( $index ) -> retval
+```
+
+### VectorOfVec4i::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec4i::get__NewEnum();
+AutoIt:
+    $oVectorOfVec4i._NewEnum() -> retval
+```
+
+### VectorOfVec4i::push\_back
+
+```cpp
+void VectorOfVec4i::push_back( cv::Vec4i value );
+AutoIt:
+    $oVectorOfVec4i.push_back( $value ) -> None
+```
+
+### VectorOfVec4i::push\_vector
+
+```cpp
+void VectorOfVec4i::push_vector( VectorOfVec4i other );
+AutoIt:
+    $oVectorOfVec4i.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec4i::push_vector( VectorOfVec4i other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec4i.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec4i::put\_Item
+
+```cpp
+void VectorOfVec4i::put_Item( size_t    index,
+                              cv::Vec4i item );
+AutoIt:
+    $oVectorOfVec4i.Item( $index ) = $item
+```
+
+### VectorOfVec4i::size
+
+```cpp
+size_t VectorOfVec4i::size();
+AutoIt:
+    $oVectorOfVec4i.size() -> retval
+```
+
+### VectorOfVec4i::slice
+
+```cpp
+VectorOfVec4i VectorOfVec4i::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec4i.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec4i::sort
+
+```cpp
+void VectorOfVec4i::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec4i.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec4i::sort\_variant
+
+```cpp
+void VectorOfVec4i::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec4i.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec4i::start
+
+```cpp
+void* VectorOfVec4i::start();
+AutoIt:
+    $oVectorOfVec4i.start() -> retval
 ```
 
 ## VectorOfVec6i
@@ -26755,4 +25132,1636 @@ AutoIt:
 void* VectorOfVec8i::start();
 AutoIt:
     $oVectorOfVec8i.start() -> retval
+```
+
+## VectorOfVec2f
+
+### VectorOfVec2f.Count
+
+```cpp
+size_t VectorOfVec2f::size()
+AutoIt:
+    [propget] $oVectorOfVec2f.Count
+```
+
+### VectorOfVec2f::create
+
+```cpp
+static VectorOfVec2f VectorOfVec2f::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2f").create() -> <VectorOfVec2f object>
+```
+
+```cpp
+static VectorOfVec2f VectorOfVec2f::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2f").create( $size ) -> <VectorOfVec2f object>
+```
+
+```cpp
+static VectorOfVec2f VectorOfVec2f::create( VectorOfVec2f other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2f").create( $other ) -> <VectorOfVec2f object>
+```
+
+### VectorOfVec2f::Add
+
+```cpp
+void VectorOfVec2f::Add( cv::Vec2f value );
+AutoIt:
+    $oVectorOfVec2f.Add( $value ) -> None
+```
+
+### VectorOfVec2f::Items
+
+```cpp
+VectorOfVec2f VectorOfVec2f::Items();
+AutoIt:
+    $oVectorOfVec2f.Items() -> retval
+```
+
+### VectorOfVec2f::Keys
+
+```cpp
+std::vector<int> VectorOfVec2f::Keys();
+AutoIt:
+    $oVectorOfVec2f.Keys() -> retval
+```
+
+### VectorOfVec2f::Remove
+
+```cpp
+void VectorOfVec2f::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec2f.Remove( $index ) -> None
+```
+
+### VectorOfVec2f::append
+
+```cpp
+void VectorOfVec2f::append( cv::Vec2f value );
+AutoIt:
+    $oVectorOfVec2f.append( $value ) -> None
+```
+
+### VectorOfVec2f::at
+
+```cpp
+cv::Vec2f VectorOfVec2f::at( size_t index );
+AutoIt:
+    $oVectorOfVec2f.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec2f::at( size_t    index,
+                        cv::Vec2f value );
+AutoIt:
+    $oVectorOfVec2f.at( $index, $value ) -> None
+```
+
+### VectorOfVec2f::clear
+
+```cpp
+void VectorOfVec2f::clear();
+AutoIt:
+    $oVectorOfVec2f.clear() -> None
+```
+
+### VectorOfVec2f::empty
+
+```cpp
+bool VectorOfVec2f::empty();
+AutoIt:
+    $oVectorOfVec2f.empty() -> retval
+```
+
+### VectorOfVec2f::end
+
+```cpp
+void* VectorOfVec2f::end();
+AutoIt:
+    $oVectorOfVec2f.end() -> retval
+```
+
+### VectorOfVec2f::get\_Item
+
+```cpp
+cv::Vec2f VectorOfVec2f::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec2f.Item( $index ) -> retval
+    $oVectorOfVec2f( $index ) -> retval
+```
+
+### VectorOfVec2f::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec2f::get__NewEnum();
+AutoIt:
+    $oVectorOfVec2f._NewEnum() -> retval
+```
+
+### VectorOfVec2f::push\_back
+
+```cpp
+void VectorOfVec2f::push_back( cv::Vec2f value );
+AutoIt:
+    $oVectorOfVec2f.push_back( $value ) -> None
+```
+
+### VectorOfVec2f::push\_vector
+
+```cpp
+void VectorOfVec2f::push_vector( VectorOfVec2f other );
+AutoIt:
+    $oVectorOfVec2f.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec2f::push_vector( VectorOfVec2f other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec2f.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec2f::put\_Item
+
+```cpp
+void VectorOfVec2f::put_Item( size_t    index,
+                              cv::Vec2f item );
+AutoIt:
+    $oVectorOfVec2f.Item( $index ) = $item
+```
+
+### VectorOfVec2f::size
+
+```cpp
+size_t VectorOfVec2f::size();
+AutoIt:
+    $oVectorOfVec2f.size() -> retval
+```
+
+### VectorOfVec2f::slice
+
+```cpp
+VectorOfVec2f VectorOfVec2f::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec2f.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec2f::sort
+
+```cpp
+void VectorOfVec2f::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec2f.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec2f::sort\_variant
+
+```cpp
+void VectorOfVec2f::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec2f.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec2f::start
+
+```cpp
+void* VectorOfVec2f::start();
+AutoIt:
+    $oVectorOfVec2f.start() -> retval
+```
+
+## VectorOfVec3f
+
+### VectorOfVec3f.Count
+
+```cpp
+size_t VectorOfVec3f::size()
+AutoIt:
+    [propget] $oVectorOfVec3f.Count
+```
+
+### VectorOfVec3f::create
+
+```cpp
+static VectorOfVec3f VectorOfVec3f::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3f").create() -> <VectorOfVec3f object>
+```
+
+```cpp
+static VectorOfVec3f VectorOfVec3f::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3f").create( $size ) -> <VectorOfVec3f object>
+```
+
+```cpp
+static VectorOfVec3f VectorOfVec3f::create( VectorOfVec3f other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3f").create( $other ) -> <VectorOfVec3f object>
+```
+
+### VectorOfVec3f::Add
+
+```cpp
+void VectorOfVec3f::Add( cv::Vec3f value );
+AutoIt:
+    $oVectorOfVec3f.Add( $value ) -> None
+```
+
+### VectorOfVec3f::Items
+
+```cpp
+VectorOfVec3f VectorOfVec3f::Items();
+AutoIt:
+    $oVectorOfVec3f.Items() -> retval
+```
+
+### VectorOfVec3f::Keys
+
+```cpp
+std::vector<int> VectorOfVec3f::Keys();
+AutoIt:
+    $oVectorOfVec3f.Keys() -> retval
+```
+
+### VectorOfVec3f::Remove
+
+```cpp
+void VectorOfVec3f::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec3f.Remove( $index ) -> None
+```
+
+### VectorOfVec3f::append
+
+```cpp
+void VectorOfVec3f::append( cv::Vec3f value );
+AutoIt:
+    $oVectorOfVec3f.append( $value ) -> None
+```
+
+### VectorOfVec3f::at
+
+```cpp
+cv::Vec3f VectorOfVec3f::at( size_t index );
+AutoIt:
+    $oVectorOfVec3f.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec3f::at( size_t    index,
+                        cv::Vec3f value );
+AutoIt:
+    $oVectorOfVec3f.at( $index, $value ) -> None
+```
+
+### VectorOfVec3f::clear
+
+```cpp
+void VectorOfVec3f::clear();
+AutoIt:
+    $oVectorOfVec3f.clear() -> None
+```
+
+### VectorOfVec3f::empty
+
+```cpp
+bool VectorOfVec3f::empty();
+AutoIt:
+    $oVectorOfVec3f.empty() -> retval
+```
+
+### VectorOfVec3f::end
+
+```cpp
+void* VectorOfVec3f::end();
+AutoIt:
+    $oVectorOfVec3f.end() -> retval
+```
+
+### VectorOfVec3f::get\_Item
+
+```cpp
+cv::Vec3f VectorOfVec3f::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec3f.Item( $index ) -> retval
+    $oVectorOfVec3f( $index ) -> retval
+```
+
+### VectorOfVec3f::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec3f::get__NewEnum();
+AutoIt:
+    $oVectorOfVec3f._NewEnum() -> retval
+```
+
+### VectorOfVec3f::push\_back
+
+```cpp
+void VectorOfVec3f::push_back( cv::Vec3f value );
+AutoIt:
+    $oVectorOfVec3f.push_back( $value ) -> None
+```
+
+### VectorOfVec3f::push\_vector
+
+```cpp
+void VectorOfVec3f::push_vector( VectorOfVec3f other );
+AutoIt:
+    $oVectorOfVec3f.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec3f::push_vector( VectorOfVec3f other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec3f.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec3f::put\_Item
+
+```cpp
+void VectorOfVec3f::put_Item( size_t    index,
+                              cv::Vec3f item );
+AutoIt:
+    $oVectorOfVec3f.Item( $index ) = $item
+```
+
+### VectorOfVec3f::size
+
+```cpp
+size_t VectorOfVec3f::size();
+AutoIt:
+    $oVectorOfVec3f.size() -> retval
+```
+
+### VectorOfVec3f::slice
+
+```cpp
+VectorOfVec3f VectorOfVec3f::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec3f.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec3f::sort
+
+```cpp
+void VectorOfVec3f::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec3f.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec3f::sort\_variant
+
+```cpp
+void VectorOfVec3f::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec3f.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec3f::start
+
+```cpp
+void* VectorOfVec3f::start();
+AutoIt:
+    $oVectorOfVec3f.start() -> retval
+```
+
+## VectorOfVec4f
+
+### VectorOfVec4f.Count
+
+```cpp
+size_t VectorOfVec4f::size()
+AutoIt:
+    [propget] $oVectorOfVec4f.Count
+```
+
+### VectorOfVec4f::create
+
+```cpp
+static VectorOfVec4f VectorOfVec4f::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4f").create() -> <VectorOfVec4f object>
+```
+
+```cpp
+static VectorOfVec4f VectorOfVec4f::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4f").create( $size ) -> <VectorOfVec4f object>
+```
+
+```cpp
+static VectorOfVec4f VectorOfVec4f::create( VectorOfVec4f other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4f").create( $other ) -> <VectorOfVec4f object>
+```
+
+### VectorOfVec4f::Add
+
+```cpp
+void VectorOfVec4f::Add( cv::Vec4f value );
+AutoIt:
+    $oVectorOfVec4f.Add( $value ) -> None
+```
+
+### VectorOfVec4f::Items
+
+```cpp
+VectorOfVec4f VectorOfVec4f::Items();
+AutoIt:
+    $oVectorOfVec4f.Items() -> retval
+```
+
+### VectorOfVec4f::Keys
+
+```cpp
+std::vector<int> VectorOfVec4f::Keys();
+AutoIt:
+    $oVectorOfVec4f.Keys() -> retval
+```
+
+### VectorOfVec4f::Remove
+
+```cpp
+void VectorOfVec4f::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec4f.Remove( $index ) -> None
+```
+
+### VectorOfVec4f::append
+
+```cpp
+void VectorOfVec4f::append( cv::Vec4f value );
+AutoIt:
+    $oVectorOfVec4f.append( $value ) -> None
+```
+
+### VectorOfVec4f::at
+
+```cpp
+cv::Vec4f VectorOfVec4f::at( size_t index );
+AutoIt:
+    $oVectorOfVec4f.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec4f::at( size_t    index,
+                        cv::Vec4f value );
+AutoIt:
+    $oVectorOfVec4f.at( $index, $value ) -> None
+```
+
+### VectorOfVec4f::clear
+
+```cpp
+void VectorOfVec4f::clear();
+AutoIt:
+    $oVectorOfVec4f.clear() -> None
+```
+
+### VectorOfVec4f::empty
+
+```cpp
+bool VectorOfVec4f::empty();
+AutoIt:
+    $oVectorOfVec4f.empty() -> retval
+```
+
+### VectorOfVec4f::end
+
+```cpp
+void* VectorOfVec4f::end();
+AutoIt:
+    $oVectorOfVec4f.end() -> retval
+```
+
+### VectorOfVec4f::get\_Item
+
+```cpp
+cv::Vec4f VectorOfVec4f::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec4f.Item( $index ) -> retval
+    $oVectorOfVec4f( $index ) -> retval
+```
+
+### VectorOfVec4f::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec4f::get__NewEnum();
+AutoIt:
+    $oVectorOfVec4f._NewEnum() -> retval
+```
+
+### VectorOfVec4f::push\_back
+
+```cpp
+void VectorOfVec4f::push_back( cv::Vec4f value );
+AutoIt:
+    $oVectorOfVec4f.push_back( $value ) -> None
+```
+
+### VectorOfVec4f::push\_vector
+
+```cpp
+void VectorOfVec4f::push_vector( VectorOfVec4f other );
+AutoIt:
+    $oVectorOfVec4f.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec4f::push_vector( VectorOfVec4f other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec4f.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec4f::put\_Item
+
+```cpp
+void VectorOfVec4f::put_Item( size_t    index,
+                              cv::Vec4f item );
+AutoIt:
+    $oVectorOfVec4f.Item( $index ) = $item
+```
+
+### VectorOfVec4f::size
+
+```cpp
+size_t VectorOfVec4f::size();
+AutoIt:
+    $oVectorOfVec4f.size() -> retval
+```
+
+### VectorOfVec4f::slice
+
+```cpp
+VectorOfVec4f VectorOfVec4f::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec4f.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec4f::sort
+
+```cpp
+void VectorOfVec4f::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec4f.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec4f::sort\_variant
+
+```cpp
+void VectorOfVec4f::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec4f.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec4f::start
+
+```cpp
+void* VectorOfVec4f::start();
+AutoIt:
+    $oVectorOfVec4f.start() -> retval
+```
+
+## VectorOfVec6f
+
+### VectorOfVec6f.Count
+
+```cpp
+size_t VectorOfVec6f::size()
+AutoIt:
+    [propget] $oVectorOfVec6f.Count
+```
+
+### VectorOfVec6f::create
+
+```cpp
+static VectorOfVec6f VectorOfVec6f::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6f").create() -> <VectorOfVec6f object>
+```
+
+```cpp
+static VectorOfVec6f VectorOfVec6f::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6f").create( $size ) -> <VectorOfVec6f object>
+```
+
+```cpp
+static VectorOfVec6f VectorOfVec6f::create( VectorOfVec6f other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6f").create( $other ) -> <VectorOfVec6f object>
+```
+
+### VectorOfVec6f::Add
+
+```cpp
+void VectorOfVec6f::Add( cv::Vec6f value );
+AutoIt:
+    $oVectorOfVec6f.Add( $value ) -> None
+```
+
+### VectorOfVec6f::Items
+
+```cpp
+VectorOfVec6f VectorOfVec6f::Items();
+AutoIt:
+    $oVectorOfVec6f.Items() -> retval
+```
+
+### VectorOfVec6f::Keys
+
+```cpp
+std::vector<int> VectorOfVec6f::Keys();
+AutoIt:
+    $oVectorOfVec6f.Keys() -> retval
+```
+
+### VectorOfVec6f::Remove
+
+```cpp
+void VectorOfVec6f::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec6f.Remove( $index ) -> None
+```
+
+### VectorOfVec6f::append
+
+```cpp
+void VectorOfVec6f::append( cv::Vec6f value );
+AutoIt:
+    $oVectorOfVec6f.append( $value ) -> None
+```
+
+### VectorOfVec6f::at
+
+```cpp
+cv::Vec6f VectorOfVec6f::at( size_t index );
+AutoIt:
+    $oVectorOfVec6f.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec6f::at( size_t    index,
+                        cv::Vec6f value );
+AutoIt:
+    $oVectorOfVec6f.at( $index, $value ) -> None
+```
+
+### VectorOfVec6f::clear
+
+```cpp
+void VectorOfVec6f::clear();
+AutoIt:
+    $oVectorOfVec6f.clear() -> None
+```
+
+### VectorOfVec6f::empty
+
+```cpp
+bool VectorOfVec6f::empty();
+AutoIt:
+    $oVectorOfVec6f.empty() -> retval
+```
+
+### VectorOfVec6f::end
+
+```cpp
+void* VectorOfVec6f::end();
+AutoIt:
+    $oVectorOfVec6f.end() -> retval
+```
+
+### VectorOfVec6f::get\_Item
+
+```cpp
+cv::Vec6f VectorOfVec6f::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec6f.Item( $index ) -> retval
+    $oVectorOfVec6f( $index ) -> retval
+```
+
+### VectorOfVec6f::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec6f::get__NewEnum();
+AutoIt:
+    $oVectorOfVec6f._NewEnum() -> retval
+```
+
+### VectorOfVec6f::push\_back
+
+```cpp
+void VectorOfVec6f::push_back( cv::Vec6f value );
+AutoIt:
+    $oVectorOfVec6f.push_back( $value ) -> None
+```
+
+### VectorOfVec6f::push\_vector
+
+```cpp
+void VectorOfVec6f::push_vector( VectorOfVec6f other );
+AutoIt:
+    $oVectorOfVec6f.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec6f::push_vector( VectorOfVec6f other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec6f.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec6f::put\_Item
+
+```cpp
+void VectorOfVec6f::put_Item( size_t    index,
+                              cv::Vec6f item );
+AutoIt:
+    $oVectorOfVec6f.Item( $index ) = $item
+```
+
+### VectorOfVec6f::size
+
+```cpp
+size_t VectorOfVec6f::size();
+AutoIt:
+    $oVectorOfVec6f.size() -> retval
+```
+
+### VectorOfVec6f::slice
+
+```cpp
+VectorOfVec6f VectorOfVec6f::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec6f.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec6f::sort
+
+```cpp
+void VectorOfVec6f::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec6f.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec6f::sort\_variant
+
+```cpp
+void VectorOfVec6f::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec6f.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec6f::start
+
+```cpp
+void* VectorOfVec6f::start();
+AutoIt:
+    $oVectorOfVec6f.start() -> retval
+```
+
+## VectorOfVec2d
+
+### VectorOfVec2d.Count
+
+```cpp
+size_t VectorOfVec2d::size()
+AutoIt:
+    [propget] $oVectorOfVec2d.Count
+```
+
+### VectorOfVec2d::create
+
+```cpp
+static VectorOfVec2d VectorOfVec2d::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2d").create() -> <VectorOfVec2d object>
+```
+
+```cpp
+static VectorOfVec2d VectorOfVec2d::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2d").create( $size ) -> <VectorOfVec2d object>
+```
+
+```cpp
+static VectorOfVec2d VectorOfVec2d::create( VectorOfVec2d other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2d").create( $other ) -> <VectorOfVec2d object>
+```
+
+### VectorOfVec2d::Add
+
+```cpp
+void VectorOfVec2d::Add( cv::Vec2d value );
+AutoIt:
+    $oVectorOfVec2d.Add( $value ) -> None
+```
+
+### VectorOfVec2d::Items
+
+```cpp
+VectorOfVec2d VectorOfVec2d::Items();
+AutoIt:
+    $oVectorOfVec2d.Items() -> retval
+```
+
+### VectorOfVec2d::Keys
+
+```cpp
+std::vector<int> VectorOfVec2d::Keys();
+AutoIt:
+    $oVectorOfVec2d.Keys() -> retval
+```
+
+### VectorOfVec2d::Remove
+
+```cpp
+void VectorOfVec2d::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec2d.Remove( $index ) -> None
+```
+
+### VectorOfVec2d::append
+
+```cpp
+void VectorOfVec2d::append( cv::Vec2d value );
+AutoIt:
+    $oVectorOfVec2d.append( $value ) -> None
+```
+
+### VectorOfVec2d::at
+
+```cpp
+cv::Vec2d VectorOfVec2d::at( size_t index );
+AutoIt:
+    $oVectorOfVec2d.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec2d::at( size_t    index,
+                        cv::Vec2d value );
+AutoIt:
+    $oVectorOfVec2d.at( $index, $value ) -> None
+```
+
+### VectorOfVec2d::clear
+
+```cpp
+void VectorOfVec2d::clear();
+AutoIt:
+    $oVectorOfVec2d.clear() -> None
+```
+
+### VectorOfVec2d::empty
+
+```cpp
+bool VectorOfVec2d::empty();
+AutoIt:
+    $oVectorOfVec2d.empty() -> retval
+```
+
+### VectorOfVec2d::end
+
+```cpp
+void* VectorOfVec2d::end();
+AutoIt:
+    $oVectorOfVec2d.end() -> retval
+```
+
+### VectorOfVec2d::get\_Item
+
+```cpp
+cv::Vec2d VectorOfVec2d::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec2d.Item( $index ) -> retval
+    $oVectorOfVec2d( $index ) -> retval
+```
+
+### VectorOfVec2d::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec2d::get__NewEnum();
+AutoIt:
+    $oVectorOfVec2d._NewEnum() -> retval
+```
+
+### VectorOfVec2d::push\_back
+
+```cpp
+void VectorOfVec2d::push_back( cv::Vec2d value );
+AutoIt:
+    $oVectorOfVec2d.push_back( $value ) -> None
+```
+
+### VectorOfVec2d::push\_vector
+
+```cpp
+void VectorOfVec2d::push_vector( VectorOfVec2d other );
+AutoIt:
+    $oVectorOfVec2d.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec2d::push_vector( VectorOfVec2d other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec2d.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec2d::put\_Item
+
+```cpp
+void VectorOfVec2d::put_Item( size_t    index,
+                              cv::Vec2d item );
+AutoIt:
+    $oVectorOfVec2d.Item( $index ) = $item
+```
+
+### VectorOfVec2d::size
+
+```cpp
+size_t VectorOfVec2d::size();
+AutoIt:
+    $oVectorOfVec2d.size() -> retval
+```
+
+### VectorOfVec2d::slice
+
+```cpp
+VectorOfVec2d VectorOfVec2d::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec2d.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec2d::sort
+
+```cpp
+void VectorOfVec2d::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec2d.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec2d::sort\_variant
+
+```cpp
+void VectorOfVec2d::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec2d.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec2d::start
+
+```cpp
+void* VectorOfVec2d::start();
+AutoIt:
+    $oVectorOfVec2d.start() -> retval
+```
+
+## VectorOfVec3d
+
+### VectorOfVec3d.Count
+
+```cpp
+size_t VectorOfVec3d::size()
+AutoIt:
+    [propget] $oVectorOfVec3d.Count
+```
+
+### VectorOfVec3d::create
+
+```cpp
+static VectorOfVec3d VectorOfVec3d::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3d").create() -> <VectorOfVec3d object>
+```
+
+```cpp
+static VectorOfVec3d VectorOfVec3d::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3d").create( $size ) -> <VectorOfVec3d object>
+```
+
+```cpp
+static VectorOfVec3d VectorOfVec3d::create( VectorOfVec3d other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3d").create( $other ) -> <VectorOfVec3d object>
+```
+
+### VectorOfVec3d::Add
+
+```cpp
+void VectorOfVec3d::Add( cv::Vec3d value );
+AutoIt:
+    $oVectorOfVec3d.Add( $value ) -> None
+```
+
+### VectorOfVec3d::Items
+
+```cpp
+VectorOfVec3d VectorOfVec3d::Items();
+AutoIt:
+    $oVectorOfVec3d.Items() -> retval
+```
+
+### VectorOfVec3d::Keys
+
+```cpp
+std::vector<int> VectorOfVec3d::Keys();
+AutoIt:
+    $oVectorOfVec3d.Keys() -> retval
+```
+
+### VectorOfVec3d::Remove
+
+```cpp
+void VectorOfVec3d::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec3d.Remove( $index ) -> None
+```
+
+### VectorOfVec3d::append
+
+```cpp
+void VectorOfVec3d::append( cv::Vec3d value );
+AutoIt:
+    $oVectorOfVec3d.append( $value ) -> None
+```
+
+### VectorOfVec3d::at
+
+```cpp
+cv::Vec3d VectorOfVec3d::at( size_t index );
+AutoIt:
+    $oVectorOfVec3d.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec3d::at( size_t    index,
+                        cv::Vec3d value );
+AutoIt:
+    $oVectorOfVec3d.at( $index, $value ) -> None
+```
+
+### VectorOfVec3d::clear
+
+```cpp
+void VectorOfVec3d::clear();
+AutoIt:
+    $oVectorOfVec3d.clear() -> None
+```
+
+### VectorOfVec3d::empty
+
+```cpp
+bool VectorOfVec3d::empty();
+AutoIt:
+    $oVectorOfVec3d.empty() -> retval
+```
+
+### VectorOfVec3d::end
+
+```cpp
+void* VectorOfVec3d::end();
+AutoIt:
+    $oVectorOfVec3d.end() -> retval
+```
+
+### VectorOfVec3d::get\_Item
+
+```cpp
+cv::Vec3d VectorOfVec3d::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec3d.Item( $index ) -> retval
+    $oVectorOfVec3d( $index ) -> retval
+```
+
+### VectorOfVec3d::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec3d::get__NewEnum();
+AutoIt:
+    $oVectorOfVec3d._NewEnum() -> retval
+```
+
+### VectorOfVec3d::push\_back
+
+```cpp
+void VectorOfVec3d::push_back( cv::Vec3d value );
+AutoIt:
+    $oVectorOfVec3d.push_back( $value ) -> None
+```
+
+### VectorOfVec3d::push\_vector
+
+```cpp
+void VectorOfVec3d::push_vector( VectorOfVec3d other );
+AutoIt:
+    $oVectorOfVec3d.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec3d::push_vector( VectorOfVec3d other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec3d.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec3d::put\_Item
+
+```cpp
+void VectorOfVec3d::put_Item( size_t    index,
+                              cv::Vec3d item );
+AutoIt:
+    $oVectorOfVec3d.Item( $index ) = $item
+```
+
+### VectorOfVec3d::size
+
+```cpp
+size_t VectorOfVec3d::size();
+AutoIt:
+    $oVectorOfVec3d.size() -> retval
+```
+
+### VectorOfVec3d::slice
+
+```cpp
+VectorOfVec3d VectorOfVec3d::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec3d.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec3d::sort
+
+```cpp
+void VectorOfVec3d::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec3d.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec3d::sort\_variant
+
+```cpp
+void VectorOfVec3d::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec3d.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec3d::start
+
+```cpp
+void* VectorOfVec3d::start();
+AutoIt:
+    $oVectorOfVec3d.start() -> retval
+```
+
+## VectorOfVec4d
+
+### VectorOfVec4d.Count
+
+```cpp
+size_t VectorOfVec4d::size()
+AutoIt:
+    [propget] $oVectorOfVec4d.Count
+```
+
+### VectorOfVec4d::create
+
+```cpp
+static VectorOfVec4d VectorOfVec4d::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4d").create() -> <VectorOfVec4d object>
+```
+
+```cpp
+static VectorOfVec4d VectorOfVec4d::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4d").create( $size ) -> <VectorOfVec4d object>
+```
+
+```cpp
+static VectorOfVec4d VectorOfVec4d::create( VectorOfVec4d other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4d").create( $other ) -> <VectorOfVec4d object>
+```
+
+### VectorOfVec4d::Add
+
+```cpp
+void VectorOfVec4d::Add( cv::Vec4d value );
+AutoIt:
+    $oVectorOfVec4d.Add( $value ) -> None
+```
+
+### VectorOfVec4d::Items
+
+```cpp
+VectorOfVec4d VectorOfVec4d::Items();
+AutoIt:
+    $oVectorOfVec4d.Items() -> retval
+```
+
+### VectorOfVec4d::Keys
+
+```cpp
+std::vector<int> VectorOfVec4d::Keys();
+AutoIt:
+    $oVectorOfVec4d.Keys() -> retval
+```
+
+### VectorOfVec4d::Remove
+
+```cpp
+void VectorOfVec4d::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec4d.Remove( $index ) -> None
+```
+
+### VectorOfVec4d::append
+
+```cpp
+void VectorOfVec4d::append( cv::Vec4d value );
+AutoIt:
+    $oVectorOfVec4d.append( $value ) -> None
+```
+
+### VectorOfVec4d::at
+
+```cpp
+cv::Vec4d VectorOfVec4d::at( size_t index );
+AutoIt:
+    $oVectorOfVec4d.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec4d::at( size_t    index,
+                        cv::Vec4d value );
+AutoIt:
+    $oVectorOfVec4d.at( $index, $value ) -> None
+```
+
+### VectorOfVec4d::clear
+
+```cpp
+void VectorOfVec4d::clear();
+AutoIt:
+    $oVectorOfVec4d.clear() -> None
+```
+
+### VectorOfVec4d::empty
+
+```cpp
+bool VectorOfVec4d::empty();
+AutoIt:
+    $oVectorOfVec4d.empty() -> retval
+```
+
+### VectorOfVec4d::end
+
+```cpp
+void* VectorOfVec4d::end();
+AutoIt:
+    $oVectorOfVec4d.end() -> retval
+```
+
+### VectorOfVec4d::get\_Item
+
+```cpp
+cv::Vec4d VectorOfVec4d::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec4d.Item( $index ) -> retval
+    $oVectorOfVec4d( $index ) -> retval
+```
+
+### VectorOfVec4d::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec4d::get__NewEnum();
+AutoIt:
+    $oVectorOfVec4d._NewEnum() -> retval
+```
+
+### VectorOfVec4d::push\_back
+
+```cpp
+void VectorOfVec4d::push_back( cv::Vec4d value );
+AutoIt:
+    $oVectorOfVec4d.push_back( $value ) -> None
+```
+
+### VectorOfVec4d::push\_vector
+
+```cpp
+void VectorOfVec4d::push_vector( VectorOfVec4d other );
+AutoIt:
+    $oVectorOfVec4d.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec4d::push_vector( VectorOfVec4d other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec4d.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec4d::put\_Item
+
+```cpp
+void VectorOfVec4d::put_Item( size_t    index,
+                              cv::Vec4d item );
+AutoIt:
+    $oVectorOfVec4d.Item( $index ) = $item
+```
+
+### VectorOfVec4d::size
+
+```cpp
+size_t VectorOfVec4d::size();
+AutoIt:
+    $oVectorOfVec4d.size() -> retval
+```
+
+### VectorOfVec4d::slice
+
+```cpp
+VectorOfVec4d VectorOfVec4d::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec4d.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec4d::sort
+
+```cpp
+void VectorOfVec4d::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec4d.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec4d::sort\_variant
+
+```cpp
+void VectorOfVec4d::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec4d.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec4d::start
+
+```cpp
+void* VectorOfVec4d::start();
+AutoIt:
+    $oVectorOfVec4d.start() -> retval
+```
+
+## VectorOfVec6d
+
+### VectorOfVec6d.Count
+
+```cpp
+size_t VectorOfVec6d::size()
+AutoIt:
+    [propget] $oVectorOfVec6d.Count
+```
+
+### VectorOfVec6d::create
+
+```cpp
+static VectorOfVec6d VectorOfVec6d::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6d").create() -> <VectorOfVec6d object>
+```
+
+```cpp
+static VectorOfVec6d VectorOfVec6d::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6d").create( $size ) -> <VectorOfVec6d object>
+```
+
+```cpp
+static VectorOfVec6d VectorOfVec6d::create( VectorOfVec6d other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6d").create( $other ) -> <VectorOfVec6d object>
+```
+
+### VectorOfVec6d::Add
+
+```cpp
+void VectorOfVec6d::Add( cv::Vec6d value );
+AutoIt:
+    $oVectorOfVec6d.Add( $value ) -> None
+```
+
+### VectorOfVec6d::Items
+
+```cpp
+VectorOfVec6d VectorOfVec6d::Items();
+AutoIt:
+    $oVectorOfVec6d.Items() -> retval
+```
+
+### VectorOfVec6d::Keys
+
+```cpp
+std::vector<int> VectorOfVec6d::Keys();
+AutoIt:
+    $oVectorOfVec6d.Keys() -> retval
+```
+
+### VectorOfVec6d::Remove
+
+```cpp
+void VectorOfVec6d::Remove( size_t index );
+AutoIt:
+    $oVectorOfVec6d.Remove( $index ) -> None
+```
+
+### VectorOfVec6d::append
+
+```cpp
+void VectorOfVec6d::append( cv::Vec6d value );
+AutoIt:
+    $oVectorOfVec6d.append( $value ) -> None
+```
+
+### VectorOfVec6d::at
+
+```cpp
+cv::Vec6d VectorOfVec6d::at( size_t index );
+AutoIt:
+    $oVectorOfVec6d.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfVec6d::at( size_t    index,
+                        cv::Vec6d value );
+AutoIt:
+    $oVectorOfVec6d.at( $index, $value ) -> None
+```
+
+### VectorOfVec6d::clear
+
+```cpp
+void VectorOfVec6d::clear();
+AutoIt:
+    $oVectorOfVec6d.clear() -> None
+```
+
+### VectorOfVec6d::empty
+
+```cpp
+bool VectorOfVec6d::empty();
+AutoIt:
+    $oVectorOfVec6d.empty() -> retval
+```
+
+### VectorOfVec6d::end
+
+```cpp
+void* VectorOfVec6d::end();
+AutoIt:
+    $oVectorOfVec6d.end() -> retval
+```
+
+### VectorOfVec6d::get\_Item
+
+```cpp
+cv::Vec6d VectorOfVec6d::get_Item( size_t index );
+AutoIt:
+    $oVectorOfVec6d.Item( $index ) -> retval
+    $oVectorOfVec6d( $index ) -> retval
+```
+
+### VectorOfVec6d::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfVec6d::get__NewEnum();
+AutoIt:
+    $oVectorOfVec6d._NewEnum() -> retval
+```
+
+### VectorOfVec6d::push\_back
+
+```cpp
+void VectorOfVec6d::push_back( cv::Vec6d value );
+AutoIt:
+    $oVectorOfVec6d.push_back( $value ) -> None
+```
+
+### VectorOfVec6d::push\_vector
+
+```cpp
+void VectorOfVec6d::push_vector( VectorOfVec6d other );
+AutoIt:
+    $oVectorOfVec6d.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfVec6d::push_vector( VectorOfVec6d other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfVec6d.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfVec6d::put\_Item
+
+```cpp
+void VectorOfVec6d::put_Item( size_t    index,
+                              cv::Vec6d item );
+AutoIt:
+    $oVectorOfVec6d.Item( $index ) = $item
+```
+
+### VectorOfVec6d::size
+
+```cpp
+size_t VectorOfVec6d::size();
+AutoIt:
+    $oVectorOfVec6d.size() -> retval
+```
+
+### VectorOfVec6d::slice
+
+```cpp
+VectorOfVec6d VectorOfVec6d::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec6d.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfVec6d::sort
+
+```cpp
+void VectorOfVec6d::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec6d.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec6d::sort\_variant
+
+```cpp
+void VectorOfVec6d::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfVec6d.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfVec6d::start
+
+```cpp
+void* VectorOfVec6d::start();
+AutoIt:
+    $oVectorOfVec6d.start() -> retval
 ```
