@@ -11,7 +11,7 @@ const {explore} = require("fs-explorer");
 
 const OpenCV_VERSION = "opencv-4.10.0";
 const OpenCV_DLLVERSION = OpenCV_VERSION.slice("opencv-".length).replaceAll(".", "");
-const DLIB_VERSION = "19.24";
+const DLIB_VERSION = "19.24.4";
 
 const progids = new Map([
     ["dlib.simple_object_detector", "dlib.fhog_object_detector"],

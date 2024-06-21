@@ -196,7 +196,7 @@ double call_func(void* f, const matrix<double, 0, 1>& args)
 	const auto num = args.size();
 	DLIB_CASSERT(0 < num && num <= 35, "Functions being optimized must take between 1 and 35 scalar arguments.");
 
-#define CALL_WITH_N_ARGS(N) case N: return dlib::gopt_impl::_cwv(reinterpret_cast<Function<N>::type>(f), args, typename make_compile_time_integer_range<N>::type());
+#define CALL_WITH_N_ARGS(N) case N: return dlib::gopt_impl::_cwv(reinterpret_cast<Function<N>::type>(f), args, std::make_index_sequence<N>{});
 	switch (num)
 	{
 		CALL_WITH_N_ARGS(1)

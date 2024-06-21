@@ -222,10 +222,39 @@ void dlib::save_face_chips(
 	}
 }
 
+ULONG dlib::bottom_up_clustering(
+	std::vector<dense_vect> descriptors,
+	std::vector<ULONG>& labels,
+	const int min_num_clusters,
+	const double max_dist
+)
+{
+	DLIB_CASSERT(min_num_clusters > 0);
+
+	auto num_descriptors = descriptors.size();
+
+	matrix<float> dist(static_cast<long>(num_descriptors), static_cast<long>(num_descriptors));
+
+	for (size_t i = 0; i < num_descriptors; ++i)
+	{
+		for (size_t j = i + 1; j < num_descriptors; ++j)
+		{
+			const long i2 = static_cast<long>(i);
+			const long j2 = static_cast<long>(j);
+			dense_vect& first_descriptor = descriptors[i];
+			dense_vect& second_descriptor = descriptors[j];
+			dist(i2, j2) = dlib::length(first_descriptor - second_descriptor);
+			dist(j2, i2) = dist(i2, j2);
+		}
+	}
+
+	return dlib::bottom_up_cluster(dist, labels, min_num_clusters, max_dist);
+}
+
 void dlib::chinese_whispers_clustering(
 	std::vector<dense_vect> descriptors,
 	float threshold,
-	std::vector<unsigned long>& labels
+	std::vector<ULONG>& labels
 )
 {
 	DLIB_CASSERT(threshold > 0);
@@ -253,7 +282,7 @@ void dlib::chinese_whispers_clustering(
 
 void dlib::chinese_whispers_raw(
 	std::vector<dense_vect> edges,
-	std::vector<unsigned long>& labels
+	std::vector<ULONG>& labels
 )
 {
 	std::vector<sample_pair> edges_pairs;

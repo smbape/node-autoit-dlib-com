@@ -29,7 +29,7 @@ Partial COM+ binding to [dlib](http://dlib.net/)
 ## Prerequisites
 
   - Download and extract [opencv-4.10.0-windows.exe](https://opencv.org/releases/) into a folder
-  - Download and extract [autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1.7z](https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.1/autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1.7z) into a folder
+  - Download and extract [autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1.7z](https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.1/autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1.7z) into a folder
 
 ## Usage
 
@@ -46,7 +46,7 @@ Partial COM+ binding to [dlib](http://dlib.net/)
 #include <Misc.au3>
 #include "autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open("opencv-4.10.0-windows\opencv\build\x64\vc16\bin\opencv_world4100.dll", "autoit-dlib-com\autoit_dlib_com-19.24-4100.dll")
+_Dlib_Open("opencv-4.10.0-windows\opencv\build\x64\vc16\bin\opencv_world4100.dll", "autoit-dlib-com\autoit_dlib_com-19.24.4-4100.dll")
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -109,7 +109,7 @@ Download and extract [autoit-opencv-4.10.0-com-v2.6.1.7z](https://github.com/smb
 #include "autoit-dlib-com\udf\dlib_udf_utils.au3"
 #include "autoit-opencv-com\udf\opencv_udf_utils.au3"
 
-_Dlib_Open("opencv-4.10.0-windows\opencv\build\x64\vc16\bin\opencv_world4100.dll", "autoit-dlib-com\autoit_dlib_com-19.24-4100.dll")
+_Dlib_Open("opencv-4.10.0-windows\opencv\build\x64\vc16\bin\opencv_world4100.dll", "autoit-dlib-com\autoit_dlib_com-19.24.4-4100.dll")
 _OpenCV_Open("opencv-4.10.0-windows\opencv\build\x64\vc16\bin\opencv_world4100.dll", "autoit-opencv-com\autoit_opencv_com4100.dll")
 OnAutoItExitRegister("_OnAutoItExit")
 
@@ -165,11 +165,11 @@ Install [7-zip](https://www.7-zip.org/download.html) and add the 7-zip folder to
 Then, in [Git Bash](https://gitforwindows.org/), execute the following commands
 
 ```sh
-# download autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1.7z
-curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.1/autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1.7z' -o autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1.7z
+# download autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1.7z
+curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.1/autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1.7z' -o autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1.7z
 
-# extract the content of autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1.7z into a folder named autoit-dlib-com
-7z x autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1.7z -aoa -oautoit-dlib-com
+# extract the content of autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1.7z into a folder named autoit-dlib-com
+7z x autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1.7z -aoa -oautoit-dlib-com
 
 # download autoit-opencv-4.10.0-com-v2.6.1.7z
 curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.6.1/autoit-opencv-4.10.0-com-v2.6.1.7z' -o autoit-opencv-4.10.0-com-v2.6.1.7z
@@ -183,21 +183,21 @@ curl -L 'https://github.com/opencv/opencv/releases/download/4.10.0/opencv-4.10.0
 # extract the content of opencv-4.10.0-windows.exe into a folder named opencv-4.10.0-windows
 ./opencv-4.10.0-windows.exe -oopencv-4.10.0-windows -y
 
-# download autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1-src.zip
-curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.4.1.zip' -o autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1-src.zip
+# download autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1-src.zip
+curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.4.1.zip' -o autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1-src.zip
 
-# extract the examples folder of autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1-src.zip
-7z x autoit-dlib-19.24-opencv-4.10.0-com-v1.4.1-src.zip -aoa 'node-autoit-dlib-com-1.4.1\examples'
+# extract the examples folder of autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1-src.zip
+7z x autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.1-src.zip -aoa 'node-autoit-dlib-com-1.4.1\examples'
 cp -rf node-autoit-dlib-com-1.4.1/* ./
 rm -rf node-autoit-dlib-com-1.4.1
 
-# download dlib-v19.24-src.zip
-curl -L 'https://github.com/davisking/dlib/archive/refs/tags/v19.24.zip' -o dlib-v19.24-src.zip
+# download dlib-19.24.4-src.zip
+curl -L 'https://github.com/davisking/dlib/archive/refs/tags/19.24.4.zip' -o dlib-19.24.4-src.zip
 
-# extract the examples\faces and examples\video_frames folders of dlib-v19.24-src.zip
-7z x dlib-v19.24-src.zip -aoa 'dlib-19.24\examples\faces' 'dlib-19.24\examples\video_frames'
-cp -rf dlib-19.24/* ./
-rm -rf dlib-19.24
+# extract the examples\faces and examples\video_frames folders of dlib-19.24.4-src.zip
+7z x dlib-19.24.4-src.zip -aoa 'dlib-19.24.4\examples\faces' 'dlib-19.24.4\examples\video_frames'
+cp -rf dlib-19.24.4/* ./
+rm -rf dlib-19.24.4
 
 # create the data dir
 mkdir examples/data

@@ -55,11 +55,11 @@ index ce9b95b1..f2203cc9 100644
  
  // ----------------------------------------------------------------------------------------
 diff --git a/dlib/global_optimization/find_max_global.h b/dlib/global_optimization/find_max_global.h
-index 422a3410..bb9dd860 100644
+index 12e496e6..f369c4dd 100644
 --- a/dlib/global_optimization/find_max_global.h
 +++ b/dlib/global_optimization/find_max_global.h
 @@ -45,9 +45,6 @@ namespace dlib
-             return f(a(indices-1)...); 
+             return f(a(indices)...); 
          }
  
 -        // Visual studio, as of November 2017, doesn't support C++11 and can't compile this code.  
@@ -102,3 +102,15 @@ index fa036884..d39db1d2 100644
          function_spec(
              matrix<double,0,1> bound1, 
              matrix<double,0,1> bound2
+diff --git a/dlib/gui_core/gui_core_kernel_1.cpp b/dlib/gui_core/gui_core_kernel_1.cpp
+index 3d7b9de3..b9e383b7 100644
+--- a/dlib/gui_core/gui_core_kernel_1.cpp
++++ b/dlib/gui_core/gui_core_kernel_1.cpp
+@@ -718,6 +718,7 @@ namespace dlib
+                     case WM_USER+DESTROY_WINDOW:
+                         if (hwnd == helper_window)
+                         {                            
++                            globals->quit_windows_loop = true;
+                             DestroyWindow((HWND)wParam);
+                         }
+                         return 0;

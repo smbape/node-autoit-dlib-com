@@ -119,6 +119,7 @@
   - [dlib::apply\_cca\_transform](#dlibapply%5C_cca%5C_transform)
   - [dlib::assignment\_cost](#dlibassignment%5C_cost)
   - [dlib::auto\_train\_rbf\_classifier](#dlibauto%5C_train%5C_rbf%5C_classifier)
+  - [dlib::bottom\_up\_clustering](#dlibbottom%5C_up%5C_clustering)
   - [dlib::cca](#dlibcca)
   - [dlib::center](#dlibcenter)
   - [dlib::centered\_drect](#dlibcentered%5C_drect)
@@ -3323,6 +3324,17 @@ dlib::_normalized_decision_function_radial_basis dlib::auto_train_rbf_classifier
                                                                                   bool                 be_verbose = true );
 AutoIt:
     _Dlib_ObjCreate("dlib").auto_train_rbf_classifier( $x, $y, $max_runtime_seconds[, $be_verbose] ) -> retval
+```
+
+### dlib::bottom\_up\_clustering
+
+```cpp
+ULONG dlib::bottom_up_clustering( std::vector<dlib::SpaceVector> descriptors,
+                                  std::vector<ULONG>&            labels,
+                                  const int                      min_num_clusters = 1,
+                                  const double                   max_dist = 0.6 );
+AutoIt:
+    _Dlib_ObjCreate("dlib").bottom_up_clustering( $descriptors[, $min_num_clusters[, $max_dist[, $labels]]] ) -> retval, $labels
 ```
 
 ### dlib::cca

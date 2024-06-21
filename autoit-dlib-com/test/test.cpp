@@ -208,23 +208,23 @@ private:
 
 class ActCtxInitializer {
 public:
-	typedef BOOL(*DLLActivateActCtx_t)();
-	typedef BOOL(*DLLDeactivateActCtx_t)();
+	typedef BOOL(*DllActivateManifest_t)();
+	typedef BOOL(*DllDeactivateActCtx_t)();
 
 	ActCtxInitializer() {
-		m_lib = LoadLibrary("bin\\" BUILD_TYPE "\\autoit_dlib_com-19.24-4100" DEBUG_POSTFIX ".dll");
+		m_lib = LoadLibrary("bin\\" BUILD_TYPE "\\autoit_dlib_com-19.24.4-4100" DEBUG_POSTFIX ".dll");
 		CV_Assert(m_lib != 0);
 
-		m_DLLActivateActCtx = (DLLActivateActCtx_t)GetProcAddress(m_lib, "DLLActivateActCtx");
-		m_Activated = m_DLLActivateActCtx();
+		m_DllActivateManifest = (DllActivateManifest_t)GetProcAddress(m_lib, "DllActivateManifest");
+		m_Activated = m_DllActivateManifest();
 		CV_Assert(m_Activated);
 
-		m_DLLDeactivateActCtx = (DLLDeactivateActCtx_t)GetProcAddress(m_lib, "DLLDeactivateActCtx");
+		m_DllDeactivateActCtx = (DllDeactivateActCtx_t)GetProcAddress(m_lib, "DllDeactivateActCtx");
 	}
 
 	~ActCtxInitializer() {
 		if (m_Activated) {
-			CV_Assert(m_DLLDeactivateActCtx());
+			CV_Assert(m_DllDeactivateActCtx());
 		}
 
 		if (m_lib != 0) {
@@ -234,8 +234,8 @@ public:
 private:
 	HMODULE m_lib = 0;
 	BOOL m_Activated = false;
-	DLLActivateActCtx_t m_DLLActivateActCtx;
-	DLLDeactivateActCtx_t m_DLLDeactivateActCtx;
+	DllActivateManifest_t m_DllActivateManifest;
+	DllDeactivateActCtx_t m_DllDeactivateActCtx;
 };
 
 int main(int argc, char* argv[])

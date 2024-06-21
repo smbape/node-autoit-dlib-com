@@ -25,8 +25,8 @@ endif()
 include(cmake/RequireOpenCV.cmake)
 include(cmake/vcpkg_regex_replace_string.cmake)
 
-set(DLIB_VERSION 19.24 CACHE STRING "Choose the dlib version.")
-set_property(CACHE DLIB_VERSION PROPERTY STRINGS "19.24" "19.23")
+set(DLIB_VERSION 19.24.4 CACHE STRING "Choose the dlib version.")
+set_property(CACHE DLIB_VERSION PROPERTY STRINGS "19.24.4" "19.24.3" "19.24.2" "19.24" "19.23")
 
 # Tell cmake that we will need dlib. These command will pull in dlib.
 include(FetchContent)
@@ -75,6 +75,7 @@ file(GLOB_RECURSE files_to_change
   test/*.cpp
   ../README.md
   ../scripts/build.js
+  ../scripts/manual.sh
   ../src/gen.js
 )
 
@@ -86,7 +87,7 @@ foreach(item ${files_to_change})
   vcpkg_regex_replace_string("${item}" "(opencv_world|autoit_opencv_com|opencv_videoio_ffmpeg)[0-9]+" "\\1${OpenCV_DLLVERSION}")
   vcpkg_regex_replace_string("${item}" "opencv-[0-9]+\\.[0-9]+\\.[0-9]+" "opencv-${OpenCV_VERSION}")
   vcpkg_regex_replace_string("${item}" "dlib-[0-9]+(\\.[0-9]+)+" "dlib-${DLIB_VERSION}")
-  vcpkg_regex_replace_string("${item}" "dlib-v[0-9]+(\\.[0-9]+)+" "dlib-v${DLIB_VERSION}")
+  vcpkg_regex_replace_string("${item}" "(/davisking/dlib/archive/refs/tags/v|dlib-v)[0-9]+(\\.[0-9]+)+" "\\1${DLIB_VERSION}")
   vcpkg_regex_replace_string("${item}" "DLIB_VERSION = \"[0-9]+(\\.[0-9]+)+\"" "DLIB_VERSION = \"${DLIB_VERSION}\"")
 endforeach()
 
