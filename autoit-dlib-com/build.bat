@@ -18,7 +18,8 @@ IF %nparms%==0 GOTO :MAIN
 IF [%1] == [-g] SET skip_build=1
 IF [%1] == [--target] (
     SET TARGET=%2
-SHIFT
+    SET /a nparms -=1
+    SHIFT
     IF %nparms% == 0 GOTO :MAIN
 )
 IF [%1] == [-G] (

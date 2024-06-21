@@ -107,6 +107,22 @@
         "iid": "5f46bd91-3119-4bc7-a893-5601c2018f93",
         "clsid": "e0c85a4f-8201-41cb-8acf-d059cbd799b9"
     },
+    "cv::_InputArray": {
+        "iid": "134ecfac-d3da-4815-bcd9-1a963ef87e4e",
+        "clsid": "111b6fe4-aff8-4d2a-88ef-9fbed577452e"
+    },
+    "cv::_OutputArray": {
+        "iid": "39275656-b919-479d-8560-c15e2e1459d8",
+        "clsid": "41cda184-dbb2-42bf-9b5c-e821afcc0f9f"
+    },
+    "cv::_InputOutputArray": {
+        "iid": "e0bbb34c-2a20-4286-b15e-137925561d60",
+        "clsid": "8e04ce2c-fd58-4b56-b727-7c7b1e77faa5"
+    },
+    "cv::Formatter": {
+        "iid": "aa6a4b0e-50b9-4652-8939-91c86ee5c3ad",
+        "clsid": "a9d05402-9ba4-4444-992a-9cb48e0ecc46"
+    },
     "dlib::_radial_basis_kernel": {
         "iid": "7b04f016-de65-4153-a554-df2639c504aa",
         "clsid": "774ce9b1-c755-474b-84e1-57d599bf966b"
@@ -202,18 +218,6 @@
     "dlib::line": {
         "iid": "cd971489-2500-4bf6-9222-14244090c1dc",
         "clsid": "5c001285-c1b2-4104-ae64-d59ad09b32fc"
-    },
-    "cv::_InputArray": {
-        "iid": "134ecfac-d3da-4815-bcd9-1a963ef87e4e",
-        "clsid": "111b6fe4-aff8-4d2a-88ef-9fbed577452e"
-    },
-    "cv::_OutputArray": {
-        "iid": "39275656-b919-479d-8560-c15e2e1459d8",
-        "clsid": "41cda184-dbb2-42bf-9b5c-e821afcc0f9f"
-    },
-    "cv::_InputOutputArray": {
-        "iid": "e0bbb34c-2a20-4286-b15e-137925561d60",
-        "clsid": "8e04ce2c-fd58-4b56-b727-7c7b1e77faa5"
     },
     "cv::Mat": {
         "iid": "a13967b1-fc83-4d52-b438-9781c40fe7e1",
@@ -379,13 +383,13 @@
         "iid": "285ef966-00e7-4353-9927-735d2197988f",
         "clsid": "b6b4d91e-042b-463b-a90c-12a744011c99"
     },
-    "VectorOfULONG": {
-        "iid": "f2a6c01c-53a3-4af5-8b09-1ffeb02d841c",
-        "clsid": "0e8b2098-fe36-490d-a6e5-37209adda4d9"
-    },
     "VectorOfSpaceVector": {
         "iid": "34ebd6ef-3989-4cdb-9fb1-19a6ea2c88d9",
         "clsid": "32104474-4ec1-4356-89e1-b869b28eb553"
+    },
+    "VectorOfULONG": {
+        "iid": "f2a6c01c-53a3-4af5-8b09-1ffeb02d841c",
+        "clsid": "0e8b2098-fe36-490d-a6e5-37209adda4d9"
     },
     "VectorOfDouble": {
         "iid": "5894cb47-bfaf-4c06-98d0-87b0495d23e1",

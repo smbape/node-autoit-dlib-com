@@ -1,6 +1,6 @@
 /* eslint-disable no-magic-numbers */
 
-const add_linear_df = (impl, function_type, sample_type, idltype) => {
+const add_linear_df = (impl, function_type, sample_type, idltype, { self }) => {
     impl.push(`
         #include "Dlib_${ function_type }_Object.h"
 
@@ -8,7 +8,7 @@ const add_linear_df = (impl, function_type, sample_type, idltype) => {
             CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
 
             if (__self) {
-                auto& df = *__self->get();
+                auto& df = ${ self };
                 return autoit_from(_get_weights<${ function_type }>(df), pVal);
             }
             return E_FAIL;
@@ -18,7 +18,7 @@ const add_linear_df = (impl, function_type, sample_type, idltype) => {
             CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
 
             if (__self) {
-                auto& df = *__self->get();
+                auto& df = ${ self };
                 return autoit_from(_get_bias<${ function_type }>(df), pVal);
             }
             return E_FAIL;
@@ -28,7 +28,7 @@ const add_linear_df = (impl, function_type, sample_type, idltype) => {
             CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
 
             if (__self) {
-                auto& df = *__self->get();
+                auto& df = ${ self };
                 _set_bias<${ function_type }>(df, newVal);
                 return S_OK;
             }
@@ -37,13 +37,13 @@ const add_linear_df = (impl, function_type, sample_type, idltype) => {
 
         const double CDlib_${ function_type }_Object::call(${ sample_type }& sample, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *__self->get();
+            auto& df = ${ self };
             return _predict<${ function_type }>(df, sample);
         }
     `.trim().replace(/^ {8}/mg, ""));
 };
 
-const add_df = (impl, function_type, sample_type) => {
+const add_df = (impl, function_type, sample_type, { self }) => {
     impl.push(`
         #include "Dlib_${ function_type }_Object.h"
 
@@ -51,7 +51,7 @@ const add_df = (impl, function_type, sample_type) => {
             CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
 
             if (__self) {
-                auto& df = *__self->get();
+                auto& df = ${ self };
                 std::vector<sample_type> temp;
                 for (long i = 0; i < df.basis_vectors.size(); ++i)
                     temp.push_back(sparse_to_dense(df.basis_vectors(i)));
@@ -62,13 +62,13 @@ const add_df = (impl, function_type, sample_type) => {
 
         const double CDlib_${ function_type }_Object::call(${ sample_type }& sample, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *__self->get();
+            auto& df = ${ self };
             return _predict<${ function_type }>(df, sample);
         }
     `.trim().replace(/^ {8}/mg, ""));
 };
 
-const add_normalized_df = (impl, function_type, sample_type) => {
+const add_normalized_df = (impl, function_type, sample_type, { self, self_get }) => {
     impl.push(`
         #include "Dlib_${ function_type }_Object.h"
 
@@ -76,7 +76,7 @@ const add_normalized_df = (impl, function_type, sample_type) => {
             CActCtxActivator ScopedContext(ExtendedHolder::_ActCtx);
 
             if (__self) {
-                auto& df = __self->get()->function;
+                auto& df = ${ self_get("function") };
                 std::vector<sample_type> temp;
                 for (long i = 0; i < df.basis_vectors.size(); ++i)
                     temp.push_back(sparse_to_dense(df.basis_vectors(i)));
@@ -87,25 +87,25 @@ const add_normalized_df = (impl, function_type, sample_type) => {
 
         const double CDlib_${ function_type }_Object::call(${ sample_type }& sample, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *__self->get();
+            auto& df = ${ self };
             return normalized_predict<${ function_type }>(df, sample);
         }
 
         const std::vector<double> CDlib_${ function_type }_Object::batch_predict(std::vector<${ sample_type }>& samples, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *__self->get();
+            auto& df = ${ self };
             return normalized_predict_vec<${ function_type }>(df, samples);
         }
 
         const std::vector<double> CDlib_${ function_type }_Object::batch_predict(cv::Mat& samples, HRESULT& hr) {
             hr = S_OK;
-            auto& df = *__self->get();
+            auto& df = ${ self };
             return normalized_predict_vec<${ function_type }>(df, Mat_to_vector_sample_type(samples));
         }
     `.trim().replace(/^ {8}/mg, ""));
 };
 
-const setup_auto_train_rbf_classifier = impl => {
+const setup_auto_train_rbf_classifier = (impl, options) => {
     impl.push(`
         #include "Dlib_Object.h"
 
@@ -256,24 +256,24 @@ module.exports = (header = [], impl = [], options = {}) => {
 
     `.trim().replace(/^ {8}/mg, ""));
 
-    add_linear_df(impl, "_decision_function_linear", "sample_type", "IDlib_SpaceVector_Object*");
-    add_linear_df(impl, "_decision_function_sparse_linear", "sparse_vect", "VARIANT");
+    add_linear_df(impl, "_decision_function_linear", "sample_type", "IDlib_SpaceVector_Object*", options);
+    add_linear_df(impl, "_decision_function_sparse_linear", "sparse_vect", "VARIANT", options);
 
-    add_df(impl, "_decision_function_histogram_intersection", "SpaceVector");
-    add_df(impl, "_decision_function_sparse_histogram_intersection", "sparse_vect");
+    add_df(impl, "_decision_function_histogram_intersection", "SpaceVector", options);
+    add_df(impl, "_decision_function_sparse_histogram_intersection", "sparse_vect", options);
 
-    add_df(impl, "_decision_function_polynomial", "SpaceVector");
-    add_df(impl, "_decision_function_sparse_polynomial", "sparse_vect");
+    add_df(impl, "_decision_function_polynomial", "SpaceVector", options);
+    add_df(impl, "_decision_function_sparse_polynomial", "sparse_vect", options);
 
-    add_df(impl, "_decision_function_radial_basis", "SpaceVector");
-    add_df(impl, "_decision_function_sparse_radial_basis", "sparse_vect");
+    add_df(impl, "_decision_function_radial_basis", "SpaceVector", options);
+    add_df(impl, "_decision_function_sparse_radial_basis", "sparse_vect", options);
 
-    add_df(impl, "_decision_function_sigmoid", "SpaceVector");
-    add_df(impl, "_decision_function_sparse_sigmoid", "sparse_vect");
+    add_df(impl, "_decision_function_sigmoid", "SpaceVector", options);
+    add_df(impl, "_decision_function_sparse_sigmoid", "sparse_vect", options);
 
-    add_normalized_df(impl, "_normalized_decision_function_radial_basis", "SpaceVector");
+    add_normalized_df(impl, "_normalized_decision_function_radial_basis", "SpaceVector", options);
 
-    setup_auto_train_rbf_classifier(impl);
+    setup_auto_train_rbf_classifier(impl, options);
 
     return [header.join("\n"), impl.join("\n")];
 };

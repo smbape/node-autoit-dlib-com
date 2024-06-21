@@ -9,7 +9,7 @@ const mkdirp = require("mkdirp");
 const waterfall = require("async/waterfall");
 const {explore} = require("fs-explorer");
 
-const OpenCV_VERSION = "opencv-4.7.0";
+const OpenCV_VERSION = "opencv-4.10.0";
 const OpenCV_DLLVERSION = OpenCV_VERSION.slice("opencv-".length).replaceAll(".", "");
 const DLIB_VERSION = "19.24";
 
@@ -25,7 +25,7 @@ const progids = new Map([
     ["dlib.gender_t", "dlib.gender_type"],
 ]);
 
-const parseArguments = PROJECT_DIR => {
+const getOptions = PROJECT_DIR => {
     const options = {
         APP_NAME: "Dlib",
         LIB_UID: "a7599799-48f5-4569-b79e-7eff77460ede",
@@ -37,6 +37,13 @@ const parseArguments = PROJECT_DIR => {
         shared_ptr: "std::shared_ptr",
         make_shared: "std::make_shared",
         assert: "AUTOIT_ASSERT",
+
+        pself: "__self->get()",
+        self: "*__self->get()",
+        self_get: name => {
+            return `__self->get()->${ name }`;
+        },
+
         progid: progid => {
             if (progids.has(progid)) {
                 return progids.get(progid);
@@ -44,14 +51,19 @@ const parseArguments = PROJECT_DIR => {
 
             return progid;
         },
+
+        // used to lookup classes
         namespaces: new Set([
             "cv",
             "dlib",
             "std",
         ]),
+
         other_namespaces: new Set([
             "dlib::image_dataset_metadata"
         ]),
+
+        // used to reduce class name length
         remove_namespaces: new Set([
             "cv(?!::Point)",
             "dlib",
@@ -64,6 +76,7 @@ const parseArguments = PROJECT_DIR => {
         output: sysPath.join(PROJECT_DIR, "generated"),
         toc: true,
         globals: [
+            // cv::AccessFlag
             "$CV_ACCESS_READ",
             "$CV_ACCESS_WRITE",
             "$CV_ACCESS_RW",
@@ -74,14 +87,22 @@ const parseArguments = PROJECT_DIR => {
             "$CV_USAGE_ALLOCATE_DEVICE_MEMORY",
             "$CV_USAGE_ALLOCATE_SHARED_MEMORY",
             "$CV___UMAT_USAGE_FLAGS_32BIT",
+
+            // cv::Formatter::FormatType
+            "$CV_FORMATTER_FMT_DEFAULT",
+            "$CV_FORMATTER_FMT_MATLAB",
+            "$CV_FORMATTER_FMT_CSV",
+            "$CV_FORMATTER_FMT_PYTHON",
+            "$CV_FORMATTER_FMT_NUMPY",
+            "$CV_FORMATTER_FMT_C",
         ],
-        onCoClass: (generator, coclass, opts) => {
+        onCoClass: (processor, coclass, opts) => {
             const {fqn} = coclass;
 
             const parts = fqn.split("::");
 
             for (let i = 1; i < parts.length; i++) {
-                generator.add_func([`${ parts.slice(0, i).join(".") }.`, "", ["/Properties"], [
+                processor.add_func([`${ parts.slice(0, i).join(".") }.`, "", ["/Properties"], [
                     [parts.slice(0, i + 1).join("::"), parts[i], "", ["/R", "/S", "=this"]],
                 ], "", ""]);
             }
@@ -125,7 +146,8 @@ const {
 
 const {findFile} = require("./FileUtils");
 const custom_declarations = require("./custom_declarations");
-const AutoItGenerator = require("./AutoItGenerator");
+const DeclProcessor = require("./DeclProcessor");
+const COMGenerator = require("./COMGenerator");
 
 const PROJECT_DIR = sysPath.resolve(__dirname, "../autoit-dlib-com");
 const SRC_DIR = sysPath.join(PROJECT_DIR, "src");
@@ -137,7 +159,8 @@ const hdr_parser = fs.readFileSync(sysPath.join(src2, "hdr_parser.py")).toString
 const hdr_parser_start = hdr_parser.indexOf("class CppHeaderParser");
 const hdr_parser_end = hdr_parser.indexOf("if __name__ == '__main__':");
 
-const options = parseArguments(PROJECT_DIR);
+const options = getOptions(PROJECT_DIR);
+options.proto = COMGenerator.proto;
 
 waterfall([
     next => {
@@ -159,7 +182,9 @@ waterfall([
             next();
         }, {followSymlink: true}, err => {
             const generated_include = srcfiles.map(path => `#include "${ path.slice(SRC_DIR.length + 1).replace("\\", "/") }"`);
-            generated_include.push("#include <opencv2/imgcodecs.hpp>");
+            generated_include.push(...[
+                "#include <opencv2/imgcodecs.hpp>",
+            ]);
             next(err, srcfiles, generated_include);
         });
     },
@@ -192,8 +217,10 @@ waterfall([
             configuration.namespaces.push(...options.namespaces);
             configuration.namespaces.push(...options.other_namespaces);
 
-            const generator = new AutoItGenerator();
-            generator.generate(configuration, options, next);
+            const processor = new DeclProcessor(options);
+            processor.process(configuration, options);
+
+            next(null, processor, configuration);
         });
 
         child.stderr.on("data", chunk => {
@@ -236,7 +263,12 @@ waterfall([
 
         child.stdin.write(code);
         child.stdin.end();
-    }
+    },
+
+    (processor, configuration, next) => {
+        const generator = new COMGenerator();
+        generator.generate(processor, configuration, options, next);
+    },
 ], err => {
     if (err) {
         throw err;

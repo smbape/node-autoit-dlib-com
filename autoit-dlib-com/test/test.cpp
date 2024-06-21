@@ -212,7 +212,7 @@ public:
 	typedef BOOL(*DLLDeactivateActCtx_t)();
 
 	ActCtxInitializer() {
-		m_lib = LoadLibrary("bin\\" BUILD_TYPE "\\autoit_dlib_com-19.24-470" DEBUG_POSTFIX ".dll");
+		m_lib = LoadLibrary("bin\\" BUILD_TYPE "\\autoit_dlib_com-19.24-4100" DEBUG_POSTFIX ".dll");
 		CV_Assert(m_lib != 0);
 
 		m_DLLActivateActCtx = (DLLActivateActCtx_t)GetProcAddress(m_lib, "DLLActivateActCtx");

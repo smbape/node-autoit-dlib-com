@@ -301,10 +301,12 @@
   - [cv.\_InputArray](#cv%5C_inputarray)
   - [cv.\_OutputArray](#cv%5C_outputarray)
   - [cv.\_InputOutputArray](#cv%5C_inputoutputarray)
+  - [cv.Formatter](#cvformatter)
   - [cv.Mat](#cvmat)
   - [cv.Range](#cvrange)
   - [cv.UMat](#cvumat)
   - [cv::createMatFromBitmap](#cvcreatematfrombitmap)
+  - [cv::format](#cvformat)
   - [cv::haveImageReader](#cvhaveimagereader)
   - [cv::haveImageWriter](#cvhaveimagewriter)
   - [cv::imcount](#cvimcount)
@@ -314,6 +316,7 @@
   - [cv::imreadmulti](#cvimreadmulti)
   - [cv::imwrite](#cvimwrite)
   - [cv::imwritemulti](#cvimwritemulti)
+  - [cv::variant](#cvvariant)
   - [cv.ACCESS\_READ\_](#cvaccess%5C_read%5C_)
   - [cv.ACCESS\_WRITE\_](#cvaccess%5C_write%5C_)
   - [cv.ACCESS\_RW\_](#cvaccess%5C_rw%5C_)
@@ -344,6 +347,13 @@
   - [dlib::correlation\_tracker::update](#dlibcorrelation%5C_trackerupdate)
 - [cv::cuda](#cvcuda)
   - [cuda.GpuMat](#cudagpumat)
+- [cv::Formatter](#cvformatter)
+  - [Formatter.FMT\_DEFAULT\_](#formatterfmt%5C_default%5C_)
+  - [Formatter.FMT\_MATLAB\_](#formatterfmt%5C_matlab%5C_)
+  - [Formatter.FMT\_CSV\_](#formatterfmt%5C_csv%5C_)
+  - [Formatter.FMT\_PYTHON\_](#formatterfmt%5C_python%5C_)
+  - [Formatter.FMT\_NUMPY\_](#formatterfmt%5C_numpy%5C_)
+  - [Formatter.FMT\_C\_](#formatterfmt%5C_c%5C_)
 - [dlib::\_radial\_basis\_kernel](#dlib%5C_radial%5C_basis%5C_kernel)
   - [\_radial\_basis\_kernel.gamma](#%5C_radial%5C_basis%5C_kernelgamma)
   - [dlib::\_radial\_basis\_kernel::get\_create](#dlib%5C_radial%5C_basis%5C_kernelget%5C_create)
@@ -703,8 +713,10 @@
   - [cv::Mat::set\_at](#cvmatset%5C_at)
   - [cv::Mat::size](#cvmatsize)
   - [cv::Mat::step1](#cvmatstep1)
+  - [cv::Mat::sum](#cvmatsum)
   - [cv::Mat::t](#cvmatt)
   - [cv::Mat::total](#cvmattotal)
+  - [cv::Mat::transpose](#cvmattranspose)
   - [cv::Mat::type](#cvmattype)
   - [cv::Mat::updateContinuityFlag](#cvmatupdatecontinuityflag)
   - [cv::Mat::zeros](#cvmatzeros)
@@ -972,6 +984,7 @@
   - [cv::UMat::setTo](#cvumatsetto)
   - [cv::UMat::size](#cvumatsize)
   - [cv::UMat::step1](#cvumatstep1)
+  - [cv::UMat::sum](#cvumatsum)
   - [cv::UMat::t](#cvumatt)
   - [cv::UMat::total](#cvumattotal)
   - [cv::UMat::type](#cvumattype)
@@ -1144,28 +1157,6 @@
   - [VectorOfFull\_object\_detection::sort](#vectoroffull%5C_object%5C_detectionsort)
   - [VectorOfFull\_object\_detection::sort\_variant](#vectoroffull%5C_object%5C_detectionsort%5C_variant)
   - [VectorOfFull\_object\_detection::start](#vectoroffull%5C_object%5C_detectionstart)
-- [VectorOfULONG](#vectorofulong)
-  - [VectorOfULONG.Count](#vectorofulongcount)
-  - [VectorOfULONG::create](#vectorofulongcreate)
-  - [VectorOfULONG::Add](#vectorofulongadd)
-  - [VectorOfULONG::Items](#vectorofulongitems)
-  - [VectorOfULONG::Keys](#vectorofulongkeys)
-  - [VectorOfULONG::Remove](#vectorofulongremove)
-  - [VectorOfULONG::append](#vectorofulongappend)
-  - [VectorOfULONG::at](#vectorofulongat)
-  - [VectorOfULONG::clear](#vectorofulongclear)
-  - [VectorOfULONG::empty](#vectorofulongempty)
-  - [VectorOfULONG::end](#vectorofulongend)
-  - [VectorOfULONG::get\_Item](#vectorofulongget%5C_item)
-  - [VectorOfULONG::get\_\_NewEnum](#vectorofulongget%5C_%5C_newenum)
-  - [VectorOfULONG::push\_back](#vectorofulongpush%5C_back)
-  - [VectorOfULONG::push\_vector](#vectorofulongpush%5C_vector)
-  - [VectorOfULONG::put\_Item](#vectorofulongput%5C_item)
-  - [VectorOfULONG::size](#vectorofulongsize)
-  - [VectorOfULONG::slice](#vectorofulongslice)
-  - [VectorOfULONG::sort](#vectorofulongsort)
-  - [VectorOfULONG::sort\_variant](#vectorofulongsort%5C_variant)
-  - [VectorOfULONG::start](#vectorofulongstart)
 - [VectorOfSpaceVector](#vectorofspacevector)
   - [VectorOfSpaceVector.Count](#vectorofspacevectorcount)
   - [VectorOfSpaceVector::create](#vectorofspacevectorcreate)
@@ -1188,6 +1179,28 @@
   - [VectorOfSpaceVector::sort](#vectorofspacevectorsort)
   - [VectorOfSpaceVector::sort\_variant](#vectorofspacevectorsort%5C_variant)
   - [VectorOfSpaceVector::start](#vectorofspacevectorstart)
+- [VectorOfULONG](#vectorofulong)
+  - [VectorOfULONG.Count](#vectorofulongcount)
+  - [VectorOfULONG::create](#vectorofulongcreate)
+  - [VectorOfULONG::Add](#vectorofulongadd)
+  - [VectorOfULONG::Items](#vectorofulongitems)
+  - [VectorOfULONG::Keys](#vectorofulongkeys)
+  - [VectorOfULONG::Remove](#vectorofulongremove)
+  - [VectorOfULONG::append](#vectorofulongappend)
+  - [VectorOfULONG::at](#vectorofulongat)
+  - [VectorOfULONG::clear](#vectorofulongclear)
+  - [VectorOfULONG::empty](#vectorofulongempty)
+  - [VectorOfULONG::end](#vectorofulongend)
+  - [VectorOfULONG::get\_Item](#vectorofulongget%5C_item)
+  - [VectorOfULONG::get\_\_NewEnum](#vectorofulongget%5C_%5C_newenum)
+  - [VectorOfULONG::push\_back](#vectorofulongpush%5C_back)
+  - [VectorOfULONG::push\_vector](#vectorofulongpush%5C_vector)
+  - [VectorOfULONG::put\_Item](#vectorofulongput%5C_item)
+  - [VectorOfULONG::size](#vectorofulongsize)
+  - [VectorOfULONG::slice](#vectorofulongslice)
+  - [VectorOfULONG::sort](#vectorofulongsort)
+  - [VectorOfULONG::sort\_variant](#vectorofulongsort%5C_variant)
+  - [VectorOfULONG::start](#vectorofulongstart)
 - [VectorOfDouble](#vectorofdouble)
   - [VectorOfDouble.Count](#vectorofdoublecount)
   - [VectorOfDouble::create](#vectorofdoublecreate)
@@ -3397,18 +3410,20 @@ AutoIt:
 ### dlib::chinese\_whispers
 
 ```cpp
-std::vector<ULONG> dlib::chinese_whispers( std::vector<dlib::SpaceVector> edges );
+void dlib::chinese_whispers( std::vector<dlib::SpaceVector> edges,
+                             std::vector<ULONG>&            labels );
 AutoIt:
-    _Dlib_ObjCreate("dlib").chinese_whispers( $edges ) -> retval
+    _Dlib_ObjCreate("dlib").chinese_whispers( $edges[, $labels] ) -> $labels
 ```
 
 ### dlib::chinese\_whispers\_clustering
 
 ```cpp
-std::vector<ULONG> dlib::chinese_whispers_clustering( std::vector<dlib::SpaceVector> descriptors,
-                                                      float                          threshold );
+void dlib::chinese_whispers_clustering( std::vector<dlib::SpaceVector> descriptors,
+                                        float                          threshold,
+                                        std::vector<ULONG>&            labels );
 AutoIt:
-    _Dlib_ObjCreate("dlib").chinese_whispers_clustering( $descriptors, $threshold ) -> retval
+    _Dlib_ObjCreate("dlib").chinese_whispers_clustering( $descriptors, $threshold[, $labels] ) -> $labels
 ```
 
 ### dlib::count\_points\_between\_lines
@@ -5653,6 +5668,14 @@ AutoIt:
     [propget] $ocv._InputOutputArray
 ```
 
+### cv.Formatter
+
+```cpp
+static cv::Formatter
+AutoIt:
+    [propget] $ocv.Formatter
+```
+
 ### cv.Mat
 
 ```cpp
@@ -5686,10 +5709,19 @@ AutoIt:
     _Dlib_ObjCreate("cv").createMatFromBitmap( $ptr[, $copy] ) -> retval
 ```
 
+### cv::format
+
+```cpp
+std::string cv::format( const InputArray&         mtx,
+                        cv::Formatter::FormatType fmt = cv::Formatter::FMT_NUMPY );
+AutoIt:
+    _Dlib_ObjCreate("cv").format( $mtx[, $fmt] ) -> retval
+```
+
 ### cv::haveImageReader
 
 ```cpp
-bool cv::haveImageReader( std::string filename );
+bool cv::haveImageReader( const std::string& filename );
 AutoIt:
     _Dlib_ObjCreate("cv").haveImageReader( $filename ) -> retval
 ```
@@ -5697,7 +5729,7 @@ AutoIt:
 ### cv::haveImageWriter
 
 ```cpp
-bool cv::haveImageWriter( std::string filename );
+bool cv::haveImageWriter( const std::string& filename );
 AutoIt:
     _Dlib_ObjCreate("cv").haveImageWriter( $filename ) -> retval
 ```
@@ -5705,8 +5737,8 @@ AutoIt:
 ### cv::imcount
 
 ```cpp
-size_t cv::imcount( std::string filename,
-                    int         flags = IMREAD_ANYCOLOR );
+size_t cv::imcount( const std::string& filename,
+                    int                flags = IMREAD_ANYCOLOR );
 AutoIt:
     _Dlib_ObjCreate("cv").imcount( $filename[, $flags] ) -> retval
 ```
@@ -5734,16 +5766,24 @@ AutoIt:
 ### cv::imread
 
 ```cpp
-cv::Mat cv::imread( std::string filename,
-                    int         flags = IMREAD_COLOR );
+cv::Mat cv::imread( const std::string& filename,
+                    int                flags = IMREAD_COLOR );
 AutoIt:
     _Dlib_ObjCreate("cv").imread( $filename[, $flags] ) -> retval
+```
+
+```cpp
+void cv::imread( const std::string& filename,
+                 OutputArray        dst,
+                 int                flags = IMREAD_COLOR );
+AutoIt:
+    _Dlib_ObjCreate("cv").imread( $filename[, $dst[, $flags]] ) -> $dst
 ```
 
 ### cv::imreadmulti
 
 ```cpp
-bool cv::imreadmulti( std::string          filename,
+bool cv::imreadmulti( const std::string&   filename,
                       std::vector<cv::Mat> mats,
                       int                  flags = IMREAD_ANYCOLOR );
 AutoIt:
@@ -5751,7 +5791,7 @@ AutoIt:
 ```
 
 ```cpp
-bool cv::imreadmulti( std::string          filename,
+bool cv::imreadmulti( const std::string&   filename,
                       std::vector<cv::Mat> mats,
                       int                  start,
                       int                  count,
@@ -5763,9 +5803,9 @@ AutoIt:
 ### cv::imwrite
 
 ```cpp
-bool cv::imwrite( std::string      filename,
-                  cv::Mat          img,
-                  std::vector<int> params = std::vector<int>() );
+bool cv::imwrite( const std::string& filename,
+                  cv::Mat            img,
+                  std::vector<int>   params = std::vector<int>() );
 AutoIt:
     _Dlib_ObjCreate("cv").imwrite( $filename, $img[, $params] ) -> retval
 ```
@@ -5773,11 +5813,19 @@ AutoIt:
 ### cv::imwritemulti
 
 ```cpp
-bool cv::imwritemulti( std::string          filename,
+bool cv::imwritemulti( const std::string&   filename,
                        std::vector<cv::Mat> img,
                        std::vector<int>     params = std::vector<int>() );
 AutoIt:
     _Dlib_ObjCreate("cv").imwritemulti( $filename, $img[, $params] ) -> retval
+```
+
+### cv::variant
+
+```cpp
+_variant_t cv::variant( void* ptr );
+AutoIt:
+    _Dlib_ObjCreate("cv").variant( $ptr ) -> retval
 ```
 
 ### cv.ACCESS\_READ\_
@@ -6020,6 +6068,56 @@ AutoIt:
 static cv::cuda::GpuMat
 AutoIt:
     [propget] $ocuda.GpuMat
+```
+
+## cv::Formatter
+
+### Formatter.FMT\_DEFAULT\_
+
+```cpp
+static int cv::Formatter::FMT_DEFAULT
+AutoIt:
+    [propget] $oFormatter.FMT_DEFAULT_
+```
+
+### Formatter.FMT\_MATLAB\_
+
+```cpp
+static int cv::Formatter::FMT_MATLAB
+AutoIt:
+    [propget] $oFormatter.FMT_MATLAB_
+```
+
+### Formatter.FMT\_CSV\_
+
+```cpp
+static int cv::Formatter::FMT_CSV
+AutoIt:
+    [propget] $oFormatter.FMT_CSV_
+```
+
+### Formatter.FMT\_PYTHON\_
+
+```cpp
+static int cv::Formatter::FMT_PYTHON
+AutoIt:
+    [propget] $oFormatter.FMT_PYTHON_
+```
+
+### Formatter.FMT\_NUMPY\_
+
+```cpp
+static int cv::Formatter::FMT_NUMPY
+AutoIt:
+    [propget] $oFormatter.FMT_NUMPY_
+```
+
+### Formatter.FMT\_C\_
+
+```cpp
+static int cv::Formatter::FMT_C
+AutoIt:
+    [propget] $oFormatter.FMT_C_
 ```
 
 ## dlib::\_radial\_basis\_kernel
@@ -7848,7 +7946,7 @@ AutoIt:
 ### Mat.shape
 
 ```cpp
-std::tuple<int, int, int> cv::Mat::shape
+std::vector<int> cv::Mat::shape
 AutoIt:
     [propget] $oMat.shape
 ```
@@ -7967,8 +8065,8 @@ AutoIt:
 ```
 
 ```cpp
-static cv::Mat cv::Mat::create( const cv::Mat& m,
-                                cv::Rect       roi );
+static cv::Mat cv::Mat::create( const cv::Mat&  m,
+                                const cv::Rect& roi );
 AutoIt:
     _Dlib_ObjCreate("cv.Mat").create( $m, $roi ) -> <cv.Mat object>
 ```
@@ -9760,8 +9858,8 @@ AutoIt:
 ### cv::Mat::assignTo
 
 ```cpp
-void cv::Mat::assignTo( const cv::Mat& m,
-                        int            type = -1 );
+void cv::Mat::assignTo( cv::Mat& m,
+                        int      type = -1 );
 AutoIt:
     $oMat.assignTo( $m[, $type] ) -> None
 ```
@@ -9853,21 +9951,12 @@ AutoIt:
 ### cv::Mat::convertTo
 
 ```cpp
-void cv::Mat::convertTo( OutputArray m,
+void cv::Mat::convertTo( OutputArray dst,
                          int         rtype,
                          double      alpha = 1.0,
                          double      beta = 0.0 );
 AutoIt:
-    $oMat.convertTo( $rtype[, $m[, $alpha[, $beta]]] ) -> $m
-```
-
-```cpp
-void cv::Mat::convertTo( OutputArray m,
-                         int         rtype = -1,
-                         double      alpha = 1.0,
-                         double      beta = 0.0 );
-AutoIt:
-    $oMat.convertTo( [$m[, $rtype[, $alpha[, $beta]]]] ) -> $m
+    $oMat.convertTo( $rtype[, $dst[, $alpha[, $beta]]] ) -> $dst
 ```
 
 ### cv::Mat::convertToBitmap
@@ -9906,16 +9995,16 @@ AutoIt:
 ### cv::Mat::copyTo
 
 ```cpp
-void cv::Mat::copyTo( OutputArray m );
+void cv::Mat::copyTo( OutputArray dst );
 AutoIt:
-    $oMat.copyTo( [$m] ) -> $m
+    $oMat.copyTo( [$dst] ) -> $dst
 ```
 
 ```cpp
-void cv::Mat::copyTo( OutputArray m,
+void cv::Mat::copyTo( OutputArray dst,
                       InputArray  mask );
 AutoIt:
-    $oMat.copyTo( $mask[, $m] ) -> $m
+    $oMat.copyTo( $mask[, $dst] ) -> $dst
 ```
 
 ### cv::Mat::createFromArray
@@ -11002,6 +11091,14 @@ AutoIt:
     $oMat.step1( [$i] ) -> retval
 ```
 
+### cv::Mat::sum
+
+```cpp
+cv::Scalar cv::Mat::sum();
+AutoIt:
+    $oMat.sum() -> retval
+```
+
 ### cv::Mat::t
 
 ```cpp
@@ -11023,6 +11120,14 @@ size_t cv::Mat::total( int startDim,
                        int endDim = INT_MAX );
 AutoIt:
     $oMat.total( $startDim[, $endDim] ) -> retval
+```
+
+### cv::Mat::transpose
+
+```cpp
+cv::Mat cv::Mat::transpose();
+AutoIt:
+    $oMat.transpose() -> retval
 ```
 
 ### cv::Mat::type
@@ -12914,7 +13019,7 @@ AutoIt:
 ### UMat.shape
 
 ```cpp
-std::tuple<int, int, int> cv::UMat::shape
+std::vector<int> cv::UMat::shape
 AutoIt:
     [propget] $oUMat.shape
 ```
@@ -12985,19 +13090,19 @@ AutoIt:
 ```
 
 ```cpp
-static cv::UMat cv::UMat::get_create( std::vector<int>   sizes,
-                                      int                type,
-                                      cv::UMatUsageFlags usageFlags = USAGE_DEFAULT );
+static cv::UMat cv::UMat::get_create( const std::vector<int>& sizes,
+                                      int                     type,
+                                      cv::UMatUsageFlags      usageFlags = USAGE_DEFAULT );
 AutoIt:
     _Dlib_ObjCreate("cv.UMat").create( $sizes, $type[, $usageFlags] ) -> <cv.UMat object>
     $oUMat( $sizes, $type[, $usageFlags] ) -> <cv.UMat object>
 ```
 
 ```cpp
-static cv::UMat cv::UMat::get_create( std::vector<int>   sizes,
-                                      int                type,
-                                      const cv::Scalar&  s,
-                                      cv::UMatUsageFlags usageFlags = USAGE_DEFAULT );
+static cv::UMat cv::UMat::get_create( const std::vector<int>& sizes,
+                                      int                     type,
+                                      const cv::Scalar&       s,
+                                      cv::UMatUsageFlags      usageFlags = USAGE_DEFAULT );
 AutoIt:
     _Dlib_ObjCreate("cv.UMat").create( $sizes, $type, $s[, $usageFlags] ) -> <cv.UMat object>
     $oUMat( $sizes, $type, $s[, $usageFlags] ) -> <cv.UMat object>
@@ -13074,8 +13179,8 @@ AutoIt:
 ### cv::UMat::assignTo
 
 ```cpp
-void cv::UMat::assignTo( const cv::UMat& m,
-                         int             type = -1 );
+void cv::UMat::assignTo( cv::UMat& m,
+                         int       type = -1 );
 AutoIt:
     $oUMat.assignTo( $m[, $type] ) -> None
 ```
@@ -13132,21 +13237,21 @@ AutoIt:
 ### cv::UMat::convertTo
 
 ```cpp
-void cv::UMat::convertTo( OutputArray m,
+void cv::UMat::convertTo( OutputArray dst,
                           int         rtype,
                           double      alpha = 1.0,
                           double      beta = 0.0 );
 AutoIt:
-    $oUMat.convertTo( $rtype[, $m[, $alpha[, $beta]]] ) -> $m
+    $oUMat.convertTo( $rtype[, $dst[, $alpha[, $beta]]] ) -> $dst
 ```
 
 ```cpp
-void cv::UMat::convertTo( OutputArray m,
+void cv::UMat::convertTo( OutputArray dst,
                           int         rtype = -1,
                           double      alpha = 1.0,
                           double      beta = 0.0 );
 AutoIt:
-    $oUMat.convertTo( [$m[, $rtype[, $alpha[, $beta]]]] ) -> $m
+    $oUMat.convertTo( [$dst[, $rtype[, $alpha[, $beta]]]] ) -> $dst
 ```
 
 ### cv::UMat::convertToBitmap
@@ -13185,16 +13290,16 @@ AutoIt:
 ### cv::UMat::copyTo
 
 ```cpp
-void cv::UMat::copyTo( OutputArray m );
+void cv::UMat::copyTo( OutputArray dst );
 AutoIt:
-    $oUMat.copyTo( [$m] ) -> $m
+    $oUMat.copyTo( [$dst] ) -> $dst
 ```
 
 ```cpp
-void cv::UMat::copyTo( OutputArray m,
+void cv::UMat::copyTo( OutputArray dst,
                        InputArray  mask );
 AutoIt:
-    $oUMat.copyTo( $mask[, $m] ) -> $m
+    $oUMat.copyTo( $mask[, $dst] ) -> $dst
 ```
 
 ### cv::UMat::depth
@@ -13476,9 +13581,9 @@ AutoIt:
 ```
 
 ```cpp
-static cv::UMat cv::UMat::ones( std::vector<int>   sizes,
-                                int                type,
-                                cv::UMatUsageFlags usageFlags );
+static cv::UMat cv::UMat::ones( const std::vector<int>& sizes,
+                                int                     type,
+                                cv::UMatUsageFlags      usageFlags );
 AutoIt:
     _Dlib_ObjCreate("cv.UMat").ones( $sizes, $type, $usageFlags ) -> retval
 ```
@@ -13547,6 +13652,14 @@ AutoIt:
     $oUMat.step1( [$i] ) -> retval
 ```
 
+### cv::UMat::sum
+
+```cpp
+cv::Scalar cv::UMat::sum();
+AutoIt:
+    $oUMat.sum() -> retval
+```
+
 ### cv::UMat::t
 
 ```cpp
@@ -13611,8 +13724,8 @@ AutoIt:
 ```
 
 ```cpp
-static cv::UMat cv::UMat::zeros( std::vector<int> sizes,
-                                 int              type );
+static cv::UMat cv::UMat::zeros( const std::vector<int>& sizes,
+                                 int                     type );
 AutoIt:
     _Dlib_ObjCreate("cv.UMat").zeros( $sizes, $type ) -> retval
 ```
@@ -13651,9 +13764,9 @@ AutoIt:
 ```
 
 ```cpp
-static cv::UMat cv::UMat::zeros( std::vector<int>   sizes,
-                                 int                type,
-                                 cv::UMatUsageFlags usageFlags );
+static cv::UMat cv::UMat::zeros( const std::vector<int>& sizes,
+                                 int                     type,
+                                 cv::UMatUsageFlags      usageFlags );
 AutoIt:
     _Dlib_ObjCreate("cv.UMat").zeros( $sizes, $type, $usageFlags ) -> retval
 ```
@@ -15187,210 +15300,6 @@ AutoIt:
     $oVectorOfFull_object_detection.start() -> retval
 ```
 
-## VectorOfULONG
-
-### VectorOfULONG.Count
-
-```cpp
-size_t VectorOfULONG::size()
-AutoIt:
-    [propget] $oVectorOfULONG.Count
-```
-
-### VectorOfULONG::create
-
-```cpp
-static VectorOfULONG VectorOfULONG::create();
-AutoIt:
-    _Dlib_ObjCreate("VectorOfULONG").create() -> <VectorOfULONG object>
-```
-
-```cpp
-static VectorOfULONG VectorOfULONG::create( size_t size );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfULONG").create( $size ) -> <VectorOfULONG object>
-```
-
-```cpp
-static VectorOfULONG VectorOfULONG::create( VectorOfULONG other );
-AutoIt:
-    _Dlib_ObjCreate("VectorOfULONG").create( $other ) -> <VectorOfULONG object>
-```
-
-### VectorOfULONG::Add
-
-```cpp
-void VectorOfULONG::Add( ULONG value );
-AutoIt:
-    $oVectorOfULONG.Add( $value ) -> None
-```
-
-### VectorOfULONG::Items
-
-```cpp
-VectorOfULONG VectorOfULONG::Items();
-AutoIt:
-    $oVectorOfULONG.Items() -> retval
-```
-
-### VectorOfULONG::Keys
-
-```cpp
-std::vector<int> VectorOfULONG::Keys();
-AutoIt:
-    $oVectorOfULONG.Keys() -> retval
-```
-
-### VectorOfULONG::Remove
-
-```cpp
-void VectorOfULONG::Remove( size_t index );
-AutoIt:
-    $oVectorOfULONG.Remove( $index ) -> None
-```
-
-### VectorOfULONG::append
-
-```cpp
-void VectorOfULONG::append( ULONG value );
-AutoIt:
-    $oVectorOfULONG.append( $value ) -> None
-```
-
-### VectorOfULONG::at
-
-```cpp
-ULONG VectorOfULONG::at( size_t index );
-AutoIt:
-    $oVectorOfULONG.at( $index ) -> retval
-```
-
-```cpp
-void VectorOfULONG::at( size_t index,
-                        ULONG  value );
-AutoIt:
-    $oVectorOfULONG.at( $index, $value ) -> None
-```
-
-### VectorOfULONG::clear
-
-```cpp
-void VectorOfULONG::clear();
-AutoIt:
-    $oVectorOfULONG.clear() -> None
-```
-
-### VectorOfULONG::empty
-
-```cpp
-bool VectorOfULONG::empty();
-AutoIt:
-    $oVectorOfULONG.empty() -> retval
-```
-
-### VectorOfULONG::end
-
-```cpp
-void* VectorOfULONG::end();
-AutoIt:
-    $oVectorOfULONG.end() -> retval
-```
-
-### VectorOfULONG::get\_Item
-
-```cpp
-ULONG VectorOfULONG::get_Item( size_t index );
-AutoIt:
-    $oVectorOfULONG.Item( $index ) -> retval
-    $oVectorOfULONG( $index ) -> retval
-```
-
-### VectorOfULONG::get\_\_NewEnum
-
-```cpp
-IUnknown* VectorOfULONG::get__NewEnum();
-AutoIt:
-    $oVectorOfULONG._NewEnum() -> retval
-```
-
-### VectorOfULONG::push\_back
-
-```cpp
-void VectorOfULONG::push_back( ULONG value );
-AutoIt:
-    $oVectorOfULONG.push_back( $value ) -> None
-```
-
-### VectorOfULONG::push\_vector
-
-```cpp
-void VectorOfULONG::push_vector( VectorOfULONG other );
-AutoIt:
-    $oVectorOfULONG.push_vector( $other ) -> None
-```
-
-```cpp
-void VectorOfULONG::push_vector( VectorOfULONG other,
-                                 size_t        count,
-                                 size_t        start = 0 );
-AutoIt:
-    $oVectorOfULONG.push_vector( $other, $count[, $start] ) -> None
-```
-
-### VectorOfULONG::put\_Item
-
-```cpp
-void VectorOfULONG::put_Item( size_t index,
-                              ULONG  item );
-AutoIt:
-    $oVectorOfULONG.Item( $index ) = $item
-```
-
-### VectorOfULONG::size
-
-```cpp
-size_t VectorOfULONG::size();
-AutoIt:
-    $oVectorOfULONG.size() -> retval
-```
-
-### VectorOfULONG::slice
-
-```cpp
-VectorOfULONG VectorOfULONG::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfULONG.slice( [$start[, $count]] ) -> retval
-```
-
-### VectorOfULONG::sort
-
-```cpp
-void VectorOfULONG::sort( void*  comparator,
-                          size_t start = 0,
-                          size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfULONG.sort( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfULONG::sort\_variant
-
-```cpp
-void VectorOfULONG::sort_variant( void*  comparator,
-                                  size_t start = 0,
-                                  size_t count = __self->get()->size() );
-AutoIt:
-    $oVectorOfULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
-```
-
-### VectorOfULONG::start
-
-```cpp
-void* VectorOfULONG::start();
-AutoIt:
-    $oVectorOfULONG.start() -> retval
-```
-
 ## VectorOfSpaceVector
 
 ### VectorOfSpaceVector.Count
@@ -15593,6 +15502,210 @@ AutoIt:
 void* VectorOfSpaceVector::start();
 AutoIt:
     $oVectorOfSpaceVector.start() -> retval
+```
+
+## VectorOfULONG
+
+### VectorOfULONG.Count
+
+```cpp
+size_t VectorOfULONG::size()
+AutoIt:
+    [propget] $oVectorOfULONG.Count
+```
+
+### VectorOfULONG::create
+
+```cpp
+static VectorOfULONG VectorOfULONG::create();
+AutoIt:
+    _Dlib_ObjCreate("VectorOfULONG").create() -> <VectorOfULONG object>
+```
+
+```cpp
+static VectorOfULONG VectorOfULONG::create( size_t size );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfULONG").create( $size ) -> <VectorOfULONG object>
+```
+
+```cpp
+static VectorOfULONG VectorOfULONG::create( VectorOfULONG other );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfULONG").create( $other ) -> <VectorOfULONG object>
+```
+
+### VectorOfULONG::Add
+
+```cpp
+void VectorOfULONG::Add( ULONG value );
+AutoIt:
+    $oVectorOfULONG.Add( $value ) -> None
+```
+
+### VectorOfULONG::Items
+
+```cpp
+VectorOfULONG VectorOfULONG::Items();
+AutoIt:
+    $oVectorOfULONG.Items() -> retval
+```
+
+### VectorOfULONG::Keys
+
+```cpp
+std::vector<int> VectorOfULONG::Keys();
+AutoIt:
+    $oVectorOfULONG.Keys() -> retval
+```
+
+### VectorOfULONG::Remove
+
+```cpp
+void VectorOfULONG::Remove( size_t index );
+AutoIt:
+    $oVectorOfULONG.Remove( $index ) -> None
+```
+
+### VectorOfULONG::append
+
+```cpp
+void VectorOfULONG::append( ULONG value );
+AutoIt:
+    $oVectorOfULONG.append( $value ) -> None
+```
+
+### VectorOfULONG::at
+
+```cpp
+ULONG VectorOfULONG::at( size_t index );
+AutoIt:
+    $oVectorOfULONG.at( $index ) -> retval
+```
+
+```cpp
+void VectorOfULONG::at( size_t index,
+                        ULONG  value );
+AutoIt:
+    $oVectorOfULONG.at( $index, $value ) -> None
+```
+
+### VectorOfULONG::clear
+
+```cpp
+void VectorOfULONG::clear();
+AutoIt:
+    $oVectorOfULONG.clear() -> None
+```
+
+### VectorOfULONG::empty
+
+```cpp
+bool VectorOfULONG::empty();
+AutoIt:
+    $oVectorOfULONG.empty() -> retval
+```
+
+### VectorOfULONG::end
+
+```cpp
+void* VectorOfULONG::end();
+AutoIt:
+    $oVectorOfULONG.end() -> retval
+```
+
+### VectorOfULONG::get\_Item
+
+```cpp
+ULONG VectorOfULONG::get_Item( size_t index );
+AutoIt:
+    $oVectorOfULONG.Item( $index ) -> retval
+    $oVectorOfULONG( $index ) -> retval
+```
+
+### VectorOfULONG::get\_\_NewEnum
+
+```cpp
+IUnknown* VectorOfULONG::get__NewEnum();
+AutoIt:
+    $oVectorOfULONG._NewEnum() -> retval
+```
+
+### VectorOfULONG::push\_back
+
+```cpp
+void VectorOfULONG::push_back( ULONG value );
+AutoIt:
+    $oVectorOfULONG.push_back( $value ) -> None
+```
+
+### VectorOfULONG::push\_vector
+
+```cpp
+void VectorOfULONG::push_vector( VectorOfULONG other );
+AutoIt:
+    $oVectorOfULONG.push_vector( $other ) -> None
+```
+
+```cpp
+void VectorOfULONG::push_vector( VectorOfULONG other,
+                                 size_t        count,
+                                 size_t        start = 0 );
+AutoIt:
+    $oVectorOfULONG.push_vector( $other, $count[, $start] ) -> None
+```
+
+### VectorOfULONG::put\_Item
+
+```cpp
+void VectorOfULONG::put_Item( size_t index,
+                              ULONG  item );
+AutoIt:
+    $oVectorOfULONG.Item( $index ) = $item
+```
+
+### VectorOfULONG::size
+
+```cpp
+size_t VectorOfULONG::size();
+AutoIt:
+    $oVectorOfULONG.size() -> retval
+```
+
+### VectorOfULONG::slice
+
+```cpp
+VectorOfULONG VectorOfULONG::slice( size_t start = 0,
+                                    size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfULONG.slice( [$start[, $count]] ) -> retval
+```
+
+### VectorOfULONG::sort
+
+```cpp
+void VectorOfULONG::sort( void*  comparator,
+                          size_t start = 0,
+                          size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfULONG.sort( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfULONG::sort\_variant
+
+```cpp
+void VectorOfULONG::sort_variant( void*  comparator,
+                                  size_t start = 0,
+                                  size_t count = __self->get()->size() );
+AutoIt:
+    $oVectorOfULONG.sort_variant( $comparator[, $start[, $count]] ) -> None
+```
+
+### VectorOfULONG::start
+
+```cpp
+void* VectorOfULONG::start();
+AutoIt:
+    $oVectorOfULONG.start() -> retval
 ```
 
 ## VectorOfDouble

@@ -10,7 +10,7 @@
 
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open(_Dlib_FindDLL("opencv_world470*"), _Dlib_FindDLL("autoit_dlib_com-*-470*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world4100*"), _Dlib_FindDLL("autoit_dlib_com-*-4100*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()

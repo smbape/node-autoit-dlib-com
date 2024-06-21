@@ -10,7 +10,7 @@
 
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open(_Dlib_FindDLL("opencv_world470*"), _Dlib_FindDLL("autoit_dlib_com-*-470*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world4100*"), _Dlib_FindDLL("autoit_dlib_com-*-4100*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Global Const $dlib = _Dlib_get()
@@ -23,9 +23,9 @@ test_on_holder_table()
 
 Func test_global_optimization_nargs()
 	$dlib.find_max_global(DllCallbackGetPtr($h_sum), _Dlib_Tuple(0, 0, 0), _Dlib_Tuple(1, 1, 1), 10)
-	AssertEqTuble($dlib.extended, _Dlib_Tuple(_Dlib_Tuple(1, 1, 1), 3))
+	AssertEqTuple($dlib.extended, _Dlib_Tuple(_Dlib_Tuple(1, 1, 1), 3))
 	$dlib.find_min_global(DllCallbackGetPtr($h_sum), _Dlib_Tuple(0, 0, 0), _Dlib_Tuple(1, 1, 1), 10)
-	AssertEqTuble($dlib.extended, _Dlib_Tuple(_Dlib_Tuple(0, 0, 0), 0))
+	AssertEqTuple($dlib.extended, _Dlib_Tuple(_Dlib_Tuple(0, 0, 0), 0))
 EndFunc   ;==>test_global_optimization_nargs
 
 Func sum($a, $b, $c)
@@ -96,7 +96,7 @@ Func pow($a, $b)
 	Return $a ^ $b
 EndFunc   ;==>pow
 
-Func AssertEqTuble($a, $b, $sMsg = "assertion failed", $iLine = @ScriptLineNumber, $bExit = True)
+Func AssertEqTuple($a, $b, $sMsg = "assertion failed", $iLine = @ScriptLineNumber, $bExit = True)
 	If Not Assert(IsArray($a), $sMsg, $iLine, $bExit) Then
 		Return False
 	EndIf
@@ -108,7 +108,7 @@ Func AssertEqTuble($a, $b, $sMsg = "assertion failed", $iLine = @ScriptLineNumbe
 	EndIf
 	For $i = 0 To UBound($a) - 1
 		If (IsArray($a[$i])) Then
-			If Not AssertEqTuble($a[$i], $b[$i], $sMsg, $iLine, $bExit) Then
+			If Not AssertEqTuple($a[$i], $b[$i], $sMsg, $iLine, $bExit) Then
 				Return False
 			EndIf
 		ElseIf Not Assert($a[$i] == $b[$i], $sMsg, $iLine, $bExit) Then
@@ -116,7 +116,7 @@ Func AssertEqTuble($a, $b, $sMsg = "assertion failed", $iLine = @ScriptLineNumbe
 		EndIf
 	Next
 	Return True
-EndFunc   ;==>AssertEqTuble
+EndFunc   ;==>AssertEqTuple
 
 Func Assert($sCondition, $sMsg = "assertion failed", $iLine = @ScriptLineNumber, $bExit = True)
 	If Execute($sCondition) Then Return True

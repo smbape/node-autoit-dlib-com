@@ -52,8 +52,8 @@ Func _Dlib_Unregister_And_Close($bUser = Default)
 EndFunc   ;==>_Dlib_Unregister_And_Close
 
 Func _Dlib_Install($s_dlib_world_dll = Default, $s_autoit_dlib_com_dll = Default, $bUser = Default, $bOpen = True, $bClose = True, $bInstall = False, $bUninstall = False)
-	If $s_dlib_world_dll == Default Then $s_dlib_world_dll = "opencv_world470.dll"
-	If $s_autoit_dlib_com_dll == Default Then $s_autoit_dlib_com_dll = "autoit_dlib_com-19.24-470.dll"
+	If $s_dlib_world_dll == Default Then $s_dlib_world_dll = "opencv_world4100.dll"
+	If $s_autoit_dlib_com_dll == Default Then $s_autoit_dlib_com_dll = "autoit_dlib_com-19.24-4100.dll"
 	If $bUser == Default Then $bUser = Not IsAdmin()
 
 	If $bClose And $h_dlib_world_dll <> -1 Then DllClose($h_dlib_world_dll)
@@ -62,11 +62,11 @@ Func _Dlib_Install($s_dlib_world_dll = Default, $s_autoit_dlib_com_dll = Default
 		If $h_dlib_world_dll == -1 Then Return SetError(@error, 0, False)
 	EndIf
 
-	; ffmpeg is looked on PATH when loaded in debug mode, not relatively to opencv_world470d.dll
-	; this is a work around to load ffmpeg relatively to opencv_world470d.dll
+	; ffmpeg is looked on PATH when loaded in debug mode, not relatively to opencv_world4100d.dll
+	; this is a work around to load ffmpeg relatively to opencv_world4100d.dll
 	If $bClose And $h_dlib_ffmpeg_dll <> -1 Then DllClose($h_dlib_ffmpeg_dll)
 	If $bOpen And EnvGet("OPENCV_BUILD_TYPE") == "Debug" Then
-		$h_dlib_ffmpeg_dll = _Dlib_LoadDLL(StringReplace($s_dlib_world_dll, "opencv_world470d.dll", "opencv_videoio_ffmpeg470_64.dll"))
+		$h_dlib_ffmpeg_dll = _Dlib_LoadDLL(StringReplace($s_dlib_world_dll, "opencv_world4100d.dll", "opencv_videoio_ffmpeg4100_64.dll"))
 		If $h_dlib_ffmpeg_dll == -1 Then Return SetError(@error, 0, False)
 	EndIf
 

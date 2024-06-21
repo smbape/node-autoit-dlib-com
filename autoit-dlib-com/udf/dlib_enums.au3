@@ -8,6 +8,14 @@
 
 
 
+; cv::Formatter::FormatType
+
+
+
+
+
+
+
 ; dlib::image_window::keyboard_state_masks
 Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_NONE = 0
 Global Const $DLIB_IMAGE_WINDOW_KBD_MOD_SHIFT = 1

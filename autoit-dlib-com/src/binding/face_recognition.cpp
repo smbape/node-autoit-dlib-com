@@ -222,9 +222,10 @@ void dlib::save_face_chips(
 	}
 }
 
-std::vector<unsigned long> dlib::chinese_whispers_clustering(
+void dlib::chinese_whispers_clustering(
 	std::vector<dense_vect> descriptors,
-	float threshold
+	float threshold,
+	std::vector<unsigned long>& labels
 )
 {
 	DLIB_CASSERT(threshold > 0);
@@ -235,7 +236,6 @@ std::vector<unsigned long> dlib::chinese_whispers_clustering(
 	// whispers graph clustering algorithm to identify how many objects there are and which
 	// objects belong to which cluster.
 	std::vector<sample_pair> edges;
-	std::vector<unsigned long> labels;
 	for (size_t i = 0; i < num_descriptors; ++i)
 	{
 		for (size_t j = i; j < num_descriptors; ++j)
@@ -249,16 +249,14 @@ std::vector<unsigned long> dlib::chinese_whispers_clustering(
 	}
 
 	chinese_whispers(edges, labels);
-
-	return labels;
 }
 
-std::vector<unsigned long> dlib::chinese_whispers_raw(
-	std::vector<dense_vect> edges
+void dlib::chinese_whispers_raw(
+	std::vector<dense_vect> edges,
+	std::vector<unsigned long>& labels
 )
 {
 	std::vector<sample_pair> edges_pairs;
-	std::vector<unsigned long> labels;
 	for (const auto& edge : edges)
 	{
 		DLIB_CASSERT(edge.nr() == 2 || edge.nc() == 3, "Input must be a list of tuples with 2 or 3 elements.");
@@ -269,6 +267,4 @@ std::vector<unsigned long> dlib::chinese_whispers_raw(
 	}
 
 	chinese_whispers(edges_pairs, labels);
-
-	return labels;
 }

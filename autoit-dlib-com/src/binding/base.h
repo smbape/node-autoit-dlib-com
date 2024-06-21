@@ -9,11 +9,11 @@ namespace dlib {
 
 	extern std::string version;
 	extern std::string time_compiled;
-	extern bool DLIB_USE_CUDA;
-	extern bool DLIB_USE_BLAS;
-	extern bool DLIB_USE_LAPACK;
-	extern bool USE_AVX_INSTRUCTIONS;
-	extern bool USE_NEON_INSTRUCTIONS;
+	extern bool _DLIB_USE_CUDA;
+	extern bool _DLIB_USE_BLAS;
+	extern bool _DLIB_USE_LAPACK;
+	extern bool _DLIB_HAVE_AVX;
+	extern bool _DLIB_HAVE_NEON;
 
 	// ----------------------------------------------------------------------------------------
 

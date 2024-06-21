@@ -104,12 +104,14 @@ namespace dlib {
 		float padding = 0.25
 	);
 
-	CV_EXPORTS_W std::vector<ULONG> chinese_whispers_clustering(
+	CV_EXPORTS_W void chinese_whispers_clustering(
 		std::vector<dense_vect> descriptors,
-		float threshold
+		float threshold,
+		CV_OUT std::vector<unsigned long>& labels
 	);
 
-	CV_EXPORTS_AS(chinese_whispers) std::vector<ULONG> chinese_whispers_raw(
-		std::vector<dense_vect> edges
+	CV_EXPORTS_AS(chinese_whispers) void chinese_whispers_raw(
+		std::vector<dense_vect> edges,
+		CV_OUT std::vector<unsigned long>& labels
 	);
 }
