@@ -11,7 +11,7 @@ const CS_RUN = sysPath.join("examples", "dotnet", "csrun.bat");
 const run = (file, cwd, env, next) => {
     const { BUILD_TYPE, DLIB_BUILD_TYPE } = process.env;
     if (BUILD_TYPE && BUILD_TYPE !== env.BUILD_TYPE || DLIB_BUILD_TYPE && DLIB_BUILD_TYPE !== env.DLIB_BUILD_TYPE) {
-        next(0, null);
+        next(null, 0, null);
         return;
     }
 
