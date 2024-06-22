@@ -46,20 +46,16 @@ FetchContent_Populate(dlib)
 
 # Tell cmake that we will need autoit-opencv-com.
 set(OPENCV_COM_VERSION 2.6.1)
-include(ExternalProject)
-ExternalProject_Add(autoit_opencv_com
+include(FetchContent)
+FetchContent_Declare(autoit_opencv_com
   URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v${OPENCV_COM_VERSION}/autoit-opencv-${OpenCV_VERSION}-com-v${OPENCV_COM_VERSION}.7z
   URL_HASH          SHA256=7a8c6f6acf96fe5d6a8978962ff2dbd3f04b8f6f690744d116e0b82efe1bce45
   DOWNLOAD_NO_EXTRACT TRUE
   DOWNLOAD_DIR      "${CMAKE_CURRENT_SOURCE_DIR}/.."
   SOURCE_DIR        "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com"
-  CONFIGURE_COMMAND ""
-  BUILD_COMMAND     ""
-  INSTALL_COMMAND   7z x "<DOWNLOAD_DIR>/autoit-opencv-${OpenCV_VERSION}-com-v${OPENCV_COM_VERSION}.7z" -aoa "-o<SOURCE_DIR>" -y
+  PATCH_COMMAND     7z x "<DOWNLOAD_DIR>/autoit-opencv-${OpenCV_VERSION}-com-v${OPENCV_COM_VERSION}.7z" -aoa "-o<SOURCE_DIR>" -y
 )
-ExternalProject_Get_property(autoit_opencv_com SOURCE_DIR)
-set(autoit_opencv_com_SOURCE_DIR ${SOURCE_DIR})
-unset(SOURCE_DIR)
+FetchContent_Populate(autoit_opencv_com)
 set(OpenCVCOM_ASSEMBLY_DLL "${autoit_opencv_com_SOURCE_DIR}/dotnet/OpenCV.InteropServices.dll")
 file(TO_NATIVE_PATH "${OpenCVCOM_ASSEMBLY_DLL}" OpenCVCOM_ASSEMBLY_DLL)
 

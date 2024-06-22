@@ -7,13 +7,13 @@
 namespace dlib {
 	// ----------------------------------------------------------------------------------------
 
-	extern std::string version;
-	extern std::string time_compiled;
-	extern bool _DLIB_USE_CUDA;
-	extern bool _DLIB_USE_BLAS;
-	extern bool _DLIB_USE_LAPACK;
-	extern bool _DLIB_HAVE_AVX;
-	extern bool _DLIB_HAVE_NEON;
+	extern const std::string version;
+	extern const std::string time_compiled;
+	extern const bool _DLIB_USE_CUDA;
+	extern const bool _DLIB_USE_BLAS;
+	extern const bool _DLIB_USE_LAPACK;
+	extern const bool _DLIB_HAVE_AVX;
+	extern const bool _DLIB_HAVE_NEON;
 
 	// ----------------------------------------------------------------------------------------
 
