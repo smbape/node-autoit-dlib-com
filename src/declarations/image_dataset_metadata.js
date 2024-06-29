@@ -7,7 +7,7 @@ module.exports = [
 
     ["struct dlib.image_dataset_metadata.box", "", ["/Simple"], [
         ["rectangle", "rect", "", ["/RW"]],
-        ["map_string_and_point", "parts", "", ["/RW"]],
+        ["std::map<string, point>", "parts", "", ["/RW"]],
         ["string", "label", "", ["/RW"]],
         ["bool", "difficult", "", ["/RW"]],
         ["bool", "truncated", "", ["/RW"]],
@@ -30,7 +30,7 @@ module.exports = [
 
     ["struct dlib.image_dataset_metadata.image", "", ["/Simple"], [
         ["string", "filename", "", ["/RW"]],
-        ["vector_box", "boxes", "", ["/RW"]],
+        ["std::vector<box>", "boxes", "", ["/RW"]],
     ], "", ""],
 
     ["dlib.image_dataset_metadata.image.image", "", [], [], "", ""],
@@ -40,7 +40,7 @@ module.exports = [
     ], "", ""],
 
     ["struct dlib.image_dataset_metadata.dataset", "", ["/Simple"], [
-        ["vector_image", "images", "", ["/RW"]],
+        ["std::vector<image>", "images", "", ["/RW"]],
         ["string", "comment", "", ["/RW"]],
         ["string", "name", "", ["/RW"]],
     ], "", ""],
@@ -59,7 +59,7 @@ module.exports = [
 
     ["dlib.image_dataset_metadata.make_bounding_box_regression_training_data", "dataset", ["/Call=dlib::make_bounding_box_regression_training_data"], [
         ["dataset", "truth", "", ["/Ref"]],
-        ["vector_vector_rectangle", "detections", "", []],
+        ["std::vector<std::vector<rectangle>>", "detections", "", []],
     ], "", ""],
 
 ];

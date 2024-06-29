@@ -1,4 +1,4 @@
-module.exports = [
+module.exports = ({ make_shared }) => [
     ["struct dlib.function_evaluation", "", ["/Simple"], [
         ["dense_vect", "x", "", ["/R"]],
         ["double", "y", "", ["/R"]],
@@ -12,14 +12,14 @@ module.exports = [
     ], "", ""],
 
     ["dlib.function_evaluation.function_evaluation", "", [], [
-        ["vector_double", "x", "", ["/Cast=list_to_mat"]],
+        ["std::vector<double>", "x", "", ["/Cast=list_to_mat"]],
         ["double", "y", "", []],
     ], "", ""],
 
     ["struct dlib.function_spec", "", [], [
         ["dense_vect", "lower", "", ["/R"]],
         ["dense_vect", "upper", "", ["/R"]],
-        ["vector_bool", "is_integer_variable", "", ["/R"]],
+        ["std::vector<bool>", "is_integer_variable", "", ["/R"]],
     ], "", ""],
 
     ["dlib.function_spec.function_spec", "", [], [
@@ -30,40 +30,40 @@ module.exports = [
     ["dlib.function_spec.function_spec", "", [], [
         ["dense_vect", "bound1", "", []],
         ["dense_vect", "bound2", "", []],
-        ["vector_bool", "is_integer", "", []],
+        ["std::vector<bool>", "is_integer", "", []],
     ], "", ""],
 
     ["dlib.function_spec.function_spec", "", [], [
-        ["vector_double", "bound1", "", ["/Cast=list_to_mat"]],
+        ["std::vector<double>", "bound1", "", ["/Cast=list_to_mat"]],
         ["dense_vect", "bound2", "", []],
     ], "", ""],
 
     ["dlib.function_spec.function_spec", "", [], [
-        ["vector_double", "bound1", "", ["/Cast=list_to_mat"]],
+        ["std::vector<double>", "bound1", "", ["/Cast=list_to_mat"]],
         ["dense_vect", "bound2", "", []],
-        ["vector_bool", "is_integer", "", []],
+        ["std::vector<bool>", "is_integer", "", []],
     ], "", ""],
 
     ["dlib.function_spec.function_spec", "", [], [
         ["dense_vect", "bound1", "", []],
-        ["vector_double", "bound2", "", ["/Cast=list_to_mat"]],
+        ["std::vector<double>", "bound2", "", ["/Cast=list_to_mat"]],
     ], "", ""],
 
     ["dlib.function_spec.function_spec", "", [], [
         ["dense_vect", "bound1", "", []],
-        ["vector_double", "bound2", "", ["/Cast=list_to_mat"]],
-        ["vector_bool", "is_integer", "", []],
+        ["std::vector<double>", "bound2", "", ["/Cast=list_to_mat"]],
+        ["std::vector<bool>", "is_integer", "", []],
     ], "", ""],
 
     ["dlib.function_spec.function_spec", "", [], [
-        ["vector_double", "bound1", "", ["/Cast=list_to_mat"]],
-        ["vector_double", "bound2", "", ["/Cast=list_to_mat"]],
+        ["std::vector<double>", "bound1", "", ["/Cast=list_to_mat"]],
+        ["std::vector<double>", "bound2", "", ["/Cast=list_to_mat"]],
     ], "", ""],
 
     ["dlib.function_spec.function_spec", "", [], [
-        ["vector_double", "bound1", "", ["/Cast=list_to_mat"]],
-        ["vector_double", "bound2", "", ["/Cast=list_to_mat"]],
-        ["vector_bool", "is_integer", "", []],
+        ["std::vector<double>", "bound1", "", ["/Cast=list_to_mat"]],
+        ["std::vector<double>", "bound2", "", ["/Cast=list_to_mat"]],
+        ["std::vector<bool>", "is_integer", "", []],
     ], "", ""],
 
     ["class dlib.function_evaluation_request", "", [], [
@@ -83,12 +83,12 @@ module.exports = [
     ], "", ""],
 
     ["dlib.global_function_search.global_function_search", "", [], [
-        ["vector_function_spec", "functions", "", ["/Ref"]],
+        ["std::vector<function_spec>", "functions", "", ["/Ref"]],
     ], "", ""],
 
     ["dlib.global_function_search.global_function_search", "", [], [
-        ["vector_function_spec", "functions", "", []],
-        ["vector_vector_function_evaluation", "initial_function_evals", "", []],
+        ["std::vector<function_spec>", "functions", "", []],
+        ["std::vector<std::vector<function_evaluation>>", "initial_function_evals", "", []],
         ["double", "relative_noise_magnitude", "0.001", []],
     ], "", ""],
 
@@ -99,8 +99,8 @@ module.exports = [
     ["dlib.global_function_search.num_functions", "size_t", [], [], "", ""],
 
     ["dlib.global_function_search.get_function_evaluations", "void", [], [
-        ["vector_function_spec", "specs", "", ["/O"]],
-        ["vector_vector_function_evaluation", "function_evals", "", ["/O"]],
+        ["std::vector<function_spec>", "specs", "", ["/O"]],
+        ["std::vector<std::vector<function_evaluation>>", "function_evals", "", ["/O"]],
     ], "", ""],
 
     ["dlib.global_function_search.get_best_function_eval", "void", [], [
@@ -109,7 +109,7 @@ module.exports = [
         ["size_t", "idx", "", ["/O", "/Ref"]],
     ], "", ""],
 
-    ["dlib.global_function_search.get_next_x", "std::shared_ptr<function_evaluation_request>", ["/WrapAs=std::move", "/WrapAs=std::make_shared<function_evaluation_request>"], [], "", ""],
+    ["dlib.global_function_search.get_next_x", "std::shared_ptr<function_evaluation_request>", ["/WrapAs=std::move", `/WrapAs=${ make_shared }<function_evaluation_request>`], [], "", ""],
 
     ["dlib.global_function_search.get_pure_random_search_probability", "double", [], [], "", ""],
     ["dlib.global_function_search.set_pure_random_search_probability", "void", [], [

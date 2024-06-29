@@ -1,16 +1,16 @@
 module.exports = [
     ["class dlib.Matrix", "", ["/Simple"], [
-        ["tuple_long_and_long", "shape", "", ["/R", "/External"]],
+        ["std::tuple<long, long>", "shape", "", ["/R", "/External"]],
     ], "", ""],
 
     ["dlib.Matrix.Matrix", "", [], [], "", ""],
 
     ["dlib.Matrix.create", "shared_ptr<Matrix>", ["/External"], [
-        ["vector_double", "list", "", []]
+        ["std::vector<double>", "list", "", []]
     ], "", ""],
 
     ["dlib.Matrix.create", "shared_ptr<Matrix>", ["/External"], [
-        ["vector_vector_double", "list", "", []]
+        ["std::vector<std::vector<double>>", "list", "", []]
     ], "", ""],
 
     ["dlib.Matrix.create", "shared_ptr<Matrix>", ["/External"], [

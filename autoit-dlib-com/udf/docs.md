@@ -6,9 +6,11 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [NamedParameters](#namedparameters)
+  - [NamedParameters.FullyQualifiedName](#namedparametersfullyqualifiedname)
   - [NamedParameters::create](#namedparameterscreate)
   - [NamedParameters::Add](#namedparametersadd)
   - [NamedParameters::Get](#namedparametersget)
+  - [NamedParameters::IsInstance](#namedparametersisinstance)
   - [NamedParameters::Items](#namedparametersitems)
   - [NamedParameters::Keys](#namedparameterskeys)
   - [NamedParameters::Remove](#namedparametersremove)
@@ -26,17 +28,26 @@
   - [NamedParameters::put\_Item](#namedparametersput%5C_item)
   - [NamedParameters::size](#namedparameterssize)
 - [autoit](#autoit)
+  - [autoit.Buffer](#autoitbuffer)
   - [autoit::findFile](#autoitfindfile)
   - [autoit::findFiles](#autoitfindfiles)
+- [autoit::Buffer](#autoitbuffer)
+  - [Buffer.FullyQualifiedName](#bufferfullyqualifiedname)
+  - [autoit::Buffer::get\_create](#autoitbufferget%5C_create)
+  - [autoit::Buffer::IsInstance](#autoitbufferisinstance)
 - [com](#com)
   - [com.Thread](#comthread)
   - [com.ThreadSafeQueue](#comthreadsafequeue)
 - [com::Thread](#comthread)
+  - [Thread.FullyQualifiedName](#threadfullyqualifiedname)
   - [com::Thread::get\_create](#comthreadget%5C_create)
+  - [com::Thread::IsInstance](#comthreadisinstance)
   - [com::Thread::join](#comthreadjoin)
   - [com::Thread::start](#comthreadstart)
 - [com::ThreadSafeQueue](#comthreadsafequeue)
+  - [ThreadSafeQueue.FullyQualifiedName](#threadsafequeuefullyqualifiedname)
   - [com::ThreadSafeQueue::get\_create](#comthreadsafequeueget%5C_create)
+  - [com::ThreadSafeQueue::IsInstance](#comthreadsafequeueisinstance)
   - [com::ThreadSafeQueue::clear](#comthreadsafequeueclear)
   - [com::ThreadSafeQueue::get](#comthreadsafequeueget)
   - [com::ThreadSafeQueue::push](#comthreadsafequeuepush)
@@ -186,41 +197,57 @@
 - [dlib::binary\_test](#dlibbinary%5C_test)
   - [binary\_test.class1\_accuracy](#binary%5C_testclass1%5C_accuracy)
   - [binary\_test.class2\_accuracy](#binary%5C_testclass2%5C_accuracy)
+  - [binary\_test.FullyQualifiedName](#binary%5C_testfullyqualifiedname)
   - [dlib::binary\_test::get\_create](#dlibbinary%5C_testget%5C_create)
+  - [dlib::binary\_test::IsInstance](#dlibbinary%5C_testisinstance)
   - [dlib::binary\_test::ToString](#dlibbinary%5C_testtostring)
 - [dlib::regression\_test](#dlibregression%5C_test)
   - [regression\_test.mean\_squared\_error](#regression%5C_testmean%5C_squared%5C_error)
   - [regression\_test.R\_squared](#regression%5C_testr%5C_squared)
   - [regression\_test.mean\_average\_error](#regression%5C_testmean%5C_average%5C_error)
   - [regression\_test.mean\_error\_stddev](#regression%5C_testmean%5C_error%5C_stddev)
+  - [regression\_test.FullyQualifiedName](#regression%5C_testfullyqualifiedname)
   - [dlib::regression\_test::get\_create](#dlibregression%5C_testget%5C_create)
+  - [dlib::regression\_test::IsInstance](#dlibregression%5C_testisinstance)
   - [dlib::regression\_test::ToString](#dlibregression%5C_testtostring)
 - [dlib::ranking\_test](#dlibranking%5C_test)
   - [ranking\_test.ranking\_accuracy](#ranking%5C_testranking%5C_accuracy)
   - [ranking\_test.mean\_ap](#ranking%5C_testmean%5C_ap)
+  - [ranking\_test.FullyQualifiedName](#ranking%5C_testfullyqualifiedname)
   - [dlib::ranking\_test::get\_create](#dlibranking%5C_testget%5C_create)
+  - [dlib::ranking\_test::IsInstance](#dlibranking%5C_testisinstance)
   - [dlib::ranking\_test::ToString](#dlibranking%5C_testtostring)
 - [dlib::cca\_outputs](#dlibcca%5C_outputs)
   - [cca\_outputs.correlations](#cca%5C_outputscorrelations)
   - [cca\_outputs.Ltrans](#cca%5C_outputsltrans)
   - [cca\_outputs.Rtrans](#cca%5C_outputsrtrans)
+  - [cca\_outputs.FullyQualifiedName](#cca%5C_outputsfullyqualifiedname)
   - [dlib::cca\_outputs::get\_create](#dlibcca%5C_outputsget%5C_create)
+  - [dlib::cca\_outputs::IsInstance](#dlibcca%5C_outputsisinstance)
 - [dlib::cnn\_face\_detection\_model\_v1](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1)
+  - [cnn\_face\_detection\_model\_v1.FullyQualifiedName](#cnn%5C_face%5C_detection%5C_model%5C_v1fullyqualifiedname)
   - [dlib::cnn\_face\_detection\_model\_v1::create](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1create)
+  - [dlib::cnn\_face\_detection\_model\_v1::IsInstance](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1isinstance)
   - [dlib::cnn\_face\_detection\_model\_v1::detect](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1detect)
   - [dlib::cnn\_face\_detection\_model\_v1::detect\_multi](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1detect%5C_multi)
   - [dlib::cnn\_face\_detection\_model\_v1::get\_call](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1get%5C_call)
 - [dlib::face\_recognition\_model\_v1](#dlibface%5C_recognition%5C_model%5C_v1)
+  - [face\_recognition\_model\_v1.FullyQualifiedName](#face%5C_recognition%5C_model%5C_v1fullyqualifiedname)
   - [dlib::face\_recognition\_model\_v1::get\_create](#dlibface%5C_recognition%5C_model%5C_v1get%5C_create)
+  - [dlib::face\_recognition\_model\_v1::IsInstance](#dlibface%5C_recognition%5C_model%5C_v1isinstance)
   - [dlib::face\_recognition\_model\_v1::compute\_face\_descriptor](#dlibface%5C_recognition%5C_model%5C_v1compute%5C_face%5C_descriptor)
 - [dlib::\_row](#dlib%5C_row)
+  - [\_row.FullyQualifiedName](#%5C_rowfullyqualifiedname)
   - [dlib::\_row::get\_create](#dlib%5C_rowget%5C_create)
+  - [dlib::\_row::IsInstance](#dlib%5C_rowisinstance)
   - [dlib::\_row::ToString](#dlib%5C_rowtostring)
   - [dlib::\_row::get](#dlib%5C_rowget)
   - [dlib::\_row::set](#dlib%5C_rowset)
 - [dlib::segmenter\_type](#dlibsegmenter%5C_type)
   - [segmenter\_type.weights](#segmenter%5C_typeweights)
+  - [segmenter\_type.FullyQualifiedName](#segmenter%5C_typefullyqualifiedname)
   - [dlib::segmenter\_type::create](#dlibsegmenter%5C_typecreate)
+  - [dlib::segmenter\_type::IsInstance](#dlibsegmenter%5C_typeisinstance)
   - [dlib::segmenter\_type::get\_call](#dlibsegmenter%5C_typeget%5C_call)
 - [dlib::segmenter\_params](#dlibsegmenter%5C_params)
   - [segmenter\_params.use\_BIO\_model](#segmenter%5C_paramsuse%5C_bio%5C_model)
@@ -232,13 +259,17 @@
   - [segmenter\_params.max\_cache\_size](#segmenter%5C_paramsmax%5C_cache%5C_size)
   - [segmenter\_params.be\_verbose](#segmenter%5C_paramsbe%5C_verbose)
   - [segmenter\_params.C](#segmenter%5C_paramsc)
+  - [segmenter\_params.FullyQualifiedName](#segmenter%5C_paramsfullyqualifiedname)
   - [dlib::segmenter\_params::get\_create](#dlibsegmenter%5C_paramsget%5C_create)
+  - [dlib::segmenter\_params::IsInstance](#dlibsegmenter%5C_paramsisinstance)
   - [dlib::segmenter\_params::ToString](#dlibsegmenter%5C_paramstostring)
 - [dlib::segmenter\_test](#dlibsegmenter%5C_test)
   - [segmenter\_test.precision](#segmenter%5C_testprecision)
   - [segmenter\_test.recall](#segmenter%5C_testrecall)
   - [segmenter\_test.f1](#segmenter%5C_testf1)
+  - [segmenter\_test.FullyQualifiedName](#segmenter%5C_testfullyqualifiedname)
   - [dlib::segmenter\_test::get\_create](#dlibsegmenter%5C_testget%5C_create)
+  - [dlib::segmenter\_test::IsInstance](#dlibsegmenter%5C_testisinstance)
   - [dlib::segmenter\_test::ToString](#dlibsegmenter%5C_testtostring)
 - [dlib::shape\_predictor\_training\_options](#dlibshape%5C_predictor%5C_training%5C_options)
   - [shape\_predictor\_training\_options.be\_verbose](#shape%5C_predictor%5C_training%5C_optionsbe%5C_verbose)
@@ -255,7 +286,9 @@
   - [shape\_predictor\_training\_options.random\_seed](#shape%5C_predictor%5C_training%5C_optionsrandom%5C_seed)
   - [shape\_predictor\_training\_options.landmark\_relative\_padding\_mode](#shape%5C_predictor%5C_training%5C_optionslandmark%5C_relative%5C_padding%5C_mode)
   - [shape\_predictor\_training\_options.num\_threads](#shape%5C_predictor%5C_training%5C_optionsnum%5C_threads)
+  - [shape\_predictor\_training\_options.FullyQualifiedName](#shape%5C_predictor%5C_training%5C_optionsfullyqualifiedname)
   - [dlib::shape\_predictor\_training\_options::get\_create](#dlibshape%5C_predictor%5C_training%5C_optionsget%5C_create)
+  - [dlib::shape\_predictor\_training\_options::IsInstance](#dlibshape%5C_predictor%5C_training%5C_optionsisinstance)
   - [dlib::shape\_predictor\_training\_options::ToString](#dlibshape%5C_predictor%5C_training%5C_optionstostring)
 - [dlib::simple\_object\_detector\_training\_options](#dlibsimple%5C_object%5C_detector%5C_training%5C_options)
   - [simple\_object\_detector\_training\_options.be\_verbose](#simple%5C_object%5C_detector%5C_training%5C_optionsbe%5C_verbose)
@@ -267,13 +300,17 @@
   - [simple\_object\_detector\_training\_options.upsample\_limit](#simple%5C_object%5C_detector%5C_training%5C_optionsupsample%5C_limit)
   - [simple\_object\_detector\_training\_options.nuclear\_norm\_regularization\_strength](#simple%5C_object%5C_detector%5C_training%5C_optionsnuclear%5C_norm%5C_regularization%5C_strength)
   - [simple\_object\_detector\_training\_options.max\_runtime\_seconds](#simple%5C_object%5C_detector%5C_training%5C_optionsmax%5C_runtime%5C_seconds)
+  - [simple\_object\_detector\_training\_options.FullyQualifiedName](#simple%5C_object%5C_detector%5C_training%5C_optionsfullyqualifiedname)
   - [dlib::simple\_object\_detector\_training\_options::get\_create](#dlibsimple%5C_object%5C_detector%5C_training%5C_optionsget%5C_create)
+  - [dlib::simple\_object\_detector\_training\_options::IsInstance](#dlibsimple%5C_object%5C_detector%5C_training%5C_optionsisinstance)
   - [dlib::simple\_object\_detector\_training\_options::ToString](#dlibsimple%5C_object%5C_detector%5C_training%5C_optionstostring)
 - [dlib::simple\_test\_results](#dlibsimple%5C_test%5C_results)
   - [simple\_test\_results.precision](#simple%5C_test%5C_resultsprecision)
   - [simple\_test\_results.recall](#simple%5C_test%5C_resultsrecall)
   - [simple\_test\_results.average\_precision](#simple%5C_test%5C_resultsaverage%5C_precision)
+  - [simple\_test\_results.FullyQualifiedName](#simple%5C_test%5C_resultsfullyqualifiedname)
   - [dlib::simple\_test\_results::get\_create](#dlibsimple%5C_test%5C_resultsget%5C_create)
+  - [dlib::simple\_test\_results::IsInstance](#dlibsimple%5C_test%5C_resultsisinstance)
   - [dlib::simple\_test\_results::ToString](#dlibsimple%5C_test%5C_resultstostring)
 - [dlib::simple\_object\_detector\_com](#dlibsimple%5C_object%5C_detector%5C_com)
   - [simple\_object\_detector\_com.detector](#simple%5C_object%5C_detector%5C_comdetector)
@@ -281,7 +318,9 @@
   - [simple\_object\_detector\_com.detection\_window\_width](#simple%5C_object%5C_detector%5C_comdetection%5C_window%5C_width)
   - [simple\_object\_detector\_com.detection\_window\_height](#simple%5C_object%5C_detector%5C_comdetection%5C_window%5C_height)
   - [simple\_object\_detector\_com.num\_detectors](#simple%5C_object%5C_detector%5C_comnum%5C_detectors)
+  - [simple\_object\_detector\_com.FullyQualifiedName](#simple%5C_object%5C_detector%5C_comfullyqualifiedname)
   - [dlib::simple\_object\_detector\_com::create](#dlibsimple%5C_object%5C_detector%5C_comcreate)
+  - [dlib::simple\_object\_detector\_com::IsInstance](#dlibsimple%5C_object%5C_detector%5C_comisinstance)
   - [dlib::simple\_object\_detector\_com::get\_call](#dlibsimple%5C_object%5C_detector%5C_comget%5C_call)
   - [dlib::simple\_object\_detector\_com::run\_multiple](#dlibsimple%5C_object%5C_detector%5C_comrun%5C_multiple)
 - [dlib::simple\_structural\_svm\_problem](#dlibsimple%5C_structural%5C_svm%5C_problem)
@@ -296,7 +335,9 @@
   - [simple\_structural\_svm\_problem.use\_sparse\_feature\_vectors](#simple%5C_structural%5C_svm%5C_problemuse%5C_sparse%5C_feature%5C_vectors)
   - [simple\_structural\_svm\_problem.learns\_nonnegative\_weights](#simple%5C_structural%5C_svm%5C_problemlearns%5C_nonnegative%5C_weights)
   - [simple\_structural\_svm\_problem.result](#simple%5C_structural%5C_svm%5C_problemresult)
+  - [simple\_structural\_svm\_problem.FullyQualifiedName](#simple%5C_structural%5C_svm%5C_problemfullyqualifiedname)
   - [dlib::simple\_structural\_svm\_problem::get\_create](#dlibsimple%5C_structural%5C_svm%5C_problemget%5C_create)
+  - [dlib::simple\_structural\_svm\_problem::IsInstance](#dlibsimple%5C_structural%5C_svm%5C_problemisinstance)
 - [cv](#cv)
   - [cv.cuda](#cvcuda)
   - [cv.\_InputArray](#cv%5C_inputarray)
@@ -333,7 +374,9 @@
   - [mmod\_rect.confidence](#mmod%5C_rectconfidence)
   - [mmod\_rect.label](#mmod%5C_rectlabel)
   - [mmod\_rect.ignore](#mmod%5C_rectignore)
+  - [mmod\_rect.FullyQualifiedName](#mmod%5C_rectfullyqualifiedname)
   - [dlib::mmod\_rect::get\_create](#dlibmmod%5C_rectget%5C_create)
+  - [dlib::mmod\_rect::IsInstance](#dlibmmod%5C_rectisinstance)
 - [dlib::cuda](#dlibcuda)
   - [dlib::cuda::can\_access\_peer](#dlibcudacan%5C_access%5C_peer)
   - [dlib::cuda::device\_synchronize](#dlibcudadevice%5C_synchronize)
@@ -342,12 +385,26 @@
   - [dlib::cuda::set\_current\_device\_blocking\_sync](#dlibcudaset%5C_current%5C_device%5C_blocking%5C_sync)
   - [dlib::cuda::set\_device](#dlibcudaset%5C_device)
 - [dlib::correlation\_tracker](#dlibcorrelation%5C_tracker)
+  - [correlation\_tracker.FullyQualifiedName](#correlation%5C_trackerfullyqualifiedname)
   - [dlib::correlation\_tracker::get\_create](#dlibcorrelation%5C_trackerget%5C_create)
+  - [dlib::correlation\_tracker::IsInstance](#dlibcorrelation%5C_trackerisinstance)
   - [dlib::correlation\_tracker::get\_position](#dlibcorrelation%5C_trackerget%5C_position)
   - [dlib::correlation\_tracker::start\_track](#dlibcorrelation%5C_trackerstart%5C_track)
   - [dlib::correlation\_tracker::update](#dlibcorrelation%5C_trackerupdate)
 - [cv::cuda](#cvcuda)
   - [cuda.GpuMat](#cudagpumat)
+- [cv::cuda::GpuMat](#cvcudagpumat)
+  - [GpuMat.FullyQualifiedName](#gpumatfullyqualifiedname)
+  - [cv::cuda::GpuMat::IsInstance](#cvcudagpumatisinstance)
+- [cv::\_InputArray](#cv%5C_inputarray)
+  - [\_InputArray.FullyQualifiedName](#%5C_inputarrayfullyqualifiedname)
+  - [cv::\_InputArray::IsInstance](#cv%5C_inputarrayisinstance)
+- [cv::\_OutputArray](#cv%5C_outputarray)
+  - [\_OutputArray.FullyQualifiedName](#%5C_outputarrayfullyqualifiedname)
+  - [cv::\_OutputArray::IsInstance](#cv%5C_outputarrayisinstance)
+- [cv::\_InputOutputArray](#cv%5C_inputoutputarray)
+  - [\_InputOutputArray.FullyQualifiedName](#%5C_inputoutputarrayfullyqualifiedname)
+  - [cv::\_InputOutputArray::IsInstance](#cv%5C_inputoutputarrayisinstance)
 - [cv::Formatter](#cvformatter)
   - [Formatter.FMT\_DEFAULT\_](#formatterfmt%5C_default%5C_)
   - [Formatter.FMT\_MATLAB\_](#formatterfmt%5C_matlab%5C_)
@@ -357,66 +414,90 @@
   - [Formatter.FMT\_C\_](#formatterfmt%5C_c%5C_)
 - [dlib::\_radial\_basis\_kernel](#dlib%5C_radial%5C_basis%5C_kernel)
   - [\_radial\_basis\_kernel.gamma](#%5C_radial%5C_basis%5C_kernelgamma)
+  - [\_radial\_basis\_kernel.FullyQualifiedName](#%5C_radial%5C_basis%5C_kernelfullyqualifiedname)
   - [dlib::\_radial\_basis\_kernel::get\_create](#dlib%5C_radial%5C_basis%5C_kernelget%5C_create)
+  - [dlib::\_radial\_basis\_kernel::IsInstance](#dlib%5C_radial%5C_basis%5C_kernelisinstance)
 - [dlib::\_linear\_kernel](#dlib%5C_linear%5C_kernel)
+  - [\_linear\_kernel.FullyQualifiedName](#%5C_linear%5C_kernelfullyqualifiedname)
   - [dlib::\_linear\_kernel::get\_create](#dlib%5C_linear%5C_kernelget%5C_create)
+  - [dlib::\_linear\_kernel::IsInstance](#dlib%5C_linear%5C_kernelisinstance)
 - [dlib::\_decision\_function\_linear](#dlib%5C_decision%5C_function%5C_linear)
   - [\_decision\_function\_linear.weights](#%5C_decision%5C_function%5C_linearweights)
   - [\_decision\_function\_linear.bias](#%5C_decision%5C_function%5C_linearbias)
+  - [\_decision\_function\_linear.FullyQualifiedName](#%5C_decision%5C_function%5C_linearfullyqualifiedname)
   - [dlib::\_decision\_function\_linear::create](#dlib%5C_decision%5C_function%5C_linearcreate)
+  - [dlib::\_decision\_function\_linear::IsInstance](#dlib%5C_decision%5C_function%5C_linearisinstance)
   - [dlib::\_decision\_function\_linear::get\_call](#dlib%5C_decision%5C_function%5C_linearget%5C_call)
 - [dlib::\_decision\_function\_sparse\_linear](#dlib%5C_decision%5C_function%5C_sparse%5C_linear)
   - [\_decision\_function\_sparse\_linear.weights](#%5C_decision%5C_function%5C_sparse%5C_linearweights)
   - [\_decision\_function\_sparse\_linear.bias](#%5C_decision%5C_function%5C_sparse%5C_linearbias)
+  - [\_decision\_function\_sparse\_linear.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_linearfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_linear::create](#dlib%5C_decision%5C_function%5C_sparse%5C_linearcreate)
+  - [dlib::\_decision\_function\_sparse\_linear::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_linearisinstance)
   - [dlib::\_decision\_function\_sparse\_linear::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_linearget%5C_call)
 - [dlib::\_decision\_function\_histogram\_intersection](#dlib%5C_decision%5C_function%5C_histogram%5C_intersection)
   - [\_decision\_function\_histogram\_intersection.alpha](#%5C_decision%5C_function%5C_histogram%5C_intersectionalpha)
   - [\_decision\_function\_histogram\_intersection.b](#%5C_decision%5C_function%5C_histogram%5C_intersectionb)
   - [\_decision\_function\_histogram\_intersection.basis\_vectors](#%5C_decision%5C_function%5C_histogram%5C_intersectionbasis%5C_vectors)
+  - [\_decision\_function\_histogram\_intersection.FullyQualifiedName](#%5C_decision%5C_function%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::\_decision\_function\_histogram\_intersection::create](#dlib%5C_decision%5C_function%5C_histogram%5C_intersectioncreate)
+  - [dlib::\_decision\_function\_histogram\_intersection::IsInstance](#dlib%5C_decision%5C_function%5C_histogram%5C_intersectionisinstance)
   - [dlib::\_decision\_function\_histogram\_intersection::get\_call](#dlib%5C_decision%5C_function%5C_histogram%5C_intersectionget%5C_call)
 - [dlib::\_decision\_function\_sparse\_histogram\_intersection](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersection)
   - [\_decision\_function\_sparse\_histogram\_intersection.alpha](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionalpha)
   - [\_decision\_function\_sparse\_histogram\_intersection.b](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionb)
   - [\_decision\_function\_sparse\_histogram\_intersection.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionbasis%5C_vectors)
+  - [\_decision\_function\_sparse\_histogram\_intersection.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_histogram\_intersection::create](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectioncreate)
+  - [dlib::\_decision\_function\_sparse\_histogram\_intersection::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionisinstance)
   - [dlib::\_decision\_function\_sparse\_histogram\_intersection::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionget%5C_call)
 - [dlib::\_decision\_function\_polynomial](#dlib%5C_decision%5C_function%5C_polynomial)
   - [\_decision\_function\_polynomial.alpha](#%5C_decision%5C_function%5C_polynomialalpha)
   - [\_decision\_function\_polynomial.b](#%5C_decision%5C_function%5C_polynomialb)
   - [\_decision\_function\_polynomial.basis\_vectors](#%5C_decision%5C_function%5C_polynomialbasis%5C_vectors)
+  - [\_decision\_function\_polynomial.FullyQualifiedName](#%5C_decision%5C_function%5C_polynomialfullyqualifiedname)
   - [dlib::\_decision\_function\_polynomial::create](#dlib%5C_decision%5C_function%5C_polynomialcreate)
+  - [dlib::\_decision\_function\_polynomial::IsInstance](#dlib%5C_decision%5C_function%5C_polynomialisinstance)
   - [dlib::\_decision\_function\_polynomial::get\_call](#dlib%5C_decision%5C_function%5C_polynomialget%5C_call)
 - [dlib::\_decision\_function\_sparse\_polynomial](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomial)
   - [\_decision\_function\_sparse\_polynomial.alpha](#%5C_decision%5C_function%5C_sparse%5C_polynomialalpha)
   - [\_decision\_function\_sparse\_polynomial.b](#%5C_decision%5C_function%5C_sparse%5C_polynomialb)
   - [\_decision\_function\_sparse\_polynomial.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_polynomialbasis%5C_vectors)
+  - [\_decision\_function\_sparse\_polynomial.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_polynomialfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_polynomial::create](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomialcreate)
+  - [dlib::\_decision\_function\_sparse\_polynomial::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomialisinstance)
   - [dlib::\_decision\_function\_sparse\_polynomial::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomialget%5C_call)
 - [dlib::\_decision\_function\_radial\_basis](#dlib%5C_decision%5C_function%5C_radial%5C_basis)
   - [\_decision\_function\_radial\_basis.alpha](#%5C_decision%5C_function%5C_radial%5C_basisalpha)
   - [\_decision\_function\_radial\_basis.b](#%5C_decision%5C_function%5C_radial%5C_basisb)
   - [\_decision\_function\_radial\_basis.basis\_vectors](#%5C_decision%5C_function%5C_radial%5C_basisbasis%5C_vectors)
+  - [\_decision\_function\_radial\_basis.FullyQualifiedName](#%5C_decision%5C_function%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::\_decision\_function\_radial\_basis::create](#dlib%5C_decision%5C_function%5C_radial%5C_basiscreate)
+  - [dlib::\_decision\_function\_radial\_basis::IsInstance](#dlib%5C_decision%5C_function%5C_radial%5C_basisisinstance)
   - [dlib::\_decision\_function\_radial\_basis::get\_call](#dlib%5C_decision%5C_function%5C_radial%5C_basisget%5C_call)
 - [dlib::\_decision\_function\_sparse\_radial\_basis](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basis)
   - [\_decision\_function\_sparse\_radial\_basis.alpha](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisalpha)
   - [\_decision\_function\_sparse\_radial\_basis.b](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisb)
   - [\_decision\_function\_sparse\_radial\_basis.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisbasis%5C_vectors)
+  - [\_decision\_function\_sparse\_radial\_basis.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_radial\_basis::create](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basiscreate)
+  - [dlib::\_decision\_function\_sparse\_radial\_basis::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisisinstance)
   - [dlib::\_decision\_function\_sparse\_radial\_basis::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisget%5C_call)
 - [dlib::\_decision\_function\_sigmoid](#dlib%5C_decision%5C_function%5C_sigmoid)
   - [\_decision\_function\_sigmoid.alpha](#%5C_decision%5C_function%5C_sigmoidalpha)
   - [\_decision\_function\_sigmoid.b](#%5C_decision%5C_function%5C_sigmoidb)
   - [\_decision\_function\_sigmoid.basis\_vectors](#%5C_decision%5C_function%5C_sigmoidbasis%5C_vectors)
+  - [\_decision\_function\_sigmoid.FullyQualifiedName](#%5C_decision%5C_function%5C_sigmoidfullyqualifiedname)
   - [dlib::\_decision\_function\_sigmoid::create](#dlib%5C_decision%5C_function%5C_sigmoidcreate)
+  - [dlib::\_decision\_function\_sigmoid::IsInstance](#dlib%5C_decision%5C_function%5C_sigmoidisinstance)
   - [dlib::\_decision\_function\_sigmoid::get\_call](#dlib%5C_decision%5C_function%5C_sigmoidget%5C_call)
 - [dlib::\_decision\_function\_sparse\_sigmoid](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoid)
   - [\_decision\_function\_sparse\_sigmoid.alpha](#%5C_decision%5C_function%5C_sparse%5C_sigmoidalpha)
   - [\_decision\_function\_sparse\_sigmoid.b](#%5C_decision%5C_function%5C_sparse%5C_sigmoidb)
   - [\_decision\_function\_sparse\_sigmoid.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_sigmoidbasis%5C_vectors)
+  - [\_decision\_function\_sparse\_sigmoid.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_sigmoidfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_sigmoid::create](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoidcreate)
+  - [dlib::\_decision\_function\_sparse\_sigmoid::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoidisinstance)
   - [dlib::\_decision\_function\_sparse\_sigmoid::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoidget%5C_call)
 - [dlib::\_normalized\_decision\_function\_radial\_basis](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basis)
   - [\_normalized\_decision\_function\_radial\_basis.alpha](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisalpha)
@@ -424,25 +505,35 @@
   - [\_normalized\_decision\_function\_radial\_basis.basis\_vectors](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisbasis%5C_vectors)
   - [\_normalized\_decision\_function\_radial\_basis.means](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basismeans)
   - [\_normalized\_decision\_function\_radial\_basis.invstd\_devs](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisinvstd%5C_devs)
+  - [\_normalized\_decision\_function\_radial\_basis.FullyQualifiedName](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::\_normalized\_decision\_function\_radial\_basis::create](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basiscreate)
+  - [dlib::\_normalized\_decision\_function\_radial\_basis::IsInstance](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisisinstance)
   - [dlib::\_normalized\_decision\_function\_radial\_basis::batch\_predict](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisbatch%5C_predict)
   - [dlib::\_normalized\_decision\_function\_radial\_basis::get\_call](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisget%5C_call)
 - [dlib::function\_evaluation](#dlibfunction%5C_evaluation)
   - [function\_evaluation.x](#function%5C_evaluationx)
   - [function\_evaluation.y](#function%5C_evaluationy)
+  - [function\_evaluation.FullyQualifiedName](#function%5C_evaluationfullyqualifiedname)
   - [dlib::function\_evaluation::get\_create](#dlibfunction%5C_evaluationget%5C_create)
+  - [dlib::function\_evaluation::IsInstance](#dlibfunction%5C_evaluationisinstance)
 - [dlib::function\_spec](#dlibfunction%5C_spec)
   - [function\_spec.lower](#function%5C_speclower)
   - [function\_spec.upper](#function%5C_specupper)
   - [function\_spec.is\_integer\_variable](#function%5C_specis%5C_integer%5C_variable)
+  - [function\_spec.FullyQualifiedName](#function%5C_specfullyqualifiedname)
   - [dlib::function\_spec::get\_create](#dlibfunction%5C_specget%5C_create)
+  - [dlib::function\_spec::IsInstance](#dlibfunction%5C_specisinstance)
 - [dlib::function\_evaluation\_request](#dlibfunction%5C_evaluation%5C_request)
   - [function\_evaluation\_request.function\_idx](#function%5C_evaluation%5C_requestfunction%5C_idx)
   - [function\_evaluation\_request.x](#function%5C_evaluation%5C_requestx)
   - [function\_evaluation\_request.has\_been\_evaluated](#function%5C_evaluation%5C_requesthas%5C_been%5C_evaluated)
+  - [function\_evaluation\_request.FullyQualifiedName](#function%5C_evaluation%5C_requestfullyqualifiedname)
+  - [dlib::function\_evaluation\_request::IsInstance](#dlibfunction%5C_evaluation%5C_requestisinstance)
   - [dlib::function\_evaluation\_request::set](#dlibfunction%5C_evaluation%5C_requestset)
 - [dlib::global\_function\_search](#dlibglobal%5C_function%5C_search)
+  - [global\_function\_search.FullyQualifiedName](#global%5C_function%5C_searchfullyqualifiedname)
   - [dlib::global\_function\_search::get\_create](#dlibglobal%5C_function%5C_searchget%5C_create)
+  - [dlib::global\_function\_search::IsInstance](#dlibglobal%5C_function%5C_searchisinstance)
   - [dlib::global\_function\_search::get\_best\_function\_eval](#dlibglobal%5C_function%5C_searchget%5C_best%5C_function%5C_eval)
   - [dlib::global\_function\_search::get\_function\_evaluations](#dlibglobal%5C_function%5C_searchget%5C_function%5C_evaluations)
   - [dlib::global\_function\_search::get\_monte\_carlo\_upper\_bound\_sample\_num](#dlibglobal%5C_function%5C_searchget%5C_monte%5C_carlo%5C_upper%5C_bound%5C_sample%5C_num)
@@ -457,7 +548,9 @@
   - [dlib::global\_function\_search::set\_seed](#dlibglobal%5C_function%5C_searchset%5C_seed)
   - [dlib::global\_function\_search::set\_solver\_epsilon](#dlibglobal%5C_function%5C_searchset%5C_solver%5C_epsilon)
 - [dlib::image\_window](#dlibimage%5C_window)
+  - [image\_window.FullyQualifiedName](#image%5C_windowfullyqualifiedname)
   - [dlib::image\_window::get\_create](#dlibimage%5C_windowget%5C_create)
+  - [dlib::image\_window::IsInstance](#dlibimage%5C_windowisinstance)
   - [dlib::image\_window::add\_overlay](#dlibimage%5C_windowadd%5C_overlay)
   - [dlib::image\_window::add\_overlay\_circle](#dlibimage%5C_windowadd%5C_overlay%5C_circle)
   - [dlib::image\_window::clear\_overlay](#dlibimage%5C_windowclear%5C_overlay)
@@ -510,7 +603,9 @@
   - [rgb\_pixel.red](#rgb%5C_pixelred)
   - [rgb\_pixel.blue](#rgb%5C_pixelblue)
   - [rgb\_pixel.green](#rgb%5C_pixelgreen)
+  - [rgb\_pixel.FullyQualifiedName](#rgb%5C_pixelfullyqualifiedname)
   - [dlib::rgb\_pixel::get\_create](#dlibrgb%5C_pixelget%5C_create)
+  - [dlib::rgb\_pixel::IsInstance](#dlibrgb%5C_pixelisinstance)
 - [dlib::image\_dataset\_metadata](#dlibimage%5C_dataset%5C_metadata)
   - [image\_dataset\_metadata.box](#image%5C_dataset%5C_metadatabox)
   - [image\_dataset\_metadata.image](#image%5C_dataset%5C_metadataimage)
@@ -534,22 +629,30 @@
   - [box.angle](#boxangle)
   - [box.gender](#boxgender)
   - [box.age](#boxage)
+  - [box.FullyQualifiedName](#boxfullyqualifiedname)
   - [dlib::image\_dataset\_metadata::box::get\_create](#dlibimage%5C_dataset%5C_metadataboxget%5C_create)
+  - [dlib::image\_dataset\_metadata::box::IsInstance](#dlibimage%5C_dataset%5C_metadataboxisinstance)
   - [dlib::image\_dataset\_metadata::box::has\_label](#dlibimage%5C_dataset%5C_metadataboxhas%5C_label)
 - [dlib::image\_dataset\_metadata::image](#dlibimage%5C_dataset%5C_metadataimage)
   - [image.filename](#imagefilename)
   - [image.boxes](#imageboxes)
+  - [image.FullyQualifiedName](#imagefullyqualifiedname)
   - [dlib::image\_dataset\_metadata::image::get\_create](#dlibimage%5C_dataset%5C_metadataimageget%5C_create)
+  - [dlib::image\_dataset\_metadata::image::IsInstance](#dlibimage%5C_dataset%5C_metadataimageisinstance)
 - [dlib::image\_dataset\_metadata::dataset](#dlibimage%5C_dataset%5C_metadatadataset)
   - [dataset.images](#datasetimages)
   - [dataset.comment](#datasetcomment)
   - [dataset.name](#datasetname)
+  - [dataset.FullyQualifiedName](#datasetfullyqualifiedname)
   - [dlib::image\_dataset\_metadata::dataset::get\_create](#dlibimage%5C_dataset%5C_metadatadatasetget%5C_create)
+  - [dlib::image\_dataset\_metadata::dataset::IsInstance](#dlibimage%5C_dataset%5C_metadatadatasetisinstance)
 - [dlib::line](#dlibline)
   - [line.normal](#linenormal)
   - [line.p1](#linep1)
   - [line.p2](#linep2)
+  - [line.FullyQualifiedName](#linefullyqualifiedname)
   - [dlib::line::get\_create](#dliblineget%5C_create)
+  - [dlib::line::IsInstance](#dliblineisinstance)
 - [cv::Mat](#cvmat)
   - [Mat.cols](#matcols)
   - [Mat.data](#matdata)
@@ -562,8 +665,10 @@
   - [Mat.shape](#matshape)
   - [Mat.sizes](#matsizes)
   - [Mat.steps](#matsteps)
+  - [Mat.FullyQualifiedName](#matfullyqualifiedname)
   - [cv::Mat::create](#cvmatcreate)
   - [cv::Mat::GdiplusResize](#cvmatgdiplusresize)
+  - [cv::Mat::IsInstance](#cvmatisinstance)
   - [cv::Mat::PixelChecksum](#cvmatpixelchecksum)
   - [cv::Mat::PixelSearch](#cvmatpixelsearch)
   - [cv::Mat::Point\_at](#cvmatpoint%5C_at)
@@ -723,7 +828,9 @@
   - [cv::Mat::zeros](#cvmatzeros)
 - [dlib::Matrix](#dlibmatrix)
   - [Matrix.shape](#matrixshape)
+  - [Matrix.FullyQualifiedName](#matrixfullyqualifiedname)
   - [dlib::Matrix::get\_create](#dlibmatrixget%5C_create)
+  - [dlib::Matrix::IsInstance](#dlibmatrixisinstance)
   - [dlib::Matrix::ToString](#dlibmatrixtostring)
   - [dlib::Matrix::deserialize](#dlibmatrixdeserialize)
   - [dlib::Matrix::get](#dlibmatrixget)
@@ -735,12 +842,16 @@
   - [std.mutex](#stdmutex)
   - [std.timed\_mutex](#stdtimed%5C_mutex)
 - [std::mutex](#stdmutex)
+  - [mutex.FullyQualifiedName](#mutexfullyqualifiedname)
   - [std::mutex::get\_create](#stdmutexget%5C_create)
+  - [std::mutex::IsInstance](#stdmutexisinstance)
   - [std::mutex::lock](#stdmutexlock)
   - [std::mutex::try\_lock](#stdmutextry%5C_lock)
   - [std::mutex::unlock](#stdmutexunlock)
 - [std::timed\_mutex](#stdtimed%5C_mutex)
+  - [timed\_mutex.FullyQualifiedName](#timed%5C_mutexfullyqualifiedname)
   - [std::timed\_mutex::get\_create](#stdtimed%5C_mutexget%5C_create)
+  - [std::timed\_mutex::IsInstance](#stdtimed%5C_mutexisinstance)
   - [std::timed\_mutex::lock](#stdtimed%5C_mutexlock)
   - [std::timed\_mutex::try\_lock](#stdtimed%5C_mutextry%5C_lock)
   - [std::timed\_mutex::try\_lock\_for](#stdtimed%5C_mutextry%5C_lock%5C_for)
@@ -749,7 +860,9 @@
   - [fhog\_object\_detector.detection\_window\_width](#fhog%5C_object%5C_detectordetection%5C_window%5C_width)
   - [fhog\_object\_detector.detection\_window\_height](#fhog%5C_object%5C_detectordetection%5C_window%5C_height)
   - [fhog\_object\_detector.num\_detectors](#fhog%5C_object%5C_detectornum%5C_detectors)
+  - [fhog\_object\_detector.FullyQualifiedName](#fhog%5C_object%5C_detectorfullyqualifiedname)
   - [dlib::fhog\_object\_detector::create](#dlibfhog%5C_object%5C_detectorcreate)
+  - [dlib::fhog\_object\_detector::IsInstance](#dlibfhog%5C_object%5C_detectorisinstance)
   - [dlib::fhog\_object\_detector::get\_call](#dlibfhog%5C_object%5C_detectorget%5C_call)
   - [dlib::fhog\_object\_detector::run](#dlibfhog%5C_object%5C_detectorrun)
   - [dlib::fhog\_object\_detector::run\_multiple](#dlibfhog%5C_object%5C_detectorrun%5C_multiple)
@@ -757,18 +870,24 @@
 - [cv::Range](#cvrange)
   - [Range.start](#rangestart)
   - [Range.end](#rangeend)
+  - [Range.FullyQualifiedName](#rangefullyqualifiedname)
   - [cv::Range::get\_create](#cvrangeget%5C_create)
+  - [cv::Range::IsInstance](#cvrangeisinstance)
   - [cv::Range::all](#cvrangeall)
   - [cv::Range::empty](#cvrangeempty)
   - [cv::Range::size](#cvrangesize)
 - [dlib::rect\_filter](#dlibrect%5C_filter)
+  - [rect\_filter.FullyQualifiedName](#rect%5C_filterfullyqualifiedname)
   - [dlib::rect\_filter::create](#dlibrect%5C_filtercreate)
+  - [dlib::rect\_filter::IsInstance](#dlibrect%5C_filterisinstance)
   - [dlib::rect\_filter::get\_call](#dlibrect%5C_filterget%5C_call)
   - [dlib::rect\_filter::max\_measurement\_deviation](#dlibrect%5C_filtermax%5C_measurement%5C_deviation)
   - [dlib::rect\_filter::measurement\_noise](#dlibrect%5C_filtermeasurement%5C_noise)
   - [dlib::rect\_filter::typical\_acceleration](#dlibrect%5C_filtertypical%5C_acceleration)
 - [dlib::rectangle](#dlibrectangle)
+  - [rectangle.FullyQualifiedName](#rectanglefullyqualifiedname)
   - [dlib::rectangle::get\_create](#dlibrectangleget%5C_create)
+  - [dlib::rectangle::IsInstance](#dlibrectangleisinstance)
   - [dlib::rectangle::ToString](#dlibrectangletostring)
   - [dlib::rectangle::area](#dlibrectanglearea)
   - [dlib::rectangle::bl\_corner](#dlibrectanglebl%5C_corner)
@@ -787,7 +906,9 @@
   - [dlib::rectangle::tr\_corner](#dlibrectangletr%5C_corner)
   - [dlib::rectangle::width](#dlibrectanglewidth)
 - [dlib::drectangle](#dlibdrectangle)
+  - [drectangle.FullyQualifiedName](#drectanglefullyqualifiedname)
   - [dlib::drectangle::get\_create](#dlibdrectangleget%5C_create)
+  - [dlib::drectangle::IsInstance](#dlibdrectangleisinstance)
   - [dlib::drectangle::ToString](#dlibdrectangletostring)
   - [dlib::drectangle::area](#dlibdrectanglearea)
   - [dlib::drectangle::bl\_corner](#dlibdrectanglebl%5C_corner)
@@ -808,11 +929,15 @@
 - [dlib::full\_object\_detection](#dlibfull%5C_object%5C_detection)
   - [full\_object\_detection.rect](#full%5C_object%5C_detectionrect)
   - [full\_object\_detection.num\_parts](#full%5C_object%5C_detectionnum%5C_parts)
+  - [full\_object\_detection.FullyQualifiedName](#full%5C_object%5C_detectionfullyqualifiedname)
   - [dlib::full\_object\_detection::get\_create](#dlibfull%5C_object%5C_detectionget%5C_create)
+  - [dlib::full\_object\_detection::IsInstance](#dlibfull%5C_object%5C_detectionisinstance)
   - [dlib::full\_object\_detection::part](#dlibfull%5C_object%5C_detectionpart)
   - [dlib::full\_object\_detection::parts](#dlibfull%5C_object%5C_detectionparts)
 - [dlib::shape\_predictor](#dlibshape%5C_predictor)
+  - [shape\_predictor.FullyQualifiedName](#shape%5C_predictorfullyqualifiedname)
   - [dlib::shape\_predictor::create](#dlibshape%5C_predictorcreate)
+  - [dlib::shape\_predictor::IsInstance](#dlibshape%5C_predictorisinstance)
   - [dlib::shape\_predictor::get\_call](#dlibshape%5C_predictorget%5C_call)
   - [dlib::shape\_predictor::save](#dlibshape%5C_predictorsave)
 - [dlib::svm\_c\_trainer\_radial\_basis](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basis)
@@ -821,7 +946,9 @@
   - [svm\_c\_trainer\_radial\_basis.c\_class2](#svm%5C_c%5C_trainer%5C_radial%5C_basisc%5C_class2)
   - [svm\_c\_trainer\_radial\_basis.cache\_size](#svm%5C_c%5C_trainer%5C_radial%5C_basiscache%5C_size)
   - [svm\_c\_trainer\_radial\_basis.gamma](#svm%5C_c%5C_trainer%5C_radial%5C_basisgamma)
+  - [svm\_c\_trainer\_radial\_basis.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_radial\_basis::get\_create](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basisget%5C_create)
+  - [dlib::svm\_c\_trainer\_radial\_basis::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basisisinstance)
   - [dlib::svm\_c\_trainer\_radial\_basis::set\_c](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basisset%5C_c)
   - [dlib::svm\_c\_trainer\_radial\_basis::train](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basistrain)
 - [dlib::svm\_c\_trainer\_sparse\_radial\_basis](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basis)
@@ -830,7 +957,9 @@
   - [svm\_c\_trainer\_sparse\_radial\_basis.c\_class2](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisc%5C_class2)
   - [svm\_c\_trainer\_sparse\_radial\_basis.cache\_size](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basiscache%5C_size)
   - [svm\_c\_trainer\_sparse\_radial\_basis.gamma](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisgamma)
+  - [svm\_c\_trainer\_sparse\_radial\_basis.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::get\_create](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisget%5C_create)
+  - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisisinstance)
   - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::set\_c](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisset%5C_c)
   - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::train](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basistrain)
 - [dlib::svm\_c\_trainer\_histogram\_intersection](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersection)
@@ -838,7 +967,9 @@
   - [svm\_c\_trainer\_histogram\_intersection.c\_class1](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectionc%5C_class1)
   - [svm\_c\_trainer\_histogram\_intersection.c\_class2](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectionc%5C_class2)
   - [svm\_c\_trainer\_histogram\_intersection.cache\_size](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectioncache%5C_size)
+  - [svm\_c\_trainer\_histogram\_intersection.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_histogram\_intersection::get\_create](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectionget%5C_create)
+  - [dlib::svm\_c\_trainer\_histogram\_intersection::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectionisinstance)
   - [dlib::svm\_c\_trainer\_histogram\_intersection::set\_c](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectionset%5C_c)
   - [dlib::svm\_c\_trainer\_histogram\_intersection::train](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectiontrain)
 - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersection)
@@ -846,7 +977,9 @@
   - [svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class1](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionc%5C_class1)
   - [svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class2](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionc%5C_class2)
   - [svm\_c\_trainer\_sparse\_histogram\_intersection.cache\_size](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectioncache%5C_size)
+  - [svm\_c\_trainer\_sparse\_histogram\_intersection.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::get\_create](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionget%5C_create)
+  - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionisinstance)
   - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::set\_c](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionset%5C_c)
   - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::train](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectiontrain)
 - [dlib::svm\_c\_trainer\_linear](#dlibsvm%5C_c%5C_trainer%5C_linear)
@@ -857,7 +990,9 @@
   - [svm\_c\_trainer\_linear.force\_last\_weight\_to\_1](#svm%5C_c%5C_trainer%5C_linearforce%5C_last%5C_weight%5C_to%5C_1)
   - [svm\_c\_trainer\_linear.learns\_nonnegative\_weights](#svm%5C_c%5C_trainer%5C_linearlearns%5C_nonnegative%5C_weights)
   - [svm\_c\_trainer\_linear.has\_prior](#svm%5C_c%5C_trainer%5C_linearhas%5C_prior)
+  - [svm\_c\_trainer\_linear.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_linearfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_linear::get\_create](#dlibsvm%5C_c%5C_trainer%5C_linearget%5C_create)
+  - [dlib::svm\_c\_trainer\_linear::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_linearisinstance)
   - [dlib::svm\_c\_trainer\_linear::be\_quiet](#dlibsvm%5C_c%5C_trainer%5C_linearbe%5C_quiet)
   - [dlib::svm\_c\_trainer\_linear::be\_verbose](#dlibsvm%5C_c%5C_trainer%5C_linearbe%5C_verbose)
   - [dlib::svm\_c\_trainer\_linear::set\_c](#dlibsvm%5C_c%5C_trainer%5C_linearset%5C_c)
@@ -871,7 +1006,9 @@
   - [svm\_c\_trainer\_sparse\_linear.force\_last\_weight\_to\_1](#svm%5C_c%5C_trainer%5C_sparse%5C_linearforce%5C_last%5C_weight%5C_to%5C_1)
   - [svm\_c\_trainer\_sparse\_linear.learns\_nonnegative\_weights](#svm%5C_c%5C_trainer%5C_sparse%5C_linearlearns%5C_nonnegative%5C_weights)
   - [svm\_c\_trainer\_sparse\_linear.has\_prior](#svm%5C_c%5C_trainer%5C_sparse%5C_linearhas%5C_prior)
+  - [svm\_c\_trainer\_sparse\_linear.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_sparse%5C_linearfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_sparse\_linear::get\_create](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearget%5C_create)
+  - [dlib::svm\_c\_trainer\_sparse\_linear::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearisinstance)
   - [dlib::svm\_c\_trainer\_sparse\_linear::be\_quiet](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearbe%5C_quiet)
   - [dlib::svm\_c\_trainer\_sparse\_linear::be\_verbose](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearbe%5C_verbose)
   - [dlib::svm\_c\_trainer\_sparse\_linear::set\_c](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearset%5C_c)
@@ -880,37 +1017,53 @@
 - [dlib::rvm\_trainer\_radial\_basis](#dlibrvm%5C_trainer%5C_radial%5C_basis)
   - [rvm\_trainer\_radial\_basis.epsilon](#rvm%5C_trainer%5C_radial%5C_basisepsilon)
   - [rvm\_trainer\_radial\_basis.gamma](#rvm%5C_trainer%5C_radial%5C_basisgamma)
+  - [rvm\_trainer\_radial\_basis.FullyQualifiedName](#rvm%5C_trainer%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::rvm\_trainer\_radial\_basis::get\_create](#dlibrvm%5C_trainer%5C_radial%5C_basisget%5C_create)
+  - [dlib::rvm\_trainer\_radial\_basis::IsInstance](#dlibrvm%5C_trainer%5C_radial%5C_basisisinstance)
   - [dlib::rvm\_trainer\_radial\_basis::train](#dlibrvm%5C_trainer%5C_radial%5C_basistrain)
 - [dlib::rvm\_trainer\_sparse\_radial\_basis](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basis)
   - [rvm\_trainer\_sparse\_radial\_basis.epsilon](#rvm%5C_trainer%5C_sparse%5C_radial%5C_basisepsilon)
   - [rvm\_trainer\_sparse\_radial\_basis.gamma](#rvm%5C_trainer%5C_sparse%5C_radial%5C_basisgamma)
+  - [rvm\_trainer\_sparse\_radial\_basis.FullyQualifiedName](#rvm%5C_trainer%5C_sparse%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::rvm\_trainer\_sparse\_radial\_basis::get\_create](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basisget%5C_create)
+  - [dlib::rvm\_trainer\_sparse\_radial\_basis::IsInstance](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basisisinstance)
   - [dlib::rvm\_trainer\_sparse\_radial\_basis::train](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basistrain)
 - [dlib::rvm\_trainer\_histogram\_intersection](#dlibrvm%5C_trainer%5C_histogram%5C_intersection)
   - [rvm\_trainer\_histogram\_intersection.epsilon](#rvm%5C_trainer%5C_histogram%5C_intersectionepsilon)
+  - [rvm\_trainer\_histogram\_intersection.FullyQualifiedName](#rvm%5C_trainer%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::rvm\_trainer\_histogram\_intersection::get\_create](#dlibrvm%5C_trainer%5C_histogram%5C_intersectionget%5C_create)
+  - [dlib::rvm\_trainer\_histogram\_intersection::IsInstance](#dlibrvm%5C_trainer%5C_histogram%5C_intersectionisinstance)
   - [dlib::rvm\_trainer\_histogram\_intersection::train](#dlibrvm%5C_trainer%5C_histogram%5C_intersectiontrain)
 - [dlib::rvm\_trainer\_sparse\_histogram\_intersection](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersection)
   - [rvm\_trainer\_sparse\_histogram\_intersection.epsilon](#rvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionepsilon)
+  - [rvm\_trainer\_sparse\_histogram\_intersection.FullyQualifiedName](#rvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::rvm\_trainer\_sparse\_histogram\_intersection::get\_create](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionget%5C_create)
+  - [dlib::rvm\_trainer\_sparse\_histogram\_intersection::IsInstance](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionisinstance)
   - [dlib::rvm\_trainer\_sparse\_histogram\_intersection::train](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectiontrain)
 - [dlib::rvm\_trainer\_linear](#dlibrvm%5C_trainer%5C_linear)
   - [rvm\_trainer\_linear.epsilon](#rvm%5C_trainer%5C_linearepsilon)
+  - [rvm\_trainer\_linear.FullyQualifiedName](#rvm%5C_trainer%5C_linearfullyqualifiedname)
   - [dlib::rvm\_trainer\_linear::get\_create](#dlibrvm%5C_trainer%5C_linearget%5C_create)
+  - [dlib::rvm\_trainer\_linear::IsInstance](#dlibrvm%5C_trainer%5C_linearisinstance)
   - [dlib::rvm\_trainer\_linear::train](#dlibrvm%5C_trainer%5C_lineartrain)
 - [dlib::rvm\_trainer\_sparse\_linear](#dlibrvm%5C_trainer%5C_sparse%5C_linear)
   - [rvm\_trainer\_sparse\_linear.epsilon](#rvm%5C_trainer%5C_sparse%5C_linearepsilon)
+  - [rvm\_trainer\_sparse\_linear.FullyQualifiedName](#rvm%5C_trainer%5C_sparse%5C_linearfullyqualifiedname)
   - [dlib::rvm\_trainer\_sparse\_linear::get\_create](#dlibrvm%5C_trainer%5C_sparse%5C_linearget%5C_create)
+  - [dlib::rvm\_trainer\_sparse\_linear::IsInstance](#dlibrvm%5C_trainer%5C_sparse%5C_linearisinstance)
   - [dlib::rvm\_trainer\_sparse\_linear::train](#dlibrvm%5C_trainer%5C_sparse%5C_lineartrain)
 - [dlib::vec\_ranking\_pair](#dlibvec%5C_ranking%5C_pair)
   - [vec\_ranking\_pair.relevant](#vec%5C_ranking%5C_pairrelevant)
   - [vec\_ranking\_pair.nonrelevant](#vec%5C_ranking%5C_pairnonrelevant)
+  - [vec\_ranking\_pair.FullyQualifiedName](#vec%5C_ranking%5C_pairfullyqualifiedname)
   - [dlib::vec\_ranking\_pair::get\_create](#dlibvec%5C_ranking%5C_pairget%5C_create)
+  - [dlib::vec\_ranking\_pair::IsInstance](#dlibvec%5C_ranking%5C_pairisinstance)
 - [dlib::sparse\_ranking\_pair](#dlibsparse%5C_ranking%5C_pair)
   - [sparse\_ranking\_pair.relevant](#sparse%5C_ranking%5C_pairrelevant)
   - [sparse\_ranking\_pair.nonrelevant](#sparse%5C_ranking%5C_pairnonrelevant)
+  - [sparse\_ranking\_pair.FullyQualifiedName](#sparse%5C_ranking%5C_pairfullyqualifiedname)
   - [dlib::sparse\_ranking\_pair::get\_create](#dlibsparse%5C_ranking%5C_pairget%5C_create)
+  - [dlib::sparse\_ranking\_pair::IsInstance](#dlibsparse%5C_ranking%5C_pairisinstance)
 - [dlib::vec\_svm\_rank\_trainer](#dlibvec%5C_svm%5C_rank%5C_trainer)
   - [vec\_svm\_rank\_trainer.epsilon](#vec%5C_svm%5C_rank%5C_trainerepsilon)
   - [vec\_svm\_rank\_trainer.c](#vec%5C_svm%5C_rank%5C_trainerc)
@@ -918,7 +1071,9 @@
   - [vec\_svm\_rank\_trainer.force\_last\_weight\_to\_1](#vec%5C_svm%5C_rank%5C_trainerforce%5C_last%5C_weight%5C_to%5C_1)
   - [vec\_svm\_rank\_trainer.learns\_nonnegative\_weights](#vec%5C_svm%5C_rank%5C_trainerlearns%5C_nonnegative%5C_weights)
   - [vec\_svm\_rank\_trainer.has\_prior](#vec%5C_svm%5C_rank%5C_trainerhas%5C_prior)
+  - [vec\_svm\_rank\_trainer.FullyQualifiedName](#vec%5C_svm%5C_rank%5C_trainerfullyqualifiedname)
   - [dlib::vec\_svm\_rank\_trainer::get\_create](#dlibvec%5C_svm%5C_rank%5C_trainerget%5C_create)
+  - [dlib::vec\_svm\_rank\_trainer::IsInstance](#dlibvec%5C_svm%5C_rank%5C_trainerisinstance)
   - [dlib::vec\_svm\_rank\_trainer::be\_quiet](#dlibvec%5C_svm%5C_rank%5C_trainerbe%5C_quiet)
   - [dlib::vec\_svm\_rank\_trainer::be\_verbose](#dlibvec%5C_svm%5C_rank%5C_trainerbe%5C_verbose)
   - [dlib::vec\_svm\_rank\_trainer::set\_prior](#dlibvec%5C_svm%5C_rank%5C_trainerset%5C_prior)
@@ -930,7 +1085,9 @@
   - [svm\_rank\_trainer\_sparse.force\_last\_weight\_to\_1](#svm%5C_rank%5C_trainer%5C_sparseforce%5C_last%5C_weight%5C_to%5C_1)
   - [svm\_rank\_trainer\_sparse.learns\_nonnegative\_weights](#svm%5C_rank%5C_trainer%5C_sparselearns%5C_nonnegative%5C_weights)
   - [svm\_rank\_trainer\_sparse.has\_prior](#svm%5C_rank%5C_trainer%5C_sparsehas%5C_prior)
+  - [svm\_rank\_trainer\_sparse.FullyQualifiedName](#svm%5C_rank%5C_trainer%5C_sparsefullyqualifiedname)
   - [dlib::svm\_rank\_trainer\_sparse::get\_create](#dlibsvm%5C_rank%5C_trainer%5C_sparseget%5C_create)
+  - [dlib::svm\_rank\_trainer\_sparse::IsInstance](#dlibsvm%5C_rank%5C_trainer%5C_sparseisinstance)
   - [dlib::svm\_rank\_trainer\_sparse::be\_quiet](#dlibsvm%5C_rank%5C_trainer%5C_sparsebe%5C_quiet)
   - [dlib::svm\_rank\_trainer\_sparse::be\_verbose](#dlibsvm%5C_rank%5C_trainer%5C_sparsebe%5C_verbose)
   - [dlib::svm\_rank\_trainer\_sparse::set\_prior](#dlibsvm%5C_rank%5C_trainer%5C_sparseset%5C_prior)
@@ -946,8 +1103,10 @@
   - [UMat.shape](#umatshape)
   - [UMat.sizes](#umatsizes)
   - [UMat.steps](#umatsteps)
+  - [UMat.FullyQualifiedName](#umatfullyqualifiedname)
   - [cv::UMat::get\_create](#cvumatget%5C_create)
   - [cv::UMat::GdiplusResize](#cvumatgdiplusresize)
+  - [cv::UMat::IsInstance](#cvumatisinstance)
   - [cv::UMat::adjustROI](#cvumatadjustroi)
   - [cv::UMat::assignTo](#cvumatassignto)
   - [cv::UMat::channels](#cvumatchannels)
@@ -993,7 +1152,9 @@
   - [cv::UMat::zeros](#cvumatzeros)
 - [dlib::SpaceVector](#dlibspacevector)
   - [SpaceVector.shape](#spacevectorshape)
+  - [SpaceVector.FullyQualifiedName](#spacevectorfullyqualifiedname)
   - [dlib::SpaceVector::create](#dlibspacevectorcreate)
+  - [dlib::SpaceVector::IsInstance](#dlibspacevectorisinstance)
   - [dlib::SpaceVector::ToString](#dlibspacevectortostring)
   - [dlib::SpaceVector::get](#dlibspacevectorget)
   - [dlib::SpaceVector::get\_Item](#dlibspacevectorget%5C_item)
@@ -1005,11 +1166,15 @@
   - [dlib::SpaceVector::slice](#dlibspacevectorslice)
 - [dlib::point\_transform\_projective](#dlibpoint%5C_transform%5C_projective)
   - [point\_transform\_projective.m](#point%5C_transform%5C_projectivem)
+  - [point\_transform\_projective.FullyQualifiedName](#point%5C_transform%5C_projectivefullyqualifiedname)
   - [dlib::point\_transform\_projective::get\_create](#dlibpoint%5C_transform%5C_projectiveget%5C_create)
+  - [dlib::point\_transform\_projective::IsInstance](#dlibpoint%5C_transform%5C_projectiveisinstance)
 - [dlib::dpoint](#dlibdpoint)
   - [dpoint.x](#dpointx)
   - [dpoint.y](#dpointy)
+  - [dpoint.FullyQualifiedName](#dpointfullyqualifiedname)
   - [dlib::dpoint::get\_create](#dlibdpointget%5C_create)
+  - [dlib::dpoint::IsInstance](#dlibdpointisinstance)
   - [dlib::dpoint::ToString](#dlibdpointtostring)
   - [dlib::dpoint::add](#dlibdpointadd)
   - [dlib::dpoint::divide](#dlibdpointdivide)
@@ -1019,7 +1184,9 @@
 - [dlib::point](#dlibpoint)
   - [point.x](#pointx)
   - [point.y](#pointy)
+  - [point.FullyQualifiedName](#pointfullyqualifiedname)
   - [dlib::point::get\_create](#dlibpointget%5C_create)
+  - [dlib::point::IsInstance](#dlibpointisinstance)
   - [dlib::point::ToString](#dlibpointtostring)
   - [dlib::point::add](#dlibpointadd)
   - [dlib::point::divide](#dlibpointdivide)
@@ -1028,8 +1195,10 @@
   - [dlib::point::sub](#dlibpointsub)
 - [VectorOfString](#vectorofstring)
   - [VectorOfString.Count](#vectorofstringcount)
+  - [VectorOfString.FullyQualifiedName](#vectorofstringfullyqualifiedname)
   - [VectorOfString::create](#vectorofstringcreate)
   - [VectorOfString::Add](#vectorofstringadd)
+  - [VectorOfString::IsInstance](#vectorofstringisinstance)
   - [VectorOfString::Items](#vectorofstringitems)
   - [VectorOfString::Keys](#vectorofstringkeys)
   - [VectorOfString::Remove](#vectorofstringremove)
@@ -1050,8 +1219,10 @@
   - [VectorOfString::start](#vectorofstringstart)
 - [VectorOfVariant](#vectorofvariant)
   - [VectorOfVariant.Count](#vectorofvariantcount)
+  - [VectorOfVariant.FullyQualifiedName](#vectorofvariantfullyqualifiedname)
   - [VectorOfVariant::create](#vectorofvariantcreate)
   - [VectorOfVariant::Add](#vectorofvariantadd)
+  - [VectorOfVariant::IsInstance](#vectorofvariantisinstance)
   - [VectorOfVariant::Items](#vectorofvariantitems)
   - [VectorOfVariant::Keys](#vectorofvariantkeys)
   - [VectorOfVariant::Remove](#vectorofvariantremove)
@@ -1072,8 +1243,10 @@
   - [VectorOfVariant::start](#vectorofvariantstart)
 - [VectorOfPairOfULONGAndDouble](#vectorofpairofulonganddouble)
   - [VectorOfPairOfULONGAndDouble.Count](#vectorofpairofulonganddoublecount)
+  - [VectorOfPairOfULONGAndDouble.FullyQualifiedName](#vectorofpairofulonganddoublefullyqualifiedname)
   - [VectorOfPairOfULONGAndDouble::create](#vectorofpairofulonganddoublecreate)
   - [VectorOfPairOfULONGAndDouble::Add](#vectorofpairofulonganddoubleadd)
+  - [VectorOfPairOfULONGAndDouble::IsInstance](#vectorofpairofulonganddoubleisinstance)
   - [VectorOfPairOfULONGAndDouble::Items](#vectorofpairofulonganddoubleitems)
   - [VectorOfPairOfULONGAndDouble::Keys](#vectorofpairofulonganddoublekeys)
   - [VectorOfPairOfULONGAndDouble::Remove](#vectorofpairofulonganddoubleremove)
@@ -1094,8 +1267,10 @@
   - [VectorOfPairOfULONGAndDouble::start](#vectorofpairofulonganddoublestart)
 - [VectorOfVectorOfPairOfULONGAndDouble](#vectorofvectorofpairofulonganddouble)
   - [VectorOfVectorOfPairOfULONGAndDouble.Count](#vectorofvectorofpairofulonganddoublecount)
+  - [VectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName](#vectorofvectorofpairofulonganddoublefullyqualifiedname)
   - [VectorOfVectorOfPairOfULONGAndDouble::create](#vectorofvectorofpairofulonganddoublecreate)
   - [VectorOfVectorOfPairOfULONGAndDouble::Add](#vectorofvectorofpairofulonganddoubleadd)
+  - [VectorOfVectorOfPairOfULONGAndDouble::IsInstance](#vectorofvectorofpairofulonganddoubleisinstance)
   - [VectorOfVectorOfPairOfULONGAndDouble::Items](#vectorofvectorofpairofulonganddoubleitems)
   - [VectorOfVectorOfPairOfULONGAndDouble::Keys](#vectorofvectorofpairofulonganddoublekeys)
   - [VectorOfVectorOfPairOfULONGAndDouble::Remove](#vectorofvectorofpairofulonganddoubleremove)
@@ -1116,8 +1291,10 @@
   - [VectorOfVectorOfPairOfULONGAndDouble::start](#vectorofvectorofpairofulonganddoublestart)
 - [VectorOfMat](#vectorofmat)
   - [VectorOfMat.Count](#vectorofmatcount)
+  - [VectorOfMat.FullyQualifiedName](#vectorofmatfullyqualifiedname)
   - [VectorOfMat::create](#vectorofmatcreate)
   - [VectorOfMat::Add](#vectorofmatadd)
+  - [VectorOfMat::IsInstance](#vectorofmatisinstance)
   - [VectorOfMat::Items](#vectorofmatitems)
   - [VectorOfMat::Keys](#vectorofmatkeys)
   - [VectorOfMat::Remove](#vectorofmatremove)
@@ -1138,8 +1315,10 @@
   - [VectorOfMat::start](#vectorofmatstart)
 - [VectorOfFull\_object\_detection](#vectoroffull%5C_object%5C_detection)
   - [VectorOfFull\_object\_detection.Count](#vectoroffull%5C_object%5C_detectioncount)
+  - [VectorOfFull\_object\_detection.FullyQualifiedName](#vectoroffull%5C_object%5C_detectionfullyqualifiedname)
   - [VectorOfFull\_object\_detection::create](#vectoroffull%5C_object%5C_detectioncreate)
   - [VectorOfFull\_object\_detection::Add](#vectoroffull%5C_object%5C_detectionadd)
+  - [VectorOfFull\_object\_detection::IsInstance](#vectoroffull%5C_object%5C_detectionisinstance)
   - [VectorOfFull\_object\_detection::Items](#vectoroffull%5C_object%5C_detectionitems)
   - [VectorOfFull\_object\_detection::Keys](#vectoroffull%5C_object%5C_detectionkeys)
   - [VectorOfFull\_object\_detection::Remove](#vectoroffull%5C_object%5C_detectionremove)
@@ -1160,8 +1339,10 @@
   - [VectorOfFull\_object\_detection::start](#vectoroffull%5C_object%5C_detectionstart)
 - [VectorOfSpaceVector](#vectorofspacevector)
   - [VectorOfSpaceVector.Count](#vectorofspacevectorcount)
+  - [VectorOfSpaceVector.FullyQualifiedName](#vectorofspacevectorfullyqualifiedname)
   - [VectorOfSpaceVector::create](#vectorofspacevectorcreate)
   - [VectorOfSpaceVector::Add](#vectorofspacevectoradd)
+  - [VectorOfSpaceVector::IsInstance](#vectorofspacevectorisinstance)
   - [VectorOfSpaceVector::Items](#vectorofspacevectoritems)
   - [VectorOfSpaceVector::Keys](#vectorofspacevectorkeys)
   - [VectorOfSpaceVector::Remove](#vectorofspacevectorremove)
@@ -1182,8 +1363,10 @@
   - [VectorOfSpaceVector::start](#vectorofspacevectorstart)
 - [VectorOfULONG](#vectorofulong)
   - [VectorOfULONG.Count](#vectorofulongcount)
+  - [VectorOfULONG.FullyQualifiedName](#vectorofulongfullyqualifiedname)
   - [VectorOfULONG::create](#vectorofulongcreate)
   - [VectorOfULONG::Add](#vectorofulongadd)
+  - [VectorOfULONG::IsInstance](#vectorofulongisinstance)
   - [VectorOfULONG::Items](#vectorofulongitems)
   - [VectorOfULONG::Keys](#vectorofulongkeys)
   - [VectorOfULONG::Remove](#vectorofulongremove)
@@ -1204,8 +1387,10 @@
   - [VectorOfULONG::start](#vectorofulongstart)
 - [VectorOfDouble](#vectorofdouble)
   - [VectorOfDouble.Count](#vectorofdoublecount)
+  - [VectorOfDouble.FullyQualifiedName](#vectorofdoublefullyqualifiedname)
   - [VectorOfDouble::create](#vectorofdoublecreate)
   - [VectorOfDouble::Add](#vectorofdoubleadd)
+  - [VectorOfDouble::IsInstance](#vectorofdoubleisinstance)
   - [VectorOfDouble::Items](#vectorofdoubleitems)
   - [VectorOfDouble::Keys](#vectorofdoublekeys)
   - [VectorOfDouble::Remove](#vectorofdoubleremove)
@@ -1226,8 +1411,10 @@
   - [VectorOfDouble::start](#vectorofdoublestart)
 - [VectorOfBool](#vectorofbool)
   - [VectorOfBool.Count](#vectorofboolcount)
+  - [VectorOfBool.FullyQualifiedName](#vectorofboolfullyqualifiedname)
   - [VectorOfBool::create](#vectorofboolcreate)
   - [VectorOfBool::Add](#vectorofbooladd)
+  - [VectorOfBool::IsInstance](#vectorofboolisinstance)
   - [VectorOfBool::Items](#vectorofboolitems)
   - [VectorOfBool::Keys](#vectorofboolkeys)
   - [VectorOfBool::Remove](#vectorofboolremove)
@@ -1248,8 +1435,10 @@
   - [VectorOfBool::start](#vectorofboolstart)
 - [VectorOfRectangle](#vectorofrectangle)
   - [VectorOfRectangle.Count](#vectorofrectanglecount)
+  - [VectorOfRectangle.FullyQualifiedName](#vectorofrectanglefullyqualifiedname)
   - [VectorOfRectangle::create](#vectorofrectanglecreate)
   - [VectorOfRectangle::Add](#vectorofrectangleadd)
+  - [VectorOfRectangle::IsInstance](#vectorofrectangleisinstance)
   - [VectorOfRectangle::Items](#vectorofrectangleitems)
   - [VectorOfRectangle::Keys](#vectorofrectanglekeys)
   - [VectorOfRectangle::Remove](#vectorofrectangleremove)
@@ -1270,8 +1459,10 @@
   - [VectorOfRectangle::start](#vectorofrectanglestart)
 - [VectorOfLong](#vectoroflong)
   - [VectorOfLong.Count](#vectoroflongcount)
+  - [VectorOfLong.FullyQualifiedName](#vectoroflongfullyqualifiedname)
   - [VectorOfLong::create](#vectoroflongcreate)
   - [VectorOfLong::Add](#vectoroflongadd)
+  - [VectorOfLong::IsInstance](#vectoroflongisinstance)
   - [VectorOfLong::Items](#vectoroflongitems)
   - [VectorOfLong::Keys](#vectoroflongkeys)
   - [VectorOfLong::Remove](#vectoroflongremove)
@@ -1292,8 +1483,10 @@
   - [VectorOfLong::start](#vectoroflongstart)
 - [VectorOfVectorOfSpaceVector](#vectorofvectorofspacevector)
   - [VectorOfVectorOfSpaceVector.Count](#vectorofvectorofspacevectorcount)
+  - [VectorOfVectorOfSpaceVector.FullyQualifiedName](#vectorofvectorofspacevectorfullyqualifiedname)
   - [VectorOfVectorOfSpaceVector::create](#vectorofvectorofspacevectorcreate)
   - [VectorOfVectorOfSpaceVector::Add](#vectorofvectorofspacevectoradd)
+  - [VectorOfVectorOfSpaceVector::IsInstance](#vectorofvectorofspacevectorisinstance)
   - [VectorOfVectorOfSpaceVector::Items](#vectorofvectorofspacevectoritems)
   - [VectorOfVectorOfSpaceVector::Keys](#vectorofvectorofspacevectorkeys)
   - [VectorOfVectorOfSpaceVector::Remove](#vectorofvectorofspacevectorremove)
@@ -1314,8 +1507,10 @@
   - [VectorOfVectorOfSpaceVector::start](#vectorofvectorofspacevectorstart)
 - [VectorOfPairOfULONGAndULONG](#vectorofpairofulongandulong)
   - [VectorOfPairOfULONGAndULONG.Count](#vectorofpairofulongandulongcount)
+  - [VectorOfPairOfULONGAndULONG.FullyQualifiedName](#vectorofpairofulongandulongfullyqualifiedname)
   - [VectorOfPairOfULONGAndULONG::create](#vectorofpairofulongandulongcreate)
   - [VectorOfPairOfULONGAndULONG::Add](#vectorofpairofulongandulongadd)
+  - [VectorOfPairOfULONGAndULONG::IsInstance](#vectorofpairofulongandulongisinstance)
   - [VectorOfPairOfULONGAndULONG::Items](#vectorofpairofulongandulongitems)
   - [VectorOfPairOfULONGAndULONG::Keys](#vectorofpairofulongandulongkeys)
   - [VectorOfPairOfULONGAndULONG::Remove](#vectorofpairofulongandulongremove)
@@ -1336,8 +1531,10 @@
   - [VectorOfPairOfULONGAndULONG::start](#vectorofpairofulongandulongstart)
 - [VectorOfVectorOfPairOfULONGAndULONG](#vectorofvectorofpairofulongandulong)
   - [VectorOfVectorOfPairOfULONGAndULONG.Count](#vectorofvectorofpairofulongandulongcount)
+  - [VectorOfVectorOfPairOfULONGAndULONG.FullyQualifiedName](#vectorofvectorofpairofulongandulongfullyqualifiedname)
   - [VectorOfVectorOfPairOfULONGAndULONG::create](#vectorofvectorofpairofulongandulongcreate)
   - [VectorOfVectorOfPairOfULONGAndULONG::Add](#vectorofvectorofpairofulongandulongadd)
+  - [VectorOfVectorOfPairOfULONGAndULONG::IsInstance](#vectorofvectorofpairofulongandulongisinstance)
   - [VectorOfVectorOfPairOfULONGAndULONG::Items](#vectorofvectorofpairofulongandulongitems)
   - [VectorOfVectorOfPairOfULONGAndULONG::Keys](#vectorofvectorofpairofulongandulongkeys)
   - [VectorOfVectorOfPairOfULONGAndULONG::Remove](#vectorofvectorofpairofulongandulongremove)
@@ -1358,8 +1555,10 @@
   - [VectorOfVectorOfPairOfULONGAndULONG::start](#vectorofvectorofpairofulongandulongstart)
 - [VectorOfVectorOfVectorOfPairOfULONGAndDouble](#vectorofvectorofvectorofpairofulonganddouble)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble.Count](#vectorofvectorofvectorofpairofulonganddoublecount)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName](#vectorofvectorofvectorofpairofulonganddoublefullyqualifiedname)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::create](#vectorofvectorofvectorofpairofulonganddoublecreate)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::Add](#vectorofvectorofvectorofpairofulonganddoubleadd)
+  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::IsInstance](#vectorofvectorofvectorofpairofulonganddoubleisinstance)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::Items](#vectorofvectorofvectorofpairofulonganddoubleitems)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::Keys](#vectorofvectorofvectorofpairofulonganddoublekeys)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::Remove](#vectorofvectorofvectorofpairofulonganddoubleremove)
@@ -1380,8 +1579,10 @@
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::start](#vectorofvectorofvectorofpairofulonganddoublestart)
 - [VectorOfVectorOfFull\_object\_detection](#vectorofvectoroffull%5C_object%5C_detection)
   - [VectorOfVectorOfFull\_object\_detection.Count](#vectorofvectoroffull%5C_object%5C_detectioncount)
+  - [VectorOfVectorOfFull\_object\_detection.FullyQualifiedName](#vectorofvectoroffull%5C_object%5C_detectionfullyqualifiedname)
   - [VectorOfVectorOfFull\_object\_detection::create](#vectorofvectoroffull%5C_object%5C_detectioncreate)
   - [VectorOfVectorOfFull\_object\_detection::Add](#vectorofvectoroffull%5C_object%5C_detectionadd)
+  - [VectorOfVectorOfFull\_object\_detection::IsInstance](#vectorofvectoroffull%5C_object%5C_detectionisinstance)
   - [VectorOfVectorOfFull\_object\_detection::Items](#vectorofvectoroffull%5C_object%5C_detectionitems)
   - [VectorOfVectorOfFull\_object\_detection::Keys](#vectorofvectoroffull%5C_object%5C_detectionkeys)
   - [VectorOfVectorOfFull\_object\_detection::Remove](#vectorofvectoroffull%5C_object%5C_detectionremove)
@@ -1402,8 +1603,10 @@
   - [VectorOfVectorOfFull\_object\_detection::start](#vectorofvectoroffull%5C_object%5C_detectionstart)
 - [VectorOfVectorOfRectangle](#vectorofvectorofrectangle)
   - [VectorOfVectorOfRectangle.Count](#vectorofvectorofrectanglecount)
+  - [VectorOfVectorOfRectangle.FullyQualifiedName](#vectorofvectorofrectanglefullyqualifiedname)
   - [VectorOfVectorOfRectangle::create](#vectorofvectorofrectanglecreate)
   - [VectorOfVectorOfRectangle::Add](#vectorofvectorofrectangleadd)
+  - [VectorOfVectorOfRectangle::IsInstance](#vectorofvectorofrectangleisinstance)
   - [VectorOfVectorOfRectangle::Items](#vectorofvectorofrectangleitems)
   - [VectorOfVectorOfRectangle::Keys](#vectorofvectorofrectanglekeys)
   - [VectorOfVectorOfRectangle::Remove](#vectorofvectorofrectangleremove)
@@ -1424,8 +1627,10 @@
   - [VectorOfVectorOfRectangle::start](#vectorofvectorofrectanglestart)
 - [VectorOfVec\_ranking\_pair](#vectorofvec%5C_ranking%5C_pair)
   - [VectorOfVec\_ranking\_pair.Count](#vectorofvec%5C_ranking%5C_paircount)
+  - [VectorOfVec\_ranking\_pair.FullyQualifiedName](#vectorofvec%5C_ranking%5C_pairfullyqualifiedname)
   - [VectorOfVec\_ranking\_pair::create](#vectorofvec%5C_ranking%5C_paircreate)
   - [VectorOfVec\_ranking\_pair::Add](#vectorofvec%5C_ranking%5C_pairadd)
+  - [VectorOfVec\_ranking\_pair::IsInstance](#vectorofvec%5C_ranking%5C_pairisinstance)
   - [VectorOfVec\_ranking\_pair::Items](#vectorofvec%5C_ranking%5C_pairitems)
   - [VectorOfVec\_ranking\_pair::Keys](#vectorofvec%5C_ranking%5C_pairkeys)
   - [VectorOfVec\_ranking\_pair::Remove](#vectorofvec%5C_ranking%5C_pairremove)
@@ -1446,8 +1651,10 @@
   - [VectorOfVec\_ranking\_pair::start](#vectorofvec%5C_ranking%5C_pairstart)
 - [VectorOfSparse\_ranking\_pair](#vectorofsparse%5C_ranking%5C_pair)
   - [VectorOfSparse\_ranking\_pair.Count](#vectorofsparse%5C_ranking%5C_paircount)
+  - [VectorOfSparse\_ranking\_pair.FullyQualifiedName](#vectorofsparse%5C_ranking%5C_pairfullyqualifiedname)
   - [VectorOfSparse\_ranking\_pair::create](#vectorofsparse%5C_ranking%5C_paircreate)
   - [VectorOfSparse\_ranking\_pair::Add](#vectorofsparse%5C_ranking%5C_pairadd)
+  - [VectorOfSparse\_ranking\_pair::IsInstance](#vectorofsparse%5C_ranking%5C_pairisinstance)
   - [VectorOfSparse\_ranking\_pair::Items](#vectorofsparse%5C_ranking%5C_pairitems)
   - [VectorOfSparse\_ranking\_pair::Keys](#vectorofsparse%5C_ranking%5C_pairkeys)
   - [VectorOfSparse\_ranking\_pair::Remove](#vectorofsparse%5C_ranking%5C_pairremove)
@@ -1468,8 +1675,10 @@
   - [VectorOfSparse\_ranking\_pair::start](#vectorofsparse%5C_ranking%5C_pairstart)
 - [VectorOfDpoint](#vectorofdpoint)
   - [VectorOfDpoint.Count](#vectorofdpointcount)
+  - [VectorOfDpoint.FullyQualifiedName](#vectorofdpointfullyqualifiedname)
   - [VectorOfDpoint::create](#vectorofdpointcreate)
   - [VectorOfDpoint::Add](#vectorofdpointadd)
+  - [VectorOfDpoint::IsInstance](#vectorofdpointisinstance)
   - [VectorOfDpoint::Items](#vectorofdpointitems)
   - [VectorOfDpoint::Keys](#vectorofdpointkeys)
   - [VectorOfDpoint::Remove](#vectorofdpointremove)
@@ -1490,8 +1699,10 @@
   - [VectorOfDpoint::start](#vectorofdpointstart)
 - [VectorOfPoint](#vectorofpoint)
   - [VectorOfPoint.Count](#vectorofpointcount)
+  - [VectorOfPoint.FullyQualifiedName](#vectorofpointfullyqualifiedname)
   - [VectorOfPoint::create](#vectorofpointcreate)
   - [VectorOfPoint::Add](#vectorofpointadd)
+  - [VectorOfPoint::IsInstance](#vectorofpointisinstance)
   - [VectorOfPoint::Items](#vectorofpointitems)
   - [VectorOfPoint::Keys](#vectorofpointkeys)
   - [VectorOfPoint::Remove](#vectorofpointremove)
@@ -1512,8 +1723,10 @@
   - [VectorOfPoint::start](#vectorofpointstart)
 - [VectorOfVectorOfDouble](#vectorofvectorofdouble)
   - [VectorOfVectorOfDouble.Count](#vectorofvectorofdoublecount)
+  - [VectorOfVectorOfDouble.FullyQualifiedName](#vectorofvectorofdoublefullyqualifiedname)
   - [VectorOfVectorOfDouble::create](#vectorofvectorofdoublecreate)
   - [VectorOfVectorOfDouble::Add](#vectorofvectorofdoubleadd)
+  - [VectorOfVectorOfDouble::IsInstance](#vectorofvectorofdoubleisinstance)
   - [VectorOfVectorOfDouble::Items](#vectorofvectorofdoubleitems)
   - [VectorOfVectorOfDouble::Keys](#vectorofvectorofdoublekeys)
   - [VectorOfVectorOfDouble::Remove](#vectorofvectorofdoubleremove)
@@ -1534,8 +1747,10 @@
   - [VectorOfVectorOfDouble::start](#vectorofvectorofdoublestart)
 - [VectorOfMmod\_rect](#vectorofmmod%5C_rect)
   - [VectorOfMmod\_rect.Count](#vectorofmmod%5C_rectcount)
+  - [VectorOfMmod\_rect.FullyQualifiedName](#vectorofmmod%5C_rectfullyqualifiedname)
   - [VectorOfMmod\_rect::create](#vectorofmmod%5C_rectcreate)
   - [VectorOfMmod\_rect::Add](#vectorofmmod%5C_rectadd)
+  - [VectorOfMmod\_rect::IsInstance](#vectorofmmod%5C_rectisinstance)
   - [VectorOfMmod\_rect::Items](#vectorofmmod%5C_rectitems)
   - [VectorOfMmod\_rect::Keys](#vectorofmmod%5C_rectkeys)
   - [VectorOfMmod\_rect::Remove](#vectorofmmod%5C_rectremove)
@@ -1556,8 +1771,10 @@
   - [VectorOfMmod\_rect::start](#vectorofmmod%5C_rectstart)
 - [VectorOfVectorOfMmod\_rect](#vectorofvectorofmmod%5C_rect)
   - [VectorOfVectorOfMmod\_rect.Count](#vectorofvectorofmmod%5C_rectcount)
+  - [VectorOfVectorOfMmod\_rect.FullyQualifiedName](#vectorofvectorofmmod%5C_rectfullyqualifiedname)
   - [VectorOfVectorOfMmod\_rect::create](#vectorofvectorofmmod%5C_rectcreate)
   - [VectorOfVectorOfMmod\_rect::Add](#vectorofvectorofmmod%5C_rectadd)
+  - [VectorOfVectorOfMmod\_rect::IsInstance](#vectorofvectorofmmod%5C_rectisinstance)
   - [VectorOfVectorOfMmod\_rect::Items](#vectorofvectorofmmod%5C_rectitems)
   - [VectorOfVectorOfMmod\_rect::Keys](#vectorofvectorofmmod%5C_rectkeys)
   - [VectorOfVectorOfMmod\_rect::Remove](#vectorofvectorofmmod%5C_rectremove)
@@ -1578,8 +1795,10 @@
   - [VectorOfVectorOfMmod\_rect::start](#vectorofvectorofmmod%5C_rectstart)
 - [VectorOfSimple\_object\_detector\_com](#vectorofsimple%5C_object%5C_detector%5C_com)
   - [VectorOfSimple\_object\_detector\_com.Count](#vectorofsimple%5C_object%5C_detector%5C_comcount)
+  - [VectorOfSimple\_object\_detector\_com.FullyQualifiedName](#vectorofsimple%5C_object%5C_detector%5C_comfullyqualifiedname)
   - [VectorOfSimple\_object\_detector\_com::create](#vectorofsimple%5C_object%5C_detector%5C_comcreate)
   - [VectorOfSimple\_object\_detector\_com::Add](#vectorofsimple%5C_object%5C_detector%5C_comadd)
+  - [VectorOfSimple\_object\_detector\_com::IsInstance](#vectorofsimple%5C_object%5C_detector%5C_comisinstance)
   - [VectorOfSimple\_object\_detector\_com::Items](#vectorofsimple%5C_object%5C_detector%5C_comitems)
   - [VectorOfSimple\_object\_detector\_com::Keys](#vectorofsimple%5C_object%5C_detector%5C_comkeys)
   - [VectorOfSimple\_object\_detector\_com::Remove](#vectorofsimple%5C_object%5C_detector%5C_comremove)
@@ -1600,8 +1819,10 @@
   - [VectorOfSimple\_object\_detector\_com::start](#vectorofsimple%5C_object%5C_detector%5C_comstart)
 - [VectorOfFhog\_object\_detector](#vectoroffhog%5C_object%5C_detector)
   - [VectorOfFhog\_object\_detector.Count](#vectoroffhog%5C_object%5C_detectorcount)
+  - [VectorOfFhog\_object\_detector.FullyQualifiedName](#vectoroffhog%5C_object%5C_detectorfullyqualifiedname)
   - [VectorOfFhog\_object\_detector::create](#vectoroffhog%5C_object%5C_detectorcreate)
   - [VectorOfFhog\_object\_detector::Add](#vectoroffhog%5C_object%5C_detectoradd)
+  - [VectorOfFhog\_object\_detector::IsInstance](#vectoroffhog%5C_object%5C_detectorisinstance)
   - [VectorOfFhog\_object\_detector::Items](#vectoroffhog%5C_object%5C_detectoritems)
   - [VectorOfFhog\_object\_detector::Keys](#vectoroffhog%5C_object%5C_detectorkeys)
   - [VectorOfFhog\_object\_detector::Remove](#vectoroffhog%5C_object%5C_detectorremove)
@@ -1622,8 +1843,10 @@
   - [VectorOfFhog\_object\_detector::start](#vectoroffhog%5C_object%5C_detectorstart)
 - [VectorOfUchar](#vectorofuchar)
   - [VectorOfUchar.Count](#vectorofucharcount)
+  - [VectorOfUchar.FullyQualifiedName](#vectorofucharfullyqualifiedname)
   - [VectorOfUchar::create](#vectorofucharcreate)
   - [VectorOfUchar::Add](#vectorofucharadd)
+  - [VectorOfUchar::IsInstance](#vectorofucharisinstance)
   - [VectorOfUchar::Items](#vectorofucharitems)
   - [VectorOfUchar::Keys](#vectorofucharkeys)
   - [VectorOfUchar::Remove](#vectorofucharremove)
@@ -1644,8 +1867,10 @@
   - [VectorOfUchar::start](#vectorofucharstart)
 - [VectorOfInt](#vectorofint)
   - [VectorOfInt.Count](#vectorofintcount)
+  - [VectorOfInt.FullyQualifiedName](#vectorofintfullyqualifiedname)
   - [VectorOfInt::create](#vectorofintcreate)
   - [VectorOfInt::Add](#vectorofintadd)
+  - [VectorOfInt::IsInstance](#vectorofintisinstance)
   - [VectorOfInt::Items](#vectorofintitems)
   - [VectorOfInt::Keys](#vectorofintkeys)
   - [VectorOfInt::Remove](#vectorofintremove)
@@ -1666,8 +1891,10 @@
   - [VectorOfInt::start](#vectorofintstart)
 - [VectorOfFunction\_spec](#vectoroffunction%5C_spec)
   - [VectorOfFunction\_spec.Count](#vectoroffunction%5C_speccount)
+  - [VectorOfFunction\_spec.FullyQualifiedName](#vectoroffunction%5C_specfullyqualifiedname)
   - [VectorOfFunction\_spec::create](#vectoroffunction%5C_speccreate)
   - [VectorOfFunction\_spec::Add](#vectoroffunction%5C_specadd)
+  - [VectorOfFunction\_spec::IsInstance](#vectoroffunction%5C_specisinstance)
   - [VectorOfFunction\_spec::Items](#vectoroffunction%5C_specitems)
   - [VectorOfFunction\_spec::Keys](#vectoroffunction%5C_speckeys)
   - [VectorOfFunction\_spec::Remove](#vectoroffunction%5C_specremove)
@@ -1688,8 +1915,10 @@
   - [VectorOfFunction\_spec::start](#vectoroffunction%5C_specstart)
 - [VectorOfFunction\_evaluation](#vectoroffunction%5C_evaluation)
   - [VectorOfFunction\_evaluation.Count](#vectoroffunction%5C_evaluationcount)
+  - [VectorOfFunction\_evaluation.FullyQualifiedName](#vectoroffunction%5C_evaluationfullyqualifiedname)
   - [VectorOfFunction\_evaluation::create](#vectoroffunction%5C_evaluationcreate)
   - [VectorOfFunction\_evaluation::Add](#vectoroffunction%5C_evaluationadd)
+  - [VectorOfFunction\_evaluation::IsInstance](#vectoroffunction%5C_evaluationisinstance)
   - [VectorOfFunction\_evaluation::Items](#vectoroffunction%5C_evaluationitems)
   - [VectorOfFunction\_evaluation::Keys](#vectoroffunction%5C_evaluationkeys)
   - [VectorOfFunction\_evaluation::Remove](#vectoroffunction%5C_evaluationremove)
@@ -1710,8 +1939,10 @@
   - [VectorOfFunction\_evaluation::start](#vectoroffunction%5C_evaluationstart)
 - [VectorOfVectorOfFunction\_evaluation](#vectorofvectoroffunction%5C_evaluation)
   - [VectorOfVectorOfFunction\_evaluation.Count](#vectorofvectoroffunction%5C_evaluationcount)
+  - [VectorOfVectorOfFunction\_evaluation.FullyQualifiedName](#vectorofvectoroffunction%5C_evaluationfullyqualifiedname)
   - [VectorOfVectorOfFunction\_evaluation::create](#vectorofvectoroffunction%5C_evaluationcreate)
   - [VectorOfVectorOfFunction\_evaluation::Add](#vectorofvectoroffunction%5C_evaluationadd)
+  - [VectorOfVectorOfFunction\_evaluation::IsInstance](#vectorofvectoroffunction%5C_evaluationisinstance)
   - [VectorOfVectorOfFunction\_evaluation::Items](#vectorofvectoroffunction%5C_evaluationitems)
   - [VectorOfVectorOfFunction\_evaluation::Keys](#vectorofvectoroffunction%5C_evaluationkeys)
   - [VectorOfVectorOfFunction\_evaluation::Remove](#vectorofvectoroffunction%5C_evaluationremove)
@@ -1732,8 +1963,10 @@
   - [VectorOfVectorOfFunction\_evaluation::start](#vectorofvectoroffunction%5C_evaluationstart)
 - [VectorOfDrectangle](#vectorofdrectangle)
   - [VectorOfDrectangle.Count](#vectorofdrectanglecount)
+  - [VectorOfDrectangle.FullyQualifiedName](#vectorofdrectanglefullyqualifiedname)
   - [VectorOfDrectangle::create](#vectorofdrectanglecreate)
   - [VectorOfDrectangle::Add](#vectorofdrectangleadd)
+  - [VectorOfDrectangle::IsInstance](#vectorofdrectangleisinstance)
   - [VectorOfDrectangle::Items](#vectorofdrectangleitems)
   - [VectorOfDrectangle::Keys](#vectorofdrectanglekeys)
   - [VectorOfDrectangle::Remove](#vectorofdrectangleremove)
@@ -1754,8 +1987,10 @@
   - [VectorOfDrectangle::start](#vectorofdrectanglestart)
 - [VectorOfImage\_window\_keyboard\_state\_masks](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masks)
   - [VectorOfImage\_window\_keyboard\_state\_masks.Count](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskscount)
+  - [VectorOfImage\_window\_keyboard\_state\_masks.FullyQualifiedName](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksfullyqualifiedname)
   - [VectorOfImage\_window\_keyboard\_state\_masks::create](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskscreate)
   - [VectorOfImage\_window\_keyboard\_state\_masks::Add](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksadd)
+  - [VectorOfImage\_window\_keyboard\_state\_masks::IsInstance](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksisinstance)
   - [VectorOfImage\_window\_keyboard\_state\_masks::Items](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksitems)
   - [VectorOfImage\_window\_keyboard\_state\_masks::Keys](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskskeys)
   - [VectorOfImage\_window\_keyboard\_state\_masks::Remove](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksremove)
@@ -1775,9 +2010,11 @@
   - [VectorOfImage\_window\_keyboard\_state\_masks::sort\_variant](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskssort%5C_variant)
   - [VectorOfImage\_window\_keyboard\_state\_masks::start](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksstart)
 - [MapOfStringAndPoint](#mapofstringandpoint)
+  - [MapOfStringAndPoint.FullyQualifiedName](#mapofstringandpointfullyqualifiedname)
   - [MapOfStringAndPoint::create](#mapofstringandpointcreate)
   - [MapOfStringAndPoint::Add](#mapofstringandpointadd)
   - [MapOfStringAndPoint::Get](#mapofstringandpointget)
+  - [MapOfStringAndPoint::IsInstance](#mapofstringandpointisinstance)
   - [MapOfStringAndPoint::Items](#mapofstringandpointitems)
   - [MapOfStringAndPoint::Keys](#mapofstringandpointkeys)
   - [MapOfStringAndPoint::Remove](#mapofstringandpointremove)
@@ -1795,8 +2032,10 @@
   - [MapOfStringAndPoint::size](#mapofstringandpointsize)
 - [VectorOfPairOfStringAndPoint](#vectorofpairofstringandpoint)
   - [VectorOfPairOfStringAndPoint.Count](#vectorofpairofstringandpointcount)
+  - [VectorOfPairOfStringAndPoint.FullyQualifiedName](#vectorofpairofstringandpointfullyqualifiedname)
   - [VectorOfPairOfStringAndPoint::create](#vectorofpairofstringandpointcreate)
   - [VectorOfPairOfStringAndPoint::Add](#vectorofpairofstringandpointadd)
+  - [VectorOfPairOfStringAndPoint::IsInstance](#vectorofpairofstringandpointisinstance)
   - [VectorOfPairOfStringAndPoint::Items](#vectorofpairofstringandpointitems)
   - [VectorOfPairOfStringAndPoint::Keys](#vectorofpairofstringandpointkeys)
   - [VectorOfPairOfStringAndPoint::Remove](#vectorofpairofstringandpointremove)
@@ -1817,8 +2056,10 @@
   - [VectorOfPairOfStringAndPoint::start](#vectorofpairofstringandpointstart)
 - [VectorOfImage\_dataset\_metadata\_box](#vectorofimage%5C_dataset%5C_metadata%5C_box)
   - [VectorOfImage\_dataset\_metadata\_box.Count](#vectorofimage%5C_dataset%5C_metadata%5C_boxcount)
+  - [VectorOfImage\_dataset\_metadata\_box.FullyQualifiedName](#vectorofimage%5C_dataset%5C_metadata%5C_boxfullyqualifiedname)
   - [VectorOfImage\_dataset\_metadata\_box::create](#vectorofimage%5C_dataset%5C_metadata%5C_boxcreate)
   - [VectorOfImage\_dataset\_metadata\_box::Add](#vectorofimage%5C_dataset%5C_metadata%5C_boxadd)
+  - [VectorOfImage\_dataset\_metadata\_box::IsInstance](#vectorofimage%5C_dataset%5C_metadata%5C_boxisinstance)
   - [VectorOfImage\_dataset\_metadata\_box::Items](#vectorofimage%5C_dataset%5C_metadata%5C_boxitems)
   - [VectorOfImage\_dataset\_metadata\_box::Keys](#vectorofimage%5C_dataset%5C_metadata%5C_boxkeys)
   - [VectorOfImage\_dataset\_metadata\_box::Remove](#vectorofimage%5C_dataset%5C_metadata%5C_boxremove)
@@ -1839,8 +2080,10 @@
   - [VectorOfImage\_dataset\_metadata\_box::start](#vectorofimage%5C_dataset%5C_metadata%5C_boxstart)
 - [VectorOfImage\_dataset\_metadata\_image](#vectorofimage%5C_dataset%5C_metadata%5C_image)
   - [VectorOfImage\_dataset\_metadata\_image.Count](#vectorofimage%5C_dataset%5C_metadata%5C_imagecount)
+  - [VectorOfImage\_dataset\_metadata\_image.FullyQualifiedName](#vectorofimage%5C_dataset%5C_metadata%5C_imagefullyqualifiedname)
   - [VectorOfImage\_dataset\_metadata\_image::create](#vectorofimage%5C_dataset%5C_metadata%5C_imagecreate)
   - [VectorOfImage\_dataset\_metadata\_image::Add](#vectorofimage%5C_dataset%5C_metadata%5C_imageadd)
+  - [VectorOfImage\_dataset\_metadata\_image::IsInstance](#vectorofimage%5C_dataset%5C_metadata%5C_imageisinstance)
   - [VectorOfImage\_dataset\_metadata\_image::Items](#vectorofimage%5C_dataset%5C_metadata%5C_imageitems)
   - [VectorOfImage\_dataset\_metadata\_image::Keys](#vectorofimage%5C_dataset%5C_metadata%5C_imagekeys)
   - [VectorOfImage\_dataset\_metadata\_image::Remove](#vectorofimage%5C_dataset%5C_metadata%5C_imageremove)
@@ -1861,8 +2104,10 @@
   - [VectorOfImage\_dataset\_metadata\_image::start](#vectorofimage%5C_dataset%5C_metadata%5C_imagestart)
 - [VectorOfSize\_t](#vectorofsize%5C_t)
   - [VectorOfSize\_t.Count](#vectorofsize%5C_tcount)
+  - [VectorOfSize\_t.FullyQualifiedName](#vectorofsize%5C_tfullyqualifiedname)
   - [VectorOfSize\_t::create](#vectorofsize%5C_tcreate)
   - [VectorOfSize\_t::Add](#vectorofsize%5C_tadd)
+  - [VectorOfSize\_t::IsInstance](#vectorofsize%5C_tisinstance)
   - [VectorOfSize\_t::Items](#vectorofsize%5C_titems)
   - [VectorOfSize\_t::Keys](#vectorofsize%5C_tkeys)
   - [VectorOfSize\_t::Remove](#vectorofsize%5C_tremove)
@@ -1883,8 +2128,10 @@
   - [VectorOfSize\_t::start](#vectorofsize%5C_tstart)
 - [VectorOfRange](#vectorofrange)
   - [VectorOfRange.Count](#vectorofrangecount)
+  - [VectorOfRange.FullyQualifiedName](#vectorofrangefullyqualifiedname)
   - [VectorOfRange::create](#vectorofrangecreate)
   - [VectorOfRange::Add](#vectorofrangeadd)
+  - [VectorOfRange::IsInstance](#vectorofrangeisinstance)
   - [VectorOfRange::Items](#vectorofrangeitems)
   - [VectorOfRange::Keys](#vectorofrangekeys)
   - [VectorOfRange::Remove](#vectorofrangeremove)
@@ -1905,8 +2152,10 @@
   - [VectorOfRange::start](#vectorofrangestart)
 - [VectorOfFloat](#vectoroffloat)
   - [VectorOfFloat.Count](#vectoroffloatcount)
+  - [VectorOfFloat.FullyQualifiedName](#vectoroffloatfullyqualifiedname)
   - [VectorOfFloat::create](#vectoroffloatcreate)
   - [VectorOfFloat::Add](#vectoroffloatadd)
+  - [VectorOfFloat::IsInstance](#vectoroffloatisinstance)
   - [VectorOfFloat::Items](#vectoroffloatitems)
   - [VectorOfFloat::Keys](#vectoroffloatkeys)
   - [VectorOfFloat::Remove](#vectoroffloatremove)
@@ -1927,8 +2176,10 @@
   - [VectorOfFloat::start](#vectoroffloatstart)
 - [VectorOfVec2b](#vectorofvec2b)
   - [VectorOfVec2b.Count](#vectorofvec2bcount)
+  - [VectorOfVec2b.FullyQualifiedName](#vectorofvec2bfullyqualifiedname)
   - [VectorOfVec2b::create](#vectorofvec2bcreate)
   - [VectorOfVec2b::Add](#vectorofvec2badd)
+  - [VectorOfVec2b::IsInstance](#vectorofvec2bisinstance)
   - [VectorOfVec2b::Items](#vectorofvec2bitems)
   - [VectorOfVec2b::Keys](#vectorofvec2bkeys)
   - [VectorOfVec2b::Remove](#vectorofvec2bremove)
@@ -1949,8 +2200,10 @@
   - [VectorOfVec2b::start](#vectorofvec2bstart)
 - [VectorOfVec3b](#vectorofvec3b)
   - [VectorOfVec3b.Count](#vectorofvec3bcount)
+  - [VectorOfVec3b.FullyQualifiedName](#vectorofvec3bfullyqualifiedname)
   - [VectorOfVec3b::create](#vectorofvec3bcreate)
   - [VectorOfVec3b::Add](#vectorofvec3badd)
+  - [VectorOfVec3b::IsInstance](#vectorofvec3bisinstance)
   - [VectorOfVec3b::Items](#vectorofvec3bitems)
   - [VectorOfVec3b::Keys](#vectorofvec3bkeys)
   - [VectorOfVec3b::Remove](#vectorofvec3bremove)
@@ -1971,8 +2224,10 @@
   - [VectorOfVec3b::start](#vectorofvec3bstart)
 - [VectorOfVec4b](#vectorofvec4b)
   - [VectorOfVec4b.Count](#vectorofvec4bcount)
+  - [VectorOfVec4b.FullyQualifiedName](#vectorofvec4bfullyqualifiedname)
   - [VectorOfVec4b::create](#vectorofvec4bcreate)
   - [VectorOfVec4b::Add](#vectorofvec4badd)
+  - [VectorOfVec4b::IsInstance](#vectorofvec4bisinstance)
   - [VectorOfVec4b::Items](#vectorofvec4bitems)
   - [VectorOfVec4b::Keys](#vectorofvec4bkeys)
   - [VectorOfVec4b::Remove](#vectorofvec4bremove)
@@ -1993,8 +2248,10 @@
   - [VectorOfVec4b::start](#vectorofvec4bstart)
 - [VectorOfVec2s](#vectorofvec2s)
   - [VectorOfVec2s.Count](#vectorofvec2scount)
+  - [VectorOfVec2s.FullyQualifiedName](#vectorofvec2sfullyqualifiedname)
   - [VectorOfVec2s::create](#vectorofvec2screate)
   - [VectorOfVec2s::Add](#vectorofvec2sadd)
+  - [VectorOfVec2s::IsInstance](#vectorofvec2sisinstance)
   - [VectorOfVec2s::Items](#vectorofvec2sitems)
   - [VectorOfVec2s::Keys](#vectorofvec2skeys)
   - [VectorOfVec2s::Remove](#vectorofvec2sremove)
@@ -2015,8 +2272,10 @@
   - [VectorOfVec2s::start](#vectorofvec2sstart)
 - [VectorOfVec3s](#vectorofvec3s)
   - [VectorOfVec3s.Count](#vectorofvec3scount)
+  - [VectorOfVec3s.FullyQualifiedName](#vectorofvec3sfullyqualifiedname)
   - [VectorOfVec3s::create](#vectorofvec3screate)
   - [VectorOfVec3s::Add](#vectorofvec3sadd)
+  - [VectorOfVec3s::IsInstance](#vectorofvec3sisinstance)
   - [VectorOfVec3s::Items](#vectorofvec3sitems)
   - [VectorOfVec3s::Keys](#vectorofvec3skeys)
   - [VectorOfVec3s::Remove](#vectorofvec3sremove)
@@ -2037,8 +2296,10 @@
   - [VectorOfVec3s::start](#vectorofvec3sstart)
 - [VectorOfVec4s](#vectorofvec4s)
   - [VectorOfVec4s.Count](#vectorofvec4scount)
+  - [VectorOfVec4s.FullyQualifiedName](#vectorofvec4sfullyqualifiedname)
   - [VectorOfVec4s::create](#vectorofvec4screate)
   - [VectorOfVec4s::Add](#vectorofvec4sadd)
+  - [VectorOfVec4s::IsInstance](#vectorofvec4sisinstance)
   - [VectorOfVec4s::Items](#vectorofvec4sitems)
   - [VectorOfVec4s::Keys](#vectorofvec4skeys)
   - [VectorOfVec4s::Remove](#vectorofvec4sremove)
@@ -2059,8 +2320,10 @@
   - [VectorOfVec4s::start](#vectorofvec4sstart)
 - [VectorOfVec2w](#vectorofvec2w)
   - [VectorOfVec2w.Count](#vectorofvec2wcount)
+  - [VectorOfVec2w.FullyQualifiedName](#vectorofvec2wfullyqualifiedname)
   - [VectorOfVec2w::create](#vectorofvec2wcreate)
   - [VectorOfVec2w::Add](#vectorofvec2wadd)
+  - [VectorOfVec2w::IsInstance](#vectorofvec2wisinstance)
   - [VectorOfVec2w::Items](#vectorofvec2witems)
   - [VectorOfVec2w::Keys](#vectorofvec2wkeys)
   - [VectorOfVec2w::Remove](#vectorofvec2wremove)
@@ -2081,8 +2344,10 @@
   - [VectorOfVec2w::start](#vectorofvec2wstart)
 - [VectorOfVec3w](#vectorofvec3w)
   - [VectorOfVec3w.Count](#vectorofvec3wcount)
+  - [VectorOfVec3w.FullyQualifiedName](#vectorofvec3wfullyqualifiedname)
   - [VectorOfVec3w::create](#vectorofvec3wcreate)
   - [VectorOfVec3w::Add](#vectorofvec3wadd)
+  - [VectorOfVec3w::IsInstance](#vectorofvec3wisinstance)
   - [VectorOfVec3w::Items](#vectorofvec3witems)
   - [VectorOfVec3w::Keys](#vectorofvec3wkeys)
   - [VectorOfVec3w::Remove](#vectorofvec3wremove)
@@ -2103,8 +2368,10 @@
   - [VectorOfVec3w::start](#vectorofvec3wstart)
 - [VectorOfVec4w](#vectorofvec4w)
   - [VectorOfVec4w.Count](#vectorofvec4wcount)
+  - [VectorOfVec4w.FullyQualifiedName](#vectorofvec4wfullyqualifiedname)
   - [VectorOfVec4w::create](#vectorofvec4wcreate)
   - [VectorOfVec4w::Add](#vectorofvec4wadd)
+  - [VectorOfVec4w::IsInstance](#vectorofvec4wisinstance)
   - [VectorOfVec4w::Items](#vectorofvec4witems)
   - [VectorOfVec4w::Keys](#vectorofvec4wkeys)
   - [VectorOfVec4w::Remove](#vectorofvec4wremove)
@@ -2125,8 +2392,10 @@
   - [VectorOfVec4w::start](#vectorofvec4wstart)
 - [VectorOfVec2i](#vectorofvec2i)
   - [VectorOfVec2i.Count](#vectorofvec2icount)
+  - [VectorOfVec2i.FullyQualifiedName](#vectorofvec2ifullyqualifiedname)
   - [VectorOfVec2i::create](#vectorofvec2icreate)
   - [VectorOfVec2i::Add](#vectorofvec2iadd)
+  - [VectorOfVec2i::IsInstance](#vectorofvec2iisinstance)
   - [VectorOfVec2i::Items](#vectorofvec2iitems)
   - [VectorOfVec2i::Keys](#vectorofvec2ikeys)
   - [VectorOfVec2i::Remove](#vectorofvec2iremove)
@@ -2147,8 +2416,10 @@
   - [VectorOfVec2i::start](#vectorofvec2istart)
 - [VectorOfVec3i](#vectorofvec3i)
   - [VectorOfVec3i.Count](#vectorofvec3icount)
+  - [VectorOfVec3i.FullyQualifiedName](#vectorofvec3ifullyqualifiedname)
   - [VectorOfVec3i::create](#vectorofvec3icreate)
   - [VectorOfVec3i::Add](#vectorofvec3iadd)
+  - [VectorOfVec3i::IsInstance](#vectorofvec3iisinstance)
   - [VectorOfVec3i::Items](#vectorofvec3iitems)
   - [VectorOfVec3i::Keys](#vectorofvec3ikeys)
   - [VectorOfVec3i::Remove](#vectorofvec3iremove)
@@ -2169,8 +2440,10 @@
   - [VectorOfVec3i::start](#vectorofvec3istart)
 - [VectorOfVec4i](#vectorofvec4i)
   - [VectorOfVec4i.Count](#vectorofvec4icount)
+  - [VectorOfVec4i.FullyQualifiedName](#vectorofvec4ifullyqualifiedname)
   - [VectorOfVec4i::create](#vectorofvec4icreate)
   - [VectorOfVec4i::Add](#vectorofvec4iadd)
+  - [VectorOfVec4i::IsInstance](#vectorofvec4iisinstance)
   - [VectorOfVec4i::Items](#vectorofvec4iitems)
   - [VectorOfVec4i::Keys](#vectorofvec4ikeys)
   - [VectorOfVec4i::Remove](#vectorofvec4iremove)
@@ -2191,8 +2464,10 @@
   - [VectorOfVec4i::start](#vectorofvec4istart)
 - [VectorOfVec6i](#vectorofvec6i)
   - [VectorOfVec6i.Count](#vectorofvec6icount)
+  - [VectorOfVec6i.FullyQualifiedName](#vectorofvec6ifullyqualifiedname)
   - [VectorOfVec6i::create](#vectorofvec6icreate)
   - [VectorOfVec6i::Add](#vectorofvec6iadd)
+  - [VectorOfVec6i::IsInstance](#vectorofvec6iisinstance)
   - [VectorOfVec6i::Items](#vectorofvec6iitems)
   - [VectorOfVec6i::Keys](#vectorofvec6ikeys)
   - [VectorOfVec6i::Remove](#vectorofvec6iremove)
@@ -2213,8 +2488,10 @@
   - [VectorOfVec6i::start](#vectorofvec6istart)
 - [VectorOfVec8i](#vectorofvec8i)
   - [VectorOfVec8i.Count](#vectorofvec8icount)
+  - [VectorOfVec8i.FullyQualifiedName](#vectorofvec8ifullyqualifiedname)
   - [VectorOfVec8i::create](#vectorofvec8icreate)
   - [VectorOfVec8i::Add](#vectorofvec8iadd)
+  - [VectorOfVec8i::IsInstance](#vectorofvec8iisinstance)
   - [VectorOfVec8i::Items](#vectorofvec8iitems)
   - [VectorOfVec8i::Keys](#vectorofvec8ikeys)
   - [VectorOfVec8i::Remove](#vectorofvec8iremove)
@@ -2235,8 +2512,10 @@
   - [VectorOfVec8i::start](#vectorofvec8istart)
 - [VectorOfVec2f](#vectorofvec2f)
   - [VectorOfVec2f.Count](#vectorofvec2fcount)
+  - [VectorOfVec2f.FullyQualifiedName](#vectorofvec2ffullyqualifiedname)
   - [VectorOfVec2f::create](#vectorofvec2fcreate)
   - [VectorOfVec2f::Add](#vectorofvec2fadd)
+  - [VectorOfVec2f::IsInstance](#vectorofvec2fisinstance)
   - [VectorOfVec2f::Items](#vectorofvec2fitems)
   - [VectorOfVec2f::Keys](#vectorofvec2fkeys)
   - [VectorOfVec2f::Remove](#vectorofvec2fremove)
@@ -2257,8 +2536,10 @@
   - [VectorOfVec2f::start](#vectorofvec2fstart)
 - [VectorOfVec3f](#vectorofvec3f)
   - [VectorOfVec3f.Count](#vectorofvec3fcount)
+  - [VectorOfVec3f.FullyQualifiedName](#vectorofvec3ffullyqualifiedname)
   - [VectorOfVec3f::create](#vectorofvec3fcreate)
   - [VectorOfVec3f::Add](#vectorofvec3fadd)
+  - [VectorOfVec3f::IsInstance](#vectorofvec3fisinstance)
   - [VectorOfVec3f::Items](#vectorofvec3fitems)
   - [VectorOfVec3f::Keys](#vectorofvec3fkeys)
   - [VectorOfVec3f::Remove](#vectorofvec3fremove)
@@ -2279,8 +2560,10 @@
   - [VectorOfVec3f::start](#vectorofvec3fstart)
 - [VectorOfVec4f](#vectorofvec4f)
   - [VectorOfVec4f.Count](#vectorofvec4fcount)
+  - [VectorOfVec4f.FullyQualifiedName](#vectorofvec4ffullyqualifiedname)
   - [VectorOfVec4f::create](#vectorofvec4fcreate)
   - [VectorOfVec4f::Add](#vectorofvec4fadd)
+  - [VectorOfVec4f::IsInstance](#vectorofvec4fisinstance)
   - [VectorOfVec4f::Items](#vectorofvec4fitems)
   - [VectorOfVec4f::Keys](#vectorofvec4fkeys)
   - [VectorOfVec4f::Remove](#vectorofvec4fremove)
@@ -2301,8 +2584,10 @@
   - [VectorOfVec4f::start](#vectorofvec4fstart)
 - [VectorOfVec6f](#vectorofvec6f)
   - [VectorOfVec6f.Count](#vectorofvec6fcount)
+  - [VectorOfVec6f.FullyQualifiedName](#vectorofvec6ffullyqualifiedname)
   - [VectorOfVec6f::create](#vectorofvec6fcreate)
   - [VectorOfVec6f::Add](#vectorofvec6fadd)
+  - [VectorOfVec6f::IsInstance](#vectorofvec6fisinstance)
   - [VectorOfVec6f::Items](#vectorofvec6fitems)
   - [VectorOfVec6f::Keys](#vectorofvec6fkeys)
   - [VectorOfVec6f::Remove](#vectorofvec6fremove)
@@ -2323,8 +2608,10 @@
   - [VectorOfVec6f::start](#vectorofvec6fstart)
 - [VectorOfVec2d](#vectorofvec2d)
   - [VectorOfVec2d.Count](#vectorofvec2dcount)
+  - [VectorOfVec2d.FullyQualifiedName](#vectorofvec2dfullyqualifiedname)
   - [VectorOfVec2d::create](#vectorofvec2dcreate)
   - [VectorOfVec2d::Add](#vectorofvec2dadd)
+  - [VectorOfVec2d::IsInstance](#vectorofvec2disinstance)
   - [VectorOfVec2d::Items](#vectorofvec2ditems)
   - [VectorOfVec2d::Keys](#vectorofvec2dkeys)
   - [VectorOfVec2d::Remove](#vectorofvec2dremove)
@@ -2345,8 +2632,10 @@
   - [VectorOfVec2d::start](#vectorofvec2dstart)
 - [VectorOfVec3d](#vectorofvec3d)
   - [VectorOfVec3d.Count](#vectorofvec3dcount)
+  - [VectorOfVec3d.FullyQualifiedName](#vectorofvec3dfullyqualifiedname)
   - [VectorOfVec3d::create](#vectorofvec3dcreate)
   - [VectorOfVec3d::Add](#vectorofvec3dadd)
+  - [VectorOfVec3d::IsInstance](#vectorofvec3disinstance)
   - [VectorOfVec3d::Items](#vectorofvec3ditems)
   - [VectorOfVec3d::Keys](#vectorofvec3dkeys)
   - [VectorOfVec3d::Remove](#vectorofvec3dremove)
@@ -2367,8 +2656,10 @@
   - [VectorOfVec3d::start](#vectorofvec3dstart)
 - [VectorOfVec4d](#vectorofvec4d)
   - [VectorOfVec4d.Count](#vectorofvec4dcount)
+  - [VectorOfVec4d.FullyQualifiedName](#vectorofvec4dfullyqualifiedname)
   - [VectorOfVec4d::create](#vectorofvec4dcreate)
   - [VectorOfVec4d::Add](#vectorofvec4dadd)
+  - [VectorOfVec4d::IsInstance](#vectorofvec4disinstance)
   - [VectorOfVec4d::Items](#vectorofvec4ditems)
   - [VectorOfVec4d::Keys](#vectorofvec4dkeys)
   - [VectorOfVec4d::Remove](#vectorofvec4dremove)
@@ -2389,8 +2680,10 @@
   - [VectorOfVec4d::start](#vectorofvec4dstart)
 - [VectorOfVec6d](#vectorofvec6d)
   - [VectorOfVec6d.Count](#vectorofvec6dcount)
+  - [VectorOfVec6d.FullyQualifiedName](#vectorofvec6dfullyqualifiedname)
   - [VectorOfVec6d::create](#vectorofvec6dcreate)
   - [VectorOfVec6d::Add](#vectorofvec6dadd)
+  - [VectorOfVec6d::IsInstance](#vectorofvec6disinstance)
   - [VectorOfVec6d::Items](#vectorofvec6ditems)
   - [VectorOfVec6d::Keys](#vectorofvec6dkeys)
   - [VectorOfVec6d::Remove](#vectorofvec6dremove)
@@ -2413,6 +2706,14 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## NamedParameters
+
+### NamedParameters.FullyQualifiedName
+
+```cpp
+static std::string NamedParameters::FullyQualifiedName
+AutoIt:
+    [propget] $oNamedParameters.FullyQualifiedName
+```
 
 ### NamedParameters::create
 
@@ -2443,6 +2744,20 @@ AutoIt:
 _variant_t NamedParameters::Get( std::string key );
 AutoIt:
     $oNamedParameters.Get( $key ) -> retval
+```
+
+### NamedParameters::IsInstance
+
+```cpp
+static bool NamedParameters::IsInstance( const NamedParameters& obj );
+AutoIt:
+    _Dlib_ObjCreate("NamedParameters").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool NamedParameters::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("NamedParameters").IsInstance( $obj ) -> retval
 ```
 
 ### NamedParameters::Items
@@ -2583,6 +2898,14 @@ AutoIt:
 
 ## autoit
 
+### autoit.Buffer
+
+```cpp
+static autoit::Buffer
+AutoIt:
+    [propget] $oautoit.Buffer
+```
+
 ### autoit::findFile
 
 ```cpp
@@ -2606,6 +2929,40 @@ AutoIt:
     _Dlib_ObjCreate("autoit").findFiles( $path, $directory[, $flags[, $relative[, $matches]]] ) -> $matches
 ```
 
+## autoit::Buffer
+
+### Buffer.FullyQualifiedName
+
+```cpp
+static std::string autoit::Buffer::FullyQualifiedName
+AutoIt:
+    [propget] $oBuffer.FullyQualifiedName
+```
+
+### autoit::Buffer::get\_create
+
+```cpp
+static autoit::Buffer autoit::Buffer::get_create( const void* data,
+                                                  size_t      size );
+AutoIt:
+    _Dlib_ObjCreate("autoit.Buffer").create( $data, $size ) -> <autoit.Buffer object>
+    $oBuffer( $data, $size ) -> <autoit.Buffer object>
+```
+
+### autoit::Buffer::IsInstance
+
+```cpp
+static bool autoit::Buffer::IsInstance( const autoit::Buffer& obj );
+AutoIt:
+    _Dlib_ObjCreate("autoit.Buffer").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool autoit::Buffer::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("autoit.Buffer").IsInstance( $obj ) -> retval
+```
+
 ## com
 
 ### com.Thread
@@ -2626,6 +2983,14 @@ AutoIt:
 
 ## com::Thread
 
+### Thread.FullyQualifiedName
+
+```cpp
+static std::string com::Thread::FullyQualifiedName
+AutoIt:
+    [propget] $oThread.FullyQualifiedName
+```
+
 ### com::Thread::get\_create
 
 ```cpp
@@ -2633,6 +2998,20 @@ static com::Thread com::Thread::get_create( void* func );
 AutoIt:
     _Dlib_ObjCreate("com.Thread").create( $func ) -> <com.Thread object>
     $oThread( $func ) -> <com.Thread object>
+```
+
+### com::Thread::IsInstance
+
+```cpp
+static bool com::Thread::IsInstance( const com::Thread& obj );
+AutoIt:
+    _Dlib_ObjCreate("com.Thread").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool com::Thread::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("com.Thread").IsInstance( $obj ) -> retval
 ```
 
 ### com::Thread::join
@@ -2653,12 +3032,34 @@ AutoIt:
 
 ## com::ThreadSafeQueue
 
+### ThreadSafeQueue.FullyQualifiedName
+
+```cpp
+static std::string com::ThreadSafeQueue::FullyQualifiedName
+AutoIt:
+    [propget] $oThreadSafeQueue.FullyQualifiedName
+```
+
 ### com::ThreadSafeQueue::get\_create
 
 ```cpp
 static com::ThreadSafeQueue com::ThreadSafeQueue::get_create();
 AutoIt:
     _Dlib_ObjCreate("com.ThreadSafeQueue").create() -> <com.ThreadSafeQueue object>
+```
+
+### com::ThreadSafeQueue::IsInstance
+
+```cpp
+static bool com::ThreadSafeQueue::IsInstance( const com::ThreadSafeQueue& obj );
+AutoIt:
+    _Dlib_ObjCreate("com.ThreadSafeQueue").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool com::ThreadSafeQueue::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("com.ThreadSafeQueue").IsInstance( $obj ) -> retval
 ```
 
 ### com::ThreadSafeQueue::clear
@@ -3291,7 +3692,7 @@ AutoIt:
 ### dlib::apply\_cca\_transform
 
 ```cpp
-dlib::SpaceVector dlib::apply_cca_transform( const dlib::Matrix&                          m,
+dlib::SpaceVector dlib::apply_cca_transform( const matrix<double>&                        m,
                                              const std::vector<std::pair<ULONG, double>>& v );
 AutoIt:
     _Dlib_ObjCreate("dlib").apply_cca_transform( $m, $v ) -> retval
@@ -3300,8 +3701,8 @@ AutoIt:
 ### dlib::assignment\_cost
 
 ```cpp
-double dlib::assignment_cost( const dlib::Matrix& cost,
-                              std::vector<long>&  assignment );
+double dlib::assignment_cost( const matrix<double>& cost,
+                              std::vector<long>&    assignment );
 AutoIt:
     _Dlib_ObjCreate("dlib").assignment_cost( $cost, $assignment ) -> retval
 ```
@@ -4043,7 +4444,7 @@ AutoIt:
 ### dlib::max\_cost\_assignment
 
 ```cpp
-std::vector<long> dlib::max_cost_assignment( const dlib::Matrix& cost );
+std::vector<long> dlib::max_cost_assignment( const matrix<double>& cost );
 AutoIt:
     _Dlib_ObjCreate("dlib").max_cost_assignment( $cost ) -> retval
 ```
@@ -4552,7 +4953,7 @@ AutoIt:
 double dlib::test_shape_predictor( std::vector<cv::Mat>&                                  images,
                                    std::vector<std::vector<dlib::full_object_detection>>& detections,
                                    dlib::shape_predictor&                                 predictor,
-                                   std::vector<std::vector<double>>&                      scales = vector_vector_double() );
+                                   std::vector<std::vector<double>>&                      scales = std::vector<std::vector<double>>() );
 AutoIt:
     _Dlib_ObjCreate("dlib").test_shape_predictor( $images, $detections, $predictor[, $scales] ) -> retval
 ```
@@ -4729,12 +5130,34 @@ AutoIt:
     [propget, propput] $obinary_test.class2_accuracy
 ```
 
+### binary\_test.FullyQualifiedName
+
+```cpp
+static std::string dlib::binary_test::FullyQualifiedName
+AutoIt:
+    [propget] $obinary_test.FullyQualifiedName
+```
+
 ### dlib::binary\_test::get\_create
 
 ```cpp
 static dlib::binary_test dlib::binary_test::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.binary_test").create() -> <dlib.binary_test object>
+```
+
+### dlib::binary\_test::IsInstance
+
+```cpp
+static bool dlib::binary_test::IsInstance( const dlib::binary_test& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.binary_test").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::binary_test::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.binary_test").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::binary\_test::ToString
@@ -4779,12 +5202,34 @@ AutoIt:
     [propget, propput] $oregression_test.mean_error_stddev
 ```
 
+### regression\_test.FullyQualifiedName
+
+```cpp
+static std::string dlib::regression_test::FullyQualifiedName
+AutoIt:
+    [propget] $oregression_test.FullyQualifiedName
+```
+
 ### dlib::regression\_test::get\_create
 
 ```cpp
 static dlib::regression_test dlib::regression_test::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.regression_test").create() -> <dlib.regression_test object>
+```
+
+### dlib::regression\_test::IsInstance
+
+```cpp
+static bool dlib::regression_test::IsInstance( const dlib::regression_test& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.regression_test").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::regression_test::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.regression_test").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::regression\_test::ToString
@@ -4813,12 +5258,34 @@ AutoIt:
     [propget, propput] $oranking_test.mean_ap
 ```
 
+### ranking\_test.FullyQualifiedName
+
+```cpp
+static std::string dlib::ranking_test::FullyQualifiedName
+AutoIt:
+    [propget] $oranking_test.FullyQualifiedName
+```
+
 ### dlib::ranking\_test::get\_create
 
 ```cpp
 static dlib::ranking_test dlib::ranking_test::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_test").create() -> <dlib.ranking_test object>
+```
+
+### dlib::ranking\_test::IsInstance
+
+```cpp
+static bool dlib::ranking_test::IsInstance( const dlib::ranking_test& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.ranking_test").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::ranking_test::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.ranking_test").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::ranking\_test::ToString
@@ -4855,6 +5322,14 @@ AutoIt:
     [propget, propput] $occa_outputs.Rtrans
 ```
 
+### cca\_outputs.FullyQualifiedName
+
+```cpp
+static std::string dlib::cca_outputs::FullyQualifiedName
+AutoIt:
+    [propget] $occa_outputs.FullyQualifiedName
+```
+
 ### dlib::cca\_outputs::get\_create
 
 ```cpp
@@ -4863,7 +5338,29 @@ AutoIt:
     _Dlib_ObjCreate("dlib.cca_outputs").create() -> <dlib.cca_outputs object>
 ```
 
+### dlib::cca\_outputs::IsInstance
+
+```cpp
+static bool dlib::cca_outputs::IsInstance( const dlib::cca_outputs& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.cca_outputs").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::cca_outputs::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.cca_outputs").IsInstance( $obj ) -> retval
+```
+
 ## dlib::cnn\_face\_detection\_model\_v1
+
+### cnn\_face\_detection\_model\_v1.FullyQualifiedName
+
+```cpp
+static std::string dlib::cnn_face_detection_model_v1::FullyQualifiedName
+AutoIt:
+    [propget] $ocnn_face_detection_model_v1.FullyQualifiedName
+```
 
 ### dlib::cnn\_face\_detection\_model\_v1::create
 
@@ -4871,6 +5368,20 @@ AutoIt:
 static dlib::cnn_face_detection_model_v1 dlib::cnn_face_detection_model_v1::create( const std::string& model_filename );
 AutoIt:
     _Dlib_ObjCreate("dlib.cnn_face_detection_model_v1").create( $model_filename ) -> <dlib.cnn_face_detection_model_v1 object>
+```
+
+### dlib::cnn\_face\_detection\_model\_v1::IsInstance
+
+```cpp
+static bool dlib::cnn_face_detection_model_v1::IsInstance( const dlib::cnn_face_detection_model_v1& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.cnn_face_detection_model_v1").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::cnn_face_detection_model_v1::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.cnn_face_detection_model_v1").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::cnn\_face\_detection\_model\_v1::detect
@@ -4913,6 +5424,14 @@ AutoIt:
 
 ## dlib::face\_recognition\_model\_v1
 
+### face\_recognition\_model\_v1.FullyQualifiedName
+
+```cpp
+static std::string dlib::face_recognition_model_v1::FullyQualifiedName
+AutoIt:
+    [propget] $oface_recognition_model_v1.FullyQualifiedName
+```
+
 ### dlib::face\_recognition\_model\_v1::get\_create
 
 ```cpp
@@ -4920,6 +5439,20 @@ static dlib::face_recognition_model_v1 dlib::face_recognition_model_v1::get_crea
 AutoIt:
     _Dlib_ObjCreate("dlib.face_recognition_model_v1").create( $model_filename ) -> <dlib.face_recognition_model_v1 object>
     $oface_recognition_model_v1( $model_filename ) -> <dlib.face_recognition_model_v1 object>
+```
+
+### dlib::face\_recognition\_model\_v1::IsInstance
+
+```cpp
+static bool dlib::face_recognition_model_v1::IsInstance( const dlib::face_recognition_model_v1& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.face_recognition_model_v1").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::face_recognition_model_v1::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.face_recognition_model_v1").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::face\_recognition\_model\_v1::compute\_face\_descriptor
@@ -4967,6 +5500,14 @@ AutoIt:
 
 ## dlib::\_row
 
+### \_row.FullyQualifiedName
+
+```cpp
+static std::string dlib::_row::FullyQualifiedName
+AutoIt:
+    [propget] $o_row.FullyQualifiedName
+```
+
 ### dlib::\_row::get\_create
 
 ```cpp
@@ -4981,6 +5522,20 @@ static dlib::_row dlib::_row::get_create( double* data_,
 AutoIt:
     _Dlib_ObjCreate("dlib._row").create( $size_[, $data_] ) -> <dlib._row object>
     $o_row( $size_[, $data_] ) -> <dlib._row object>
+```
+
+### dlib::\_row::IsInstance
+
+```cpp
+static bool dlib::_row::IsInstance( const dlib::_row& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._row").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_row::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._row").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_row::ToString
@@ -5018,12 +5573,34 @@ AutoIt:
     [propget] $osegmenter_type.weights
 ```
 
+### segmenter\_type.FullyQualifiedName
+
+```cpp
+static std::string dlib::segmenter_type::FullyQualifiedName
+AutoIt:
+    [propget] $osegmenter_type.FullyQualifiedName
+```
+
 ### dlib::segmenter\_type::create
 
 ```cpp
 static dlib::segmenter_type dlib::segmenter_type::create();
 AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_type").create() -> <dlib.segmenter_type object>
+```
+
+### dlib::segmenter\_type::IsInstance
+
+```cpp
+static bool dlib::segmenter_type::IsInstance( const dlib::segmenter_type& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.segmenter_type").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::segmenter_type::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.segmenter_type").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::segmenter\_type::get\_call
@@ -5116,12 +5693,34 @@ AutoIt:
     [propget, propput] $osegmenter_params.C
 ```
 
+### segmenter\_params.FullyQualifiedName
+
+```cpp
+static std::string dlib::segmenter_params::FullyQualifiedName
+AutoIt:
+    [propget] $osegmenter_params.FullyQualifiedName
+```
+
 ### dlib::segmenter\_params::get\_create
 
 ```cpp
 static dlib::segmenter_params dlib::segmenter_params::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_params").create() -> <dlib.segmenter_params object>
+```
+
+### dlib::segmenter\_params::IsInstance
+
+```cpp
+static bool dlib::segmenter_params::IsInstance( const dlib::segmenter_params& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.segmenter_params").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::segmenter_params::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.segmenter_params").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::segmenter\_params::ToString
@@ -5158,12 +5757,34 @@ AutoIt:
     [propget, propput] $osegmenter_test.f1
 ```
 
+### segmenter\_test.FullyQualifiedName
+
+```cpp
+static std::string dlib::segmenter_test::FullyQualifiedName
+AutoIt:
+    [propget] $osegmenter_test.FullyQualifiedName
+```
+
 ### dlib::segmenter\_test::get\_create
 
 ```cpp
 static dlib::segmenter_test dlib::segmenter_test::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.segmenter_test").create() -> <dlib.segmenter_test object>
+```
+
+### dlib::segmenter\_test::IsInstance
+
+```cpp
+static bool dlib::segmenter_test::IsInstance( const dlib::segmenter_test& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.segmenter_test").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::segmenter_test::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.segmenter_test").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::segmenter\_test::ToString
@@ -5288,12 +5909,34 @@ AutoIt:
     [propget, propput] $oshape_predictor_training_options.num_threads
 ```
 
+### shape\_predictor\_training\_options.FullyQualifiedName
+
+```cpp
+static std::string dlib::shape_predictor_training_options::FullyQualifiedName
+AutoIt:
+    [propget] $oshape_predictor_training_options.FullyQualifiedName
+```
+
 ### dlib::shape\_predictor\_training\_options::get\_create
 
 ```cpp
 static dlib::shape_predictor_training_options dlib::shape_predictor_training_options::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.shape_predictor_training_options").create() -> <dlib.shape_predictor_training_options object>
+```
+
+### dlib::shape\_predictor\_training\_options::IsInstance
+
+```cpp
+static bool dlib::shape_predictor_training_options::IsInstance( const dlib::shape_predictor_training_options& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.shape_predictor_training_options").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::shape_predictor_training_options::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.shape_predictor_training_options").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::shape\_predictor\_training\_options::ToString
@@ -5378,12 +6021,34 @@ AutoIt:
     [propget, propput] $osimple_object_detector_training_options.max_runtime_seconds
 ```
 
+### simple\_object\_detector\_training\_options.FullyQualifiedName
+
+```cpp
+static std::string dlib::simple_object_detector_training_options::FullyQualifiedName
+AutoIt:
+    [propget] $osimple_object_detector_training_options.FullyQualifiedName
+```
+
 ### dlib::simple\_object\_detector\_training\_options::get\_create
 
 ```cpp
 static dlib::simple_object_detector_training_options dlib::simple_object_detector_training_options::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector_training_options").create() -> <dlib.simple_object_detector_training_options object>
+```
+
+### dlib::simple\_object\_detector\_training\_options::IsInstance
+
+```cpp
+static bool dlib::simple_object_detector_training_options::IsInstance( const dlib::simple_object_detector_training_options& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.simple_object_detector_training_options").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::simple_object_detector_training_options::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.simple_object_detector_training_options").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::simple\_object\_detector\_training\_options::ToString
@@ -5420,12 +6085,34 @@ AutoIt:
     [propget, propput] $osimple_test_results.average_precision
 ```
 
+### simple\_test\_results.FullyQualifiedName
+
+```cpp
+static std::string dlib::simple_test_results::FullyQualifiedName
+AutoIt:
+    [propget] $osimple_test_results.FullyQualifiedName
+```
+
 ### dlib::simple\_test\_results::get\_create
 
 ```cpp
 static dlib::simple_test_results dlib::simple_test_results::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_test_results").create() -> <dlib.simple_test_results object>
+```
+
+### dlib::simple\_test\_results::IsInstance
+
+```cpp
+static bool dlib::simple_test_results::IsInstance( const dlib::simple_test_results& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.simple_test_results").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::simple_test_results::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.simple_test_results").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::simple\_test\_results::ToString
@@ -5478,6 +6165,14 @@ AutoIt:
     [propget] $osimple_object_detector_com.num_detectors
 ```
 
+### simple\_object\_detector\_com.FullyQualifiedName
+
+```cpp
+static std::string dlib::simple_object_detector_com::FullyQualifiedName
+AutoIt:
+    [propget] $osimple_object_detector_com.FullyQualifiedName
+```
+
 ### dlib::simple\_object\_detector\_com::create
 
 ```cpp
@@ -5503,6 +6198,20 @@ AutoIt:
 static std::shared_ptr<dlib::simple_object_detector_com> dlib::simple_object_detector_com::create( const std::string& filename );
 AutoIt:
     _Dlib_ObjCreate("dlib.simple_object_detector").create( $filename ) -> retval
+```
+
+### dlib::simple\_object\_detector\_com::IsInstance
+
+```cpp
+static bool dlib::simple_object_detector_com::IsInstance( const dlib::simple_object_detector_com& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.simple_object_detector").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::simple_object_detector_com::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.simple_object_detector").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::simple\_object\_detector\_com::get\_call
@@ -5638,12 +6347,34 @@ AutoIt:
     [propget, propput] $osimple_structural_svm_problem.result
 ```
 
+### simple\_structural\_svm\_problem.FullyQualifiedName
+
+```cpp
+static std::string dlib::simple_structural_svm_problem::FullyQualifiedName
+AutoIt:
+    [propget] $osimple_structural_svm_problem.FullyQualifiedName
+```
+
 ### dlib::simple\_structural\_svm\_problem::get\_create
 
 ```cpp
 static dlib::simple_structural_svm_problem dlib::simple_structural_svm_problem::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.structural_svm_problem").create() -> <dlib.simple_structural_svm_problem object>
+```
+
+### dlib::simple\_structural\_svm\_problem::IsInstance
+
+```cpp
+static bool dlib::simple_structural_svm_problem::IsInstance( const dlib::simple_structural_svm_problem& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.structural_svm_problem").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::simple_structural_svm_problem::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.structural_svm_problem").IsInstance( $obj ) -> retval
 ```
 
 ## cv
@@ -5954,6 +6685,14 @@ AutoIt:
     [propget, propput] $ommod_rect.ignore
 ```
 
+### mmod\_rect.FullyQualifiedName
+
+```cpp
+static std::string dlib::mmod_rect::FullyQualifiedName
+AutoIt:
+    [propget] $ommod_rect.FullyQualifiedName
+```
+
 ### dlib::mmod\_rect::get\_create
 
 ```cpp
@@ -5963,6 +6702,20 @@ static dlib::mmod_rect dlib::mmod_rect::get_create( dlib::rectangle rect = recta
 AutoIt:
     _Dlib_ObjCreate("dlib.mmod_rectangle").create( [$rect[, $detection_confidence[, $label]]] ) -> <dlib.mmod_rect object>
     $ommod_rect( [$rect[, $detection_confidence[, $label]]] ) -> <dlib.mmod_rect object>
+```
+
+### dlib::mmod\_rect::IsInstance
+
+```cpp
+static bool dlib::mmod_rect::IsInstance( const dlib::mmod_rect& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.mmod_rectangle").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::mmod_rect::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.mmod_rectangle").IsInstance( $obj ) -> retval
 ```
 
 ## dlib::cuda
@@ -6018,12 +6771,34 @@ AutoIt:
 
 ## dlib::correlation\_tracker
 
+### correlation\_tracker.FullyQualifiedName
+
+```cpp
+static std::string dlib::correlation_tracker::FullyQualifiedName
+AutoIt:
+    [propget] $ocorrelation_tracker.FullyQualifiedName
+```
+
 ### dlib::correlation\_tracker::get\_create
 
 ```cpp
 static dlib::correlation_tracker dlib::correlation_tracker::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.correlation_tracker").create() -> <dlib.correlation_tracker object>
+```
+
+### dlib::correlation\_tracker::IsInstance
+
+```cpp
+static bool dlib::correlation_tracker::IsInstance( const dlib::correlation_tracker& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.correlation_tracker").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::correlation_tracker::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.correlation_tracker").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::correlation\_tracker::get\_position
@@ -6080,6 +6855,102 @@ AutoIt:
 static cv::cuda::GpuMat
 AutoIt:
     [propget] $ocuda.GpuMat
+```
+
+## cv::cuda::GpuMat
+
+### GpuMat.FullyQualifiedName
+
+```cpp
+static std::string cv::cuda::GpuMat::FullyQualifiedName
+AutoIt:
+    [propget] $oGpuMat.FullyQualifiedName
+```
+
+### cv::cuda::GpuMat::IsInstance
+
+```cpp
+static bool cv::cuda::GpuMat::IsInstance( const cv::cuda::GpuMat& obj );
+AutoIt:
+    _Dlib_ObjCreate("cv.cuda.GpuMat").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool cv::cuda::GpuMat::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("cv.cuda.GpuMat").IsInstance( $obj ) -> retval
+```
+
+## cv::\_InputArray
+
+### \_InputArray.FullyQualifiedName
+
+```cpp
+static std::string cv::_InputArray::FullyQualifiedName
+AutoIt:
+    [propget] $o_InputArray.FullyQualifiedName
+```
+
+### cv::\_InputArray::IsInstance
+
+```cpp
+static bool cv::_InputArray::IsInstance( const cv::_InputArray& obj );
+AutoIt:
+    _Dlib_ObjCreate("cv._InputArray").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool cv::_InputArray::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("cv._InputArray").IsInstance( $obj ) -> retval
+```
+
+## cv::\_OutputArray
+
+### \_OutputArray.FullyQualifiedName
+
+```cpp
+static std::string cv::_OutputArray::FullyQualifiedName
+AutoIt:
+    [propget] $o_OutputArray.FullyQualifiedName
+```
+
+### cv::\_OutputArray::IsInstance
+
+```cpp
+static bool cv::_OutputArray::IsInstance( const cv::_OutputArray& obj );
+AutoIt:
+    _Dlib_ObjCreate("cv._OutputArray").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool cv::_OutputArray::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("cv._OutputArray").IsInstance( $obj ) -> retval
+```
+
+## cv::\_InputOutputArray
+
+### \_InputOutputArray.FullyQualifiedName
+
+```cpp
+static std::string cv::_InputOutputArray::FullyQualifiedName
+AutoIt:
+    [propget] $o_InputOutputArray.FullyQualifiedName
+```
+
+### cv::\_InputOutputArray::IsInstance
+
+```cpp
+static bool cv::_InputOutputArray::IsInstance( const cv::_InputOutputArray& obj );
+AutoIt:
+    _Dlib_ObjCreate("cv._InputOutputArray").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool cv::_InputOutputArray::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("cv._InputOutputArray").IsInstance( $obj ) -> retval
 ```
 
 ## cv::Formatter
@@ -6142,6 +7013,14 @@ AutoIt:
     [propget] $o_radial_basis_kernel.gamma
 ```
 
+### \_radial\_basis\_kernel.FullyQualifiedName
+
+```cpp
+static std::string dlib::_radial_basis_kernel::FullyQualifiedName
+AutoIt:
+    [propget] $o_radial_basis_kernel.FullyQualifiedName
+```
+
 ### dlib::\_radial\_basis\_kernel::get\_create
 
 ```cpp
@@ -6150,7 +7029,29 @@ AutoIt:
     _Dlib_ObjCreate("dlib._radial_basis_kernel").create() -> <dlib._radial_basis_kernel object>
 ```
 
+### dlib::\_radial\_basis\_kernel::IsInstance
+
+```cpp
+static bool dlib::_radial_basis_kernel::IsInstance( const dlib::_radial_basis_kernel& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._radial_basis_kernel").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_radial_basis_kernel::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._radial_basis_kernel").IsInstance( $obj ) -> retval
+```
+
 ## dlib::\_linear\_kernel
+
+### \_linear\_kernel.FullyQualifiedName
+
+```cpp
+static std::string dlib::_linear_kernel::FullyQualifiedName
+AutoIt:
+    [propget] $o_linear_kernel.FullyQualifiedName
+```
 
 ### dlib::\_linear\_kernel::get\_create
 
@@ -6158,6 +7059,20 @@ AutoIt:
 static dlib::_linear_kernel dlib::_linear_kernel::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib._linear_kernel").create() -> <dlib._linear_kernel object>
+```
+
+### dlib::\_linear\_kernel::IsInstance
+
+```cpp
+static bool dlib::_linear_kernel::IsInstance( const dlib::_linear_kernel& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._linear_kernel").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_linear_kernel::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._linear_kernel").IsInstance( $obj ) -> retval
 ```
 
 ## dlib::\_decision\_function\_linear
@@ -6178,12 +7093,34 @@ AutoIt:
     [propget, propput] $o_decision_function_linear.bias
 ```
 
+### \_decision\_function\_linear.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_linear::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_linear.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_linear::create
 
 ```cpp
 static dlib::_decision_function_linear dlib::_decision_function_linear::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_linear").create() -> <dlib._decision_function_linear object>
+```
+
+### dlib::\_decision\_function\_linear::IsInstance
+
+```cpp
+static bool dlib::_decision_function_linear::IsInstance( const dlib::_decision_function_linear& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_linear").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_linear::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_linear").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_linear::get\_call
@@ -6213,12 +7150,34 @@ AutoIt:
     [propget, propput] $o_decision_function_sparse_linear.bias
 ```
 
+### \_decision\_function\_sparse\_linear.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_sparse_linear::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_sparse_linear.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_sparse\_linear::create
 
 ```cpp
 static dlib::_decision_function_sparse_linear dlib::_decision_function_sparse_linear::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_linear").create() -> <dlib._decision_function_sparse_linear object>
+```
+
+### dlib::\_decision\_function\_sparse\_linear::IsInstance
+
+```cpp
+static bool dlib::_decision_function_sparse_linear::IsInstance( const dlib::_decision_function_sparse_linear& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_linear").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_sparse_linear::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_linear").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_sparse\_linear::get\_call
@@ -6256,12 +7215,34 @@ AutoIt:
     [propget] $o_decision_function_histogram_intersection.basis_vectors
 ```
 
+### \_decision\_function\_histogram\_intersection.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_histogram_intersection::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_histogram_intersection.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_histogram\_intersection::create
 
 ```cpp
 static dlib::_decision_function_histogram_intersection dlib::_decision_function_histogram_intersection::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_histogram_intersection").create() -> <dlib._decision_function_histogram_intersection object>
+```
+
+### dlib::\_decision\_function\_histogram\_intersection::IsInstance
+
+```cpp
+static bool dlib::_decision_function_histogram_intersection::IsInstance( const dlib::_decision_function_histogram_intersection& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_histogram_intersection").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_histogram_intersection::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_histogram_intersection").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_histogram\_intersection::get\_call
@@ -6299,12 +7280,34 @@ AutoIt:
     [propget] $o_decision_function_sparse_histogram_intersection.basis_vectors
 ```
 
+### \_decision\_function\_sparse\_histogram\_intersection.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_sparse_histogram_intersection::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_sparse_histogram_intersection.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_sparse\_histogram\_intersection::create
 
 ```cpp
 static dlib::_decision_function_sparse_histogram_intersection dlib::_decision_function_sparse_histogram_intersection::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_histogram_intersection").create() -> <dlib._decision_function_sparse_histogram_intersection object>
+```
+
+### dlib::\_decision\_function\_sparse\_histogram\_intersection::IsInstance
+
+```cpp
+static bool dlib::_decision_function_sparse_histogram_intersection::IsInstance( const dlib::_decision_function_sparse_histogram_intersection& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_histogram_intersection").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_sparse_histogram_intersection::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_histogram_intersection").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_sparse\_histogram\_intersection::get\_call
@@ -6342,12 +7345,34 @@ AutoIt:
     [propget] $o_decision_function_polynomial.basis_vectors
 ```
 
+### \_decision\_function\_polynomial.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_polynomial::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_polynomial.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_polynomial::create
 
 ```cpp
 static dlib::_decision_function_polynomial dlib::_decision_function_polynomial::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_polynomial").create() -> <dlib._decision_function_polynomial object>
+```
+
+### dlib::\_decision\_function\_polynomial::IsInstance
+
+```cpp
+static bool dlib::_decision_function_polynomial::IsInstance( const dlib::_decision_function_polynomial& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_polynomial").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_polynomial::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_polynomial").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_polynomial::get\_call
@@ -6385,12 +7410,34 @@ AutoIt:
     [propget] $o_decision_function_sparse_polynomial.basis_vectors
 ```
 
+### \_decision\_function\_sparse\_polynomial.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_sparse_polynomial::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_sparse_polynomial.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_sparse\_polynomial::create
 
 ```cpp
 static dlib::_decision_function_sparse_polynomial dlib::_decision_function_sparse_polynomial::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_polynomial").create() -> <dlib._decision_function_sparse_polynomial object>
+```
+
+### dlib::\_decision\_function\_sparse\_polynomial::IsInstance
+
+```cpp
+static bool dlib::_decision_function_sparse_polynomial::IsInstance( const dlib::_decision_function_sparse_polynomial& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_polynomial").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_sparse_polynomial::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_polynomial").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_sparse\_polynomial::get\_call
@@ -6428,12 +7475,34 @@ AutoIt:
     [propget] $o_decision_function_radial_basis.basis_vectors
 ```
 
+### \_decision\_function\_radial\_basis.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_radial_basis::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_radial_basis.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_radial\_basis::create
 
 ```cpp
 static dlib::_decision_function_radial_basis dlib::_decision_function_radial_basis::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_radial_basis").create() -> <dlib._decision_function_radial_basis object>
+```
+
+### dlib::\_decision\_function\_radial\_basis::IsInstance
+
+```cpp
+static bool dlib::_decision_function_radial_basis::IsInstance( const dlib::_decision_function_radial_basis& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_radial_basis").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_radial_basis::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_radial_basis").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_radial\_basis::get\_call
@@ -6471,12 +7540,34 @@ AutoIt:
     [propget] $o_decision_function_sparse_radial_basis.basis_vectors
 ```
 
+### \_decision\_function\_sparse\_radial\_basis.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_sparse_radial_basis::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_sparse_radial_basis.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_sparse\_radial\_basis::create
 
 ```cpp
 static dlib::_decision_function_sparse_radial_basis dlib::_decision_function_sparse_radial_basis::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_radial_basis").create() -> <dlib._decision_function_sparse_radial_basis object>
+```
+
+### dlib::\_decision\_function\_sparse\_radial\_basis::IsInstance
+
+```cpp
+static bool dlib::_decision_function_sparse_radial_basis::IsInstance( const dlib::_decision_function_sparse_radial_basis& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_radial_basis").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_sparse_radial_basis::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_radial_basis").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_sparse\_radial\_basis::get\_call
@@ -6514,12 +7605,34 @@ AutoIt:
     [propget] $o_decision_function_sigmoid.basis_vectors
 ```
 
+### \_decision\_function\_sigmoid.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_sigmoid::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_sigmoid.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_sigmoid::create
 
 ```cpp
 static dlib::_decision_function_sigmoid dlib::_decision_function_sigmoid::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sigmoid").create() -> <dlib._decision_function_sigmoid object>
+```
+
+### dlib::\_decision\_function\_sigmoid::IsInstance
+
+```cpp
+static bool dlib::_decision_function_sigmoid::IsInstance( const dlib::_decision_function_sigmoid& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sigmoid").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_sigmoid::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sigmoid").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_sigmoid::get\_call
@@ -6557,12 +7670,34 @@ AutoIt:
     [propget] $o_decision_function_sparse_sigmoid.basis_vectors
 ```
 
+### \_decision\_function\_sparse\_sigmoid.FullyQualifiedName
+
+```cpp
+static std::string dlib::_decision_function_sparse_sigmoid::FullyQualifiedName
+AutoIt:
+    [propget] $o_decision_function_sparse_sigmoid.FullyQualifiedName
+```
+
 ### dlib::\_decision\_function\_sparse\_sigmoid::create
 
 ```cpp
 static dlib::_decision_function_sparse_sigmoid dlib::_decision_function_sparse_sigmoid::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._decision_function_sparse_sigmoid").create() -> <dlib._decision_function_sparse_sigmoid object>
+```
+
+### dlib::\_decision\_function\_sparse\_sigmoid::IsInstance
+
+```cpp
+static bool dlib::_decision_function_sparse_sigmoid::IsInstance( const dlib::_decision_function_sparse_sigmoid& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_sigmoid").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_decision_function_sparse_sigmoid::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._decision_function_sparse_sigmoid").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_decision\_function\_sparse\_sigmoid::get\_call
@@ -6616,12 +7751,34 @@ AutoIt:
     [propget] $o_normalized_decision_function_radial_basis.invstd_devs
 ```
 
+### \_normalized\_decision\_function\_radial\_basis.FullyQualifiedName
+
+```cpp
+static std::string dlib::_normalized_decision_function_radial_basis::FullyQualifiedName
+AutoIt:
+    [propget] $o_normalized_decision_function_radial_basis.FullyQualifiedName
+```
+
 ### dlib::\_normalized\_decision\_function\_radial\_basis::create
 
 ```cpp
 static dlib::_normalized_decision_function_radial_basis dlib::_normalized_decision_function_radial_basis::create();
 AutoIt:
     _Dlib_ObjCreate("dlib._normalized_decision_function_radial_basis").create() -> <dlib._normalized_decision_function_radial_basis object>
+```
+
+### dlib::\_normalized\_decision\_function\_radial\_basis::IsInstance
+
+```cpp
+static bool dlib::_normalized_decision_function_radial_basis::IsInstance( const dlib::_normalized_decision_function_radial_basis& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._normalized_decision_function_radial_basis").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::_normalized_decision_function_radial_basis::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib._normalized_decision_function_radial_basis").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::\_normalized\_decision\_function\_radial\_basis::batch\_predict
@@ -6665,6 +7822,14 @@ AutoIt:
     [propget] $ofunction_evaluation.y
 ```
 
+### function\_evaluation.FullyQualifiedName
+
+```cpp
+static std::string dlib::function_evaluation::FullyQualifiedName
+AutoIt:
+    [propget] $ofunction_evaluation.FullyQualifiedName
+```
+
 ### dlib::function\_evaluation::get\_create
 
 ```cpp
@@ -6687,6 +7852,20 @@ static dlib::function_evaluation dlib::function_evaluation::get_create( std::vec
 AutoIt:
     _Dlib_ObjCreate("dlib.function_evaluation").create( $x, $y ) -> <dlib.function_evaluation object>
     $ofunction_evaluation( $x, $y ) -> <dlib.function_evaluation object>
+```
+
+### dlib::function\_evaluation::IsInstance
+
+```cpp
+static bool dlib::function_evaluation::IsInstance( const dlib::function_evaluation& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.function_evaluation").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::function_evaluation::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.function_evaluation").IsInstance( $obj ) -> retval
 ```
 
 ## dlib::function\_spec
@@ -6713,6 +7892,14 @@ AutoIt:
 std::vector<bool> dlib::function_spec::is_integer_variable
 AutoIt:
     [propget] $ofunction_spec.is_integer_variable
+```
+
+### function\_spec.FullyQualifiedName
+
+```cpp
+static std::string dlib::function_spec::FullyQualifiedName
+AutoIt:
+    [propget] $ofunction_spec.FullyQualifiedName
 ```
 
 ### dlib::function\_spec::get\_create
@@ -6785,6 +7972,20 @@ AutoIt:
     $ofunction_spec( $bound1, $bound2, $is_integer ) -> <dlib.function_spec object>
 ```
 
+### dlib::function\_spec::IsInstance
+
+```cpp
+static bool dlib::function_spec::IsInstance( const dlib::function_spec& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.function_spec").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::function_spec::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.function_spec").IsInstance( $obj ) -> retval
+```
+
 ## dlib::function\_evaluation\_request
 
 ### function\_evaluation\_request.function\_idx
@@ -6811,6 +8012,28 @@ AutoIt:
     [propget] $ofunction_evaluation_request.has_been_evaluated
 ```
 
+### function\_evaluation\_request.FullyQualifiedName
+
+```cpp
+static std::string dlib::function_evaluation_request::FullyQualifiedName
+AutoIt:
+    [propget] $ofunction_evaluation_request.FullyQualifiedName
+```
+
+### dlib::function\_evaluation\_request::IsInstance
+
+```cpp
+static bool dlib::function_evaluation_request::IsInstance( const dlib::function_evaluation_request& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.function_evaluation_request").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::function_evaluation_request::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.function_evaluation_request").IsInstance( $obj ) -> retval
+```
+
 ### dlib::function\_evaluation\_request::set
 
 ```cpp
@@ -6820,6 +8043,14 @@ AutoIt:
 ```
 
 ## dlib::global\_function\_search
+
+### global\_function\_search.FullyQualifiedName
+
+```cpp
+static std::string dlib::global_function_search::FullyQualifiedName
+AutoIt:
+    [propget] $oglobal_function_search.FullyQualifiedName
+```
 
 ### dlib::global\_function\_search::get\_create
 
@@ -6844,6 +8075,20 @@ static dlib::global_function_search dlib::global_function_search::get_create( st
 AutoIt:
     _Dlib_ObjCreate("dlib.global_function_search").create( $functions, $initial_function_evals[, $relative_noise_magnitude] ) -> <dlib.global_function_search object>
     $oglobal_function_search( $functions, $initial_function_evals[, $relative_noise_magnitude] ) -> <dlib.global_function_search object>
+```
+
+### dlib::global\_function\_search::IsInstance
+
+```cpp
+static bool dlib::global_function_search::IsInstance( const dlib::global_function_search& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.global_function_search").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::global_function_search::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.global_function_search").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::global\_function\_search::get\_best\_function\_eval
@@ -6955,6 +8200,14 @@ AutoIt:
 
 ## dlib::image\_window
 
+### image\_window.FullyQualifiedName
+
+```cpp
+static std::string dlib::image_window::FullyQualifiedName
+AutoIt:
+    [propget] $oimage_window.FullyQualifiedName
+```
+
 ### dlib::image\_window::get\_create
 
 ```cpp
@@ -7006,6 +8259,20 @@ std::shared_ptr<dlib::image_window> dlib::image_window::get_create( cv::Mat&    
 AutoIt:
     $oimage_window.create( $img, $title ) -> retval
     $oimage_window( $img, $title ) -> retval
+```
+
+### dlib::image\_window::IsInstance
+
+```cpp
+static bool dlib::image_window::IsInstance( const dlib::image_window& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_window").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::image_window::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_window").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::image\_window::add\_overlay
@@ -7557,6 +8824,14 @@ AutoIt:
     [propget, propput] $orgb_pixel.green
 ```
 
+### rgb\_pixel.FullyQualifiedName
+
+```cpp
+static std::string dlib::rgb_pixel::FullyQualifiedName
+AutoIt:
+    [propget] $orgb_pixel.FullyQualifiedName
+```
+
 ### dlib::rgb\_pixel::get\_create
 
 ```cpp
@@ -7572,6 +8847,20 @@ AutoIt:
 static dlib::rgb_pixel dlib::rgb_pixel::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rgb_pixel").create() -> <dlib.rgb_pixel object>
+```
+
+### dlib::rgb\_pixel::IsInstance
+
+```cpp
+static bool dlib::rgb_pixel::IsInstance( const dlib::rgb_pixel& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rgb_pixel").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::rgb_pixel::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rgb_pixel").IsInstance( $obj ) -> retval
 ```
 
 ## dlib::image\_dataset\_metadata
@@ -7749,6 +9038,14 @@ AutoIt:
     [propget, propput] $obox.age
 ```
 
+### box.FullyQualifiedName
+
+```cpp
+static std::string dlib::image_dataset_metadata::box::FullyQualifiedName
+AutoIt:
+    [propget] $obox.FullyQualifiedName
+```
+
 ### dlib::image\_dataset\_metadata::box::get\_create
 
 ```cpp
@@ -7762,6 +9059,20 @@ static dlib::image_dataset_metadata::box dlib::image_dataset_metadata::box::get_
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.box").create( $rect ) -> <dlib.image_dataset_metadata.box object>
     $obox( $rect ) -> <dlib.image_dataset_metadata.box object>
+```
+
+### dlib::image\_dataset\_metadata::box::IsInstance
+
+```cpp
+static bool dlib::image_dataset_metadata::box::IsInstance( const dlib::image_dataset_metadata::box& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.box").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::image_dataset_metadata::box::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.box").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::image\_dataset\_metadata::box::has\_label
@@ -7790,6 +9101,14 @@ AutoIt:
     [propget, propput] $oimage.boxes
 ```
 
+### image.FullyQualifiedName
+
+```cpp
+static std::string dlib::image_dataset_metadata::image::FullyQualifiedName
+AutoIt:
+    [propget] $oimage.FullyQualifiedName
+```
+
 ### dlib::image\_dataset\_metadata::image::get\_create
 
 ```cpp
@@ -7803,6 +9122,20 @@ static dlib::image_dataset_metadata::image dlib::image_dataset_metadata::image::
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.image").create( $filename ) -> <dlib.image_dataset_metadata.image object>
     $oimage( $filename ) -> <dlib.image_dataset_metadata.image object>
+```
+
+### dlib::image\_dataset\_metadata::image::IsInstance
+
+```cpp
+static bool dlib::image_dataset_metadata::image::IsInstance( const dlib::image_dataset_metadata::image& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.image").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::image_dataset_metadata::image::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.image").IsInstance( $obj ) -> retval
 ```
 
 ## dlib::image\_dataset\_metadata::dataset
@@ -7831,12 +9164,34 @@ AutoIt:
     [propget, propput] $odataset.name
 ```
 
+### dataset.FullyQualifiedName
+
+```cpp
+static std::string dlib::image_dataset_metadata::dataset::FullyQualifiedName
+AutoIt:
+    [propget] $odataset.FullyQualifiedName
+```
+
 ### dlib::image\_dataset\_metadata::dataset::get\_create
 
 ```cpp
 static dlib::image_dataset_metadata::dataset dlib::image_dataset_metadata::dataset::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.image_dataset_metadata.dataset").create() -> <dlib.image_dataset_metadata.dataset object>
+```
+
+### dlib::image\_dataset\_metadata::dataset::IsInstance
+
+```cpp
+static bool dlib::image_dataset_metadata::dataset::IsInstance( const dlib::image_dataset_metadata::dataset& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.dataset").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::image_dataset_metadata::dataset::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.image_dataset_metadata.dataset").IsInstance( $obj ) -> retval
 ```
 
 ## dlib::line
@@ -7865,6 +9220,14 @@ AutoIt:
     [propget] $oline.p2
 ```
 
+### line.FullyQualifiedName
+
+```cpp
+static std::string dlib::line::FullyQualifiedName
+AutoIt:
+    [propget] $oline.FullyQualifiedName
+```
+
 ### dlib::line::get\_create
 
 ```cpp
@@ -7887,6 +9250,20 @@ static dlib::line dlib::line::get_create( dlib::point a,
 AutoIt:
     _Dlib_ObjCreate("dlib.line").create( $a, $b ) -> <dlib.line object>
     $oline( $a, $b ) -> <dlib.line object>
+```
+
+### dlib::line::IsInstance
+
+```cpp
+static bool dlib::line::IsInstance( const dlib::line& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.line").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::line::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.line").IsInstance( $obj ) -> retval
 ```
 
 ## cv::Mat
@@ -7977,6 +9354,14 @@ AutoIt:
 std::vector<size_t> cv::Mat::steps
 AutoIt:
     [propget] $oMat.steps
+```
+
+### Mat.FullyQualifiedName
+
+```cpp
+static std::string cv::Mat::FullyQualifiedName
+AutoIt:
+    [propget] $oMat.FullyQualifiedName
 ```
 
 ### cv::Mat::create
@@ -8117,6 +9502,20 @@ void cv::Mat::GdiplusResize( cv::Mat dst,
                              int     interpolation = 7 );
 AutoIt:
     $oMat.GdiplusResize( $newWidth, $newHeight[, $interpolation[, $dst]] ) -> $dst
+```
+
+### cv::Mat::IsInstance
+
+```cpp
+static bool cv::Mat::IsInstance( const cv::Mat& obj );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool cv::Mat::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("cv.Mat").IsInstance( $obj ) -> retval
 ```
 
 ### cv::Mat::PixelChecksum
@@ -11206,6 +12605,14 @@ AutoIt:
     [propget] $oMatrix.shape
 ```
 
+### Matrix.FullyQualifiedName
+
+```cpp
+static std::string dlib::Matrix::FullyQualifiedName
+AutoIt:
+    [propget] $oMatrix.FullyQualifiedName
+```
+
 ### dlib::Matrix::get\_create
 
 ```cpp
@@ -11234,6 +12641,20 @@ std::shared_ptr<dlib::Matrix> dlib::Matrix::get_create( long rows,
 AutoIt:
     $oMatrix.create( $rows, $cols ) -> retval
     $oMatrix( $rows, $cols ) -> retval
+```
+
+### dlib::Matrix::IsInstance
+
+```cpp
+static bool dlib::Matrix::IsInstance( const dlib::Matrix& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.matrix").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::Matrix::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.matrix").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::Matrix::ToString
@@ -11313,12 +12734,34 @@ AutoIt:
 
 ## std::mutex
 
+### mutex.FullyQualifiedName
+
+```cpp
+static std::string std::mutex::FullyQualifiedName
+AutoIt:
+    [propget] $omutex.FullyQualifiedName
+```
+
 ### std::mutex::get\_create
 
 ```cpp
 static std::mutex std::mutex::get_create();
 AutoIt:
     _Dlib_ObjCreate("std.mutex").create() -> <std.mutex object>
+```
+
+### std::mutex::IsInstance
+
+```cpp
+static bool std::mutex::IsInstance( const std::mutex& obj );
+AutoIt:
+    _Dlib_ObjCreate("std.mutex").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool std::mutex::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("std.mutex").IsInstance( $obj ) -> retval
 ```
 
 ### std::mutex::lock
@@ -11347,12 +12790,34 @@ AutoIt:
 
 ## std::timed\_mutex
 
+### timed\_mutex.FullyQualifiedName
+
+```cpp
+static std::string std::timed_mutex::FullyQualifiedName
+AutoIt:
+    [propget] $otimed_mutex.FullyQualifiedName
+```
+
 ### std::timed\_mutex::get\_create
 
 ```cpp
 static std::timed_mutex std::timed_mutex::get_create();
 AutoIt:
     _Dlib_ObjCreate("std.timed_mutex").create() -> <std.timed_mutex object>
+```
+
+### std::timed\_mutex::IsInstance
+
+```cpp
+static bool std::timed_mutex::IsInstance( const std::timed_mutex& obj );
+AutoIt:
+    _Dlib_ObjCreate("std.timed_mutex").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool std::timed_mutex::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("std.timed_mutex").IsInstance( $obj ) -> retval
 ```
 
 ### std::timed\_mutex::lock
@@ -11413,6 +12878,14 @@ AutoIt:
     [propget] $ofhog_object_detector.num_detectors
 ```
 
+### fhog\_object\_detector.FullyQualifiedName
+
+```cpp
+static std::string dlib::fhog_object_detector::FullyQualifiedName
+AutoIt:
+    [propget] $ofhog_object_detector.FullyQualifiedName
+```
+
 ### dlib::fhog\_object\_detector::create
 
 ```cpp
@@ -11425,6 +12898,20 @@ AutoIt:
 std::shared_ptr<dlib::fhog_object_detector> dlib::fhog_object_detector::create( std::string filename );
 AutoIt:
     $ofhog_object_detector.create( $filename ) -> retval
+```
+
+### dlib::fhog\_object\_detector::IsInstance
+
+```cpp
+static bool dlib::fhog_object_detector::IsInstance( const dlib::fhog_object_detector& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.fhog_object_detector").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::fhog_object_detector::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.fhog_object_detector").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::fhog\_object\_detector::get\_call
@@ -11506,6 +12993,14 @@ AutoIt:
     [propget, propput] $oRange.end
 ```
 
+### Range.FullyQualifiedName
+
+```cpp
+static std::string cv::Range::FullyQualifiedName
+AutoIt:
+    [propget] $oRange.FullyQualifiedName
+```
+
 ### cv::Range::get\_create
 
 ```cpp
@@ -11520,6 +13015,20 @@ static cv::Range cv::Range::get_create( int start,
 AutoIt:
     _Dlib_ObjCreate("cv.Range").create( $start, $end ) -> <cv.Range object>
     $oRange( $start, $end ) -> <cv.Range object>
+```
+
+### cv::Range::IsInstance
+
+```cpp
+static bool cv::Range::IsInstance( const cv::Range& obj );
+AutoIt:
+    _Dlib_ObjCreate("cv.Range").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool cv::Range::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("cv.Range").IsInstance( $obj ) -> retval
 ```
 
 ### cv::Range::all
@@ -11548,6 +13057,14 @@ AutoIt:
 
 ## dlib::rect\_filter
 
+### rect\_filter.FullyQualifiedName
+
+```cpp
+static std::string dlib::rect_filter::FullyQualifiedName
+AutoIt:
+    [propget] $orect_filter.FullyQualifiedName
+```
+
 ### dlib::rect\_filter::create
 
 ```cpp
@@ -11562,6 +13079,20 @@ static dlib::rect_filter dlib::rect_filter::create( double measurement_noise,
                                                     double max_measurement_deviation );
 AutoIt:
     _Dlib_ObjCreate("dlib.rect_filter").create( $measurement_noise, $typical_acceleration, $max_measurement_deviation ) -> <dlib.rect_filter object>
+```
+
+### dlib::rect\_filter::IsInstance
+
+```cpp
+static bool dlib::rect_filter::IsInstance( const dlib::rect_filter& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rect_filter").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::rect_filter::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rect_filter").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::rect\_filter::get\_call
@@ -11606,6 +13137,14 @@ AutoIt:
 
 ## dlib::rectangle
 
+### rectangle.FullyQualifiedName
+
+```cpp
+static std::string dlib::rectangle::FullyQualifiedName
+AutoIt:
+    [propget] $orectangle.FullyQualifiedName
+```
+
 ### dlib::rectangle::get\_create
 
 ```cpp
@@ -11636,6 +13175,20 @@ static dlib::rectangle dlib::rectangle::get_create( dlib::rectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.rectangle").create( $rect ) -> <dlib.rectangle object>
     $orectangle( $rect ) -> <dlib.rectangle object>
+```
+
+### dlib::rectangle::IsInstance
+
+```cpp
+static bool dlib::rectangle::IsInstance( const dlib::rectangle& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rectangle").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::rectangle::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rectangle").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::rectangle::ToString
@@ -11795,6 +13348,14 @@ AutoIt:
 
 ## dlib::drectangle
 
+### drectangle.FullyQualifiedName
+
+```cpp
+static std::string dlib::drectangle::FullyQualifiedName
+AutoIt:
+    [propget] $odrectangle.FullyQualifiedName
+```
+
 ### dlib::drectangle::get\_create
 
 ```cpp
@@ -11825,6 +13386,20 @@ static dlib::drectangle dlib::drectangle::get_create( dlib::rectangle& rect );
 AutoIt:
     _Dlib_ObjCreate("dlib.drectangle").create( $rect ) -> <dlib.drectangle object>
     $odrectangle( $rect ) -> <dlib.drectangle object>
+```
+
+### dlib::drectangle::IsInstance
+
+```cpp
+static bool dlib::drectangle::IsInstance( const dlib::drectangle& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.drectangle").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::drectangle::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.drectangle").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::drectangle::ToString
@@ -12000,6 +13575,14 @@ AutoIt:
     [propget] $ofull_object_detection.num_parts
 ```
 
+### full\_object\_detection.FullyQualifiedName
+
+```cpp
+static std::string dlib::full_object_detection::FullyQualifiedName
+AutoIt:
+    [propget] $ofull_object_detection.FullyQualifiedName
+```
+
 ### dlib::full\_object\_detection::get\_create
 
 ```cpp
@@ -12014,6 +13597,20 @@ static dlib::full_object_detection dlib::full_object_detection::get_create( dlib
 AutoIt:
     _Dlib_ObjCreate("dlib.full_object_detection").create( $rect, $parts ) -> <dlib.full_object_detection object>
     $ofull_object_detection( $rect, $parts ) -> <dlib.full_object_detection object>
+```
+
+### dlib::full\_object\_detection::IsInstance
+
+```cpp
+static bool dlib::full_object_detection::IsInstance( const dlib::full_object_detection& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.full_object_detection").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::full_object_detection::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.full_object_detection").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::full\_object\_detection::part
@@ -12034,6 +13631,14 @@ AutoIt:
 
 ## dlib::shape\_predictor
 
+### shape\_predictor.FullyQualifiedName
+
+```cpp
+static std::string dlib::shape_predictor::FullyQualifiedName
+AutoIt:
+    [propget] $oshape_predictor.FullyQualifiedName
+```
+
 ### dlib::shape\_predictor::create
 
 ```cpp
@@ -12046,6 +13651,20 @@ AutoIt:
 std::shared_ptr<dlib::shape_predictor> dlib::shape_predictor::create( std::string filename );
 AutoIt:
     $oshape_predictor.create( $filename ) -> retval
+```
+
+### dlib::shape\_predictor::IsInstance
+
+```cpp
+static bool dlib::shape_predictor::IsInstance( const dlib::shape_predictor& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.shape_predictor").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::shape_predictor::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.shape_predictor").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::shape\_predictor::get\_call
@@ -12108,12 +13727,34 @@ AutoIt:
     [propget, propput] $osvm_c_trainer_radial_basis.gamma
 ```
 
+### svm\_c\_trainer\_radial\_basis.FullyQualifiedName
+
+```cpp
+static std::string dlib::svm_c_trainer_radial_basis::FullyQualifiedName
+AutoIt:
+    [propget] $osvm_c_trainer_radial_basis.FullyQualifiedName
+```
+
 ### dlib::svm\_c\_trainer\_radial\_basis::get\_create
 
 ```cpp
 static dlib::svm_c_trainer_radial_basis dlib::svm_c_trainer_radial_basis::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_radial_basis").create() -> <dlib.svm_c_trainer_radial_basis object>
+```
+
+### dlib::svm\_c\_trainer\_radial\_basis::IsInstance
+
+```cpp
+static bool dlib::svm_c_trainer_radial_basis::IsInstance( const dlib::svm_c_trainer_radial_basis& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_radial_basis").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::svm_c_trainer_radial_basis::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_radial_basis").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::svm\_c\_trainer\_radial\_basis::set\_c
@@ -12175,12 +13816,34 @@ AutoIt:
     [propget, propput] $osvm_c_trainer_sparse_radial_basis.gamma
 ```
 
+### svm\_c\_trainer\_sparse\_radial\_basis.FullyQualifiedName
+
+```cpp
+static std::string dlib::svm_c_trainer_sparse_radial_basis::FullyQualifiedName
+AutoIt:
+    [propget] $osvm_c_trainer_sparse_radial_basis.FullyQualifiedName
+```
+
 ### dlib::svm\_c\_trainer\_sparse\_radial\_basis::get\_create
 
 ```cpp
 static dlib::svm_c_trainer_sparse_radial_basis dlib::svm_c_trainer_sparse_radial_basis::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_radial_basis").create() -> <dlib.svm_c_trainer_sparse_radial_basis object>
+```
+
+### dlib::svm\_c\_trainer\_sparse\_radial\_basis::IsInstance
+
+```cpp
+static bool dlib::svm_c_trainer_sparse_radial_basis::IsInstance( const dlib::svm_c_trainer_sparse_radial_basis& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_radial_basis").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::svm_c_trainer_sparse_radial_basis::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_radial_basis").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::svm\_c\_trainer\_sparse\_radial\_basis::set\_c
@@ -12234,12 +13897,34 @@ AutoIt:
     [propget, propput] $osvm_c_trainer_histogram_intersection.cache_size
 ```
 
+### svm\_c\_trainer\_histogram\_intersection.FullyQualifiedName
+
+```cpp
+static std::string dlib::svm_c_trainer_histogram_intersection::FullyQualifiedName
+AutoIt:
+    [propget] $osvm_c_trainer_histogram_intersection.FullyQualifiedName
+```
+
 ### dlib::svm\_c\_trainer\_histogram\_intersection::get\_create
 
 ```cpp
 static dlib::svm_c_trainer_histogram_intersection dlib::svm_c_trainer_histogram_intersection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_histogram_intersection").create() -> <dlib.svm_c_trainer_histogram_intersection object>
+```
+
+### dlib::svm\_c\_trainer\_histogram\_intersection::IsInstance
+
+```cpp
+static bool dlib::svm_c_trainer_histogram_intersection::IsInstance( const dlib::svm_c_trainer_histogram_intersection& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_histogram_intersection").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::svm_c_trainer_histogram_intersection::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_histogram_intersection").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::svm\_c\_trainer\_histogram\_intersection::set\_c
@@ -12293,12 +13978,34 @@ AutoIt:
     [propget, propput] $osvm_c_trainer_sparse_histogram_intersection.cache_size
 ```
 
+### svm\_c\_trainer\_sparse\_histogram\_intersection.FullyQualifiedName
+
+```cpp
+static std::string dlib::svm_c_trainer_sparse_histogram_intersection::FullyQualifiedName
+AutoIt:
+    [propget] $osvm_c_trainer_sparse_histogram_intersection.FullyQualifiedName
+```
+
 ### dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::get\_create
 
 ```cpp
 static dlib::svm_c_trainer_sparse_histogram_intersection dlib::svm_c_trainer_sparse_histogram_intersection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_histogram_intersection").create() -> <dlib.svm_c_trainer_sparse_histogram_intersection object>
+```
+
+### dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::IsInstance
+
+```cpp
+static bool dlib::svm_c_trainer_sparse_histogram_intersection::IsInstance( const dlib::svm_c_trainer_sparse_histogram_intersection& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_histogram_intersection").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::svm_c_trainer_sparse_histogram_intersection::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_histogram_intersection").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::set\_c
@@ -12376,12 +14083,34 @@ AutoIt:
     [propget] $osvm_c_trainer_linear.has_prior
 ```
 
+### svm\_c\_trainer\_linear.FullyQualifiedName
+
+```cpp
+static std::string dlib::svm_c_trainer_linear::FullyQualifiedName
+AutoIt:
+    [propget] $osvm_c_trainer_linear.FullyQualifiedName
+```
+
 ### dlib::svm\_c\_trainer\_linear::get\_create
 
 ```cpp
 static dlib::svm_c_trainer_linear dlib::svm_c_trainer_linear::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_linear").create() -> <dlib.svm_c_trainer_linear object>
+```
+
+### dlib::svm\_c\_trainer\_linear::IsInstance
+
+```cpp
+static bool dlib::svm_c_trainer_linear::IsInstance( const dlib::svm_c_trainer_linear& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_linear").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::svm_c_trainer_linear::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_linear").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::svm\_c\_trainer\_linear::be\_quiet
@@ -12483,12 +14212,34 @@ AutoIt:
     [propget] $osvm_c_trainer_sparse_linear.has_prior
 ```
 
+### svm\_c\_trainer\_sparse\_linear.FullyQualifiedName
+
+```cpp
+static std::string dlib::svm_c_trainer_sparse_linear::FullyQualifiedName
+AutoIt:
+    [propget] $osvm_c_trainer_sparse_linear.FullyQualifiedName
+```
+
 ### dlib::svm\_c\_trainer\_sparse\_linear::get\_create
 
 ```cpp
 static dlib::svm_c_trainer_sparse_linear dlib::svm_c_trainer_sparse_linear::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_linear").create() -> <dlib.svm_c_trainer_sparse_linear object>
+```
+
+### dlib::svm\_c\_trainer\_sparse\_linear::IsInstance
+
+```cpp
+static bool dlib::svm_c_trainer_sparse_linear::IsInstance( const dlib::svm_c_trainer_sparse_linear& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_linear").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::svm_c_trainer_sparse_linear::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_c_trainer_sparse_linear").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::svm\_c\_trainer\_sparse\_linear::be\_quiet
@@ -12550,12 +14301,34 @@ AutoIt:
     [propget, propput] $orvm_trainer_radial_basis.gamma
 ```
 
+### rvm\_trainer\_radial\_basis.FullyQualifiedName
+
+```cpp
+static std::string dlib::rvm_trainer_radial_basis::FullyQualifiedName
+AutoIt:
+    [propget] $orvm_trainer_radial_basis.FullyQualifiedName
+```
+
 ### dlib::rvm\_trainer\_radial\_basis::get\_create
 
 ```cpp
 static dlib::rvm_trainer_radial_basis dlib::rvm_trainer_radial_basis::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_radial_basis").create() -> <dlib.rvm_trainer_radial_basis object>
+```
+
+### dlib::rvm\_trainer\_radial\_basis::IsInstance
+
+```cpp
+static bool dlib::rvm_trainer_radial_basis::IsInstance( const dlib::rvm_trainer_radial_basis& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_radial_basis").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::rvm_trainer_radial_basis::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_radial_basis").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::rvm\_trainer\_radial\_basis::train
@@ -12585,12 +14358,34 @@ AutoIt:
     [propget, propput] $orvm_trainer_sparse_radial_basis.gamma
 ```
 
+### rvm\_trainer\_sparse\_radial\_basis.FullyQualifiedName
+
+```cpp
+static std::string dlib::rvm_trainer_sparse_radial_basis::FullyQualifiedName
+AutoIt:
+    [propget] $orvm_trainer_sparse_radial_basis.FullyQualifiedName
+```
+
 ### dlib::rvm\_trainer\_sparse\_radial\_basis::get\_create
 
 ```cpp
 static dlib::rvm_trainer_sparse_radial_basis dlib::rvm_trainer_sparse_radial_basis::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_sparse_radial_basis").create() -> <dlib.rvm_trainer_sparse_radial_basis object>
+```
+
+### dlib::rvm\_trainer\_sparse\_radial\_basis::IsInstance
+
+```cpp
+static bool dlib::rvm_trainer_sparse_radial_basis::IsInstance( const dlib::rvm_trainer_sparse_radial_basis& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_radial_basis").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::rvm_trainer_sparse_radial_basis::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_radial_basis").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::rvm\_trainer\_sparse\_radial\_basis::train
@@ -12612,12 +14407,34 @@ AutoIt:
     [propget, propput] $orvm_trainer_histogram_intersection.epsilon
 ```
 
+### rvm\_trainer\_histogram\_intersection.FullyQualifiedName
+
+```cpp
+static std::string dlib::rvm_trainer_histogram_intersection::FullyQualifiedName
+AutoIt:
+    [propget] $orvm_trainer_histogram_intersection.FullyQualifiedName
+```
+
 ### dlib::rvm\_trainer\_histogram\_intersection::get\_create
 
 ```cpp
 static dlib::rvm_trainer_histogram_intersection dlib::rvm_trainer_histogram_intersection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_histogram_intersection").create() -> <dlib.rvm_trainer_histogram_intersection object>
+```
+
+### dlib::rvm\_trainer\_histogram\_intersection::IsInstance
+
+```cpp
+static bool dlib::rvm_trainer_histogram_intersection::IsInstance( const dlib::rvm_trainer_histogram_intersection& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_histogram_intersection").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::rvm_trainer_histogram_intersection::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_histogram_intersection").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::rvm\_trainer\_histogram\_intersection::train
@@ -12639,12 +14456,34 @@ AutoIt:
     [propget, propput] $orvm_trainer_sparse_histogram_intersection.epsilon
 ```
 
+### rvm\_trainer\_sparse\_histogram\_intersection.FullyQualifiedName
+
+```cpp
+static std::string dlib::rvm_trainer_sparse_histogram_intersection::FullyQualifiedName
+AutoIt:
+    [propget] $orvm_trainer_sparse_histogram_intersection.FullyQualifiedName
+```
+
 ### dlib::rvm\_trainer\_sparse\_histogram\_intersection::get\_create
 
 ```cpp
 static dlib::rvm_trainer_sparse_histogram_intersection dlib::rvm_trainer_sparse_histogram_intersection::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_sparse_histogram_intersection").create() -> <dlib.rvm_trainer_sparse_histogram_intersection object>
+```
+
+### dlib::rvm\_trainer\_sparse\_histogram\_intersection::IsInstance
+
+```cpp
+static bool dlib::rvm_trainer_sparse_histogram_intersection::IsInstance( const dlib::rvm_trainer_sparse_histogram_intersection& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_histogram_intersection").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::rvm_trainer_sparse_histogram_intersection::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_histogram_intersection").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::rvm\_trainer\_sparse\_histogram\_intersection::train
@@ -12666,12 +14505,34 @@ AutoIt:
     [propget, propput] $orvm_trainer_linear.epsilon
 ```
 
+### rvm\_trainer\_linear.FullyQualifiedName
+
+```cpp
+static std::string dlib::rvm_trainer_linear::FullyQualifiedName
+AutoIt:
+    [propget] $orvm_trainer_linear.FullyQualifiedName
+```
+
 ### dlib::rvm\_trainer\_linear::get\_create
 
 ```cpp
 static dlib::rvm_trainer_linear dlib::rvm_trainer_linear::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_linear").create() -> <dlib.rvm_trainer_linear object>
+```
+
+### dlib::rvm\_trainer\_linear::IsInstance
+
+```cpp
+static bool dlib::rvm_trainer_linear::IsInstance( const dlib::rvm_trainer_linear& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_linear").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::rvm_trainer_linear::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_linear").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::rvm\_trainer\_linear::train
@@ -12693,12 +14554,34 @@ AutoIt:
     [propget, propput] $orvm_trainer_sparse_linear.epsilon
 ```
 
+### rvm\_trainer\_sparse\_linear.FullyQualifiedName
+
+```cpp
+static std::string dlib::rvm_trainer_sparse_linear::FullyQualifiedName
+AutoIt:
+    [propget] $orvm_trainer_sparse_linear.FullyQualifiedName
+```
+
 ### dlib::rvm\_trainer\_sparse\_linear::get\_create
 
 ```cpp
 static dlib::rvm_trainer_sparse_linear dlib::rvm_trainer_sparse_linear::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.rvm_trainer_sparse_linear").create() -> <dlib.rvm_trainer_sparse_linear object>
+```
+
+### dlib::rvm\_trainer\_sparse\_linear::IsInstance
+
+```cpp
+static bool dlib::rvm_trainer_sparse_linear::IsInstance( const dlib::rvm_trainer_sparse_linear& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_linear").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::rvm_trainer_sparse_linear::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.rvm_trainer_sparse_linear").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::rvm\_trainer\_sparse\_linear::train
@@ -12728,6 +14611,14 @@ AutoIt:
     [propget, propput] $ovec_ranking_pair.nonrelevant
 ```
 
+### vec\_ranking\_pair.FullyQualifiedName
+
+```cpp
+static std::string dlib::vec_ranking_pair::FullyQualifiedName
+AutoIt:
+    [propget] $ovec_ranking_pair.FullyQualifiedName
+```
+
 ### dlib::vec\_ranking\_pair::get\_create
 
 ```cpp
@@ -12742,6 +14633,20 @@ static dlib::vec_ranking_pair dlib::vec_ranking_pair::get_create( std::vector<dl
 AutoIt:
     _Dlib_ObjCreate("dlib.ranking_pair").create( $relevant, $nonrelevant ) -> <dlib.vec_ranking_pair object>
     $ovec_ranking_pair( $relevant, $nonrelevant ) -> <dlib.vec_ranking_pair object>
+```
+
+### dlib::vec\_ranking\_pair::IsInstance
+
+```cpp
+static bool dlib::vec_ranking_pair::IsInstance( const dlib::vec_ranking_pair& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.ranking_pair").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::vec_ranking_pair::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.ranking_pair").IsInstance( $obj ) -> retval
 ```
 
 ## dlib::sparse\_ranking\_pair
@@ -12762,6 +14667,14 @@ AutoIt:
     [propget, propput] $osparse_ranking_pair.nonrelevant
 ```
 
+### sparse\_ranking\_pair.FullyQualifiedName
+
+```cpp
+static std::string dlib::sparse_ranking_pair::FullyQualifiedName
+AutoIt:
+    [propget] $osparse_ranking_pair.FullyQualifiedName
+```
+
 ### dlib::sparse\_ranking\_pair::get\_create
 
 ```cpp
@@ -12776,6 +14689,20 @@ static dlib::sparse_ranking_pair dlib::sparse_ranking_pair::get_create( std::vec
 AutoIt:
     _Dlib_ObjCreate("dlib.sparse_ranking_pair").create( $relevant, $nonrelevant ) -> <dlib.sparse_ranking_pair object>
     $osparse_ranking_pair( $relevant, $nonrelevant ) -> <dlib.sparse_ranking_pair object>
+```
+
+### dlib::sparse\_ranking\_pair::IsInstance
+
+```cpp
+static bool dlib::sparse_ranking_pair::IsInstance( const dlib::sparse_ranking_pair& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.sparse_ranking_pair").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::sparse_ranking_pair::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.sparse_ranking_pair").IsInstance( $obj ) -> retval
 ```
 
 ## dlib::vec\_svm\_rank\_trainer
@@ -12828,12 +14755,34 @@ AutoIt:
     [propget] $ovec_svm_rank_trainer.has_prior
 ```
 
+### vec\_svm\_rank\_trainer.FullyQualifiedName
+
+```cpp
+static std::string dlib::vec_svm_rank_trainer::FullyQualifiedName
+AutoIt:
+    [propget] $ovec_svm_rank_trainer.FullyQualifiedName
+```
+
 ### dlib::vec\_svm\_rank\_trainer::get\_create
 
 ```cpp
 static dlib::vec_svm_rank_trainer dlib::vec_svm_rank_trainer::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_rank_trainer").create() -> <dlib.vec_svm_rank_trainer object>
+```
+
+### dlib::vec\_svm\_rank\_trainer::IsInstance
+
+```cpp
+static bool dlib::vec_svm_rank_trainer::IsInstance( const dlib::vec_svm_rank_trainer& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_rank_trainer").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::vec_svm_rank_trainer::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_rank_trainer").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::vec\_svm\_rank\_trainer::be\_quiet
@@ -12924,12 +14873,34 @@ AutoIt:
     [propget] $osvm_rank_trainer_sparse.has_prior
 ```
 
+### svm\_rank\_trainer\_sparse.FullyQualifiedName
+
+```cpp
+static std::string dlib::svm_rank_trainer_sparse::FullyQualifiedName
+AutoIt:
+    [propget] $osvm_rank_trainer_sparse.FullyQualifiedName
+```
+
 ### dlib::svm\_rank\_trainer\_sparse::get\_create
 
 ```cpp
 static dlib::svm_rank_trainer_sparse dlib::svm_rank_trainer_sparse::get_create();
 AutoIt:
     _Dlib_ObjCreate("dlib.svm_rank_trainer_sparse").create() -> <dlib.svm_rank_trainer_sparse object>
+```
+
+### dlib::svm\_rank\_trainer\_sparse::IsInstance
+
+```cpp
+static bool dlib::svm_rank_trainer_sparse::IsInstance( const dlib::svm_rank_trainer_sparse& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_rank_trainer_sparse").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::svm_rank_trainer_sparse::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.svm_rank_trainer_sparse").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::svm\_rank\_trainer\_sparse::be\_quiet
@@ -13050,6 +15021,14 @@ AutoIt:
 std::vector<size_t> cv::UMat::steps
 AutoIt:
     [propget] $oUMat.steps
+```
+
+### UMat.FullyQualifiedName
+
+```cpp
+static std::string cv::UMat::FullyQualifiedName
+AutoIt:
+    [propget] $oUMat.FullyQualifiedName
 ```
 
 ### cv::UMat::get\_create
@@ -13175,6 +15154,20 @@ void cv::UMat::GdiplusResize( cv::Mat dst,
                               int     interpolation = 7 );
 AutoIt:
     $oUMat.GdiplusResize( $newWidth, $newHeight[, $interpolation[, $dst]] ) -> $dst
+```
+
+### cv::UMat::IsInstance
+
+```cpp
+static bool cv::UMat::IsInstance( const cv::UMat& obj );
+AutoIt:
+    _Dlib_ObjCreate("cv.UMat").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool cv::UMat::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("cv.UMat").IsInstance( $obj ) -> retval
 ```
 
 ### cv::UMat::adjustROI
@@ -13793,6 +15786,14 @@ AutoIt:
     [propget] $oSpaceVector.shape
 ```
 
+### SpaceVector.FullyQualifiedName
+
+```cpp
+static std::string dlib::SpaceVector::FullyQualifiedName
+AutoIt:
+    [propget] $oSpaceVector.FullyQualifiedName
+```
+
 ### dlib::SpaceVector::create
 
 ```cpp
@@ -13811,6 +15812,20 @@ AutoIt:
 static std::shared_ptr<dlib::SpaceVector> dlib::SpaceVector::create( long rows );
 AutoIt:
     _Dlib_ObjCreate("dlib.vector").create( $rows ) -> retval
+```
+
+### dlib::SpaceVector::IsInstance
+
+```cpp
+static bool dlib::SpaceVector::IsInstance( const dlib::SpaceVector& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.vector").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::SpaceVector::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.vector").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::SpaceVector::ToString
@@ -13900,6 +15915,14 @@ AutoIt:
     [propget] $opoint_transform_projective.m
 ```
 
+### point\_transform\_projective.FullyQualifiedName
+
+```cpp
+static std::string dlib::point_transform_projective::FullyQualifiedName
+AutoIt:
+    [propget] $opoint_transform_projective.FullyQualifiedName
+```
+
 ### dlib::point\_transform\_projective::get\_create
 
 ```cpp
@@ -13922,6 +15945,20 @@ AutoIt:
     $opoint_transform_projective( $m ) -> retval
 ```
 
+### dlib::point\_transform\_projective::IsInstance
+
+```cpp
+static bool dlib::point_transform_projective::IsInstance( const dlib::point_transform_projective& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.point_transform_projective").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::point_transform_projective::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.point_transform_projective").IsInstance( $obj ) -> retval
+```
+
 ## dlib::dpoint
 
 ### dpoint.x
@@ -13940,6 +15977,14 @@ AutoIt:
     [propget, propput] $odpoint.y
 ```
 
+### dpoint.FullyQualifiedName
+
+```cpp
+static std::string dlib::dpoint::FullyQualifiedName
+AutoIt:
+    [propget] $odpoint.FullyQualifiedName
+```
+
 ### dlib::dpoint::get\_create
 
 ```cpp
@@ -13955,6 +16000,20 @@ static dlib::dpoint dlib::dpoint::get_create( dlib::point& p );
 AutoIt:
     _Dlib_ObjCreate("dlib.dpoint").create( $p ) -> <dlib.dpoint object>
     $odpoint( $p ) -> <dlib.dpoint object>
+```
+
+### dlib::dpoint::IsInstance
+
+```cpp
+static bool dlib::dpoint::IsInstance( const dlib::dpoint& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.dpoint").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::dpoint::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.dpoint").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::dpoint::ToString
@@ -14023,6 +16082,14 @@ AutoIt:
     [propget, propput] $opoint.y
 ```
 
+### point.FullyQualifiedName
+
+```cpp
+static std::string dlib::point::FullyQualifiedName
+AutoIt:
+    [propget] $opoint.FullyQualifiedName
+```
+
 ### dlib::point::get\_create
 
 ```cpp
@@ -14038,6 +16105,20 @@ static dlib::point dlib::point::get_create( dlib::dpoint& p );
 AutoIt:
     _Dlib_ObjCreate("dlib.point").create( $p ) -> <dlib.point object>
     $opoint( $p ) -> <dlib.point object>
+```
+
+### dlib::point::IsInstance
+
+```cpp
+static bool dlib::point::IsInstance( const dlib::point& obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.point").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool dlib::point::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("dlib.point").IsInstance( $obj ) -> retval
 ```
 
 ### dlib::point::ToString
@@ -14098,6 +16179,14 @@ AutoIt:
     [propget] $oVectorOfString.Count
 ```
 
+### VectorOfString.FullyQualifiedName
+
+```cpp
+static std::string VectorOfString::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfString.FullyQualifiedName
+```
+
 ### VectorOfString::create
 
 ```cpp
@@ -14124,6 +16213,20 @@ AutoIt:
 void VectorOfString::Add( std::string value );
 AutoIt:
     $oVectorOfString.Add( $value ) -> None
+```
+
+### VectorOfString::IsInstance
+
+```cpp
+static bool VectorOfString::IsInstance( const VectorOfString& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfString").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfString::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfString").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfString::Items
@@ -14302,6 +16405,14 @@ AutoIt:
     [propget] $oVectorOfVariant.Count
 ```
 
+### VectorOfVariant.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVariant::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVariant.FullyQualifiedName
+```
+
 ### VectorOfVariant::create
 
 ```cpp
@@ -14328,6 +16439,20 @@ AutoIt:
 void VectorOfVariant::Add( _variant_t value );
 AutoIt:
     $oVectorOfVariant.Add( $value ) -> None
+```
+
+### VectorOfVariant::IsInstance
+
+```cpp
+static bool VectorOfVariant::IsInstance( const VectorOfVariant& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVariant").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVariant::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVariant").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVariant::Items
@@ -14506,6 +16631,14 @@ AutoIt:
     [propget] $oVectorOfPairOfULONGAndDouble.Count
 ```
 
+### VectorOfPairOfULONGAndDouble.FullyQualifiedName
+
+```cpp
+static std::string VectorOfPairOfULONGAndDouble::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfPairOfULONGAndDouble.FullyQualifiedName
+```
+
 ### VectorOfPairOfULONGAndDouble::create
 
 ```cpp
@@ -14532,6 +16665,20 @@ AutoIt:
 void VectorOfPairOfULONGAndDouble::Add( std::pair<ULONG, double> value );
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.Add( $value ) -> None
+```
+
+### VectorOfPairOfULONGAndDouble::IsInstance
+
+```cpp
+static bool VectorOfPairOfULONGAndDouble::IsInstance( const VectorOfPairOfULONGAndDouble& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfPairOfULONGAndDouble::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfPairOfULONGAndDouble::Items
@@ -14710,6 +16857,14 @@ AutoIt:
     [propget] $oVectorOfVectorOfPairOfULONGAndDouble.Count
 ```
 
+### VectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVectorOfPairOfULONGAndDouble::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName
+```
+
 ### VectorOfVectorOfPairOfULONGAndDouble::create
 
 ```cpp
@@ -14736,6 +16891,20 @@ AutoIt:
 void VectorOfVectorOfPairOfULONGAndDouble::Add( std::vector<std::pair<ULONG, double>> value );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.Add( $value ) -> None
+```
+
+### VectorOfVectorOfPairOfULONGAndDouble::IsInstance
+
+```cpp
+static bool VectorOfVectorOfPairOfULONGAndDouble::IsInstance( const VectorOfVectorOfPairOfULONGAndDouble& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVectorOfPairOfULONGAndDouble::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVectorOfPairOfULONGAndDouble::Items
@@ -14914,6 +17083,14 @@ AutoIt:
     [propget] $oVectorOfMat.Count
 ```
 
+### VectorOfMat.FullyQualifiedName
+
+```cpp
+static std::string VectorOfMat::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfMat.FullyQualifiedName
+```
+
 ### VectorOfMat::create
 
 ```cpp
@@ -14940,6 +17117,20 @@ AutoIt:
 void VectorOfMat::Add( cv::Mat value );
 AutoIt:
     $oVectorOfMat.Add( $value ) -> None
+```
+
+### VectorOfMat::IsInstance
+
+```cpp
+static bool VectorOfMat::IsInstance( const VectorOfMat& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfMat").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfMat::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfMat").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfMat::Items
@@ -15118,6 +17309,14 @@ AutoIt:
     [propget] $oVectorOfFull_object_detection.Count
 ```
 
+### VectorOfFull\_object\_detection.FullyQualifiedName
+
+```cpp
+static std::string VectorOfFull_object_detection::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfFull_object_detection.FullyQualifiedName
+```
+
 ### VectorOfFull\_object\_detection::create
 
 ```cpp
@@ -15144,6 +17343,20 @@ AutoIt:
 void VectorOfFull_object_detection::Add( dlib::full_object_detection value );
 AutoIt:
     $oVectorOfFull_object_detection.Add( $value ) -> None
+```
+
+### VectorOfFull\_object\_detection::IsInstance
+
+```cpp
+static bool VectorOfFull_object_detection::IsInstance( const VectorOfFull_object_detection& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFull_object_detection").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfFull_object_detection::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFull_object_detection").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfFull\_object\_detection::Items
@@ -15322,6 +17535,14 @@ AutoIt:
     [propget] $oVectorOfSpaceVector.Count
 ```
 
+### VectorOfSpaceVector.FullyQualifiedName
+
+```cpp
+static std::string VectorOfSpaceVector::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfSpaceVector.FullyQualifiedName
+```
+
 ### VectorOfSpaceVector::create
 
 ```cpp
@@ -15348,6 +17569,20 @@ AutoIt:
 void VectorOfSpaceVector::Add( dlib::SpaceVector value );
 AutoIt:
     $oVectorOfSpaceVector.Add( $value ) -> None
+```
+
+### VectorOfSpaceVector::IsInstance
+
+```cpp
+static bool VectorOfSpaceVector::IsInstance( const VectorOfSpaceVector& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSpaceVector").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfSpaceVector::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSpaceVector").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfSpaceVector::Items
@@ -15526,6 +17761,14 @@ AutoIt:
     [propget] $oVectorOfULONG.Count
 ```
 
+### VectorOfULONG.FullyQualifiedName
+
+```cpp
+static std::string VectorOfULONG::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfULONG.FullyQualifiedName
+```
+
 ### VectorOfULONG::create
 
 ```cpp
@@ -15552,6 +17795,20 @@ AutoIt:
 void VectorOfULONG::Add( ULONG value );
 AutoIt:
     $oVectorOfULONG.Add( $value ) -> None
+```
+
+### VectorOfULONG::IsInstance
+
+```cpp
+static bool VectorOfULONG::IsInstance( const VectorOfULONG& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfULONG").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfULONG::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfULONG").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfULONG::Items
@@ -15730,6 +17987,14 @@ AutoIt:
     [propget] $oVectorOfDouble.Count
 ```
 
+### VectorOfDouble.FullyQualifiedName
+
+```cpp
+static std::string VectorOfDouble::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfDouble.FullyQualifiedName
+```
+
 ### VectorOfDouble::create
 
 ```cpp
@@ -15756,6 +18021,20 @@ AutoIt:
 void VectorOfDouble::Add( double value );
 AutoIt:
     $oVectorOfDouble.Add( $value ) -> None
+```
+
+### VectorOfDouble::IsInstance
+
+```cpp
+static bool VectorOfDouble::IsInstance( const VectorOfDouble& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDouble").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfDouble::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDouble").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfDouble::Items
@@ -15934,6 +18213,14 @@ AutoIt:
     [propget] $oVectorOfBool.Count
 ```
 
+### VectorOfBool.FullyQualifiedName
+
+```cpp
+static std::string VectorOfBool::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfBool.FullyQualifiedName
+```
+
 ### VectorOfBool::create
 
 ```cpp
@@ -15960,6 +18247,20 @@ AutoIt:
 void VectorOfBool::Add( bool value );
 AutoIt:
     $oVectorOfBool.Add( $value ) -> None
+```
+
+### VectorOfBool::IsInstance
+
+```cpp
+static bool VectorOfBool::IsInstance( const VectorOfBool& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfBool").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfBool::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfBool").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfBool::Items
@@ -16138,6 +18439,14 @@ AutoIt:
     [propget] $oVectorOfRectangle.Count
 ```
 
+### VectorOfRectangle.FullyQualifiedName
+
+```cpp
+static std::string VectorOfRectangle::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfRectangle.FullyQualifiedName
+```
+
 ### VectorOfRectangle::create
 
 ```cpp
@@ -16164,6 +18473,20 @@ AutoIt:
 void VectorOfRectangle::Add( dlib::rectangle value );
 AutoIt:
     $oVectorOfRectangle.Add( $value ) -> None
+```
+
+### VectorOfRectangle::IsInstance
+
+```cpp
+static bool VectorOfRectangle::IsInstance( const VectorOfRectangle& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfRectangle").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfRectangle::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfRectangle").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfRectangle::Items
@@ -16342,6 +18665,14 @@ AutoIt:
     [propget] $oVectorOfLong.Count
 ```
 
+### VectorOfLong.FullyQualifiedName
+
+```cpp
+static std::string VectorOfLong::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfLong.FullyQualifiedName
+```
+
 ### VectorOfLong::create
 
 ```cpp
@@ -16368,6 +18699,20 @@ AutoIt:
 void VectorOfLong::Add( long value );
 AutoIt:
     $oVectorOfLong.Add( $value ) -> None
+```
+
+### VectorOfLong::IsInstance
+
+```cpp
+static bool VectorOfLong::IsInstance( const VectorOfLong& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfLong").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfLong::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfLong").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfLong::Items
@@ -16546,6 +18891,14 @@ AutoIt:
     [propget] $oVectorOfVectorOfSpaceVector.Count
 ```
 
+### VectorOfVectorOfSpaceVector.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVectorOfSpaceVector::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVectorOfSpaceVector.FullyQualifiedName
+```
+
 ### VectorOfVectorOfSpaceVector::create
 
 ```cpp
@@ -16572,6 +18925,20 @@ AutoIt:
 void VectorOfVectorOfSpaceVector::Add( std::vector<dlib::SpaceVector> value );
 AutoIt:
     $oVectorOfVectorOfSpaceVector.Add( $value ) -> None
+```
+
+### VectorOfVectorOfSpaceVector::IsInstance
+
+```cpp
+static bool VectorOfVectorOfSpaceVector::IsInstance( const VectorOfVectorOfSpaceVector& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfSpaceVector").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVectorOfSpaceVector::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfSpaceVector").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVectorOfSpaceVector::Items
@@ -16750,6 +19117,14 @@ AutoIt:
     [propget] $oVectorOfPairOfULONGAndULONG.Count
 ```
 
+### VectorOfPairOfULONGAndULONG.FullyQualifiedName
+
+```cpp
+static std::string VectorOfPairOfULONGAndULONG::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfPairOfULONGAndULONG.FullyQualifiedName
+```
+
 ### VectorOfPairOfULONGAndULONG::create
 
 ```cpp
@@ -16776,6 +19151,20 @@ AutoIt:
 void VectorOfPairOfULONGAndULONG::Add( std::pair<ULONG, ULONG> value );
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.Add( $value ) -> None
+```
+
+### VectorOfPairOfULONGAndULONG::IsInstance
+
+```cpp
+static bool VectorOfPairOfULONGAndULONG::IsInstance( const VectorOfPairOfULONGAndULONG& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfPairOfULONGAndULONG::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfPairOfULONGAndULONG::Items
@@ -16954,6 +19343,14 @@ AutoIt:
     [propget] $oVectorOfVectorOfPairOfULONGAndULONG.Count
 ```
 
+### VectorOfVectorOfPairOfULONGAndULONG.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVectorOfPairOfULONGAndULONG::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVectorOfPairOfULONGAndULONG.FullyQualifiedName
+```
+
 ### VectorOfVectorOfPairOfULONGAndULONG::create
 
 ```cpp
@@ -16980,6 +19377,20 @@ AutoIt:
 void VectorOfVectorOfPairOfULONGAndULONG::Add( std::vector<std::pair<ULONG, ULONG>> value );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.Add( $value ) -> None
+```
+
+### VectorOfVectorOfPairOfULONGAndULONG::IsInstance
+
+```cpp
+static bool VectorOfVectorOfPairOfULONGAndULONG::IsInstance( const VectorOfVectorOfPairOfULONGAndULONG& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVectorOfPairOfULONGAndULONG::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVectorOfPairOfULONGAndULONG::Items
@@ -17158,6 +19569,14 @@ AutoIt:
     [propget] $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Count
 ```
 
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVectorOfVectorOfPairOfULONGAndDouble::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName
+```
+
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::create
 
 ```cpp
@@ -17184,6 +19603,20 @@ AutoIt:
 void VectorOfVectorOfVectorOfPairOfULONGAndDouble::Add( std::vector<std::vector<std::pair<ULONG, double>>> value );
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Add( $value ) -> None
+```
+
+### VectorOfVectorOfVectorOfPairOfULONGAndDouble::IsInstance
+
+```cpp
+static bool VectorOfVectorOfVectorOfPairOfULONGAndDouble::IsInstance( const VectorOfVectorOfVectorOfPairOfULONGAndDouble& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVectorOfVectorOfPairOfULONGAndDouble::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::Items
@@ -17362,6 +19795,14 @@ AutoIt:
     [propget] $oVectorOfVectorOfFull_object_detection.Count
 ```
 
+### VectorOfVectorOfFull\_object\_detection.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVectorOfFull_object_detection::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVectorOfFull_object_detection.FullyQualifiedName
+```
+
 ### VectorOfVectorOfFull\_object\_detection::create
 
 ```cpp
@@ -17388,6 +19829,20 @@ AutoIt:
 void VectorOfVectorOfFull_object_detection::Add( std::vector<dlib::full_object_detection> value );
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.Add( $value ) -> None
+```
+
+### VectorOfVectorOfFull\_object\_detection::IsInstance
+
+```cpp
+static bool VectorOfVectorOfFull_object_detection::IsInstance( const VectorOfVectorOfFull_object_detection& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVectorOfFull_object_detection::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVectorOfFull\_object\_detection::Items
@@ -17566,6 +20021,14 @@ AutoIt:
     [propget] $oVectorOfVectorOfRectangle.Count
 ```
 
+### VectorOfVectorOfRectangle.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVectorOfRectangle::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVectorOfRectangle.FullyQualifiedName
+```
+
 ### VectorOfVectorOfRectangle::create
 
 ```cpp
@@ -17592,6 +20055,20 @@ AutoIt:
 void VectorOfVectorOfRectangle::Add( std::vector<dlib::rectangle> value );
 AutoIt:
     $oVectorOfVectorOfRectangle.Add( $value ) -> None
+```
+
+### VectorOfVectorOfRectangle::IsInstance
+
+```cpp
+static bool VectorOfVectorOfRectangle::IsInstance( const VectorOfVectorOfRectangle& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfRectangle").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVectorOfRectangle::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfRectangle").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVectorOfRectangle::Items
@@ -17770,6 +20247,14 @@ AutoIt:
     [propget] $oVectorOfVec_ranking_pair.Count
 ```
 
+### VectorOfVec\_ranking\_pair.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec_ranking_pair::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec_ranking_pair.FullyQualifiedName
+```
+
 ### VectorOfVec\_ranking\_pair::create
 
 ```cpp
@@ -17796,6 +20281,20 @@ AutoIt:
 void VectorOfVec_ranking_pair::Add( dlib::vec_ranking_pair value );
 AutoIt:
     $oVectorOfVec_ranking_pair.Add( $value ) -> None
+```
+
+### VectorOfVec\_ranking\_pair::IsInstance
+
+```cpp
+static bool VectorOfVec_ranking_pair::IsInstance( const VectorOfVec_ranking_pair& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec_ranking_pair").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec_ranking_pair::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec_ranking_pair").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec\_ranking\_pair::Items
@@ -17974,6 +20473,14 @@ AutoIt:
     [propget] $oVectorOfSparse_ranking_pair.Count
 ```
 
+### VectorOfSparse\_ranking\_pair.FullyQualifiedName
+
+```cpp
+static std::string VectorOfSparse_ranking_pair::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfSparse_ranking_pair.FullyQualifiedName
+```
+
 ### VectorOfSparse\_ranking\_pair::create
 
 ```cpp
@@ -18000,6 +20507,20 @@ AutoIt:
 void VectorOfSparse_ranking_pair::Add( dlib::sparse_ranking_pair value );
 AutoIt:
     $oVectorOfSparse_ranking_pair.Add( $value ) -> None
+```
+
+### VectorOfSparse\_ranking\_pair::IsInstance
+
+```cpp
+static bool VectorOfSparse_ranking_pair::IsInstance( const VectorOfSparse_ranking_pair& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSparse_ranking_pair").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfSparse_ranking_pair::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSparse_ranking_pair").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfSparse\_ranking\_pair::Items
@@ -18178,6 +20699,14 @@ AutoIt:
     [propget] $oVectorOfDpoint.Count
 ```
 
+### VectorOfDpoint.FullyQualifiedName
+
+```cpp
+static std::string VectorOfDpoint::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfDpoint.FullyQualifiedName
+```
+
 ### VectorOfDpoint::create
 
 ```cpp
@@ -18204,6 +20733,20 @@ AutoIt:
 void VectorOfDpoint::Add( dlib::dpoint value );
 AutoIt:
     $oVectorOfDpoint.Add( $value ) -> None
+```
+
+### VectorOfDpoint::IsInstance
+
+```cpp
+static bool VectorOfDpoint::IsInstance( const VectorOfDpoint& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDpoint").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfDpoint::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDpoint").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfDpoint::Items
@@ -18382,6 +20925,14 @@ AutoIt:
     [propget] $oVectorOfPoint.Count
 ```
 
+### VectorOfPoint.FullyQualifiedName
+
+```cpp
+static std::string VectorOfPoint::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfPoint.FullyQualifiedName
+```
+
 ### VectorOfPoint::create
 
 ```cpp
@@ -18408,6 +20959,20 @@ AutoIt:
 void VectorOfPoint::Add( dlib::point value );
 AutoIt:
     $oVectorOfPoint.Add( $value ) -> None
+```
+
+### VectorOfPoint::IsInstance
+
+```cpp
+static bool VectorOfPoint::IsInstance( const VectorOfPoint& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPoint").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfPoint::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPoint").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfPoint::Items
@@ -18586,6 +21151,14 @@ AutoIt:
     [propget] $oVectorOfVectorOfDouble.Count
 ```
 
+### VectorOfVectorOfDouble.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVectorOfDouble::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVectorOfDouble.FullyQualifiedName
+```
+
 ### VectorOfVectorOfDouble::create
 
 ```cpp
@@ -18612,6 +21185,20 @@ AutoIt:
 void VectorOfVectorOfDouble::Add( std::vector<double> value );
 AutoIt:
     $oVectorOfVectorOfDouble.Add( $value ) -> None
+```
+
+### VectorOfVectorOfDouble::IsInstance
+
+```cpp
+static bool VectorOfVectorOfDouble::IsInstance( const VectorOfVectorOfDouble& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfDouble").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVectorOfDouble::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfDouble").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVectorOfDouble::Items
@@ -18790,6 +21377,14 @@ AutoIt:
     [propget] $oVectorOfMmod_rect.Count
 ```
 
+### VectorOfMmod\_rect.FullyQualifiedName
+
+```cpp
+static std::string VectorOfMmod_rect::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfMmod_rect.FullyQualifiedName
+```
+
 ### VectorOfMmod\_rect::create
 
 ```cpp
@@ -18816,6 +21411,20 @@ AutoIt:
 void VectorOfMmod_rect::Add( dlib::mmod_rect value );
 AutoIt:
     $oVectorOfMmod_rect.Add( $value ) -> None
+```
+
+### VectorOfMmod\_rect::IsInstance
+
+```cpp
+static bool VectorOfMmod_rect::IsInstance( const VectorOfMmod_rect& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfMmod_rect").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfMmod_rect::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfMmod_rect").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfMmod\_rect::Items
@@ -18994,6 +21603,14 @@ AutoIt:
     [propget] $oVectorOfVectorOfMmod_rect.Count
 ```
 
+### VectorOfVectorOfMmod\_rect.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVectorOfMmod_rect::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVectorOfMmod_rect.FullyQualifiedName
+```
+
 ### VectorOfVectorOfMmod\_rect::create
 
 ```cpp
@@ -19020,6 +21637,20 @@ AutoIt:
 void VectorOfVectorOfMmod_rect::Add( std::vector<dlib::mmod_rect> value );
 AutoIt:
     $oVectorOfVectorOfMmod_rect.Add( $value ) -> None
+```
+
+### VectorOfVectorOfMmod\_rect::IsInstance
+
+```cpp
+static bool VectorOfVectorOfMmod_rect::IsInstance( const VectorOfVectorOfMmod_rect& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVectorOfMmod_rect::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVectorOfMmod\_rect::Items
@@ -19198,6 +21829,14 @@ AutoIt:
     [propget] $oVectorOfSimple_object_detector_com.Count
 ```
 
+### VectorOfSimple\_object\_detector\_com.FullyQualifiedName
+
+```cpp
+static std::string VectorOfSimple_object_detector_com::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfSimple_object_detector_com.FullyQualifiedName
+```
+
 ### VectorOfSimple\_object\_detector\_com::create
 
 ```cpp
@@ -19224,6 +21863,20 @@ AutoIt:
 void VectorOfSimple_object_detector_com::Add( dlib::simple_object_detector_com value );
 AutoIt:
     $oVectorOfSimple_object_detector_com.Add( $value ) -> None
+```
+
+### VectorOfSimple\_object\_detector\_com::IsInstance
+
+```cpp
+static bool VectorOfSimple_object_detector_com::IsInstance( const VectorOfSimple_object_detector_com& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSimple_object_detector_com").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfSimple_object_detector_com::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSimple_object_detector_com").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfSimple\_object\_detector\_com::Items
@@ -19402,6 +22055,14 @@ AutoIt:
     [propget] $oVectorOfFhog_object_detector.Count
 ```
 
+### VectorOfFhog\_object\_detector.FullyQualifiedName
+
+```cpp
+static std::string VectorOfFhog_object_detector::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfFhog_object_detector.FullyQualifiedName
+```
+
 ### VectorOfFhog\_object\_detector::create
 
 ```cpp
@@ -19428,6 +22089,20 @@ AutoIt:
 void VectorOfFhog_object_detector::Add( dlib::fhog_object_detector value );
 AutoIt:
     $oVectorOfFhog_object_detector.Add( $value ) -> None
+```
+
+### VectorOfFhog\_object\_detector::IsInstance
+
+```cpp
+static bool VectorOfFhog_object_detector::IsInstance( const VectorOfFhog_object_detector& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFhog_object_detector").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfFhog_object_detector::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFhog_object_detector").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfFhog\_object\_detector::Items
@@ -19606,6 +22281,14 @@ AutoIt:
     [propget] $oVectorOfUchar.Count
 ```
 
+### VectorOfUchar.FullyQualifiedName
+
+```cpp
+static std::string VectorOfUchar::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfUchar.FullyQualifiedName
+```
+
 ### VectorOfUchar::create
 
 ```cpp
@@ -19632,6 +22315,20 @@ AutoIt:
 void VectorOfUchar::Add( uchar value );
 AutoIt:
     $oVectorOfUchar.Add( $value ) -> None
+```
+
+### VectorOfUchar::IsInstance
+
+```cpp
+static bool VectorOfUchar::IsInstance( const VectorOfUchar& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfUchar").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfUchar::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfUchar").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfUchar::Items
@@ -19810,6 +22507,14 @@ AutoIt:
     [propget] $oVectorOfInt.Count
 ```
 
+### VectorOfInt.FullyQualifiedName
+
+```cpp
+static std::string VectorOfInt::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfInt.FullyQualifiedName
+```
+
 ### VectorOfInt::create
 
 ```cpp
@@ -19836,6 +22541,20 @@ AutoIt:
 void VectorOfInt::Add( int value );
 AutoIt:
     $oVectorOfInt.Add( $value ) -> None
+```
+
+### VectorOfInt::IsInstance
+
+```cpp
+static bool VectorOfInt::IsInstance( const VectorOfInt& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfInt").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfInt::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfInt").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfInt::Items
@@ -20014,6 +22733,14 @@ AutoIt:
     [propget] $oVectorOfFunction_spec.Count
 ```
 
+### VectorOfFunction\_spec.FullyQualifiedName
+
+```cpp
+static std::string VectorOfFunction_spec::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfFunction_spec.FullyQualifiedName
+```
+
 ### VectorOfFunction\_spec::create
 
 ```cpp
@@ -20040,6 +22767,20 @@ AutoIt:
 void VectorOfFunction_spec::Add( dlib::function_spec value );
 AutoIt:
     $oVectorOfFunction_spec.Add( $value ) -> None
+```
+
+### VectorOfFunction\_spec::IsInstance
+
+```cpp
+static bool VectorOfFunction_spec::IsInstance( const VectorOfFunction_spec& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFunction_spec").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfFunction_spec::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFunction_spec").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfFunction\_spec::Items
@@ -20218,6 +22959,14 @@ AutoIt:
     [propget] $oVectorOfFunction_evaluation.Count
 ```
 
+### VectorOfFunction\_evaluation.FullyQualifiedName
+
+```cpp
+static std::string VectorOfFunction_evaluation::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfFunction_evaluation.FullyQualifiedName
+```
+
 ### VectorOfFunction\_evaluation::create
 
 ```cpp
@@ -20244,6 +22993,20 @@ AutoIt:
 void VectorOfFunction_evaluation::Add( dlib::function_evaluation value );
 AutoIt:
     $oVectorOfFunction_evaluation.Add( $value ) -> None
+```
+
+### VectorOfFunction\_evaluation::IsInstance
+
+```cpp
+static bool VectorOfFunction_evaluation::IsInstance( const VectorOfFunction_evaluation& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFunction_evaluation").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfFunction_evaluation::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFunction_evaluation").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfFunction\_evaluation::Items
@@ -20422,6 +23185,14 @@ AutoIt:
     [propget] $oVectorOfVectorOfFunction_evaluation.Count
 ```
 
+### VectorOfVectorOfFunction\_evaluation.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVectorOfFunction_evaluation::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVectorOfFunction_evaluation.FullyQualifiedName
+```
+
 ### VectorOfVectorOfFunction\_evaluation::create
 
 ```cpp
@@ -20448,6 +23219,20 @@ AutoIt:
 void VectorOfVectorOfFunction_evaluation::Add( std::vector<dlib::function_evaluation> value );
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.Add( $value ) -> None
+```
+
+### VectorOfVectorOfFunction\_evaluation::IsInstance
+
+```cpp
+static bool VectorOfVectorOfFunction_evaluation::IsInstance( const VectorOfVectorOfFunction_evaluation& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVectorOfFunction_evaluation::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVectorOfFunction\_evaluation::Items
@@ -20626,6 +23411,14 @@ AutoIt:
     [propget] $oVectorOfDrectangle.Count
 ```
 
+### VectorOfDrectangle.FullyQualifiedName
+
+```cpp
+static std::string VectorOfDrectangle::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfDrectangle.FullyQualifiedName
+```
+
 ### VectorOfDrectangle::create
 
 ```cpp
@@ -20652,6 +23445,20 @@ AutoIt:
 void VectorOfDrectangle::Add( dlib::drectangle value );
 AutoIt:
     $oVectorOfDrectangle.Add( $value ) -> None
+```
+
+### VectorOfDrectangle::IsInstance
+
+```cpp
+static bool VectorOfDrectangle::IsInstance( const VectorOfDrectangle& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDrectangle").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfDrectangle::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfDrectangle").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfDrectangle::Items
@@ -20830,6 +23637,14 @@ AutoIt:
     [propget] $oVectorOfImage_window_keyboard_state_masks.Count
 ```
 
+### VectorOfImage\_window\_keyboard\_state\_masks.FullyQualifiedName
+
+```cpp
+static std::string VectorOfImage_window_keyboard_state_masks::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfImage_window_keyboard_state_masks.FullyQualifiedName
+```
+
 ### VectorOfImage\_window\_keyboard\_state\_masks::create
 
 ```cpp
@@ -20856,6 +23671,20 @@ AutoIt:
 void VectorOfImage_window_keyboard_state_masks::Add( dlib::image_window::keyboard_state_masks value );
 AutoIt:
     $oVectorOfImage_window_keyboard_state_masks.Add( $value ) -> None
+```
+
+### VectorOfImage\_window\_keyboard\_state\_masks::IsInstance
+
+```cpp
+static bool VectorOfImage_window_keyboard_state_masks::IsInstance( const VectorOfImage_window_keyboard_state_masks& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_window_keyboard_state_masks").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfImage_window_keyboard_state_masks::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_window_keyboard_state_masks").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfImage\_window\_keyboard\_state\_masks::Items
@@ -21026,6 +23855,14 @@ AutoIt:
 
 ## MapOfStringAndPoint
 
+### MapOfStringAndPoint.FullyQualifiedName
+
+```cpp
+static std::string MapOfStringAndPoint::FullyQualifiedName
+AutoIt:
+    [propget] $oMapOfStringAndPoint.FullyQualifiedName
+```
+
 ### MapOfStringAndPoint::create
 
 ```cpp
@@ -21055,6 +23892,20 @@ AutoIt:
 dlib::point MapOfStringAndPoint::Get( std::string key );
 AutoIt:
     $oMapOfStringAndPoint.Get( $key ) -> retval
+```
+
+### MapOfStringAndPoint::IsInstance
+
+```cpp
+static bool MapOfStringAndPoint::IsInstance( const MapOfStringAndPoint& obj );
+AutoIt:
+    _Dlib_ObjCreate("MapOfStringAndPoint").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool MapOfStringAndPoint::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("MapOfStringAndPoint").IsInstance( $obj ) -> retval
 ```
 
 ### MapOfStringAndPoint::Items
@@ -21189,6 +24040,14 @@ AutoIt:
     [propget] $oVectorOfPairOfStringAndPoint.Count
 ```
 
+### VectorOfPairOfStringAndPoint.FullyQualifiedName
+
+```cpp
+static std::string VectorOfPairOfStringAndPoint::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfPairOfStringAndPoint.FullyQualifiedName
+```
+
 ### VectorOfPairOfStringAndPoint::create
 
 ```cpp
@@ -21215,6 +24074,20 @@ AutoIt:
 void VectorOfPairOfStringAndPoint::Add( std::pair<std::string, dlib::point> value );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.Add( $value ) -> None
+```
+
+### VectorOfPairOfStringAndPoint::IsInstance
+
+```cpp
+static bool VectorOfPairOfStringAndPoint::IsInstance( const VectorOfPairOfStringAndPoint& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfPairOfStringAndPoint::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfPairOfStringAndPoint::Items
@@ -21393,6 +24266,14 @@ AutoIt:
     [propget] $oVectorOfImage_dataset_metadata_box.Count
 ```
 
+### VectorOfImage\_dataset\_metadata\_box.FullyQualifiedName
+
+```cpp
+static std::string VectorOfImage_dataset_metadata_box::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfImage_dataset_metadata_box.FullyQualifiedName
+```
+
 ### VectorOfImage\_dataset\_metadata\_box::create
 
 ```cpp
@@ -21419,6 +24300,20 @@ AutoIt:
 void VectorOfImage_dataset_metadata_box::Add( dlib::image_dataset_metadata::box value );
 AutoIt:
     $oVectorOfImage_dataset_metadata_box.Add( $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_box::IsInstance
+
+```cpp
+static bool VectorOfImage_dataset_metadata_box::IsInstance( const VectorOfImage_dataset_metadata_box& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_box").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfImage_dataset_metadata_box::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_box").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfImage\_dataset\_metadata\_box::Items
@@ -21597,6 +24492,14 @@ AutoIt:
     [propget] $oVectorOfImage_dataset_metadata_image.Count
 ```
 
+### VectorOfImage\_dataset\_metadata\_image.FullyQualifiedName
+
+```cpp
+static std::string VectorOfImage_dataset_metadata_image::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfImage_dataset_metadata_image.FullyQualifiedName
+```
+
 ### VectorOfImage\_dataset\_metadata\_image::create
 
 ```cpp
@@ -21623,6 +24526,20 @@ AutoIt:
 void VectorOfImage_dataset_metadata_image::Add( dlib::image_dataset_metadata::image value );
 AutoIt:
     $oVectorOfImage_dataset_metadata_image.Add( $value ) -> None
+```
+
+### VectorOfImage\_dataset\_metadata\_image::IsInstance
+
+```cpp
+static bool VectorOfImage_dataset_metadata_image::IsInstance( const VectorOfImage_dataset_metadata_image& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_image").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfImage_dataset_metadata_image::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfImage_dataset_metadata_image").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfImage\_dataset\_metadata\_image::Items
@@ -21801,6 +24718,14 @@ AutoIt:
     [propget] $oVectorOfSize_t.Count
 ```
 
+### VectorOfSize\_t.FullyQualifiedName
+
+```cpp
+static std::string VectorOfSize_t::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfSize_t.FullyQualifiedName
+```
+
 ### VectorOfSize\_t::create
 
 ```cpp
@@ -21827,6 +24752,20 @@ AutoIt:
 void VectorOfSize_t::Add( size_t value );
 AutoIt:
     $oVectorOfSize_t.Add( $value ) -> None
+```
+
+### VectorOfSize\_t::IsInstance
+
+```cpp
+static bool VectorOfSize_t::IsInstance( const VectorOfSize_t& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSize_t").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfSize_t::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfSize_t").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfSize\_t::Items
@@ -22005,6 +24944,14 @@ AutoIt:
     [propget] $oVectorOfRange.Count
 ```
 
+### VectorOfRange.FullyQualifiedName
+
+```cpp
+static std::string VectorOfRange::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfRange.FullyQualifiedName
+```
+
 ### VectorOfRange::create
 
 ```cpp
@@ -22031,6 +24978,20 @@ AutoIt:
 void VectorOfRange::Add( cv::Range value );
 AutoIt:
     $oVectorOfRange.Add( $value ) -> None
+```
+
+### VectorOfRange::IsInstance
+
+```cpp
+static bool VectorOfRange::IsInstance( const VectorOfRange& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfRange").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfRange::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfRange").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfRange::Items
@@ -22209,6 +25170,14 @@ AutoIt:
     [propget] $oVectorOfFloat.Count
 ```
 
+### VectorOfFloat.FullyQualifiedName
+
+```cpp
+static std::string VectorOfFloat::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfFloat.FullyQualifiedName
+```
+
 ### VectorOfFloat::create
 
 ```cpp
@@ -22235,6 +25204,20 @@ AutoIt:
 void VectorOfFloat::Add( float value );
 AutoIt:
     $oVectorOfFloat.Add( $value ) -> None
+```
+
+### VectorOfFloat::IsInstance
+
+```cpp
+static bool VectorOfFloat::IsInstance( const VectorOfFloat& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFloat").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfFloat::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfFloat").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfFloat::Items
@@ -22413,6 +25396,14 @@ AutoIt:
     [propget] $oVectorOfVec2b.Count
 ```
 
+### VectorOfVec2b.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec2b::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec2b.FullyQualifiedName
+```
+
 ### VectorOfVec2b::create
 
 ```cpp
@@ -22439,6 +25430,20 @@ AutoIt:
 void VectorOfVec2b::Add( cv::Vec2b value );
 AutoIt:
     $oVectorOfVec2b.Add( $value ) -> None
+```
+
+### VectorOfVec2b::IsInstance
+
+```cpp
+static bool VectorOfVec2b::IsInstance( const VectorOfVec2b& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2b").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec2b::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2b").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec2b::Items
@@ -22617,6 +25622,14 @@ AutoIt:
     [propget] $oVectorOfVec3b.Count
 ```
 
+### VectorOfVec3b.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec3b::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec3b.FullyQualifiedName
+```
+
 ### VectorOfVec3b::create
 
 ```cpp
@@ -22643,6 +25656,20 @@ AutoIt:
 void VectorOfVec3b::Add( cv::Vec3b value );
 AutoIt:
     $oVectorOfVec3b.Add( $value ) -> None
+```
+
+### VectorOfVec3b::IsInstance
+
+```cpp
+static bool VectorOfVec3b::IsInstance( const VectorOfVec3b& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3b").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec3b::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3b").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec3b::Items
@@ -22821,6 +25848,14 @@ AutoIt:
     [propget] $oVectorOfVec4b.Count
 ```
 
+### VectorOfVec4b.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec4b::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec4b.FullyQualifiedName
+```
+
 ### VectorOfVec4b::create
 
 ```cpp
@@ -22847,6 +25882,20 @@ AutoIt:
 void VectorOfVec4b::Add( cv::Vec4b value );
 AutoIt:
     $oVectorOfVec4b.Add( $value ) -> None
+```
+
+### VectorOfVec4b::IsInstance
+
+```cpp
+static bool VectorOfVec4b::IsInstance( const VectorOfVec4b& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4b").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec4b::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4b").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec4b::Items
@@ -23025,6 +26074,14 @@ AutoIt:
     [propget] $oVectorOfVec2s.Count
 ```
 
+### VectorOfVec2s.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec2s::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec2s.FullyQualifiedName
+```
+
 ### VectorOfVec2s::create
 
 ```cpp
@@ -23051,6 +26108,20 @@ AutoIt:
 void VectorOfVec2s::Add( cv::Vec2s value );
 AutoIt:
     $oVectorOfVec2s.Add( $value ) -> None
+```
+
+### VectorOfVec2s::IsInstance
+
+```cpp
+static bool VectorOfVec2s::IsInstance( const VectorOfVec2s& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2s").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec2s::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2s").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec2s::Items
@@ -23229,6 +26300,14 @@ AutoIt:
     [propget] $oVectorOfVec3s.Count
 ```
 
+### VectorOfVec3s.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec3s::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec3s.FullyQualifiedName
+```
+
 ### VectorOfVec3s::create
 
 ```cpp
@@ -23255,6 +26334,20 @@ AutoIt:
 void VectorOfVec3s::Add( cv::Vec3s value );
 AutoIt:
     $oVectorOfVec3s.Add( $value ) -> None
+```
+
+### VectorOfVec3s::IsInstance
+
+```cpp
+static bool VectorOfVec3s::IsInstance( const VectorOfVec3s& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3s").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec3s::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3s").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec3s::Items
@@ -23433,6 +26526,14 @@ AutoIt:
     [propget] $oVectorOfVec4s.Count
 ```
 
+### VectorOfVec4s.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec4s::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec4s.FullyQualifiedName
+```
+
 ### VectorOfVec4s::create
 
 ```cpp
@@ -23459,6 +26560,20 @@ AutoIt:
 void VectorOfVec4s::Add( cv::Vec4s value );
 AutoIt:
     $oVectorOfVec4s.Add( $value ) -> None
+```
+
+### VectorOfVec4s::IsInstance
+
+```cpp
+static bool VectorOfVec4s::IsInstance( const VectorOfVec4s& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4s").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec4s::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4s").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec4s::Items
@@ -23637,6 +26752,14 @@ AutoIt:
     [propget] $oVectorOfVec2w.Count
 ```
 
+### VectorOfVec2w.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec2w::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec2w.FullyQualifiedName
+```
+
 ### VectorOfVec2w::create
 
 ```cpp
@@ -23663,6 +26786,20 @@ AutoIt:
 void VectorOfVec2w::Add( cv::Vec2w value );
 AutoIt:
     $oVectorOfVec2w.Add( $value ) -> None
+```
+
+### VectorOfVec2w::IsInstance
+
+```cpp
+static bool VectorOfVec2w::IsInstance( const VectorOfVec2w& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2w").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec2w::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2w").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec2w::Items
@@ -23841,6 +26978,14 @@ AutoIt:
     [propget] $oVectorOfVec3w.Count
 ```
 
+### VectorOfVec3w.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec3w::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec3w.FullyQualifiedName
+```
+
 ### VectorOfVec3w::create
 
 ```cpp
@@ -23867,6 +27012,20 @@ AutoIt:
 void VectorOfVec3w::Add( cv::Vec3w value );
 AutoIt:
     $oVectorOfVec3w.Add( $value ) -> None
+```
+
+### VectorOfVec3w::IsInstance
+
+```cpp
+static bool VectorOfVec3w::IsInstance( const VectorOfVec3w& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3w").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec3w::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3w").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec3w::Items
@@ -24045,6 +27204,14 @@ AutoIt:
     [propget] $oVectorOfVec4w.Count
 ```
 
+### VectorOfVec4w.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec4w::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec4w.FullyQualifiedName
+```
+
 ### VectorOfVec4w::create
 
 ```cpp
@@ -24071,6 +27238,20 @@ AutoIt:
 void VectorOfVec4w::Add( cv::Vec4w value );
 AutoIt:
     $oVectorOfVec4w.Add( $value ) -> None
+```
+
+### VectorOfVec4w::IsInstance
+
+```cpp
+static bool VectorOfVec4w::IsInstance( const VectorOfVec4w& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4w").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec4w::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4w").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec4w::Items
@@ -24249,6 +27430,14 @@ AutoIt:
     [propget] $oVectorOfVec2i.Count
 ```
 
+### VectorOfVec2i.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec2i::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec2i.FullyQualifiedName
+```
+
 ### VectorOfVec2i::create
 
 ```cpp
@@ -24275,6 +27464,20 @@ AutoIt:
 void VectorOfVec2i::Add( cv::Vec2i value );
 AutoIt:
     $oVectorOfVec2i.Add( $value ) -> None
+```
+
+### VectorOfVec2i::IsInstance
+
+```cpp
+static bool VectorOfVec2i::IsInstance( const VectorOfVec2i& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2i").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec2i::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2i").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec2i::Items
@@ -24453,6 +27656,14 @@ AutoIt:
     [propget] $oVectorOfVec3i.Count
 ```
 
+### VectorOfVec3i.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec3i::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec3i.FullyQualifiedName
+```
+
 ### VectorOfVec3i::create
 
 ```cpp
@@ -24479,6 +27690,20 @@ AutoIt:
 void VectorOfVec3i::Add( cv::Vec3i value );
 AutoIt:
     $oVectorOfVec3i.Add( $value ) -> None
+```
+
+### VectorOfVec3i::IsInstance
+
+```cpp
+static bool VectorOfVec3i::IsInstance( const VectorOfVec3i& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3i").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec3i::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3i").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec3i::Items
@@ -24657,6 +27882,14 @@ AutoIt:
     [propget] $oVectorOfVec4i.Count
 ```
 
+### VectorOfVec4i.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec4i::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec4i.FullyQualifiedName
+```
+
 ### VectorOfVec4i::create
 
 ```cpp
@@ -24683,6 +27916,20 @@ AutoIt:
 void VectorOfVec4i::Add( cv::Vec4i value );
 AutoIt:
     $oVectorOfVec4i.Add( $value ) -> None
+```
+
+### VectorOfVec4i::IsInstance
+
+```cpp
+static bool VectorOfVec4i::IsInstance( const VectorOfVec4i& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4i").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec4i::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4i").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec4i::Items
@@ -24861,6 +28108,14 @@ AutoIt:
     [propget] $oVectorOfVec6i.Count
 ```
 
+### VectorOfVec6i.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec6i::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec6i.FullyQualifiedName
+```
+
 ### VectorOfVec6i::create
 
 ```cpp
@@ -24887,6 +28142,20 @@ AutoIt:
 void VectorOfVec6i::Add( cv::Vec6i value );
 AutoIt:
     $oVectorOfVec6i.Add( $value ) -> None
+```
+
+### VectorOfVec6i::IsInstance
+
+```cpp
+static bool VectorOfVec6i::IsInstance( const VectorOfVec6i& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6i").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec6i::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6i").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec6i::Items
@@ -25065,6 +28334,14 @@ AutoIt:
     [propget] $oVectorOfVec8i.Count
 ```
 
+### VectorOfVec8i.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec8i::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec8i.FullyQualifiedName
+```
+
 ### VectorOfVec8i::create
 
 ```cpp
@@ -25091,6 +28368,20 @@ AutoIt:
 void VectorOfVec8i::Add( cv::Vec8i value );
 AutoIt:
     $oVectorOfVec8i.Add( $value ) -> None
+```
+
+### VectorOfVec8i::IsInstance
+
+```cpp
+static bool VectorOfVec8i::IsInstance( const VectorOfVec8i& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec8i").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec8i::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec8i").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec8i::Items
@@ -25269,6 +28560,14 @@ AutoIt:
     [propget] $oVectorOfVec2f.Count
 ```
 
+### VectorOfVec2f.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec2f::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec2f.FullyQualifiedName
+```
+
 ### VectorOfVec2f::create
 
 ```cpp
@@ -25295,6 +28594,20 @@ AutoIt:
 void VectorOfVec2f::Add( cv::Vec2f value );
 AutoIt:
     $oVectorOfVec2f.Add( $value ) -> None
+```
+
+### VectorOfVec2f::IsInstance
+
+```cpp
+static bool VectorOfVec2f::IsInstance( const VectorOfVec2f& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2f").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec2f::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2f").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec2f::Items
@@ -25473,6 +28786,14 @@ AutoIt:
     [propget] $oVectorOfVec3f.Count
 ```
 
+### VectorOfVec3f.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec3f::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec3f.FullyQualifiedName
+```
+
 ### VectorOfVec3f::create
 
 ```cpp
@@ -25499,6 +28820,20 @@ AutoIt:
 void VectorOfVec3f::Add( cv::Vec3f value );
 AutoIt:
     $oVectorOfVec3f.Add( $value ) -> None
+```
+
+### VectorOfVec3f::IsInstance
+
+```cpp
+static bool VectorOfVec3f::IsInstance( const VectorOfVec3f& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3f").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec3f::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3f").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec3f::Items
@@ -25677,6 +29012,14 @@ AutoIt:
     [propget] $oVectorOfVec4f.Count
 ```
 
+### VectorOfVec4f.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec4f::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec4f.FullyQualifiedName
+```
+
 ### VectorOfVec4f::create
 
 ```cpp
@@ -25703,6 +29046,20 @@ AutoIt:
 void VectorOfVec4f::Add( cv::Vec4f value );
 AutoIt:
     $oVectorOfVec4f.Add( $value ) -> None
+```
+
+### VectorOfVec4f::IsInstance
+
+```cpp
+static bool VectorOfVec4f::IsInstance( const VectorOfVec4f& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4f").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec4f::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4f").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec4f::Items
@@ -25881,6 +29238,14 @@ AutoIt:
     [propget] $oVectorOfVec6f.Count
 ```
 
+### VectorOfVec6f.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec6f::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec6f.FullyQualifiedName
+```
+
 ### VectorOfVec6f::create
 
 ```cpp
@@ -25907,6 +29272,20 @@ AutoIt:
 void VectorOfVec6f::Add( cv::Vec6f value );
 AutoIt:
     $oVectorOfVec6f.Add( $value ) -> None
+```
+
+### VectorOfVec6f::IsInstance
+
+```cpp
+static bool VectorOfVec6f::IsInstance( const VectorOfVec6f& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6f").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec6f::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6f").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec6f::Items
@@ -26085,6 +29464,14 @@ AutoIt:
     [propget] $oVectorOfVec2d.Count
 ```
 
+### VectorOfVec2d.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec2d::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec2d.FullyQualifiedName
+```
+
 ### VectorOfVec2d::create
 
 ```cpp
@@ -26111,6 +29498,20 @@ AutoIt:
 void VectorOfVec2d::Add( cv::Vec2d value );
 AutoIt:
     $oVectorOfVec2d.Add( $value ) -> None
+```
+
+### VectorOfVec2d::IsInstance
+
+```cpp
+static bool VectorOfVec2d::IsInstance( const VectorOfVec2d& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2d").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec2d::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec2d").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec2d::Items
@@ -26289,6 +29690,14 @@ AutoIt:
     [propget] $oVectorOfVec3d.Count
 ```
 
+### VectorOfVec3d.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec3d::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec3d.FullyQualifiedName
+```
+
 ### VectorOfVec3d::create
 
 ```cpp
@@ -26315,6 +29724,20 @@ AutoIt:
 void VectorOfVec3d::Add( cv::Vec3d value );
 AutoIt:
     $oVectorOfVec3d.Add( $value ) -> None
+```
+
+### VectorOfVec3d::IsInstance
+
+```cpp
+static bool VectorOfVec3d::IsInstance( const VectorOfVec3d& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3d").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec3d::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec3d").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec3d::Items
@@ -26493,6 +29916,14 @@ AutoIt:
     [propget] $oVectorOfVec4d.Count
 ```
 
+### VectorOfVec4d.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec4d::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec4d.FullyQualifiedName
+```
+
 ### VectorOfVec4d::create
 
 ```cpp
@@ -26519,6 +29950,20 @@ AutoIt:
 void VectorOfVec4d::Add( cv::Vec4d value );
 AutoIt:
     $oVectorOfVec4d.Add( $value ) -> None
+```
+
+### VectorOfVec4d::IsInstance
+
+```cpp
+static bool VectorOfVec4d::IsInstance( const VectorOfVec4d& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4d").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec4d::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec4d").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec4d::Items
@@ -26697,6 +30142,14 @@ AutoIt:
     [propget] $oVectorOfVec6d.Count
 ```
 
+### VectorOfVec6d.FullyQualifiedName
+
+```cpp
+static std::string VectorOfVec6d::FullyQualifiedName
+AutoIt:
+    [propget] $oVectorOfVec6d.FullyQualifiedName
+```
+
 ### VectorOfVec6d::create
 
 ```cpp
@@ -26723,6 +30176,20 @@ AutoIt:
 void VectorOfVec6d::Add( cv::Vec6d value );
 AutoIt:
     $oVectorOfVec6d.Add( $value ) -> None
+```
+
+### VectorOfVec6d::IsInstance
+
+```cpp
+static bool VectorOfVec6d::IsInstance( const VectorOfVec6d& obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6d").IsInstance( $obj ) -> retval
+```
+
+```cpp
+static bool VectorOfVec6d::IsInstance( VARIANT* obj );
+AutoIt:
+    _Dlib_ObjCreate("VectorOfVec6d").IsInstance( $obj ) -> retval
 ```
 
 ### VectorOfVec6d::Items

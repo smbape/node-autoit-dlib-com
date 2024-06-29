@@ -37,11 +37,11 @@ const getOptions = PROJECT_DIR => {
         shared_ptr: "std::shared_ptr",
         make_shared: "std::make_shared",
         assert: "AUTOIT_ASSERT",
+        Any: "VARIANT*",
 
-        pself: "__self->get()",
         self: "*__self->get()",
-        self_get: name => {
-            return `__self->get()->${ name }`;
+        self_get: (name = null) => {
+            return name ? `__self->get()->${ name }` : "__self->get()";
         },
 
         progid: progid => {
@@ -53,11 +53,7 @@ const getOptions = PROJECT_DIR => {
         },
 
         // used to lookup classes
-        namespaces: new Set([
-            "cv",
-            "dlib",
-            "std",
-        ]),
+        namespaces: new Set([]),
 
         other_namespaces: new Set([
             "dlib::image_dataset_metadata"
@@ -109,32 +105,57 @@ const getOptions = PROJECT_DIR => {
         },
     };
 
-    for (const opt of ["iface", "hdr", "impl", "idl", "manifest", "rgs", "res", "save"]) {
-        options[opt] = !process.argv.includes(`--no-${ opt }`);
+    const argv = process.argv.slice(2);
+    const flags_true = ["iface", "hdr", "impl", "idl", "manifest", "rgs", "res", "save"];
+    const flags_false = ["test"];
+
+    for (const opt of flags_true) {
+        options[opt] = !argv.includes(`--no-${ opt }`);
     }
 
-    for (const opt of ["test"]) {
-        options[opt] = process.argv.includes(`--${ opt }`);
+    for (const opt of flags_false) {
+        options[opt] = argv.includes(`--${ opt }`);
     }
 
-    for (const opt of process.argv) {
+    for (let i = 0; i < argv.length; i++) {
+        const opt = argv[i];
+
+        if (opt.startsWith("--no-") && flags_true.includes(opt.slice("--no-".length))) {
+            continue;
+        }
+
+        if (opt.startsWith("--") && flags_false.includes(opt.slice("--".length))) {
+            continue;
+        }
+
         if (opt.startsWith("--no-test=")) {
             for (const fqn of opt.slice("--no-test=".length).split(/[ ,]/)) {
                 options.notest.add(fqn);
             }
+            continue;
         }
 
         if (opt.startsWith("--build=")) {
             for (const fqn of opt.slice("--build=".length).split(/[ ,]/)) {
                 options.build.add(fqn);
             }
+            continue;
         }
 
         if (opt.startsWith("--skip=")) {
             for (const fqn of opt.slice("--skip=".length).split(/[ ,]/)) {
                 options.skip.add(fqn);
             }
+            continue;
         }
+
+        if (opt.startsWith("-D")) {
+            const [key, value] = opt.slice("-D".length).split("=");
+            options[key] = typeof value === "undefined" ? true : value;
+            continue;
+        }
+
+        throw new Error(`Unknown option ${ opt }`);
     }
 
     return options;

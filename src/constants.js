@@ -97,14 +97,20 @@ exports.CPP_TYPES = new Map([
 ]);
 
 exports.ALIASES = new Map([
+    ["cv::InputArray", "InputArray"],
+    ["cv::InputArrayOfArrays", "InputArrayOfArrays"],
+    ["cv::InputOutputArray", "InputOutputArray"],
+    ["cv::InputOutputArrayOfArrays", "InputOutputArrayOfArrays"],
+    ["cv::OutputArray", "OutputArray"],
+    ["cv::OutputArrayOfArrays", "OutputArrayOfArrays"],
+
     ["dense_vect", "SpaceVector"],
     ["sample_type", "SpaceVector"],
     ["matrix_double_0_1", "SpaceVector"],
     ["matrix_double", "Matrix"],
-    ["sparse_vect", "vector_pair_ULONG_and_double"],
-    ["ranges", "vector_pair_ULONG_and_ULONG"],
+    ["sparse_vect", "std::vector<std::pair<ULONG, double>>"],
+    ["ranges", "std::vector<std::pair<ULONG, ULONG>>"],
     ["simple_object_detector", "fhog_object_detector"],
-    ["vector_unsignedlong", "vector_ULONG"],
 ]);
 
 exports.CLASS_PTR = new Set([
@@ -122,8 +128,8 @@ exports.CUSTOM_CLASSES = [
 ];
 
 exports.TEMPLATED_TYPES = new Set([
-    "GArray",
-    "GOpaque",
+    "cv::GArray",
+    "cv::GOpaque",
 ]);
 
 exports.ARRAY_CLASSES = new Set([

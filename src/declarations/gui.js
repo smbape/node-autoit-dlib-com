@@ -1,31 +1,31 @@
 module.exports = [
     ["class dlib.image_window", "", [], [], "", ""],
 
-    ["dlib.image_window.image_window", "shared_ptr_image_window", [], [], "", ""],
+    ["dlib.image_window.image_window", "std::shared_ptr<image_window>", [], [], "", ""],
 
-    ["dlib.image_window.create", "shared_ptr_image_window", ["/External"], [
+    ["dlib.image_window.create", "std::shared_ptr<image_window>", ["/External"], [
         ["fhog_object_detector", "detector", "", ["/Ref"]],
     ], "", ""],
 
-    ["dlib.image_window.create", "shared_ptr_image_window", ["/External"], [
+    ["dlib.image_window.create", "std::shared_ptr<image_window>", ["/External"], [
         ["simple_object_detector_com", "detector", "", ["/Ref"]],
     ], "", ""],
 
-    ["dlib.image_window.create", "shared_ptr_image_window", ["/External"], [
+    ["dlib.image_window.create", "std::shared_ptr<image_window>", ["/External"], [
         ["fhog_object_detector", "detector", "", ["/Ref"]],
         ["string", "title", "", []],
     ], "", ""],
 
-    ["dlib.image_window.create", "shared_ptr_image_window", ["/External"], [
+    ["dlib.image_window.create", "std::shared_ptr<image_window>", ["/External"], [
         ["simple_object_detector_com", "detector", "", ["/Ref"]],
         ["string", "title", "", []],
     ], "", ""],
 
-    ["dlib.image_window.create", "shared_ptr_image_window", ["/External"], [
+    ["dlib.image_window.create", "std::shared_ptr<image_window>", ["/External"], [
         ["cv::Mat", "img", "", ["/Ref"]],
     ], "", ""],
 
-    ["dlib.image_window.create", "shared_ptr_image_window", ["/External"], [
+    ["dlib.image_window.create", "std::shared_ptr<image_window>", ["/External"], [
         ["cv::Mat", "img", "", ["/Ref"]],
         ["string", "title", "", []],
     ], "", ""],
@@ -49,33 +49,33 @@ module.exports = [
     ["dlib.image_window.clear_overlay", "void", [], [], "", ""],
 
     ["dlib.image_window.add_overlay", "void", [], [
-        ["vector_rectangle", "rectangles", "", []],
+        ["std::vector<rectangle>", "rectangles", "", []],
         ["rgb_pixel", "color", "rgb_pixel(255, 0, 0)", []],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", [], [
-        ["vector_rectangle", "rectangles", "", []],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
+        ["std::vector<rectangle>", "rectangles", "", []],
+        ["std::tuple<uchar, uchar, uchar>", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", [], [
-        ["vector_drectangle", "drectangles", "", ["/Cast=vector_drectangle_to_vector_rectangle"]],
+        ["std::vector<drectangle>", "drectangles", "", ["/Cast=vector_drectangle_to_vector_rectangle"]],
         ["rgb_pixel", "color", "rgb_pixel(255, 0, 0)", []],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", [], [
-        ["vector_drectangle", "drectangles", "", ["/Cast=vector_drectangle_to_vector_rectangle"]],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
+        ["std::vector<drectangle>", "drectangles", "", ["/Cast=vector_drectangle_to_vector_rectangle"]],
+        ["std::tuple<uchar, uchar, uchar>", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", ["/External"], [
-        ["vector__variant_t", "objs", "", []],
+        ["std::vector<_variant_t>", "objs", "", []],
         ["rgb_pixel", "color", "rgb_pixel(255, 0, 0)", []],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", ["/External"], [
-        ["vector__variant_t", "objs", "", []],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", []],
+        ["std::vector<_variant_t>", "objs", "", []],
+        ["std::tuple<uchar, uchar, uchar>", "color", "{255, 0, 0}", []],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", [], [
@@ -85,7 +85,7 @@ module.exports = [
 
     ["dlib.image_window.add_overlay", "void", [], [
         ["rectangle", "rect", "", []],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
+        ["std::tuple<uchar, uchar, uchar>", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", [], [
@@ -95,7 +95,7 @@ module.exports = [
 
     ["dlib.image_window.add_overlay", "void", [], [
         ["drectangle", "drect", "", ["/Cast=rectangle"]],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
+        ["std::tuple<uchar, uchar, uchar>", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", ["/External"], [
@@ -105,7 +105,7 @@ module.exports = [
 
     ["dlib.image_window.add_overlay", "void", ["/External"], [
         ["full_object_detection", "detection", "", ["/Ref"]],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{0, 0, 255}", []],
+        ["std::tuple<uchar, uchar, uchar>", "color", "{0, 0, 255}", []],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", [], [
@@ -115,7 +115,7 @@ module.exports = [
 
     ["dlib.image_window.add_overlay", "void", [], [
         ["line", "l", "", []],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
+        ["std::tuple<uchar, uchar, uchar>", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", ["=add_overlay_circle", "/Expr=image_window::overlay_circle($0)"], [
@@ -127,7 +127,7 @@ module.exports = [
     ["dlib.image_window.add_overlay", "void", ["=add_overlay_circle", "/Expr=image_window::overlay_circle($0)"], [
         ["point", "center", "", []],
         ["double", "radius", "", []],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
+        ["std::tuple<uchar, uchar, uchar>", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
     ], "", ""],
 
     ["dlib.image_window.add_overlay", "void", ["=add_overlay_circle", "/Expr=image_window::overlay_circle($0)"], [
@@ -139,7 +139,7 @@ module.exports = [
     ["dlib.image_window.add_overlay", "void", ["=add_overlay_circle", "/Expr=image_window::overlay_circle($0)"], [
         ["dpoint", "center", "", []],
         ["double", "radius", "", []],
-        ["tuple_uchar_and_uchar_and_uchar", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
+        ["std::tuple<uchar, uchar, uchar>", "color", "{255, 0, 0}", ["/Expr=std::get<0>(color), std::get<1>(color), std::get<2>(color)", "/Cast=rgb_pixel"]],
     ], "", ""],
 
     ["dlib.image_window.wait_until_closed", "void", [], [], "", ""],
@@ -160,7 +160,7 @@ module.exports = [
     ["dlib.image_window.get_next_keypress", "bool", ["/External"], [
         ["char*", "key", "", ["/O"]],
         ["bool*", "is_printable", "", ["/O"]],
-        ["vector_keyboard_state_masks", "mods", "", ["/O"]],
+        ["std::vector<keyboard_state_masks>", "mods", "", ["/O"]],
         ["bool", "get_keyboard_modifiers", "false", []],
     ], "", ""],
 

@@ -16,7 +16,7 @@ const add_df = (declarations, function_type, sample_type, scalar_type = "double"
         [`struct dlib.${ function_type }`, "", ["/Simple"], [
             ["sample_type", "alpha", "", ["/R"]],
             [scalar_type, "b", "", ["/R"]],
-            ["vector_sample_type", "basis_vectors", "", ["/R", "/External"]],
+            ["std::vector<sample_type>", "basis_vectors", "", ["/R", "/External"]],
         ], "", ""],
 
         [`dlib.${ function_type }.call`, "double", ["/External", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
@@ -30,7 +30,7 @@ const add_normalized_df = (declarations, function_type, sample_type, scalar_type
         [`struct dlib.${ function_type }`, "", ["/Simple"], [
             ["sample_type", "alpha", "", ["/R", "=function.alpha"]],
             [scalar_type, "b", "", ["/R", "=function.b"]],
-            ["vector_sample_type", "basis_vectors", "", ["/R", "/External"]],
+            ["std::vector<sample_type>", "basis_vectors", "", ["/R", "/External"]],
             [sample_type, "means", "", ["/R", "=normalizer.means()"]],
             [sample_type, "invstd_devs", "", ["/R", "=normalizer.std_devs()"]],
         ], "", ""],
@@ -39,11 +39,11 @@ const add_normalized_df = (declarations, function_type, sample_type, scalar_type
             [sample_type, "sample", "", ["/Ref"]],
         ], "", ""],
 
-        [`dlib.${ function_type }.batch_predict`, "vector_double", ["/External"], [
-            [`vector_${ sample_type }`, "samples", "", ["/Ref"]],
+        [`dlib.${ function_type }.batch_predict`, "std::vector<double>", ["/External"], [
+            [`std::vector<${ sample_type }>`, "samples", "", ["/Ref"]],
         ], "", ""],
 
-        [`dlib.${ function_type }.batch_predict`, "vector_double", ["/External"], [
+        [`dlib.${ function_type }.batch_predict`, "std::vector<double>", ["/External"], [
             ["cv::Mat", "samples", "", ["/Ref"]],
         ], "", ""],
     ]);
@@ -52,22 +52,22 @@ const add_normalized_df = (declarations, function_type, sample_type, scalar_type
 const setup_auto_train_rbf_classifier = declarations => {
     declarations.push(...[
         ["dlib.auto_train_rbf_classifier", "_normalized_decision_function_radial_basis", [], [
-            ["vector_sample_type", "x", "", ["/Ref"]],
-            ["vector_double", "y", "", ["/Ref"]],
+            ["std::vector<sample_type>", "x", "", ["/Ref"]],
+            ["std::vector<double>", "y", "", ["/Ref"]],
             ["double", "max_runtime_seconds", "", ["/Expr=std::chrono::microseconds((uint64_t)(max_runtime_seconds * 1e6))"]],
             ["bool", "be_verbose", "true", []],
         ], "", ""],
 
         ["dlib.auto_train_rbf_classifier", "_normalized_decision_function_radial_basis", [], [
             ["cv::Mat", "x", "", ["/Ref", "/Cast=Mat_to_vector_sample_type"]],
-            ["vector_double", "y", "", ["/Ref"]],
+            ["std::vector<double>", "y", "", ["/Ref"]],
             ["double", "max_runtime_seconds", "", ["/Expr=std::chrono::microseconds((uint64_t)(max_runtime_seconds * 1e6))"]],
             ["bool", "be_verbose", "true", []],
         ], "", ""],
 
         ["dlib.reduce", "_normalized_decision_function_radial_basis", ["/External"], [
             ["_normalized_decision_function_radial_basis", "df", "", ["/Ref"]],
-            ["vector_sample_type", "x", "", ["/Ref"]],
+            ["std::vector<sample_type>", "x", "", ["/Ref"]],
             ["long", "num_basis_vectors", "", []],
             ["double", "eps", "1e-3", []],
         ], "", ""],
@@ -85,8 +85,8 @@ const add_test_binary = (declarations, decision_function, sample_type) => {
     declarations.push(...[
         ["dlib.test_binary_decision_function", "binary_test", ["/WrapAs=binary_test"], [
             [decision_function, "dec_funct", "", ["/Ref"]],
-            [`vector_${ sample_type }`, "samples", "", ["/Ref"]],
-            ["vector_double", "labels", "", ["/Ref"]],
+            [`std::vector<${ sample_type }>`, "samples", "", ["/Ref"]],
+            ["std::vector<double>", "labels", "", ["/Ref"]],
         ], "", ""],
     ]);
 
@@ -95,7 +95,7 @@ const add_test_binary = (declarations, decision_function, sample_type) => {
             ["dlib.test_binary_decision_function", "binary_test", ["/WrapAs=binary_test"], [
                 [decision_function, "dec_funct", "", ["/Ref"]],
                 ["cv::Mat", "samples", "", ["/Ref", "/Cast=Mat_to_vector_sample_type"]],
-                ["vector_double", "labels", "", ["/Ref"]],
+                ["std::vector<double>", "labels", "", ["/Ref"]],
             ], "", ""],
         ]);
     }
@@ -105,8 +105,8 @@ const add_test_regression = (declarations, decision_function, sample_type) => {
     declarations.push(...[
         ["dlib.test_regression_function", "regression_test", ["/WrapAs=regression_test"], [
             [decision_function, "dec_funct", "", ["/Ref"]],
-            [`vector_${ sample_type }`, "samples", "", ["/Ref"]],
-            ["vector_double", "labels", "", ["/Ref"]],
+            [`std::vector<${ sample_type }>`, "samples", "", ["/Ref"]],
+            ["std::vector<double>", "labels", "", ["/Ref"]],
         ], "", ""],
     ]);
 
@@ -115,7 +115,7 @@ const add_test_regression = (declarations, decision_function, sample_type) => {
             ["dlib.test_regression_function", "regression_test", ["/WrapAs=regression_test"], [
                 [decision_function, "dec_funct", "", ["/Ref"]],
                 ["cv::Mat", "samples", "", ["/Ref", "/Cast=Mat_to_vector_sample_type"]],
-                ["vector_double", "labels", "", ["/Ref"]],
+                ["std::vector<double>", "labels", "", ["/Ref"]],
             ], "", ""],
         ]);
     }
@@ -125,7 +125,7 @@ const add_test_ranking = (declarations, decision_function, ranking_pair) => {
     declarations.push(...[
         ["dlib.test_ranking_function", "ranking_test", ["/WrapAs=ranking_test"], [
             [decision_function, "dec_funct", "", ["/Ref"]],
-            [`vector_${ ranking_pair }`, "samples", "", ["/Ref"]],
+            [`std::vector<${ ranking_pair }>`, "samples", "", ["/Ref"]],
         ], "", ""],
 
         ["dlib.test_ranking_function", "ranking_test", ["/WrapAs=ranking_test"], [
@@ -143,7 +143,7 @@ const declarations = [
     ["struct dlib._linear_kernel", "", ["/Simple"], [], "", ""],
 ];
 
-const sparse_vect = "vector_pair_ULONG_and_double";
+const sparse_vect = "std::vector<std::pair<ULONG, double>>";
 
 add_linear_df(declarations, "_decision_function_linear", "sample_type");
 add_linear_df(declarations, "_decision_function_sparse_linear", sparse_vect);

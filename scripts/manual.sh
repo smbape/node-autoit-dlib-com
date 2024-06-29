@@ -17,7 +17,7 @@ find examples autoit-dlib-com/udf -type d -name 'BackUp' -exec rm -rf '{}' \;
 # ================================
 # generate doctoc
 # ================================
-node node_modules/doctoc/doctoc.js README.md
+node node_modules/doctoc/doctoc.js README.md && dos2unix README.md
 
 
 # ================================
@@ -36,10 +36,8 @@ time CMAKE_BUILD_TYPE=Release cmd.exe //c $(cygpath -w autoit-*-com/build.bat) &
 # ================================
 # test local
 # ================================
-# find examples -type f -name '*.au3' -a -not \( -name 'cnn_face_detector.au3' -o -name 'face_recognition.au3' \) -exec 'C:\Program Files (x86)\AutoIt3\AutoIt3.exe' 'C:\Program Files (x86)\AutoIt3\SciTE\AutoIt3Wrapper\AutoIt3Wrapper.au3' //run //prod //ErrorStdOut //in '{}' \;
-# find examples -type f -name '*.cs' -exec cmd.exe //c 'examples\dotnet\csrun.bat' '{}' \;
-# find examples -type f -name '*.ps1' -exec powershell.exe -ExecutionPolicy, UnRestricted, -File '{}' \;
-BUILD_TYPE=Release node scripts/test.js
+node scripts/test.js --bash --Release > $(for ifile in autoit-*-com/build_x64/bin; do echo $ifile/test_all.sh; done) && \
+./autoit-*-com/build_x64/bin/test_all.sh
 
 
 # ================================
@@ -62,4 +60,5 @@ curl -L 'https://github.com/davisking/dlib/archive/refs/tags/v19.24.4.zip' -o au
 cp -rf /d/Programs/AutoIt/UDF/dlib-udf-test/dlib-19.24.4/* /d/Programs/AutoIt/UDF/dlib-udf-test/ && \
 rm -rf /d/Programs/AutoIt/UDF/dlib-udf-test/dlib-19.24.4 && \
 mkdir /d/Programs/AutoIt/UDF/dlib-udf-test/examples/data && \
-BUILD_TYPE=Release node scripts/test.js /d/Programs/AutoIt/UDF/dlib-udf-test
+node scripts/test.js --bash --Release /d/Programs/AutoIt/UDF/dlib-udf-test > $(for ifile in autoit-*-com/build_x64/bin; do echo $ifile/test_all.sh; done) && \
+./autoit-*-com/build_x64/bin/test_all.sh

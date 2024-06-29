@@ -7,6 +7,10 @@
         "iid": "459cc32e-5b6b-431b-9a3d-d3522d67d57e",
         "clsid": "7d952807-e092-4bb4-a18a-d0d45bce7066"
     },
+    "autoit::Buffer": {
+        "iid": "19dd3946-fe11-4bd2-b2c6-a2e82581ace8",
+        "clsid": "e2ada70a-783c-4ac6-9417-726eac57e9e6"
+    },
     "com": {
         "iid": "1d8da40c-1ba7-4b18-acf0-aa5b275cc140",
         "clsid": "eceedb08-a4b6-4774-9eda-bcf1a912650f"

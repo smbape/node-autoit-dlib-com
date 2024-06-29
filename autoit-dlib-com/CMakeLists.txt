@@ -45,11 +45,11 @@ FetchContent_Declare(dlib
 FetchContent_Populate(dlib)
 
 # Tell cmake that we will need autoit-opencv-com.
-set(OPENCV_COM_VERSION 2.6.1)
+set(OPENCV_COM_VERSION 2.6.2)
 include(FetchContent)
 FetchContent_Declare(autoit_opencv_com
   URL               https://github.com/smbape/node-autoit-opencv-com/releases/download/v${OPENCV_COM_VERSION}/autoit-opencv-${OpenCV_VERSION}-com-v${OPENCV_COM_VERSION}.7z
-  URL_HASH          SHA256=7a8c6f6acf96fe5d6a8978962ff2dbd3f04b8f6f690744d116e0b82efe1bce45
+  URL_HASH          SHA256=0ec530059c93eca0011f5678f0f010529cd3fd67b4316407a5af6a3cd1ed7b4a
   DOWNLOAD_NO_EXTRACT TRUE
   DOWNLOAD_DIR      "${CMAKE_CURRENT_SOURCE_DIR}/.."
   SOURCE_DIR        "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com"

@@ -33,8 +33,8 @@ module.exports = [
     ["cv.imencode", "bool", [], [
         ["string", "ext", "", []],
         ["Mat", "img", "", []],
-        ["vector_uchar", "buf", "", ["/O"]],
-        ["vector_int", "params", "std::vector<int>()", []],
+        ["std::vector<uchar>", "buf", "", ["/O"]],
+        ["std::vector<int>", "params", "std::vector<int>()", []],
     ], "", ""],
 
     ["cv.imread", "Mat", [], [
@@ -50,13 +50,13 @@ module.exports = [
 
     ["cv.imreadmulti", "bool", [], [
         ["string", "filename", "", ["/C", "/Ref"]],
-        ["vector_Mat", "mats", "", ["/O"]],
+        ["std::vector<Mat>", "mats", "", ["/O"]],
         ["int", "flags", "IMREAD_ANYCOLOR", []],
     ], "", ""],
 
     ["cv.imreadmulti", "bool", [], [
         ["string", "filename", "", ["/C", "/Ref"]],
-        ["vector_Mat", "mats", "", ["/O"]],
+        ["std::vector<Mat>", "mats", "", ["/O"]],
         ["int", "start", "", []],
         ["int", "count", "", []],
         ["int", "flags", "IMREAD_ANYCOLOR", []],
@@ -65,12 +65,12 @@ module.exports = [
     ["cv.imwrite", "bool", [], [
         ["string", "filename", "", ["/C", "/Ref"]],
         ["Mat", "img", "", []],
-        ["vector_int", "params", "std::vector<int>()", []],
+        ["std::vector<int>", "params", "std::vector<int>()", []],
     ], "", ""],
 
     ["cv.imwritemulti", "bool", [], [
         ["string", "filename", "", ["/C", "/Ref"]],
-        ["vector_Mat", "img", "", []],
-        ["vector_int", "params", "std::vector<int>()", []],
+        ["std::vector<Mat>", "img", "", []],
+        ["std::vector<int>", "params", "std::vector<int>()", []],
     ], "", ""],
 ];

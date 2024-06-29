@@ -1,4 +1,4 @@
-module.exports = ({ self }) => {
+module.exports = ({ self, shared_ptr }) => {
     const declarations = [
         ["class dlib.fhog_object_detector", "", ["/Simple"], [
             ["ULONG", "detection_window_width", "", ["/R", "=get_scanner().get_detection_window_width()"]],
@@ -8,24 +8,24 @@ module.exports = ({ self }) => {
 
         ["dlib.fhog_object_detector.fhog_object_detector", "", [], [], "", ""],
 
-        ["dlib.fhog_object_detector.create", "shared_ptr_fhog_object_detector", ["/Call=dlib::load_object_from_file<fhog_object_detector>"], [
+        ["dlib.fhog_object_detector.create", `${ shared_ptr }<fhog_object_detector>`, ["/Call=dlib::load_object_from_file<fhog_object_detector>"], [
             ["string", "filename", "", []],
         ], "", ""],
 
         ["dlib.fhog_object_detector.run", "void", ["/External"], [
             ["cv::Mat", "image", "", []],
-            ["vector_rectangle", "rectangles", "", ["/O"]],
-            ["vector_double", "detection_confidences", "", ["/O"]],
-            ["vector_ULONG", "weight_indices", "", ["/O"]],
+            ["std::vector<rectangle>", "rectangles", "", ["/O"]],
+            ["std::vector<double>", "detection_confidences", "", ["/O"]],
+            ["std::vector<ULONG>", "weight_indices", "", ["/O"]],
             ["uint", "upsample_num_times", "0", []],
             ["double", "adjust_threshold", "0.0", []],
         ], "", ""],
 
         ["dlib.fhog_object_detector.call", "void", ["/External", "/attr=propget", "=get_call", "/idlname=call", "/id=DISPID_VALUE"], [
             ["cv::Mat", "image", "", []],
-            ["vector_rectangle", "rectangles", "", ["/O"]],
-            ["vector_double", "detection_confidences", "", ["/O"]],
-            ["vector_ULONG", "weight_indices", "", ["/O"]],
+            ["std::vector<rectangle>", "rectangles", "", ["/O"]],
+            ["std::vector<double>", "detection_confidences", "", ["/O"]],
+            ["std::vector<ULONG>", "weight_indices", "", ["/O"]],
             ["uint", "upsample_num_times", "0", []],
             ["double", "adjust_threshold", "0.0", []],
         ], "", ""],
@@ -67,11 +67,11 @@ module.exports = ({ self }) => {
         for (const detector of ["fhog_object_detector", "simple_object_detector_com"]) {
             declarations.push(...[
                 [`dlib.${ clazz }.run_multiple`, "void", ["/External", "/S"], [
-                    [`vector_${ detector }`, "vectors", "", []],
+                    [`std::vector<${ detector }>`, "vectors", "", []],
                     ["cv::Mat", "image", "", []],
-                    ["vector_rectangle", "rectangles", "", ["/O"]],
-                    ["vector_double", "detection_confidences", "", ["/O"]],
-                    ["vector_ULONG", "weight_indices", "", ["/O"]],
+                    ["std::vector<rectangle>", "rectangles", "", ["/O"]],
+                    ["std::vector<double>", "detection_confidences", "", ["/O"]],
+                    ["std::vector<ULONG>", "weight_indices", "", ["/O"]],
                     ["uint", "upsample_num_times", "0", []],
                     ["double", "adjust_threshold", "0.0", []],
                 ], "", ""],

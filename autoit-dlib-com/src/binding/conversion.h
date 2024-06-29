@@ -15,54 +15,54 @@
 namespace dlib {
 	// ----------------------------------------------------------------------------------------
 
-	typedef matrix<double, 0, 1> dense_vect;
-	typedef matrix<double, 0, 1> sample_type;
-	typedef matrix<double, 0, 1> SpaceVector;
-	typedef matrix<double> Matrix;
+	using dense_vect = matrix<double, 0, 1>;
+	using sample_type = matrix<double, 0, 1>;
+	using SpaceVector = matrix<double, 0, 1>;
+	using Matrix = matrix<double>;
 
-	typedef std::vector<std::pair<unsigned long, double>> sparse_vect;
-	typedef std::vector<std::pair<unsigned long, unsigned long>> ranges;
+	using sparse_vect = std::vector<std::pair<unsigned long, double>>;
+	using ranges = std::vector<std::pair<unsigned long, unsigned long>>;
 
-	typedef ranking_pair<sample_type> vec_ranking_pair;
-	typedef std::vector<vec_ranking_pair> ranking_pairs;
-	typedef svm_rank_trainer<linear_kernel<sample_type>> vec_svm_rank_trainer;
-	typedef decision_function<linear_kernel<sample_type>> _decision_function_linear;
+	using vec_ranking_pair = ranking_pair<sample_type>;
+	using ranking_pairs = std::vector<vec_ranking_pair>;
+	using vec_svm_rank_trainer = svm_rank_trainer<linear_kernel<sample_type>>;
+	using _decision_function_linear = decision_function<linear_kernel<sample_type>>;
 
-	typedef ranking_pair<sparse_vect> sparse_ranking_pair;
-	typedef std::vector<sparse_ranking_pair> sparse_ranking_pairs;
-	typedef svm_rank_trainer<sparse_linear_kernel<sparse_vect>> svm_rank_trainer_sparse;
-	typedef decision_function<sparse_linear_kernel<sparse_vect>> _decision_function_sparse_linear;
+	using sparse_ranking_pair = ranking_pair<sparse_vect>;
+	using sparse_ranking_pairs = std::vector<sparse_ranking_pair>;
+	using svm_rank_trainer_sparse = svm_rank_trainer<sparse_linear_kernel<sparse_vect>>;
+	using _decision_function_sparse_linear = decision_function<sparse_linear_kernel<sparse_vect>>;
 
-	typedef decision_function<histogram_intersection_kernel<sample_type>> _decision_function_histogram_intersection;
-	typedef decision_function<sparse_histogram_intersection_kernel<sparse_vect>> _decision_function_sparse_histogram_intersection;
-	typedef decision_function<polynomial_kernel<sample_type>> _decision_function_polynomial;
-	typedef decision_function<sparse_polynomial_kernel<sparse_vect>> _decision_function_sparse_polynomial;
-	typedef decision_function<radial_basis_kernel<sample_type>> _decision_function_radial_basis;
-	typedef decision_function<sparse_radial_basis_kernel<sparse_vect>> _decision_function_sparse_radial_basis;
-	typedef decision_function<sigmoid_kernel<sample_type>> _decision_function_sigmoid;
-	typedef decision_function<sparse_sigmoid_kernel<sparse_vect>> _decision_function_sparse_sigmoid;
+	using _decision_function_histogram_intersection = decision_function<histogram_intersection_kernel<sample_type>>;
+	using _decision_function_sparse_histogram_intersection = decision_function<sparse_histogram_intersection_kernel<sparse_vect>>;
+	using _decision_function_polynomial = decision_function<polynomial_kernel<sample_type>>;
+	using _decision_function_sparse_polynomial = decision_function<sparse_polynomial_kernel<sparse_vect>>;
+	using _decision_function_radial_basis = decision_function<radial_basis_kernel<sample_type>>;
+	using _decision_function_sparse_radial_basis = decision_function<sparse_radial_basis_kernel<sparse_vect>>;
+	using _decision_function_sigmoid = decision_function<sigmoid_kernel<sample_type>>;
+	using _decision_function_sparse_sigmoid = decision_function<sparse_sigmoid_kernel<sparse_vect>>;
 
-	typedef radial_basis_kernel<sample_type> _radial_basis_kernel;
-	typedef linear_kernel<sample_type> _linear_kernel;
+	using _radial_basis_kernel = radial_basis_kernel<sample_type>;
+	using _linear_kernel = linear_kernel<sample_type>;
 
-	typedef normalized_function<decision_function<radial_basis_kernel<sample_type>>> _normalized_decision_function_radial_basis;
+	using _normalized_decision_function_radial_basis = normalized_function<decision_function<radial_basis_kernel<sample_type>>>;
 
-	typedef frontal_face_detector fhog_object_detector;
-	typedef frontal_face_detector simple_object_detector;
+	using fhog_object_detector = frontal_face_detector;
+	using simple_object_detector = frontal_face_detector;
 
-	typedef svm_c_trainer<radial_basis_kernel<sample_type>> svm_c_trainer_radial_basis;
-	typedef svm_c_trainer<sparse_radial_basis_kernel<sparse_vect>> svm_c_trainer_sparse_radial_basis;
-	typedef svm_c_trainer<histogram_intersection_kernel<sample_type>> svm_c_trainer_histogram_intersection;
-	typedef svm_c_trainer<sparse_histogram_intersection_kernel<sparse_vect>> svm_c_trainer_sparse_histogram_intersection;
-	typedef svm_c_linear_trainer<linear_kernel<sample_type>> svm_c_trainer_linear;
-	typedef svm_c_linear_trainer<sparse_linear_kernel<sparse_vect>> svm_c_trainer_sparse_linear;
+	using svm_c_trainer_radial_basis = svm_c_trainer<radial_basis_kernel<sample_type>>;
+	using svm_c_trainer_sparse_radial_basis = svm_c_trainer<sparse_radial_basis_kernel<sparse_vect>>;
+	using svm_c_trainer_histogram_intersection = svm_c_trainer<histogram_intersection_kernel<sample_type>>;
+	using svm_c_trainer_sparse_histogram_intersection = svm_c_trainer<sparse_histogram_intersection_kernel<sparse_vect>>;
+	using svm_c_trainer_linear = svm_c_linear_trainer<linear_kernel<sample_type>>;
+	using svm_c_trainer_sparse_linear = svm_c_linear_trainer<sparse_linear_kernel<sparse_vect>>;
 
-	typedef rvm_trainer<radial_basis_kernel<sample_type>> rvm_trainer_radial_basis;
-	typedef rvm_trainer<sparse_radial_basis_kernel<sparse_vect>> rvm_trainer_sparse_radial_basis;
-	typedef rvm_trainer<histogram_intersection_kernel<sample_type>> rvm_trainer_histogram_intersection;
-	typedef rvm_trainer<sparse_histogram_intersection_kernel<sparse_vect>> rvm_trainer_sparse_histogram_intersection;
-	typedef rvm_trainer<linear_kernel<sample_type>> rvm_trainer_linear;
-	typedef rvm_trainer<sparse_linear_kernel<sparse_vect>> rvm_trainer_sparse_linear;
+	using rvm_trainer_radial_basis = rvm_trainer<radial_basis_kernel<sample_type>>;
+	using rvm_trainer_sparse_radial_basis = rvm_trainer<sparse_radial_basis_kernel<sparse_vect>>;
+	using rvm_trainer_histogram_intersection = rvm_trainer<histogram_intersection_kernel<sample_type>>;
+	using rvm_trainer_sparse_histogram_intersection = rvm_trainer<sparse_histogram_intersection_kernel<sparse_vect>>;
+	using rvm_trainer_linear = rvm_trainer<linear_kernel<sample_type>>;
+	using rvm_trainer_sparse_linear = rvm_trainer<sparse_linear_kernel<sparse_vect>>;
 
 	// ----------------------------------------------------------------------------------------
 

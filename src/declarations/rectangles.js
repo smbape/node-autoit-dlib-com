@@ -23,7 +23,7 @@ module.exports = ({ self, self_get }) => {
         ], "", ""],
 
         ["dlib.find_optimal_rect_filter", "rect_filter", [], [
-            ["vector_rectangle", "rects", "", []],
+            ["std::vector<rectangle>", "rects", "", []],
             ["double", "smoothness", "1", []],
         ], "", ""],
     ];
@@ -138,8 +138,8 @@ module.exports = ({ self, self_get }) => {
                     [unsigned_type, "height", "", []],
                 ], "", ""],
 
-                [`dlib.centered_${ abbr }s`, `vector_${ class_type }`, [], [
-                    [`vector_${ point_type }`, "pts", "", []],
+                [`dlib.centered_${ abbr }s`, `std::vector<${ class_type }>`, [], [
+                    [`std::vector<${ point_type }>`, "pts", "", []],
                     [unsigned_type, "width", "", []],
                     [unsigned_type, "height", "", []],
                 ], "", ""],

@@ -1,4 +1,4 @@
-const sparse_vect = "vector_pair_ULONG_and_double";
+const sparse_vect = "std::vector<std::pair<ULONG, double>>";
 
 module.exports = [
     ["dlib.max_index_plus_one", "ULONG", [], [

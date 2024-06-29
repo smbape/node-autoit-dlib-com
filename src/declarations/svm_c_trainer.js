@@ -7,21 +7,21 @@ const setup_trainer_eps = (declarations, trainer_type, trained_function_type, sa
         [`dlib.${ trainer_type }.${ trainer_type }`, "", [], [], "", ""],
 
         [`dlib.${ trainer_type }.train`, trained_function_type, [], [
-            [`vector_${ sample_type }`, "samples", "", []],
-            ["vector_double", "labels", "", []],
+            [`std::vector<${ sample_type }>`, "samples", "", []],
+            ["std::vector<double>", "labels", "", []],
         ], "", ""],
 
         ["dlib.cross_validate_trainer", "binary_test", ["/WrapAs=binary_test"], [
             [trainer_type, "samples", "", []],
-            [`vector_${ sample_type }`, "x", "", []],
-            ["vector_double", "y", "", []],
+            [`std::vector<${ sample_type }>`, "x", "", []],
+            ["std::vector<double>", "y", "", []],
             ["ULONG", "folds", "", []],
         ], "", ""],
 
         ["dlib.cross_validate_trainer_threaded", "binary_test", ["/WrapAs=binary_test"], [
             [trainer_type, "samples", "", []],
-            [`vector_${ sample_type }`, "x", "", []],
-            ["vector_double", "y", "", []],
+            [`std::vector<${ sample_type }>`, "x", "", []],
+            ["std::vector<double>", "y", "", []],
             ["ULONG", "folds", "", []],
             ["ULONG", "num_threads", "", []],
         ], "", ""],
@@ -69,7 +69,7 @@ const setup_trainer_eps_c_cache = (declarations, trainer_type, trained_function_
 
 const declarations = [];
 
-const sparse_vect = "vector_pair_ULONG_and_double";
+const sparse_vect = "std::vector<std::pair<ULONG, double>>";
 
 // ----------------------------------------------------------------------------------------
 // svm_c

@@ -1,17 +1,17 @@
-module.exports = ({ self_get }) => {
+module.exports = ({ self_get, shared_ptr }) => {
         const declarations = [
         // vector
         ["class dlib.SpaceVector", "", ["/Simple"], [
-            ["tuple_long_and_long", "shape", "", ["/R", "/External"]],
+            ["std::tuple<long, long>", "shape", "", ["/R", "/External"]],
         ], "", ""],
 
         ["dlib.SpaceVector.SpaceVector", "", [], [], "", ""],
 
-        ["dlib.SpaceVector.create", "shared_ptr_SpaceVector", ["/External", "/S"], [
-            ["vector_double", "list", "", []]
+        ["dlib.SpaceVector.create", `${ shared_ptr }<SpaceVector>`, ["/External", "/S"], [
+            ["std::vector<double>", "list", "", []]
         ], "", ""],
 
-        ["dlib.SpaceVector.create", "shared_ptr_SpaceVector", ["/External", "/S"], [
+        ["dlib.SpaceVector.create", `${ shared_ptr }<SpaceVector>`, ["/External", "/S"], [
             ["long", "rows", "", []],
         ], "", ""],
 
@@ -64,11 +64,11 @@ module.exports = ({ self_get }) => {
 
         ["dlib.point_transform_projective.point_transform_projective", "", [], [], "", ""],
 
-        ["dlib.point_transform_projective.create", "shared_ptr_point_transform_projective", ["/External"], [
+        ["dlib.point_transform_projective.create", `${ shared_ptr }<point_transform_projective>`, ["/External"], [
             ["Matrix", "m", "", []]
         ], "", ""],
 
-        ["dlib.point_transform_projective.create", "shared_ptr_point_transform_projective", ["/External"], [
+        ["dlib.point_transform_projective.create", `${ shared_ptr }<point_transform_projective>`, ["/External"], [
             ["cv::Mat", "m", "", []]
         ], "", ""],
 
@@ -77,8 +77,8 @@ module.exports = ({ self_get }) => {
         ], "", ""],
 
         ["dlib.find_projective_transform", "point_transform_projective", ["/External"], [
-            ["vector_dpoint", "from_points", "", ["/Ref"]],
-            ["vector_dpoint", "to_points", "", ["/Ref"]],
+            ["std::vector<dpoint>", "from_points", "", ["/Ref"]],
+            ["std::vector<dpoint>", "to_points", "", ["/Ref"]],
         ], "", ""],
 
         ["dlib.find_projective_transform", "point_transform_projective", ["/External"], [
@@ -94,7 +94,7 @@ module.exports = ({ self_get }) => {
         // dlib methods
 
         ["dlib.polygon_area", "double", [], [
-            ["vector_dpoint", "pts", "", ["/Ref"]],
+            ["std::vector<dpoint>", "pts", "", ["/Ref"]],
         ], "", ""],
     ];
 

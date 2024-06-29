@@ -95,7 +95,7 @@ EndFunc   ;==>_OnAutoItExit
 
 #### With opencv COM+ binding
 
-Download and extract [autoit-opencv-4.10.0-com-v2.6.1.7z](https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.6.1/autoit-opencv-4.10.0-com-v2.6.1.7z) into a folder
+Download and extract [autoit-opencv-4.10.0-com-v2.6.2.7z](https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.6.2/autoit-opencv-4.10.0-com-v2.6.2.7z) into a folder
 
 ```autoit
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
@@ -171,11 +171,11 @@ curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.2
 # extract the content of autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2.7z into a folder named autoit-dlib-com
 7z x autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2.7z -aoa -oautoit-dlib-com
 
-# download autoit-opencv-4.10.0-com-v2.6.1.7z
-curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.6.1/autoit-opencv-4.10.0-com-v2.6.1.7z' -o autoit-opencv-4.10.0-com-v2.6.1.7z
+# download autoit-opencv-4.10.0-com-v2.6.2.7z
+curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.6.2/autoit-opencv-4.10.0-com-v2.6.2.7z' -o autoit-opencv-4.10.0-com-v2.6.2.7z
 
-# extract the content of autoit-opencv-4.10.0-com-v2.6.1.7z into a folder named autoit-opencv-com
-7z x autoit-opencv-4.10.0-com-v2.6.1.7z -aoa -oautoit-opencv-com
+# extract the content of autoit-opencv-4.10.0-com-v2.6.2.7z into a folder named autoit-opencv-com
+7z x autoit-opencv-4.10.0-com-v2.6.2.7z -aoa -oautoit-opencv-com
 
 # download opencv-4.10.0-windows.exe
 curl -L 'https://github.com/opencv/opencv/releases/download/4.10.0/opencv-4.10.0-windows.exe' -o opencv-4.10.0-windows.exe
@@ -209,8 +209,7 @@ Now you can run any file in the `examples` folder.
 
 ### Prerequisites
 
-  - Install [CMAKE >= 3.16](https://cmake.org/download/)
-  - Install [visual studio >= 2017](https://visualstudio.microsoft.com/vs/community/)
+  - Install [Visual Studio 2022 >= 17.7.2 with .NET Desktop and C++ Desktop](https://visualstudio.microsoft.com/fr/downloads/)
   - Install [Git for Windows](https://gitforwindows.org/)
   - Install [nodejs](https://nodejs.org/en/download/)
   - Install [Python >= 3.8](https://www.python.org/downloads/)

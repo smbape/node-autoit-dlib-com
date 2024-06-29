@@ -50,7 +50,7 @@ module.exports = [
     ["dlib.count_points_on_side_of_line", "double", [], [
         ["line", "l", "", []],
         ["dpoint", "reference_point", "", []],
-        ["vector_dpoint", "pts", "", []],
+        ["std::vector<dpoint>", "pts", "", []],
         ["double", "dist_thresh_min", "0", []],
         ["double", "dist_thresh_max", "std::numeric_limits<double>::infinity()", []],
     ], "", ""],
@@ -58,7 +58,7 @@ module.exports = [
     ["dlib.count_points_on_side_of_line", "double", [], [
         ["line", "l", "", []],
         ["dpoint", "reference_point", "", []],
-        ["vector_point", "pts", "", []],
+        ["std::vector<point>", "pts", "", []],
         ["double", "dist_thresh_min", "0", []],
         ["double", "dist_thresh_max", "std::numeric_limits<double>::infinity()", []],
     ], "", ""],
@@ -67,13 +67,13 @@ module.exports = [
         ["line", "l1", "", []],
         ["line", "l2", "", []],
         ["dpoint", "reference_point", "", []],
-        ["vector_dpoint", "pts", "", []],
+        ["std::vector<dpoint>", "pts", "", []],
     ], "", ""],
 
     ["dlib.count_points_between_lines", "double", [], [
         ["line", "l1", "", []],
         ["line", "l2", "", []],
         ["dpoint", "reference_point", "", []],
-        ["vector_point", "pts", "", []],
+        ["std::vector<point>", "pts", "", []],
     ], "", ""],
 ];
