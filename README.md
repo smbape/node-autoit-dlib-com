@@ -29,7 +29,7 @@ Partial COM+ binding to [dlib](http://dlib.net/)
 ## Prerequisites
 
   - Download and extract [opencv-4.10.0-windows.exe](https://opencv.org/releases/) into a folder
-  - Download and extract [autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2.7z](https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.2/autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2.7z) into a folder
+  - Download and extract [autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z](https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.3/autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z) into a folder
 
 ## Usage
 
@@ -165,11 +165,11 @@ Install [7-zip](https://www.7-zip.org/download.html) and add the 7-zip folder to
 Then, in [Git Bash](https://gitforwindows.org/), execute the following commands
 
 ```sh
-# download autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2.7z
-curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.2/autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2.7z' -o autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2.7z
+# download autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z
+curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.3/autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z' -o autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z
 
-# extract the content of autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2.7z into a folder named autoit-dlib-com
-7z x autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2.7z -aoa -oautoit-dlib-com
+# extract the content of autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z into a folder named autoit-dlib-com
+7z x autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z -aoa -oautoit-dlib-com
 
 # download autoit-opencv-4.10.0-com-v2.6.2.7z
 curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.6.2/autoit-opencv-4.10.0-com-v2.6.2.7z' -o autoit-opencv-4.10.0-com-v2.6.2.7z
@@ -183,13 +183,13 @@ curl -L 'https://github.com/opencv/opencv/releases/download/4.10.0/opencv-4.10.0
 # extract the content of opencv-4.10.0-windows.exe into a folder named opencv-4.10.0-windows
 ./opencv-4.10.0-windows.exe -oopencv-4.10.0-windows -y
 
-# download autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2-src.zip
-curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.4.2.zip' -o autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2-src.zip
+# download autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3-src.zip
+curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.4.3.zip' -o autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3-src.zip
 
-# extract the examples folder of autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2-src.zip
-7z x autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.2-src.zip -aoa 'node-autoit-dlib-com-1.4.2\examples'
-cp -rf node-autoit-dlib-com-1.4.2/* ./
-rm -rf node-autoit-dlib-com-1.4.2
+# extract the examples folder of autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3-src.zip
+7z x autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3-src.zip -aoa 'node-autoit-dlib-com-1.4.3\examples'
+cp -rf node-autoit-dlib-com-1.4.3/* ./
+rm -rf node-autoit-dlib-com-1.4.3
 
 # download dlib-19.24.4-src.zip
 curl -L 'https://github.com/davisking/dlib/archive/refs/tags/19.24.4.zip' -o dlib-19.24.4-src.zip
