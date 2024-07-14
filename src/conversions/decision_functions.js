@@ -141,7 +141,7 @@ module.exports = (header = [], impl = [], options = {}) => {
     impl.push(`
         using namespace dlib;
 
-        template <typename decision_function>
+        template<typename decision_function>
         double _predict (
             const decision_function& df,
             const typename decision_function::kernel_type::sample_type& samp
@@ -163,7 +163,7 @@ module.exports = (header = [], impl = [], options = {}) => {
             return df(samp);
         }
 
-        template <typename df_type>
+        template<typename df_type>
         typename df_type::sample_type _get_weights(
             const df_type& df
         )
@@ -173,7 +173,7 @@ module.exports = (header = [], impl = [], options = {}) => {
             return temp.basis_vectors(0);
         }
 
-        template <typename df_type>
+        template<typename df_type>
         typename df_type::scalar_type _get_bias(
             const df_type& df
         )
@@ -182,7 +182,7 @@ module.exports = (header = [], impl = [], options = {}) => {
             return df.b;
         }
 
-        template <typename df_type>
+        template<typename df_type>
         void _set_bias(
             df_type& df,
             double b
@@ -192,7 +192,7 @@ module.exports = (header = [], impl = [], options = {}) => {
             df.b = b;
         }
 
-        template <typename normalized_function>
+        template<typename normalized_function>
         double normalized_predict (
             const normalized_function& df,
             const typename normalized_function::sample_type& samp
@@ -213,7 +213,7 @@ module.exports = (header = [], impl = [], options = {}) => {
             return df(samp);
         }
 
-        template <typename normalized_function>
+        template<typename normalized_function>
         std::vector<double> normalized_predict_vec (
             const normalized_function& df,
             const std::vector<typename normalized_function::sample_type>& samps
@@ -226,7 +226,7 @@ module.exports = (header = [], impl = [], options = {}) => {
             return out;
         }
 
-        template <typename normalized_function>
+        template<typename normalized_function>
         std::vector<double> normalized_predict_cv_vec (
             const normalized_function& df,
             const cv_image<double>& samps_

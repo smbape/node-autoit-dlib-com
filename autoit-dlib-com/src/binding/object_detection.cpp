@@ -317,7 +317,7 @@ namespace dlib {
 
 	// ----------------------------------------------------------------------------------------
 
-	template <typename image_array>
+	template<typename image_array>
 	inline simple_object_detector_com train_simple_object_detector_on_images(
 		const std::string& dataset_filename, // can be "" if it's not applicable
 		image_array& images,
@@ -404,7 +404,7 @@ namespace dlib {
 		return simple_object_detector_com(detector, upsampling_amount);
 	}
 
-	template <typename image_array>
+	template<typename image_array>
 	inline const simple_test_results test_simple_object_detector_with_images(
 		image_array& images,
 		const unsigned int upsample_amount,

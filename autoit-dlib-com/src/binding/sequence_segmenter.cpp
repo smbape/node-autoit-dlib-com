@@ -135,7 +135,7 @@ void dlib::deserialize(segmenter_test& item, std::istream& in)
 
 // ----------------------------------------------------------------------------------------
 
-template <typename T>
+template<typename T>
 void configure_trainer(
 	const std::vector<std::vector<dense_vect>>& samples,
 	structural_sequence_segmentation_trainer<T>& trainer,
@@ -160,7 +160,7 @@ void configure_trainer(
 
 // ----------------------------------------------------------------------------------------
 
-template <typename T>
+template<typename T>
 void configure_trainer(
 	const std::vector<std::vector<sparse_vect>>& samples,
 	structural_sequence_segmentation_trainer<T>& trainer,

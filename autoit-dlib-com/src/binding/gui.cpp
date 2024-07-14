@@ -4,7 +4,7 @@
 using namespace dlib;
 using namespace std;
 
-template <typename T>
+template<typename T>
 std::shared_ptr<image_window> make_image_window_from_image(const cv_image<T>& img)
 {
 	auto win = std::make_shared<image_window>();
@@ -12,7 +12,7 @@ std::shared_ptr<image_window> make_image_window_from_image(const cv_image<T>& im
 	return win;
 }
 
-template <typename T>
+template<typename T>
 std::shared_ptr<image_window> make_image_window_from_image_and_title(const cv_image<T>& img, const string& title)
 {
 	auto win = std::make_shared<image_window>();

@@ -14,7 +14,7 @@ bool has_ending(std::string const full_string, std::string const& ending) {
 
 // ----------------------------------------------------------------------------------------
 
-template <typename pixel_type>
+template<typename pixel_type>
 void save_image_impl(cv_image<pixel_type> img, const std::string& path)
 {
 	std::string lowered_path = path;

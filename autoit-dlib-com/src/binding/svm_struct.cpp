@@ -24,7 +24,7 @@ inline const _variant_t _to_variant_t(const _Tp& element) {
 	return _var;
 }
 
-template <typename psi_type>
+template<typename psi_type>
 class svm_struct_prob : public structural_svm_problem<dense_vect, psi_type>
 {
 	typedef structural_svm_problem<dense_vect, psi_type> base;
@@ -124,7 +124,7 @@ private:
 
 // ----------------------------------------------------------------------------------------
 
-template <typename psi_type>
+template<typename psi_type>
 dense_vect solve_structural_svm_problem_impl(
 	simple_structural_svm_problem& problem
 )

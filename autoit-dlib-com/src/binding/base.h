@@ -84,7 +84,7 @@ namespace dlib {
 
 	// ----------------------------------------------------------------------------------------
 
-	template <typename T>
+	template<typename T>
 	inline std::shared_ptr<T> load_object_from_file(
 		const std::string& filename
 	)
@@ -102,7 +102,7 @@ namespace dlib {
 		return obj;
 	}
 
-	template <typename T>
+	template<typename T>
 	inline void save_object_to_file(const T& obj, const std::string& filename)
 	{
 		std::ofstream fout(filename.c_str(), std::ios::binary);

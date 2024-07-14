@@ -91,7 +91,7 @@ namespace dlib
 
 	// ----------------------------------------------------------------------------------------
 
-	template <typename image_array>
+	template<typename image_array>
 	inline shape_predictor train_shape_predictor_on_images(
 		const image_array& images,
 		std::vector<std::vector<full_object_detection>>& detections,
@@ -153,7 +153,7 @@ namespace dlib
 
 	// ----------------------------------------------------------------------------------------
 
-	template <typename image_array>
+	template<typename image_array>
 	inline double test_shape_predictor_with_images(
 		const image_array& images,
 		const std::vector<std::vector<full_object_detection> >& detections,

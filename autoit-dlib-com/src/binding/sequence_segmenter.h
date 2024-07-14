@@ -6,7 +6,7 @@
 namespace dlib {
 	// ----------------------------------------------------------------------------------------
 
-	template <typename samp_type, bool BIO, bool high_order, bool nonnegative>
+	template<typename samp_type, bool BIO, bool high_order, bool nonnegative>
 	class segmenter_feature_extractor
 	{
 
@@ -38,7 +38,7 @@ namespace dlib {
 			return _window_size;
 		}
 
-		template <typename feature_setter>
+		template<typename feature_setter>
 		void get_features(
 			feature_setter& set_feature,
 			const std::vector<dense_vect>& x,
@@ -51,7 +51,7 @@ namespace dlib {
 			}
 		}
 
-		template <typename feature_setter>
+		template<typename feature_setter>
 		void get_features(
 			feature_setter& set_feature,
 			const std::vector<sparse_vect>& x,

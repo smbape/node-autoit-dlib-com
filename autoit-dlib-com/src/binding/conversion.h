@@ -91,7 +91,7 @@ namespace dlib {
 		return samples;
 	}
 
-	template <typename image_type>
+	template<typename image_type>
 	inline const array<cv_image<image_type>> vector_Mat_to_dlib(
 		const std::vector<cv::Mat>& _images
 	)
@@ -101,7 +101,7 @@ namespace dlib {
 		return images;
 	}
 
-	template <typename image_type>
+	template<typename image_type>
 	inline void vector_Mat_to_dlib(
 		const std::vector<cv::Mat>& _images,
 		array<cv_image<image_type>>& images

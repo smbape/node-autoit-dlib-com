@@ -14,7 +14,7 @@
 namespace dlib
 {
 
-	template <typename pixel_type>
+	template<typename pixel_type>
 	struct cv_image
 	{
 		typedef pixel_type type;
@@ -130,18 +130,18 @@ namespace dlib
 
 	// Define the global functions that make cv_image a proper "generic image" according to
 	// ../image_processing/generic_image.h
-	template <typename T>
+	template<typename T>
 	struct image_traits<cv_image<T>>
 	{
 		typedef T pixel_type;
 	};
 
-	template <typename T>
+	template<typename T>
 	inline long num_rows(const cv_image<T>& img) { return img.nr(); }
-	template <typename T>
+	template<typename T>
 	inline long num_columns(const cv_image<T>& img) { return img.nc(); }
 
-	template <typename T>
+	template<typename T>
 	inline void set_image_size(
 		cv_image<T>& img,
 		long rows,
@@ -150,7 +150,7 @@ namespace dlib
 		img.set_image_size(rows, cols);
 	}
 
-	template <typename T>
+	template<typename T>
 	inline void* image_data(
 		cv_image<T>& img
 	)
@@ -158,7 +158,7 @@ namespace dlib
 		return img.image.ptr();
 	}
 
-	template <typename T>
+	template<typename T>
 	inline const void* image_data(
 		const cv_image<T>& img
 	)
@@ -166,7 +166,7 @@ namespace dlib
 		return img.image.ptr();
 	}
 
-	template <typename T>
+	template<typename T>
 	inline long width_step(
 		const cv_image<T>& img
 	)
@@ -174,7 +174,7 @@ namespace dlib
 		return img.width_step();
 	}
 
-	template <typename T>
+	template<typename T>
 	inline void swap(
 		cv_image<T>& a,
 		cv_image<T>& b
