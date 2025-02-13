@@ -8,9 +8,11 @@
 namespace dlib {
 	CV_EXPORTS_W cv::Mat load_rgb_image(const std::string& path);
 
+	CV_EXPORTS_W cv::Mat load_rgb_alpha_image(const std::string& path);
+
 	CV_EXPORTS_W cv::Mat load_grayscale_image(const std::string& path);
 
-	CV_EXPORTS_W void save_image(const cv::Mat& img, const std::string& path);
+	CV_EXPORTS_W void save_image(const cv::Mat& img, const std::string& path, const float quality = 75);
 
 	CV_EXPORTS_W std::vector<cv::Mat> jitter_image(const cv::Mat& img, size_t num_jitters = 1, bool disturb_colors = false);
 

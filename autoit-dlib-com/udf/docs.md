@@ -6,7 +6,6 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [NamedParameters](#namedparameters)
-  - [NamedParameters.FullyQualifiedName](#namedparametersfullyqualifiedname)
   - [NamedParameters::create](#namedparameterscreate)
   - [NamedParameters::Add](#namedparametersadd)
   - [NamedParameters::Get](#namedparametersget)
@@ -32,20 +31,17 @@
   - [autoit::findFile](#autoitfindfile)
   - [autoit::findFiles](#autoitfindfiles)
 - [autoit::Buffer](#autoitbuffer)
-  - [Buffer.FullyQualifiedName](#bufferfullyqualifiedname)
   - [autoit::Buffer::get\_create](#autoitbufferget%5C_create)
   - [autoit::Buffer::IsInstance](#autoitbufferisinstance)
 - [com](#com)
   - [com.Thread](#comthread)
   - [com.ThreadSafeQueue](#comthreadsafequeue)
 - [com::Thread](#comthread)
-  - [Thread.FullyQualifiedName](#threadfullyqualifiedname)
   - [com::Thread::get\_create](#comthreadget%5C_create)
   - [com::Thread::IsInstance](#comthreadisinstance)
   - [com::Thread::join](#comthreadjoin)
   - [com::Thread::start](#comthreadstart)
 - [com::ThreadSafeQueue](#comthreadsafequeue)
-  - [ThreadSafeQueue.FullyQualifiedName](#threadsafequeuefullyqualifiedname)
   - [com::ThreadSafeQueue::get\_create](#comthreadsafequeueget%5C_create)
   - [com::ThreadSafeQueue::IsInstance](#comthreadsafequeueisinstance)
   - [com::ThreadSafeQueue::clear](#comthreadsafequeueclear)
@@ -164,6 +160,7 @@
   - [dlib::length](#dliblength)
   - [dlib::load\_grayscale\_image](#dlibload%5C_grayscale%5C_image)
   - [dlib::load\_libsvm\_formatted\_data](#dlibload%5C_libsvm%5C_formatted%5C_data)
+  - [dlib::load\_rgb\_alpha\_image](#dlibload%5C_rgb%5C_alpha%5C_image)
   - [dlib::load\_rgb\_image](#dlibload%5C_rgb%5C_image)
   - [dlib::make\_sparse\_vector](#dlibmake%5C_sparse%5C_vector)
   - [dlib::max\_cost\_assignment](#dlibmax%5C_cost%5C_assignment)
@@ -197,7 +194,6 @@
 - [dlib::binary\_test](#dlibbinary%5C_test)
   - [binary\_test.class1\_accuracy](#binary%5C_testclass1%5C_accuracy)
   - [binary\_test.class2\_accuracy](#binary%5C_testclass2%5C_accuracy)
-  - [binary\_test.FullyQualifiedName](#binary%5C_testfullyqualifiedname)
   - [dlib::binary\_test::get\_create](#dlibbinary%5C_testget%5C_create)
   - [dlib::binary\_test::IsInstance](#dlibbinary%5C_testisinstance)
   - [dlib::binary\_test::ToString](#dlibbinary%5C_testtostring)
@@ -206,14 +202,12 @@
   - [regression\_test.R\_squared](#regression%5C_testr%5C_squared)
   - [regression\_test.mean\_average\_error](#regression%5C_testmean%5C_average%5C_error)
   - [regression\_test.mean\_error\_stddev](#regression%5C_testmean%5C_error%5C_stddev)
-  - [regression\_test.FullyQualifiedName](#regression%5C_testfullyqualifiedname)
   - [dlib::regression\_test::get\_create](#dlibregression%5C_testget%5C_create)
   - [dlib::regression\_test::IsInstance](#dlibregression%5C_testisinstance)
   - [dlib::regression\_test::ToString](#dlibregression%5C_testtostring)
 - [dlib::ranking\_test](#dlibranking%5C_test)
   - [ranking\_test.ranking\_accuracy](#ranking%5C_testranking%5C_accuracy)
   - [ranking\_test.mean\_ap](#ranking%5C_testmean%5C_ap)
-  - [ranking\_test.FullyQualifiedName](#ranking%5C_testfullyqualifiedname)
   - [dlib::ranking\_test::get\_create](#dlibranking%5C_testget%5C_create)
   - [dlib::ranking\_test::IsInstance](#dlibranking%5C_testisinstance)
   - [dlib::ranking\_test::ToString](#dlibranking%5C_testtostring)
@@ -221,23 +215,19 @@
   - [cca\_outputs.correlations](#cca%5C_outputscorrelations)
   - [cca\_outputs.Ltrans](#cca%5C_outputsltrans)
   - [cca\_outputs.Rtrans](#cca%5C_outputsrtrans)
-  - [cca\_outputs.FullyQualifiedName](#cca%5C_outputsfullyqualifiedname)
   - [dlib::cca\_outputs::get\_create](#dlibcca%5C_outputsget%5C_create)
   - [dlib::cca\_outputs::IsInstance](#dlibcca%5C_outputsisinstance)
 - [dlib::cnn\_face\_detection\_model\_v1](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1)
-  - [cnn\_face\_detection\_model\_v1.FullyQualifiedName](#cnn%5C_face%5C_detection%5C_model%5C_v1fullyqualifiedname)
   - [dlib::cnn\_face\_detection\_model\_v1::create](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1create)
   - [dlib::cnn\_face\_detection\_model\_v1::IsInstance](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1isinstance)
   - [dlib::cnn\_face\_detection\_model\_v1::detect](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1detect)
   - [dlib::cnn\_face\_detection\_model\_v1::detect\_multi](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1detect%5C_multi)
   - [dlib::cnn\_face\_detection\_model\_v1::get\_call](#dlibcnn%5C_face%5C_detection%5C_model%5C_v1get%5C_call)
 - [dlib::face\_recognition\_model\_v1](#dlibface%5C_recognition%5C_model%5C_v1)
-  - [face\_recognition\_model\_v1.FullyQualifiedName](#face%5C_recognition%5C_model%5C_v1fullyqualifiedname)
   - [dlib::face\_recognition\_model\_v1::get\_create](#dlibface%5C_recognition%5C_model%5C_v1get%5C_create)
   - [dlib::face\_recognition\_model\_v1::IsInstance](#dlibface%5C_recognition%5C_model%5C_v1isinstance)
   - [dlib::face\_recognition\_model\_v1::compute\_face\_descriptor](#dlibface%5C_recognition%5C_model%5C_v1compute%5C_face%5C_descriptor)
 - [dlib::\_row](#dlib%5C_row)
-  - [\_row.FullyQualifiedName](#%5C_rowfullyqualifiedname)
   - [dlib::\_row::get\_create](#dlib%5C_rowget%5C_create)
   - [dlib::\_row::IsInstance](#dlib%5C_rowisinstance)
   - [dlib::\_row::ToString](#dlib%5C_rowtostring)
@@ -245,7 +235,6 @@
   - [dlib::\_row::set](#dlib%5C_rowset)
 - [dlib::segmenter\_type](#dlibsegmenter%5C_type)
   - [segmenter\_type.weights](#segmenter%5C_typeweights)
-  - [segmenter\_type.FullyQualifiedName](#segmenter%5C_typefullyqualifiedname)
   - [dlib::segmenter\_type::create](#dlibsegmenter%5C_typecreate)
   - [dlib::segmenter\_type::IsInstance](#dlibsegmenter%5C_typeisinstance)
   - [dlib::segmenter\_type::get\_call](#dlibsegmenter%5C_typeget%5C_call)
@@ -259,7 +248,6 @@
   - [segmenter\_params.max\_cache\_size](#segmenter%5C_paramsmax%5C_cache%5C_size)
   - [segmenter\_params.be\_verbose](#segmenter%5C_paramsbe%5C_verbose)
   - [segmenter\_params.C](#segmenter%5C_paramsc)
-  - [segmenter\_params.FullyQualifiedName](#segmenter%5C_paramsfullyqualifiedname)
   - [dlib::segmenter\_params::get\_create](#dlibsegmenter%5C_paramsget%5C_create)
   - [dlib::segmenter\_params::IsInstance](#dlibsegmenter%5C_paramsisinstance)
   - [dlib::segmenter\_params::ToString](#dlibsegmenter%5C_paramstostring)
@@ -267,7 +255,6 @@
   - [segmenter\_test.precision](#segmenter%5C_testprecision)
   - [segmenter\_test.recall](#segmenter%5C_testrecall)
   - [segmenter\_test.f1](#segmenter%5C_testf1)
-  - [segmenter\_test.FullyQualifiedName](#segmenter%5C_testfullyqualifiedname)
   - [dlib::segmenter\_test::get\_create](#dlibsegmenter%5C_testget%5C_create)
   - [dlib::segmenter\_test::IsInstance](#dlibsegmenter%5C_testisinstance)
   - [dlib::segmenter\_test::ToString](#dlibsegmenter%5C_testtostring)
@@ -286,7 +273,6 @@
   - [shape\_predictor\_training\_options.random\_seed](#shape%5C_predictor%5C_training%5C_optionsrandom%5C_seed)
   - [shape\_predictor\_training\_options.landmark\_relative\_padding\_mode](#shape%5C_predictor%5C_training%5C_optionslandmark%5C_relative%5C_padding%5C_mode)
   - [shape\_predictor\_training\_options.num\_threads](#shape%5C_predictor%5C_training%5C_optionsnum%5C_threads)
-  - [shape\_predictor\_training\_options.FullyQualifiedName](#shape%5C_predictor%5C_training%5C_optionsfullyqualifiedname)
   - [dlib::shape\_predictor\_training\_options::get\_create](#dlibshape%5C_predictor%5C_training%5C_optionsget%5C_create)
   - [dlib::shape\_predictor\_training\_options::IsInstance](#dlibshape%5C_predictor%5C_training%5C_optionsisinstance)
   - [dlib::shape\_predictor\_training\_options::ToString](#dlibshape%5C_predictor%5C_training%5C_optionstostring)
@@ -300,7 +286,6 @@
   - [simple\_object\_detector\_training\_options.upsample\_limit](#simple%5C_object%5C_detector%5C_training%5C_optionsupsample%5C_limit)
   - [simple\_object\_detector\_training\_options.nuclear\_norm\_regularization\_strength](#simple%5C_object%5C_detector%5C_training%5C_optionsnuclear%5C_norm%5C_regularization%5C_strength)
   - [simple\_object\_detector\_training\_options.max\_runtime\_seconds](#simple%5C_object%5C_detector%5C_training%5C_optionsmax%5C_runtime%5C_seconds)
-  - [simple\_object\_detector\_training\_options.FullyQualifiedName](#simple%5C_object%5C_detector%5C_training%5C_optionsfullyqualifiedname)
   - [dlib::simple\_object\_detector\_training\_options::get\_create](#dlibsimple%5C_object%5C_detector%5C_training%5C_optionsget%5C_create)
   - [dlib::simple\_object\_detector\_training\_options::IsInstance](#dlibsimple%5C_object%5C_detector%5C_training%5C_optionsisinstance)
   - [dlib::simple\_object\_detector\_training\_options::ToString](#dlibsimple%5C_object%5C_detector%5C_training%5C_optionstostring)
@@ -308,7 +293,6 @@
   - [simple\_test\_results.precision](#simple%5C_test%5C_resultsprecision)
   - [simple\_test\_results.recall](#simple%5C_test%5C_resultsrecall)
   - [simple\_test\_results.average\_precision](#simple%5C_test%5C_resultsaverage%5C_precision)
-  - [simple\_test\_results.FullyQualifiedName](#simple%5C_test%5C_resultsfullyqualifiedname)
   - [dlib::simple\_test\_results::get\_create](#dlibsimple%5C_test%5C_resultsget%5C_create)
   - [dlib::simple\_test\_results::IsInstance](#dlibsimple%5C_test%5C_resultsisinstance)
   - [dlib::simple\_test\_results::ToString](#dlibsimple%5C_test%5C_resultstostring)
@@ -318,7 +302,6 @@
   - [simple\_object\_detector\_com.detection\_window\_width](#simple%5C_object%5C_detector%5C_comdetection%5C_window%5C_width)
   - [simple\_object\_detector\_com.detection\_window\_height](#simple%5C_object%5C_detector%5C_comdetection%5C_window%5C_height)
   - [simple\_object\_detector\_com.num\_detectors](#simple%5C_object%5C_detector%5C_comnum%5C_detectors)
-  - [simple\_object\_detector\_com.FullyQualifiedName](#simple%5C_object%5C_detector%5C_comfullyqualifiedname)
   - [dlib::simple\_object\_detector\_com::create](#dlibsimple%5C_object%5C_detector%5C_comcreate)
   - [dlib::simple\_object\_detector\_com::IsInstance](#dlibsimple%5C_object%5C_detector%5C_comisinstance)
   - [dlib::simple\_object\_detector\_com::get\_call](#dlibsimple%5C_object%5C_detector%5C_comget%5C_call)
@@ -335,7 +318,6 @@
   - [simple\_structural\_svm\_problem.use\_sparse\_feature\_vectors](#simple%5C_structural%5C_svm%5C_problemuse%5C_sparse%5C_feature%5C_vectors)
   - [simple\_structural\_svm\_problem.learns\_nonnegative\_weights](#simple%5C_structural%5C_svm%5C_problemlearns%5C_nonnegative%5C_weights)
   - [simple\_structural\_svm\_problem.result](#simple%5C_structural%5C_svm%5C_problemresult)
-  - [simple\_structural\_svm\_problem.FullyQualifiedName](#simple%5C_structural%5C_svm%5C_problemfullyqualifiedname)
   - [dlib::simple\_structural\_svm\_problem::get\_create](#dlibsimple%5C_structural%5C_svm%5C_problemget%5C_create)
   - [dlib::simple\_structural\_svm\_problem::IsInstance](#dlibsimple%5C_structural%5C_svm%5C_problemisinstance)
 - [cv](#cv)
@@ -374,7 +356,6 @@
   - [mmod\_rect.confidence](#mmod%5C_rectconfidence)
   - [mmod\_rect.label](#mmod%5C_rectlabel)
   - [mmod\_rect.ignore](#mmod%5C_rectignore)
-  - [mmod\_rect.FullyQualifiedName](#mmod%5C_rectfullyqualifiedname)
   - [dlib::mmod\_rect::get\_create](#dlibmmod%5C_rectget%5C_create)
   - [dlib::mmod\_rect::IsInstance](#dlibmmod%5C_rectisinstance)
 - [dlib::cuda](#dlibcuda)
@@ -385,7 +366,6 @@
   - [dlib::cuda::set\_current\_device\_blocking\_sync](#dlibcudaset%5C_current%5C_device%5C_blocking%5C_sync)
   - [dlib::cuda::set\_device](#dlibcudaset%5C_device)
 - [dlib::correlation\_tracker](#dlibcorrelation%5C_tracker)
-  - [correlation\_tracker.FullyQualifiedName](#correlation%5C_trackerfullyqualifiedname)
   - [dlib::correlation\_tracker::get\_create](#dlibcorrelation%5C_trackerget%5C_create)
   - [dlib::correlation\_tracker::IsInstance](#dlibcorrelation%5C_trackerisinstance)
   - [dlib::correlation\_tracker::get\_position](#dlibcorrelation%5C_trackerget%5C_position)
@@ -394,16 +374,12 @@
 - [cv::cuda](#cvcuda)
   - [cuda.GpuMat](#cudagpumat)
 - [cv::cuda::GpuMat](#cvcudagpumat)
-  - [GpuMat.FullyQualifiedName](#gpumatfullyqualifiedname)
   - [cv::cuda::GpuMat::IsInstance](#cvcudagpumatisinstance)
 - [cv::\_InputArray](#cv%5C_inputarray)
-  - [\_InputArray.FullyQualifiedName](#%5C_inputarrayfullyqualifiedname)
   - [cv::\_InputArray::IsInstance](#cv%5C_inputarrayisinstance)
 - [cv::\_OutputArray](#cv%5C_outputarray)
-  - [\_OutputArray.FullyQualifiedName](#%5C_outputarrayfullyqualifiedname)
   - [cv::\_OutputArray::IsInstance](#cv%5C_outputarrayisinstance)
 - [cv::\_InputOutputArray](#cv%5C_inputoutputarray)
-  - [\_InputOutputArray.FullyQualifiedName](#%5C_inputoutputarrayfullyqualifiedname)
   - [cv::\_InputOutputArray::IsInstance](#cv%5C_inputoutputarrayisinstance)
 - [cv::Formatter](#cvformatter)
   - [Formatter.FMT\_DEFAULT\_](#formatterfmt%5C_default%5C_)
@@ -414,24 +390,20 @@
   - [Formatter.FMT\_C\_](#formatterfmt%5C_c%5C_)
 - [dlib::\_radial\_basis\_kernel](#dlib%5C_radial%5C_basis%5C_kernel)
   - [\_radial\_basis\_kernel.gamma](#%5C_radial%5C_basis%5C_kernelgamma)
-  - [\_radial\_basis\_kernel.FullyQualifiedName](#%5C_radial%5C_basis%5C_kernelfullyqualifiedname)
   - [dlib::\_radial\_basis\_kernel::get\_create](#dlib%5C_radial%5C_basis%5C_kernelget%5C_create)
   - [dlib::\_radial\_basis\_kernel::IsInstance](#dlib%5C_radial%5C_basis%5C_kernelisinstance)
 - [dlib::\_linear\_kernel](#dlib%5C_linear%5C_kernel)
-  - [\_linear\_kernel.FullyQualifiedName](#%5C_linear%5C_kernelfullyqualifiedname)
   - [dlib::\_linear\_kernel::get\_create](#dlib%5C_linear%5C_kernelget%5C_create)
   - [dlib::\_linear\_kernel::IsInstance](#dlib%5C_linear%5C_kernelisinstance)
 - [dlib::\_decision\_function\_linear](#dlib%5C_decision%5C_function%5C_linear)
   - [\_decision\_function\_linear.weights](#%5C_decision%5C_function%5C_linearweights)
   - [\_decision\_function\_linear.bias](#%5C_decision%5C_function%5C_linearbias)
-  - [\_decision\_function\_linear.FullyQualifiedName](#%5C_decision%5C_function%5C_linearfullyqualifiedname)
   - [dlib::\_decision\_function\_linear::create](#dlib%5C_decision%5C_function%5C_linearcreate)
   - [dlib::\_decision\_function\_linear::IsInstance](#dlib%5C_decision%5C_function%5C_linearisinstance)
   - [dlib::\_decision\_function\_linear::get\_call](#dlib%5C_decision%5C_function%5C_linearget%5C_call)
 - [dlib::\_decision\_function\_sparse\_linear](#dlib%5C_decision%5C_function%5C_sparse%5C_linear)
   - [\_decision\_function\_sparse\_linear.weights](#%5C_decision%5C_function%5C_sparse%5C_linearweights)
   - [\_decision\_function\_sparse\_linear.bias](#%5C_decision%5C_function%5C_sparse%5C_linearbias)
-  - [\_decision\_function\_sparse\_linear.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_linearfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_linear::create](#dlib%5C_decision%5C_function%5C_sparse%5C_linearcreate)
   - [dlib::\_decision\_function\_sparse\_linear::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_linearisinstance)
   - [dlib::\_decision\_function\_sparse\_linear::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_linearget%5C_call)
@@ -439,7 +411,6 @@
   - [\_decision\_function\_histogram\_intersection.alpha](#%5C_decision%5C_function%5C_histogram%5C_intersectionalpha)
   - [\_decision\_function\_histogram\_intersection.b](#%5C_decision%5C_function%5C_histogram%5C_intersectionb)
   - [\_decision\_function\_histogram\_intersection.basis\_vectors](#%5C_decision%5C_function%5C_histogram%5C_intersectionbasis%5C_vectors)
-  - [\_decision\_function\_histogram\_intersection.FullyQualifiedName](#%5C_decision%5C_function%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::\_decision\_function\_histogram\_intersection::create](#dlib%5C_decision%5C_function%5C_histogram%5C_intersectioncreate)
   - [dlib::\_decision\_function\_histogram\_intersection::IsInstance](#dlib%5C_decision%5C_function%5C_histogram%5C_intersectionisinstance)
   - [dlib::\_decision\_function\_histogram\_intersection::get\_call](#dlib%5C_decision%5C_function%5C_histogram%5C_intersectionget%5C_call)
@@ -447,7 +418,6 @@
   - [\_decision\_function\_sparse\_histogram\_intersection.alpha](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionalpha)
   - [\_decision\_function\_sparse\_histogram\_intersection.b](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionb)
   - [\_decision\_function\_sparse\_histogram\_intersection.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionbasis%5C_vectors)
-  - [\_decision\_function\_sparse\_histogram\_intersection.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_histogram\_intersection::create](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectioncreate)
   - [dlib::\_decision\_function\_sparse\_histogram\_intersection::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionisinstance)
   - [dlib::\_decision\_function\_sparse\_histogram\_intersection::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_histogram%5C_intersectionget%5C_call)
@@ -455,7 +425,6 @@
   - [\_decision\_function\_polynomial.alpha](#%5C_decision%5C_function%5C_polynomialalpha)
   - [\_decision\_function\_polynomial.b](#%5C_decision%5C_function%5C_polynomialb)
   - [\_decision\_function\_polynomial.basis\_vectors](#%5C_decision%5C_function%5C_polynomialbasis%5C_vectors)
-  - [\_decision\_function\_polynomial.FullyQualifiedName](#%5C_decision%5C_function%5C_polynomialfullyqualifiedname)
   - [dlib::\_decision\_function\_polynomial::create](#dlib%5C_decision%5C_function%5C_polynomialcreate)
   - [dlib::\_decision\_function\_polynomial::IsInstance](#dlib%5C_decision%5C_function%5C_polynomialisinstance)
   - [dlib::\_decision\_function\_polynomial::get\_call](#dlib%5C_decision%5C_function%5C_polynomialget%5C_call)
@@ -463,7 +432,6 @@
   - [\_decision\_function\_sparse\_polynomial.alpha](#%5C_decision%5C_function%5C_sparse%5C_polynomialalpha)
   - [\_decision\_function\_sparse\_polynomial.b](#%5C_decision%5C_function%5C_sparse%5C_polynomialb)
   - [\_decision\_function\_sparse\_polynomial.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_polynomialbasis%5C_vectors)
-  - [\_decision\_function\_sparse\_polynomial.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_polynomialfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_polynomial::create](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomialcreate)
   - [dlib::\_decision\_function\_sparse\_polynomial::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomialisinstance)
   - [dlib::\_decision\_function\_sparse\_polynomial::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_polynomialget%5C_call)
@@ -471,7 +439,6 @@
   - [\_decision\_function\_radial\_basis.alpha](#%5C_decision%5C_function%5C_radial%5C_basisalpha)
   - [\_decision\_function\_radial\_basis.b](#%5C_decision%5C_function%5C_radial%5C_basisb)
   - [\_decision\_function\_radial\_basis.basis\_vectors](#%5C_decision%5C_function%5C_radial%5C_basisbasis%5C_vectors)
-  - [\_decision\_function\_radial\_basis.FullyQualifiedName](#%5C_decision%5C_function%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::\_decision\_function\_radial\_basis::create](#dlib%5C_decision%5C_function%5C_radial%5C_basiscreate)
   - [dlib::\_decision\_function\_radial\_basis::IsInstance](#dlib%5C_decision%5C_function%5C_radial%5C_basisisinstance)
   - [dlib::\_decision\_function\_radial\_basis::get\_call](#dlib%5C_decision%5C_function%5C_radial%5C_basisget%5C_call)
@@ -479,7 +446,6 @@
   - [\_decision\_function\_sparse\_radial\_basis.alpha](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisalpha)
   - [\_decision\_function\_sparse\_radial\_basis.b](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisb)
   - [\_decision\_function\_sparse\_radial\_basis.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisbasis%5C_vectors)
-  - [\_decision\_function\_sparse\_radial\_basis.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_radial\_basis::create](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basiscreate)
   - [dlib::\_decision\_function\_sparse\_radial\_basis::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisisinstance)
   - [dlib::\_decision\_function\_sparse\_radial\_basis::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_radial%5C_basisget%5C_call)
@@ -487,7 +453,6 @@
   - [\_decision\_function\_sigmoid.alpha](#%5C_decision%5C_function%5C_sigmoidalpha)
   - [\_decision\_function\_sigmoid.b](#%5C_decision%5C_function%5C_sigmoidb)
   - [\_decision\_function\_sigmoid.basis\_vectors](#%5C_decision%5C_function%5C_sigmoidbasis%5C_vectors)
-  - [\_decision\_function\_sigmoid.FullyQualifiedName](#%5C_decision%5C_function%5C_sigmoidfullyqualifiedname)
   - [dlib::\_decision\_function\_sigmoid::create](#dlib%5C_decision%5C_function%5C_sigmoidcreate)
   - [dlib::\_decision\_function\_sigmoid::IsInstance](#dlib%5C_decision%5C_function%5C_sigmoidisinstance)
   - [dlib::\_decision\_function\_sigmoid::get\_call](#dlib%5C_decision%5C_function%5C_sigmoidget%5C_call)
@@ -495,7 +460,6 @@
   - [\_decision\_function\_sparse\_sigmoid.alpha](#%5C_decision%5C_function%5C_sparse%5C_sigmoidalpha)
   - [\_decision\_function\_sparse\_sigmoid.b](#%5C_decision%5C_function%5C_sparse%5C_sigmoidb)
   - [\_decision\_function\_sparse\_sigmoid.basis\_vectors](#%5C_decision%5C_function%5C_sparse%5C_sigmoidbasis%5C_vectors)
-  - [\_decision\_function\_sparse\_sigmoid.FullyQualifiedName](#%5C_decision%5C_function%5C_sparse%5C_sigmoidfullyqualifiedname)
   - [dlib::\_decision\_function\_sparse\_sigmoid::create](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoidcreate)
   - [dlib::\_decision\_function\_sparse\_sigmoid::IsInstance](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoidisinstance)
   - [dlib::\_decision\_function\_sparse\_sigmoid::get\_call](#dlib%5C_decision%5C_function%5C_sparse%5C_sigmoidget%5C_call)
@@ -505,7 +469,6 @@
   - [\_normalized\_decision\_function\_radial\_basis.basis\_vectors](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisbasis%5C_vectors)
   - [\_normalized\_decision\_function\_radial\_basis.means](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basismeans)
   - [\_normalized\_decision\_function\_radial\_basis.invstd\_devs](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisinvstd%5C_devs)
-  - [\_normalized\_decision\_function\_radial\_basis.FullyQualifiedName](#%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::\_normalized\_decision\_function\_radial\_basis::create](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basiscreate)
   - [dlib::\_normalized\_decision\_function\_radial\_basis::IsInstance](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisisinstance)
   - [dlib::\_normalized\_decision\_function\_radial\_basis::batch\_predict](#dlib%5C_normalized%5C_decision%5C_function%5C_radial%5C_basisbatch%5C_predict)
@@ -513,25 +476,21 @@
 - [dlib::function\_evaluation](#dlibfunction%5C_evaluation)
   - [function\_evaluation.x](#function%5C_evaluationx)
   - [function\_evaluation.y](#function%5C_evaluationy)
-  - [function\_evaluation.FullyQualifiedName](#function%5C_evaluationfullyqualifiedname)
   - [dlib::function\_evaluation::get\_create](#dlibfunction%5C_evaluationget%5C_create)
   - [dlib::function\_evaluation::IsInstance](#dlibfunction%5C_evaluationisinstance)
 - [dlib::function\_spec](#dlibfunction%5C_spec)
   - [function\_spec.lower](#function%5C_speclower)
   - [function\_spec.upper](#function%5C_specupper)
   - [function\_spec.is\_integer\_variable](#function%5C_specis%5C_integer%5C_variable)
-  - [function\_spec.FullyQualifiedName](#function%5C_specfullyqualifiedname)
   - [dlib::function\_spec::get\_create](#dlibfunction%5C_specget%5C_create)
   - [dlib::function\_spec::IsInstance](#dlibfunction%5C_specisinstance)
 - [dlib::function\_evaluation\_request](#dlibfunction%5C_evaluation%5C_request)
   - [function\_evaluation\_request.function\_idx](#function%5C_evaluation%5C_requestfunction%5C_idx)
   - [function\_evaluation\_request.x](#function%5C_evaluation%5C_requestx)
   - [function\_evaluation\_request.has\_been\_evaluated](#function%5C_evaluation%5C_requesthas%5C_been%5C_evaluated)
-  - [function\_evaluation\_request.FullyQualifiedName](#function%5C_evaluation%5C_requestfullyqualifiedname)
   - [dlib::function\_evaluation\_request::IsInstance](#dlibfunction%5C_evaluation%5C_requestisinstance)
   - [dlib::function\_evaluation\_request::set](#dlibfunction%5C_evaluation%5C_requestset)
 - [dlib::global\_function\_search](#dlibglobal%5C_function%5C_search)
-  - [global\_function\_search.FullyQualifiedName](#global%5C_function%5C_searchfullyqualifiedname)
   - [dlib::global\_function\_search::get\_create](#dlibglobal%5C_function%5C_searchget%5C_create)
   - [dlib::global\_function\_search::IsInstance](#dlibglobal%5C_function%5C_searchisinstance)
   - [dlib::global\_function\_search::get\_best\_function\_eval](#dlibglobal%5C_function%5C_searchget%5C_best%5C_function%5C_eval)
@@ -548,7 +507,6 @@
   - [dlib::global\_function\_search::set\_seed](#dlibglobal%5C_function%5C_searchset%5C_seed)
   - [dlib::global\_function\_search::set\_solver\_epsilon](#dlibglobal%5C_function%5C_searchset%5C_solver%5C_epsilon)
 - [dlib::image\_window](#dlibimage%5C_window)
-  - [image\_window.FullyQualifiedName](#image%5C_windowfullyqualifiedname)
   - [dlib::image\_window::get\_create](#dlibimage%5C_windowget%5C_create)
   - [dlib::image\_window::IsInstance](#dlibimage%5C_windowisinstance)
   - [dlib::image\_window::add\_overlay](#dlibimage%5C_windowadd%5C_overlay)
@@ -603,7 +561,6 @@
   - [rgb\_pixel.red](#rgb%5C_pixelred)
   - [rgb\_pixel.blue](#rgb%5C_pixelblue)
   - [rgb\_pixel.green](#rgb%5C_pixelgreen)
-  - [rgb\_pixel.FullyQualifiedName](#rgb%5C_pixelfullyqualifiedname)
   - [dlib::rgb\_pixel::get\_create](#dlibrgb%5C_pixelget%5C_create)
   - [dlib::rgb\_pixel::IsInstance](#dlibrgb%5C_pixelisinstance)
 - [dlib::image\_dataset\_metadata](#dlibimage%5C_dataset%5C_metadata)
@@ -629,28 +586,24 @@
   - [box.angle](#boxangle)
   - [box.gender](#boxgender)
   - [box.age](#boxage)
-  - [box.FullyQualifiedName](#boxfullyqualifiedname)
   - [dlib::image\_dataset\_metadata::box::get\_create](#dlibimage%5C_dataset%5C_metadataboxget%5C_create)
   - [dlib::image\_dataset\_metadata::box::IsInstance](#dlibimage%5C_dataset%5C_metadataboxisinstance)
   - [dlib::image\_dataset\_metadata::box::has\_label](#dlibimage%5C_dataset%5C_metadataboxhas%5C_label)
 - [dlib::image\_dataset\_metadata::image](#dlibimage%5C_dataset%5C_metadataimage)
   - [image.filename](#imagefilename)
   - [image.boxes](#imageboxes)
-  - [image.FullyQualifiedName](#imagefullyqualifiedname)
   - [dlib::image\_dataset\_metadata::image::get\_create](#dlibimage%5C_dataset%5C_metadataimageget%5C_create)
   - [dlib::image\_dataset\_metadata::image::IsInstance](#dlibimage%5C_dataset%5C_metadataimageisinstance)
 - [dlib::image\_dataset\_metadata::dataset](#dlibimage%5C_dataset%5C_metadatadataset)
   - [dataset.images](#datasetimages)
   - [dataset.comment](#datasetcomment)
   - [dataset.name](#datasetname)
-  - [dataset.FullyQualifiedName](#datasetfullyqualifiedname)
   - [dlib::image\_dataset\_metadata::dataset::get\_create](#dlibimage%5C_dataset%5C_metadatadatasetget%5C_create)
   - [dlib::image\_dataset\_metadata::dataset::IsInstance](#dlibimage%5C_dataset%5C_metadatadatasetisinstance)
 - [dlib::line](#dlibline)
   - [line.normal](#linenormal)
   - [line.p1](#linep1)
   - [line.p2](#linep2)
-  - [line.FullyQualifiedName](#linefullyqualifiedname)
   - [dlib::line::get\_create](#dliblineget%5C_create)
   - [dlib::line::IsInstance](#dliblineisinstance)
 - [cv::Mat](#cvmat)
@@ -665,7 +618,6 @@
   - [Mat.shape](#matshape)
   - [Mat.sizes](#matsizes)
   - [Mat.steps](#matsteps)
-  - [Mat.FullyQualifiedName](#matfullyqualifiedname)
   - [cv::Mat::create](#cvmatcreate)
   - [cv::Mat::GdiplusResize](#cvmatgdiplusresize)
   - [cv::Mat::IsInstance](#cvmatisinstance)
@@ -828,7 +780,6 @@
   - [cv::Mat::zeros](#cvmatzeros)
 - [dlib::Matrix](#dlibmatrix)
   - [Matrix.shape](#matrixshape)
-  - [Matrix.FullyQualifiedName](#matrixfullyqualifiedname)
   - [dlib::Matrix::get\_create](#dlibmatrixget%5C_create)
   - [dlib::Matrix::IsInstance](#dlibmatrixisinstance)
   - [dlib::Matrix::ToString](#dlibmatrixtostring)
@@ -842,14 +793,12 @@
   - [std.mutex](#stdmutex)
   - [std.timed\_mutex](#stdtimed%5C_mutex)
 - [std::mutex](#stdmutex)
-  - [mutex.FullyQualifiedName](#mutexfullyqualifiedname)
   - [std::mutex::get\_create](#stdmutexget%5C_create)
   - [std::mutex::IsInstance](#stdmutexisinstance)
   - [std::mutex::lock](#stdmutexlock)
   - [std::mutex::try\_lock](#stdmutextry%5C_lock)
   - [std::mutex::unlock](#stdmutexunlock)
 - [std::timed\_mutex](#stdtimed%5C_mutex)
-  - [timed\_mutex.FullyQualifiedName](#timed%5C_mutexfullyqualifiedname)
   - [std::timed\_mutex::get\_create](#stdtimed%5C_mutexget%5C_create)
   - [std::timed\_mutex::IsInstance](#stdtimed%5C_mutexisinstance)
   - [std::timed\_mutex::lock](#stdtimed%5C_mutexlock)
@@ -860,7 +809,6 @@
   - [fhog\_object\_detector.detection\_window\_width](#fhog%5C_object%5C_detectordetection%5C_window%5C_width)
   - [fhog\_object\_detector.detection\_window\_height](#fhog%5C_object%5C_detectordetection%5C_window%5C_height)
   - [fhog\_object\_detector.num\_detectors](#fhog%5C_object%5C_detectornum%5C_detectors)
-  - [fhog\_object\_detector.FullyQualifiedName](#fhog%5C_object%5C_detectorfullyqualifiedname)
   - [dlib::fhog\_object\_detector::create](#dlibfhog%5C_object%5C_detectorcreate)
   - [dlib::fhog\_object\_detector::IsInstance](#dlibfhog%5C_object%5C_detectorisinstance)
   - [dlib::fhog\_object\_detector::get\_call](#dlibfhog%5C_object%5C_detectorget%5C_call)
@@ -870,14 +818,12 @@
 - [cv::Range](#cvrange)
   - [Range.start](#rangestart)
   - [Range.end](#rangeend)
-  - [Range.FullyQualifiedName](#rangefullyqualifiedname)
   - [cv::Range::get\_create](#cvrangeget%5C_create)
   - [cv::Range::IsInstance](#cvrangeisinstance)
   - [cv::Range::all](#cvrangeall)
   - [cv::Range::empty](#cvrangeempty)
   - [cv::Range::size](#cvrangesize)
 - [dlib::rect\_filter](#dlibrect%5C_filter)
-  - [rect\_filter.FullyQualifiedName](#rect%5C_filterfullyqualifiedname)
   - [dlib::rect\_filter::create](#dlibrect%5C_filtercreate)
   - [dlib::rect\_filter::IsInstance](#dlibrect%5C_filterisinstance)
   - [dlib::rect\_filter::get\_call](#dlibrect%5C_filterget%5C_call)
@@ -885,7 +831,6 @@
   - [dlib::rect\_filter::measurement\_noise](#dlibrect%5C_filtermeasurement%5C_noise)
   - [dlib::rect\_filter::typical\_acceleration](#dlibrect%5C_filtertypical%5C_acceleration)
 - [dlib::rectangle](#dlibrectangle)
-  - [rectangle.FullyQualifiedName](#rectanglefullyqualifiedname)
   - [dlib::rectangle::get\_create](#dlibrectangleget%5C_create)
   - [dlib::rectangle::IsInstance](#dlibrectangleisinstance)
   - [dlib::rectangle::ToString](#dlibrectangletostring)
@@ -906,7 +851,6 @@
   - [dlib::rectangle::tr\_corner](#dlibrectangletr%5C_corner)
   - [dlib::rectangle::width](#dlibrectanglewidth)
 - [dlib::drectangle](#dlibdrectangle)
-  - [drectangle.FullyQualifiedName](#drectanglefullyqualifiedname)
   - [dlib::drectangle::get\_create](#dlibdrectangleget%5C_create)
   - [dlib::drectangle::IsInstance](#dlibdrectangleisinstance)
   - [dlib::drectangle::ToString](#dlibdrectangletostring)
@@ -929,13 +873,11 @@
 - [dlib::full\_object\_detection](#dlibfull%5C_object%5C_detection)
   - [full\_object\_detection.rect](#full%5C_object%5C_detectionrect)
   - [full\_object\_detection.num\_parts](#full%5C_object%5C_detectionnum%5C_parts)
-  - [full\_object\_detection.FullyQualifiedName](#full%5C_object%5C_detectionfullyqualifiedname)
   - [dlib::full\_object\_detection::get\_create](#dlibfull%5C_object%5C_detectionget%5C_create)
   - [dlib::full\_object\_detection::IsInstance](#dlibfull%5C_object%5C_detectionisinstance)
   - [dlib::full\_object\_detection::part](#dlibfull%5C_object%5C_detectionpart)
   - [dlib::full\_object\_detection::parts](#dlibfull%5C_object%5C_detectionparts)
 - [dlib::shape\_predictor](#dlibshape%5C_predictor)
-  - [shape\_predictor.FullyQualifiedName](#shape%5C_predictorfullyqualifiedname)
   - [dlib::shape\_predictor::create](#dlibshape%5C_predictorcreate)
   - [dlib::shape\_predictor::IsInstance](#dlibshape%5C_predictorisinstance)
   - [dlib::shape\_predictor::get\_call](#dlibshape%5C_predictorget%5C_call)
@@ -946,7 +888,6 @@
   - [svm\_c\_trainer\_radial\_basis.c\_class2](#svm%5C_c%5C_trainer%5C_radial%5C_basisc%5C_class2)
   - [svm\_c\_trainer\_radial\_basis.cache\_size](#svm%5C_c%5C_trainer%5C_radial%5C_basiscache%5C_size)
   - [svm\_c\_trainer\_radial\_basis.gamma](#svm%5C_c%5C_trainer%5C_radial%5C_basisgamma)
-  - [svm\_c\_trainer\_radial\_basis.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_radial\_basis::get\_create](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basisget%5C_create)
   - [dlib::svm\_c\_trainer\_radial\_basis::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basisisinstance)
   - [dlib::svm\_c\_trainer\_radial\_basis::set\_c](#dlibsvm%5C_c%5C_trainer%5C_radial%5C_basisset%5C_c)
@@ -957,7 +898,6 @@
   - [svm\_c\_trainer\_sparse\_radial\_basis.c\_class2](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisc%5C_class2)
   - [svm\_c\_trainer\_sparse\_radial\_basis.cache\_size](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basiscache%5C_size)
   - [svm\_c\_trainer\_sparse\_radial\_basis.gamma](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisgamma)
-  - [svm\_c\_trainer\_sparse\_radial\_basis.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::get\_create](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisget%5C_create)
   - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisisinstance)
   - [dlib::svm\_c\_trainer\_sparse\_radial\_basis::set\_c](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_radial%5C_basisset%5C_c)
@@ -967,7 +907,6 @@
   - [svm\_c\_trainer\_histogram\_intersection.c\_class1](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectionc%5C_class1)
   - [svm\_c\_trainer\_histogram\_intersection.c\_class2](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectionc%5C_class2)
   - [svm\_c\_trainer\_histogram\_intersection.cache\_size](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectioncache%5C_size)
-  - [svm\_c\_trainer\_histogram\_intersection.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_histogram\_intersection::get\_create](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectionget%5C_create)
   - [dlib::svm\_c\_trainer\_histogram\_intersection::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectionisinstance)
   - [dlib::svm\_c\_trainer\_histogram\_intersection::set\_c](#dlibsvm%5C_c%5C_trainer%5C_histogram%5C_intersectionset%5C_c)
@@ -977,7 +916,6 @@
   - [svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class1](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionc%5C_class1)
   - [svm\_c\_trainer\_sparse\_histogram\_intersection.c\_class2](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionc%5C_class2)
   - [svm\_c\_trainer\_sparse\_histogram\_intersection.cache\_size](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectioncache%5C_size)
-  - [svm\_c\_trainer\_sparse\_histogram\_intersection.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::get\_create](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionget%5C_create)
   - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionisinstance)
   - [dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::set\_c](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_histogram%5C_intersectionset%5C_c)
@@ -990,7 +928,6 @@
   - [svm\_c\_trainer\_linear.force\_last\_weight\_to\_1](#svm%5C_c%5C_trainer%5C_linearforce%5C_last%5C_weight%5C_to%5C_1)
   - [svm\_c\_trainer\_linear.learns\_nonnegative\_weights](#svm%5C_c%5C_trainer%5C_linearlearns%5C_nonnegative%5C_weights)
   - [svm\_c\_trainer\_linear.has\_prior](#svm%5C_c%5C_trainer%5C_linearhas%5C_prior)
-  - [svm\_c\_trainer\_linear.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_linearfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_linear::get\_create](#dlibsvm%5C_c%5C_trainer%5C_linearget%5C_create)
   - [dlib::svm\_c\_trainer\_linear::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_linearisinstance)
   - [dlib::svm\_c\_trainer\_linear::be\_quiet](#dlibsvm%5C_c%5C_trainer%5C_linearbe%5C_quiet)
@@ -1006,7 +943,6 @@
   - [svm\_c\_trainer\_sparse\_linear.force\_last\_weight\_to\_1](#svm%5C_c%5C_trainer%5C_sparse%5C_linearforce%5C_last%5C_weight%5C_to%5C_1)
   - [svm\_c\_trainer\_sparse\_linear.learns\_nonnegative\_weights](#svm%5C_c%5C_trainer%5C_sparse%5C_linearlearns%5C_nonnegative%5C_weights)
   - [svm\_c\_trainer\_sparse\_linear.has\_prior](#svm%5C_c%5C_trainer%5C_sparse%5C_linearhas%5C_prior)
-  - [svm\_c\_trainer\_sparse\_linear.FullyQualifiedName](#svm%5C_c%5C_trainer%5C_sparse%5C_linearfullyqualifiedname)
   - [dlib::svm\_c\_trainer\_sparse\_linear::get\_create](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearget%5C_create)
   - [dlib::svm\_c\_trainer\_sparse\_linear::IsInstance](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearisinstance)
   - [dlib::svm\_c\_trainer\_sparse\_linear::be\_quiet](#dlibsvm%5C_c%5C_trainer%5C_sparse%5C_linearbe%5C_quiet)
@@ -1017,51 +953,43 @@
 - [dlib::rvm\_trainer\_radial\_basis](#dlibrvm%5C_trainer%5C_radial%5C_basis)
   - [rvm\_trainer\_radial\_basis.epsilon](#rvm%5C_trainer%5C_radial%5C_basisepsilon)
   - [rvm\_trainer\_radial\_basis.gamma](#rvm%5C_trainer%5C_radial%5C_basisgamma)
-  - [rvm\_trainer\_radial\_basis.FullyQualifiedName](#rvm%5C_trainer%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::rvm\_trainer\_radial\_basis::get\_create](#dlibrvm%5C_trainer%5C_radial%5C_basisget%5C_create)
   - [dlib::rvm\_trainer\_radial\_basis::IsInstance](#dlibrvm%5C_trainer%5C_radial%5C_basisisinstance)
   - [dlib::rvm\_trainer\_radial\_basis::train](#dlibrvm%5C_trainer%5C_radial%5C_basistrain)
 - [dlib::rvm\_trainer\_sparse\_radial\_basis](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basis)
   - [rvm\_trainer\_sparse\_radial\_basis.epsilon](#rvm%5C_trainer%5C_sparse%5C_radial%5C_basisepsilon)
   - [rvm\_trainer\_sparse\_radial\_basis.gamma](#rvm%5C_trainer%5C_sparse%5C_radial%5C_basisgamma)
-  - [rvm\_trainer\_sparse\_radial\_basis.FullyQualifiedName](#rvm%5C_trainer%5C_sparse%5C_radial%5C_basisfullyqualifiedname)
   - [dlib::rvm\_trainer\_sparse\_radial\_basis::get\_create](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basisget%5C_create)
   - [dlib::rvm\_trainer\_sparse\_radial\_basis::IsInstance](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basisisinstance)
   - [dlib::rvm\_trainer\_sparse\_radial\_basis::train](#dlibrvm%5C_trainer%5C_sparse%5C_radial%5C_basistrain)
 - [dlib::rvm\_trainer\_histogram\_intersection](#dlibrvm%5C_trainer%5C_histogram%5C_intersection)
   - [rvm\_trainer\_histogram\_intersection.epsilon](#rvm%5C_trainer%5C_histogram%5C_intersectionepsilon)
-  - [rvm\_trainer\_histogram\_intersection.FullyQualifiedName](#rvm%5C_trainer%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::rvm\_trainer\_histogram\_intersection::get\_create](#dlibrvm%5C_trainer%5C_histogram%5C_intersectionget%5C_create)
   - [dlib::rvm\_trainer\_histogram\_intersection::IsInstance](#dlibrvm%5C_trainer%5C_histogram%5C_intersectionisinstance)
   - [dlib::rvm\_trainer\_histogram\_intersection::train](#dlibrvm%5C_trainer%5C_histogram%5C_intersectiontrain)
 - [dlib::rvm\_trainer\_sparse\_histogram\_intersection](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersection)
   - [rvm\_trainer\_sparse\_histogram\_intersection.epsilon](#rvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionepsilon)
-  - [rvm\_trainer\_sparse\_histogram\_intersection.FullyQualifiedName](#rvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionfullyqualifiedname)
   - [dlib::rvm\_trainer\_sparse\_histogram\_intersection::get\_create](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionget%5C_create)
   - [dlib::rvm\_trainer\_sparse\_histogram\_intersection::IsInstance](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectionisinstance)
   - [dlib::rvm\_trainer\_sparse\_histogram\_intersection::train](#dlibrvm%5C_trainer%5C_sparse%5C_histogram%5C_intersectiontrain)
 - [dlib::rvm\_trainer\_linear](#dlibrvm%5C_trainer%5C_linear)
   - [rvm\_trainer\_linear.epsilon](#rvm%5C_trainer%5C_linearepsilon)
-  - [rvm\_trainer\_linear.FullyQualifiedName](#rvm%5C_trainer%5C_linearfullyqualifiedname)
   - [dlib::rvm\_trainer\_linear::get\_create](#dlibrvm%5C_trainer%5C_linearget%5C_create)
   - [dlib::rvm\_trainer\_linear::IsInstance](#dlibrvm%5C_trainer%5C_linearisinstance)
   - [dlib::rvm\_trainer\_linear::train](#dlibrvm%5C_trainer%5C_lineartrain)
 - [dlib::rvm\_trainer\_sparse\_linear](#dlibrvm%5C_trainer%5C_sparse%5C_linear)
   - [rvm\_trainer\_sparse\_linear.epsilon](#rvm%5C_trainer%5C_sparse%5C_linearepsilon)
-  - [rvm\_trainer\_sparse\_linear.FullyQualifiedName](#rvm%5C_trainer%5C_sparse%5C_linearfullyqualifiedname)
   - [dlib::rvm\_trainer\_sparse\_linear::get\_create](#dlibrvm%5C_trainer%5C_sparse%5C_linearget%5C_create)
   - [dlib::rvm\_trainer\_sparse\_linear::IsInstance](#dlibrvm%5C_trainer%5C_sparse%5C_linearisinstance)
   - [dlib::rvm\_trainer\_sparse\_linear::train](#dlibrvm%5C_trainer%5C_sparse%5C_lineartrain)
 - [dlib::vec\_ranking\_pair](#dlibvec%5C_ranking%5C_pair)
   - [vec\_ranking\_pair.relevant](#vec%5C_ranking%5C_pairrelevant)
   - [vec\_ranking\_pair.nonrelevant](#vec%5C_ranking%5C_pairnonrelevant)
-  - [vec\_ranking\_pair.FullyQualifiedName](#vec%5C_ranking%5C_pairfullyqualifiedname)
   - [dlib::vec\_ranking\_pair::get\_create](#dlibvec%5C_ranking%5C_pairget%5C_create)
   - [dlib::vec\_ranking\_pair::IsInstance](#dlibvec%5C_ranking%5C_pairisinstance)
 - [dlib::sparse\_ranking\_pair](#dlibsparse%5C_ranking%5C_pair)
   - [sparse\_ranking\_pair.relevant](#sparse%5C_ranking%5C_pairrelevant)
   - [sparse\_ranking\_pair.nonrelevant](#sparse%5C_ranking%5C_pairnonrelevant)
-  - [sparse\_ranking\_pair.FullyQualifiedName](#sparse%5C_ranking%5C_pairfullyqualifiedname)
   - [dlib::sparse\_ranking\_pair::get\_create](#dlibsparse%5C_ranking%5C_pairget%5C_create)
   - [dlib::sparse\_ranking\_pair::IsInstance](#dlibsparse%5C_ranking%5C_pairisinstance)
 - [dlib::vec\_svm\_rank\_trainer](#dlibvec%5C_svm%5C_rank%5C_trainer)
@@ -1071,7 +999,6 @@
   - [vec\_svm\_rank\_trainer.force\_last\_weight\_to\_1](#vec%5C_svm%5C_rank%5C_trainerforce%5C_last%5C_weight%5C_to%5C_1)
   - [vec\_svm\_rank\_trainer.learns\_nonnegative\_weights](#vec%5C_svm%5C_rank%5C_trainerlearns%5C_nonnegative%5C_weights)
   - [vec\_svm\_rank\_trainer.has\_prior](#vec%5C_svm%5C_rank%5C_trainerhas%5C_prior)
-  - [vec\_svm\_rank\_trainer.FullyQualifiedName](#vec%5C_svm%5C_rank%5C_trainerfullyqualifiedname)
   - [dlib::vec\_svm\_rank\_trainer::get\_create](#dlibvec%5C_svm%5C_rank%5C_trainerget%5C_create)
   - [dlib::vec\_svm\_rank\_trainer::IsInstance](#dlibvec%5C_svm%5C_rank%5C_trainerisinstance)
   - [dlib::vec\_svm\_rank\_trainer::be\_quiet](#dlibvec%5C_svm%5C_rank%5C_trainerbe%5C_quiet)
@@ -1085,7 +1012,6 @@
   - [svm\_rank\_trainer\_sparse.force\_last\_weight\_to\_1](#svm%5C_rank%5C_trainer%5C_sparseforce%5C_last%5C_weight%5C_to%5C_1)
   - [svm\_rank\_trainer\_sparse.learns\_nonnegative\_weights](#svm%5C_rank%5C_trainer%5C_sparselearns%5C_nonnegative%5C_weights)
   - [svm\_rank\_trainer\_sparse.has\_prior](#svm%5C_rank%5C_trainer%5C_sparsehas%5C_prior)
-  - [svm\_rank\_trainer\_sparse.FullyQualifiedName](#svm%5C_rank%5C_trainer%5C_sparsefullyqualifiedname)
   - [dlib::svm\_rank\_trainer\_sparse::get\_create](#dlibsvm%5C_rank%5C_trainer%5C_sparseget%5C_create)
   - [dlib::svm\_rank\_trainer\_sparse::IsInstance](#dlibsvm%5C_rank%5C_trainer%5C_sparseisinstance)
   - [dlib::svm\_rank\_trainer\_sparse::be\_quiet](#dlibsvm%5C_rank%5C_trainer%5C_sparsebe%5C_quiet)
@@ -1103,7 +1029,6 @@
   - [UMat.shape](#umatshape)
   - [UMat.sizes](#umatsizes)
   - [UMat.steps](#umatsteps)
-  - [UMat.FullyQualifiedName](#umatfullyqualifiedname)
   - [cv::UMat::get\_create](#cvumatget%5C_create)
   - [cv::UMat::GdiplusResize](#cvumatgdiplusresize)
   - [cv::UMat::IsInstance](#cvumatisinstance)
@@ -1152,7 +1077,6 @@
   - [cv::UMat::zeros](#cvumatzeros)
 - [dlib::SpaceVector](#dlibspacevector)
   - [SpaceVector.shape](#spacevectorshape)
-  - [SpaceVector.FullyQualifiedName](#spacevectorfullyqualifiedname)
   - [dlib::SpaceVector::create](#dlibspacevectorcreate)
   - [dlib::SpaceVector::IsInstance](#dlibspacevectorisinstance)
   - [dlib::SpaceVector::ToString](#dlibspacevectortostring)
@@ -1166,13 +1090,11 @@
   - [dlib::SpaceVector::slice](#dlibspacevectorslice)
 - [dlib::point\_transform\_projective](#dlibpoint%5C_transform%5C_projective)
   - [point\_transform\_projective.m](#point%5C_transform%5C_projectivem)
-  - [point\_transform\_projective.FullyQualifiedName](#point%5C_transform%5C_projectivefullyqualifiedname)
   - [dlib::point\_transform\_projective::get\_create](#dlibpoint%5C_transform%5C_projectiveget%5C_create)
   - [dlib::point\_transform\_projective::IsInstance](#dlibpoint%5C_transform%5C_projectiveisinstance)
 - [dlib::dpoint](#dlibdpoint)
   - [dpoint.x](#dpointx)
   - [dpoint.y](#dpointy)
-  - [dpoint.FullyQualifiedName](#dpointfullyqualifiedname)
   - [dlib::dpoint::get\_create](#dlibdpointget%5C_create)
   - [dlib::dpoint::IsInstance](#dlibdpointisinstance)
   - [dlib::dpoint::ToString](#dlibdpointtostring)
@@ -1184,7 +1106,6 @@
 - [dlib::point](#dlibpoint)
   - [point.x](#pointx)
   - [point.y](#pointy)
-  - [point.FullyQualifiedName](#pointfullyqualifiedname)
   - [dlib::point::get\_create](#dlibpointget%5C_create)
   - [dlib::point::IsInstance](#dlibpointisinstance)
   - [dlib::point::ToString](#dlibpointtostring)
@@ -1195,7 +1116,6 @@
   - [dlib::point::sub](#dlibpointsub)
 - [VectorOfString](#vectorofstring)
   - [VectorOfString.Count](#vectorofstringcount)
-  - [VectorOfString.FullyQualifiedName](#vectorofstringfullyqualifiedname)
   - [VectorOfString::create](#vectorofstringcreate)
   - [VectorOfString::Add](#vectorofstringadd)
   - [VectorOfString::IsInstance](#vectorofstringisinstance)
@@ -1219,7 +1139,6 @@
   - [VectorOfString::start](#vectorofstringstart)
 - [VectorOfVariant](#vectorofvariant)
   - [VectorOfVariant.Count](#vectorofvariantcount)
-  - [VectorOfVariant.FullyQualifiedName](#vectorofvariantfullyqualifiedname)
   - [VectorOfVariant::create](#vectorofvariantcreate)
   - [VectorOfVariant::Add](#vectorofvariantadd)
   - [VectorOfVariant::IsInstance](#vectorofvariantisinstance)
@@ -1243,7 +1162,6 @@
   - [VectorOfVariant::start](#vectorofvariantstart)
 - [VectorOfPairOfULONGAndDouble](#vectorofpairofulonganddouble)
   - [VectorOfPairOfULONGAndDouble.Count](#vectorofpairofulonganddoublecount)
-  - [VectorOfPairOfULONGAndDouble.FullyQualifiedName](#vectorofpairofulonganddoublefullyqualifiedname)
   - [VectorOfPairOfULONGAndDouble::create](#vectorofpairofulonganddoublecreate)
   - [VectorOfPairOfULONGAndDouble::Add](#vectorofpairofulonganddoubleadd)
   - [VectorOfPairOfULONGAndDouble::IsInstance](#vectorofpairofulonganddoubleisinstance)
@@ -1267,7 +1185,6 @@
   - [VectorOfPairOfULONGAndDouble::start](#vectorofpairofulonganddoublestart)
 - [VectorOfVectorOfPairOfULONGAndDouble](#vectorofvectorofpairofulonganddouble)
   - [VectorOfVectorOfPairOfULONGAndDouble.Count](#vectorofvectorofpairofulonganddoublecount)
-  - [VectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName](#vectorofvectorofpairofulonganddoublefullyqualifiedname)
   - [VectorOfVectorOfPairOfULONGAndDouble::create](#vectorofvectorofpairofulonganddoublecreate)
   - [VectorOfVectorOfPairOfULONGAndDouble::Add](#vectorofvectorofpairofulonganddoubleadd)
   - [VectorOfVectorOfPairOfULONGAndDouble::IsInstance](#vectorofvectorofpairofulonganddoubleisinstance)
@@ -1291,7 +1208,6 @@
   - [VectorOfVectorOfPairOfULONGAndDouble::start](#vectorofvectorofpairofulonganddoublestart)
 - [VectorOfMat](#vectorofmat)
   - [VectorOfMat.Count](#vectorofmatcount)
-  - [VectorOfMat.FullyQualifiedName](#vectorofmatfullyqualifiedname)
   - [VectorOfMat::create](#vectorofmatcreate)
   - [VectorOfMat::Add](#vectorofmatadd)
   - [VectorOfMat::IsInstance](#vectorofmatisinstance)
@@ -1315,7 +1231,6 @@
   - [VectorOfMat::start](#vectorofmatstart)
 - [VectorOfFull\_object\_detection](#vectoroffull%5C_object%5C_detection)
   - [VectorOfFull\_object\_detection.Count](#vectoroffull%5C_object%5C_detectioncount)
-  - [VectorOfFull\_object\_detection.FullyQualifiedName](#vectoroffull%5C_object%5C_detectionfullyqualifiedname)
   - [VectorOfFull\_object\_detection::create](#vectoroffull%5C_object%5C_detectioncreate)
   - [VectorOfFull\_object\_detection::Add](#vectoroffull%5C_object%5C_detectionadd)
   - [VectorOfFull\_object\_detection::IsInstance](#vectoroffull%5C_object%5C_detectionisinstance)
@@ -1339,7 +1254,6 @@
   - [VectorOfFull\_object\_detection::start](#vectoroffull%5C_object%5C_detectionstart)
 - [VectorOfSpaceVector](#vectorofspacevector)
   - [VectorOfSpaceVector.Count](#vectorofspacevectorcount)
-  - [VectorOfSpaceVector.FullyQualifiedName](#vectorofspacevectorfullyqualifiedname)
   - [VectorOfSpaceVector::create](#vectorofspacevectorcreate)
   - [VectorOfSpaceVector::Add](#vectorofspacevectoradd)
   - [VectorOfSpaceVector::IsInstance](#vectorofspacevectorisinstance)
@@ -1363,7 +1277,6 @@
   - [VectorOfSpaceVector::start](#vectorofspacevectorstart)
 - [VectorOfULONG](#vectorofulong)
   - [VectorOfULONG.Count](#vectorofulongcount)
-  - [VectorOfULONG.FullyQualifiedName](#vectorofulongfullyqualifiedname)
   - [VectorOfULONG::create](#vectorofulongcreate)
   - [VectorOfULONG::Add](#vectorofulongadd)
   - [VectorOfULONG::IsInstance](#vectorofulongisinstance)
@@ -1387,7 +1300,6 @@
   - [VectorOfULONG::start](#vectorofulongstart)
 - [VectorOfDouble](#vectorofdouble)
   - [VectorOfDouble.Count](#vectorofdoublecount)
-  - [VectorOfDouble.FullyQualifiedName](#vectorofdoublefullyqualifiedname)
   - [VectorOfDouble::create](#vectorofdoublecreate)
   - [VectorOfDouble::Add](#vectorofdoubleadd)
   - [VectorOfDouble::IsInstance](#vectorofdoubleisinstance)
@@ -1411,7 +1323,6 @@
   - [VectorOfDouble::start](#vectorofdoublestart)
 - [VectorOfBool](#vectorofbool)
   - [VectorOfBool.Count](#vectorofboolcount)
-  - [VectorOfBool.FullyQualifiedName](#vectorofboolfullyqualifiedname)
   - [VectorOfBool::create](#vectorofboolcreate)
   - [VectorOfBool::Add](#vectorofbooladd)
   - [VectorOfBool::IsInstance](#vectorofboolisinstance)
@@ -1435,7 +1346,6 @@
   - [VectorOfBool::start](#vectorofboolstart)
 - [VectorOfRectangle](#vectorofrectangle)
   - [VectorOfRectangle.Count](#vectorofrectanglecount)
-  - [VectorOfRectangle.FullyQualifiedName](#vectorofrectanglefullyqualifiedname)
   - [VectorOfRectangle::create](#vectorofrectanglecreate)
   - [VectorOfRectangle::Add](#vectorofrectangleadd)
   - [VectorOfRectangle::IsInstance](#vectorofrectangleisinstance)
@@ -1459,7 +1369,6 @@
   - [VectorOfRectangle::start](#vectorofrectanglestart)
 - [VectorOfLong](#vectoroflong)
   - [VectorOfLong.Count](#vectoroflongcount)
-  - [VectorOfLong.FullyQualifiedName](#vectoroflongfullyqualifiedname)
   - [VectorOfLong::create](#vectoroflongcreate)
   - [VectorOfLong::Add](#vectoroflongadd)
   - [VectorOfLong::IsInstance](#vectoroflongisinstance)
@@ -1483,7 +1392,6 @@
   - [VectorOfLong::start](#vectoroflongstart)
 - [VectorOfVectorOfSpaceVector](#vectorofvectorofspacevector)
   - [VectorOfVectorOfSpaceVector.Count](#vectorofvectorofspacevectorcount)
-  - [VectorOfVectorOfSpaceVector.FullyQualifiedName](#vectorofvectorofspacevectorfullyqualifiedname)
   - [VectorOfVectorOfSpaceVector::create](#vectorofvectorofspacevectorcreate)
   - [VectorOfVectorOfSpaceVector::Add](#vectorofvectorofspacevectoradd)
   - [VectorOfVectorOfSpaceVector::IsInstance](#vectorofvectorofspacevectorisinstance)
@@ -1507,7 +1415,6 @@
   - [VectorOfVectorOfSpaceVector::start](#vectorofvectorofspacevectorstart)
 - [VectorOfPairOfULONGAndULONG](#vectorofpairofulongandulong)
   - [VectorOfPairOfULONGAndULONG.Count](#vectorofpairofulongandulongcount)
-  - [VectorOfPairOfULONGAndULONG.FullyQualifiedName](#vectorofpairofulongandulongfullyqualifiedname)
   - [VectorOfPairOfULONGAndULONG::create](#vectorofpairofulongandulongcreate)
   - [VectorOfPairOfULONGAndULONG::Add](#vectorofpairofulongandulongadd)
   - [VectorOfPairOfULONGAndULONG::IsInstance](#vectorofpairofulongandulongisinstance)
@@ -1531,7 +1438,6 @@
   - [VectorOfPairOfULONGAndULONG::start](#vectorofpairofulongandulongstart)
 - [VectorOfVectorOfPairOfULONGAndULONG](#vectorofvectorofpairofulongandulong)
   - [VectorOfVectorOfPairOfULONGAndULONG.Count](#vectorofvectorofpairofulongandulongcount)
-  - [VectorOfVectorOfPairOfULONGAndULONG.FullyQualifiedName](#vectorofvectorofpairofulongandulongfullyqualifiedname)
   - [VectorOfVectorOfPairOfULONGAndULONG::create](#vectorofvectorofpairofulongandulongcreate)
   - [VectorOfVectorOfPairOfULONGAndULONG::Add](#vectorofvectorofpairofulongandulongadd)
   - [VectorOfVectorOfPairOfULONGAndULONG::IsInstance](#vectorofvectorofpairofulongandulongisinstance)
@@ -1555,7 +1461,6 @@
   - [VectorOfVectorOfPairOfULONGAndULONG::start](#vectorofvectorofpairofulongandulongstart)
 - [VectorOfVectorOfVectorOfPairOfULONGAndDouble](#vectorofvectorofvectorofpairofulonganddouble)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble.Count](#vectorofvectorofvectorofpairofulonganddoublecount)
-  - [VectorOfVectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName](#vectorofvectorofvectorofpairofulonganddoublefullyqualifiedname)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::create](#vectorofvectorofvectorofpairofulonganddoublecreate)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::Add](#vectorofvectorofvectorofpairofulonganddoubleadd)
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::IsInstance](#vectorofvectorofvectorofpairofulonganddoubleisinstance)
@@ -1579,7 +1484,6 @@
   - [VectorOfVectorOfVectorOfPairOfULONGAndDouble::start](#vectorofvectorofvectorofpairofulonganddoublestart)
 - [VectorOfVectorOfFull\_object\_detection](#vectorofvectoroffull%5C_object%5C_detection)
   - [VectorOfVectorOfFull\_object\_detection.Count](#vectorofvectoroffull%5C_object%5C_detectioncount)
-  - [VectorOfVectorOfFull\_object\_detection.FullyQualifiedName](#vectorofvectoroffull%5C_object%5C_detectionfullyqualifiedname)
   - [VectorOfVectorOfFull\_object\_detection::create](#vectorofvectoroffull%5C_object%5C_detectioncreate)
   - [VectorOfVectorOfFull\_object\_detection::Add](#vectorofvectoroffull%5C_object%5C_detectionadd)
   - [VectorOfVectorOfFull\_object\_detection::IsInstance](#vectorofvectoroffull%5C_object%5C_detectionisinstance)
@@ -1603,7 +1507,6 @@
   - [VectorOfVectorOfFull\_object\_detection::start](#vectorofvectoroffull%5C_object%5C_detectionstart)
 - [VectorOfVectorOfRectangle](#vectorofvectorofrectangle)
   - [VectorOfVectorOfRectangle.Count](#vectorofvectorofrectanglecount)
-  - [VectorOfVectorOfRectangle.FullyQualifiedName](#vectorofvectorofrectanglefullyqualifiedname)
   - [VectorOfVectorOfRectangle::create](#vectorofvectorofrectanglecreate)
   - [VectorOfVectorOfRectangle::Add](#vectorofvectorofrectangleadd)
   - [VectorOfVectorOfRectangle::IsInstance](#vectorofvectorofrectangleisinstance)
@@ -1627,7 +1530,6 @@
   - [VectorOfVectorOfRectangle::start](#vectorofvectorofrectanglestart)
 - [VectorOfVec\_ranking\_pair](#vectorofvec%5C_ranking%5C_pair)
   - [VectorOfVec\_ranking\_pair.Count](#vectorofvec%5C_ranking%5C_paircount)
-  - [VectorOfVec\_ranking\_pair.FullyQualifiedName](#vectorofvec%5C_ranking%5C_pairfullyqualifiedname)
   - [VectorOfVec\_ranking\_pair::create](#vectorofvec%5C_ranking%5C_paircreate)
   - [VectorOfVec\_ranking\_pair::Add](#vectorofvec%5C_ranking%5C_pairadd)
   - [VectorOfVec\_ranking\_pair::IsInstance](#vectorofvec%5C_ranking%5C_pairisinstance)
@@ -1651,7 +1553,6 @@
   - [VectorOfVec\_ranking\_pair::start](#vectorofvec%5C_ranking%5C_pairstart)
 - [VectorOfSparse\_ranking\_pair](#vectorofsparse%5C_ranking%5C_pair)
   - [VectorOfSparse\_ranking\_pair.Count](#vectorofsparse%5C_ranking%5C_paircount)
-  - [VectorOfSparse\_ranking\_pair.FullyQualifiedName](#vectorofsparse%5C_ranking%5C_pairfullyqualifiedname)
   - [VectorOfSparse\_ranking\_pair::create](#vectorofsparse%5C_ranking%5C_paircreate)
   - [VectorOfSparse\_ranking\_pair::Add](#vectorofsparse%5C_ranking%5C_pairadd)
   - [VectorOfSparse\_ranking\_pair::IsInstance](#vectorofsparse%5C_ranking%5C_pairisinstance)
@@ -1675,7 +1576,6 @@
   - [VectorOfSparse\_ranking\_pair::start](#vectorofsparse%5C_ranking%5C_pairstart)
 - [VectorOfDpoint](#vectorofdpoint)
   - [VectorOfDpoint.Count](#vectorofdpointcount)
-  - [VectorOfDpoint.FullyQualifiedName](#vectorofdpointfullyqualifiedname)
   - [VectorOfDpoint::create](#vectorofdpointcreate)
   - [VectorOfDpoint::Add](#vectorofdpointadd)
   - [VectorOfDpoint::IsInstance](#vectorofdpointisinstance)
@@ -1699,7 +1599,6 @@
   - [VectorOfDpoint::start](#vectorofdpointstart)
 - [VectorOfPoint](#vectorofpoint)
   - [VectorOfPoint.Count](#vectorofpointcount)
-  - [VectorOfPoint.FullyQualifiedName](#vectorofpointfullyqualifiedname)
   - [VectorOfPoint::create](#vectorofpointcreate)
   - [VectorOfPoint::Add](#vectorofpointadd)
   - [VectorOfPoint::IsInstance](#vectorofpointisinstance)
@@ -1723,7 +1622,6 @@
   - [VectorOfPoint::start](#vectorofpointstart)
 - [VectorOfVectorOfDouble](#vectorofvectorofdouble)
   - [VectorOfVectorOfDouble.Count](#vectorofvectorofdoublecount)
-  - [VectorOfVectorOfDouble.FullyQualifiedName](#vectorofvectorofdoublefullyqualifiedname)
   - [VectorOfVectorOfDouble::create](#vectorofvectorofdoublecreate)
   - [VectorOfVectorOfDouble::Add](#vectorofvectorofdoubleadd)
   - [VectorOfVectorOfDouble::IsInstance](#vectorofvectorofdoubleisinstance)
@@ -1747,7 +1645,6 @@
   - [VectorOfVectorOfDouble::start](#vectorofvectorofdoublestart)
 - [VectorOfMmod\_rect](#vectorofmmod%5C_rect)
   - [VectorOfMmod\_rect.Count](#vectorofmmod%5C_rectcount)
-  - [VectorOfMmod\_rect.FullyQualifiedName](#vectorofmmod%5C_rectfullyqualifiedname)
   - [VectorOfMmod\_rect::create](#vectorofmmod%5C_rectcreate)
   - [VectorOfMmod\_rect::Add](#vectorofmmod%5C_rectadd)
   - [VectorOfMmod\_rect::IsInstance](#vectorofmmod%5C_rectisinstance)
@@ -1771,7 +1668,6 @@
   - [VectorOfMmod\_rect::start](#vectorofmmod%5C_rectstart)
 - [VectorOfVectorOfMmod\_rect](#vectorofvectorofmmod%5C_rect)
   - [VectorOfVectorOfMmod\_rect.Count](#vectorofvectorofmmod%5C_rectcount)
-  - [VectorOfVectorOfMmod\_rect.FullyQualifiedName](#vectorofvectorofmmod%5C_rectfullyqualifiedname)
   - [VectorOfVectorOfMmod\_rect::create](#vectorofvectorofmmod%5C_rectcreate)
   - [VectorOfVectorOfMmod\_rect::Add](#vectorofvectorofmmod%5C_rectadd)
   - [VectorOfVectorOfMmod\_rect::IsInstance](#vectorofvectorofmmod%5C_rectisinstance)
@@ -1795,7 +1691,6 @@
   - [VectorOfVectorOfMmod\_rect::start](#vectorofvectorofmmod%5C_rectstart)
 - [VectorOfSimple\_object\_detector\_com](#vectorofsimple%5C_object%5C_detector%5C_com)
   - [VectorOfSimple\_object\_detector\_com.Count](#vectorofsimple%5C_object%5C_detector%5C_comcount)
-  - [VectorOfSimple\_object\_detector\_com.FullyQualifiedName](#vectorofsimple%5C_object%5C_detector%5C_comfullyqualifiedname)
   - [VectorOfSimple\_object\_detector\_com::create](#vectorofsimple%5C_object%5C_detector%5C_comcreate)
   - [VectorOfSimple\_object\_detector\_com::Add](#vectorofsimple%5C_object%5C_detector%5C_comadd)
   - [VectorOfSimple\_object\_detector\_com::IsInstance](#vectorofsimple%5C_object%5C_detector%5C_comisinstance)
@@ -1819,7 +1714,6 @@
   - [VectorOfSimple\_object\_detector\_com::start](#vectorofsimple%5C_object%5C_detector%5C_comstart)
 - [VectorOfFhog\_object\_detector](#vectoroffhog%5C_object%5C_detector)
   - [VectorOfFhog\_object\_detector.Count](#vectoroffhog%5C_object%5C_detectorcount)
-  - [VectorOfFhog\_object\_detector.FullyQualifiedName](#vectoroffhog%5C_object%5C_detectorfullyqualifiedname)
   - [VectorOfFhog\_object\_detector::create](#vectoroffhog%5C_object%5C_detectorcreate)
   - [VectorOfFhog\_object\_detector::Add](#vectoroffhog%5C_object%5C_detectoradd)
   - [VectorOfFhog\_object\_detector::IsInstance](#vectoroffhog%5C_object%5C_detectorisinstance)
@@ -1843,7 +1737,6 @@
   - [VectorOfFhog\_object\_detector::start](#vectoroffhog%5C_object%5C_detectorstart)
 - [VectorOfUchar](#vectorofuchar)
   - [VectorOfUchar.Count](#vectorofucharcount)
-  - [VectorOfUchar.FullyQualifiedName](#vectorofucharfullyqualifiedname)
   - [VectorOfUchar::create](#vectorofucharcreate)
   - [VectorOfUchar::Add](#vectorofucharadd)
   - [VectorOfUchar::IsInstance](#vectorofucharisinstance)
@@ -1867,7 +1760,6 @@
   - [VectorOfUchar::start](#vectorofucharstart)
 - [VectorOfInt](#vectorofint)
   - [VectorOfInt.Count](#vectorofintcount)
-  - [VectorOfInt.FullyQualifiedName](#vectorofintfullyqualifiedname)
   - [VectorOfInt::create](#vectorofintcreate)
   - [VectorOfInt::Add](#vectorofintadd)
   - [VectorOfInt::IsInstance](#vectorofintisinstance)
@@ -1891,7 +1783,6 @@
   - [VectorOfInt::start](#vectorofintstart)
 - [VectorOfFunction\_spec](#vectoroffunction%5C_spec)
   - [VectorOfFunction\_spec.Count](#vectoroffunction%5C_speccount)
-  - [VectorOfFunction\_spec.FullyQualifiedName](#vectoroffunction%5C_specfullyqualifiedname)
   - [VectorOfFunction\_spec::create](#vectoroffunction%5C_speccreate)
   - [VectorOfFunction\_spec::Add](#vectoroffunction%5C_specadd)
   - [VectorOfFunction\_spec::IsInstance](#vectoroffunction%5C_specisinstance)
@@ -1915,7 +1806,6 @@
   - [VectorOfFunction\_spec::start](#vectoroffunction%5C_specstart)
 - [VectorOfFunction\_evaluation](#vectoroffunction%5C_evaluation)
   - [VectorOfFunction\_evaluation.Count](#vectoroffunction%5C_evaluationcount)
-  - [VectorOfFunction\_evaluation.FullyQualifiedName](#vectoroffunction%5C_evaluationfullyqualifiedname)
   - [VectorOfFunction\_evaluation::create](#vectoroffunction%5C_evaluationcreate)
   - [VectorOfFunction\_evaluation::Add](#vectoroffunction%5C_evaluationadd)
   - [VectorOfFunction\_evaluation::IsInstance](#vectoroffunction%5C_evaluationisinstance)
@@ -1939,7 +1829,6 @@
   - [VectorOfFunction\_evaluation::start](#vectoroffunction%5C_evaluationstart)
 - [VectorOfVectorOfFunction\_evaluation](#vectorofvectoroffunction%5C_evaluation)
   - [VectorOfVectorOfFunction\_evaluation.Count](#vectorofvectoroffunction%5C_evaluationcount)
-  - [VectorOfVectorOfFunction\_evaluation.FullyQualifiedName](#vectorofvectoroffunction%5C_evaluationfullyqualifiedname)
   - [VectorOfVectorOfFunction\_evaluation::create](#vectorofvectoroffunction%5C_evaluationcreate)
   - [VectorOfVectorOfFunction\_evaluation::Add](#vectorofvectoroffunction%5C_evaluationadd)
   - [VectorOfVectorOfFunction\_evaluation::IsInstance](#vectorofvectoroffunction%5C_evaluationisinstance)
@@ -1963,7 +1852,6 @@
   - [VectorOfVectorOfFunction\_evaluation::start](#vectorofvectoroffunction%5C_evaluationstart)
 - [VectorOfDrectangle](#vectorofdrectangle)
   - [VectorOfDrectangle.Count](#vectorofdrectanglecount)
-  - [VectorOfDrectangle.FullyQualifiedName](#vectorofdrectanglefullyqualifiedname)
   - [VectorOfDrectangle::create](#vectorofdrectanglecreate)
   - [VectorOfDrectangle::Add](#vectorofdrectangleadd)
   - [VectorOfDrectangle::IsInstance](#vectorofdrectangleisinstance)
@@ -1987,7 +1875,6 @@
   - [VectorOfDrectangle::start](#vectorofdrectanglestart)
 - [VectorOfImage\_window\_keyboard\_state\_masks](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masks)
   - [VectorOfImage\_window\_keyboard\_state\_masks.Count](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskscount)
-  - [VectorOfImage\_window\_keyboard\_state\_masks.FullyQualifiedName](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksfullyqualifiedname)
   - [VectorOfImage\_window\_keyboard\_state\_masks::create](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskscreate)
   - [VectorOfImage\_window\_keyboard\_state\_masks::Add](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksadd)
   - [VectorOfImage\_window\_keyboard\_state\_masks::IsInstance](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksisinstance)
@@ -2010,7 +1897,6 @@
   - [VectorOfImage\_window\_keyboard\_state\_masks::sort\_variant](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_maskssort%5C_variant)
   - [VectorOfImage\_window\_keyboard\_state\_masks::start](#vectorofimage%5C_window%5C_keyboard%5C_state%5C_masksstart)
 - [MapOfStringAndPoint](#mapofstringandpoint)
-  - [MapOfStringAndPoint.FullyQualifiedName](#mapofstringandpointfullyqualifiedname)
   - [MapOfStringAndPoint::create](#mapofstringandpointcreate)
   - [MapOfStringAndPoint::Add](#mapofstringandpointadd)
   - [MapOfStringAndPoint::Get](#mapofstringandpointget)
@@ -2032,7 +1918,6 @@
   - [MapOfStringAndPoint::size](#mapofstringandpointsize)
 - [VectorOfPairOfStringAndPoint](#vectorofpairofstringandpoint)
   - [VectorOfPairOfStringAndPoint.Count](#vectorofpairofstringandpointcount)
-  - [VectorOfPairOfStringAndPoint.FullyQualifiedName](#vectorofpairofstringandpointfullyqualifiedname)
   - [VectorOfPairOfStringAndPoint::create](#vectorofpairofstringandpointcreate)
   - [VectorOfPairOfStringAndPoint::Add](#vectorofpairofstringandpointadd)
   - [VectorOfPairOfStringAndPoint::IsInstance](#vectorofpairofstringandpointisinstance)
@@ -2056,7 +1941,6 @@
   - [VectorOfPairOfStringAndPoint::start](#vectorofpairofstringandpointstart)
 - [VectorOfImage\_dataset\_metadata\_box](#vectorofimage%5C_dataset%5C_metadata%5C_box)
   - [VectorOfImage\_dataset\_metadata\_box.Count](#vectorofimage%5C_dataset%5C_metadata%5C_boxcount)
-  - [VectorOfImage\_dataset\_metadata\_box.FullyQualifiedName](#vectorofimage%5C_dataset%5C_metadata%5C_boxfullyqualifiedname)
   - [VectorOfImage\_dataset\_metadata\_box::create](#vectorofimage%5C_dataset%5C_metadata%5C_boxcreate)
   - [VectorOfImage\_dataset\_metadata\_box::Add](#vectorofimage%5C_dataset%5C_metadata%5C_boxadd)
   - [VectorOfImage\_dataset\_metadata\_box::IsInstance](#vectorofimage%5C_dataset%5C_metadata%5C_boxisinstance)
@@ -2080,7 +1964,6 @@
   - [VectorOfImage\_dataset\_metadata\_box::start](#vectorofimage%5C_dataset%5C_metadata%5C_boxstart)
 - [VectorOfImage\_dataset\_metadata\_image](#vectorofimage%5C_dataset%5C_metadata%5C_image)
   - [VectorOfImage\_dataset\_metadata\_image.Count](#vectorofimage%5C_dataset%5C_metadata%5C_imagecount)
-  - [VectorOfImage\_dataset\_metadata\_image.FullyQualifiedName](#vectorofimage%5C_dataset%5C_metadata%5C_imagefullyqualifiedname)
   - [VectorOfImage\_dataset\_metadata\_image::create](#vectorofimage%5C_dataset%5C_metadata%5C_imagecreate)
   - [VectorOfImage\_dataset\_metadata\_image::Add](#vectorofimage%5C_dataset%5C_metadata%5C_imageadd)
   - [VectorOfImage\_dataset\_metadata\_image::IsInstance](#vectorofimage%5C_dataset%5C_metadata%5C_imageisinstance)
@@ -2104,7 +1987,6 @@
   - [VectorOfImage\_dataset\_metadata\_image::start](#vectorofimage%5C_dataset%5C_metadata%5C_imagestart)
 - [VectorOfSize\_t](#vectorofsize%5C_t)
   - [VectorOfSize\_t.Count](#vectorofsize%5C_tcount)
-  - [VectorOfSize\_t.FullyQualifiedName](#vectorofsize%5C_tfullyqualifiedname)
   - [VectorOfSize\_t::create](#vectorofsize%5C_tcreate)
   - [VectorOfSize\_t::Add](#vectorofsize%5C_tadd)
   - [VectorOfSize\_t::IsInstance](#vectorofsize%5C_tisinstance)
@@ -2128,7 +2010,6 @@
   - [VectorOfSize\_t::start](#vectorofsize%5C_tstart)
 - [VectorOfRange](#vectorofrange)
   - [VectorOfRange.Count](#vectorofrangecount)
-  - [VectorOfRange.FullyQualifiedName](#vectorofrangefullyqualifiedname)
   - [VectorOfRange::create](#vectorofrangecreate)
   - [VectorOfRange::Add](#vectorofrangeadd)
   - [VectorOfRange::IsInstance](#vectorofrangeisinstance)
@@ -2152,7 +2033,6 @@
   - [VectorOfRange::start](#vectorofrangestart)
 - [VectorOfFloat](#vectoroffloat)
   - [VectorOfFloat.Count](#vectoroffloatcount)
-  - [VectorOfFloat.FullyQualifiedName](#vectoroffloatfullyqualifiedname)
   - [VectorOfFloat::create](#vectoroffloatcreate)
   - [VectorOfFloat::Add](#vectoroffloatadd)
   - [VectorOfFloat::IsInstance](#vectoroffloatisinstance)
@@ -2176,7 +2056,6 @@
   - [VectorOfFloat::start](#vectoroffloatstart)
 - [VectorOfVec2b](#vectorofvec2b)
   - [VectorOfVec2b.Count](#vectorofvec2bcount)
-  - [VectorOfVec2b.FullyQualifiedName](#vectorofvec2bfullyqualifiedname)
   - [VectorOfVec2b::create](#vectorofvec2bcreate)
   - [VectorOfVec2b::Add](#vectorofvec2badd)
   - [VectorOfVec2b::IsInstance](#vectorofvec2bisinstance)
@@ -2200,7 +2079,6 @@
   - [VectorOfVec2b::start](#vectorofvec2bstart)
 - [VectorOfVec3b](#vectorofvec3b)
   - [VectorOfVec3b.Count](#vectorofvec3bcount)
-  - [VectorOfVec3b.FullyQualifiedName](#vectorofvec3bfullyqualifiedname)
   - [VectorOfVec3b::create](#vectorofvec3bcreate)
   - [VectorOfVec3b::Add](#vectorofvec3badd)
   - [VectorOfVec3b::IsInstance](#vectorofvec3bisinstance)
@@ -2224,7 +2102,6 @@
   - [VectorOfVec3b::start](#vectorofvec3bstart)
 - [VectorOfVec4b](#vectorofvec4b)
   - [VectorOfVec4b.Count](#vectorofvec4bcount)
-  - [VectorOfVec4b.FullyQualifiedName](#vectorofvec4bfullyqualifiedname)
   - [VectorOfVec4b::create](#vectorofvec4bcreate)
   - [VectorOfVec4b::Add](#vectorofvec4badd)
   - [VectorOfVec4b::IsInstance](#vectorofvec4bisinstance)
@@ -2248,7 +2125,6 @@
   - [VectorOfVec4b::start](#vectorofvec4bstart)
 - [VectorOfVec2s](#vectorofvec2s)
   - [VectorOfVec2s.Count](#vectorofvec2scount)
-  - [VectorOfVec2s.FullyQualifiedName](#vectorofvec2sfullyqualifiedname)
   - [VectorOfVec2s::create](#vectorofvec2screate)
   - [VectorOfVec2s::Add](#vectorofvec2sadd)
   - [VectorOfVec2s::IsInstance](#vectorofvec2sisinstance)
@@ -2272,7 +2148,6 @@
   - [VectorOfVec2s::start](#vectorofvec2sstart)
 - [VectorOfVec3s](#vectorofvec3s)
   - [VectorOfVec3s.Count](#vectorofvec3scount)
-  - [VectorOfVec3s.FullyQualifiedName](#vectorofvec3sfullyqualifiedname)
   - [VectorOfVec3s::create](#vectorofvec3screate)
   - [VectorOfVec3s::Add](#vectorofvec3sadd)
   - [VectorOfVec3s::IsInstance](#vectorofvec3sisinstance)
@@ -2296,7 +2171,6 @@
   - [VectorOfVec3s::start](#vectorofvec3sstart)
 - [VectorOfVec4s](#vectorofvec4s)
   - [VectorOfVec4s.Count](#vectorofvec4scount)
-  - [VectorOfVec4s.FullyQualifiedName](#vectorofvec4sfullyqualifiedname)
   - [VectorOfVec4s::create](#vectorofvec4screate)
   - [VectorOfVec4s::Add](#vectorofvec4sadd)
   - [VectorOfVec4s::IsInstance](#vectorofvec4sisinstance)
@@ -2320,7 +2194,6 @@
   - [VectorOfVec4s::start](#vectorofvec4sstart)
 - [VectorOfVec2w](#vectorofvec2w)
   - [VectorOfVec2w.Count](#vectorofvec2wcount)
-  - [VectorOfVec2w.FullyQualifiedName](#vectorofvec2wfullyqualifiedname)
   - [VectorOfVec2w::create](#vectorofvec2wcreate)
   - [VectorOfVec2w::Add](#vectorofvec2wadd)
   - [VectorOfVec2w::IsInstance](#vectorofvec2wisinstance)
@@ -2344,7 +2217,6 @@
   - [VectorOfVec2w::start](#vectorofvec2wstart)
 - [VectorOfVec3w](#vectorofvec3w)
   - [VectorOfVec3w.Count](#vectorofvec3wcount)
-  - [VectorOfVec3w.FullyQualifiedName](#vectorofvec3wfullyqualifiedname)
   - [VectorOfVec3w::create](#vectorofvec3wcreate)
   - [VectorOfVec3w::Add](#vectorofvec3wadd)
   - [VectorOfVec3w::IsInstance](#vectorofvec3wisinstance)
@@ -2368,7 +2240,6 @@
   - [VectorOfVec3w::start](#vectorofvec3wstart)
 - [VectorOfVec4w](#vectorofvec4w)
   - [VectorOfVec4w.Count](#vectorofvec4wcount)
-  - [VectorOfVec4w.FullyQualifiedName](#vectorofvec4wfullyqualifiedname)
   - [VectorOfVec4w::create](#vectorofvec4wcreate)
   - [VectorOfVec4w::Add](#vectorofvec4wadd)
   - [VectorOfVec4w::IsInstance](#vectorofvec4wisinstance)
@@ -2392,7 +2263,6 @@
   - [VectorOfVec4w::start](#vectorofvec4wstart)
 - [VectorOfVec2i](#vectorofvec2i)
   - [VectorOfVec2i.Count](#vectorofvec2icount)
-  - [VectorOfVec2i.FullyQualifiedName](#vectorofvec2ifullyqualifiedname)
   - [VectorOfVec2i::create](#vectorofvec2icreate)
   - [VectorOfVec2i::Add](#vectorofvec2iadd)
   - [VectorOfVec2i::IsInstance](#vectorofvec2iisinstance)
@@ -2416,7 +2286,6 @@
   - [VectorOfVec2i::start](#vectorofvec2istart)
 - [VectorOfVec3i](#vectorofvec3i)
   - [VectorOfVec3i.Count](#vectorofvec3icount)
-  - [VectorOfVec3i.FullyQualifiedName](#vectorofvec3ifullyqualifiedname)
   - [VectorOfVec3i::create](#vectorofvec3icreate)
   - [VectorOfVec3i::Add](#vectorofvec3iadd)
   - [VectorOfVec3i::IsInstance](#vectorofvec3iisinstance)
@@ -2440,7 +2309,6 @@
   - [VectorOfVec3i::start](#vectorofvec3istart)
 - [VectorOfVec4i](#vectorofvec4i)
   - [VectorOfVec4i.Count](#vectorofvec4icount)
-  - [VectorOfVec4i.FullyQualifiedName](#vectorofvec4ifullyqualifiedname)
   - [VectorOfVec4i::create](#vectorofvec4icreate)
   - [VectorOfVec4i::Add](#vectorofvec4iadd)
   - [VectorOfVec4i::IsInstance](#vectorofvec4iisinstance)
@@ -2464,7 +2332,6 @@
   - [VectorOfVec4i::start](#vectorofvec4istart)
 - [VectorOfVec6i](#vectorofvec6i)
   - [VectorOfVec6i.Count](#vectorofvec6icount)
-  - [VectorOfVec6i.FullyQualifiedName](#vectorofvec6ifullyqualifiedname)
   - [VectorOfVec6i::create](#vectorofvec6icreate)
   - [VectorOfVec6i::Add](#vectorofvec6iadd)
   - [VectorOfVec6i::IsInstance](#vectorofvec6iisinstance)
@@ -2488,7 +2355,6 @@
   - [VectorOfVec6i::start](#vectorofvec6istart)
 - [VectorOfVec8i](#vectorofvec8i)
   - [VectorOfVec8i.Count](#vectorofvec8icount)
-  - [VectorOfVec8i.FullyQualifiedName](#vectorofvec8ifullyqualifiedname)
   - [VectorOfVec8i::create](#vectorofvec8icreate)
   - [VectorOfVec8i::Add](#vectorofvec8iadd)
   - [VectorOfVec8i::IsInstance](#vectorofvec8iisinstance)
@@ -2512,7 +2378,6 @@
   - [VectorOfVec8i::start](#vectorofvec8istart)
 - [VectorOfVec2f](#vectorofvec2f)
   - [VectorOfVec2f.Count](#vectorofvec2fcount)
-  - [VectorOfVec2f.FullyQualifiedName](#vectorofvec2ffullyqualifiedname)
   - [VectorOfVec2f::create](#vectorofvec2fcreate)
   - [VectorOfVec2f::Add](#vectorofvec2fadd)
   - [VectorOfVec2f::IsInstance](#vectorofvec2fisinstance)
@@ -2536,7 +2401,6 @@
   - [VectorOfVec2f::start](#vectorofvec2fstart)
 - [VectorOfVec3f](#vectorofvec3f)
   - [VectorOfVec3f.Count](#vectorofvec3fcount)
-  - [VectorOfVec3f.FullyQualifiedName](#vectorofvec3ffullyqualifiedname)
   - [VectorOfVec3f::create](#vectorofvec3fcreate)
   - [VectorOfVec3f::Add](#vectorofvec3fadd)
   - [VectorOfVec3f::IsInstance](#vectorofvec3fisinstance)
@@ -2560,7 +2424,6 @@
   - [VectorOfVec3f::start](#vectorofvec3fstart)
 - [VectorOfVec4f](#vectorofvec4f)
   - [VectorOfVec4f.Count](#vectorofvec4fcount)
-  - [VectorOfVec4f.FullyQualifiedName](#vectorofvec4ffullyqualifiedname)
   - [VectorOfVec4f::create](#vectorofvec4fcreate)
   - [VectorOfVec4f::Add](#vectorofvec4fadd)
   - [VectorOfVec4f::IsInstance](#vectorofvec4fisinstance)
@@ -2584,7 +2447,6 @@
   - [VectorOfVec4f::start](#vectorofvec4fstart)
 - [VectorOfVec6f](#vectorofvec6f)
   - [VectorOfVec6f.Count](#vectorofvec6fcount)
-  - [VectorOfVec6f.FullyQualifiedName](#vectorofvec6ffullyqualifiedname)
   - [VectorOfVec6f::create](#vectorofvec6fcreate)
   - [VectorOfVec6f::Add](#vectorofvec6fadd)
   - [VectorOfVec6f::IsInstance](#vectorofvec6fisinstance)
@@ -2608,7 +2470,6 @@
   - [VectorOfVec6f::start](#vectorofvec6fstart)
 - [VectorOfVec2d](#vectorofvec2d)
   - [VectorOfVec2d.Count](#vectorofvec2dcount)
-  - [VectorOfVec2d.FullyQualifiedName](#vectorofvec2dfullyqualifiedname)
   - [VectorOfVec2d::create](#vectorofvec2dcreate)
   - [VectorOfVec2d::Add](#vectorofvec2dadd)
   - [VectorOfVec2d::IsInstance](#vectorofvec2disinstance)
@@ -2632,7 +2493,6 @@
   - [VectorOfVec2d::start](#vectorofvec2dstart)
 - [VectorOfVec3d](#vectorofvec3d)
   - [VectorOfVec3d.Count](#vectorofvec3dcount)
-  - [VectorOfVec3d.FullyQualifiedName](#vectorofvec3dfullyqualifiedname)
   - [VectorOfVec3d::create](#vectorofvec3dcreate)
   - [VectorOfVec3d::Add](#vectorofvec3dadd)
   - [VectorOfVec3d::IsInstance](#vectorofvec3disinstance)
@@ -2656,7 +2516,6 @@
   - [VectorOfVec3d::start](#vectorofvec3dstart)
 - [VectorOfVec4d](#vectorofvec4d)
   - [VectorOfVec4d.Count](#vectorofvec4dcount)
-  - [VectorOfVec4d.FullyQualifiedName](#vectorofvec4dfullyqualifiedname)
   - [VectorOfVec4d::create](#vectorofvec4dcreate)
   - [VectorOfVec4d::Add](#vectorofvec4dadd)
   - [VectorOfVec4d::IsInstance](#vectorofvec4disinstance)
@@ -2680,7 +2539,6 @@
   - [VectorOfVec4d::start](#vectorofvec4dstart)
 - [VectorOfVec6d](#vectorofvec6d)
   - [VectorOfVec6d.Count](#vectorofvec6dcount)
-  - [VectorOfVec6d.FullyQualifiedName](#vectorofvec6dfullyqualifiedname)
   - [VectorOfVec6d::create](#vectorofvec6dcreate)
   - [VectorOfVec6d::Add](#vectorofvec6dadd)
   - [VectorOfVec6d::IsInstance](#vectorofvec6disinstance)
@@ -2706,14 +2564,6 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## NamedParameters
-
-### NamedParameters.FullyQualifiedName
-
-```cpp
-static std::string NamedParameters::FullyQualifiedName
-AutoIt:
-    [propget] $oNamedParameters.FullyQualifiedName
-```
 
 ### NamedParameters::create
 
@@ -2931,14 +2781,6 @@ AutoIt:
 
 ## autoit::Buffer
 
-### Buffer.FullyQualifiedName
-
-```cpp
-static std::string autoit::Buffer::FullyQualifiedName
-AutoIt:
-    [propget] $oBuffer.FullyQualifiedName
-```
-
 ### autoit::Buffer::get\_create
 
 ```cpp
@@ -2983,14 +2825,6 @@ AutoIt:
 
 ## com::Thread
 
-### Thread.FullyQualifiedName
-
-```cpp
-static std::string com::Thread::FullyQualifiedName
-AutoIt:
-    [propget] $oThread.FullyQualifiedName
-```
-
 ### com::Thread::get\_create
 
 ```cpp
@@ -3031,14 +2865,6 @@ AutoIt:
 ```
 
 ## com::ThreadSafeQueue
-
-### ThreadSafeQueue.FullyQualifiedName
-
-```cpp
-static std::string com::ThreadSafeQueue::FullyQualifiedName
-AutoIt:
-    [propget] $oThreadSafeQueue.FullyQualifiedName
-```
 
 ### com::ThreadSafeQueue::get\_create
 
@@ -4419,6 +4245,14 @@ AutoIt:
     _Dlib_ObjCreate("dlib").load_libsvm_formatted_data( $file_name[, $samples[, $labels]] ) -> $samples, $labels
 ```
 
+### dlib::load\_rgb\_alpha\_image
+
+```cpp
+cv::Mat dlib::load_rgb_alpha_image( const std::string& path );
+AutoIt:
+    _Dlib_ObjCreate("dlib").load_rgb_alpha_image( $path ) -> retval
+```
+
 ### dlib::load\_rgb\_image
 
 ```cpp
@@ -4536,9 +4370,10 @@ AutoIt:
 
 ```cpp
 void dlib::save_image( const cv::Mat&     img,
-                       const std::string& path );
+                       const std::string& path,
+                       const float        quality = 75 );
 AutoIt:
-    _Dlib_ObjCreate("dlib").save_image( $img, $path ) -> None
+    _Dlib_ObjCreate("dlib").save_image( $img, $path[, $quality] ) -> None
 ```
 
 ### dlib::save\_libsvm\_formatted\_data
@@ -5130,14 +4965,6 @@ AutoIt:
     [propget, propput] $obinary_test.class2_accuracy
 ```
 
-### binary\_test.FullyQualifiedName
-
-```cpp
-static std::string dlib::binary_test::FullyQualifiedName
-AutoIt:
-    [propget] $obinary_test.FullyQualifiedName
-```
-
 ### dlib::binary\_test::get\_create
 
 ```cpp
@@ -5202,14 +5029,6 @@ AutoIt:
     [propget, propput] $oregression_test.mean_error_stddev
 ```
 
-### regression\_test.FullyQualifiedName
-
-```cpp
-static std::string dlib::regression_test::FullyQualifiedName
-AutoIt:
-    [propget] $oregression_test.FullyQualifiedName
-```
-
 ### dlib::regression\_test::get\_create
 
 ```cpp
@@ -5256,14 +5075,6 @@ AutoIt:
 double dlib::ranking_test::mean_ap
 AutoIt:
     [propget, propput] $oranking_test.mean_ap
-```
-
-### ranking\_test.FullyQualifiedName
-
-```cpp
-static std::string dlib::ranking_test::FullyQualifiedName
-AutoIt:
-    [propget] $oranking_test.FullyQualifiedName
 ```
 
 ### dlib::ranking\_test::get\_create
@@ -5322,14 +5133,6 @@ AutoIt:
     [propget, propput] $occa_outputs.Rtrans
 ```
 
-### cca\_outputs.FullyQualifiedName
-
-```cpp
-static std::string dlib::cca_outputs::FullyQualifiedName
-AutoIt:
-    [propget] $occa_outputs.FullyQualifiedName
-```
-
 ### dlib::cca\_outputs::get\_create
 
 ```cpp
@@ -5353,14 +5156,6 @@ AutoIt:
 ```
 
 ## dlib::cnn\_face\_detection\_model\_v1
-
-### cnn\_face\_detection\_model\_v1.FullyQualifiedName
-
-```cpp
-static std::string dlib::cnn_face_detection_model_v1::FullyQualifiedName
-AutoIt:
-    [propget] $ocnn_face_detection_model_v1.FullyQualifiedName
-```
 
 ### dlib::cnn\_face\_detection\_model\_v1::create
 
@@ -5423,14 +5218,6 @@ AutoIt:
 ```
 
 ## dlib::face\_recognition\_model\_v1
-
-### face\_recognition\_model\_v1.FullyQualifiedName
-
-```cpp
-static std::string dlib::face_recognition_model_v1::FullyQualifiedName
-AutoIt:
-    [propget] $oface_recognition_model_v1.FullyQualifiedName
-```
 
 ### dlib::face\_recognition\_model\_v1::get\_create
 
@@ -5500,14 +5287,6 @@ AutoIt:
 
 ## dlib::\_row
 
-### \_row.FullyQualifiedName
-
-```cpp
-static std::string dlib::_row::FullyQualifiedName
-AutoIt:
-    [propget] $o_row.FullyQualifiedName
-```
-
 ### dlib::\_row::get\_create
 
 ```cpp
@@ -5571,14 +5350,6 @@ AutoIt:
 dlib::SpaceVector dlib::segmenter_type::get_weights()
 AutoIt:
     [propget] $osegmenter_type.weights
-```
-
-### segmenter\_type.FullyQualifiedName
-
-```cpp
-static std::string dlib::segmenter_type::FullyQualifiedName
-AutoIt:
-    [propget] $osegmenter_type.FullyQualifiedName
 ```
 
 ### dlib::segmenter\_type::create
@@ -5693,14 +5464,6 @@ AutoIt:
     [propget, propput] $osegmenter_params.C
 ```
 
-### segmenter\_params.FullyQualifiedName
-
-```cpp
-static std::string dlib::segmenter_params::FullyQualifiedName
-AutoIt:
-    [propget] $osegmenter_params.FullyQualifiedName
-```
-
 ### dlib::segmenter\_params::get\_create
 
 ```cpp
@@ -5755,14 +5518,6 @@ AutoIt:
 double dlib::segmenter_test::f1
 AutoIt:
     [propget, propput] $osegmenter_test.f1
-```
-
-### segmenter\_test.FullyQualifiedName
-
-```cpp
-static std::string dlib::segmenter_test::FullyQualifiedName
-AutoIt:
-    [propget] $osegmenter_test.FullyQualifiedName
 ```
 
 ### dlib::segmenter\_test::get\_create
@@ -5909,14 +5664,6 @@ AutoIt:
     [propget, propput] $oshape_predictor_training_options.num_threads
 ```
 
-### shape\_predictor\_training\_options.FullyQualifiedName
-
-```cpp
-static std::string dlib::shape_predictor_training_options::FullyQualifiedName
-AutoIt:
-    [propget] $oshape_predictor_training_options.FullyQualifiedName
-```
-
 ### dlib::shape\_predictor\_training\_options::get\_create
 
 ```cpp
@@ -6021,14 +5768,6 @@ AutoIt:
     [propget, propput] $osimple_object_detector_training_options.max_runtime_seconds
 ```
 
-### simple\_object\_detector\_training\_options.FullyQualifiedName
-
-```cpp
-static std::string dlib::simple_object_detector_training_options::FullyQualifiedName
-AutoIt:
-    [propget] $osimple_object_detector_training_options.FullyQualifiedName
-```
-
 ### dlib::simple\_object\_detector\_training\_options::get\_create
 
 ```cpp
@@ -6083,14 +5822,6 @@ AutoIt:
 double dlib::simple_test_results::average_precision
 AutoIt:
     [propget, propput] $osimple_test_results.average_precision
-```
-
-### simple\_test\_results.FullyQualifiedName
-
-```cpp
-static std::string dlib::simple_test_results::FullyQualifiedName
-AutoIt:
-    [propget] $osimple_test_results.FullyQualifiedName
 ```
 
 ### dlib::simple\_test\_results::get\_create
@@ -6163,14 +5894,6 @@ AutoIt:
 ULONG dlib::simple_object_detector_com::detector.num_detectors()
 AutoIt:
     [propget] $osimple_object_detector_com.num_detectors
-```
-
-### simple\_object\_detector\_com.FullyQualifiedName
-
-```cpp
-static std::string dlib::simple_object_detector_com::FullyQualifiedName
-AutoIt:
-    [propget] $osimple_object_detector_com.FullyQualifiedName
 ```
 
 ### dlib::simple\_object\_detector\_com::create
@@ -6345,14 +6068,6 @@ AutoIt:
 _variant_t dlib::simple_structural_svm_problem::result
 AutoIt:
     [propget, propput] $osimple_structural_svm_problem.result
-```
-
-### simple\_structural\_svm\_problem.FullyQualifiedName
-
-```cpp
-static std::string dlib::simple_structural_svm_problem::FullyQualifiedName
-AutoIt:
-    [propget] $osimple_structural_svm_problem.FullyQualifiedName
 ```
 
 ### dlib::simple\_structural\_svm\_problem::get\_create
@@ -6685,14 +6400,6 @@ AutoIt:
     [propget, propput] $ommod_rect.ignore
 ```
 
-### mmod\_rect.FullyQualifiedName
-
-```cpp
-static std::string dlib::mmod_rect::FullyQualifiedName
-AutoIt:
-    [propget] $ommod_rect.FullyQualifiedName
-```
-
 ### dlib::mmod\_rect::get\_create
 
 ```cpp
@@ -6770,14 +6477,6 @@ AutoIt:
 ```
 
 ## dlib::correlation\_tracker
-
-### correlation\_tracker.FullyQualifiedName
-
-```cpp
-static std::string dlib::correlation_tracker::FullyQualifiedName
-AutoIt:
-    [propget] $ocorrelation_tracker.FullyQualifiedName
-```
 
 ### dlib::correlation\_tracker::get\_create
 
@@ -6859,14 +6558,6 @@ AutoIt:
 
 ## cv::cuda::GpuMat
 
-### GpuMat.FullyQualifiedName
-
-```cpp
-static std::string cv::cuda::GpuMat::FullyQualifiedName
-AutoIt:
-    [propget] $oGpuMat.FullyQualifiedName
-```
-
 ### cv::cuda::GpuMat::IsInstance
 
 ```cpp
@@ -6882,14 +6573,6 @@ AutoIt:
 ```
 
 ## cv::\_InputArray
-
-### \_InputArray.FullyQualifiedName
-
-```cpp
-static std::string cv::_InputArray::FullyQualifiedName
-AutoIt:
-    [propget] $o_InputArray.FullyQualifiedName
-```
 
 ### cv::\_InputArray::IsInstance
 
@@ -6907,14 +6590,6 @@ AutoIt:
 
 ## cv::\_OutputArray
 
-### \_OutputArray.FullyQualifiedName
-
-```cpp
-static std::string cv::_OutputArray::FullyQualifiedName
-AutoIt:
-    [propget] $o_OutputArray.FullyQualifiedName
-```
-
 ### cv::\_OutputArray::IsInstance
 
 ```cpp
@@ -6930,14 +6605,6 @@ AutoIt:
 ```
 
 ## cv::\_InputOutputArray
-
-### \_InputOutputArray.FullyQualifiedName
-
-```cpp
-static std::string cv::_InputOutputArray::FullyQualifiedName
-AutoIt:
-    [propget] $o_InputOutputArray.FullyQualifiedName
-```
 
 ### cv::\_InputOutputArray::IsInstance
 
@@ -7013,14 +6680,6 @@ AutoIt:
     [propget] $o_radial_basis_kernel.gamma
 ```
 
-### \_radial\_basis\_kernel.FullyQualifiedName
-
-```cpp
-static std::string dlib::_radial_basis_kernel::FullyQualifiedName
-AutoIt:
-    [propget] $o_radial_basis_kernel.FullyQualifiedName
-```
-
 ### dlib::\_radial\_basis\_kernel::get\_create
 
 ```cpp
@@ -7044,14 +6703,6 @@ AutoIt:
 ```
 
 ## dlib::\_linear\_kernel
-
-### \_linear\_kernel.FullyQualifiedName
-
-```cpp
-static std::string dlib::_linear_kernel::FullyQualifiedName
-AutoIt:
-    [propget] $o_linear_kernel.FullyQualifiedName
-```
 
 ### dlib::\_linear\_kernel::get\_create
 
@@ -7091,14 +6742,6 @@ AutoIt:
 double dlib::_decision_function_linear::bias
 AutoIt:
     [propget, propput] $o_decision_function_linear.bias
-```
-
-### \_decision\_function\_linear.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_linear::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_linear.FullyQualifiedName
 ```
 
 ### dlib::\_decision\_function\_linear::create
@@ -7148,14 +6791,6 @@ AutoIt:
 double dlib::_decision_function_sparse_linear::bias
 AutoIt:
     [propget, propput] $o_decision_function_sparse_linear.bias
-```
-
-### \_decision\_function\_sparse\_linear.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_sparse_linear::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_sparse_linear.FullyQualifiedName
 ```
 
 ### dlib::\_decision\_function\_sparse\_linear::create
@@ -7215,14 +6850,6 @@ AutoIt:
     [propget] $o_decision_function_histogram_intersection.basis_vectors
 ```
 
-### \_decision\_function\_histogram\_intersection.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_histogram_intersection::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_histogram_intersection.FullyQualifiedName
-```
-
 ### dlib::\_decision\_function\_histogram\_intersection::create
 
 ```cpp
@@ -7278,14 +6905,6 @@ AutoIt:
 std::vector<dlib::SpaceVector> dlib::_decision_function_sparse_histogram_intersection::basis_vectors
 AutoIt:
     [propget] $o_decision_function_sparse_histogram_intersection.basis_vectors
-```
-
-### \_decision\_function\_sparse\_histogram\_intersection.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_sparse_histogram_intersection::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_sparse_histogram_intersection.FullyQualifiedName
 ```
 
 ### dlib::\_decision\_function\_sparse\_histogram\_intersection::create
@@ -7345,14 +6964,6 @@ AutoIt:
     [propget] $o_decision_function_polynomial.basis_vectors
 ```
 
-### \_decision\_function\_polynomial.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_polynomial::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_polynomial.FullyQualifiedName
-```
-
 ### dlib::\_decision\_function\_polynomial::create
 
 ```cpp
@@ -7408,14 +7019,6 @@ AutoIt:
 std::vector<dlib::SpaceVector> dlib::_decision_function_sparse_polynomial::basis_vectors
 AutoIt:
     [propget] $o_decision_function_sparse_polynomial.basis_vectors
-```
-
-### \_decision\_function\_sparse\_polynomial.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_sparse_polynomial::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_sparse_polynomial.FullyQualifiedName
 ```
 
 ### dlib::\_decision\_function\_sparse\_polynomial::create
@@ -7475,14 +7078,6 @@ AutoIt:
     [propget] $o_decision_function_radial_basis.basis_vectors
 ```
 
-### \_decision\_function\_radial\_basis.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_radial_basis::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_radial_basis.FullyQualifiedName
-```
-
 ### dlib::\_decision\_function\_radial\_basis::create
 
 ```cpp
@@ -7538,14 +7133,6 @@ AutoIt:
 std::vector<dlib::SpaceVector> dlib::_decision_function_sparse_radial_basis::basis_vectors
 AutoIt:
     [propget] $o_decision_function_sparse_radial_basis.basis_vectors
-```
-
-### \_decision\_function\_sparse\_radial\_basis.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_sparse_radial_basis::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_sparse_radial_basis.FullyQualifiedName
 ```
 
 ### dlib::\_decision\_function\_sparse\_radial\_basis::create
@@ -7605,14 +7192,6 @@ AutoIt:
     [propget] $o_decision_function_sigmoid.basis_vectors
 ```
 
-### \_decision\_function\_sigmoid.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_sigmoid::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_sigmoid.FullyQualifiedName
-```
-
 ### dlib::\_decision\_function\_sigmoid::create
 
 ```cpp
@@ -7668,14 +7247,6 @@ AutoIt:
 std::vector<dlib::SpaceVector> dlib::_decision_function_sparse_sigmoid::basis_vectors
 AutoIt:
     [propget] $o_decision_function_sparse_sigmoid.basis_vectors
-```
-
-### \_decision\_function\_sparse\_sigmoid.FullyQualifiedName
-
-```cpp
-static std::string dlib::_decision_function_sparse_sigmoid::FullyQualifiedName
-AutoIt:
-    [propget] $o_decision_function_sparse_sigmoid.FullyQualifiedName
 ```
 
 ### dlib::\_decision\_function\_sparse\_sigmoid::create
@@ -7751,14 +7322,6 @@ AutoIt:
     [propget] $o_normalized_decision_function_radial_basis.invstd_devs
 ```
 
-### \_normalized\_decision\_function\_radial\_basis.FullyQualifiedName
-
-```cpp
-static std::string dlib::_normalized_decision_function_radial_basis::FullyQualifiedName
-AutoIt:
-    [propget] $o_normalized_decision_function_radial_basis.FullyQualifiedName
-```
-
 ### dlib::\_normalized\_decision\_function\_radial\_basis::create
 
 ```cpp
@@ -7820,14 +7383,6 @@ AutoIt:
 double dlib::function_evaluation::y
 AutoIt:
     [propget] $ofunction_evaluation.y
-```
-
-### function\_evaluation.FullyQualifiedName
-
-```cpp
-static std::string dlib::function_evaluation::FullyQualifiedName
-AutoIt:
-    [propget] $ofunction_evaluation.FullyQualifiedName
 ```
 
 ### dlib::function\_evaluation::get\_create
@@ -7892,14 +7447,6 @@ AutoIt:
 std::vector<bool> dlib::function_spec::is_integer_variable
 AutoIt:
     [propget] $ofunction_spec.is_integer_variable
-```
-
-### function\_spec.FullyQualifiedName
-
-```cpp
-static std::string dlib::function_spec::FullyQualifiedName
-AutoIt:
-    [propget] $ofunction_spec.FullyQualifiedName
 ```
 
 ### dlib::function\_spec::get\_create
@@ -8012,14 +7559,6 @@ AutoIt:
     [propget] $ofunction_evaluation_request.has_been_evaluated
 ```
 
-### function\_evaluation\_request.FullyQualifiedName
-
-```cpp
-static std::string dlib::function_evaluation_request::FullyQualifiedName
-AutoIt:
-    [propget] $ofunction_evaluation_request.FullyQualifiedName
-```
-
 ### dlib::function\_evaluation\_request::IsInstance
 
 ```cpp
@@ -8043,14 +7582,6 @@ AutoIt:
 ```
 
 ## dlib::global\_function\_search
-
-### global\_function\_search.FullyQualifiedName
-
-```cpp
-static std::string dlib::global_function_search::FullyQualifiedName
-AutoIt:
-    [propget] $oglobal_function_search.FullyQualifiedName
-```
 
 ### dlib::global\_function\_search::get\_create
 
@@ -8199,14 +7730,6 @@ AutoIt:
 ```
 
 ## dlib::image\_window
-
-### image\_window.FullyQualifiedName
-
-```cpp
-static std::string dlib::image_window::FullyQualifiedName
-AutoIt:
-    [propget] $oimage_window.FullyQualifiedName
-```
 
 ### dlib::image\_window::get\_create
 
@@ -8824,14 +8347,6 @@ AutoIt:
     [propget, propput] $orgb_pixel.green
 ```
 
-### rgb\_pixel.FullyQualifiedName
-
-```cpp
-static std::string dlib::rgb_pixel::FullyQualifiedName
-AutoIt:
-    [propget] $orgb_pixel.FullyQualifiedName
-```
-
 ### dlib::rgb\_pixel::get\_create
 
 ```cpp
@@ -9038,14 +8553,6 @@ AutoIt:
     [propget, propput] $obox.age
 ```
 
-### box.FullyQualifiedName
-
-```cpp
-static std::string dlib::image_dataset_metadata::box::FullyQualifiedName
-AutoIt:
-    [propget] $obox.FullyQualifiedName
-```
-
 ### dlib::image\_dataset\_metadata::box::get\_create
 
 ```cpp
@@ -9099,14 +8606,6 @@ AutoIt:
 std::vector<dlib::image_dataset_metadata::box> dlib::image_dataset_metadata::image::boxes
 AutoIt:
     [propget, propput] $oimage.boxes
-```
-
-### image.FullyQualifiedName
-
-```cpp
-static std::string dlib::image_dataset_metadata::image::FullyQualifiedName
-AutoIt:
-    [propget] $oimage.FullyQualifiedName
 ```
 
 ### dlib::image\_dataset\_metadata::image::get\_create
@@ -9164,14 +8663,6 @@ AutoIt:
     [propget, propput] $odataset.name
 ```
 
-### dataset.FullyQualifiedName
-
-```cpp
-static std::string dlib::image_dataset_metadata::dataset::FullyQualifiedName
-AutoIt:
-    [propget] $odataset.FullyQualifiedName
-```
-
 ### dlib::image\_dataset\_metadata::dataset::get\_create
 
 ```cpp
@@ -9218,14 +8709,6 @@ AutoIt:
 dlib::dpoint dlib::line::p2()
 AutoIt:
     [propget] $oline.p2
-```
-
-### line.FullyQualifiedName
-
-```cpp
-static std::string dlib::line::FullyQualifiedName
-AutoIt:
-    [propget] $oline.FullyQualifiedName
 ```
 
 ### dlib::line::get\_create
@@ -9354,14 +8837,6 @@ AutoIt:
 std::vector<size_t> cv::Mat::steps
 AutoIt:
     [propget] $oMat.steps
-```
-
-### Mat.FullyQualifiedName
-
-```cpp
-static std::string cv::Mat::FullyQualifiedName
-AutoIt:
-    [propget] $oMat.FullyQualifiedName
 ```
 
 ### cv::Mat::create
@@ -12605,14 +12080,6 @@ AutoIt:
     [propget] $oMatrix.shape
 ```
 
-### Matrix.FullyQualifiedName
-
-```cpp
-static std::string dlib::Matrix::FullyQualifiedName
-AutoIt:
-    [propget] $oMatrix.FullyQualifiedName
-```
-
 ### dlib::Matrix::get\_create
 
 ```cpp
@@ -12734,14 +12201,6 @@ AutoIt:
 
 ## std::mutex
 
-### mutex.FullyQualifiedName
-
-```cpp
-static std::string std::mutex::FullyQualifiedName
-AutoIt:
-    [propget] $omutex.FullyQualifiedName
-```
-
 ### std::mutex::get\_create
 
 ```cpp
@@ -12789,14 +12248,6 @@ AutoIt:
 ```
 
 ## std::timed\_mutex
-
-### timed\_mutex.FullyQualifiedName
-
-```cpp
-static std::string std::timed_mutex::FullyQualifiedName
-AutoIt:
-    [propget] $otimed_mutex.FullyQualifiedName
-```
 
 ### std::timed\_mutex::get\_create
 
@@ -12876,14 +12327,6 @@ AutoIt:
 ULONG dlib::fhog_object_detector::num_detectors()
 AutoIt:
     [propget] $ofhog_object_detector.num_detectors
-```
-
-### fhog\_object\_detector.FullyQualifiedName
-
-```cpp
-static std::string dlib::fhog_object_detector::FullyQualifiedName
-AutoIt:
-    [propget] $ofhog_object_detector.FullyQualifiedName
 ```
 
 ### dlib::fhog\_object\_detector::create
@@ -12993,14 +12436,6 @@ AutoIt:
     [propget, propput] $oRange.end
 ```
 
-### Range.FullyQualifiedName
-
-```cpp
-static std::string cv::Range::FullyQualifiedName
-AutoIt:
-    [propget] $oRange.FullyQualifiedName
-```
-
 ### cv::Range::get\_create
 
 ```cpp
@@ -13056,14 +12491,6 @@ AutoIt:
 ```
 
 ## dlib::rect\_filter
-
-### rect\_filter.FullyQualifiedName
-
-```cpp
-static std::string dlib::rect_filter::FullyQualifiedName
-AutoIt:
-    [propget] $orect_filter.FullyQualifiedName
-```
 
 ### dlib::rect\_filter::create
 
@@ -13136,14 +12563,6 @@ AutoIt:
 ```
 
 ## dlib::rectangle
-
-### rectangle.FullyQualifiedName
-
-```cpp
-static std::string dlib::rectangle::FullyQualifiedName
-AutoIt:
-    [propget] $orectangle.FullyQualifiedName
-```
 
 ### dlib::rectangle::get\_create
 
@@ -13347,14 +12766,6 @@ AutoIt:
 ```
 
 ## dlib::drectangle
-
-### drectangle.FullyQualifiedName
-
-```cpp
-static std::string dlib::drectangle::FullyQualifiedName
-AutoIt:
-    [propget] $odrectangle.FullyQualifiedName
-```
 
 ### dlib::drectangle::get\_create
 
@@ -13575,14 +12986,6 @@ AutoIt:
     [propget] $ofull_object_detection.num_parts
 ```
 
-### full\_object\_detection.FullyQualifiedName
-
-```cpp
-static std::string dlib::full_object_detection::FullyQualifiedName
-AutoIt:
-    [propget] $ofull_object_detection.FullyQualifiedName
-```
-
 ### dlib::full\_object\_detection::get\_create
 
 ```cpp
@@ -13630,14 +13033,6 @@ AutoIt:
 ```
 
 ## dlib::shape\_predictor
-
-### shape\_predictor.FullyQualifiedName
-
-```cpp
-static std::string dlib::shape_predictor::FullyQualifiedName
-AutoIt:
-    [propget] $oshape_predictor.FullyQualifiedName
-```
 
 ### dlib::shape\_predictor::create
 
@@ -13727,14 +13122,6 @@ AutoIt:
     [propget, propput] $osvm_c_trainer_radial_basis.gamma
 ```
 
-### svm\_c\_trainer\_radial\_basis.FullyQualifiedName
-
-```cpp
-static std::string dlib::svm_c_trainer_radial_basis::FullyQualifiedName
-AutoIt:
-    [propget] $osvm_c_trainer_radial_basis.FullyQualifiedName
-```
-
 ### dlib::svm\_c\_trainer\_radial\_basis::get\_create
 
 ```cpp
@@ -13816,14 +13203,6 @@ AutoIt:
     [propget, propput] $osvm_c_trainer_sparse_radial_basis.gamma
 ```
 
-### svm\_c\_trainer\_sparse\_radial\_basis.FullyQualifiedName
-
-```cpp
-static std::string dlib::svm_c_trainer_sparse_radial_basis::FullyQualifiedName
-AutoIt:
-    [propget] $osvm_c_trainer_sparse_radial_basis.FullyQualifiedName
-```
-
 ### dlib::svm\_c\_trainer\_sparse\_radial\_basis::get\_create
 
 ```cpp
@@ -13897,14 +13276,6 @@ AutoIt:
     [propget, propput] $osvm_c_trainer_histogram_intersection.cache_size
 ```
 
-### svm\_c\_trainer\_histogram\_intersection.FullyQualifiedName
-
-```cpp
-static std::string dlib::svm_c_trainer_histogram_intersection::FullyQualifiedName
-AutoIt:
-    [propget] $osvm_c_trainer_histogram_intersection.FullyQualifiedName
-```
-
 ### dlib::svm\_c\_trainer\_histogram\_intersection::get\_create
 
 ```cpp
@@ -13976,14 +13347,6 @@ AutoIt:
 long dlib::svm_c_trainer_sparse_histogram_intersection::cache_size
 AutoIt:
     [propget, propput] $osvm_c_trainer_sparse_histogram_intersection.cache_size
-```
-
-### svm\_c\_trainer\_sparse\_histogram\_intersection.FullyQualifiedName
-
-```cpp
-static std::string dlib::svm_c_trainer_sparse_histogram_intersection::FullyQualifiedName
-AutoIt:
-    [propget] $osvm_c_trainer_sparse_histogram_intersection.FullyQualifiedName
 ```
 
 ### dlib::svm\_c\_trainer\_sparse\_histogram\_intersection::get\_create
@@ -14081,14 +13444,6 @@ AutoIt:
 bool dlib::svm_c_trainer_linear::has_prior()
 AutoIt:
     [propget] $osvm_c_trainer_linear.has_prior
-```
-
-### svm\_c\_trainer\_linear.FullyQualifiedName
-
-```cpp
-static std::string dlib::svm_c_trainer_linear::FullyQualifiedName
-AutoIt:
-    [propget] $osvm_c_trainer_linear.FullyQualifiedName
 ```
 
 ### dlib::svm\_c\_trainer\_linear::get\_create
@@ -14212,14 +13567,6 @@ AutoIt:
     [propget] $osvm_c_trainer_sparse_linear.has_prior
 ```
 
-### svm\_c\_trainer\_sparse\_linear.FullyQualifiedName
-
-```cpp
-static std::string dlib::svm_c_trainer_sparse_linear::FullyQualifiedName
-AutoIt:
-    [propget] $osvm_c_trainer_sparse_linear.FullyQualifiedName
-```
-
 ### dlib::svm\_c\_trainer\_sparse\_linear::get\_create
 
 ```cpp
@@ -14301,14 +13648,6 @@ AutoIt:
     [propget, propput] $orvm_trainer_radial_basis.gamma
 ```
 
-### rvm\_trainer\_radial\_basis.FullyQualifiedName
-
-```cpp
-static std::string dlib::rvm_trainer_radial_basis::FullyQualifiedName
-AutoIt:
-    [propget] $orvm_trainer_radial_basis.FullyQualifiedName
-```
-
 ### dlib::rvm\_trainer\_radial\_basis::get\_create
 
 ```cpp
@@ -14358,14 +13697,6 @@ AutoIt:
     [propget, propput] $orvm_trainer_sparse_radial_basis.gamma
 ```
 
-### rvm\_trainer\_sparse\_radial\_basis.FullyQualifiedName
-
-```cpp
-static std::string dlib::rvm_trainer_sparse_radial_basis::FullyQualifiedName
-AutoIt:
-    [propget] $orvm_trainer_sparse_radial_basis.FullyQualifiedName
-```
-
 ### dlib::rvm\_trainer\_sparse\_radial\_basis::get\_create
 
 ```cpp
@@ -14405,14 +13736,6 @@ AutoIt:
 double dlib::rvm_trainer_histogram_intersection::epsilon
 AutoIt:
     [propget, propput] $orvm_trainer_histogram_intersection.epsilon
-```
-
-### rvm\_trainer\_histogram\_intersection.FullyQualifiedName
-
-```cpp
-static std::string dlib::rvm_trainer_histogram_intersection::FullyQualifiedName
-AutoIt:
-    [propget] $orvm_trainer_histogram_intersection.FullyQualifiedName
 ```
 
 ### dlib::rvm\_trainer\_histogram\_intersection::get\_create
@@ -14456,14 +13779,6 @@ AutoIt:
     [propget, propput] $orvm_trainer_sparse_histogram_intersection.epsilon
 ```
 
-### rvm\_trainer\_sparse\_histogram\_intersection.FullyQualifiedName
-
-```cpp
-static std::string dlib::rvm_trainer_sparse_histogram_intersection::FullyQualifiedName
-AutoIt:
-    [propget] $orvm_trainer_sparse_histogram_intersection.FullyQualifiedName
-```
-
 ### dlib::rvm\_trainer\_sparse\_histogram\_intersection::get\_create
 
 ```cpp
@@ -14505,14 +13820,6 @@ AutoIt:
     [propget, propput] $orvm_trainer_linear.epsilon
 ```
 
-### rvm\_trainer\_linear.FullyQualifiedName
-
-```cpp
-static std::string dlib::rvm_trainer_linear::FullyQualifiedName
-AutoIt:
-    [propget] $orvm_trainer_linear.FullyQualifiedName
-```
-
 ### dlib::rvm\_trainer\_linear::get\_create
 
 ```cpp
@@ -14552,14 +13859,6 @@ AutoIt:
 double dlib::rvm_trainer_sparse_linear::epsilon
 AutoIt:
     [propget, propput] $orvm_trainer_sparse_linear.epsilon
-```
-
-### rvm\_trainer\_sparse\_linear.FullyQualifiedName
-
-```cpp
-static std::string dlib::rvm_trainer_sparse_linear::FullyQualifiedName
-AutoIt:
-    [propget] $orvm_trainer_sparse_linear.FullyQualifiedName
 ```
 
 ### dlib::rvm\_trainer\_sparse\_linear::get\_create
@@ -14611,14 +13910,6 @@ AutoIt:
     [propget, propput] $ovec_ranking_pair.nonrelevant
 ```
 
-### vec\_ranking\_pair.FullyQualifiedName
-
-```cpp
-static std::string dlib::vec_ranking_pair::FullyQualifiedName
-AutoIt:
-    [propget] $ovec_ranking_pair.FullyQualifiedName
-```
-
 ### dlib::vec\_ranking\_pair::get\_create
 
 ```cpp
@@ -14665,14 +13956,6 @@ AutoIt:
 std::vector<std::vector<std::pair<ULONG, double>>> dlib::sparse_ranking_pair::nonrelevant
 AutoIt:
     [propget, propput] $osparse_ranking_pair.nonrelevant
-```
-
-### sparse\_ranking\_pair.FullyQualifiedName
-
-```cpp
-static std::string dlib::sparse_ranking_pair::FullyQualifiedName
-AutoIt:
-    [propget] $osparse_ranking_pair.FullyQualifiedName
 ```
 
 ### dlib::sparse\_ranking\_pair::get\_create
@@ -14753,14 +14036,6 @@ AutoIt:
 bool dlib::vec_svm_rank_trainer::has_prior()
 AutoIt:
     [propget] $ovec_svm_rank_trainer.has_prior
-```
-
-### vec\_svm\_rank\_trainer.FullyQualifiedName
-
-```cpp
-static std::string dlib::vec_svm_rank_trainer::FullyQualifiedName
-AutoIt:
-    [propget] $ovec_svm_rank_trainer.FullyQualifiedName
 ```
 
 ### dlib::vec\_svm\_rank\_trainer::get\_create
@@ -14871,14 +14146,6 @@ AutoIt:
 bool dlib::svm_rank_trainer_sparse::has_prior()
 AutoIt:
     [propget] $osvm_rank_trainer_sparse.has_prior
-```
-
-### svm\_rank\_trainer\_sparse.FullyQualifiedName
-
-```cpp
-static std::string dlib::svm_rank_trainer_sparse::FullyQualifiedName
-AutoIt:
-    [propget] $osvm_rank_trainer_sparse.FullyQualifiedName
 ```
 
 ### dlib::svm\_rank\_trainer\_sparse::get\_create
@@ -15021,14 +14288,6 @@ AutoIt:
 std::vector<size_t> cv::UMat::steps
 AutoIt:
     [propget] $oUMat.steps
-```
-
-### UMat.FullyQualifiedName
-
-```cpp
-static std::string cv::UMat::FullyQualifiedName
-AutoIt:
-    [propget] $oUMat.FullyQualifiedName
 ```
 
 ### cv::UMat::get\_create
@@ -15786,14 +15045,6 @@ AutoIt:
     [propget] $oSpaceVector.shape
 ```
 
-### SpaceVector.FullyQualifiedName
-
-```cpp
-static std::string dlib::SpaceVector::FullyQualifiedName
-AutoIt:
-    [propget] $oSpaceVector.FullyQualifiedName
-```
-
 ### dlib::SpaceVector::create
 
 ```cpp
@@ -15915,14 +15166,6 @@ AutoIt:
     [propget] $opoint_transform_projective.m
 ```
 
-### point\_transform\_projective.FullyQualifiedName
-
-```cpp
-static std::string dlib::point_transform_projective::FullyQualifiedName
-AutoIt:
-    [propget] $opoint_transform_projective.FullyQualifiedName
-```
-
 ### dlib::point\_transform\_projective::get\_create
 
 ```cpp
@@ -15975,14 +15218,6 @@ AutoIt:
 double dlib::dpoint::y()
 AutoIt:
     [propget, propput] $odpoint.y
-```
-
-### dpoint.FullyQualifiedName
-
-```cpp
-static std::string dlib::dpoint::FullyQualifiedName
-AutoIt:
-    [propget] $odpoint.FullyQualifiedName
 ```
 
 ### dlib::dpoint::get\_create
@@ -16082,14 +15317,6 @@ AutoIt:
     [propget, propput] $opoint.y
 ```
 
-### point.FullyQualifiedName
-
-```cpp
-static std::string dlib::point::FullyQualifiedName
-AutoIt:
-    [propget] $opoint.FullyQualifiedName
-```
-
 ### dlib::point::get\_create
 
 ```cpp
@@ -16177,14 +15404,6 @@ AutoIt:
 size_t VectorOfString::size()
 AutoIt:
     [propget] $oVectorOfString.Count
-```
-
-### VectorOfString.FullyQualifiedName
-
-```cpp
-static std::string VectorOfString::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfString.FullyQualifiedName
 ```
 
 ### VectorOfString::create
@@ -16405,14 +15624,6 @@ AutoIt:
     [propget] $oVectorOfVariant.Count
 ```
 
-### VectorOfVariant.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVariant::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVariant.FullyQualifiedName
-```
-
 ### VectorOfVariant::create
 
 ```cpp
@@ -16629,14 +15840,6 @@ AutoIt:
 size_t VectorOfPairOfULONGAndDouble::size()
 AutoIt:
     [propget] $oVectorOfPairOfULONGAndDouble.Count
-```
-
-### VectorOfPairOfULONGAndDouble.FullyQualifiedName
-
-```cpp
-static std::string VectorOfPairOfULONGAndDouble::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfPairOfULONGAndDouble.FullyQualifiedName
 ```
 
 ### VectorOfPairOfULONGAndDouble::create
@@ -16857,14 +16060,6 @@ AutoIt:
     [propget] $oVectorOfVectorOfPairOfULONGAndDouble.Count
 ```
 
-### VectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVectorOfPairOfULONGAndDouble::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName
-```
-
 ### VectorOfVectorOfPairOfULONGAndDouble::create
 
 ```cpp
@@ -17081,14 +16276,6 @@ AutoIt:
 size_t VectorOfMat::size()
 AutoIt:
     [propget] $oVectorOfMat.Count
-```
-
-### VectorOfMat.FullyQualifiedName
-
-```cpp
-static std::string VectorOfMat::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfMat.FullyQualifiedName
 ```
 
 ### VectorOfMat::create
@@ -17309,14 +16496,6 @@ AutoIt:
     [propget] $oVectorOfFull_object_detection.Count
 ```
 
-### VectorOfFull\_object\_detection.FullyQualifiedName
-
-```cpp
-static std::string VectorOfFull_object_detection::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfFull_object_detection.FullyQualifiedName
-```
-
 ### VectorOfFull\_object\_detection::create
 
 ```cpp
@@ -17533,14 +16712,6 @@ AutoIt:
 size_t VectorOfSpaceVector::size()
 AutoIt:
     [propget] $oVectorOfSpaceVector.Count
-```
-
-### VectorOfSpaceVector.FullyQualifiedName
-
-```cpp
-static std::string VectorOfSpaceVector::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfSpaceVector.FullyQualifiedName
 ```
 
 ### VectorOfSpaceVector::create
@@ -17761,14 +16932,6 @@ AutoIt:
     [propget] $oVectorOfULONG.Count
 ```
 
-### VectorOfULONG.FullyQualifiedName
-
-```cpp
-static std::string VectorOfULONG::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfULONG.FullyQualifiedName
-```
-
 ### VectorOfULONG::create
 
 ```cpp
@@ -17985,14 +17148,6 @@ AutoIt:
 size_t VectorOfDouble::size()
 AutoIt:
     [propget] $oVectorOfDouble.Count
-```
-
-### VectorOfDouble.FullyQualifiedName
-
-```cpp
-static std::string VectorOfDouble::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfDouble.FullyQualifiedName
 ```
 
 ### VectorOfDouble::create
@@ -18213,14 +17368,6 @@ AutoIt:
     [propget] $oVectorOfBool.Count
 ```
 
-### VectorOfBool.FullyQualifiedName
-
-```cpp
-static std::string VectorOfBool::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfBool.FullyQualifiedName
-```
-
 ### VectorOfBool::create
 
 ```cpp
@@ -18437,14 +17584,6 @@ AutoIt:
 size_t VectorOfRectangle::size()
 AutoIt:
     [propget] $oVectorOfRectangle.Count
-```
-
-### VectorOfRectangle.FullyQualifiedName
-
-```cpp
-static std::string VectorOfRectangle::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfRectangle.FullyQualifiedName
 ```
 
 ### VectorOfRectangle::create
@@ -18665,14 +17804,6 @@ AutoIt:
     [propget] $oVectorOfLong.Count
 ```
 
-### VectorOfLong.FullyQualifiedName
-
-```cpp
-static std::string VectorOfLong::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfLong.FullyQualifiedName
-```
-
 ### VectorOfLong::create
 
 ```cpp
@@ -18889,14 +18020,6 @@ AutoIt:
 size_t VectorOfVectorOfSpaceVector::size()
 AutoIt:
     [propget] $oVectorOfVectorOfSpaceVector.Count
-```
-
-### VectorOfVectorOfSpaceVector.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVectorOfSpaceVector::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVectorOfSpaceVector.FullyQualifiedName
 ```
 
 ### VectorOfVectorOfSpaceVector::create
@@ -19117,14 +18240,6 @@ AutoIt:
     [propget] $oVectorOfPairOfULONGAndULONG.Count
 ```
 
-### VectorOfPairOfULONGAndULONG.FullyQualifiedName
-
-```cpp
-static std::string VectorOfPairOfULONGAndULONG::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfPairOfULONGAndULONG.FullyQualifiedName
-```
-
 ### VectorOfPairOfULONGAndULONG::create
 
 ```cpp
@@ -19341,14 +18456,6 @@ AutoIt:
 size_t VectorOfVectorOfPairOfULONGAndULONG::size()
 AutoIt:
     [propget] $oVectorOfVectorOfPairOfULONGAndULONG.Count
-```
-
-### VectorOfVectorOfPairOfULONGAndULONG.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVectorOfPairOfULONGAndULONG::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVectorOfPairOfULONGAndULONG.FullyQualifiedName
 ```
 
 ### VectorOfVectorOfPairOfULONGAndULONG::create
@@ -19569,14 +18676,6 @@ AutoIt:
     [propget] $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Count
 ```
 
-### VectorOfVectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVectorOfVectorOfPairOfULONGAndDouble::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.FullyQualifiedName
-```
-
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::create
 
 ```cpp
@@ -19793,14 +18892,6 @@ AutoIt:
 size_t VectorOfVectorOfFull_object_detection::size()
 AutoIt:
     [propget] $oVectorOfVectorOfFull_object_detection.Count
-```
-
-### VectorOfVectorOfFull\_object\_detection.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVectorOfFull_object_detection::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVectorOfFull_object_detection.FullyQualifiedName
 ```
 
 ### VectorOfVectorOfFull\_object\_detection::create
@@ -20021,14 +19112,6 @@ AutoIt:
     [propget] $oVectorOfVectorOfRectangle.Count
 ```
 
-### VectorOfVectorOfRectangle.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVectorOfRectangle::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVectorOfRectangle.FullyQualifiedName
-```
-
 ### VectorOfVectorOfRectangle::create
 
 ```cpp
@@ -20245,14 +19328,6 @@ AutoIt:
 size_t VectorOfVec_ranking_pair::size()
 AutoIt:
     [propget] $oVectorOfVec_ranking_pair.Count
-```
-
-### VectorOfVec\_ranking\_pair.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec_ranking_pair::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec_ranking_pair.FullyQualifiedName
 ```
 
 ### VectorOfVec\_ranking\_pair::create
@@ -20473,14 +19548,6 @@ AutoIt:
     [propget] $oVectorOfSparse_ranking_pair.Count
 ```
 
-### VectorOfSparse\_ranking\_pair.FullyQualifiedName
-
-```cpp
-static std::string VectorOfSparse_ranking_pair::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfSparse_ranking_pair.FullyQualifiedName
-```
-
 ### VectorOfSparse\_ranking\_pair::create
 
 ```cpp
@@ -20697,14 +19764,6 @@ AutoIt:
 size_t VectorOfDpoint::size()
 AutoIt:
     [propget] $oVectorOfDpoint.Count
-```
-
-### VectorOfDpoint.FullyQualifiedName
-
-```cpp
-static std::string VectorOfDpoint::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfDpoint.FullyQualifiedName
 ```
 
 ### VectorOfDpoint::create
@@ -20925,14 +19984,6 @@ AutoIt:
     [propget] $oVectorOfPoint.Count
 ```
 
-### VectorOfPoint.FullyQualifiedName
-
-```cpp
-static std::string VectorOfPoint::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfPoint.FullyQualifiedName
-```
-
 ### VectorOfPoint::create
 
 ```cpp
@@ -21149,14 +20200,6 @@ AutoIt:
 size_t VectorOfVectorOfDouble::size()
 AutoIt:
     [propget] $oVectorOfVectorOfDouble.Count
-```
-
-### VectorOfVectorOfDouble.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVectorOfDouble::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVectorOfDouble.FullyQualifiedName
 ```
 
 ### VectorOfVectorOfDouble::create
@@ -21377,14 +20420,6 @@ AutoIt:
     [propget] $oVectorOfMmod_rect.Count
 ```
 
-### VectorOfMmod\_rect.FullyQualifiedName
-
-```cpp
-static std::string VectorOfMmod_rect::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfMmod_rect.FullyQualifiedName
-```
-
 ### VectorOfMmod\_rect::create
 
 ```cpp
@@ -21601,14 +20636,6 @@ AutoIt:
 size_t VectorOfVectorOfMmod_rect::size()
 AutoIt:
     [propget] $oVectorOfVectorOfMmod_rect.Count
-```
-
-### VectorOfVectorOfMmod\_rect.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVectorOfMmod_rect::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVectorOfMmod_rect.FullyQualifiedName
 ```
 
 ### VectorOfVectorOfMmod\_rect::create
@@ -21829,14 +20856,6 @@ AutoIt:
     [propget] $oVectorOfSimple_object_detector_com.Count
 ```
 
-### VectorOfSimple\_object\_detector\_com.FullyQualifiedName
-
-```cpp
-static std::string VectorOfSimple_object_detector_com::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfSimple_object_detector_com.FullyQualifiedName
-```
-
 ### VectorOfSimple\_object\_detector\_com::create
 
 ```cpp
@@ -22053,14 +21072,6 @@ AutoIt:
 size_t VectorOfFhog_object_detector::size()
 AutoIt:
     [propget] $oVectorOfFhog_object_detector.Count
-```
-
-### VectorOfFhog\_object\_detector.FullyQualifiedName
-
-```cpp
-static std::string VectorOfFhog_object_detector::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfFhog_object_detector.FullyQualifiedName
 ```
 
 ### VectorOfFhog\_object\_detector::create
@@ -22281,14 +21292,6 @@ AutoIt:
     [propget] $oVectorOfUchar.Count
 ```
 
-### VectorOfUchar.FullyQualifiedName
-
-```cpp
-static std::string VectorOfUchar::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfUchar.FullyQualifiedName
-```
-
 ### VectorOfUchar::create
 
 ```cpp
@@ -22505,14 +21508,6 @@ AutoIt:
 size_t VectorOfInt::size()
 AutoIt:
     [propget] $oVectorOfInt.Count
-```
-
-### VectorOfInt.FullyQualifiedName
-
-```cpp
-static std::string VectorOfInt::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfInt.FullyQualifiedName
 ```
 
 ### VectorOfInt::create
@@ -22733,14 +21728,6 @@ AutoIt:
     [propget] $oVectorOfFunction_spec.Count
 ```
 
-### VectorOfFunction\_spec.FullyQualifiedName
-
-```cpp
-static std::string VectorOfFunction_spec::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfFunction_spec.FullyQualifiedName
-```
-
 ### VectorOfFunction\_spec::create
 
 ```cpp
@@ -22957,14 +21944,6 @@ AutoIt:
 size_t VectorOfFunction_evaluation::size()
 AutoIt:
     [propget] $oVectorOfFunction_evaluation.Count
-```
-
-### VectorOfFunction\_evaluation.FullyQualifiedName
-
-```cpp
-static std::string VectorOfFunction_evaluation::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfFunction_evaluation.FullyQualifiedName
 ```
 
 ### VectorOfFunction\_evaluation::create
@@ -23185,14 +22164,6 @@ AutoIt:
     [propget] $oVectorOfVectorOfFunction_evaluation.Count
 ```
 
-### VectorOfVectorOfFunction\_evaluation.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVectorOfFunction_evaluation::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVectorOfFunction_evaluation.FullyQualifiedName
-```
-
 ### VectorOfVectorOfFunction\_evaluation::create
 
 ```cpp
@@ -23409,14 +22380,6 @@ AutoIt:
 size_t VectorOfDrectangle::size()
 AutoIt:
     [propget] $oVectorOfDrectangle.Count
-```
-
-### VectorOfDrectangle.FullyQualifiedName
-
-```cpp
-static std::string VectorOfDrectangle::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfDrectangle.FullyQualifiedName
 ```
 
 ### VectorOfDrectangle::create
@@ -23637,14 +22600,6 @@ AutoIt:
     [propget] $oVectorOfImage_window_keyboard_state_masks.Count
 ```
 
-### VectorOfImage\_window\_keyboard\_state\_masks.FullyQualifiedName
-
-```cpp
-static std::string VectorOfImage_window_keyboard_state_masks::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfImage_window_keyboard_state_masks.FullyQualifiedName
-```
-
 ### VectorOfImage\_window\_keyboard\_state\_masks::create
 
 ```cpp
@@ -23855,14 +22810,6 @@ AutoIt:
 
 ## MapOfStringAndPoint
 
-### MapOfStringAndPoint.FullyQualifiedName
-
-```cpp
-static std::string MapOfStringAndPoint::FullyQualifiedName
-AutoIt:
-    [propget] $oMapOfStringAndPoint.FullyQualifiedName
-```
-
 ### MapOfStringAndPoint::create
 
 ```cpp
@@ -24038,14 +22985,6 @@ AutoIt:
 size_t VectorOfPairOfStringAndPoint::size()
 AutoIt:
     [propget] $oVectorOfPairOfStringAndPoint.Count
-```
-
-### VectorOfPairOfStringAndPoint.FullyQualifiedName
-
-```cpp
-static std::string VectorOfPairOfStringAndPoint::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfPairOfStringAndPoint.FullyQualifiedName
 ```
 
 ### VectorOfPairOfStringAndPoint::create
@@ -24266,14 +23205,6 @@ AutoIt:
     [propget] $oVectorOfImage_dataset_metadata_box.Count
 ```
 
-### VectorOfImage\_dataset\_metadata\_box.FullyQualifiedName
-
-```cpp
-static std::string VectorOfImage_dataset_metadata_box::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfImage_dataset_metadata_box.FullyQualifiedName
-```
-
 ### VectorOfImage\_dataset\_metadata\_box::create
 
 ```cpp
@@ -24490,14 +23421,6 @@ AutoIt:
 size_t VectorOfImage_dataset_metadata_image::size()
 AutoIt:
     [propget] $oVectorOfImage_dataset_metadata_image.Count
-```
-
-### VectorOfImage\_dataset\_metadata\_image.FullyQualifiedName
-
-```cpp
-static std::string VectorOfImage_dataset_metadata_image::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfImage_dataset_metadata_image.FullyQualifiedName
 ```
 
 ### VectorOfImage\_dataset\_metadata\_image::create
@@ -24718,14 +23641,6 @@ AutoIt:
     [propget] $oVectorOfSize_t.Count
 ```
 
-### VectorOfSize\_t.FullyQualifiedName
-
-```cpp
-static std::string VectorOfSize_t::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfSize_t.FullyQualifiedName
-```
-
 ### VectorOfSize\_t::create
 
 ```cpp
@@ -24942,14 +23857,6 @@ AutoIt:
 size_t VectorOfRange::size()
 AutoIt:
     [propget] $oVectorOfRange.Count
-```
-
-### VectorOfRange.FullyQualifiedName
-
-```cpp
-static std::string VectorOfRange::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfRange.FullyQualifiedName
 ```
 
 ### VectorOfRange::create
@@ -25170,14 +24077,6 @@ AutoIt:
     [propget] $oVectorOfFloat.Count
 ```
 
-### VectorOfFloat.FullyQualifiedName
-
-```cpp
-static std::string VectorOfFloat::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfFloat.FullyQualifiedName
-```
-
 ### VectorOfFloat::create
 
 ```cpp
@@ -25394,14 +24293,6 @@ AutoIt:
 size_t VectorOfVec2b::size()
 AutoIt:
     [propget] $oVectorOfVec2b.Count
-```
-
-### VectorOfVec2b.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec2b::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec2b.FullyQualifiedName
 ```
 
 ### VectorOfVec2b::create
@@ -25622,14 +24513,6 @@ AutoIt:
     [propget] $oVectorOfVec3b.Count
 ```
 
-### VectorOfVec3b.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec3b::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec3b.FullyQualifiedName
-```
-
 ### VectorOfVec3b::create
 
 ```cpp
@@ -25846,14 +24729,6 @@ AutoIt:
 size_t VectorOfVec4b::size()
 AutoIt:
     [propget] $oVectorOfVec4b.Count
-```
-
-### VectorOfVec4b.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec4b::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec4b.FullyQualifiedName
 ```
 
 ### VectorOfVec4b::create
@@ -26074,14 +24949,6 @@ AutoIt:
     [propget] $oVectorOfVec2s.Count
 ```
 
-### VectorOfVec2s.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec2s::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec2s.FullyQualifiedName
-```
-
 ### VectorOfVec2s::create
 
 ```cpp
@@ -26298,14 +25165,6 @@ AutoIt:
 size_t VectorOfVec3s::size()
 AutoIt:
     [propget] $oVectorOfVec3s.Count
-```
-
-### VectorOfVec3s.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec3s::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec3s.FullyQualifiedName
 ```
 
 ### VectorOfVec3s::create
@@ -26526,14 +25385,6 @@ AutoIt:
     [propget] $oVectorOfVec4s.Count
 ```
 
-### VectorOfVec4s.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec4s::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec4s.FullyQualifiedName
-```
-
 ### VectorOfVec4s::create
 
 ```cpp
@@ -26750,14 +25601,6 @@ AutoIt:
 size_t VectorOfVec2w::size()
 AutoIt:
     [propget] $oVectorOfVec2w.Count
-```
-
-### VectorOfVec2w.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec2w::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec2w.FullyQualifiedName
 ```
 
 ### VectorOfVec2w::create
@@ -26978,14 +25821,6 @@ AutoIt:
     [propget] $oVectorOfVec3w.Count
 ```
 
-### VectorOfVec3w.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec3w::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec3w.FullyQualifiedName
-```
-
 ### VectorOfVec3w::create
 
 ```cpp
@@ -27202,14 +26037,6 @@ AutoIt:
 size_t VectorOfVec4w::size()
 AutoIt:
     [propget] $oVectorOfVec4w.Count
-```
-
-### VectorOfVec4w.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec4w::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec4w.FullyQualifiedName
 ```
 
 ### VectorOfVec4w::create
@@ -27430,14 +26257,6 @@ AutoIt:
     [propget] $oVectorOfVec2i.Count
 ```
 
-### VectorOfVec2i.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec2i::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec2i.FullyQualifiedName
-```
-
 ### VectorOfVec2i::create
 
 ```cpp
@@ -27654,14 +26473,6 @@ AutoIt:
 size_t VectorOfVec3i::size()
 AutoIt:
     [propget] $oVectorOfVec3i.Count
-```
-
-### VectorOfVec3i.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec3i::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec3i.FullyQualifiedName
 ```
 
 ### VectorOfVec3i::create
@@ -27882,14 +26693,6 @@ AutoIt:
     [propget] $oVectorOfVec4i.Count
 ```
 
-### VectorOfVec4i.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec4i::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec4i.FullyQualifiedName
-```
-
 ### VectorOfVec4i::create
 
 ```cpp
@@ -28106,14 +26909,6 @@ AutoIt:
 size_t VectorOfVec6i::size()
 AutoIt:
     [propget] $oVectorOfVec6i.Count
-```
-
-### VectorOfVec6i.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec6i::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec6i.FullyQualifiedName
 ```
 
 ### VectorOfVec6i::create
@@ -28334,14 +27129,6 @@ AutoIt:
     [propget] $oVectorOfVec8i.Count
 ```
 
-### VectorOfVec8i.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec8i::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec8i.FullyQualifiedName
-```
-
 ### VectorOfVec8i::create
 
 ```cpp
@@ -28558,14 +27345,6 @@ AutoIt:
 size_t VectorOfVec2f::size()
 AutoIt:
     [propget] $oVectorOfVec2f.Count
-```
-
-### VectorOfVec2f.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec2f::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec2f.FullyQualifiedName
 ```
 
 ### VectorOfVec2f::create
@@ -28786,14 +27565,6 @@ AutoIt:
     [propget] $oVectorOfVec3f.Count
 ```
 
-### VectorOfVec3f.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec3f::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec3f.FullyQualifiedName
-```
-
 ### VectorOfVec3f::create
 
 ```cpp
@@ -29010,14 +27781,6 @@ AutoIt:
 size_t VectorOfVec4f::size()
 AutoIt:
     [propget] $oVectorOfVec4f.Count
-```
-
-### VectorOfVec4f.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec4f::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec4f.FullyQualifiedName
 ```
 
 ### VectorOfVec4f::create
@@ -29238,14 +28001,6 @@ AutoIt:
     [propget] $oVectorOfVec6f.Count
 ```
 
-### VectorOfVec6f.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec6f::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec6f.FullyQualifiedName
-```
-
 ### VectorOfVec6f::create
 
 ```cpp
@@ -29462,14 +28217,6 @@ AutoIt:
 size_t VectorOfVec2d::size()
 AutoIt:
     [propget] $oVectorOfVec2d.Count
-```
-
-### VectorOfVec2d.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec2d::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec2d.FullyQualifiedName
 ```
 
 ### VectorOfVec2d::create
@@ -29690,14 +28437,6 @@ AutoIt:
     [propget] $oVectorOfVec3d.Count
 ```
 
-### VectorOfVec3d.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec3d::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec3d.FullyQualifiedName
-```
-
 ### VectorOfVec3d::create
 
 ```cpp
@@ -29916,14 +28655,6 @@ AutoIt:
     [propget] $oVectorOfVec4d.Count
 ```
 
-### VectorOfVec4d.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec4d::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec4d.FullyQualifiedName
-```
-
 ### VectorOfVec4d::create
 
 ```cpp
@@ -30140,14 +28871,6 @@ AutoIt:
 size_t VectorOfVec6d::size()
 AutoIt:
     [propget] $oVectorOfVec6d.Count
-```
-
-### VectorOfVec6d.FullyQualifiedName
-
-```cpp
-static std::string VectorOfVec6d::FullyQualifiedName
-AutoIt:
-    [propget] $oVectorOfVec6d.FullyQualifiedName
 ```
 
 ### VectorOfVec6d::create

@@ -1,35 +1,33 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Dlib autoit udf](#dlib-autoit-udf)
-  - [What is missing](#what-is-missing)
-- [Usage of the UDF](#usage-of-the-udf)
-  - [Prerequisites](#prerequisites)
-  - [Usage](#usage)
-    - [AutoIt](#autoit)
-      - [With opencv COM+ binding](#with-opencv-com-binding)
-  - [Running examples](#running-examples)
-  - [Developpement](#developpement)
-    - [Prerequisites](#prerequisites-1)
-    - [Environment](#environment)
-    - [Generate the UDF files](#generate-the-udf-files)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Dlib autoit udf
 
 Partial COM+ binding to [dlib](http://dlib.net/)
 
+## Table Of Contents
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [What is missing](#what-is-missing)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [AutoIt](#autoit)
+    - [With opencv COM+ binding](#with-opencv-com-binding)
+- [Running examples](#running-examples)
+- [Developpement](#developpement)
+  - [Prerequisites](#prerequisites)
+  - [Environment](#environment)
+  - [Generate the UDF files](#generate-the-udf-files)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## What is missing
   - Images operations: These look redundant with [OpenCV](https://opencv.org/). I hope they can be found in the [OpenCV COM+ binding](https://github.com/smbape/node-autoit-dlib-com)
 
-# Usage of the UDF
+## Installation
 
-## Prerequisites
-
-  - Download and extract [opencv-4.10.0-windows.exe](https://opencv.org/releases/) into a folder
-  - Download and extract [autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z](https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.3/autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z) into a folder
+  - Download and extract [opencv-4.11.0-windows.exe](https://opencv.org/releases/) into a folder
+  - Download and extract [autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0.7z](https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.5.0/autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0.7z) into a folder
 
 ## Usage
 
@@ -46,7 +44,7 @@ Partial COM+ binding to [dlib](http://dlib.net/)
 #include <Misc.au3>
 #include "autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open("opencv-4.10.0-windows\opencv\build\x64\vc16\bin\opencv_world4100.dll", "autoit-dlib-com\autoit_dlib_com-19.24.4-4100.dll")
+_Dlib_Open("opencv-4.11.0-windows\opencv\build\x64\vc16\bin\opencv_world4110.dll", "autoit-dlib-com\autoit_dlib_com-19.24.9-4110.dll")
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -95,7 +93,7 @@ EndFunc   ;==>_OnAutoItExit
 
 #### With opencv COM+ binding
 
-Download and extract [autoit-opencv-4.10.0-com-v2.6.2.7z](https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.6.2/autoit-opencv-4.10.0-com-v2.6.2.7z) into a folder
+Download and extract [autoit-opencv-4.11.0-com-v2.7.0.7z](https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.7.0/autoit-opencv-4.11.0-com-v2.7.0.7z) into a folder
 
 ```autoit
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
@@ -109,8 +107,8 @@ Download and extract [autoit-opencv-4.10.0-com-v2.6.2.7z](https://github.com/smb
 #include "autoit-dlib-com\udf\dlib_udf_utils.au3"
 #include "autoit-opencv-com\udf\opencv_udf_utils.au3"
 
-_Dlib_Open("opencv-4.10.0-windows\opencv\build\x64\vc16\bin\opencv_world4100.dll", "autoit-dlib-com\autoit_dlib_com-19.24.4-4100.dll")
-_OpenCV_Open("opencv-4.10.0-windows\opencv\build\x64\vc16\bin\opencv_world4100.dll", "autoit-opencv-com\autoit_opencv_com4100.dll")
+_Dlib_Open("opencv-4.11.0-windows\opencv\build\x64\vc16\bin\opencv_world4110.dll", "autoit-dlib-com\autoit_dlib_com-19.24.9-4110.dll")
+_OpenCV_Open("opencv-4.11.0-windows\opencv\build\x64\vc16\bin\opencv_world4110.dll", "autoit-opencv-com\autoit_opencv_com4110.dll")
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()
@@ -165,39 +163,39 @@ Install [7-zip](https://www.7-zip.org/download.html) and add the 7-zip folder to
 Then, in [Git Bash](https://gitforwindows.org/), execute the following commands
 
 ```sh
-# download autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z
-curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.4.3/autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z' -o autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z
+# download autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0.7z
+curl -L 'https://github.com/smbape/node-autoit-dlib-com/releases/download/v1.5.0/autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0.7z' -o autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0.7z
 
-# extract the content of autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z into a folder named autoit-dlib-com
-7z x autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3.7z -aoa -oautoit-dlib-com
+# extract the content of autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0.7z into a folder named autoit-dlib-com
+7z x autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0.7z -aoa -oautoit-dlib-com
 
-# download autoit-opencv-4.10.0-com-v2.6.2.7z
-curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.6.2/autoit-opencv-4.10.0-com-v2.6.2.7z' -o autoit-opencv-4.10.0-com-v2.6.2.7z
+# download autoit-opencv-4.11.0-com-v2.7.0.7z
+curl -L 'https://github.com/smbape/node-autoit-opencv-com/releases/download/v2.7.0/autoit-opencv-4.11.0-com-v2.7.0.7z' -o autoit-opencv-4.11.0-com-v2.7.0.7z
 
-# extract the content of autoit-opencv-4.10.0-com-v2.6.2.7z into a folder named autoit-opencv-com
-7z x autoit-opencv-4.10.0-com-v2.6.2.7z -aoa -oautoit-opencv-com
+# extract the content of autoit-opencv-4.11.0-com-v2.7.0.7z into a folder named autoit-opencv-com
+7z x autoit-opencv-4.11.0-com-v2.7.0.7z -aoa -oautoit-opencv-com
 
-# download opencv-4.10.0-windows.exe
-curl -L 'https://github.com/opencv/opencv/releases/download/4.10.0/opencv-4.10.0-windows.exe' -o opencv-4.10.0-windows.exe
+# download opencv-4.11.0-windows.exe
+curl -L 'https://github.com/opencv/opencv/releases/download/4.11.0/opencv-4.11.0-windows.exe' -o opencv-4.11.0-windows.exe
 
-# extract the content of opencv-4.10.0-windows.exe into a folder named opencv-4.10.0-windows
-./opencv-4.10.0-windows.exe -oopencv-4.10.0-windows -y
+# extract the content of opencv-4.11.0-windows.exe into a folder named opencv-4.11.0-windows
+./opencv-4.11.0-windows.exe -oopencv-4.11.0-windows -y
 
-# download autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3-src.zip
-curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.4.3.zip' -o autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3-src.zip
+# download autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0-src.zip
+curl -L 'https://github.com/smbape/node-autoit-dlib-com/archive/refs/tags/v1.5.0.zip' -o autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0-src.zip
 
-# extract the examples folder of autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3-src.zip
-7z x autoit-dlib-19.24.4-opencv-4.10.0-com-v1.4.3-src.zip -aoa 'node-autoit-dlib-com-1.4.3\examples'
-cp -rf node-autoit-dlib-com-1.4.3/* ./
-rm -rf node-autoit-dlib-com-1.4.3
+# extract the examples folder of autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0-src.zip
+7z x autoit-dlib-19.24.9-opencv-4.11.0-com-v1.5.0-src.zip -aoa 'node-autoit-dlib-com-1.5.0\examples'
+cp -rf node-autoit-dlib-com-1.5.0/* ./
+rm -rf node-autoit-dlib-com-1.5.0
 
-# download dlib-19.24.4-src.zip
-curl -L 'https://github.com/davisking/dlib/archive/refs/tags/19.24.4.zip' -o dlib-19.24.4-src.zip
+# download dlib-19.24.9-src.zip
+curl -L 'https://github.com/davisking/dlib/archive/refs/tags/19.24.4.zip' -o dlib-19.24.9-src.zip
 
-# extract the examples\faces and examples\video_frames folders of dlib-19.24.4-src.zip
-7z x dlib-19.24.4-src.zip -aoa 'dlib-19.24.4\examples\faces' 'dlib-19.24.4\examples\video_frames'
-cp -rf dlib-19.24.4/* ./
-rm -rf dlib-19.24.4
+# extract the examples\faces and examples\video_frames folders of dlib-19.24.9-src.zip
+7z x dlib-19.24.9-src.zip -aoa 'dlib-19.24.9\examples\faces' 'dlib-19.24.9\examples\video_frames'
+cp -rf dlib-19.24.9/* ./
+rm -rf dlib-19.24.9
 
 # create the data dir
 mkdir examples/data
@@ -209,7 +207,7 @@ Now you can run any file in the `examples` folder.
 
 ### Prerequisites
 
-  - Install [Visual Studio 2022 >= 17.7.2 with .NET Desktop and C++ Desktop](https://visualstudio.microsoft.com/fr/downloads/)
+  - Install [Visual Studio 2022 >= 17.13.0 with .NET Desktop and C++ Desktop](https://visualstudio.microsoft.com/fr/downloads/)
   - Install [Git for Windows](https://gitforwindows.org/)
   - Install [nodejs](https://nodejs.org/en/download/)
   - Install [Python >= 3.8](https://www.python.org/downloads/)

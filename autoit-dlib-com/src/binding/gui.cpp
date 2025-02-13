@@ -1,3 +1,4 @@
+#include "Dlib_Drectangle_Object.h"
 #include "Dlib_Image_window_Object.h"
 #include <dlib/image_processing/render_face_detections.h>
 
@@ -138,16 +139,16 @@ void add_overlay_vector_variant(
 	shared_ptr<std::vector<line>> plines;
 
 	for (const auto& obj : objs) {
-		if (is_assignable_from(pdrect, &obj, false)) {
-			autoit_to(&obj, pdrect);
+		if (is_assignable_from(pdrect, static_cast<const VARIANT*>(&obj), false)) {
+			autoit_to(static_cast<const VARIANT*>(&obj), pdrect);
 			win.add_overlay(rectangle(*pdrect.get()), color);
 		}
-		else if (is_assignable_from(pline, &obj, false)) {
-			autoit_to(&obj, pline);
+		else if (is_assignable_from(pline, static_cast<const VARIANT*>(&obj), false)) {
+			autoit_to(static_cast<const VARIANT*>(&obj), pline);
 			win.add_overlay(*pline.get(), color);
 		}
-		else if (is_assignable_from(pdetection, &obj, false)) {
-			autoit_to(&obj, pdetection);
+		else if (is_assignable_from(pdetection, static_cast<const VARIANT*>(&obj), false)) {
+			autoit_to(static_cast<const VARIANT*>(&obj), pdetection);
 			add_overlay_parts(win, *pdetection.get(), color);
 		}
 		else {

@@ -6,11 +6,11 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/v19.24/tools/python/test/test_global_optimization.py
+;~     https://github.com/davisking/dlib/blob/v19.24.9/tools/python/test/test_global_optimization.py
 
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open(_Dlib_FindDLL("opencv_world4100*"), _Dlib_FindDLL("autoit_dlib_com-*-4100*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world4110*"), _Dlib_FindDLL("autoit_dlib_com-*-4110*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Global Const $dlib = _Dlib_get()
