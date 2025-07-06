@@ -9,9 +9,9 @@ const mkdirp = require("mkdirp");
 const waterfall = require("async/waterfall");
 const {explore} = require("fs-explorer");
 
-const OpenCV_VERSION = "opencv-4.11.0";
+const OpenCV_VERSION = "opencv-4.12.0";
 const OpenCV_DLLVERSION = OpenCV_VERSION.slice("opencv-".length).replaceAll(".", "");
-const DLIB_VERSION = "19.24.9";
+const DLIB_VERSION = "20.0";
 
 const progids = new Map([
     ["dlib.simple_object_detector", "dlib.fhog_object_detector"],
@@ -177,8 +177,8 @@ const opencv_SOURCE_DIR = findFile(`${ OpenCV_VERSION }-*/opencv/sources`, sysPa
 const src2 = sysPath.resolve(opencv_SOURCE_DIR, "modules/python/src2");
 
 const hdr_parser = fs.readFileSync(sysPath.join(src2, "hdr_parser.py")).toString();
-const hdr_parser_start = hdr_parser.indexOf("class CppHeaderParser");
-const hdr_parser_end = hdr_parser.indexOf("if __name__ == '__main__':");
+const hdr_parser_start = hdr_parser.indexOf("]") + 1;
+const hdr_parser_end = hdr_parser.indexOf("if __name__ == '__main__':", hdr_parser);
 
 const options = getOptions(PROJECT_DIR);
 options.proto = COMGenerator.proto;
@@ -265,7 +265,11 @@ waterfall([
 
             ${ srcfiles.map(file => `srcfiles.append(${ JSON.stringify(file) })`).join(`\n${ " ".repeat(12) }`) }
 
-            parser = CppHeaderParser(generate_umat_decls=True, generate_gpumat_decls=True)
+            parser = CppHeaderParser(
+                generate_umat_decls=True,
+                generate_gpumat_decls=True,
+                preprocessor_definitions=None
+            )
             all_decls = []
             for hdr in srcfiles:
                 decls = parser.parse(hdr)

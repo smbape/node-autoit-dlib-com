@@ -108,7 +108,7 @@ namespace dlib
 			cv::resize(image, dst, dsize);
 			image = dst;
 		}
-		long width_step() const { return (size_t)image.step; }
+		size_t width_step() const { return (size_t)image.step; }
 
 		cv::Mat image = cv::Mat();
 	};
@@ -167,7 +167,7 @@ namespace dlib
 	}
 
 	template<typename T>
-	inline long width_step(
+	inline size_t width_step(
 		const cv_image<T>& img
 	)
 	{

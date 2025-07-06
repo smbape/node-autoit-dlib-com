@@ -6,8 +6,8 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/v19.24.9/python_examples/face_landmark_detection.py
-;~     https://github.com/davisking/dlib/blob/v19.24.9/python_examples/opencv_webcam_face_detection.py
+;~     https://github.com/davisking/dlib/blob/v20.0/python_examples/face_landmark_detection.py
+;~     https://github.com/davisking/dlib/blob/v20.0/python_examples/opencv_webcam_face_detection.py
 ;~     https://pyimagesearch.com/2017/04/03/facial-landmarks-dlib-opencv-python/
 
 #include <ButtonConstants.au3>
@@ -18,8 +18,8 @@
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 #include "..\..\autoit-opencv-com\udf\opencv_udf_utils.au3"
 
-_Dlib_Open(_Dlib_FindDLL("opencv_world4110*"), _Dlib_FindDLL("autoit_dlib_com-*-4110*"))
-_OpenCV_Open(_OpenCV_FindDLL("opencv_world4110*"), _OpenCV_FindDLL("autoit_opencv_com4110*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world4120*"), _Dlib_FindDLL("autoit_dlib_com-*-4120*"))
+_OpenCV_Open(_OpenCV_FindDLL("opencv_world4120*"), _OpenCV_FindDLL("autoit_opencv_com4120*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Global Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")

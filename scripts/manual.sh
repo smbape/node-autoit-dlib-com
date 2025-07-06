@@ -51,16 +51,16 @@ node scripts/build.js
 # ================================
 # test release
 # ================================
-test -d /d/Programs/AutoIt/UDF/dlib-udf-test/opencv-4.11.0-windows || ./opencv-4.11.0-windows.exe -o/d/Programs/AutoIt/UDF/dlib-udf-test/opencv-4.11.0-windows -y && \
+test -d /d/Programs/AutoIt/UDF/dlib-udf-test/opencv-4.12.0-windows || ./opencv-4.12.0-windows.exe -o/d/Programs/AutoIt/UDF/dlib-udf-test/opencv-4.12.0-windows -y && \
 rm -rf /d/Programs/AutoIt/UDF/dlib-udf-test/autoit-dlib-* /d/Programs/AutoIt/UDF/dlib-udf-test/autoit-opencv-* /d/Programs/AutoIt/UDF/dlib-udf-test/examples && \
 git archive --format zip --output /d/Programs/AutoIt/UDF/dlib-udf-test/autoit-dlib-com.zip HEAD && \
 7z x autoit-dlib-*.7z -aoa -o/d/Programs/AutoIt/UDF/dlib-udf-test/autoit-dlib-com && \
 7z x autoit-opencv-*.7z -aoa -o/d/Programs/AutoIt/UDF/dlib-udf-test/autoit-opencv-com && \
 7z x /d/Programs/AutoIt/UDF/dlib-udf-test/autoit-dlib-com.zip -aoa -o/d/Programs/AutoIt/UDF/dlib-udf-test 'examples\*' && \
-curl -L 'https://github.com/davisking/dlib/archive/refs/tags/v19.24.9.zip' -o autoit-dlib-v19.24.9-src.zip && \
-7z x autoit-dlib-v19.24.9-src.zip -aoa 'dlib-19.24.9\examples\faces' 'dlib-19.24.9\examples\video_frames' -o/d/Programs/AutoIt/UDF/dlib-udf-test/ && \
-cp -rf /d/Programs/AutoIt/UDF/dlib-udf-test/dlib-19.24.9/* /d/Programs/AutoIt/UDF/dlib-udf-test/ && \
-rm -rf /d/Programs/AutoIt/UDF/dlib-udf-test/dlib-19.24.9 && \
+curl -L 'https://github.com/davisking/dlib/archive/refs/tags/v20.0.zip' -o autoit-dlib-v20.0-src.zip && \
+7z x autoit-dlib-v20.0-src.zip -aoa 'dlib-20.0\examples\faces' 'dlib-20.0\examples\video_frames' -o/d/Programs/AutoIt/UDF/dlib-udf-test/ && \
+cp -rf /d/Programs/AutoIt/UDF/dlib-udf-test/dlib-20.0/* /d/Programs/AutoIt/UDF/dlib-udf-test/ && \
+rm -rf /d/Programs/AutoIt/UDF/dlib-udf-test/dlib-20.0 && \
 mkdir /d/Programs/AutoIt/UDF/dlib-udf-test/examples/data && \
 node scripts/test.js --bash --Release /d/Programs/AutoIt/UDF/dlib-udf-test > $(for ifile in autoit-*-com/build_x64/bin; do echo $ifile/test_all.sh; done) && \
 ./autoit-*-com/build_x64/bin/test_all.sh

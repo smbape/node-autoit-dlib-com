@@ -761,6 +761,7 @@
   - [cv::Mat::ptr](#cvmatptr)
   - [cv::Mat::push\_back](#cvmatpush%5C_back)
   - [cv::Mat::put\_Item](#cvmatput%5C_item)
+  - [cv::Mat::reinterpret](#cvmatreinterpret)
   - [cv::Mat::reserve](#cvmatreserve)
   - [cv::Mat::reserveBuffer](#cvmatreservebuffer)
   - [cv::Mat::reshape](#cvmatreshape)
@@ -11840,6 +11841,14 @@ void cv::Mat::put_Item( const std::vector<int>& idx,
                         double                  value );
 AutoIt:
     $oMat.Item( $idx ) = $value
+```
+
+### cv::Mat::reinterpret
+
+```cpp
+cv::Mat cv::Mat::reinterpret( int type );
+AutoIt:
+    $oMat.reinterpret( $type ) -> retval
 ```
 
 ### cv::Mat::reserve

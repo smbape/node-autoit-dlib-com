@@ -16,8 +16,8 @@
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 #include "..\..\autoit-opencv-com\udf\opencv_udf_utils.au3"
 
-_Dlib_Open(_Dlib_FindDLL("opencv_world4110*"), _Dlib_FindDLL("autoit_dlib_com-*-4110*"))
-_OpenCV_Open(_OpenCV_FindDLL("opencv_world4110*"), _OpenCV_FindDLL("autoit_opencv_com4110*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world4120*"), _Dlib_FindDLL("autoit_dlib_com-*-4120*"))
+_OpenCV_Open(_OpenCV_FindDLL("opencv_world4120*"), _OpenCV_FindDLL("autoit_opencv_com4120*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Global Const $AUTOIT_SAMPLES_DATA_PATH = _Dlib_FindFile("examples\data")

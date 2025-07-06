@@ -30,8 +30,8 @@ if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
     cmake_policy(SET CMP0135 NEW)
 endif()
 
-set(DLIB_VERSION 19.24.9 CACHE STRING "Choose the dlib version.")
-set_property(CACHE DLIB_VERSION PROPERTY STRINGS "19.24.9" "19.24.8" "19.24.4" "19.24.3" "19.24.2" "19.24" "19.23")
+set(DLIB_VERSION 20.0 CACHE STRING "Choose the dlib version.")
+set_property(CACHE DLIB_VERSION PROPERTY STRINGS "20.0" "19.24.9" "19.24.8")
 
 # Tell cmake that we will need dlib. These command will pull in dlib.
 include(FetchContent)
@@ -49,7 +49,7 @@ FetchContent_Populate(dlib
 )
 
 # Tell cmake that we will need autoit-opencv-com.
-set(OPENCV_COM_VERSION 2.7.0)
+set(OPENCV_COM_VERSION 2.8.0)
 set(OPENCV_COM_ARCHIVE "autoit-opencv-${OpenCV_VERSION}-com-v${OPENCV_COM_VERSION}.7z")
 cmake_path(SET OPENCV_COM_SOURCE_DIR NORMALIZE "${CMAKE_CURRENT_SOURCE_DIR}/../../node-autoit-opencv-com")
 if (EXISTS "${OPENCV_COM_SOURCE_DIR}/${OPENCV_COM_ARCHIVE}")
@@ -60,7 +60,7 @@ endif()
 include(FetchContent)
 FetchContent_Populate(autoit_opencv_com
     URL               "${OPENCV_COM_URL}"
-    URL_HASH          SHA256=36426f0f0d55b68f2b75600e70bf13432ee742d35df99ec89529aa0050f239e0
+    URL_HASH          SHA256=4b05f360fa59fa7bf963a1d7e9d2808c9588894a18be90f2551fea367bd917eb
     DOWNLOAD_DIR      "${CMAKE_CURRENT_SOURCE_DIR}/.."
     SOURCE_DIR        "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com"
 )
@@ -87,6 +87,7 @@ file(GLOB_RECURSE files_to_change
 
 foreach(item ${files_to_change})
     vcpkg_regex_replace_string("${item}" "autoit_dlib_com-[0-9]+(\\.[0-9]+)+-[0-9]+" "autoit_dlib_com-${DLIB_VERSION}-${OpenCV_DLLVERSION}")
+    vcpkg_regex_replace_string("${item}" "autoit_dlib_com-\\*-[0-9]+\\*" "autoit_dlib_com-*-${OpenCV_DLLVERSION}*")
     vcpkg_regex_replace_string("${item}" "\\\\x64\\\\vc[^\\\\]+\\\\bin" "\\\\${OpenCV_VC_PATH_ESC}\\\\bin")
     vcpkg_regex_replace_string("${item}" "opencv-[0-9]+\\.[0-9]+\\.[0-9]+-(vc14_vc15|windows)\\.(exe|zip)" "${OpenCV_DOWNLOAD_NAME}")
     vcpkg_regex_replace_string("${item}" "opencv-[0-9]+\\.[0-9]+\\.[0-9]+-(vc14_vc15|windows)" "${OpenCV_OUTPUT_DIR}")
