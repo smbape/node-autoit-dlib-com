@@ -60,7 +60,7 @@ endif()
 include(FetchContent)
 FetchContent_Populate(autoit_opencv_com
     URL               "${OPENCV_COM_URL}"
-    URL_HASH          SHA256=dd61eaa53795490f8598e82a32131a89de0f605c4736d78a5203739254b9dcc0
+    URL_HASH          SHA256=5ebdab706d42ca42efcff3c592a3ba993c13955f0f6cf0e72e88d963b4145445
     DOWNLOAD_DIR      "${CMAKE_CURRENT_SOURCE_DIR}/.."
     SOURCE_DIR        "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com"
 )

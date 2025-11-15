@@ -2725,7 +2725,7 @@ AutoIt:
 ### NamedParameters::merge
 
 ```cpp
-void NamedParameters::merge( MapOfStringAndVariant other );
+void NamedParameters::merge( std::map<std::string, _variant_t> other );
 AutoIt:
     $oNamedParameters.merge( $other ) -> None
 ```
@@ -15418,19 +15418,19 @@ AutoIt:
 ### VectorOfString::create
 
 ```cpp
-static VectorOfString VectorOfString::create();
+static std::vector<std::string> VectorOfString::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfString").create() -> <VectorOfString object>
 ```
 
 ```cpp
-static VectorOfString VectorOfString::create( size_t size );
+static std::vector<std::string> VectorOfString::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfString").create( $size ) -> <VectorOfString object>
 ```
 
 ```cpp
-static VectorOfString VectorOfString::create( VectorOfString other );
+static std::vector<std::string> VectorOfString::create( std::vector<std::string> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfString").create( $other ) -> <VectorOfString object>
 ```
@@ -15446,7 +15446,7 @@ AutoIt:
 ### VectorOfString::IsInstance
 
 ```cpp
-static bool VectorOfString::IsInstance( const VectorOfString& obj );
+static bool VectorOfString::IsInstance( const std::vector<std::string>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfString").IsInstance( $obj ) -> retval
 ```
@@ -15460,7 +15460,7 @@ AutoIt:
 ### VectorOfString::Items
 
 ```cpp
-VectorOfString VectorOfString::Items();
+std::vector<std::string> VectorOfString::Items();
 AutoIt:
     $oVectorOfString.Items() -> retval
 ```
@@ -15556,15 +15556,15 @@ AutoIt:
 ### VectorOfString::push\_vector
 
 ```cpp
-void VectorOfString::push_vector( VectorOfString other );
+void VectorOfString::push_vector( std::vector<std::string> other );
 AutoIt:
     $oVectorOfString.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfString::push_vector( VectorOfString other,
-                                  size_t         count,
-                                  size_t         start = 0 );
+void VectorOfString::push_vector( std::vector<std::string> other,
+                                  size_t                   count,
+                                  size_t                   start = 0 );
 AutoIt:
     $oVectorOfString.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -15589,8 +15589,8 @@ AutoIt:
 ### VectorOfString::slice
 
 ```cpp
-VectorOfString VectorOfString::slice( size_t start = 0,
-                                      size_t count = __self->get()->size() );
+std::vector<std::string> VectorOfString::slice( size_t start = 0,
+                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfString.slice( [$start[, $count]] ) -> retval
 ```
@@ -15636,19 +15636,19 @@ AutoIt:
 ### VectorOfVariant::create
 
 ```cpp
-static VectorOfVariant VectorOfVariant::create();
+static std::vector<_variant_t> VectorOfVariant::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVariant").create() -> <VectorOfVariant object>
 ```
 
 ```cpp
-static VectorOfVariant VectorOfVariant::create( size_t size );
+static std::vector<_variant_t> VectorOfVariant::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVariant").create( $size ) -> <VectorOfVariant object>
 ```
 
 ```cpp
-static VectorOfVariant VectorOfVariant::create( VectorOfVariant other );
+static std::vector<_variant_t> VectorOfVariant::create( std::vector<_variant_t> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVariant").create( $other ) -> <VectorOfVariant object>
 ```
@@ -15664,7 +15664,7 @@ AutoIt:
 ### VectorOfVariant::IsInstance
 
 ```cpp
-static bool VectorOfVariant::IsInstance( const VectorOfVariant& obj );
+static bool VectorOfVariant::IsInstance( const std::vector<_variant_t>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVariant").IsInstance( $obj ) -> retval
 ```
@@ -15678,7 +15678,7 @@ AutoIt:
 ### VectorOfVariant::Items
 
 ```cpp
-VectorOfVariant VectorOfVariant::Items();
+std::vector<_variant_t> VectorOfVariant::Items();
 AutoIt:
     $oVectorOfVariant.Items() -> retval
 ```
@@ -15774,15 +15774,15 @@ AutoIt:
 ### VectorOfVariant::push\_vector
 
 ```cpp
-void VectorOfVariant::push_vector( VectorOfVariant other );
+void VectorOfVariant::push_vector( std::vector<_variant_t> other );
 AutoIt:
     $oVectorOfVariant.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVariant::push_vector( VectorOfVariant other,
-                                   size_t          count,
-                                   size_t          start = 0 );
+void VectorOfVariant::push_vector( std::vector<_variant_t> other,
+                                   size_t                  count,
+                                   size_t                  start = 0 );
 AutoIt:
     $oVectorOfVariant.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -15807,8 +15807,8 @@ AutoIt:
 ### VectorOfVariant::slice
 
 ```cpp
-VectorOfVariant VectorOfVariant::slice( size_t start = 0,
-                                        size_t count = __self->get()->size() );
+std::vector<_variant_t> VectorOfVariant::slice( size_t start = 0,
+                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVariant.slice( [$start[, $count]] ) -> retval
 ```
@@ -15854,19 +15854,19 @@ AutoIt:
 ### VectorOfPairOfULONGAndDouble::create
 
 ```cpp
-static VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::create();
+static std::vector<std::pair<ULONG, double>> VectorOfPairOfULONGAndDouble::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble").create() -> <VectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
-static VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::create( size_t size );
+static std::vector<std::pair<ULONG, double>> VectorOfPairOfULONGAndDouble::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble").create( $size ) -> <VectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
-static VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::create( VectorOfPairOfULONGAndDouble other );
+static std::vector<std::pair<ULONG, double>> VectorOfPairOfULONGAndDouble::create( std::vector<std::pair<ULONG, double>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble").create( $other ) -> <VectorOfPairOfULONGAndDouble object>
 ```
@@ -15882,7 +15882,7 @@ AutoIt:
 ### VectorOfPairOfULONGAndDouble::IsInstance
 
 ```cpp
-static bool VectorOfPairOfULONGAndDouble::IsInstance( const VectorOfPairOfULONGAndDouble& obj );
+static bool VectorOfPairOfULONGAndDouble::IsInstance( const std::vector<std::pair<ULONG, double>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndDouble").IsInstance( $obj ) -> retval
 ```
@@ -15896,7 +15896,7 @@ AutoIt:
 ### VectorOfPairOfULONGAndDouble::Items
 
 ```cpp
-VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::Items();
+std::vector<std::pair<ULONG, double>> VectorOfPairOfULONGAndDouble::Items();
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.Items() -> retval
 ```
@@ -15992,15 +15992,15 @@ AutoIt:
 ### VectorOfPairOfULONGAndDouble::push\_vector
 
 ```cpp
-void VectorOfPairOfULONGAndDouble::push_vector( VectorOfPairOfULONGAndDouble other );
+void VectorOfPairOfULONGAndDouble::push_vector( std::vector<std::pair<ULONG, double>> other );
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfPairOfULONGAndDouble::push_vector( VectorOfPairOfULONGAndDouble other,
-                                                size_t                       count,
-                                                size_t                       start = 0 );
+void VectorOfPairOfULONGAndDouble::push_vector( std::vector<std::pair<ULONG, double>> other,
+                                                size_t                                count,
+                                                size_t                                start = 0 );
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -16025,8 +16025,8 @@ AutoIt:
 ### VectorOfPairOfULONGAndDouble::slice
 
 ```cpp
-VectorOfPairOfULONGAndDouble VectorOfPairOfULONGAndDouble::slice( size_t start = 0,
-                                                                  size_t count = __self->get()->size() );
+std::vector<std::pair<ULONG, double>> VectorOfPairOfULONGAndDouble::slice( size_t start = 0,
+                                                                           size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -16072,19 +16072,19 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndDouble::create
 
 ```cpp
-static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create();
+static std::vector<std::vector<std::pair<ULONG, double>>> VectorOfVectorOfPairOfULONGAndDouble::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create() -> <VectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
-static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create( size_t size );
+static std::vector<std::vector<std::pair<ULONG, double>>> VectorOfVectorOfPairOfULONGAndDouble::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create( $size ) -> <VectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
-static VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::create( VectorOfVectorOfPairOfULONGAndDouble other );
+static std::vector<std::vector<std::pair<ULONG, double>>> VectorOfVectorOfPairOfULONGAndDouble::create( std::vector<std::vector<std::pair<ULONG, double>>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").create( $other ) -> <VectorOfVectorOfPairOfULONGAndDouble object>
 ```
@@ -16100,7 +16100,7 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndDouble::IsInstance
 
 ```cpp
-static bool VectorOfVectorOfPairOfULONGAndDouble::IsInstance( const VectorOfVectorOfPairOfULONGAndDouble& obj );
+static bool VectorOfVectorOfPairOfULONGAndDouble::IsInstance( const std::vector<std::vector<std::pair<ULONG, double>>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndDouble").IsInstance( $obj ) -> retval
 ```
@@ -16114,7 +16114,7 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndDouble::Items
 
 ```cpp
-VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::Items();
+std::vector<std::vector<std::pair<ULONG, double>>> VectorOfVectorOfPairOfULONGAndDouble::Items();
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.Items() -> retval
 ```
@@ -16210,15 +16210,15 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndDouble::push\_vector
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfPairOfULONGAndDouble other );
+void VectorOfVectorOfPairOfULONGAndDouble::push_vector( std::vector<std::vector<std::pair<ULONG, double>>> other );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfPairOfULONGAndDouble other,
-                                                        size_t                               count,
-                                                        size_t                               start = 0 );
+void VectorOfVectorOfPairOfULONGAndDouble::push_vector( std::vector<std::vector<std::pair<ULONG, double>>> other,
+                                                        size_t                                             count,
+                                                        size_t                                             start = 0 );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -16243,8 +16243,8 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndDouble::slice
 
 ```cpp
-VectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
-                                                                                  size_t count = __self->get()->size() );
+std::vector<std::vector<std::pair<ULONG, double>>> VectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
+                                                                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -16290,19 +16290,19 @@ AutoIt:
 ### VectorOfMat::create
 
 ```cpp
-static VectorOfMat VectorOfMat::create();
+static std::vector<cv::Mat> VectorOfMat::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfMat").create() -> <VectorOfMat object>
 ```
 
 ```cpp
-static VectorOfMat VectorOfMat::create( size_t size );
+static std::vector<cv::Mat> VectorOfMat::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfMat").create( $size ) -> <VectorOfMat object>
 ```
 
 ```cpp
-static VectorOfMat VectorOfMat::create( VectorOfMat other );
+static std::vector<cv::Mat> VectorOfMat::create( std::vector<cv::Mat> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfMat").create( $other ) -> <VectorOfMat object>
 ```
@@ -16318,7 +16318,7 @@ AutoIt:
 ### VectorOfMat::IsInstance
 
 ```cpp
-static bool VectorOfMat::IsInstance( const VectorOfMat& obj );
+static bool VectorOfMat::IsInstance( const std::vector<cv::Mat>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfMat").IsInstance( $obj ) -> retval
 ```
@@ -16332,7 +16332,7 @@ AutoIt:
 ### VectorOfMat::Items
 
 ```cpp
-VectorOfMat VectorOfMat::Items();
+std::vector<cv::Mat> VectorOfMat::Items();
 AutoIt:
     $oVectorOfMat.Items() -> retval
 ```
@@ -16428,15 +16428,15 @@ AutoIt:
 ### VectorOfMat::push\_vector
 
 ```cpp
-void VectorOfMat::push_vector( VectorOfMat other );
+void VectorOfMat::push_vector( std::vector<cv::Mat> other );
 AutoIt:
     $oVectorOfMat.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfMat::push_vector( VectorOfMat other,
-                               size_t      count,
-                               size_t      start = 0 );
+void VectorOfMat::push_vector( std::vector<cv::Mat> other,
+                               size_t               count,
+                               size_t               start = 0 );
 AutoIt:
     $oVectorOfMat.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -16461,8 +16461,8 @@ AutoIt:
 ### VectorOfMat::slice
 
 ```cpp
-VectorOfMat VectorOfMat::slice( size_t start = 0,
-                                size_t count = __self->get()->size() );
+std::vector<cv::Mat> VectorOfMat::slice( size_t start = 0,
+                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfMat.slice( [$start[, $count]] ) -> retval
 ```
@@ -16508,19 +16508,19 @@ AutoIt:
 ### VectorOfFull\_object\_detection::create
 
 ```cpp
-static VectorOfFull_object_detection VectorOfFull_object_detection::create();
+static std::vector<dlib::full_object_detection> VectorOfFull_object_detection::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfFull_object_detection").create() -> <VectorOfFull_object_detection object>
 ```
 
 ```cpp
-static VectorOfFull_object_detection VectorOfFull_object_detection::create( size_t size );
+static std::vector<dlib::full_object_detection> VectorOfFull_object_detection::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFull_object_detection").create( $size ) -> <VectorOfFull_object_detection object>
 ```
 
 ```cpp
-static VectorOfFull_object_detection VectorOfFull_object_detection::create( VectorOfFull_object_detection other );
+static std::vector<dlib::full_object_detection> VectorOfFull_object_detection::create( std::vector<dlib::full_object_detection> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFull_object_detection").create( $other ) -> <VectorOfFull_object_detection object>
 ```
@@ -16536,7 +16536,7 @@ AutoIt:
 ### VectorOfFull\_object\_detection::IsInstance
 
 ```cpp
-static bool VectorOfFull_object_detection::IsInstance( const VectorOfFull_object_detection& obj );
+static bool VectorOfFull_object_detection::IsInstance( const std::vector<dlib::full_object_detection>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFull_object_detection").IsInstance( $obj ) -> retval
 ```
@@ -16550,7 +16550,7 @@ AutoIt:
 ### VectorOfFull\_object\_detection::Items
 
 ```cpp
-VectorOfFull_object_detection VectorOfFull_object_detection::Items();
+std::vector<dlib::full_object_detection> VectorOfFull_object_detection::Items();
 AutoIt:
     $oVectorOfFull_object_detection.Items() -> retval
 ```
@@ -16646,15 +16646,15 @@ AutoIt:
 ### VectorOfFull\_object\_detection::push\_vector
 
 ```cpp
-void VectorOfFull_object_detection::push_vector( VectorOfFull_object_detection other );
+void VectorOfFull_object_detection::push_vector( std::vector<dlib::full_object_detection> other );
 AutoIt:
     $oVectorOfFull_object_detection.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfFull_object_detection::push_vector( VectorOfFull_object_detection other,
-                                                 size_t                        count,
-                                                 size_t                        start = 0 );
+void VectorOfFull_object_detection::push_vector( std::vector<dlib::full_object_detection> other,
+                                                 size_t                                   count,
+                                                 size_t                                   start = 0 );
 AutoIt:
     $oVectorOfFull_object_detection.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -16679,8 +16679,8 @@ AutoIt:
 ### VectorOfFull\_object\_detection::slice
 
 ```cpp
-VectorOfFull_object_detection VectorOfFull_object_detection::slice( size_t start = 0,
-                                                                    size_t count = __self->get()->size() );
+std::vector<dlib::full_object_detection> VectorOfFull_object_detection::slice( size_t start = 0,
+                                                                               size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFull_object_detection.slice( [$start[, $count]] ) -> retval
 ```
@@ -16726,19 +16726,19 @@ AutoIt:
 ### VectorOfSpaceVector::create
 
 ```cpp
-static VectorOfSpaceVector VectorOfSpaceVector::create();
+static std::vector<dlib::SpaceVector> VectorOfSpaceVector::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfSpaceVector").create() -> <VectorOfSpaceVector object>
 ```
 
 ```cpp
-static VectorOfSpaceVector VectorOfSpaceVector::create( size_t size );
+static std::vector<dlib::SpaceVector> VectorOfSpaceVector::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSpaceVector").create( $size ) -> <VectorOfSpaceVector object>
 ```
 
 ```cpp
-static VectorOfSpaceVector VectorOfSpaceVector::create( VectorOfSpaceVector other );
+static std::vector<dlib::SpaceVector> VectorOfSpaceVector::create( std::vector<dlib::SpaceVector> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSpaceVector").create( $other ) -> <VectorOfSpaceVector object>
 ```
@@ -16754,7 +16754,7 @@ AutoIt:
 ### VectorOfSpaceVector::IsInstance
 
 ```cpp
-static bool VectorOfSpaceVector::IsInstance( const VectorOfSpaceVector& obj );
+static bool VectorOfSpaceVector::IsInstance( const std::vector<dlib::SpaceVector>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSpaceVector").IsInstance( $obj ) -> retval
 ```
@@ -16768,7 +16768,7 @@ AutoIt:
 ### VectorOfSpaceVector::Items
 
 ```cpp
-VectorOfSpaceVector VectorOfSpaceVector::Items();
+std::vector<dlib::SpaceVector> VectorOfSpaceVector::Items();
 AutoIt:
     $oVectorOfSpaceVector.Items() -> retval
 ```
@@ -16864,15 +16864,15 @@ AutoIt:
 ### VectorOfSpaceVector::push\_vector
 
 ```cpp
-void VectorOfSpaceVector::push_vector( VectorOfSpaceVector other );
+void VectorOfSpaceVector::push_vector( std::vector<dlib::SpaceVector> other );
 AutoIt:
     $oVectorOfSpaceVector.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfSpaceVector::push_vector( VectorOfSpaceVector other,
-                                       size_t              count,
-                                       size_t              start = 0 );
+void VectorOfSpaceVector::push_vector( std::vector<dlib::SpaceVector> other,
+                                       size_t                         count,
+                                       size_t                         start = 0 );
 AutoIt:
     $oVectorOfSpaceVector.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -16897,8 +16897,8 @@ AutoIt:
 ### VectorOfSpaceVector::slice
 
 ```cpp
-VectorOfSpaceVector VectorOfSpaceVector::slice( size_t start = 0,
-                                                size_t count = __self->get()->size() );
+std::vector<dlib::SpaceVector> VectorOfSpaceVector::slice( size_t start = 0,
+                                                           size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSpaceVector.slice( [$start[, $count]] ) -> retval
 ```
@@ -16944,19 +16944,19 @@ AutoIt:
 ### VectorOfULONG::create
 
 ```cpp
-static VectorOfULONG VectorOfULONG::create();
+static std::vector<ULONG> VectorOfULONG::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfULONG").create() -> <VectorOfULONG object>
 ```
 
 ```cpp
-static VectorOfULONG VectorOfULONG::create( size_t size );
+static std::vector<ULONG> VectorOfULONG::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfULONG").create( $size ) -> <VectorOfULONG object>
 ```
 
 ```cpp
-static VectorOfULONG VectorOfULONG::create( VectorOfULONG other );
+static std::vector<ULONG> VectorOfULONG::create( std::vector<ULONG> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfULONG").create( $other ) -> <VectorOfULONG object>
 ```
@@ -16972,7 +16972,7 @@ AutoIt:
 ### VectorOfULONG::IsInstance
 
 ```cpp
-static bool VectorOfULONG::IsInstance( const VectorOfULONG& obj );
+static bool VectorOfULONG::IsInstance( const std::vector<ULONG>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfULONG").IsInstance( $obj ) -> retval
 ```
@@ -16986,7 +16986,7 @@ AutoIt:
 ### VectorOfULONG::Items
 
 ```cpp
-VectorOfULONG VectorOfULONG::Items();
+std::vector<ULONG> VectorOfULONG::Items();
 AutoIt:
     $oVectorOfULONG.Items() -> retval
 ```
@@ -17082,15 +17082,15 @@ AutoIt:
 ### VectorOfULONG::push\_vector
 
 ```cpp
-void VectorOfULONG::push_vector( VectorOfULONG other );
+void VectorOfULONG::push_vector( std::vector<ULONG> other );
 AutoIt:
     $oVectorOfULONG.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfULONG::push_vector( VectorOfULONG other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfULONG::push_vector( std::vector<ULONG> other,
+                                 size_t             count,
+                                 size_t             start = 0 );
 AutoIt:
     $oVectorOfULONG.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -17115,8 +17115,8 @@ AutoIt:
 ### VectorOfULONG::slice
 
 ```cpp
-VectorOfULONG VectorOfULONG::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<ULONG> VectorOfULONG::slice( size_t start = 0,
+                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfULONG.slice( [$start[, $count]] ) -> retval
 ```
@@ -17162,19 +17162,19 @@ AutoIt:
 ### VectorOfDouble::create
 
 ```cpp
-static VectorOfDouble VectorOfDouble::create();
+static std::vector<double> VectorOfDouble::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfDouble").create() -> <VectorOfDouble object>
 ```
 
 ```cpp
-static VectorOfDouble VectorOfDouble::create( size_t size );
+static std::vector<double> VectorOfDouble::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfDouble").create( $size ) -> <VectorOfDouble object>
 ```
 
 ```cpp
-static VectorOfDouble VectorOfDouble::create( VectorOfDouble other );
+static std::vector<double> VectorOfDouble::create( std::vector<double> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfDouble").create( $other ) -> <VectorOfDouble object>
 ```
@@ -17190,7 +17190,7 @@ AutoIt:
 ### VectorOfDouble::IsInstance
 
 ```cpp
-static bool VectorOfDouble::IsInstance( const VectorOfDouble& obj );
+static bool VectorOfDouble::IsInstance( const std::vector<double>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfDouble").IsInstance( $obj ) -> retval
 ```
@@ -17204,7 +17204,7 @@ AutoIt:
 ### VectorOfDouble::Items
 
 ```cpp
-VectorOfDouble VectorOfDouble::Items();
+std::vector<double> VectorOfDouble::Items();
 AutoIt:
     $oVectorOfDouble.Items() -> retval
 ```
@@ -17300,15 +17300,15 @@ AutoIt:
 ### VectorOfDouble::push\_vector
 
 ```cpp
-void VectorOfDouble::push_vector( VectorOfDouble other );
+void VectorOfDouble::push_vector( std::vector<double> other );
 AutoIt:
     $oVectorOfDouble.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfDouble::push_vector( VectorOfDouble other,
-                                  size_t         count,
-                                  size_t         start = 0 );
+void VectorOfDouble::push_vector( std::vector<double> other,
+                                  size_t              count,
+                                  size_t              start = 0 );
 AutoIt:
     $oVectorOfDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -17333,8 +17333,8 @@ AutoIt:
 ### VectorOfDouble::slice
 
 ```cpp
-VectorOfDouble VectorOfDouble::slice( size_t start = 0,
-                                      size_t count = __self->get()->size() );
+std::vector<double> VectorOfDouble::slice( size_t start = 0,
+                                           size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -17380,19 +17380,19 @@ AutoIt:
 ### VectorOfBool::create
 
 ```cpp
-static VectorOfBool VectorOfBool::create();
+static std::vector<bool> VectorOfBool::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfBool").create() -> <VectorOfBool object>
 ```
 
 ```cpp
-static VectorOfBool VectorOfBool::create( size_t size );
+static std::vector<bool> VectorOfBool::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfBool").create( $size ) -> <VectorOfBool object>
 ```
 
 ```cpp
-static VectorOfBool VectorOfBool::create( VectorOfBool other );
+static std::vector<bool> VectorOfBool::create( std::vector<bool> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfBool").create( $other ) -> <VectorOfBool object>
 ```
@@ -17408,7 +17408,7 @@ AutoIt:
 ### VectorOfBool::IsInstance
 
 ```cpp
-static bool VectorOfBool::IsInstance( const VectorOfBool& obj );
+static bool VectorOfBool::IsInstance( const std::vector<bool>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfBool").IsInstance( $obj ) -> retval
 ```
@@ -17422,7 +17422,7 @@ AutoIt:
 ### VectorOfBool::Items
 
 ```cpp
-VectorOfBool VectorOfBool::Items();
+std::vector<bool> VectorOfBool::Items();
 AutoIt:
     $oVectorOfBool.Items() -> retval
 ```
@@ -17518,15 +17518,15 @@ AutoIt:
 ### VectorOfBool::push\_vector
 
 ```cpp
-void VectorOfBool::push_vector( VectorOfBool other );
+void VectorOfBool::push_vector( std::vector<bool> other );
 AutoIt:
     $oVectorOfBool.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfBool::push_vector( VectorOfBool other,
-                                size_t       count,
-                                size_t       start = 0 );
+void VectorOfBool::push_vector( std::vector<bool> other,
+                                size_t            count,
+                                size_t            start = 0 );
 AutoIt:
     $oVectorOfBool.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -17551,8 +17551,8 @@ AutoIt:
 ### VectorOfBool::slice
 
 ```cpp
-VectorOfBool VectorOfBool::slice( size_t start = 0,
-                                  size_t count = __self->get()->size() );
+std::vector<bool> VectorOfBool::slice( size_t start = 0,
+                                       size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfBool.slice( [$start[, $count]] ) -> retval
 ```
@@ -17598,19 +17598,19 @@ AutoIt:
 ### VectorOfRectangle::create
 
 ```cpp
-static VectorOfRectangle VectorOfRectangle::create();
+static std::vector<dlib::rectangle> VectorOfRectangle::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfRectangle").create() -> <VectorOfRectangle object>
 ```
 
 ```cpp
-static VectorOfRectangle VectorOfRectangle::create( size_t size );
+static std::vector<dlib::rectangle> VectorOfRectangle::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfRectangle").create( $size ) -> <VectorOfRectangle object>
 ```
 
 ```cpp
-static VectorOfRectangle VectorOfRectangle::create( VectorOfRectangle other );
+static std::vector<dlib::rectangle> VectorOfRectangle::create( std::vector<dlib::rectangle> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfRectangle").create( $other ) -> <VectorOfRectangle object>
 ```
@@ -17626,7 +17626,7 @@ AutoIt:
 ### VectorOfRectangle::IsInstance
 
 ```cpp
-static bool VectorOfRectangle::IsInstance( const VectorOfRectangle& obj );
+static bool VectorOfRectangle::IsInstance( const std::vector<dlib::rectangle>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfRectangle").IsInstance( $obj ) -> retval
 ```
@@ -17640,7 +17640,7 @@ AutoIt:
 ### VectorOfRectangle::Items
 
 ```cpp
-VectorOfRectangle VectorOfRectangle::Items();
+std::vector<dlib::rectangle> VectorOfRectangle::Items();
 AutoIt:
     $oVectorOfRectangle.Items() -> retval
 ```
@@ -17736,15 +17736,15 @@ AutoIt:
 ### VectorOfRectangle::push\_vector
 
 ```cpp
-void VectorOfRectangle::push_vector( VectorOfRectangle other );
+void VectorOfRectangle::push_vector( std::vector<dlib::rectangle> other );
 AutoIt:
     $oVectorOfRectangle.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfRectangle::push_vector( VectorOfRectangle other,
-                                     size_t            count,
-                                     size_t            start = 0 );
+void VectorOfRectangle::push_vector( std::vector<dlib::rectangle> other,
+                                     size_t                       count,
+                                     size_t                       start = 0 );
 AutoIt:
     $oVectorOfRectangle.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -17769,8 +17769,8 @@ AutoIt:
 ### VectorOfRectangle::slice
 
 ```cpp
-VectorOfRectangle VectorOfRectangle::slice( size_t start = 0,
-                                            size_t count = __self->get()->size() );
+std::vector<dlib::rectangle> VectorOfRectangle::slice( size_t start = 0,
+                                                       size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfRectangle.slice( [$start[, $count]] ) -> retval
 ```
@@ -17816,19 +17816,19 @@ AutoIt:
 ### VectorOfLong::create
 
 ```cpp
-static VectorOfLong VectorOfLong::create();
+static std::vector<long> VectorOfLong::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfLong").create() -> <VectorOfLong object>
 ```
 
 ```cpp
-static VectorOfLong VectorOfLong::create( size_t size );
+static std::vector<long> VectorOfLong::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfLong").create( $size ) -> <VectorOfLong object>
 ```
 
 ```cpp
-static VectorOfLong VectorOfLong::create( VectorOfLong other );
+static std::vector<long> VectorOfLong::create( std::vector<long> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfLong").create( $other ) -> <VectorOfLong object>
 ```
@@ -17844,7 +17844,7 @@ AutoIt:
 ### VectorOfLong::IsInstance
 
 ```cpp
-static bool VectorOfLong::IsInstance( const VectorOfLong& obj );
+static bool VectorOfLong::IsInstance( const std::vector<long>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfLong").IsInstance( $obj ) -> retval
 ```
@@ -17858,7 +17858,7 @@ AutoIt:
 ### VectorOfLong::Items
 
 ```cpp
-VectorOfLong VectorOfLong::Items();
+std::vector<long> VectorOfLong::Items();
 AutoIt:
     $oVectorOfLong.Items() -> retval
 ```
@@ -17954,15 +17954,15 @@ AutoIt:
 ### VectorOfLong::push\_vector
 
 ```cpp
-void VectorOfLong::push_vector( VectorOfLong other );
+void VectorOfLong::push_vector( std::vector<long> other );
 AutoIt:
     $oVectorOfLong.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfLong::push_vector( VectorOfLong other,
-                                size_t       count,
-                                size_t       start = 0 );
+void VectorOfLong::push_vector( std::vector<long> other,
+                                size_t            count,
+                                size_t            start = 0 );
 AutoIt:
     $oVectorOfLong.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -17987,8 +17987,8 @@ AutoIt:
 ### VectorOfLong::slice
 
 ```cpp
-VectorOfLong VectorOfLong::slice( size_t start = 0,
-                                  size_t count = __self->get()->size() );
+std::vector<long> VectorOfLong::slice( size_t start = 0,
+                                       size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfLong.slice( [$start[, $count]] ) -> retval
 ```
@@ -18034,19 +18034,19 @@ AutoIt:
 ### VectorOfVectorOfSpaceVector::create
 
 ```cpp
-static VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::create();
+static std::vector<std::vector<dlib::SpaceVector>> VectorOfVectorOfSpaceVector::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfSpaceVector").create() -> <VectorOfVectorOfSpaceVector object>
 ```
 
 ```cpp
-static VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::create( size_t size );
+static std::vector<std::vector<dlib::SpaceVector>> VectorOfVectorOfSpaceVector::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfSpaceVector").create( $size ) -> <VectorOfVectorOfSpaceVector object>
 ```
 
 ```cpp
-static VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::create( VectorOfVectorOfSpaceVector other );
+static std::vector<std::vector<dlib::SpaceVector>> VectorOfVectorOfSpaceVector::create( std::vector<std::vector<dlib::SpaceVector>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfSpaceVector").create( $other ) -> <VectorOfVectorOfSpaceVector object>
 ```
@@ -18062,7 +18062,7 @@ AutoIt:
 ### VectorOfVectorOfSpaceVector::IsInstance
 
 ```cpp
-static bool VectorOfVectorOfSpaceVector::IsInstance( const VectorOfVectorOfSpaceVector& obj );
+static bool VectorOfVectorOfSpaceVector::IsInstance( const std::vector<std::vector<dlib::SpaceVector>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfSpaceVector").IsInstance( $obj ) -> retval
 ```
@@ -18076,7 +18076,7 @@ AutoIt:
 ### VectorOfVectorOfSpaceVector::Items
 
 ```cpp
-VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::Items();
+std::vector<std::vector<dlib::SpaceVector>> VectorOfVectorOfSpaceVector::Items();
 AutoIt:
     $oVectorOfVectorOfSpaceVector.Items() -> retval
 ```
@@ -18172,15 +18172,15 @@ AutoIt:
 ### VectorOfVectorOfSpaceVector::push\_vector
 
 ```cpp
-void VectorOfVectorOfSpaceVector::push_vector( VectorOfVectorOfSpaceVector other );
+void VectorOfVectorOfSpaceVector::push_vector( std::vector<std::vector<dlib::SpaceVector>> other );
 AutoIt:
     $oVectorOfVectorOfSpaceVector.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVectorOfSpaceVector::push_vector( VectorOfVectorOfSpaceVector other,
-                                               size_t                      count,
-                                               size_t                      start = 0 );
+void VectorOfVectorOfSpaceVector::push_vector( std::vector<std::vector<dlib::SpaceVector>> other,
+                                               size_t                                      count,
+                                               size_t                                      start = 0 );
 AutoIt:
     $oVectorOfVectorOfSpaceVector.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -18205,8 +18205,8 @@ AutoIt:
 ### VectorOfVectorOfSpaceVector::slice
 
 ```cpp
-VectorOfVectorOfSpaceVector VectorOfVectorOfSpaceVector::slice( size_t start = 0,
-                                                                size_t count = __self->get()->size() );
+std::vector<std::vector<dlib::SpaceVector>> VectorOfVectorOfSpaceVector::slice( size_t start = 0,
+                                                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfSpaceVector.slice( [$start[, $count]] ) -> retval
 ```
@@ -18252,19 +18252,19 @@ AutoIt:
 ### VectorOfPairOfULONGAndULONG::create
 
 ```cpp
-static VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::create();
+static std::vector<std::pair<ULONG, ULONG>> VectorOfPairOfULONGAndULONG::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG").create() -> <VectorOfPairOfULONGAndULONG object>
 ```
 
 ```cpp
-static VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::create( size_t size );
+static std::vector<std::pair<ULONG, ULONG>> VectorOfPairOfULONGAndULONG::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG").create( $size ) -> <VectorOfPairOfULONGAndULONG object>
 ```
 
 ```cpp
-static VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::create( VectorOfPairOfULONGAndULONG other );
+static std::vector<std::pair<ULONG, ULONG>> VectorOfPairOfULONGAndULONG::create( std::vector<std::pair<ULONG, ULONG>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG").create( $other ) -> <VectorOfPairOfULONGAndULONG object>
 ```
@@ -18280,7 +18280,7 @@ AutoIt:
 ### VectorOfPairOfULONGAndULONG::IsInstance
 
 ```cpp
-static bool VectorOfPairOfULONGAndULONG::IsInstance( const VectorOfPairOfULONGAndULONG& obj );
+static bool VectorOfPairOfULONGAndULONG::IsInstance( const std::vector<std::pair<ULONG, ULONG>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfULONGAndULONG").IsInstance( $obj ) -> retval
 ```
@@ -18294,7 +18294,7 @@ AutoIt:
 ### VectorOfPairOfULONGAndULONG::Items
 
 ```cpp
-VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::Items();
+std::vector<std::pair<ULONG, ULONG>> VectorOfPairOfULONGAndULONG::Items();
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.Items() -> retval
 ```
@@ -18390,15 +18390,15 @@ AutoIt:
 ### VectorOfPairOfULONGAndULONG::push\_vector
 
 ```cpp
-void VectorOfPairOfULONGAndULONG::push_vector( VectorOfPairOfULONGAndULONG other );
+void VectorOfPairOfULONGAndULONG::push_vector( std::vector<std::pair<ULONG, ULONG>> other );
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfPairOfULONGAndULONG::push_vector( VectorOfPairOfULONGAndULONG other,
-                                               size_t                      count,
-                                               size_t                      start = 0 );
+void VectorOfPairOfULONGAndULONG::push_vector( std::vector<std::pair<ULONG, ULONG>> other,
+                                               size_t                               count,
+                                               size_t                               start = 0 );
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -18423,8 +18423,8 @@ AutoIt:
 ### VectorOfPairOfULONGAndULONG::slice
 
 ```cpp
-VectorOfPairOfULONGAndULONG VectorOfPairOfULONGAndULONG::slice( size_t start = 0,
-                                                                size_t count = __self->get()->size() );
+std::vector<std::pair<ULONG, ULONG>> VectorOfPairOfULONGAndULONG::slice( size_t start = 0,
+                                                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfULONGAndULONG.slice( [$start[, $count]] ) -> retval
 ```
@@ -18470,19 +18470,19 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndULONG::create
 
 ```cpp
-static VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::create();
+static std::vector<std::vector<std::pair<ULONG, ULONG>>> VectorOfVectorOfPairOfULONGAndULONG::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG").create() -> <VectorOfVectorOfPairOfULONGAndULONG object>
 ```
 
 ```cpp
-static VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::create( size_t size );
+static std::vector<std::vector<std::pair<ULONG, ULONG>>> VectorOfVectorOfPairOfULONGAndULONG::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG").create( $size ) -> <VectorOfVectorOfPairOfULONGAndULONG object>
 ```
 
 ```cpp
-static VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::create( VectorOfVectorOfPairOfULONGAndULONG other );
+static std::vector<std::vector<std::pair<ULONG, ULONG>>> VectorOfVectorOfPairOfULONGAndULONG::create( std::vector<std::vector<std::pair<ULONG, ULONG>>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG").create( $other ) -> <VectorOfVectorOfPairOfULONGAndULONG object>
 ```
@@ -18498,7 +18498,7 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndULONG::IsInstance
 
 ```cpp
-static bool VectorOfVectorOfPairOfULONGAndULONG::IsInstance( const VectorOfVectorOfPairOfULONGAndULONG& obj );
+static bool VectorOfVectorOfPairOfULONGAndULONG::IsInstance( const std::vector<std::vector<std::pair<ULONG, ULONG>>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfPairOfULONGAndULONG").IsInstance( $obj ) -> retval
 ```
@@ -18512,7 +18512,7 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndULONG::Items
 
 ```cpp
-VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::Items();
+std::vector<std::vector<std::pair<ULONG, ULONG>>> VectorOfVectorOfPairOfULONGAndULONG::Items();
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.Items() -> retval
 ```
@@ -18608,15 +18608,15 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndULONG::push\_vector
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndULONG::push_vector( VectorOfVectorOfPairOfULONGAndULONG other );
+void VectorOfVectorOfPairOfULONGAndULONG::push_vector( std::vector<std::vector<std::pair<ULONG, ULONG>>> other );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVectorOfPairOfULONGAndULONG::push_vector( VectorOfVectorOfPairOfULONGAndULONG other,
-                                                       size_t                              count,
-                                                       size_t                              start = 0 );
+void VectorOfVectorOfPairOfULONGAndULONG::push_vector( std::vector<std::vector<std::pair<ULONG, ULONG>>> other,
+                                                       size_t                                            count,
+                                                       size_t                                            start = 0 );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -18641,8 +18641,8 @@ AutoIt:
 ### VectorOfVectorOfPairOfULONGAndULONG::slice
 
 ```cpp
-VectorOfVectorOfPairOfULONGAndULONG VectorOfVectorOfPairOfULONGAndULONG::slice( size_t start = 0,
-                                                                                size_t count = __self->get()->size() );
+std::vector<std::vector<std::pair<ULONG, ULONG>>> VectorOfVectorOfPairOfULONGAndULONG::slice( size_t start = 0,
+                                                                                              size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfPairOfULONGAndULONG.slice( [$start[, $count]] ) -> retval
 ```
@@ -18688,19 +18688,19 @@ AutoIt:
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::create
 
 ```cpp
-static VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::create();
+static std::vector<std::vector<std::vector<std::pair<ULONG, double>>>> VectorOfVectorOfVectorOfPairOfULONGAndDouble::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble").create() -> <VectorOfVectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
-static VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::create( size_t size );
+static std::vector<std::vector<std::vector<std::pair<ULONG, double>>>> VectorOfVectorOfVectorOfPairOfULONGAndDouble::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble").create( $size ) -> <VectorOfVectorOfVectorOfPairOfULONGAndDouble object>
 ```
 
 ```cpp
-static VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::create( VectorOfVectorOfVectorOfPairOfULONGAndDouble other );
+static std::vector<std::vector<std::vector<std::pair<ULONG, double>>>> VectorOfVectorOfVectorOfPairOfULONGAndDouble::create( std::vector<std::vector<std::vector<std::pair<ULONG, double>>>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble").create( $other ) -> <VectorOfVectorOfVectorOfPairOfULONGAndDouble object>
 ```
@@ -18716,7 +18716,7 @@ AutoIt:
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::IsInstance
 
 ```cpp
-static bool VectorOfVectorOfVectorOfPairOfULONGAndDouble::IsInstance( const VectorOfVectorOfVectorOfPairOfULONGAndDouble& obj );
+static bool VectorOfVectorOfVectorOfPairOfULONGAndDouble::IsInstance( const std::vector<std::vector<std::vector<std::pair<ULONG, double>>>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfVectorOfPairOfULONGAndDouble").IsInstance( $obj ) -> retval
 ```
@@ -18730,7 +18730,7 @@ AutoIt:
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::Items
 
 ```cpp
-VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::Items();
+std::vector<std::vector<std::vector<std::pair<ULONG, double>>>> VectorOfVectorOfVectorOfPairOfULONGAndDouble::Items();
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.Items() -> retval
 ```
@@ -18826,15 +18826,15 @@ AutoIt:
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::push\_vector
 
 ```cpp
-void VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfVectorOfPairOfULONGAndDouble other );
+void VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_vector( std::vector<std::vector<std::vector<std::pair<ULONG, double>>>> other );
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_vector( VectorOfVectorOfVectorOfPairOfULONGAndDouble other,
-                                                                size_t                                       count,
-                                                                size_t                                       start = 0 );
+void VectorOfVectorOfVectorOfPairOfULONGAndDouble::push_vector( std::vector<std::vector<std::vector<std::pair<ULONG, double>>>> other,
+                                                                size_t                                                          count,
+                                                                size_t                                                          start = 0 );
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -18859,8 +18859,8 @@ AutoIt:
 ### VectorOfVectorOfVectorOfPairOfULONGAndDouble::slice
 
 ```cpp
-VectorOfVectorOfVectorOfPairOfULONGAndDouble VectorOfVectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
-                                                                                                  size_t count = __self->get()->size() );
+std::vector<std::vector<std::vector<std::pair<ULONG, double>>>> VectorOfVectorOfVectorOfPairOfULONGAndDouble::slice( size_t start = 0,
+                                                                                                                     size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfVectorOfPairOfULONGAndDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -18906,19 +18906,19 @@ AutoIt:
 ### VectorOfVectorOfFull\_object\_detection::create
 
 ```cpp
-static VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::create();
+static std::vector<std::vector<dlib::full_object_detection>> VectorOfVectorOfFull_object_detection::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").create() -> <VectorOfVectorOfFull_object_detection object>
 ```
 
 ```cpp
-static VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::create( size_t size );
+static std::vector<std::vector<dlib::full_object_detection>> VectorOfVectorOfFull_object_detection::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").create( $size ) -> <VectorOfVectorOfFull_object_detection object>
 ```
 
 ```cpp
-static VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::create( VectorOfVectorOfFull_object_detection other );
+static std::vector<std::vector<dlib::full_object_detection>> VectorOfVectorOfFull_object_detection::create( std::vector<std::vector<dlib::full_object_detection>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").create( $other ) -> <VectorOfVectorOfFull_object_detection object>
 ```
@@ -18934,7 +18934,7 @@ AutoIt:
 ### VectorOfVectorOfFull\_object\_detection::IsInstance
 
 ```cpp
-static bool VectorOfVectorOfFull_object_detection::IsInstance( const VectorOfVectorOfFull_object_detection& obj );
+static bool VectorOfVectorOfFull_object_detection::IsInstance( const std::vector<std::vector<dlib::full_object_detection>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFull_object_detection").IsInstance( $obj ) -> retval
 ```
@@ -18948,7 +18948,7 @@ AutoIt:
 ### VectorOfVectorOfFull\_object\_detection::Items
 
 ```cpp
-VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::Items();
+std::vector<std::vector<dlib::full_object_detection>> VectorOfVectorOfFull_object_detection::Items();
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.Items() -> retval
 ```
@@ -19044,15 +19044,15 @@ AutoIt:
 ### VectorOfVectorOfFull\_object\_detection::push\_vector
 
 ```cpp
-void VectorOfVectorOfFull_object_detection::push_vector( VectorOfVectorOfFull_object_detection other );
+void VectorOfVectorOfFull_object_detection::push_vector( std::vector<std::vector<dlib::full_object_detection>> other );
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVectorOfFull_object_detection::push_vector( VectorOfVectorOfFull_object_detection other,
-                                                         size_t                                count,
-                                                         size_t                                start = 0 );
+void VectorOfVectorOfFull_object_detection::push_vector( std::vector<std::vector<dlib::full_object_detection>> other,
+                                                         size_t                                                count,
+                                                         size_t                                                start = 0 );
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -19077,8 +19077,8 @@ AutoIt:
 ### VectorOfVectorOfFull\_object\_detection::slice
 
 ```cpp
-VectorOfVectorOfFull_object_detection VectorOfVectorOfFull_object_detection::slice( size_t start = 0,
-                                                                                    size_t count = __self->get()->size() );
+std::vector<std::vector<dlib::full_object_detection>> VectorOfVectorOfFull_object_detection::slice( size_t start = 0,
+                                                                                                    size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfFull_object_detection.slice( [$start[, $count]] ) -> retval
 ```
@@ -19124,19 +19124,19 @@ AutoIt:
 ### VectorOfVectorOfRectangle::create
 
 ```cpp
-static VectorOfVectorOfRectangle VectorOfVectorOfRectangle::create();
+static std::vector<std::vector<dlib::rectangle>> VectorOfVectorOfRectangle::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfRectangle").create() -> <VectorOfVectorOfRectangle object>
 ```
 
 ```cpp
-static VectorOfVectorOfRectangle VectorOfVectorOfRectangle::create( size_t size );
+static std::vector<std::vector<dlib::rectangle>> VectorOfVectorOfRectangle::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfRectangle").create( $size ) -> <VectorOfVectorOfRectangle object>
 ```
 
 ```cpp
-static VectorOfVectorOfRectangle VectorOfVectorOfRectangle::create( VectorOfVectorOfRectangle other );
+static std::vector<std::vector<dlib::rectangle>> VectorOfVectorOfRectangle::create( std::vector<std::vector<dlib::rectangle>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfRectangle").create( $other ) -> <VectorOfVectorOfRectangle object>
 ```
@@ -19152,7 +19152,7 @@ AutoIt:
 ### VectorOfVectorOfRectangle::IsInstance
 
 ```cpp
-static bool VectorOfVectorOfRectangle::IsInstance( const VectorOfVectorOfRectangle& obj );
+static bool VectorOfVectorOfRectangle::IsInstance( const std::vector<std::vector<dlib::rectangle>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfRectangle").IsInstance( $obj ) -> retval
 ```
@@ -19166,7 +19166,7 @@ AutoIt:
 ### VectorOfVectorOfRectangle::Items
 
 ```cpp
-VectorOfVectorOfRectangle VectorOfVectorOfRectangle::Items();
+std::vector<std::vector<dlib::rectangle>> VectorOfVectorOfRectangle::Items();
 AutoIt:
     $oVectorOfVectorOfRectangle.Items() -> retval
 ```
@@ -19262,15 +19262,15 @@ AutoIt:
 ### VectorOfVectorOfRectangle::push\_vector
 
 ```cpp
-void VectorOfVectorOfRectangle::push_vector( VectorOfVectorOfRectangle other );
+void VectorOfVectorOfRectangle::push_vector( std::vector<std::vector<dlib::rectangle>> other );
 AutoIt:
     $oVectorOfVectorOfRectangle.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVectorOfRectangle::push_vector( VectorOfVectorOfRectangle other,
-                                             size_t                    count,
-                                             size_t                    start = 0 );
+void VectorOfVectorOfRectangle::push_vector( std::vector<std::vector<dlib::rectangle>> other,
+                                             size_t                                    count,
+                                             size_t                                    start = 0 );
 AutoIt:
     $oVectorOfVectorOfRectangle.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -19295,8 +19295,8 @@ AutoIt:
 ### VectorOfVectorOfRectangle::slice
 
 ```cpp
-VectorOfVectorOfRectangle VectorOfVectorOfRectangle::slice( size_t start = 0,
-                                                            size_t count = __self->get()->size() );
+std::vector<std::vector<dlib::rectangle>> VectorOfVectorOfRectangle::slice( size_t start = 0,
+                                                                            size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfRectangle.slice( [$start[, $count]] ) -> retval
 ```
@@ -19342,19 +19342,19 @@ AutoIt:
 ### VectorOfVec\_ranking\_pair::create
 
 ```cpp
-static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create();
+static std::vector<dlib::vec_ranking_pair> VectorOfVec_ranking_pair::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec_ranking_pair").create() -> <VectorOfVec_ranking_pair object>
 ```
 
 ```cpp
-static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create( size_t size );
+static std::vector<dlib::vec_ranking_pair> VectorOfVec_ranking_pair::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec_ranking_pair").create( $size ) -> <VectorOfVec_ranking_pair object>
 ```
 
 ```cpp
-static VectorOfVec_ranking_pair VectorOfVec_ranking_pair::create( VectorOfVec_ranking_pair other );
+static std::vector<dlib::vec_ranking_pair> VectorOfVec_ranking_pair::create( std::vector<dlib::vec_ranking_pair> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec_ranking_pair").create( $other ) -> <VectorOfVec_ranking_pair object>
 ```
@@ -19370,7 +19370,7 @@ AutoIt:
 ### VectorOfVec\_ranking\_pair::IsInstance
 
 ```cpp
-static bool VectorOfVec_ranking_pair::IsInstance( const VectorOfVec_ranking_pair& obj );
+static bool VectorOfVec_ranking_pair::IsInstance( const std::vector<dlib::vec_ranking_pair>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec_ranking_pair").IsInstance( $obj ) -> retval
 ```
@@ -19384,7 +19384,7 @@ AutoIt:
 ### VectorOfVec\_ranking\_pair::Items
 
 ```cpp
-VectorOfVec_ranking_pair VectorOfVec_ranking_pair::Items();
+std::vector<dlib::vec_ranking_pair> VectorOfVec_ranking_pair::Items();
 AutoIt:
     $oVectorOfVec_ranking_pair.Items() -> retval
 ```
@@ -19480,15 +19480,15 @@ AutoIt:
 ### VectorOfVec\_ranking\_pair::push\_vector
 
 ```cpp
-void VectorOfVec_ranking_pair::push_vector( VectorOfVec_ranking_pair other );
+void VectorOfVec_ranking_pair::push_vector( std::vector<dlib::vec_ranking_pair> other );
 AutoIt:
     $oVectorOfVec_ranking_pair.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec_ranking_pair::push_vector( VectorOfVec_ranking_pair other,
-                                            size_t                   count,
-                                            size_t                   start = 0 );
+void VectorOfVec_ranking_pair::push_vector( std::vector<dlib::vec_ranking_pair> other,
+                                            size_t                              count,
+                                            size_t                              start = 0 );
 AutoIt:
     $oVectorOfVec_ranking_pair.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -19513,8 +19513,8 @@ AutoIt:
 ### VectorOfVec\_ranking\_pair::slice
 
 ```cpp
-VectorOfVec_ranking_pair VectorOfVec_ranking_pair::slice( size_t start = 0,
-                                                          size_t count = __self->get()->size() );
+std::vector<dlib::vec_ranking_pair> VectorOfVec_ranking_pair::slice( size_t start = 0,
+                                                                     size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec_ranking_pair.slice( [$start[, $count]] ) -> retval
 ```
@@ -19560,19 +19560,19 @@ AutoIt:
 ### VectorOfSparse\_ranking\_pair::create
 
 ```cpp
-static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create();
+static std::vector<dlib::sparse_ranking_pair> VectorOfSparse_ranking_pair::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create() -> <VectorOfSparse_ranking_pair object>
 ```
 
 ```cpp
-static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create( size_t size );
+static std::vector<dlib::sparse_ranking_pair> VectorOfSparse_ranking_pair::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create( $size ) -> <VectorOfSparse_ranking_pair object>
 ```
 
 ```cpp
-static VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::create( VectorOfSparse_ranking_pair other );
+static std::vector<dlib::sparse_ranking_pair> VectorOfSparse_ranking_pair::create( std::vector<dlib::sparse_ranking_pair> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSparse_ranking_pair").create( $other ) -> <VectorOfSparse_ranking_pair object>
 ```
@@ -19588,7 +19588,7 @@ AutoIt:
 ### VectorOfSparse\_ranking\_pair::IsInstance
 
 ```cpp
-static bool VectorOfSparse_ranking_pair::IsInstance( const VectorOfSparse_ranking_pair& obj );
+static bool VectorOfSparse_ranking_pair::IsInstance( const std::vector<dlib::sparse_ranking_pair>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSparse_ranking_pair").IsInstance( $obj ) -> retval
 ```
@@ -19602,7 +19602,7 @@ AutoIt:
 ### VectorOfSparse\_ranking\_pair::Items
 
 ```cpp
-VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::Items();
+std::vector<dlib::sparse_ranking_pair> VectorOfSparse_ranking_pair::Items();
 AutoIt:
     $oVectorOfSparse_ranking_pair.Items() -> retval
 ```
@@ -19698,15 +19698,15 @@ AutoIt:
 ### VectorOfSparse\_ranking\_pair::push\_vector
 
 ```cpp
-void VectorOfSparse_ranking_pair::push_vector( VectorOfSparse_ranking_pair other );
+void VectorOfSparse_ranking_pair::push_vector( std::vector<dlib::sparse_ranking_pair> other );
 AutoIt:
     $oVectorOfSparse_ranking_pair.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfSparse_ranking_pair::push_vector( VectorOfSparse_ranking_pair other,
-                                               size_t                      count,
-                                               size_t                      start = 0 );
+void VectorOfSparse_ranking_pair::push_vector( std::vector<dlib::sparse_ranking_pair> other,
+                                               size_t                                 count,
+                                               size_t                                 start = 0 );
 AutoIt:
     $oVectorOfSparse_ranking_pair.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -19731,8 +19731,8 @@ AutoIt:
 ### VectorOfSparse\_ranking\_pair::slice
 
 ```cpp
-VectorOfSparse_ranking_pair VectorOfSparse_ranking_pair::slice( size_t start = 0,
-                                                                size_t count = __self->get()->size() );
+std::vector<dlib::sparse_ranking_pair> VectorOfSparse_ranking_pair::slice( size_t start = 0,
+                                                                           size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSparse_ranking_pair.slice( [$start[, $count]] ) -> retval
 ```
@@ -19778,19 +19778,19 @@ AutoIt:
 ### VectorOfDpoint::create
 
 ```cpp
-static VectorOfDpoint VectorOfDpoint::create();
+static std::vector<dlib::dpoint> VectorOfDpoint::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfDpoint").create() -> <VectorOfDpoint object>
 ```
 
 ```cpp
-static VectorOfDpoint VectorOfDpoint::create( size_t size );
+static std::vector<dlib::dpoint> VectorOfDpoint::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfDpoint").create( $size ) -> <VectorOfDpoint object>
 ```
 
 ```cpp
-static VectorOfDpoint VectorOfDpoint::create( VectorOfDpoint other );
+static std::vector<dlib::dpoint> VectorOfDpoint::create( std::vector<dlib::dpoint> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfDpoint").create( $other ) -> <VectorOfDpoint object>
 ```
@@ -19806,7 +19806,7 @@ AutoIt:
 ### VectorOfDpoint::IsInstance
 
 ```cpp
-static bool VectorOfDpoint::IsInstance( const VectorOfDpoint& obj );
+static bool VectorOfDpoint::IsInstance( const std::vector<dlib::dpoint>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfDpoint").IsInstance( $obj ) -> retval
 ```
@@ -19820,7 +19820,7 @@ AutoIt:
 ### VectorOfDpoint::Items
 
 ```cpp
-VectorOfDpoint VectorOfDpoint::Items();
+std::vector<dlib::dpoint> VectorOfDpoint::Items();
 AutoIt:
     $oVectorOfDpoint.Items() -> retval
 ```
@@ -19916,15 +19916,15 @@ AutoIt:
 ### VectorOfDpoint::push\_vector
 
 ```cpp
-void VectorOfDpoint::push_vector( VectorOfDpoint other );
+void VectorOfDpoint::push_vector( std::vector<dlib::dpoint> other );
 AutoIt:
     $oVectorOfDpoint.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfDpoint::push_vector( VectorOfDpoint other,
-                                  size_t         count,
-                                  size_t         start = 0 );
+void VectorOfDpoint::push_vector( std::vector<dlib::dpoint> other,
+                                  size_t                    count,
+                                  size_t                    start = 0 );
 AutoIt:
     $oVectorOfDpoint.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -19949,8 +19949,8 @@ AutoIt:
 ### VectorOfDpoint::slice
 
 ```cpp
-VectorOfDpoint VectorOfDpoint::slice( size_t start = 0,
-                                      size_t count = __self->get()->size() );
+std::vector<dlib::dpoint> VectorOfDpoint::slice( size_t start = 0,
+                                                 size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfDpoint.slice( [$start[, $count]] ) -> retval
 ```
@@ -19996,19 +19996,19 @@ AutoIt:
 ### VectorOfPoint::create
 
 ```cpp
-static VectorOfPoint VectorOfPoint::create();
+static std::vector<dlib::point> VectorOfPoint::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfPoint").create() -> <VectorOfPoint object>
 ```
 
 ```cpp
-static VectorOfPoint VectorOfPoint::create( size_t size );
+static std::vector<dlib::point> VectorOfPoint::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPoint").create( $size ) -> <VectorOfPoint object>
 ```
 
 ```cpp
-static VectorOfPoint VectorOfPoint::create( VectorOfPoint other );
+static std::vector<dlib::point> VectorOfPoint::create( std::vector<dlib::point> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPoint").create( $other ) -> <VectorOfPoint object>
 ```
@@ -20024,7 +20024,7 @@ AutoIt:
 ### VectorOfPoint::IsInstance
 
 ```cpp
-static bool VectorOfPoint::IsInstance( const VectorOfPoint& obj );
+static bool VectorOfPoint::IsInstance( const std::vector<dlib::point>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPoint").IsInstance( $obj ) -> retval
 ```
@@ -20038,7 +20038,7 @@ AutoIt:
 ### VectorOfPoint::Items
 
 ```cpp
-VectorOfPoint VectorOfPoint::Items();
+std::vector<dlib::point> VectorOfPoint::Items();
 AutoIt:
     $oVectorOfPoint.Items() -> retval
 ```
@@ -20134,15 +20134,15 @@ AutoIt:
 ### VectorOfPoint::push\_vector
 
 ```cpp
-void VectorOfPoint::push_vector( VectorOfPoint other );
+void VectorOfPoint::push_vector( std::vector<dlib::point> other );
 AutoIt:
     $oVectorOfPoint.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfPoint::push_vector( VectorOfPoint other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfPoint::push_vector( std::vector<dlib::point> other,
+                                 size_t                   count,
+                                 size_t                   start = 0 );
 AutoIt:
     $oVectorOfPoint.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -20167,8 +20167,8 @@ AutoIt:
 ### VectorOfPoint::slice
 
 ```cpp
-VectorOfPoint VectorOfPoint::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<dlib::point> VectorOfPoint::slice( size_t start = 0,
+                                               size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPoint.slice( [$start[, $count]] ) -> retval
 ```
@@ -20214,19 +20214,19 @@ AutoIt:
 ### VectorOfVectorOfDouble::create
 
 ```cpp
-static VectorOfVectorOfDouble VectorOfVectorOfDouble::create();
+static std::vector<std::vector<double>> VectorOfVectorOfDouble::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfDouble").create() -> <VectorOfVectorOfDouble object>
 ```
 
 ```cpp
-static VectorOfVectorOfDouble VectorOfVectorOfDouble::create( size_t size );
+static std::vector<std::vector<double>> VectorOfVectorOfDouble::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfDouble").create( $size ) -> <VectorOfVectorOfDouble object>
 ```
 
 ```cpp
-static VectorOfVectorOfDouble VectorOfVectorOfDouble::create( VectorOfVectorOfDouble other );
+static std::vector<std::vector<double>> VectorOfVectorOfDouble::create( std::vector<std::vector<double>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfDouble").create( $other ) -> <VectorOfVectorOfDouble object>
 ```
@@ -20242,7 +20242,7 @@ AutoIt:
 ### VectorOfVectorOfDouble::IsInstance
 
 ```cpp
-static bool VectorOfVectorOfDouble::IsInstance( const VectorOfVectorOfDouble& obj );
+static bool VectorOfVectorOfDouble::IsInstance( const std::vector<std::vector<double>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfDouble").IsInstance( $obj ) -> retval
 ```
@@ -20256,7 +20256,7 @@ AutoIt:
 ### VectorOfVectorOfDouble::Items
 
 ```cpp
-VectorOfVectorOfDouble VectorOfVectorOfDouble::Items();
+std::vector<std::vector<double>> VectorOfVectorOfDouble::Items();
 AutoIt:
     $oVectorOfVectorOfDouble.Items() -> retval
 ```
@@ -20352,15 +20352,15 @@ AutoIt:
 ### VectorOfVectorOfDouble::push\_vector
 
 ```cpp
-void VectorOfVectorOfDouble::push_vector( VectorOfVectorOfDouble other );
+void VectorOfVectorOfDouble::push_vector( std::vector<std::vector<double>> other );
 AutoIt:
     $oVectorOfVectorOfDouble.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVectorOfDouble::push_vector( VectorOfVectorOfDouble other,
-                                          size_t                 count,
-                                          size_t                 start = 0 );
+void VectorOfVectorOfDouble::push_vector( std::vector<std::vector<double>> other,
+                                          size_t                           count,
+                                          size_t                           start = 0 );
 AutoIt:
     $oVectorOfVectorOfDouble.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -20385,8 +20385,8 @@ AutoIt:
 ### VectorOfVectorOfDouble::slice
 
 ```cpp
-VectorOfVectorOfDouble VectorOfVectorOfDouble::slice( size_t start = 0,
-                                                      size_t count = __self->get()->size() );
+std::vector<std::vector<double>> VectorOfVectorOfDouble::slice( size_t start = 0,
+                                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfDouble.slice( [$start[, $count]] ) -> retval
 ```
@@ -20432,19 +20432,19 @@ AutoIt:
 ### VectorOfMmod\_rect::create
 
 ```cpp
-static VectorOfMmod_rect VectorOfMmod_rect::create();
+static std::vector<dlib::mmod_rect> VectorOfMmod_rect::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfMmod_rect").create() -> <VectorOfMmod_rect object>
 ```
 
 ```cpp
-static VectorOfMmod_rect VectorOfMmod_rect::create( size_t size );
+static std::vector<dlib::mmod_rect> VectorOfMmod_rect::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfMmod_rect").create( $size ) -> <VectorOfMmod_rect object>
 ```
 
 ```cpp
-static VectorOfMmod_rect VectorOfMmod_rect::create( VectorOfMmod_rect other );
+static std::vector<dlib::mmod_rect> VectorOfMmod_rect::create( std::vector<dlib::mmod_rect> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfMmod_rect").create( $other ) -> <VectorOfMmod_rect object>
 ```
@@ -20460,7 +20460,7 @@ AutoIt:
 ### VectorOfMmod\_rect::IsInstance
 
 ```cpp
-static bool VectorOfMmod_rect::IsInstance( const VectorOfMmod_rect& obj );
+static bool VectorOfMmod_rect::IsInstance( const std::vector<dlib::mmod_rect>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfMmod_rect").IsInstance( $obj ) -> retval
 ```
@@ -20474,7 +20474,7 @@ AutoIt:
 ### VectorOfMmod\_rect::Items
 
 ```cpp
-VectorOfMmod_rect VectorOfMmod_rect::Items();
+std::vector<dlib::mmod_rect> VectorOfMmod_rect::Items();
 AutoIt:
     $oVectorOfMmod_rect.Items() -> retval
 ```
@@ -20570,15 +20570,15 @@ AutoIt:
 ### VectorOfMmod\_rect::push\_vector
 
 ```cpp
-void VectorOfMmod_rect::push_vector( VectorOfMmod_rect other );
+void VectorOfMmod_rect::push_vector( std::vector<dlib::mmod_rect> other );
 AutoIt:
     $oVectorOfMmod_rect.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfMmod_rect::push_vector( VectorOfMmod_rect other,
-                                     size_t            count,
-                                     size_t            start = 0 );
+void VectorOfMmod_rect::push_vector( std::vector<dlib::mmod_rect> other,
+                                     size_t                       count,
+                                     size_t                       start = 0 );
 AutoIt:
     $oVectorOfMmod_rect.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -20603,8 +20603,8 @@ AutoIt:
 ### VectorOfMmod\_rect::slice
 
 ```cpp
-VectorOfMmod_rect VectorOfMmod_rect::slice( size_t start = 0,
-                                            size_t count = __self->get()->size() );
+std::vector<dlib::mmod_rect> VectorOfMmod_rect::slice( size_t start = 0,
+                                                       size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfMmod_rect.slice( [$start[, $count]] ) -> retval
 ```
@@ -20650,19 +20650,19 @@ AutoIt:
 ### VectorOfVectorOfMmod\_rect::create
 
 ```cpp
-static VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::create();
+static std::vector<std::vector<dlib::mmod_rect>> VectorOfVectorOfMmod_rect::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").create() -> <VectorOfVectorOfMmod_rect object>
 ```
 
 ```cpp
-static VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::create( size_t size );
+static std::vector<std::vector<dlib::mmod_rect>> VectorOfVectorOfMmod_rect::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").create( $size ) -> <VectorOfVectorOfMmod_rect object>
 ```
 
 ```cpp
-static VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::create( VectorOfVectorOfMmod_rect other );
+static std::vector<std::vector<dlib::mmod_rect>> VectorOfVectorOfMmod_rect::create( std::vector<std::vector<dlib::mmod_rect>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").create( $other ) -> <VectorOfVectorOfMmod_rect object>
 ```
@@ -20678,7 +20678,7 @@ AutoIt:
 ### VectorOfVectorOfMmod\_rect::IsInstance
 
 ```cpp
-static bool VectorOfVectorOfMmod_rect::IsInstance( const VectorOfVectorOfMmod_rect& obj );
+static bool VectorOfVectorOfMmod_rect::IsInstance( const std::vector<std::vector<dlib::mmod_rect>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfMmod_rect").IsInstance( $obj ) -> retval
 ```
@@ -20692,7 +20692,7 @@ AutoIt:
 ### VectorOfVectorOfMmod\_rect::Items
 
 ```cpp
-VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::Items();
+std::vector<std::vector<dlib::mmod_rect>> VectorOfVectorOfMmod_rect::Items();
 AutoIt:
     $oVectorOfVectorOfMmod_rect.Items() -> retval
 ```
@@ -20788,15 +20788,15 @@ AutoIt:
 ### VectorOfVectorOfMmod\_rect::push\_vector
 
 ```cpp
-void VectorOfVectorOfMmod_rect::push_vector( VectorOfVectorOfMmod_rect other );
+void VectorOfVectorOfMmod_rect::push_vector( std::vector<std::vector<dlib::mmod_rect>> other );
 AutoIt:
     $oVectorOfVectorOfMmod_rect.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVectorOfMmod_rect::push_vector( VectorOfVectorOfMmod_rect other,
-                                             size_t                    count,
-                                             size_t                    start = 0 );
+void VectorOfVectorOfMmod_rect::push_vector( std::vector<std::vector<dlib::mmod_rect>> other,
+                                             size_t                                    count,
+                                             size_t                                    start = 0 );
 AutoIt:
     $oVectorOfVectorOfMmod_rect.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -20821,8 +20821,8 @@ AutoIt:
 ### VectorOfVectorOfMmod\_rect::slice
 
 ```cpp
-VectorOfVectorOfMmod_rect VectorOfVectorOfMmod_rect::slice( size_t start = 0,
-                                                            size_t count = __self->get()->size() );
+std::vector<std::vector<dlib::mmod_rect>> VectorOfVectorOfMmod_rect::slice( size_t start = 0,
+                                                                            size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfMmod_rect.slice( [$start[, $count]] ) -> retval
 ```
@@ -20868,19 +20868,19 @@ AutoIt:
 ### VectorOfSimple\_object\_detector\_com::create
 
 ```cpp
-static VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::create();
+static std::vector<dlib::simple_object_detector_com> VectorOfSimple_object_detector_com::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfSimple_object_detector_com").create() -> <VectorOfSimple_object_detector_com object>
 ```
 
 ```cpp
-static VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::create( size_t size );
+static std::vector<dlib::simple_object_detector_com> VectorOfSimple_object_detector_com::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSimple_object_detector_com").create( $size ) -> <VectorOfSimple_object_detector_com object>
 ```
 
 ```cpp
-static VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::create( VectorOfSimple_object_detector_com other );
+static std::vector<dlib::simple_object_detector_com> VectorOfSimple_object_detector_com::create( std::vector<dlib::simple_object_detector_com> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSimple_object_detector_com").create( $other ) -> <VectorOfSimple_object_detector_com object>
 ```
@@ -20896,7 +20896,7 @@ AutoIt:
 ### VectorOfSimple\_object\_detector\_com::IsInstance
 
 ```cpp
-static bool VectorOfSimple_object_detector_com::IsInstance( const VectorOfSimple_object_detector_com& obj );
+static bool VectorOfSimple_object_detector_com::IsInstance( const std::vector<dlib::simple_object_detector_com>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSimple_object_detector_com").IsInstance( $obj ) -> retval
 ```
@@ -20910,7 +20910,7 @@ AutoIt:
 ### VectorOfSimple\_object\_detector\_com::Items
 
 ```cpp
-VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::Items();
+std::vector<dlib::simple_object_detector_com> VectorOfSimple_object_detector_com::Items();
 AutoIt:
     $oVectorOfSimple_object_detector_com.Items() -> retval
 ```
@@ -21006,15 +21006,15 @@ AutoIt:
 ### VectorOfSimple\_object\_detector\_com::push\_vector
 
 ```cpp
-void VectorOfSimple_object_detector_com::push_vector( VectorOfSimple_object_detector_com other );
+void VectorOfSimple_object_detector_com::push_vector( std::vector<dlib::simple_object_detector_com> other );
 AutoIt:
     $oVectorOfSimple_object_detector_com.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfSimple_object_detector_com::push_vector( VectorOfSimple_object_detector_com other,
-                                                      size_t                             count,
-                                                      size_t                             start = 0 );
+void VectorOfSimple_object_detector_com::push_vector( std::vector<dlib::simple_object_detector_com> other,
+                                                      size_t                                        count,
+                                                      size_t                                        start = 0 );
 AutoIt:
     $oVectorOfSimple_object_detector_com.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -21039,8 +21039,8 @@ AutoIt:
 ### VectorOfSimple\_object\_detector\_com::slice
 
 ```cpp
-VectorOfSimple_object_detector_com VectorOfSimple_object_detector_com::slice( size_t start = 0,
-                                                                              size_t count = __self->get()->size() );
+std::vector<dlib::simple_object_detector_com> VectorOfSimple_object_detector_com::slice( size_t start = 0,
+                                                                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSimple_object_detector_com.slice( [$start[, $count]] ) -> retval
 ```
@@ -21086,19 +21086,19 @@ AutoIt:
 ### VectorOfFhog\_object\_detector::create
 
 ```cpp
-static VectorOfFhog_object_detector VectorOfFhog_object_detector::create();
+static std::vector<dlib::fhog_object_detector> VectorOfFhog_object_detector::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfFhog_object_detector").create() -> <VectorOfFhog_object_detector object>
 ```
 
 ```cpp
-static VectorOfFhog_object_detector VectorOfFhog_object_detector::create( size_t size );
+static std::vector<dlib::fhog_object_detector> VectorOfFhog_object_detector::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFhog_object_detector").create( $size ) -> <VectorOfFhog_object_detector object>
 ```
 
 ```cpp
-static VectorOfFhog_object_detector VectorOfFhog_object_detector::create( VectorOfFhog_object_detector other );
+static std::vector<dlib::fhog_object_detector> VectorOfFhog_object_detector::create( std::vector<dlib::fhog_object_detector> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFhog_object_detector").create( $other ) -> <VectorOfFhog_object_detector object>
 ```
@@ -21114,7 +21114,7 @@ AutoIt:
 ### VectorOfFhog\_object\_detector::IsInstance
 
 ```cpp
-static bool VectorOfFhog_object_detector::IsInstance( const VectorOfFhog_object_detector& obj );
+static bool VectorOfFhog_object_detector::IsInstance( const std::vector<dlib::fhog_object_detector>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFhog_object_detector").IsInstance( $obj ) -> retval
 ```
@@ -21128,7 +21128,7 @@ AutoIt:
 ### VectorOfFhog\_object\_detector::Items
 
 ```cpp
-VectorOfFhog_object_detector VectorOfFhog_object_detector::Items();
+std::vector<dlib::fhog_object_detector> VectorOfFhog_object_detector::Items();
 AutoIt:
     $oVectorOfFhog_object_detector.Items() -> retval
 ```
@@ -21224,15 +21224,15 @@ AutoIt:
 ### VectorOfFhog\_object\_detector::push\_vector
 
 ```cpp
-void VectorOfFhog_object_detector::push_vector( VectorOfFhog_object_detector other );
+void VectorOfFhog_object_detector::push_vector( std::vector<dlib::fhog_object_detector> other );
 AutoIt:
     $oVectorOfFhog_object_detector.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfFhog_object_detector::push_vector( VectorOfFhog_object_detector other,
-                                                size_t                       count,
-                                                size_t                       start = 0 );
+void VectorOfFhog_object_detector::push_vector( std::vector<dlib::fhog_object_detector> other,
+                                                size_t                                  count,
+                                                size_t                                  start = 0 );
 AutoIt:
     $oVectorOfFhog_object_detector.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -21257,8 +21257,8 @@ AutoIt:
 ### VectorOfFhog\_object\_detector::slice
 
 ```cpp
-VectorOfFhog_object_detector VectorOfFhog_object_detector::slice( size_t start = 0,
-                                                                  size_t count = __self->get()->size() );
+std::vector<dlib::fhog_object_detector> VectorOfFhog_object_detector::slice( size_t start = 0,
+                                                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFhog_object_detector.slice( [$start[, $count]] ) -> retval
 ```
@@ -21304,19 +21304,19 @@ AutoIt:
 ### VectorOfUchar::create
 
 ```cpp
-static VectorOfUchar VectorOfUchar::create();
+static std::vector<uchar> VectorOfUchar::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfUchar").create() -> <VectorOfUchar object>
 ```
 
 ```cpp
-static VectorOfUchar VectorOfUchar::create( size_t size );
+static std::vector<uchar> VectorOfUchar::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfUchar").create( $size ) -> <VectorOfUchar object>
 ```
 
 ```cpp
-static VectorOfUchar VectorOfUchar::create( VectorOfUchar other );
+static std::vector<uchar> VectorOfUchar::create( std::vector<uchar> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfUchar").create( $other ) -> <VectorOfUchar object>
 ```
@@ -21332,7 +21332,7 @@ AutoIt:
 ### VectorOfUchar::IsInstance
 
 ```cpp
-static bool VectorOfUchar::IsInstance( const VectorOfUchar& obj );
+static bool VectorOfUchar::IsInstance( const std::vector<uchar>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfUchar").IsInstance( $obj ) -> retval
 ```
@@ -21346,7 +21346,7 @@ AutoIt:
 ### VectorOfUchar::Items
 
 ```cpp
-VectorOfUchar VectorOfUchar::Items();
+std::vector<uchar> VectorOfUchar::Items();
 AutoIt:
     $oVectorOfUchar.Items() -> retval
 ```
@@ -21442,15 +21442,15 @@ AutoIt:
 ### VectorOfUchar::push\_vector
 
 ```cpp
-void VectorOfUchar::push_vector( VectorOfUchar other );
+void VectorOfUchar::push_vector( std::vector<uchar> other );
 AutoIt:
     $oVectorOfUchar.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfUchar::push_vector( VectorOfUchar other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfUchar::push_vector( std::vector<uchar> other,
+                                 size_t             count,
+                                 size_t             start = 0 );
 AutoIt:
     $oVectorOfUchar.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -21475,8 +21475,8 @@ AutoIt:
 ### VectorOfUchar::slice
 
 ```cpp
-VectorOfUchar VectorOfUchar::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<uchar> VectorOfUchar::slice( size_t start = 0,
+                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfUchar.slice( [$start[, $count]] ) -> retval
 ```
@@ -21522,19 +21522,19 @@ AutoIt:
 ### VectorOfInt::create
 
 ```cpp
-static VectorOfInt VectorOfInt::create();
+static std::vector<int> VectorOfInt::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfInt").create() -> <VectorOfInt object>
 ```
 
 ```cpp
-static VectorOfInt VectorOfInt::create( size_t size );
+static std::vector<int> VectorOfInt::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfInt").create( $size ) -> <VectorOfInt object>
 ```
 
 ```cpp
-static VectorOfInt VectorOfInt::create( VectorOfInt other );
+static std::vector<int> VectorOfInt::create( std::vector<int> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfInt").create( $other ) -> <VectorOfInt object>
 ```
@@ -21550,7 +21550,7 @@ AutoIt:
 ### VectorOfInt::IsInstance
 
 ```cpp
-static bool VectorOfInt::IsInstance( const VectorOfInt& obj );
+static bool VectorOfInt::IsInstance( const std::vector<int>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfInt").IsInstance( $obj ) -> retval
 ```
@@ -21564,7 +21564,7 @@ AutoIt:
 ### VectorOfInt::Items
 
 ```cpp
-VectorOfInt VectorOfInt::Items();
+std::vector<int> VectorOfInt::Items();
 AutoIt:
     $oVectorOfInt.Items() -> retval
 ```
@@ -21660,15 +21660,15 @@ AutoIt:
 ### VectorOfInt::push\_vector
 
 ```cpp
-void VectorOfInt::push_vector( VectorOfInt other );
+void VectorOfInt::push_vector( std::vector<int> other );
 AutoIt:
     $oVectorOfInt.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfInt::push_vector( VectorOfInt other,
-                               size_t      count,
-                               size_t      start = 0 );
+void VectorOfInt::push_vector( std::vector<int> other,
+                               size_t           count,
+                               size_t           start = 0 );
 AutoIt:
     $oVectorOfInt.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -21693,8 +21693,8 @@ AutoIt:
 ### VectorOfInt::slice
 
 ```cpp
-VectorOfInt VectorOfInt::slice( size_t start = 0,
-                                size_t count = __self->get()->size() );
+std::vector<int> VectorOfInt::slice( size_t start = 0,
+                                     size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfInt.slice( [$start[, $count]] ) -> retval
 ```
@@ -21740,19 +21740,19 @@ AutoIt:
 ### VectorOfFunction\_spec::create
 
 ```cpp
-static VectorOfFunction_spec VectorOfFunction_spec::create();
+static std::vector<dlib::function_spec> VectorOfFunction_spec::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_spec").create() -> <VectorOfFunction_spec object>
 ```
 
 ```cpp
-static VectorOfFunction_spec VectorOfFunction_spec::create( size_t size );
+static std::vector<dlib::function_spec> VectorOfFunction_spec::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_spec").create( $size ) -> <VectorOfFunction_spec object>
 ```
 
 ```cpp
-static VectorOfFunction_spec VectorOfFunction_spec::create( VectorOfFunction_spec other );
+static std::vector<dlib::function_spec> VectorOfFunction_spec::create( std::vector<dlib::function_spec> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_spec").create( $other ) -> <VectorOfFunction_spec object>
 ```
@@ -21768,7 +21768,7 @@ AutoIt:
 ### VectorOfFunction\_spec::IsInstance
 
 ```cpp
-static bool VectorOfFunction_spec::IsInstance( const VectorOfFunction_spec& obj );
+static bool VectorOfFunction_spec::IsInstance( const std::vector<dlib::function_spec>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_spec").IsInstance( $obj ) -> retval
 ```
@@ -21782,7 +21782,7 @@ AutoIt:
 ### VectorOfFunction\_spec::Items
 
 ```cpp
-VectorOfFunction_spec VectorOfFunction_spec::Items();
+std::vector<dlib::function_spec> VectorOfFunction_spec::Items();
 AutoIt:
     $oVectorOfFunction_spec.Items() -> retval
 ```
@@ -21878,15 +21878,15 @@ AutoIt:
 ### VectorOfFunction\_spec::push\_vector
 
 ```cpp
-void VectorOfFunction_spec::push_vector( VectorOfFunction_spec other );
+void VectorOfFunction_spec::push_vector( std::vector<dlib::function_spec> other );
 AutoIt:
     $oVectorOfFunction_spec.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfFunction_spec::push_vector( VectorOfFunction_spec other,
-                                         size_t                count,
-                                         size_t                start = 0 );
+void VectorOfFunction_spec::push_vector( std::vector<dlib::function_spec> other,
+                                         size_t                           count,
+                                         size_t                           start = 0 );
 AutoIt:
     $oVectorOfFunction_spec.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -21911,8 +21911,8 @@ AutoIt:
 ### VectorOfFunction\_spec::slice
 
 ```cpp
-VectorOfFunction_spec VectorOfFunction_spec::slice( size_t start = 0,
-                                                    size_t count = __self->get()->size() );
+std::vector<dlib::function_spec> VectorOfFunction_spec::slice( size_t start = 0,
+                                                               size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFunction_spec.slice( [$start[, $count]] ) -> retval
 ```
@@ -21958,19 +21958,19 @@ AutoIt:
 ### VectorOfFunction\_evaluation::create
 
 ```cpp
-static VectorOfFunction_evaluation VectorOfFunction_evaluation::create();
+static std::vector<dlib::function_evaluation> VectorOfFunction_evaluation::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_evaluation").create() -> <VectorOfFunction_evaluation object>
 ```
 
 ```cpp
-static VectorOfFunction_evaluation VectorOfFunction_evaluation::create( size_t size );
+static std::vector<dlib::function_evaluation> VectorOfFunction_evaluation::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_evaluation").create( $size ) -> <VectorOfFunction_evaluation object>
 ```
 
 ```cpp
-static VectorOfFunction_evaluation VectorOfFunction_evaluation::create( VectorOfFunction_evaluation other );
+static std::vector<dlib::function_evaluation> VectorOfFunction_evaluation::create( std::vector<dlib::function_evaluation> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_evaluation").create( $other ) -> <VectorOfFunction_evaluation object>
 ```
@@ -21986,7 +21986,7 @@ AutoIt:
 ### VectorOfFunction\_evaluation::IsInstance
 
 ```cpp
-static bool VectorOfFunction_evaluation::IsInstance( const VectorOfFunction_evaluation& obj );
+static bool VectorOfFunction_evaluation::IsInstance( const std::vector<dlib::function_evaluation>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFunction_evaluation").IsInstance( $obj ) -> retval
 ```
@@ -22000,7 +22000,7 @@ AutoIt:
 ### VectorOfFunction\_evaluation::Items
 
 ```cpp
-VectorOfFunction_evaluation VectorOfFunction_evaluation::Items();
+std::vector<dlib::function_evaluation> VectorOfFunction_evaluation::Items();
 AutoIt:
     $oVectorOfFunction_evaluation.Items() -> retval
 ```
@@ -22096,15 +22096,15 @@ AutoIt:
 ### VectorOfFunction\_evaluation::push\_vector
 
 ```cpp
-void VectorOfFunction_evaluation::push_vector( VectorOfFunction_evaluation other );
+void VectorOfFunction_evaluation::push_vector( std::vector<dlib::function_evaluation> other );
 AutoIt:
     $oVectorOfFunction_evaluation.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfFunction_evaluation::push_vector( VectorOfFunction_evaluation other,
-                                               size_t                      count,
-                                               size_t                      start = 0 );
+void VectorOfFunction_evaluation::push_vector( std::vector<dlib::function_evaluation> other,
+                                               size_t                                 count,
+                                               size_t                                 start = 0 );
 AutoIt:
     $oVectorOfFunction_evaluation.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -22129,8 +22129,8 @@ AutoIt:
 ### VectorOfFunction\_evaluation::slice
 
 ```cpp
-VectorOfFunction_evaluation VectorOfFunction_evaluation::slice( size_t start = 0,
-                                                                size_t count = __self->get()->size() );
+std::vector<dlib::function_evaluation> VectorOfFunction_evaluation::slice( size_t start = 0,
+                                                                           size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFunction_evaluation.slice( [$start[, $count]] ) -> retval
 ```
@@ -22176,19 +22176,19 @@ AutoIt:
 ### VectorOfVectorOfFunction\_evaluation::create
 
 ```cpp
-static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create();
+static std::vector<std::vector<dlib::function_evaluation>> VectorOfVectorOfFunction_evaluation::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create() -> <VectorOfVectorOfFunction_evaluation object>
 ```
 
 ```cpp
-static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create( size_t size );
+static std::vector<std::vector<dlib::function_evaluation>> VectorOfVectorOfFunction_evaluation::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create( $size ) -> <VectorOfVectorOfFunction_evaluation object>
 ```
 
 ```cpp
-static VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::create( VectorOfVectorOfFunction_evaluation other );
+static std::vector<std::vector<dlib::function_evaluation>> VectorOfVectorOfFunction_evaluation::create( std::vector<std::vector<dlib::function_evaluation>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").create( $other ) -> <VectorOfVectorOfFunction_evaluation object>
 ```
@@ -22204,7 +22204,7 @@ AutoIt:
 ### VectorOfVectorOfFunction\_evaluation::IsInstance
 
 ```cpp
-static bool VectorOfVectorOfFunction_evaluation::IsInstance( const VectorOfVectorOfFunction_evaluation& obj );
+static bool VectorOfVectorOfFunction_evaluation::IsInstance( const std::vector<std::vector<dlib::function_evaluation>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVectorOfFunction_evaluation").IsInstance( $obj ) -> retval
 ```
@@ -22218,7 +22218,7 @@ AutoIt:
 ### VectorOfVectorOfFunction\_evaluation::Items
 
 ```cpp
-VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::Items();
+std::vector<std::vector<dlib::function_evaluation>> VectorOfVectorOfFunction_evaluation::Items();
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.Items() -> retval
 ```
@@ -22314,15 +22314,15 @@ AutoIt:
 ### VectorOfVectorOfFunction\_evaluation::push\_vector
 
 ```cpp
-void VectorOfVectorOfFunction_evaluation::push_vector( VectorOfVectorOfFunction_evaluation other );
+void VectorOfVectorOfFunction_evaluation::push_vector( std::vector<std::vector<dlib::function_evaluation>> other );
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVectorOfFunction_evaluation::push_vector( VectorOfVectorOfFunction_evaluation other,
-                                                       size_t                              count,
-                                                       size_t                              start = 0 );
+void VectorOfVectorOfFunction_evaluation::push_vector( std::vector<std::vector<dlib::function_evaluation>> other,
+                                                       size_t                                              count,
+                                                       size_t                                              start = 0 );
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -22347,8 +22347,8 @@ AutoIt:
 ### VectorOfVectorOfFunction\_evaluation::slice
 
 ```cpp
-VectorOfVectorOfFunction_evaluation VectorOfVectorOfFunction_evaluation::slice( size_t start = 0,
-                                                                                size_t count = __self->get()->size() );
+std::vector<std::vector<dlib::function_evaluation>> VectorOfVectorOfFunction_evaluation::slice( size_t start = 0,
+                                                                                                size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVectorOfFunction_evaluation.slice( [$start[, $count]] ) -> retval
 ```
@@ -22394,19 +22394,19 @@ AutoIt:
 ### VectorOfDrectangle::create
 
 ```cpp
-static VectorOfDrectangle VectorOfDrectangle::create();
+static std::vector<dlib::drectangle> VectorOfDrectangle::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfDrectangle").create() -> <VectorOfDrectangle object>
 ```
 
 ```cpp
-static VectorOfDrectangle VectorOfDrectangle::create( size_t size );
+static std::vector<dlib::drectangle> VectorOfDrectangle::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfDrectangle").create( $size ) -> <VectorOfDrectangle object>
 ```
 
 ```cpp
-static VectorOfDrectangle VectorOfDrectangle::create( VectorOfDrectangle other );
+static std::vector<dlib::drectangle> VectorOfDrectangle::create( std::vector<dlib::drectangle> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfDrectangle").create( $other ) -> <VectorOfDrectangle object>
 ```
@@ -22422,7 +22422,7 @@ AutoIt:
 ### VectorOfDrectangle::IsInstance
 
 ```cpp
-static bool VectorOfDrectangle::IsInstance( const VectorOfDrectangle& obj );
+static bool VectorOfDrectangle::IsInstance( const std::vector<dlib::drectangle>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfDrectangle").IsInstance( $obj ) -> retval
 ```
@@ -22436,7 +22436,7 @@ AutoIt:
 ### VectorOfDrectangle::Items
 
 ```cpp
-VectorOfDrectangle VectorOfDrectangle::Items();
+std::vector<dlib::drectangle> VectorOfDrectangle::Items();
 AutoIt:
     $oVectorOfDrectangle.Items() -> retval
 ```
@@ -22532,15 +22532,15 @@ AutoIt:
 ### VectorOfDrectangle::push\_vector
 
 ```cpp
-void VectorOfDrectangle::push_vector( VectorOfDrectangle other );
+void VectorOfDrectangle::push_vector( std::vector<dlib::drectangle> other );
 AutoIt:
     $oVectorOfDrectangle.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfDrectangle::push_vector( VectorOfDrectangle other,
-                                      size_t             count,
-                                      size_t             start = 0 );
+void VectorOfDrectangle::push_vector( std::vector<dlib::drectangle> other,
+                                      size_t                        count,
+                                      size_t                        start = 0 );
 AutoIt:
     $oVectorOfDrectangle.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -22565,8 +22565,8 @@ AutoIt:
 ### VectorOfDrectangle::slice
 
 ```cpp
-VectorOfDrectangle VectorOfDrectangle::slice( size_t start = 0,
-                                              size_t count = __self->get()->size() );
+std::vector<dlib::drectangle> VectorOfDrectangle::slice( size_t start = 0,
+                                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfDrectangle.slice( [$start[, $count]] ) -> retval
 ```
@@ -22612,19 +22612,19 @@ AutoIt:
 ### VectorOfImage\_window\_keyboard\_state\_masks::create
 
 ```cpp
-static VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::create();
+static std::vector<dlib::image_window::keyboard_state_masks> VectorOfImage_window_keyboard_state_masks::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_window_keyboard_state_masks").create() -> <VectorOfImage_window_keyboard_state_masks object>
 ```
 
 ```cpp
-static VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::create( size_t size );
+static std::vector<dlib::image_window::keyboard_state_masks> VectorOfImage_window_keyboard_state_masks::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_window_keyboard_state_masks").create( $size ) -> <VectorOfImage_window_keyboard_state_masks object>
 ```
 
 ```cpp
-static VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::create( VectorOfImage_window_keyboard_state_masks other );
+static std::vector<dlib::image_window::keyboard_state_masks> VectorOfImage_window_keyboard_state_masks::create( std::vector<dlib::image_window::keyboard_state_masks> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_window_keyboard_state_masks").create( $other ) -> <VectorOfImage_window_keyboard_state_masks object>
 ```
@@ -22640,7 +22640,7 @@ AutoIt:
 ### VectorOfImage\_window\_keyboard\_state\_masks::IsInstance
 
 ```cpp
-static bool VectorOfImage_window_keyboard_state_masks::IsInstance( const VectorOfImage_window_keyboard_state_masks& obj );
+static bool VectorOfImage_window_keyboard_state_masks::IsInstance( const std::vector<dlib::image_window::keyboard_state_masks>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_window_keyboard_state_masks").IsInstance( $obj ) -> retval
 ```
@@ -22654,7 +22654,7 @@ AutoIt:
 ### VectorOfImage\_window\_keyboard\_state\_masks::Items
 
 ```cpp
-VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::Items();
+std::vector<dlib::image_window::keyboard_state_masks> VectorOfImage_window_keyboard_state_masks::Items();
 AutoIt:
     $oVectorOfImage_window_keyboard_state_masks.Items() -> retval
 ```
@@ -22750,15 +22750,15 @@ AutoIt:
 ### VectorOfImage\_window\_keyboard\_state\_masks::push\_vector
 
 ```cpp
-void VectorOfImage_window_keyboard_state_masks::push_vector( VectorOfImage_window_keyboard_state_masks other );
+void VectorOfImage_window_keyboard_state_masks::push_vector( std::vector<dlib::image_window::keyboard_state_masks> other );
 AutoIt:
     $oVectorOfImage_window_keyboard_state_masks.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfImage_window_keyboard_state_masks::push_vector( VectorOfImage_window_keyboard_state_masks other,
-                                                             size_t                                    count,
-                                                             size_t                                    start = 0 );
+void VectorOfImage_window_keyboard_state_masks::push_vector( std::vector<dlib::image_window::keyboard_state_masks> other,
+                                                             size_t                                                count,
+                                                             size_t                                                start = 0 );
 AutoIt:
     $oVectorOfImage_window_keyboard_state_masks.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -22783,8 +22783,8 @@ AutoIt:
 ### VectorOfImage\_window\_keyboard\_state\_masks::slice
 
 ```cpp
-VectorOfImage_window_keyboard_state_masks VectorOfImage_window_keyboard_state_masks::slice( size_t start = 0,
-                                                                                            size_t count = __self->get()->size() );
+std::vector<dlib::image_window::keyboard_state_masks> VectorOfImage_window_keyboard_state_masks::slice( size_t start = 0,
+                                                                                                        size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfImage_window_keyboard_state_masks.slice( [$start[, $count]] ) -> retval
 ```
@@ -22822,13 +22822,13 @@ AutoIt:
 ### MapOfStringAndPoint::create
 
 ```cpp
-static MapOfStringAndPoint MapOfStringAndPoint::create();
+static std::map<std::string, dlib::point> MapOfStringAndPoint::create();
 AutoIt:
     _Dlib_ObjCreate("MapOfStringAndPoint").create() -> <MapOfStringAndPoint object>
 ```
 
 ```cpp
-static std::shared_ptr<MapOfStringAndPoint> MapOfStringAndPoint::create( std::vector<std::pair<std::string, dlib::point>> pairs );
+static std::shared_ptr<std::map<std::string, dlib::point>> MapOfStringAndPoint::create( std::vector<std::pair<std::string, dlib::point>> pairs );
 AutoIt:
     _Dlib_ObjCreate("MapOfStringAndPoint").create( $pairs ) -> retval
 ```
@@ -22853,7 +22853,7 @@ AutoIt:
 ### MapOfStringAndPoint::IsInstance
 
 ```cpp
-static bool MapOfStringAndPoint::IsInstance( const MapOfStringAndPoint& obj );
+static bool MapOfStringAndPoint::IsInstance( const std::map<std::string, dlib::point>& obj );
 AutoIt:
     _Dlib_ObjCreate("MapOfStringAndPoint").IsInstance( $obj ) -> retval
 ```
@@ -22964,7 +22964,7 @@ AutoIt:
 ### MapOfStringAndPoint::merge
 
 ```cpp
-void MapOfStringAndPoint::merge( MapOfStringAndPoint other );
+void MapOfStringAndPoint::merge( std::map<std::string, dlib::point> other );
 AutoIt:
     $oMapOfStringAndPoint.merge( $other ) -> None
 ```
@@ -22999,19 +22999,19 @@ AutoIt:
 ### VectorOfPairOfStringAndPoint::create
 
 ```cpp
-static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create();
+static std::vector<std::pair<std::string, dlib::point>> VectorOfPairOfStringAndPoint::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create() -> <VectorOfPairOfStringAndPoint object>
 ```
 
 ```cpp
-static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create( size_t size );
+static std::vector<std::pair<std::string, dlib::point>> VectorOfPairOfStringAndPoint::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create( $size ) -> <VectorOfPairOfStringAndPoint object>
 ```
 
 ```cpp
-static VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::create( VectorOfPairOfStringAndPoint other );
+static std::vector<std::pair<std::string, dlib::point>> VectorOfPairOfStringAndPoint::create( std::vector<std::pair<std::string, dlib::point>> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").create( $other ) -> <VectorOfPairOfStringAndPoint object>
 ```
@@ -23027,7 +23027,7 @@ AutoIt:
 ### VectorOfPairOfStringAndPoint::IsInstance
 
 ```cpp
-static bool VectorOfPairOfStringAndPoint::IsInstance( const VectorOfPairOfStringAndPoint& obj );
+static bool VectorOfPairOfStringAndPoint::IsInstance( const std::vector<std::pair<std::string, dlib::point>>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfPairOfStringAndPoint").IsInstance( $obj ) -> retval
 ```
@@ -23041,7 +23041,7 @@ AutoIt:
 ### VectorOfPairOfStringAndPoint::Items
 
 ```cpp
-VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::Items();
+std::vector<std::pair<std::string, dlib::point>> VectorOfPairOfStringAndPoint::Items();
 AutoIt:
     $oVectorOfPairOfStringAndPoint.Items() -> retval
 ```
@@ -23137,15 +23137,15 @@ AutoIt:
 ### VectorOfPairOfStringAndPoint::push\_vector
 
 ```cpp
-void VectorOfPairOfStringAndPoint::push_vector( VectorOfPairOfStringAndPoint other );
+void VectorOfPairOfStringAndPoint::push_vector( std::vector<std::pair<std::string, dlib::point>> other );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfPairOfStringAndPoint::push_vector( VectorOfPairOfStringAndPoint other,
-                                                size_t                       count,
-                                                size_t                       start = 0 );
+void VectorOfPairOfStringAndPoint::push_vector( std::vector<std::pair<std::string, dlib::point>> other,
+                                                size_t                                           count,
+                                                size_t                                           start = 0 );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -23170,8 +23170,8 @@ AutoIt:
 ### VectorOfPairOfStringAndPoint::slice
 
 ```cpp
-VectorOfPairOfStringAndPoint VectorOfPairOfStringAndPoint::slice( size_t start = 0,
-                                                                  size_t count = __self->get()->size() );
+std::vector<std::pair<std::string, dlib::point>> VectorOfPairOfStringAndPoint::slice( size_t start = 0,
+                                                                                      size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfPairOfStringAndPoint.slice( [$start[, $count]] ) -> retval
 ```
@@ -23217,19 +23217,19 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_box::create
 
 ```cpp
-static VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::create();
+static std::vector<dlib::image_dataset_metadata::box> VectorOfImage_dataset_metadata_box::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_dataset_metadata_box").create() -> <VectorOfImage_dataset_metadata_box object>
 ```
 
 ```cpp
-static VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::create( size_t size );
+static std::vector<dlib::image_dataset_metadata::box> VectorOfImage_dataset_metadata_box::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_dataset_metadata_box").create( $size ) -> <VectorOfImage_dataset_metadata_box object>
 ```
 
 ```cpp
-static VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::create( VectorOfImage_dataset_metadata_box other );
+static std::vector<dlib::image_dataset_metadata::box> VectorOfImage_dataset_metadata_box::create( std::vector<dlib::image_dataset_metadata::box> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_dataset_metadata_box").create( $other ) -> <VectorOfImage_dataset_metadata_box object>
 ```
@@ -23245,7 +23245,7 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_box::IsInstance
 
 ```cpp
-static bool VectorOfImage_dataset_metadata_box::IsInstance( const VectorOfImage_dataset_metadata_box& obj );
+static bool VectorOfImage_dataset_metadata_box::IsInstance( const std::vector<dlib::image_dataset_metadata::box>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_dataset_metadata_box").IsInstance( $obj ) -> retval
 ```
@@ -23259,7 +23259,7 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_box::Items
 
 ```cpp
-VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::Items();
+std::vector<dlib::image_dataset_metadata::box> VectorOfImage_dataset_metadata_box::Items();
 AutoIt:
     $oVectorOfImage_dataset_metadata_box.Items() -> retval
 ```
@@ -23355,15 +23355,15 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_box::push\_vector
 
 ```cpp
-void VectorOfImage_dataset_metadata_box::push_vector( VectorOfImage_dataset_metadata_box other );
+void VectorOfImage_dataset_metadata_box::push_vector( std::vector<dlib::image_dataset_metadata::box> other );
 AutoIt:
     $oVectorOfImage_dataset_metadata_box.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfImage_dataset_metadata_box::push_vector( VectorOfImage_dataset_metadata_box other,
-                                                      size_t                             count,
-                                                      size_t                             start = 0 );
+void VectorOfImage_dataset_metadata_box::push_vector( std::vector<dlib::image_dataset_metadata::box> other,
+                                                      size_t                                         count,
+                                                      size_t                                         start = 0 );
 AutoIt:
     $oVectorOfImage_dataset_metadata_box.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -23388,8 +23388,8 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_box::slice
 
 ```cpp
-VectorOfImage_dataset_metadata_box VectorOfImage_dataset_metadata_box::slice( size_t start = 0,
-                                                                              size_t count = __self->get()->size() );
+std::vector<dlib::image_dataset_metadata::box> VectorOfImage_dataset_metadata_box::slice( size_t start = 0,
+                                                                                          size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfImage_dataset_metadata_box.slice( [$start[, $count]] ) -> retval
 ```
@@ -23435,19 +23435,19 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_image::create
 
 ```cpp
-static VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::create();
+static std::vector<dlib::image_dataset_metadata::image> VectorOfImage_dataset_metadata_image::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_dataset_metadata_image").create() -> <VectorOfImage_dataset_metadata_image object>
 ```
 
 ```cpp
-static VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::create( size_t size );
+static std::vector<dlib::image_dataset_metadata::image> VectorOfImage_dataset_metadata_image::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_dataset_metadata_image").create( $size ) -> <VectorOfImage_dataset_metadata_image object>
 ```
 
 ```cpp
-static VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::create( VectorOfImage_dataset_metadata_image other );
+static std::vector<dlib::image_dataset_metadata::image> VectorOfImage_dataset_metadata_image::create( std::vector<dlib::image_dataset_metadata::image> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_dataset_metadata_image").create( $other ) -> <VectorOfImage_dataset_metadata_image object>
 ```
@@ -23463,7 +23463,7 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_image::IsInstance
 
 ```cpp
-static bool VectorOfImage_dataset_metadata_image::IsInstance( const VectorOfImage_dataset_metadata_image& obj );
+static bool VectorOfImage_dataset_metadata_image::IsInstance( const std::vector<dlib::image_dataset_metadata::image>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfImage_dataset_metadata_image").IsInstance( $obj ) -> retval
 ```
@@ -23477,7 +23477,7 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_image::Items
 
 ```cpp
-VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::Items();
+std::vector<dlib::image_dataset_metadata::image> VectorOfImage_dataset_metadata_image::Items();
 AutoIt:
     $oVectorOfImage_dataset_metadata_image.Items() -> retval
 ```
@@ -23573,15 +23573,15 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_image::push\_vector
 
 ```cpp
-void VectorOfImage_dataset_metadata_image::push_vector( VectorOfImage_dataset_metadata_image other );
+void VectorOfImage_dataset_metadata_image::push_vector( std::vector<dlib::image_dataset_metadata::image> other );
 AutoIt:
     $oVectorOfImage_dataset_metadata_image.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfImage_dataset_metadata_image::push_vector( VectorOfImage_dataset_metadata_image other,
-                                                        size_t                               count,
-                                                        size_t                               start = 0 );
+void VectorOfImage_dataset_metadata_image::push_vector( std::vector<dlib::image_dataset_metadata::image> other,
+                                                        size_t                                           count,
+                                                        size_t                                           start = 0 );
 AutoIt:
     $oVectorOfImage_dataset_metadata_image.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -23606,8 +23606,8 @@ AutoIt:
 ### VectorOfImage\_dataset\_metadata\_image::slice
 
 ```cpp
-VectorOfImage_dataset_metadata_image VectorOfImage_dataset_metadata_image::slice( size_t start = 0,
-                                                                                  size_t count = __self->get()->size() );
+std::vector<dlib::image_dataset_metadata::image> VectorOfImage_dataset_metadata_image::slice( size_t start = 0,
+                                                                                              size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfImage_dataset_metadata_image.slice( [$start[, $count]] ) -> retval
 ```
@@ -23653,19 +23653,19 @@ AutoIt:
 ### VectorOfSize\_t::create
 
 ```cpp
-static VectorOfSize_t VectorOfSize_t::create();
+static std::vector<size_t> VectorOfSize_t::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfSize_t").create() -> <VectorOfSize_t object>
 ```
 
 ```cpp
-static VectorOfSize_t VectorOfSize_t::create( size_t size );
+static std::vector<size_t> VectorOfSize_t::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSize_t").create( $size ) -> <VectorOfSize_t object>
 ```
 
 ```cpp
-static VectorOfSize_t VectorOfSize_t::create( VectorOfSize_t other );
+static std::vector<size_t> VectorOfSize_t::create( std::vector<size_t> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSize_t").create( $other ) -> <VectorOfSize_t object>
 ```
@@ -23681,7 +23681,7 @@ AutoIt:
 ### VectorOfSize\_t::IsInstance
 
 ```cpp
-static bool VectorOfSize_t::IsInstance( const VectorOfSize_t& obj );
+static bool VectorOfSize_t::IsInstance( const std::vector<size_t>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfSize_t").IsInstance( $obj ) -> retval
 ```
@@ -23695,7 +23695,7 @@ AutoIt:
 ### VectorOfSize\_t::Items
 
 ```cpp
-VectorOfSize_t VectorOfSize_t::Items();
+std::vector<size_t> VectorOfSize_t::Items();
 AutoIt:
     $oVectorOfSize_t.Items() -> retval
 ```
@@ -23791,15 +23791,15 @@ AutoIt:
 ### VectorOfSize\_t::push\_vector
 
 ```cpp
-void VectorOfSize_t::push_vector( VectorOfSize_t other );
+void VectorOfSize_t::push_vector( std::vector<size_t> other );
 AutoIt:
     $oVectorOfSize_t.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfSize_t::push_vector( VectorOfSize_t other,
-                                  size_t         count,
-                                  size_t         start = 0 );
+void VectorOfSize_t::push_vector( std::vector<size_t> other,
+                                  size_t              count,
+                                  size_t              start = 0 );
 AutoIt:
     $oVectorOfSize_t.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -23824,8 +23824,8 @@ AutoIt:
 ### VectorOfSize\_t::slice
 
 ```cpp
-VectorOfSize_t VectorOfSize_t::slice( size_t start = 0,
-                                      size_t count = __self->get()->size() );
+std::vector<size_t> VectorOfSize_t::slice( size_t start = 0,
+                                           size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfSize_t.slice( [$start[, $count]] ) -> retval
 ```
@@ -23871,19 +23871,19 @@ AutoIt:
 ### VectorOfRange::create
 
 ```cpp
-static VectorOfRange VectorOfRange::create();
+static std::vector<cv::Range> VectorOfRange::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfRange").create() -> <VectorOfRange object>
 ```
 
 ```cpp
-static VectorOfRange VectorOfRange::create( size_t size );
+static std::vector<cv::Range> VectorOfRange::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfRange").create( $size ) -> <VectorOfRange object>
 ```
 
 ```cpp
-static VectorOfRange VectorOfRange::create( VectorOfRange other );
+static std::vector<cv::Range> VectorOfRange::create( std::vector<cv::Range> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfRange").create( $other ) -> <VectorOfRange object>
 ```
@@ -23899,7 +23899,7 @@ AutoIt:
 ### VectorOfRange::IsInstance
 
 ```cpp
-static bool VectorOfRange::IsInstance( const VectorOfRange& obj );
+static bool VectorOfRange::IsInstance( const std::vector<cv::Range>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfRange").IsInstance( $obj ) -> retval
 ```
@@ -23913,7 +23913,7 @@ AutoIt:
 ### VectorOfRange::Items
 
 ```cpp
-VectorOfRange VectorOfRange::Items();
+std::vector<cv::Range> VectorOfRange::Items();
 AutoIt:
     $oVectorOfRange.Items() -> retval
 ```
@@ -24009,15 +24009,15 @@ AutoIt:
 ### VectorOfRange::push\_vector
 
 ```cpp
-void VectorOfRange::push_vector( VectorOfRange other );
+void VectorOfRange::push_vector( std::vector<cv::Range> other );
 AutoIt:
     $oVectorOfRange.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfRange::push_vector( VectorOfRange other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfRange::push_vector( std::vector<cv::Range> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfRange.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -24042,8 +24042,8 @@ AutoIt:
 ### VectorOfRange::slice
 
 ```cpp
-VectorOfRange VectorOfRange::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Range> VectorOfRange::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfRange.slice( [$start[, $count]] ) -> retval
 ```
@@ -24089,19 +24089,19 @@ AutoIt:
 ### VectorOfFloat::create
 
 ```cpp
-static VectorOfFloat VectorOfFloat::create();
+static std::vector<float> VectorOfFloat::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfFloat").create() -> <VectorOfFloat object>
 ```
 
 ```cpp
-static VectorOfFloat VectorOfFloat::create( size_t size );
+static std::vector<float> VectorOfFloat::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFloat").create( $size ) -> <VectorOfFloat object>
 ```
 
 ```cpp
-static VectorOfFloat VectorOfFloat::create( VectorOfFloat other );
+static std::vector<float> VectorOfFloat::create( std::vector<float> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFloat").create( $other ) -> <VectorOfFloat object>
 ```
@@ -24117,7 +24117,7 @@ AutoIt:
 ### VectorOfFloat::IsInstance
 
 ```cpp
-static bool VectorOfFloat::IsInstance( const VectorOfFloat& obj );
+static bool VectorOfFloat::IsInstance( const std::vector<float>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfFloat").IsInstance( $obj ) -> retval
 ```
@@ -24131,7 +24131,7 @@ AutoIt:
 ### VectorOfFloat::Items
 
 ```cpp
-VectorOfFloat VectorOfFloat::Items();
+std::vector<float> VectorOfFloat::Items();
 AutoIt:
     $oVectorOfFloat.Items() -> retval
 ```
@@ -24227,15 +24227,15 @@ AutoIt:
 ### VectorOfFloat::push\_vector
 
 ```cpp
-void VectorOfFloat::push_vector( VectorOfFloat other );
+void VectorOfFloat::push_vector( std::vector<float> other );
 AutoIt:
     $oVectorOfFloat.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfFloat::push_vector( VectorOfFloat other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfFloat::push_vector( std::vector<float> other,
+                                 size_t             count,
+                                 size_t             start = 0 );
 AutoIt:
     $oVectorOfFloat.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -24260,8 +24260,8 @@ AutoIt:
 ### VectorOfFloat::slice
 
 ```cpp
-VectorOfFloat VectorOfFloat::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<float> VectorOfFloat::slice( size_t start = 0,
+                                         size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfFloat.slice( [$start[, $count]] ) -> retval
 ```
@@ -24307,19 +24307,19 @@ AutoIt:
 ### VectorOfVec2b::create
 
 ```cpp
-static VectorOfVec2b VectorOfVec2b::create();
+static std::vector<cv::Vec2b> VectorOfVec2b::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2b").create() -> <VectorOfVec2b object>
 ```
 
 ```cpp
-static VectorOfVec2b VectorOfVec2b::create( size_t size );
+static std::vector<cv::Vec2b> VectorOfVec2b::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2b").create( $size ) -> <VectorOfVec2b object>
 ```
 
 ```cpp
-static VectorOfVec2b VectorOfVec2b::create( VectorOfVec2b other );
+static std::vector<cv::Vec2b> VectorOfVec2b::create( std::vector<cv::Vec2b> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2b").create( $other ) -> <VectorOfVec2b object>
 ```
@@ -24335,7 +24335,7 @@ AutoIt:
 ### VectorOfVec2b::IsInstance
 
 ```cpp
-static bool VectorOfVec2b::IsInstance( const VectorOfVec2b& obj );
+static bool VectorOfVec2b::IsInstance( const std::vector<cv::Vec2b>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2b").IsInstance( $obj ) -> retval
 ```
@@ -24349,7 +24349,7 @@ AutoIt:
 ### VectorOfVec2b::Items
 
 ```cpp
-VectorOfVec2b VectorOfVec2b::Items();
+std::vector<cv::Vec2b> VectorOfVec2b::Items();
 AutoIt:
     $oVectorOfVec2b.Items() -> retval
 ```
@@ -24445,15 +24445,15 @@ AutoIt:
 ### VectorOfVec2b::push\_vector
 
 ```cpp
-void VectorOfVec2b::push_vector( VectorOfVec2b other );
+void VectorOfVec2b::push_vector( std::vector<cv::Vec2b> other );
 AutoIt:
     $oVectorOfVec2b.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec2b::push_vector( VectorOfVec2b other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec2b::push_vector( std::vector<cv::Vec2b> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec2b.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -24478,8 +24478,8 @@ AutoIt:
 ### VectorOfVec2b::slice
 
 ```cpp
-VectorOfVec2b VectorOfVec2b::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec2b> VectorOfVec2b::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec2b.slice( [$start[, $count]] ) -> retval
 ```
@@ -24525,19 +24525,19 @@ AutoIt:
 ### VectorOfVec3b::create
 
 ```cpp
-static VectorOfVec3b VectorOfVec3b::create();
+static std::vector<cv::Vec3b> VectorOfVec3b::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3b").create() -> <VectorOfVec3b object>
 ```
 
 ```cpp
-static VectorOfVec3b VectorOfVec3b::create( size_t size );
+static std::vector<cv::Vec3b> VectorOfVec3b::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3b").create( $size ) -> <VectorOfVec3b object>
 ```
 
 ```cpp
-static VectorOfVec3b VectorOfVec3b::create( VectorOfVec3b other );
+static std::vector<cv::Vec3b> VectorOfVec3b::create( std::vector<cv::Vec3b> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3b").create( $other ) -> <VectorOfVec3b object>
 ```
@@ -24553,7 +24553,7 @@ AutoIt:
 ### VectorOfVec3b::IsInstance
 
 ```cpp
-static bool VectorOfVec3b::IsInstance( const VectorOfVec3b& obj );
+static bool VectorOfVec3b::IsInstance( const std::vector<cv::Vec3b>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3b").IsInstance( $obj ) -> retval
 ```
@@ -24567,7 +24567,7 @@ AutoIt:
 ### VectorOfVec3b::Items
 
 ```cpp
-VectorOfVec3b VectorOfVec3b::Items();
+std::vector<cv::Vec3b> VectorOfVec3b::Items();
 AutoIt:
     $oVectorOfVec3b.Items() -> retval
 ```
@@ -24663,15 +24663,15 @@ AutoIt:
 ### VectorOfVec3b::push\_vector
 
 ```cpp
-void VectorOfVec3b::push_vector( VectorOfVec3b other );
+void VectorOfVec3b::push_vector( std::vector<cv::Vec3b> other );
 AutoIt:
     $oVectorOfVec3b.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec3b::push_vector( VectorOfVec3b other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec3b::push_vector( std::vector<cv::Vec3b> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec3b.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -24696,8 +24696,8 @@ AutoIt:
 ### VectorOfVec3b::slice
 
 ```cpp
-VectorOfVec3b VectorOfVec3b::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec3b> VectorOfVec3b::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec3b.slice( [$start[, $count]] ) -> retval
 ```
@@ -24743,19 +24743,19 @@ AutoIt:
 ### VectorOfVec4b::create
 
 ```cpp
-static VectorOfVec4b VectorOfVec4b::create();
+static std::vector<cv::Vec4b> VectorOfVec4b::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4b").create() -> <VectorOfVec4b object>
 ```
 
 ```cpp
-static VectorOfVec4b VectorOfVec4b::create( size_t size );
+static std::vector<cv::Vec4b> VectorOfVec4b::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4b").create( $size ) -> <VectorOfVec4b object>
 ```
 
 ```cpp
-static VectorOfVec4b VectorOfVec4b::create( VectorOfVec4b other );
+static std::vector<cv::Vec4b> VectorOfVec4b::create( std::vector<cv::Vec4b> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4b").create( $other ) -> <VectorOfVec4b object>
 ```
@@ -24771,7 +24771,7 @@ AutoIt:
 ### VectorOfVec4b::IsInstance
 
 ```cpp
-static bool VectorOfVec4b::IsInstance( const VectorOfVec4b& obj );
+static bool VectorOfVec4b::IsInstance( const std::vector<cv::Vec4b>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4b").IsInstance( $obj ) -> retval
 ```
@@ -24785,7 +24785,7 @@ AutoIt:
 ### VectorOfVec4b::Items
 
 ```cpp
-VectorOfVec4b VectorOfVec4b::Items();
+std::vector<cv::Vec4b> VectorOfVec4b::Items();
 AutoIt:
     $oVectorOfVec4b.Items() -> retval
 ```
@@ -24881,15 +24881,15 @@ AutoIt:
 ### VectorOfVec4b::push\_vector
 
 ```cpp
-void VectorOfVec4b::push_vector( VectorOfVec4b other );
+void VectorOfVec4b::push_vector( std::vector<cv::Vec4b> other );
 AutoIt:
     $oVectorOfVec4b.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec4b::push_vector( VectorOfVec4b other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec4b::push_vector( std::vector<cv::Vec4b> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec4b.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -24914,8 +24914,8 @@ AutoIt:
 ### VectorOfVec4b::slice
 
 ```cpp
-VectorOfVec4b VectorOfVec4b::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec4b> VectorOfVec4b::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec4b.slice( [$start[, $count]] ) -> retval
 ```
@@ -24961,19 +24961,19 @@ AutoIt:
 ### VectorOfVec2s::create
 
 ```cpp
-static VectorOfVec2s VectorOfVec2s::create();
+static std::vector<cv::Vec2s> VectorOfVec2s::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2s").create() -> <VectorOfVec2s object>
 ```
 
 ```cpp
-static VectorOfVec2s VectorOfVec2s::create( size_t size );
+static std::vector<cv::Vec2s> VectorOfVec2s::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2s").create( $size ) -> <VectorOfVec2s object>
 ```
 
 ```cpp
-static VectorOfVec2s VectorOfVec2s::create( VectorOfVec2s other );
+static std::vector<cv::Vec2s> VectorOfVec2s::create( std::vector<cv::Vec2s> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2s").create( $other ) -> <VectorOfVec2s object>
 ```
@@ -24989,7 +24989,7 @@ AutoIt:
 ### VectorOfVec2s::IsInstance
 
 ```cpp
-static bool VectorOfVec2s::IsInstance( const VectorOfVec2s& obj );
+static bool VectorOfVec2s::IsInstance( const std::vector<cv::Vec2s>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2s").IsInstance( $obj ) -> retval
 ```
@@ -25003,7 +25003,7 @@ AutoIt:
 ### VectorOfVec2s::Items
 
 ```cpp
-VectorOfVec2s VectorOfVec2s::Items();
+std::vector<cv::Vec2s> VectorOfVec2s::Items();
 AutoIt:
     $oVectorOfVec2s.Items() -> retval
 ```
@@ -25099,15 +25099,15 @@ AutoIt:
 ### VectorOfVec2s::push\_vector
 
 ```cpp
-void VectorOfVec2s::push_vector( VectorOfVec2s other );
+void VectorOfVec2s::push_vector( std::vector<cv::Vec2s> other );
 AutoIt:
     $oVectorOfVec2s.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec2s::push_vector( VectorOfVec2s other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec2s::push_vector( std::vector<cv::Vec2s> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec2s.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -25132,8 +25132,8 @@ AutoIt:
 ### VectorOfVec2s::slice
 
 ```cpp
-VectorOfVec2s VectorOfVec2s::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec2s> VectorOfVec2s::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec2s.slice( [$start[, $count]] ) -> retval
 ```
@@ -25179,19 +25179,19 @@ AutoIt:
 ### VectorOfVec3s::create
 
 ```cpp
-static VectorOfVec3s VectorOfVec3s::create();
+static std::vector<cv::Vec3s> VectorOfVec3s::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3s").create() -> <VectorOfVec3s object>
 ```
 
 ```cpp
-static VectorOfVec3s VectorOfVec3s::create( size_t size );
+static std::vector<cv::Vec3s> VectorOfVec3s::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3s").create( $size ) -> <VectorOfVec3s object>
 ```
 
 ```cpp
-static VectorOfVec3s VectorOfVec3s::create( VectorOfVec3s other );
+static std::vector<cv::Vec3s> VectorOfVec3s::create( std::vector<cv::Vec3s> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3s").create( $other ) -> <VectorOfVec3s object>
 ```
@@ -25207,7 +25207,7 @@ AutoIt:
 ### VectorOfVec3s::IsInstance
 
 ```cpp
-static bool VectorOfVec3s::IsInstance( const VectorOfVec3s& obj );
+static bool VectorOfVec3s::IsInstance( const std::vector<cv::Vec3s>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3s").IsInstance( $obj ) -> retval
 ```
@@ -25221,7 +25221,7 @@ AutoIt:
 ### VectorOfVec3s::Items
 
 ```cpp
-VectorOfVec3s VectorOfVec3s::Items();
+std::vector<cv::Vec3s> VectorOfVec3s::Items();
 AutoIt:
     $oVectorOfVec3s.Items() -> retval
 ```
@@ -25317,15 +25317,15 @@ AutoIt:
 ### VectorOfVec3s::push\_vector
 
 ```cpp
-void VectorOfVec3s::push_vector( VectorOfVec3s other );
+void VectorOfVec3s::push_vector( std::vector<cv::Vec3s> other );
 AutoIt:
     $oVectorOfVec3s.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec3s::push_vector( VectorOfVec3s other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec3s::push_vector( std::vector<cv::Vec3s> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec3s.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -25350,8 +25350,8 @@ AutoIt:
 ### VectorOfVec3s::slice
 
 ```cpp
-VectorOfVec3s VectorOfVec3s::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec3s> VectorOfVec3s::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec3s.slice( [$start[, $count]] ) -> retval
 ```
@@ -25397,19 +25397,19 @@ AutoIt:
 ### VectorOfVec4s::create
 
 ```cpp
-static VectorOfVec4s VectorOfVec4s::create();
+static std::vector<cv::Vec4s> VectorOfVec4s::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4s").create() -> <VectorOfVec4s object>
 ```
 
 ```cpp
-static VectorOfVec4s VectorOfVec4s::create( size_t size );
+static std::vector<cv::Vec4s> VectorOfVec4s::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4s").create( $size ) -> <VectorOfVec4s object>
 ```
 
 ```cpp
-static VectorOfVec4s VectorOfVec4s::create( VectorOfVec4s other );
+static std::vector<cv::Vec4s> VectorOfVec4s::create( std::vector<cv::Vec4s> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4s").create( $other ) -> <VectorOfVec4s object>
 ```
@@ -25425,7 +25425,7 @@ AutoIt:
 ### VectorOfVec4s::IsInstance
 
 ```cpp
-static bool VectorOfVec4s::IsInstance( const VectorOfVec4s& obj );
+static bool VectorOfVec4s::IsInstance( const std::vector<cv::Vec4s>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4s").IsInstance( $obj ) -> retval
 ```
@@ -25439,7 +25439,7 @@ AutoIt:
 ### VectorOfVec4s::Items
 
 ```cpp
-VectorOfVec4s VectorOfVec4s::Items();
+std::vector<cv::Vec4s> VectorOfVec4s::Items();
 AutoIt:
     $oVectorOfVec4s.Items() -> retval
 ```
@@ -25535,15 +25535,15 @@ AutoIt:
 ### VectorOfVec4s::push\_vector
 
 ```cpp
-void VectorOfVec4s::push_vector( VectorOfVec4s other );
+void VectorOfVec4s::push_vector( std::vector<cv::Vec4s> other );
 AutoIt:
     $oVectorOfVec4s.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec4s::push_vector( VectorOfVec4s other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec4s::push_vector( std::vector<cv::Vec4s> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec4s.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -25568,8 +25568,8 @@ AutoIt:
 ### VectorOfVec4s::slice
 
 ```cpp
-VectorOfVec4s VectorOfVec4s::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec4s> VectorOfVec4s::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec4s.slice( [$start[, $count]] ) -> retval
 ```
@@ -25615,19 +25615,19 @@ AutoIt:
 ### VectorOfVec2w::create
 
 ```cpp
-static VectorOfVec2w VectorOfVec2w::create();
+static std::vector<cv::Vec2w> VectorOfVec2w::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2w").create() -> <VectorOfVec2w object>
 ```
 
 ```cpp
-static VectorOfVec2w VectorOfVec2w::create( size_t size );
+static std::vector<cv::Vec2w> VectorOfVec2w::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2w").create( $size ) -> <VectorOfVec2w object>
 ```
 
 ```cpp
-static VectorOfVec2w VectorOfVec2w::create( VectorOfVec2w other );
+static std::vector<cv::Vec2w> VectorOfVec2w::create( std::vector<cv::Vec2w> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2w").create( $other ) -> <VectorOfVec2w object>
 ```
@@ -25643,7 +25643,7 @@ AutoIt:
 ### VectorOfVec2w::IsInstance
 
 ```cpp
-static bool VectorOfVec2w::IsInstance( const VectorOfVec2w& obj );
+static bool VectorOfVec2w::IsInstance( const std::vector<cv::Vec2w>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2w").IsInstance( $obj ) -> retval
 ```
@@ -25657,7 +25657,7 @@ AutoIt:
 ### VectorOfVec2w::Items
 
 ```cpp
-VectorOfVec2w VectorOfVec2w::Items();
+std::vector<cv::Vec2w> VectorOfVec2w::Items();
 AutoIt:
     $oVectorOfVec2w.Items() -> retval
 ```
@@ -25753,15 +25753,15 @@ AutoIt:
 ### VectorOfVec2w::push\_vector
 
 ```cpp
-void VectorOfVec2w::push_vector( VectorOfVec2w other );
+void VectorOfVec2w::push_vector( std::vector<cv::Vec2w> other );
 AutoIt:
     $oVectorOfVec2w.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec2w::push_vector( VectorOfVec2w other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec2w::push_vector( std::vector<cv::Vec2w> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec2w.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -25786,8 +25786,8 @@ AutoIt:
 ### VectorOfVec2w::slice
 
 ```cpp
-VectorOfVec2w VectorOfVec2w::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec2w> VectorOfVec2w::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec2w.slice( [$start[, $count]] ) -> retval
 ```
@@ -25833,19 +25833,19 @@ AutoIt:
 ### VectorOfVec3w::create
 
 ```cpp
-static VectorOfVec3w VectorOfVec3w::create();
+static std::vector<cv::Vec3w> VectorOfVec3w::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3w").create() -> <VectorOfVec3w object>
 ```
 
 ```cpp
-static VectorOfVec3w VectorOfVec3w::create( size_t size );
+static std::vector<cv::Vec3w> VectorOfVec3w::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3w").create( $size ) -> <VectorOfVec3w object>
 ```
 
 ```cpp
-static VectorOfVec3w VectorOfVec3w::create( VectorOfVec3w other );
+static std::vector<cv::Vec3w> VectorOfVec3w::create( std::vector<cv::Vec3w> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3w").create( $other ) -> <VectorOfVec3w object>
 ```
@@ -25861,7 +25861,7 @@ AutoIt:
 ### VectorOfVec3w::IsInstance
 
 ```cpp
-static bool VectorOfVec3w::IsInstance( const VectorOfVec3w& obj );
+static bool VectorOfVec3w::IsInstance( const std::vector<cv::Vec3w>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3w").IsInstance( $obj ) -> retval
 ```
@@ -25875,7 +25875,7 @@ AutoIt:
 ### VectorOfVec3w::Items
 
 ```cpp
-VectorOfVec3w VectorOfVec3w::Items();
+std::vector<cv::Vec3w> VectorOfVec3w::Items();
 AutoIt:
     $oVectorOfVec3w.Items() -> retval
 ```
@@ -25971,15 +25971,15 @@ AutoIt:
 ### VectorOfVec3w::push\_vector
 
 ```cpp
-void VectorOfVec3w::push_vector( VectorOfVec3w other );
+void VectorOfVec3w::push_vector( std::vector<cv::Vec3w> other );
 AutoIt:
     $oVectorOfVec3w.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec3w::push_vector( VectorOfVec3w other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec3w::push_vector( std::vector<cv::Vec3w> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec3w.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -26004,8 +26004,8 @@ AutoIt:
 ### VectorOfVec3w::slice
 
 ```cpp
-VectorOfVec3w VectorOfVec3w::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec3w> VectorOfVec3w::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec3w.slice( [$start[, $count]] ) -> retval
 ```
@@ -26051,19 +26051,19 @@ AutoIt:
 ### VectorOfVec4w::create
 
 ```cpp
-static VectorOfVec4w VectorOfVec4w::create();
+static std::vector<cv::Vec4w> VectorOfVec4w::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4w").create() -> <VectorOfVec4w object>
 ```
 
 ```cpp
-static VectorOfVec4w VectorOfVec4w::create( size_t size );
+static std::vector<cv::Vec4w> VectorOfVec4w::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4w").create( $size ) -> <VectorOfVec4w object>
 ```
 
 ```cpp
-static VectorOfVec4w VectorOfVec4w::create( VectorOfVec4w other );
+static std::vector<cv::Vec4w> VectorOfVec4w::create( std::vector<cv::Vec4w> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4w").create( $other ) -> <VectorOfVec4w object>
 ```
@@ -26079,7 +26079,7 @@ AutoIt:
 ### VectorOfVec4w::IsInstance
 
 ```cpp
-static bool VectorOfVec4w::IsInstance( const VectorOfVec4w& obj );
+static bool VectorOfVec4w::IsInstance( const std::vector<cv::Vec4w>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4w").IsInstance( $obj ) -> retval
 ```
@@ -26093,7 +26093,7 @@ AutoIt:
 ### VectorOfVec4w::Items
 
 ```cpp
-VectorOfVec4w VectorOfVec4w::Items();
+std::vector<cv::Vec4w> VectorOfVec4w::Items();
 AutoIt:
     $oVectorOfVec4w.Items() -> retval
 ```
@@ -26189,15 +26189,15 @@ AutoIt:
 ### VectorOfVec4w::push\_vector
 
 ```cpp
-void VectorOfVec4w::push_vector( VectorOfVec4w other );
+void VectorOfVec4w::push_vector( std::vector<cv::Vec4w> other );
 AutoIt:
     $oVectorOfVec4w.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec4w::push_vector( VectorOfVec4w other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec4w::push_vector( std::vector<cv::Vec4w> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec4w.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -26222,8 +26222,8 @@ AutoIt:
 ### VectorOfVec4w::slice
 
 ```cpp
-VectorOfVec4w VectorOfVec4w::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec4w> VectorOfVec4w::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec4w.slice( [$start[, $count]] ) -> retval
 ```
@@ -26269,19 +26269,19 @@ AutoIt:
 ### VectorOfVec2i::create
 
 ```cpp
-static VectorOfVec2i VectorOfVec2i::create();
+static std::vector<cv::Vec2i> VectorOfVec2i::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2i").create() -> <VectorOfVec2i object>
 ```
 
 ```cpp
-static VectorOfVec2i VectorOfVec2i::create( size_t size );
+static std::vector<cv::Vec2i> VectorOfVec2i::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2i").create( $size ) -> <VectorOfVec2i object>
 ```
 
 ```cpp
-static VectorOfVec2i VectorOfVec2i::create( VectorOfVec2i other );
+static std::vector<cv::Vec2i> VectorOfVec2i::create( std::vector<cv::Vec2i> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2i").create( $other ) -> <VectorOfVec2i object>
 ```
@@ -26297,7 +26297,7 @@ AutoIt:
 ### VectorOfVec2i::IsInstance
 
 ```cpp
-static bool VectorOfVec2i::IsInstance( const VectorOfVec2i& obj );
+static bool VectorOfVec2i::IsInstance( const std::vector<cv::Vec2i>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2i").IsInstance( $obj ) -> retval
 ```
@@ -26311,7 +26311,7 @@ AutoIt:
 ### VectorOfVec2i::Items
 
 ```cpp
-VectorOfVec2i VectorOfVec2i::Items();
+std::vector<cv::Vec2i> VectorOfVec2i::Items();
 AutoIt:
     $oVectorOfVec2i.Items() -> retval
 ```
@@ -26407,15 +26407,15 @@ AutoIt:
 ### VectorOfVec2i::push\_vector
 
 ```cpp
-void VectorOfVec2i::push_vector( VectorOfVec2i other );
+void VectorOfVec2i::push_vector( std::vector<cv::Vec2i> other );
 AutoIt:
     $oVectorOfVec2i.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec2i::push_vector( VectorOfVec2i other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec2i::push_vector( std::vector<cv::Vec2i> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec2i.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -26440,8 +26440,8 @@ AutoIt:
 ### VectorOfVec2i::slice
 
 ```cpp
-VectorOfVec2i VectorOfVec2i::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec2i> VectorOfVec2i::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec2i.slice( [$start[, $count]] ) -> retval
 ```
@@ -26487,19 +26487,19 @@ AutoIt:
 ### VectorOfVec3i::create
 
 ```cpp
-static VectorOfVec3i VectorOfVec3i::create();
+static std::vector<cv::Vec3i> VectorOfVec3i::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3i").create() -> <VectorOfVec3i object>
 ```
 
 ```cpp
-static VectorOfVec3i VectorOfVec3i::create( size_t size );
+static std::vector<cv::Vec3i> VectorOfVec3i::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3i").create( $size ) -> <VectorOfVec3i object>
 ```
 
 ```cpp
-static VectorOfVec3i VectorOfVec3i::create( VectorOfVec3i other );
+static std::vector<cv::Vec3i> VectorOfVec3i::create( std::vector<cv::Vec3i> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3i").create( $other ) -> <VectorOfVec3i object>
 ```
@@ -26515,7 +26515,7 @@ AutoIt:
 ### VectorOfVec3i::IsInstance
 
 ```cpp
-static bool VectorOfVec3i::IsInstance( const VectorOfVec3i& obj );
+static bool VectorOfVec3i::IsInstance( const std::vector<cv::Vec3i>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3i").IsInstance( $obj ) -> retval
 ```
@@ -26529,7 +26529,7 @@ AutoIt:
 ### VectorOfVec3i::Items
 
 ```cpp
-VectorOfVec3i VectorOfVec3i::Items();
+std::vector<cv::Vec3i> VectorOfVec3i::Items();
 AutoIt:
     $oVectorOfVec3i.Items() -> retval
 ```
@@ -26625,15 +26625,15 @@ AutoIt:
 ### VectorOfVec3i::push\_vector
 
 ```cpp
-void VectorOfVec3i::push_vector( VectorOfVec3i other );
+void VectorOfVec3i::push_vector( std::vector<cv::Vec3i> other );
 AutoIt:
     $oVectorOfVec3i.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec3i::push_vector( VectorOfVec3i other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec3i::push_vector( std::vector<cv::Vec3i> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec3i.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -26658,8 +26658,8 @@ AutoIt:
 ### VectorOfVec3i::slice
 
 ```cpp
-VectorOfVec3i VectorOfVec3i::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec3i> VectorOfVec3i::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec3i.slice( [$start[, $count]] ) -> retval
 ```
@@ -26705,19 +26705,19 @@ AutoIt:
 ### VectorOfVec4i::create
 
 ```cpp
-static VectorOfVec4i VectorOfVec4i::create();
+static std::vector<cv::Vec4i> VectorOfVec4i::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4i").create() -> <VectorOfVec4i object>
 ```
 
 ```cpp
-static VectorOfVec4i VectorOfVec4i::create( size_t size );
+static std::vector<cv::Vec4i> VectorOfVec4i::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4i").create( $size ) -> <VectorOfVec4i object>
 ```
 
 ```cpp
-static VectorOfVec4i VectorOfVec4i::create( VectorOfVec4i other );
+static std::vector<cv::Vec4i> VectorOfVec4i::create( std::vector<cv::Vec4i> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4i").create( $other ) -> <VectorOfVec4i object>
 ```
@@ -26733,7 +26733,7 @@ AutoIt:
 ### VectorOfVec4i::IsInstance
 
 ```cpp
-static bool VectorOfVec4i::IsInstance( const VectorOfVec4i& obj );
+static bool VectorOfVec4i::IsInstance( const std::vector<cv::Vec4i>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4i").IsInstance( $obj ) -> retval
 ```
@@ -26747,7 +26747,7 @@ AutoIt:
 ### VectorOfVec4i::Items
 
 ```cpp
-VectorOfVec4i VectorOfVec4i::Items();
+std::vector<cv::Vec4i> VectorOfVec4i::Items();
 AutoIt:
     $oVectorOfVec4i.Items() -> retval
 ```
@@ -26843,15 +26843,15 @@ AutoIt:
 ### VectorOfVec4i::push\_vector
 
 ```cpp
-void VectorOfVec4i::push_vector( VectorOfVec4i other );
+void VectorOfVec4i::push_vector( std::vector<cv::Vec4i> other );
 AutoIt:
     $oVectorOfVec4i.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec4i::push_vector( VectorOfVec4i other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec4i::push_vector( std::vector<cv::Vec4i> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec4i.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -26876,8 +26876,8 @@ AutoIt:
 ### VectorOfVec4i::slice
 
 ```cpp
-VectorOfVec4i VectorOfVec4i::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec4i> VectorOfVec4i::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec4i.slice( [$start[, $count]] ) -> retval
 ```
@@ -26923,19 +26923,19 @@ AutoIt:
 ### VectorOfVec6i::create
 
 ```cpp
-static VectorOfVec6i VectorOfVec6i::create();
+static std::vector<cv::Vec6i> VectorOfVec6i::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6i").create() -> <VectorOfVec6i object>
 ```
 
 ```cpp
-static VectorOfVec6i VectorOfVec6i::create( size_t size );
+static std::vector<cv::Vec6i> VectorOfVec6i::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6i").create( $size ) -> <VectorOfVec6i object>
 ```
 
 ```cpp
-static VectorOfVec6i VectorOfVec6i::create( VectorOfVec6i other );
+static std::vector<cv::Vec6i> VectorOfVec6i::create( std::vector<cv::Vec6i> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6i").create( $other ) -> <VectorOfVec6i object>
 ```
@@ -26951,7 +26951,7 @@ AutoIt:
 ### VectorOfVec6i::IsInstance
 
 ```cpp
-static bool VectorOfVec6i::IsInstance( const VectorOfVec6i& obj );
+static bool VectorOfVec6i::IsInstance( const std::vector<cv::Vec6i>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6i").IsInstance( $obj ) -> retval
 ```
@@ -26965,7 +26965,7 @@ AutoIt:
 ### VectorOfVec6i::Items
 
 ```cpp
-VectorOfVec6i VectorOfVec6i::Items();
+std::vector<cv::Vec6i> VectorOfVec6i::Items();
 AutoIt:
     $oVectorOfVec6i.Items() -> retval
 ```
@@ -27061,15 +27061,15 @@ AutoIt:
 ### VectorOfVec6i::push\_vector
 
 ```cpp
-void VectorOfVec6i::push_vector( VectorOfVec6i other );
+void VectorOfVec6i::push_vector( std::vector<cv::Vec6i> other );
 AutoIt:
     $oVectorOfVec6i.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec6i::push_vector( VectorOfVec6i other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec6i::push_vector( std::vector<cv::Vec6i> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec6i.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -27094,8 +27094,8 @@ AutoIt:
 ### VectorOfVec6i::slice
 
 ```cpp
-VectorOfVec6i VectorOfVec6i::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec6i> VectorOfVec6i::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec6i.slice( [$start[, $count]] ) -> retval
 ```
@@ -27141,19 +27141,19 @@ AutoIt:
 ### VectorOfVec8i::create
 
 ```cpp
-static VectorOfVec8i VectorOfVec8i::create();
+static std::vector<cv::Vec8i> VectorOfVec8i::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec8i").create() -> <VectorOfVec8i object>
 ```
 
 ```cpp
-static VectorOfVec8i VectorOfVec8i::create( size_t size );
+static std::vector<cv::Vec8i> VectorOfVec8i::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec8i").create( $size ) -> <VectorOfVec8i object>
 ```
 
 ```cpp
-static VectorOfVec8i VectorOfVec8i::create( VectorOfVec8i other );
+static std::vector<cv::Vec8i> VectorOfVec8i::create( std::vector<cv::Vec8i> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec8i").create( $other ) -> <VectorOfVec8i object>
 ```
@@ -27169,7 +27169,7 @@ AutoIt:
 ### VectorOfVec8i::IsInstance
 
 ```cpp
-static bool VectorOfVec8i::IsInstance( const VectorOfVec8i& obj );
+static bool VectorOfVec8i::IsInstance( const std::vector<cv::Vec8i>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec8i").IsInstance( $obj ) -> retval
 ```
@@ -27183,7 +27183,7 @@ AutoIt:
 ### VectorOfVec8i::Items
 
 ```cpp
-VectorOfVec8i VectorOfVec8i::Items();
+std::vector<cv::Vec8i> VectorOfVec8i::Items();
 AutoIt:
     $oVectorOfVec8i.Items() -> retval
 ```
@@ -27279,15 +27279,15 @@ AutoIt:
 ### VectorOfVec8i::push\_vector
 
 ```cpp
-void VectorOfVec8i::push_vector( VectorOfVec8i other );
+void VectorOfVec8i::push_vector( std::vector<cv::Vec8i> other );
 AutoIt:
     $oVectorOfVec8i.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec8i::push_vector( VectorOfVec8i other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec8i::push_vector( std::vector<cv::Vec8i> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec8i.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -27312,8 +27312,8 @@ AutoIt:
 ### VectorOfVec8i::slice
 
 ```cpp
-VectorOfVec8i VectorOfVec8i::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec8i> VectorOfVec8i::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec8i.slice( [$start[, $count]] ) -> retval
 ```
@@ -27359,19 +27359,19 @@ AutoIt:
 ### VectorOfVec2f::create
 
 ```cpp
-static VectorOfVec2f VectorOfVec2f::create();
+static std::vector<cv::Vec2f> VectorOfVec2f::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2f").create() -> <VectorOfVec2f object>
 ```
 
 ```cpp
-static VectorOfVec2f VectorOfVec2f::create( size_t size );
+static std::vector<cv::Vec2f> VectorOfVec2f::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2f").create( $size ) -> <VectorOfVec2f object>
 ```
 
 ```cpp
-static VectorOfVec2f VectorOfVec2f::create( VectorOfVec2f other );
+static std::vector<cv::Vec2f> VectorOfVec2f::create( std::vector<cv::Vec2f> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2f").create( $other ) -> <VectorOfVec2f object>
 ```
@@ -27387,7 +27387,7 @@ AutoIt:
 ### VectorOfVec2f::IsInstance
 
 ```cpp
-static bool VectorOfVec2f::IsInstance( const VectorOfVec2f& obj );
+static bool VectorOfVec2f::IsInstance( const std::vector<cv::Vec2f>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2f").IsInstance( $obj ) -> retval
 ```
@@ -27401,7 +27401,7 @@ AutoIt:
 ### VectorOfVec2f::Items
 
 ```cpp
-VectorOfVec2f VectorOfVec2f::Items();
+std::vector<cv::Vec2f> VectorOfVec2f::Items();
 AutoIt:
     $oVectorOfVec2f.Items() -> retval
 ```
@@ -27497,15 +27497,15 @@ AutoIt:
 ### VectorOfVec2f::push\_vector
 
 ```cpp
-void VectorOfVec2f::push_vector( VectorOfVec2f other );
+void VectorOfVec2f::push_vector( std::vector<cv::Vec2f> other );
 AutoIt:
     $oVectorOfVec2f.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec2f::push_vector( VectorOfVec2f other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec2f::push_vector( std::vector<cv::Vec2f> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec2f.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -27530,8 +27530,8 @@ AutoIt:
 ### VectorOfVec2f::slice
 
 ```cpp
-VectorOfVec2f VectorOfVec2f::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec2f> VectorOfVec2f::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec2f.slice( [$start[, $count]] ) -> retval
 ```
@@ -27577,19 +27577,19 @@ AutoIt:
 ### VectorOfVec3f::create
 
 ```cpp
-static VectorOfVec3f VectorOfVec3f::create();
+static std::vector<cv::Vec3f> VectorOfVec3f::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3f").create() -> <VectorOfVec3f object>
 ```
 
 ```cpp
-static VectorOfVec3f VectorOfVec3f::create( size_t size );
+static std::vector<cv::Vec3f> VectorOfVec3f::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3f").create( $size ) -> <VectorOfVec3f object>
 ```
 
 ```cpp
-static VectorOfVec3f VectorOfVec3f::create( VectorOfVec3f other );
+static std::vector<cv::Vec3f> VectorOfVec3f::create( std::vector<cv::Vec3f> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3f").create( $other ) -> <VectorOfVec3f object>
 ```
@@ -27605,7 +27605,7 @@ AutoIt:
 ### VectorOfVec3f::IsInstance
 
 ```cpp
-static bool VectorOfVec3f::IsInstance( const VectorOfVec3f& obj );
+static bool VectorOfVec3f::IsInstance( const std::vector<cv::Vec3f>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3f").IsInstance( $obj ) -> retval
 ```
@@ -27619,7 +27619,7 @@ AutoIt:
 ### VectorOfVec3f::Items
 
 ```cpp
-VectorOfVec3f VectorOfVec3f::Items();
+std::vector<cv::Vec3f> VectorOfVec3f::Items();
 AutoIt:
     $oVectorOfVec3f.Items() -> retval
 ```
@@ -27715,15 +27715,15 @@ AutoIt:
 ### VectorOfVec3f::push\_vector
 
 ```cpp
-void VectorOfVec3f::push_vector( VectorOfVec3f other );
+void VectorOfVec3f::push_vector( std::vector<cv::Vec3f> other );
 AutoIt:
     $oVectorOfVec3f.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec3f::push_vector( VectorOfVec3f other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec3f::push_vector( std::vector<cv::Vec3f> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec3f.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -27748,8 +27748,8 @@ AutoIt:
 ### VectorOfVec3f::slice
 
 ```cpp
-VectorOfVec3f VectorOfVec3f::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec3f> VectorOfVec3f::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec3f.slice( [$start[, $count]] ) -> retval
 ```
@@ -27795,19 +27795,19 @@ AutoIt:
 ### VectorOfVec4f::create
 
 ```cpp
-static VectorOfVec4f VectorOfVec4f::create();
+static std::vector<cv::Vec4f> VectorOfVec4f::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4f").create() -> <VectorOfVec4f object>
 ```
 
 ```cpp
-static VectorOfVec4f VectorOfVec4f::create( size_t size );
+static std::vector<cv::Vec4f> VectorOfVec4f::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4f").create( $size ) -> <VectorOfVec4f object>
 ```
 
 ```cpp
-static VectorOfVec4f VectorOfVec4f::create( VectorOfVec4f other );
+static std::vector<cv::Vec4f> VectorOfVec4f::create( std::vector<cv::Vec4f> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4f").create( $other ) -> <VectorOfVec4f object>
 ```
@@ -27823,7 +27823,7 @@ AutoIt:
 ### VectorOfVec4f::IsInstance
 
 ```cpp
-static bool VectorOfVec4f::IsInstance( const VectorOfVec4f& obj );
+static bool VectorOfVec4f::IsInstance( const std::vector<cv::Vec4f>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4f").IsInstance( $obj ) -> retval
 ```
@@ -27837,7 +27837,7 @@ AutoIt:
 ### VectorOfVec4f::Items
 
 ```cpp
-VectorOfVec4f VectorOfVec4f::Items();
+std::vector<cv::Vec4f> VectorOfVec4f::Items();
 AutoIt:
     $oVectorOfVec4f.Items() -> retval
 ```
@@ -27933,15 +27933,15 @@ AutoIt:
 ### VectorOfVec4f::push\_vector
 
 ```cpp
-void VectorOfVec4f::push_vector( VectorOfVec4f other );
+void VectorOfVec4f::push_vector( std::vector<cv::Vec4f> other );
 AutoIt:
     $oVectorOfVec4f.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec4f::push_vector( VectorOfVec4f other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec4f::push_vector( std::vector<cv::Vec4f> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec4f.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -27966,8 +27966,8 @@ AutoIt:
 ### VectorOfVec4f::slice
 
 ```cpp
-VectorOfVec4f VectorOfVec4f::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec4f> VectorOfVec4f::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec4f.slice( [$start[, $count]] ) -> retval
 ```
@@ -28013,19 +28013,19 @@ AutoIt:
 ### VectorOfVec6f::create
 
 ```cpp
-static VectorOfVec6f VectorOfVec6f::create();
+static std::vector<cv::Vec6f> VectorOfVec6f::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6f").create() -> <VectorOfVec6f object>
 ```
 
 ```cpp
-static VectorOfVec6f VectorOfVec6f::create( size_t size );
+static std::vector<cv::Vec6f> VectorOfVec6f::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6f").create( $size ) -> <VectorOfVec6f object>
 ```
 
 ```cpp
-static VectorOfVec6f VectorOfVec6f::create( VectorOfVec6f other );
+static std::vector<cv::Vec6f> VectorOfVec6f::create( std::vector<cv::Vec6f> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6f").create( $other ) -> <VectorOfVec6f object>
 ```
@@ -28041,7 +28041,7 @@ AutoIt:
 ### VectorOfVec6f::IsInstance
 
 ```cpp
-static bool VectorOfVec6f::IsInstance( const VectorOfVec6f& obj );
+static bool VectorOfVec6f::IsInstance( const std::vector<cv::Vec6f>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6f").IsInstance( $obj ) -> retval
 ```
@@ -28055,7 +28055,7 @@ AutoIt:
 ### VectorOfVec6f::Items
 
 ```cpp
-VectorOfVec6f VectorOfVec6f::Items();
+std::vector<cv::Vec6f> VectorOfVec6f::Items();
 AutoIt:
     $oVectorOfVec6f.Items() -> retval
 ```
@@ -28151,15 +28151,15 @@ AutoIt:
 ### VectorOfVec6f::push\_vector
 
 ```cpp
-void VectorOfVec6f::push_vector( VectorOfVec6f other );
+void VectorOfVec6f::push_vector( std::vector<cv::Vec6f> other );
 AutoIt:
     $oVectorOfVec6f.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec6f::push_vector( VectorOfVec6f other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec6f::push_vector( std::vector<cv::Vec6f> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec6f.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -28184,8 +28184,8 @@ AutoIt:
 ### VectorOfVec6f::slice
 
 ```cpp
-VectorOfVec6f VectorOfVec6f::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec6f> VectorOfVec6f::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec6f.slice( [$start[, $count]] ) -> retval
 ```
@@ -28231,19 +28231,19 @@ AutoIt:
 ### VectorOfVec2d::create
 
 ```cpp
-static VectorOfVec2d VectorOfVec2d::create();
+static std::vector<cv::Vec2d> VectorOfVec2d::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2d").create() -> <VectorOfVec2d object>
 ```
 
 ```cpp
-static VectorOfVec2d VectorOfVec2d::create( size_t size );
+static std::vector<cv::Vec2d> VectorOfVec2d::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2d").create( $size ) -> <VectorOfVec2d object>
 ```
 
 ```cpp
-static VectorOfVec2d VectorOfVec2d::create( VectorOfVec2d other );
+static std::vector<cv::Vec2d> VectorOfVec2d::create( std::vector<cv::Vec2d> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2d").create( $other ) -> <VectorOfVec2d object>
 ```
@@ -28259,7 +28259,7 @@ AutoIt:
 ### VectorOfVec2d::IsInstance
 
 ```cpp
-static bool VectorOfVec2d::IsInstance( const VectorOfVec2d& obj );
+static bool VectorOfVec2d::IsInstance( const std::vector<cv::Vec2d>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec2d").IsInstance( $obj ) -> retval
 ```
@@ -28273,7 +28273,7 @@ AutoIt:
 ### VectorOfVec2d::Items
 
 ```cpp
-VectorOfVec2d VectorOfVec2d::Items();
+std::vector<cv::Vec2d> VectorOfVec2d::Items();
 AutoIt:
     $oVectorOfVec2d.Items() -> retval
 ```
@@ -28369,15 +28369,15 @@ AutoIt:
 ### VectorOfVec2d::push\_vector
 
 ```cpp
-void VectorOfVec2d::push_vector( VectorOfVec2d other );
+void VectorOfVec2d::push_vector( std::vector<cv::Vec2d> other );
 AutoIt:
     $oVectorOfVec2d.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec2d::push_vector( VectorOfVec2d other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec2d::push_vector( std::vector<cv::Vec2d> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec2d.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -28402,8 +28402,8 @@ AutoIt:
 ### VectorOfVec2d::slice
 
 ```cpp
-VectorOfVec2d VectorOfVec2d::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec2d> VectorOfVec2d::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec2d.slice( [$start[, $count]] ) -> retval
 ```
@@ -28449,19 +28449,19 @@ AutoIt:
 ### VectorOfVec3d::create
 
 ```cpp
-static VectorOfVec3d VectorOfVec3d::create();
+static std::vector<cv::Vec3d> VectorOfVec3d::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3d").create() -> <VectorOfVec3d object>
 ```
 
 ```cpp
-static VectorOfVec3d VectorOfVec3d::create( size_t size );
+static std::vector<cv::Vec3d> VectorOfVec3d::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3d").create( $size ) -> <VectorOfVec3d object>
 ```
 
 ```cpp
-static VectorOfVec3d VectorOfVec3d::create( VectorOfVec3d other );
+static std::vector<cv::Vec3d> VectorOfVec3d::create( std::vector<cv::Vec3d> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3d").create( $other ) -> <VectorOfVec3d object>
 ```
@@ -28477,7 +28477,7 @@ AutoIt:
 ### VectorOfVec3d::IsInstance
 
 ```cpp
-static bool VectorOfVec3d::IsInstance( const VectorOfVec3d& obj );
+static bool VectorOfVec3d::IsInstance( const std::vector<cv::Vec3d>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec3d").IsInstance( $obj ) -> retval
 ```
@@ -28491,7 +28491,7 @@ AutoIt:
 ### VectorOfVec3d::Items
 
 ```cpp
-VectorOfVec3d VectorOfVec3d::Items();
+std::vector<cv::Vec3d> VectorOfVec3d::Items();
 AutoIt:
     $oVectorOfVec3d.Items() -> retval
 ```
@@ -28587,15 +28587,15 @@ AutoIt:
 ### VectorOfVec3d::push\_vector
 
 ```cpp
-void VectorOfVec3d::push_vector( VectorOfVec3d other );
+void VectorOfVec3d::push_vector( std::vector<cv::Vec3d> other );
 AutoIt:
     $oVectorOfVec3d.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec3d::push_vector( VectorOfVec3d other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec3d::push_vector( std::vector<cv::Vec3d> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec3d.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -28620,8 +28620,8 @@ AutoIt:
 ### VectorOfVec3d::slice
 
 ```cpp
-VectorOfVec3d VectorOfVec3d::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec3d> VectorOfVec3d::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec3d.slice( [$start[, $count]] ) -> retval
 ```
@@ -28667,19 +28667,19 @@ AutoIt:
 ### VectorOfVec4d::create
 
 ```cpp
-static VectorOfVec4d VectorOfVec4d::create();
+static std::vector<cv::Vec4d> VectorOfVec4d::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4d").create() -> <VectorOfVec4d object>
 ```
 
 ```cpp
-static VectorOfVec4d VectorOfVec4d::create( size_t size );
+static std::vector<cv::Vec4d> VectorOfVec4d::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4d").create( $size ) -> <VectorOfVec4d object>
 ```
 
 ```cpp
-static VectorOfVec4d VectorOfVec4d::create( VectorOfVec4d other );
+static std::vector<cv::Vec4d> VectorOfVec4d::create( std::vector<cv::Vec4d> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4d").create( $other ) -> <VectorOfVec4d object>
 ```
@@ -28695,7 +28695,7 @@ AutoIt:
 ### VectorOfVec4d::IsInstance
 
 ```cpp
-static bool VectorOfVec4d::IsInstance( const VectorOfVec4d& obj );
+static bool VectorOfVec4d::IsInstance( const std::vector<cv::Vec4d>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec4d").IsInstance( $obj ) -> retval
 ```
@@ -28709,7 +28709,7 @@ AutoIt:
 ### VectorOfVec4d::Items
 
 ```cpp
-VectorOfVec4d VectorOfVec4d::Items();
+std::vector<cv::Vec4d> VectorOfVec4d::Items();
 AutoIt:
     $oVectorOfVec4d.Items() -> retval
 ```
@@ -28805,15 +28805,15 @@ AutoIt:
 ### VectorOfVec4d::push\_vector
 
 ```cpp
-void VectorOfVec4d::push_vector( VectorOfVec4d other );
+void VectorOfVec4d::push_vector( std::vector<cv::Vec4d> other );
 AutoIt:
     $oVectorOfVec4d.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec4d::push_vector( VectorOfVec4d other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec4d::push_vector( std::vector<cv::Vec4d> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec4d.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -28838,8 +28838,8 @@ AutoIt:
 ### VectorOfVec4d::slice
 
 ```cpp
-VectorOfVec4d VectorOfVec4d::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec4d> VectorOfVec4d::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec4d.slice( [$start[, $count]] ) -> retval
 ```
@@ -28885,19 +28885,19 @@ AutoIt:
 ### VectorOfVec6d::create
 
 ```cpp
-static VectorOfVec6d VectorOfVec6d::create();
+static std::vector<cv::Vec6d> VectorOfVec6d::create();
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6d").create() -> <VectorOfVec6d object>
 ```
 
 ```cpp
-static VectorOfVec6d VectorOfVec6d::create( size_t size );
+static std::vector<cv::Vec6d> VectorOfVec6d::create( size_t size );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6d").create( $size ) -> <VectorOfVec6d object>
 ```
 
 ```cpp
-static VectorOfVec6d VectorOfVec6d::create( VectorOfVec6d other );
+static std::vector<cv::Vec6d> VectorOfVec6d::create( std::vector<cv::Vec6d> other );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6d").create( $other ) -> <VectorOfVec6d object>
 ```
@@ -28913,7 +28913,7 @@ AutoIt:
 ### VectorOfVec6d::IsInstance
 
 ```cpp
-static bool VectorOfVec6d::IsInstance( const VectorOfVec6d& obj );
+static bool VectorOfVec6d::IsInstance( const std::vector<cv::Vec6d>& obj );
 AutoIt:
     _Dlib_ObjCreate("VectorOfVec6d").IsInstance( $obj ) -> retval
 ```
@@ -28927,7 +28927,7 @@ AutoIt:
 ### VectorOfVec6d::Items
 
 ```cpp
-VectorOfVec6d VectorOfVec6d::Items();
+std::vector<cv::Vec6d> VectorOfVec6d::Items();
 AutoIt:
     $oVectorOfVec6d.Items() -> retval
 ```
@@ -29023,15 +29023,15 @@ AutoIt:
 ### VectorOfVec6d::push\_vector
 
 ```cpp
-void VectorOfVec6d::push_vector( VectorOfVec6d other );
+void VectorOfVec6d::push_vector( std::vector<cv::Vec6d> other );
 AutoIt:
     $oVectorOfVec6d.push_vector( $other ) -> None
 ```
 
 ```cpp
-void VectorOfVec6d::push_vector( VectorOfVec6d other,
-                                 size_t        count,
-                                 size_t        start = 0 );
+void VectorOfVec6d::push_vector( std::vector<cv::Vec6d> other,
+                                 size_t                 count,
+                                 size_t                 start = 0 );
 AutoIt:
     $oVectorOfVec6d.push_vector( $other, $count[, $start] ) -> None
 ```
@@ -29056,8 +29056,8 @@ AutoIt:
 ### VectorOfVec6d::slice
 
 ```cpp
-VectorOfVec6d VectorOfVec6d::slice( size_t start = 0,
-                                    size_t count = __self->get()->size() );
+std::vector<cv::Vec6d> VectorOfVec6d::slice( size_t start = 0,
+                                             size_t count = __self->get()->size() );
 AutoIt:
     $oVectorOfVec6d.slice( [$start[, $count]] ) -> retval
 ```
