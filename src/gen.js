@@ -9,9 +9,9 @@ const mkdirp = require("mkdirp");
 const waterfall = require("async/waterfall");
 const {explore} = require("fs-explorer");
 
-const OpenCV_VERSION = "opencv-4.12.0";
+const OpenCV_VERSION = "opencv-4.13.0";
 const OpenCV_DLLVERSION = OpenCV_VERSION.slice("opencv-".length).replaceAll(".", "");
-const DLIB_VERSION = "20.0";
+const DLIB_VERSION = "20.0.1";
 
 const progids = new Map([
     ["dlib.simple_object_detector", "dlib.fhog_object_detector"],
@@ -163,6 +163,7 @@ const getOptions = PROJECT_DIR => {
 
 const {
     CUSTOM_CLASSES,
+    IDL_TYPES,
 } = require("./constants");
 
 const {findFile} = require("./FileUtils");
@@ -182,6 +183,7 @@ const hdr_parser_end = hdr_parser.indexOf("if __name__ == '__main__':", hdr_pars
 
 const options = getOptions(PROJECT_DIR);
 options.proto = COMGenerator.proto;
+options.types = IDL_TYPES;
 
 waterfall([
     next => {

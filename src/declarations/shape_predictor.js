@@ -11,7 +11,7 @@ module.exports = ({ self, shared_ptr }) => [
         ["std::vector<point>", "parts", "", []],
     ], "", ""],
 
-    ["dlib.full_object_detection.part", "point", [], [
+    ["dlib.full_object_detection.part", "dpoint", ["/Ref"], [
         ["ULONG", "idx", "", []],
     ], "", ""],
 

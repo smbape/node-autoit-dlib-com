@@ -59,7 +59,7 @@ module.exports = ({ self_get, shared_ptr }) => {
         // point_transform_projective
 
         ["class dlib.point_transform_projective", "", ["/Simple"], [
-            ["Matrix", "m", "", ["/R", "=get_m()"]]
+            ["Matrix", "m", "", ["/R=get_m", "/Cast=Matrix"]]
         ], "", ""],
 
         ["dlib.point_transform_projective.point_transform_projective", "", [], [], "", ""],
@@ -114,7 +114,7 @@ module.exports = ({ self_get, shared_ptr }) => {
                 [other_type, "p", "", ["/Ref"]],
             ], "", ""],
 
-            [`dlib.${ class_type }.normalize`, class_type, [], [], "", ""],
+            [`dlib.${ class_type }.normalize`, class_type, [scalar_type !== "double" ? `/WrapAs=${ class_type }` : ""], [], "", ""],
 
             [`dlib.${ class_type }.operator+`, class_type, ["=add"], [
                 [class_type, "other", "", ["/Ref"]],
@@ -124,11 +124,11 @@ module.exports = ({ self_get, shared_ptr }) => {
                 [class_type, "other", "", ["/Ref"]],
             ], "", ""],
 
-            [`dlib.${ class_type }.operator/`, class_type, ["=divide"], [
+            [`dlib.${ class_type }.operator/`, class_type, ["=divide", scalar_type !== "double" ? `/WrapAs=${ class_type }` : ""], [
                 ["double", "scalar", "", ["/Ref"]],
             ], "", ""],
 
-            [`dlib.${ class_type }.operator*`, class_type, ["=multiply"], [
+            [`dlib.${ class_type }.operator*`, class_type, ["=multiply", scalar_type !== "double" ? `/WrapAs=${ class_type }` : ""], [
                 ["double", "scalar", "", ["/Ref"]],
             ], "", ""],
 

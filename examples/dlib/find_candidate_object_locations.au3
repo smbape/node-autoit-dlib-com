@@ -6,11 +6,11 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/v20.0/python_examples/find_candidate_object_locations.py
+;~     https://github.com/davisking/dlib/blob/v20.0.1/python_examples/find_candidate_object_locations.py
 
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open(_Dlib_FindDLL("opencv_world4120*"), _Dlib_FindDLL("autoit_dlib_com-*-4120*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world4130*"), _Dlib_FindDLL("autoit_dlib_com-*-4130*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Example()

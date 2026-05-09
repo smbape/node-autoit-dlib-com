@@ -4,9 +4,17 @@
 #include "impl_mat.h"
 
 template<typename _Tp, long nr>
-const bool is_assignable_from(dlib::matrix<_Tp, nr, 1>& out_val, VARIANT const* const& in_val, bool is_optional) {
+const bool is_assignable_from(dlib::matrix<_Tp, nr, 1>& out_val, VARIANT const* in_val, bool is_optional) {
+	using Matrix = dlib::matrix<_Tp, nr, 1>;
+
 	if (PARAMETER_MISSING(in_val)) {
 		return is_optional;
+	}
+
+	if constexpr (autoit::is_usertype_v<Matrix>) {
+		if (V_VT(in_val) == VT_DISPATCH) {
+			return dynamic_cast<TypeToImplType<Matrix>::type*>(getRealIDispatch(in_val)) != NULL;
+		}
 	}
 
 	if ((V_VT(in_val) & VT_ARRAY) != VT_ARRAY || (V_VT(in_val) ^ VT_ARRAY) != VT_VARIANT) {
@@ -19,7 +27,9 @@ const bool is_assignable_from(dlib::matrix<_Tp, nr, 1>& out_val, VARIANT const* 
 	LONG lLower = vArray.GetLowerBound();
 	LONG lUpper = vArray.GetUpperBound();
 
-	if (lUpper - lLower + 1 != nr) {
+	const auto num_rows = lUpper - lLower + 1;
+
+	if (nr != 0 && num_rows != nr) {
 		vArray.Detach();
 		return false;
 	}
@@ -27,7 +37,7 @@ const bool is_assignable_from(dlib::matrix<_Tp, nr, 1>& out_val, VARIANT const* 
 	HRESULT hr = S_OK;
 	_Tp value;
 
-	for (LONG i = 0; i < nr; i++) {
+	for (LONG i = 0; i < num_rows; i++) {
 		auto& v = vArray.GetAt(i + lLower);
 		VARIANT* pv = &v;
 		if (!is_assignable_from(value, pv, false)) {
@@ -42,9 +52,22 @@ const bool is_assignable_from(dlib::matrix<_Tp, nr, 1>& out_val, VARIANT const* 
 }
 
 template<typename _Tp, long nr>
-const HRESULT autoit_to(VARIANT const* const& in_val, dlib::matrix<_Tp, nr, 1>& out_val) {
+const HRESULT autoit_to(VARIANT const* in_val, dlib::matrix<_Tp, nr, 1>& out_val) {
+	using Matrix = dlib::matrix<_Tp, nr, 1>;
+
 	if (PARAMETER_MISSING(in_val)) {
 		return S_OK;
+	}
+
+	if constexpr (autoit::is_usertype_v<Matrix>) {
+		if (V_VT(in_val) == VT_DISPATCH) {
+			const auto& obj = dynamic_cast<TypeToImplType<Matrix>::type*>(getRealIDispatch(in_val));
+			if (!obj) {
+				return E_INVALIDARG;
+			}
+			out_val = *obj->__self->get();
+			return S_OK;
+		}
 	}
 
 	if ((V_VT(in_val) & VT_ARRAY) != VT_ARRAY || (V_VT(in_val) ^ VT_ARRAY) != VT_VARIANT) {
@@ -58,10 +81,12 @@ const HRESULT autoit_to(VARIANT const* const& in_val, dlib::matrix<_Tp, nr, 1>& 
 	LONG lLower = vArray.GetLowerBound();
 	LONG lUpper = vArray.GetUpperBound();
 
-	out_val.set_size(nr);
+	const auto num_rows = lUpper - lLower + 1;
+
+	out_val.set_size(num_rows);
 	_Tp value;
 
-	for (LONG i = 0; i < nr; i++) {
+	for (LONG i = 0; i < num_rows; i++) {
 		auto& v = vArray.GetAt(i + lLower);
 		VARIANT* pv = &v;
 
@@ -122,9 +147,17 @@ const HRESULT autoit_from(const dlib::matrix<_Tp, nr, 1>& in_val, VARIANT*& out_
 }
 
 template<typename _Tp, long nr, long nc>
-const bool is_assignable_from(dlib::matrix<_Tp, nr, nc>& out_val, VARIANT const* const& in_val, bool is_optional) {
+const bool is_assignable_from(dlib::matrix<_Tp, nr, nc>& out_val, VARIANT const* in_val, bool is_optional) {
+	using Matrix = dlib::matrix<_Tp, nr, nc>;
+
 	if (PARAMETER_MISSING(in_val)) {
 		return is_optional;
+	}
+
+	if constexpr (autoit::is_usertype_v<Matrix>) {
+		if (V_VT(in_val) == VT_DISPATCH) {
+			return dynamic_cast<TypeToImplType<Matrix>::type*>(getRealIDispatch(in_val)) != NULL;
+		}
 	}
 
 	if ((V_VT(in_val) & VT_ARRAY) != VT_ARRAY || (V_VT(in_val) ^ VT_ARRAY) != VT_VARIANT) {
@@ -137,15 +170,17 @@ const bool is_assignable_from(dlib::matrix<_Tp, nr, nc>& out_val, VARIANT const*
 	LONG lLower = vMatrixArray.GetLowerBound();
 	LONG lUpper = vMatrixArray.GetUpperBound();
 
+	const auto num_rows = lUpper - lLower + 1;
+
 	HRESULT hr = S_OK;
-	if (lUpper - lLower + 1 != nr) {
+	if (nr != 0 && num_rows != nr) {
 		hr = E_INVALIDARG;
 		goto end;
 	}
 
 	_Tp value;
 
-	for (LONG i = 0; i < nr && SUCCEEDED(hr); i++) {
+	for (LONG i = 0; i < num_rows && SUCCEEDED(hr); i++) {
 		auto& _row_v = vMatrixArray.GetAt(i + lLower);
 		VARIANT* _row_in_val = &_row_v;
 
@@ -160,12 +195,14 @@ const bool is_assignable_from(dlib::matrix<_Tp, nr, nc>& out_val, VARIANT const*
 		LONG lRowLower = vRowArray.GetLowerBound();
 		LONG lRowUpper = vRowArray.GetUpperBound();
 
-		if (lRowUpper - lRowLower + 1 != nc) {
+		const auto num_cols = lRowUpper - lRowLower + 1;
+
+		if (nc != 0 && num_cols != nc) {
 			hr = E_INVALIDARG;
 			goto endloop;
 		}
 
-		for (LONG j = 0; j < nc && SUCCEEDED(hr); i++) {
+		for (LONG j = 0; j < num_cols && SUCCEEDED(hr); i++) {
 			auto& v = vRowArray.GetAt(i + lRowUpper);
 			VARIANT* pv = &v;
 
@@ -185,9 +222,22 @@ end:
 }
 
 template<typename _Tp, long nr, long nc>
-const HRESULT autoit_to(VARIANT const* const& in_val, dlib::matrix<_Tp, nr, nc>& out_val) {
+const HRESULT autoit_to(VARIANT const* in_val, dlib::matrix<_Tp, nr, nc>& out_val) {
+	using Matrix = dlib::matrix<_Tp, nr, nc>;
+
 	if (PARAMETER_MISSING(in_val)) {
 		return S_OK;
+	}
+
+	if constexpr (autoit::is_usertype_v<Matrix>) {
+		if (V_VT(in_val) == VT_DISPATCH) {
+			const auto& obj = dynamic_cast<TypeToImplType<Matrix>::type*>(getRealIDispatch(in_val));
+			if (!obj) {
+				return E_INVALIDARG;
+			}
+			out_val = *obj->__self->get();
+			return S_OK;
+		}
 	}
 
 	if ((V_VT(in_val) & VT_ARRAY) != VT_ARRAY || (V_VT(in_val) ^ VT_ARRAY) != VT_VARIANT) {
@@ -200,15 +250,18 @@ const HRESULT autoit_to(VARIANT const* const& in_val, dlib::matrix<_Tp, nr, nc>&
 	LONG lLower = vMatrixArray.GetLowerBound();
 	LONG lUpper = vMatrixArray.GetUpperBound();
 
+	const auto num_rows = lUpper - lLower + 1;
+
 	HRESULT hr = S_OK;
-	if (lUpper - lLower + 1 != nr) {
+
+	if (nr != 0 && num_rows != nr) {
 		hr = E_INVALIDARG;
 		goto end;
 	}
 
 	_Tp value;
 
-	for (LONG i = 0; i < nr && SUCCEEDED(hr); i++) {
+	for (LONG i = 0; i < num_rows && SUCCEEDED(hr); i++) {
 		auto& _row_v = vMatrixArray.GetAt(i + lLower);
 		VARIANT* _row_in_val = &_row_v;
 
@@ -223,12 +276,14 @@ const HRESULT autoit_to(VARIANT const* const& in_val, dlib::matrix<_Tp, nr, nc>&
 		LONG lRowLower = vRowArray.GetLowerBound();
 		LONG lRowUpper = vRowArray.GetUpperBound();
 
-		if (lRowUpper - lRowLower + 1 != nc) {
+		const auto num_cols = lRowUpper - lRowLower + 1;
+
+		if (nc != 0 && num_cols != nc) {
 			hr = E_INVALIDARG;
 			goto endloop;
 		}
 
-		for (LONG j = 0; j < nc && SUCCEEDED(hr); i++) {
+		for (LONG j = 0; j < num_cols && SUCCEEDED(hr); i++) {
 			auto& v = vRowArray.GetAt(i + lRowUpper);
 			VARIANT* pv = &v;
 
@@ -266,12 +321,15 @@ const HRESULT autoit_from(const dlib::matrix<_Tp, nr, nc>& in_val, VARIANT*& out
 		return E_INVALIDARG;
 	}
 
+	const auto num_rows = in_val.nr();
+	const auto num_cols = in_val.nc();
+
 	HRESULT hr = S_OK;
 	typename ATL::template CComSafeArray<VARIANT> vMatrixArray;
 	vMatrixArray.Attach(V_ARRAY(out_val));
-	vMatrixArray.Resize(nr);
+	vMatrixArray.Resize(num_rows);
 
-	for (LONG i = 0; i < nr && SUCCEEDED(hr); i++) {
+	for (LONG i = 0; i < num_rows && SUCCEEDED(hr); i++) {
 		auto& _row_v_ = vMatrixArray.GetAt(i);
 		VARIANT* _row_out_val = &_row_v_;
 
@@ -294,9 +352,9 @@ const HRESULT autoit_from(const dlib::matrix<_Tp, nr, nc>& in_val, VARIANT*& out
 
 		typename ATL::template CComSafeArray<VARIANT> vRowArray;
 		vRowArray.Attach(V_ARRAY(_row_out_val));
-		vRowArray.Resize(nc);
+		vRowArray.Resize(num_cols);
 
-		for (LONG j = 0; j < nc && SUCCEEDED(hr); j++) {
+		for (LONG j = 0; j < num_cols && SUCCEEDED(hr); j++) {
 			VARIANT value = { VT_EMPTY };
 			auto* pvalue = &value;
 			hr = autoit_from(in_val(i, j), pvalue);

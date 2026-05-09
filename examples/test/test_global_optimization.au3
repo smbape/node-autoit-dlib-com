@@ -6,11 +6,11 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 
 ;~ Sources:
-;~     https://github.com/davisking/dlib/blob/v20.0/tools/python/test/test_global_optimization.py
+;~     https://github.com/davisking/dlib/blob/v20.0.1/tools/python/test/test_global_optimization.py
 
 #include "..\..\autoit-dlib-com\udf\dlib_udf_utils.au3"
 
-_Dlib_Open(_Dlib_FindDLL("opencv_world4120*"), _Dlib_FindDLL("autoit_dlib_com-*-4120*"))
+_Dlib_Open(_Dlib_FindDLL("opencv_world4130*"), _Dlib_FindDLL("autoit_dlib_com-*-4130*"))
 OnAutoItExitRegister("_OnAutoItExit")
 
 Global Const $dlib = _Dlib_get()
@@ -83,7 +83,7 @@ Func test_on_holder_table()
 	$dlib.find_min_global(DllCallbackGetPtr($h_holder_table), _
 			_Dlib_Tuple(-10, -10), _
 			_Dlib_Tuple(10, 10), _
-			200)
+			300)
 	Local $x = $dlib.extended[0]
 	Local $y = $dlib.extended[1]
 

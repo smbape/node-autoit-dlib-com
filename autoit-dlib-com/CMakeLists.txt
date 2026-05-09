@@ -30,8 +30,8 @@ if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
     cmake_policy(SET CMP0135 NEW)
 endif()
 
-set(DLIB_VERSION 20.0 CACHE STRING "Choose the dlib version.")
-set_property(CACHE DLIB_VERSION PROPERTY STRINGS "20.0" "19.24.9" "19.24.8")
+set(DLIB_VERSION 20.0.1 CACHE STRING "Choose the dlib version.")
+set_property(CACHE DLIB_VERSION PROPERTY STRINGS "20.0.1" "20.0" "19.24.9" "19.24.8")
 
 # Tell cmake that we will need dlib. These command will pull in dlib.
 include(FetchContent)
@@ -49,7 +49,7 @@ FetchContent_Populate(dlib
 )
 
 # Tell cmake that we will need autoit-opencv-com.
-set(OPENCV_COM_VERSION 2.8.0)
+set(OPENCV_COM_VERSION 2.9.0)
 set(OPENCV_COM_ARCHIVE "autoit-opencv-${OpenCV_VERSION}-com-v${OPENCV_COM_VERSION}.7z")
 cmake_path(SET OPENCV_COM_SOURCE_DIR NORMALIZE "${CMAKE_CURRENT_SOURCE_DIR}/../../node-autoit-opencv-com")
 if (EXISTS "${OPENCV_COM_SOURCE_DIR}/${OPENCV_COM_ARCHIVE}")
@@ -60,7 +60,7 @@ endif()
 include(FetchContent)
 FetchContent_Populate(autoit_opencv_com
     URL               "${OPENCV_COM_URL}"
-    URL_HASH          SHA256=5ebdab706d42ca42efcff3c592a3ba993c13955f0f6cf0e72e88d963b4145445
+    URL_HASH          SHA256=cb65b522a4c14df62c47daf2e244624d0f327638d0bd41ce3f2994eae9256a49
     DOWNLOAD_DIR      "${CMAKE_CURRENT_SOURCE_DIR}/.."
     SOURCE_DIR        "${CMAKE_CURRENT_SOURCE_DIR}/../autoit-opencv-com"
 )

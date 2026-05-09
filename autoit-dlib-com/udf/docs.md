@@ -3748,7 +3748,7 @@ AutoIt:
 ### dlib::cross\_validate\_sequence\_segmenter
 
 ```cpp
-dlib::segmenter_test dlib::cross_validate_sequence_segmenter( const std::vector<std::vector<dlib::SpaceVector>>&       samples,
+const segmenter_test dlib::cross_validate_sequence_segmenter( const std::vector<std::vector<dlib::SpaceVector>>&       samples,
                                                               const std::vector<std::vector<std::pair<ULONG, ULONG>>>& segments,
                                                               long                                                     folds,
                                                               dlib::segmenter_params                                   params = segmenter_params() );
@@ -3757,7 +3757,7 @@ AutoIt:
 ```
 
 ```cpp
-dlib::segmenter_test dlib::cross_validate_sequence_segmenter( const std::vector<std::vector<std::vector<std::pair<ULONG, double>>>>& samples,
+const segmenter_test dlib::cross_validate_sequence_segmenter( const std::vector<std::vector<std::vector<std::pair<ULONG, double>>>>& samples,
                                                               const std::vector<std::vector<std::pair<ULONG, ULONG>>>&               segments,
                                                               long                                                                   folds,
                                                               dlib::segmenter_params                                                 params = segmenter_params() );
@@ -4752,7 +4752,7 @@ AutoIt:
 ### dlib::test\_sequence\_segmenter
 
 ```cpp
-dlib::segmenter_test dlib::test_sequence_segmenter( const dlib::segmenter_type&                              segmenter,
+const segmenter_test dlib::test_sequence_segmenter( const dlib::segmenter_type&                              segmenter,
                                                     const std::vector<std::vector<dlib::SpaceVector>>&       samples,
                                                     const std::vector<std::vector<std::pair<ULONG, ULONG>>>& segments );
 AutoIt:
@@ -4760,7 +4760,7 @@ AutoIt:
 ```
 
 ```cpp
-dlib::segmenter_test dlib::test_sequence_segmenter( const dlib::segmenter_type&                                            segmenter,
+const segmenter_test dlib::test_sequence_segmenter( const dlib::segmenter_type&                                            segmenter,
                                                     const std::vector<std::vector<std::vector<std::pair<ULONG, double>>>>& samples,
                                                     const std::vector<std::vector<std::pair<ULONG, ULONG>>>&               segments );
 AutoIt:
@@ -4797,7 +4797,7 @@ AutoIt:
 ### dlib::test\_simple\_object\_detector
 
 ```cpp
-dlib::simple_test_results dlib::test_simple_object_detector( const std::string& dataset_filename,
+const simple_test_results dlib::test_simple_object_detector( const std::string& dataset_filename,
                                                              const std::string& detector_filename,
                                                              const int          upsampling_amount = -1 );
 AutoIt:
@@ -4805,7 +4805,7 @@ AutoIt:
 ```
 
 ```cpp
-dlib::simple_test_results dlib::test_simple_object_detector( const std::string&          dataset_filename,
+const simple_test_results dlib::test_simple_object_detector( const std::string&          dataset_filename,
                                                              dlib::fhog_object_detector& detector,
                                                              const int                   upsampling_amount = -1 );
 AutoIt:
@@ -4813,7 +4813,7 @@ AutoIt:
 ```
 
 ```cpp
-dlib::simple_test_results dlib::test_simple_object_detector( const std::string&                dataset_filename,
+const simple_test_results dlib::test_simple_object_detector( const std::string&                dataset_filename,
                                                              dlib::simple_object_detector_com& detector,
                                                              const int                         upsampling_amount = -1 );
 AutoIt:
@@ -4991,7 +4991,7 @@ AutoIt:
 ### dlib::binary\_test::ToString
 
 ```cpp
-std::string dlib::binary_test::ToString() const;
+const std::string dlib::binary_test::ToString() const;
 AutoIt:
     $obinary_test.ToString() -> retval
 ```
@@ -5055,7 +5055,7 @@ AutoIt:
 ### dlib::regression\_test::ToString
 
 ```cpp
-std::string dlib::regression_test::ToString() const;
+const std::string dlib::regression_test::ToString() const;
 AutoIt:
     $oregression_test.ToString() -> retval
 ```
@@ -5103,7 +5103,7 @@ AutoIt:
 ### dlib::ranking\_test::ToString
 
 ```cpp
-std::string dlib::ranking_test::ToString() const;
+const std::string dlib::ranking_test::ToString() const;
 AutoIt:
     $oranking_test.ToString() -> retval
 ```
@@ -5321,7 +5321,7 @@ AutoIt:
 ### dlib::\_row::ToString
 
 ```cpp
-std::string dlib::_row::ToString();
+const std::string dlib::_row::ToString();
 AutoIt:
     $o_row.ToString() -> retval
 ```
@@ -5490,7 +5490,7 @@ AutoIt:
 ### dlib::segmenter\_params::ToString
 
 ```cpp
-std::string dlib::segmenter_params::ToString() const;
+const std::string dlib::segmenter_params::ToString() const;
 AutoIt:
     $osegmenter_params.ToString() -> retval
 ```
@@ -5546,7 +5546,7 @@ AutoIt:
 ### dlib::segmenter\_test::ToString
 
 ```cpp
-std::string dlib::segmenter_test::ToString() const;
+const std::string dlib::segmenter_test::ToString() const;
 AutoIt:
     $osegmenter_test.ToString() -> retval
 ```
@@ -5690,7 +5690,7 @@ AutoIt:
 ### dlib::shape\_predictor\_training\_options::ToString
 
 ```cpp
-std::string dlib::shape_predictor_training_options::ToString() const;
+const std::string dlib::shape_predictor_training_options::ToString() const;
 AutoIt:
     $oshape_predictor_training_options.ToString() -> retval
 ```
@@ -5794,7 +5794,7 @@ AutoIt:
 ### dlib::simple\_object\_detector\_training\_options::ToString
 
 ```cpp
-std::string dlib::simple_object_detector_training_options::ToString() const;
+const std::string dlib::simple_object_detector_training_options::ToString() const;
 AutoIt:
     $osimple_object_detector_training_options.ToString() -> retval
 ```
@@ -5850,7 +5850,7 @@ AutoIt:
 ### dlib::simple\_test\_results::ToString
 
 ```cpp
-std::string dlib::simple_test_results::ToString() const;
+const std::string dlib::simple_test_results::ToString() const;
 AutoIt:
     $osimple_test_results.ToString() -> retval
 ```
@@ -6171,8 +6171,8 @@ AutoIt:
 ### cv::format
 
 ```cpp
-std::string cv::format( const InputArray&         mtx,
-                        cv::Formatter::FormatType fmt = cv::Formatter::FMT_NUMPY );
+const std::string cv::format( const InputArray&         mtx,
+                              cv::Formatter::FormatType fmt = cv::Formatter::FMT_NUMPY );
 AutoIt:
     _Dlib_ObjCreate("cv").format( $mtx[, $fmt] ) -> retval
 ```
@@ -13028,7 +13028,7 @@ AutoIt:
 ### dlib::full\_object\_detection::part
 
 ```cpp
-dlib::point dlib::full_object_detection::part( ULONG idx );
+dlib::dpoint dlib::full_object_detection::part( ULONG idx );
 AutoIt:
     $ofull_object_detection.part( $idx ) -> retval
 ```
@@ -15170,7 +15170,7 @@ AutoIt:
 ### point\_transform\_projective.m
 
 ```cpp
-dlib::Matrix dlib::point_transform_projective::get_m()
+dlib::Matrix dlib::point_transform_projective::m
 AutoIt:
     [propget] $opoint_transform_projective.m
 ```

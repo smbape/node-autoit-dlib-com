@@ -81,11 +81,11 @@ BEGIN
             VALUE "FileVersion", "2.0.0"
             // VALUE "LegalCopyright", "TODO: (c) <Nom de la société>.  Tous droits réservés."
 #ifdef _DEBUG
-            VALUE "InternalName", "autoit_dlib_com-20.0-4120d.dll"
-            VALUE "OriginalFilename", "autoit_dlib_com-20.0-4120d.dll"
+            VALUE "InternalName", "autoit_dlib_com-20.0.1-4130d.dll"
+            VALUE "OriginalFilename", "autoit_dlib_com-20.0.1-4130d.dll"
 #else
-            VALUE "InternalName", "autoit_dlib_com-20.0-4120.dll"
-            VALUE "OriginalFilename", "autoit_dlib_com-20.0-4120.dll"
+            VALUE "InternalName", "autoit_dlib_com-20.0.1-4130.dll"
+            VALUE "OriginalFilename", "autoit_dlib_com-20.0.1-4130.dll"
 #endif
             VALUE "ProductName", "AutoIt Dlib COM"
             VALUE "ProductVersion", "2.0.0"
